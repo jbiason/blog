@@ -1,0 +1,22 @@
++++
+title = "12 Years a Slave - Solomon Northup"
+date = 2015-04-09
+
+category = "review"
+
+[taxonomies]
+tags = ["books", "en-au", "solomon northup"]
++++
+{{ stars(stars=4) }}
+
+I'll admit that I only bought this book for the morbid curiosity of how much flair the movie added.
+
+In my view, not so much.
+
+Sure, there are a few differences: Ford didn't sell Northup just because one fight with Tibeats, but because Ford had bills to pay; it wasn't a single fight with Tibeats, but three; the movie doesn't mention the Christmas days; the movie doesn't show Northup genius fish catcher; the movie doesn't show that, in the end, the guys who captured Northup actually tried to sue him back.
+
+But I believe the core of it was there. Which is impressive.
+
+The book doesn't only dwell in the his enslavement years, but also paint a bit of the historical production and live style of the US in the 1850s. The problem at those points is that it gives the false impression that everything is going alright with him at the time -- but after reading "Ghost Rider", I know people in distress tend to write books like everything is alright at some point. Still, it's weird to read such passages, like it was a matter-of-fact and now part of the life of someone who is not the owner of his own life anymore.
+
+Also, so parts are so incredible distressing, I had to stop and remind myself that this was *not* a fiction book, but actually the story of a man.
