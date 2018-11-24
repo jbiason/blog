@@ -1,5 +1,5 @@
 +++
-title = "In the Beginning . . .: Science Faces God in the Book of Genesis - Isaac Asimov"
+title = "In the Beginning...: Science Faces God in the Book of Genesis - Isaac Asimov"
 date = 2018-06-25
 
 category = "review"

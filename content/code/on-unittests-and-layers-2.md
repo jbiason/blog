@@ -16,7 +16,7 @@ about "Fast Test, Slow Test".
 <!-- more -->
 
 Just after posting about 
-[who one could see the layers through unit testing](./on-unittests-and-layers.md),
+[who one could see the layers through unit testing](./code/on-unittests-and-layers.md),
 I finally watched a video of Gary
 Bernhardt (of the "DestroyAllSoftware" fame) about "Fast Test, Slow Test":
 
