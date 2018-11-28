@@ -7,8 +7,8 @@ compile_sass = true
 title = "Julio Biason .Net 4.0"
 description = "Old school dev living in a 2.0 dev world"
 
-# theme = "after-dark"
-theme = "hyde"
+theme = "after-dark"
+# theme = "hyde"
 
 taxonomies = [
 	# You can enable/disable RSS
