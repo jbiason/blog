@@ -11,7 +11,7 @@ When the culture goes againt agile.
 
 <!-- more -->
 
-![The Agile cycle](/agile.jpg)
+![The Agile cycle](/images/agile.jpg)
 
 In some recent agile conferences I went this year, I've been recalling and
 telling one story from 
