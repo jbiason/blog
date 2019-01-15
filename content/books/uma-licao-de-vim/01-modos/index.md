@@ -66,4 +66,4 @@ Todas as imagens são copyright (C) seus respectivos donos.
 [^1] Apenas a título de informação, praticamente tudo que pode ser feito em
      modo visual pode ser feito em modo normal.
 
-{{ chapters(prev_chapter_link="../00-intro", prev_chapter_title="Introdução") }}
+{{ chapters(prev_chapter_link="./00-intro", prev_chapter_title="Introdução", next_chapter_link="./01-01-modo-normal", next_chapter_title="Modo Normal") }}
