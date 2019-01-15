@@ -1,0 +1,15 @@
+<div>
+	{% if prev_chapter_link %}
+		<div style="float:left">
+			&lt;&lt; <a href="{{ prev_chapter_link }}">{{ prev_chapter_title }}</a>
+		</div>
+	{% endif %}
+
+	&nbsp;
+
+	{% if next_chapter_link %}
+		<div style="float:right">
+			<a href="{{ next_chapter_link }}">{{ next_chapter_title }}</a> &gt;&gt;
+		</div>
+	{% endif %}
+</div>
