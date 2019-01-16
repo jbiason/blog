@@ -1,4 +1,38 @@
 +++
-transparent = true
+transparent = false
 title = "Uma Lição de VIM"
+template = "section-contentless.html"
 +++
+
+* [Introdução](00-intro)
+* [Modos](01-modos)
+  * [Modo normal](01-01-modo-normal)
+  * [Entendendo o Cursor](01-02-entendendo-o-cursor)
+  * [Mudando de Modos - Modo de Inserção](01-03-modo-de-insercao)
+  * [Mudando de Modos - Modo Visual](01-04-modo-visual)
+  * [Mudando de Modos - Modo de Comando](01-05-modo-de-comando)
+* [Outros Comandos](02-outros-comandos)
+* [Recortar, Copiar e Colar](03-recortar-copiar-colar)
+* [Registradores](04-registradores)
+* [Marcadores](05-marcadores)
+* [Macros de Teclado](06-macros-de-teclado)
+* [Procurar em Vários Arquivos](07-procurar-varios-arquivos)
+* [Localizar e Substituir](08-localizar-substituir)
+* [Splits](09-splits)
+* [Abas](10-abas)
+* [Arquivos de Configuração](11-config)
+  * [Meu .vimrc](121.md)
+  * [Meu .gvimrc](122.md)
+* [Modelines](13.md)
+* [Tags](14.md)
+* [Plugins - Vundle](1501.md)
+* [Plugins - Airline](1502.md)
+* [Plugins - Fugitive](1503.md)
+* [Plugins - Commentary](1504.md)
+* [Plugins - Tabular](1505.md)
+* [Plugins - Auto-pairs](1506.md)
+* [Plugins - Syntastic](1507.md)
+* [Plugins - Snipmate](1508.md)
+* [Plugins - CtrlP e CtrlPFunky](1509.md)
+* [Plugins - Vim-Multiple-Cursors](1510.md)
+* [Conclusão](16.md)
