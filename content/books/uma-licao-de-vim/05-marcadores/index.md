@@ -69,4 +69,4 @@ frente.
 E, para ver onde estão as marcas atuais, você só precisa usar `:marks` no modo de
 comando.
 
-{{ chapters(prev_chapter_link="./04-registradores", prev_chapter_title="Registradores", next_chapter_link="./04-registradores", next_chapter_title="Registradores") }}
+{{ chapters(prev_chapter_link="./04-registradores", prev_chapter_title="Registradores", next_chapter_link="./06-macros-de-teclado", next_chapter_title="Macros de Teclado") }}
