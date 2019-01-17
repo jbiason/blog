@@ -67,4 +67,4 @@ atual passando o diretório em questão no próprio comando do grep: `:grep void
 	 use `N` também em modo normal; para remover o realce das palavras
 	 encontradas, use `:noh` em modo de comando.
 
-{{ chapters(prev_chapter_link="./06-macros-de-teclado", prev_chapter_title="Macros de Teclado", next_chapter_link="./07-procurar-varios-arquivos", next_chapter_title="Procurar em Vários Arquivos") }}
+{{ chapters(prev_chapter_link="./06-macros-de-teclado", prev_chapter_title="Macros de Teclado", next_chapter_link="./08-localizar-substituir", next_chapter_title="Localizar e Substituir") }}

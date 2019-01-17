@@ -63,7 +63,7 @@ No modo de inserção, no entanto, `[Ctrl]+y` irá copiar o caractere da linha d
 cima na mesma coluna na posição atual; `[Ctrl]+e` faz o mesmo, mas com a linha de
 baixo.
 
-# . (Modo normal)
+## . (Modo normal)
 
 Repete o último comando. Note que `.` irá repetir o último comando completo. Por
 exemplo, quando eu falei sobre `ggdG`, estamos falando, na verdade, de dois
@@ -71,7 +71,7 @@ comandos completos: `gg` e `d{movimentação}`. `.`, neste caso, irá repetir o 
 `dG`. Mais adiante veremos como criar "macros de teclado" e efetivamente permitir
 a execução de coleções de comandos.
 
-# :e e :files (Modo de comando)
+## :e e :files (Modo de comando)
 
 Edita um arquivo. Se não for passado o nome do arquivo depois do comando, o
 mesmo arquivo é recarregado do disco (em outras palavras, o buffer é atualizado
