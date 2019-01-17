@@ -56,14 +56,14 @@ VIM irá imediatamente abrir espaço para entrar a fórmula ao digitar `"=`; ain
 o conteúdo é perdido se depois de digitar a fórmula você utilizar qualquer
 comando que não seja `p` (incluindo os comandos de movimentação).
 
-# _
+## _
 
 Registrador "buraco negro" (de novo, eu não estou brincando, o help do VIM
 chama esse registrador de "buraco negro"). Qualquer coisa enviada para este
 registrador é perdida; paste deste registrador retorna nada. Útil quando você
 quer excluir algum texto sem mexer no registrador sem nome.
 
-# +
+## +
 
 Registrador da área de transferência do sistema operacional. Somente disponível
 para aplicações GUI, já que estas tem acesso direto ao sistema (no caso do VIM
@@ -73,4 +73,4 @@ faz sentido).
 
 [^1] Registradores também são usados para outras coisas, mas veremos isso mais pra frente.
 
-{{ chapters(prev_chapter_link="./03-recortar-copiar-colar", prev_chapter_title="Recortar, Copiar e Colar", next_chapter_link="./04-registradores", next_chapter_title="Registradores") }}
+{{ chapters(prev_chapter_link="./03-recortar-copiar-colar", prev_chapter_title="Recortar, Copiar e Colar", next_chapter_link="./05-marcadores", next_chapter_title="Marcadores") }}

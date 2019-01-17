@@ -33,4 +33,4 @@ estas "faltas" existem e estar preparados para elas.
 E vejamos quantos "Cara, como é que tu fez isso?" vão aparecer até o final
 deste livro.
 
-{{ chapters(next_chapter_link="../01-modos", next_chapter_title="Modos") }}
+{{ chapters(next_chapter_link="./01-modos", next_chapter_title="Modos") }}
