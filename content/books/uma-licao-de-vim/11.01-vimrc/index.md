@@ -465,4 +465,4 @@ computador do trabalho).
 [^9] E porque eu usei `:tabn {número}` ao invés de `{número}gt`? Porque quando eu
      pesquisei como pular de abas, este foi o primeiro resultado que eu encontrei.
 
-{{ chapters(prev_chapter_link="./11-config", prev_chapter_title="Arquivos de Configuração", next_chapter_link="./11-config", next_chapter_title="Arquivos de Configuração") }}
+{{ chapters(prev_chapter_link="./11-config", prev_chapter_title="Arquivos de Configuração", next_chapter_link="./11-02-gvimrc", next_chapter_title="Meu .gvimrc") }}
