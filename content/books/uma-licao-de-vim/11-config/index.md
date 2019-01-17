@@ -159,4 +159,4 @@ acontecendo).
 [^1] Existe um terceiro, .exrc, mas honestamente, em todo esse tempo usando o
      VIM, eu nunca tinha ouvido falar que este arquivo sequer existia.
 
-{{ chapters(prev_chapter_link="./10-abas", prev_chapter_title="Abas", next_chapter_link="./11-config", next_chapter_title="Arquivos de Configuração") }}
+{{ chapters(prev_chapter_link="./10-abas", prev_chapter_title="Abas", next_chapter_link="./11-01-vimrc", next_chapter_title="Meu .vimrc") }}

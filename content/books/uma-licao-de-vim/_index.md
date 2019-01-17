@@ -21,7 +21,7 @@ template = "section-contentless.html"
 * [Splits](09-splits)
 * [Abas](10-abas)
 * [Arquivos de Configuração](11-config)
-  * [Meu .vimrc](121.md)
+  * [Meu .vimrc](11-01-vimrc)
   * [Meu .gvimrc](122.md)
 * [Modelines](13.md)
 * [Tags](14.md)
