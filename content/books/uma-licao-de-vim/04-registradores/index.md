@@ -1,5 +1,5 @@
 +++
-title = "Recortar, Copiar e Colar"
+title = "Registradores"
 date = 2015-12-22
 +++
 
