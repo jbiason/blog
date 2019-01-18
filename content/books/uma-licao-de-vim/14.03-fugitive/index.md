@@ -63,4 +63,4 @@ Airline, logo após o indicador de modo.
 	 dentro de um repositório para verificar se os comandos se tornam
 	 disponíveis.
 
-{{ chapters(prev_chapter_link="./14-02-airline", prev_chapter_title="Plugins - Airline", next_chapter_link="./11-config", next_chapter_title="Arquivos de Configuração") }}
+{{ chapters(prev_chapter_link="./14-02-airline", prev_chapter_title="Plugins - Airline", next_chapter_link="./14-04-commentary", next_chapter_title="Plugins - Commentary") }}
