@@ -1,0 +1,38 @@
++++
+transparent = false
+title = "Uma Lição de VIM"
+template = "section-contentless.html"
++++
+
+* [Introdução](00-intro)
+* [Modos](01-modos)
+  * [Modo normal](01-01-modo-normal)
+  * [Entendendo o Cursor](01-02-entendendo-o-cursor)
+  * [Mudando de Modos - Modo de Inserção](01-03-modo-de-insercao)
+  * [Mudando de Modos - Modo Visual](01-04-modo-visual)
+  * [Mudando de Modos - Modo de Comando](01-05-modo-de-comando)
+* [Outros Comandos](02-outros-comandos)
+* [Recortar, Copiar e Colar](03-recortar-copiar-colar)
+* [Registradores](04-registradores)
+* [Marcadores](05-marcadores)
+* [Macros de Teclado](06-macros-de-teclado)
+* [Procurar em Vários Arquivos](07-procurar-varios-arquivos)
+* [Localizar e Substituir](08-localizar-substituir)
+* [Splits](09-splits)
+* [Abas](10-abas)
+* [Arquivos de Configuração](11-config)
+  * [Meu .vimrc](11-01-vimrc)
+  * [Meu .gvimrc](11-02-gvimrc)
+* [Modelines](12-modelines)
+* [Tags](13-tags)
+* [Plugins - Vundle](14-01-vundle)
+* [Plugins - Airline](14-02-airline)
+* [Plugins - Fugitive](14-03-fugitive)
+* [Plugins - Commentary](14-04-commentary)
+* [Plugins - Tabular](14-05-tabular)
+* [Plugins - Auto-pairs](14-06-autopairs)
+* [Plugins - Syntastic](14-07-syntastic)
+* [Plugins - Snipmate](14-08-snipmate)
+* [Plugins - CtrlP e CtrlPFunky](14-09-ctrlp)
+* [Plugins - Vim-Multiple-Cursors](14-10-multiple-cursors)
+* [Conclusão](15-conclusao)
