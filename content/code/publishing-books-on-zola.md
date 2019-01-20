@@ -1,6 +1,6 @@
 +++
 title = "Publishing Books on Zola"
-date = 2015-12-18
+date = 2019-01-20
 category = "thoughts"
 
 [taxonomies]
@@ -97,7 +97,7 @@ post. Something like this:
 ```
 
 And then, adding in the end of each post a 
-`{{ nav(prev_chapter_link="<link>", prev_chapter_title="Title", next_chapter_link="<link>", next_chapter_title="Title") }}` 
+`{ { nav(prev_chapter_link="<link>", prev_chapter_title="Title", next_chapter_link="<link>", next_chapter_title="Title") }}` 
 and Zola will add the HTML (with the parameters) at the bottom of each post,
 making navigation easier.
 
