@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Vundle"
+title = "14.01. Plugins - Vundle"
 date = 2015-12-22
+weight = 3585
 +++
 
 Essa é a parte em que começamos a mexer ao redor do VIM.

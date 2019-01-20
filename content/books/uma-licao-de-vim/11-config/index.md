@@ -1,6 +1,7 @@
 +++
-title = "Arquivos de Configuração"
+title = "11. Arquivos de Configuração"
 date = 2015-12-22
+weight = 2816
 +++
 
 Essa é a parte em que eu menti.

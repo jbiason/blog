@@ -1,6 +1,7 @@
 +++
-title = "Modo Normal"
+title = "01.01. Modo Normal"
 date = 2015-12-22
+weight = 257
 +++
 
 Esta é a parte em que você ainda vai precisar de um arquivo pronto para ver

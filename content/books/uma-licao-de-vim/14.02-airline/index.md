@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Airline"
+title = "14.02. Plugins - Airline"
 date = 2015-12-22
+weight = 3586
 +++
 
 Essa é a parte em que o "laststatus" fica interessante.

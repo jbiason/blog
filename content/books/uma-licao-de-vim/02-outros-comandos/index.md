@@ -1,6 +1,7 @@
 +++
-title = "Outros Comandos"
+title = "02. Outros Comandos"
 date = 2015-12-22
+weight = 512
 +++
 
 Esta é a parte em que eu comento alguns comandos que você vai usar
