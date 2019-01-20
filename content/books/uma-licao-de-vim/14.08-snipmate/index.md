@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Snipmate"
+title = "14.08. Plugins - Snipmate"
 date = 2015-12-22
+weight = 3592
 +++
 
 Essa é a parte que automatizamos a digitação de coisas repetidas.

@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Auto-Pairs"
+title = "14.06. Plugins - Auto-Pairs"
 date = 2015-12-22
+weight = 3590
 +++
 
 Essa é a parte em que o VIM fecha as coisas pra você.
