@@ -22,7 +22,7 @@ be such a mess; on the other hand, using different windows for each VIM (with
 each file) would make copying'n'pasting a hell. So if I could actually find a
 tiling *plugin*, that would give me the best of both worlds.
 
-And that's where [Tiler]() gets in.
+And that's where [Tiler](https://github.com/zhamlin/tiler.vim) gets in.
 
 Tiler is a tiling plugin for VIM. But it doesn't do anything by itself,
 meaning, it won't intercept every call to a split to do the tiling. But itadds
