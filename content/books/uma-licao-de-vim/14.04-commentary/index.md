@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Commentary"
+title = "14.04. Plugins - Commentary"
 date = 2015-12-22
+weight = 3588
 +++
 
 Essa é a parte em que automatizamos a técnica de sumir código sem sumir com o

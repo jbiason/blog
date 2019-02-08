@@ -1,6 +1,7 @@
 +++
-title = "Mudando de Modos – Modo de Comando"
+title = "01.05. Mudando de Modos – Modo de Comando"
 date = 2015-12-22
+weight = 261
 +++
 
 Essa é a parte onde você vai aprender a fazer as coisas que precisavam de um

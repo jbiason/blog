@@ -1,6 +1,7 @@
 +++
-title = "Meu .vimrc"
+title = "11.01. Meu .vimrc"
 date = 2015-12-22
+weight = 2817
 +++
 
 Essa é a parte em que você vai ver um arquivo de configuração meio
