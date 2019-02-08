@@ -1,6 +1,7 @@
 +++
-title = "Modelines"
+title = "12. Modelines"
 date = 2015-12-22
+weight = 3072
 +++
 
 Essa é a parte em que você ignora seus arquivos de configuração.

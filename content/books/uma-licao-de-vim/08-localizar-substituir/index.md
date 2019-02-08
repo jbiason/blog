@@ -1,6 +1,7 @@
 +++
-title = "Localizar e Substituir"
+title = "08. Localizar e Substituir"
 date = 2015-12-22
+weight = 2048
 +++
 
 Essa é a parte em que você vai precisar aprender expressões regulares — mais

@@ -1,6 +1,7 @@
 +++
-title = "Tags"
+title = "13. Tags"
 date = 2015-12-22
+weight = 3328
 +++
 
 Essa é a parte em que você vai entender Unix um pouco.

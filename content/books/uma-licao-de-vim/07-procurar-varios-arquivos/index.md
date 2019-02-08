@@ -1,6 +1,7 @@
 +++
-title = "Procurar em Vários Arquivos"
+title = "07. Procurar em Vários Arquivos"
 date = 2015-12-22
+weight = 1792
 +++
 
 Essa é a parte em que mais uma vez você vai ter que pesquisar sobre
