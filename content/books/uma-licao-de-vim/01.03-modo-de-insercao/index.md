@@ -1,6 +1,7 @@
 +++
-title = "Mudando de Modos – Modo de Inserção"
+title = "01.03. Mudando de Modos – Modo de Inserção"
 date = 2015-12-22
+weight = 259
 +++
 
 Esta é a parte em que você vai finalmente começar a editar o texto.

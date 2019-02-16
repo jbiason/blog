@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Tabular"
+title = "14.05. Plugins - Tabular"
 date = 2015-12-22
+weight = 3589
 +++
 
 Essa é a parte em que deixamos as coisas alinhadas.

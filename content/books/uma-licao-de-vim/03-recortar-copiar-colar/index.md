@@ -1,6 +1,7 @@
 +++
-title = "Recortar, Copiar e Colar"
+title = "03. Recortar, Copiar e Colar"
 date = 2015-12-22
+weight = 768
 +++
 
 Essa é a parte que você não deve fazer muitas vezes quando estiver

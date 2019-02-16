@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Vim-Multiple-Cursors"
+title = "14.10. Plugins - Vim-Multiple-Cursors"
 date = 2015-12-22
+weight = 3594
 +++
 
 Essa é a parte em que você pode repetir várias coisas, visualmente.

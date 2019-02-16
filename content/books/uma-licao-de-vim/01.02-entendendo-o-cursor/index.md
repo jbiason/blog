@@ -1,6 +1,7 @@
 +++
-title = "Entendendo o Cursor"
+title = "01.02. Entendendo o Cursor"
 date = 2015-12-22
+weight = 258
 +++
 
 Esta é a parte em que você vai lembrar quando o texto não parar exatamente

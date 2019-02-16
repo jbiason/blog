@@ -1,6 +1,7 @@
 +++
-title = "Splits"
+title = "09. Splits"
 date = 2015-12-22
+weight = 2304
 +++
 
 Essa é a parte em que você vai passar uma hora dividindo a tela em pedacinhos

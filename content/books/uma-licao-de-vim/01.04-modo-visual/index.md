@@ -1,6 +1,7 @@
 +++
-title = "Mudando de Modos – Modo Visual"
+title = "01.04. Mudando de Modos – Modo Visual"
 date = 2015-12-22
+weight = 260
 +++
 
 Esta é a parte em que VIM deixa de ser um editor tão alienígena.
