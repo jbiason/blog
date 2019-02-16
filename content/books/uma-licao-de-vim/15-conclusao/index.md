@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Vim-Multiple-Cursors"
+title = "15. Conclusão"
 date = 2015-12-22
+weight = 3840
 +++
 
 Essa é a parte em que nos despedimos.

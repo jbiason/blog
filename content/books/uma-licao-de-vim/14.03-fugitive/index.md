@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Fugitive"
+title = "14.03. Plugins - Fugitive"
 date = 2015-12-22
+weight = 3587
 +++
 
 Essa é a parte que só faz sentido se você usa Git.

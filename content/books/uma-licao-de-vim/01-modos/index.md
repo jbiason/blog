@@ -1,6 +1,7 @@
 +++
-title = "Modos"
+title = "01. Modos"
 date = 2015-12-22
+weight = 256
 +++
 
 Esta é a parte onde eu explico porque você não conseguia sair do VIM na

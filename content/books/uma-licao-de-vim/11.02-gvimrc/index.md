@@ -1,6 +1,7 @@
 +++
-title = "Meu .gvimrc"
+title = "11.02. Meu .gvimrc"
 date = 2015-12-22
+weight = 2818
 +++
 
 Essa é a parte em que veremos mais do mesmo.

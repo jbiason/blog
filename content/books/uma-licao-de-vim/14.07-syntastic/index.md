@@ -1,6 +1,7 @@
 +++
-title = "Plugins - Syntastic"
+title = "14.07. Plugins - Syntastic"
 date = 2015-12-22
+weight = 3591
 +++
 
 Essa é a parte que o VIM ajuda você a achar o que tem de errado no seu

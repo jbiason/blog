@@ -1,6 +1,7 @@
 +++
-title = "Registradores"
+title = "04. Registradores"
 date = 2015-12-22
+weight = 1024
 +++
 
 Essa é a parte que o VIM fica melhor que os outros editores.

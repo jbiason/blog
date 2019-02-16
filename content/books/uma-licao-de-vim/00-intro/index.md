@@ -1,7 +1,8 @@
 +++
-title = "Introdução"
+title = "00. Introdução"
 
 date = 2015-12-22
+weight = 0
 +++
 
 Esta é a parte em que eu explico porque eu escrevi tudo isso e cujo conteúdo

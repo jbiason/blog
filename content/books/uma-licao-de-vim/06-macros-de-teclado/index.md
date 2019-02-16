@@ -1,6 +1,7 @@
 +++
-title = "Macros de Teclado"
+title = "06. Macros de Teclado"
 date = 2015-12-22
+weight = 1536
 +++
 
 Essa é a parte em que você repete várias coisas sem repetir várias coisas.

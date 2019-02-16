@@ -1,6 +1,7 @@
 +++
-title = "Plugins - CtrlP and CtrlPFunky"
+title = "14.09. Plugins - CtrlP and CtrlPFunky"
 date = 2015-12-22
+weight = 3593
 +++
 
 Essa é a parte em que você vai ter a impressão de estar programando em Perl,
