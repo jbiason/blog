@@ -122,6 +122,30 @@ actually doing a sum of ones and zeroes -- as numbers.
 No cognitive dissonance, no messing around and just because we treated types
 as types.
 
+PS: After a small discussion about what's better, I came with a better line
+than the `1 if pred(x) else 0`:
+
+```python
+sum(1 for x in my_list if pred(x))
+```
+
+Why this would be better? Because, when you think what you actually want --
+count the number of `True`s in the list -- you can actually use a feature in
+list comprehensions for filtering: the `if` at the end. This will count 1 (a
+number) only if the element being processed "agrees" with the predicate.
+
+That line could be translated like something as
+
+```java
+myList.stream()
+	.filter(x -> pred(x))
+	.map(x -> 1)
+	.sum();
+```
+
+... in Java 8: You remove the non-True values of the list, convert the `True`s
+to 1 (a number) and sum the total.
+
 ---
 
 Footnotes:
