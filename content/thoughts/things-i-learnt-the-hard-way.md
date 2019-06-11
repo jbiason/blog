@@ -18,7 +18,7 @@ different jobs.
 
 ### Spec first, then code
 
-If you don't what you're trying to solve, you don't know what to code.
+If you don't know what you're trying to solve, you don't know what to code.
 
 Write something specifying how the application works before writing any code.
 
