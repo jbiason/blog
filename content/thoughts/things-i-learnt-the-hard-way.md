@@ -150,7 +150,7 @@ This does nothing to deal with the exception -- besides printing it, that is.
 If you don't know how to handle it, let it happen,so you can figure out _when_
 it will happen.
 
-### If you know how to handle the issue, handle
+### If you know how to handle the issue, handle it
 
 Counter-point to the previous point: If you know when something will raise an
 exception/error/result and you know how to handle it, handle it. Show an error
