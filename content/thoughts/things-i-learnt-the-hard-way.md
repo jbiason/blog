@@ -1,5 +1,5 @@
 +++
-title = "Thing I Learnt The Hard Way (in 30 Years of Software Development)"
+title = "Things I Learnt The Hard Way (in 30 Years of Software Development)"
 date = 2019-06-10
 
 [taxonomies]
