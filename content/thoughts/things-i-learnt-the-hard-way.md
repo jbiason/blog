@@ -7,7 +7,7 @@ tags = ["en-au", "programming", "work"]
 +++
 
 This is a cynical, clinical collection of things I learnt in 30 years working
-with sofware development.
+with software development.
 
 Again, some things are really cynical, others are long observations on
 different jobs.
@@ -80,7 +80,7 @@ When developers try to solve a problem, they sometimes try to find a way that
 will solve all the problems, including the ones that may appear in the future.
 
 But here is the thing: The problems from the future will never come and you'll
-end up either having to maintain a huge behemot of code that will never be
+end up either having to maintain a huge behemoth of code that will never be
 fully used or you'll end up rewriting the whole thing 'cause there is a shitton
 of unused stuff.
 
@@ -112,7 +112,7 @@ is doing more than one thing. Break that function into two and remove the
 
 ### Good languages come with integration documentation
 
-If the langauge comes with its own way of documentating
+If the language comes with its own way of documenting
 functions/classes/modules/whatever and it comes even with the simplest doc
 generator, you can be sure that all the language
 functions/classes/modules/libraries/frameworks will have a good documentation
@@ -157,7 +157,7 @@ exception/error/result and you know how to handle it, handle it. Show an error
 message, try to save the data somewhere else, capture the user input in a log
 file to later processing, but _handle_ it.
 
-### Types say what you data means
+### Types say what you data is
 
 Memory is just a sequence of bytes; bytes are just numbers from 0 to 255; what
 those numbers mean is described on the language type system.
@@ -403,12 +403,12 @@ code style problems.
 ### Code formatting tools are ok, but they are no silver bullet
 
 One thing a team may be tempted to do to avoid discussing style in code reviews
-is to use a code formatting tool to auto-format code before commiting.
+is to use a code formatting tool to auto-format code before committing.
 
 Now yeah, that kinda solves the problem, but there is one small problem:
-we, humans, are not as flexibile to read code as computers are; what is
+we, humans, are not as flexible to read code as computers are; what is
 readable by a computer may not be readable by a human. Surely they try to
-create some heristics on what is good for human reading, but that doesn't mean
+create some heuristics on what is good for human reading, but that doesn't mean
 it gets right.
 
 If you _do_ use a code formatting tool, use it to find out where it changes the
@@ -537,7 +537,7 @@ be used on.
 
 ### You'll learn about yourself the hard way
 
-We get frustrated with code that doesn't compile. We get angry with costumers
+We get frustrated with code that doesn't compile. We get angry with customers
 asking things back and forth.
 
 And we lash out on other when that happens.
@@ -610,7 +610,7 @@ to them that it feels natural and, most of the time, you're the wrong one (for
 not seeing that they are joking, for example, in true "Schrödinger's asshole"
 style.)
 
-### Toxic/migro-aggressors are only fixable if they are _YOU_
+### Toxic/micro-aggressors are only fixable if they are _YOU_
 
 Unless it's you realizing you're acting like a toxic person or micro-attacking
 someone, and realize that you're actually doing more harm than good being that
@@ -648,9 +648,9 @@ I tried to become "paperless" many times. At some point, I did keep the papers
 away, but in the very end, it really do help to have a small notebook and a
 pen right next to you write that damn URL you need to send the data.
 
-### Trello is cool and all, but Postits are nicer
+### Trello is cool and all, but Post-its are nicer
 
-Nothing says "I'm really busy, but organized" like having a bunch of post its
+Nothing says "I'm really busy, but organized" like having a bunch of post-its
 on your desk.
 
 ### Blogging about your stupid solution is still better than being quiet
