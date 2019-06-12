@@ -727,3 +727,5 @@ find/figure out.
 	  [hellomudder](https://old.reddit.com/user/hellomudder).
 	* As reminded by [DeviceMan](https://old.reddit.com/user/DevIceMan),
 	  I added the "throw away your code" point.
+	* Remember something about debuggers, which would make some people very
+	  very angry.
