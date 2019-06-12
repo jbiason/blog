@@ -67,6 +67,19 @@ can give you a better view on how their API looks like. Then you can have a
 better look on how to call things: Is the API too complex? Do you have to keep
 to much data around to be able to make a single call?
 
+### Be ready to throw your code away
+
+A lot of people, when they start with TDD, get annoyed when you say that you
+may have to rewrite a lot of stuff, including whatever your already wrote.
+
+TDD was _designed_ to throw code away: The more you learn about your problem,
+the more you understand that, whatever you wrote, won't solve the problem in
+the long run.
+
+You shouldn't worry about this. Your code is not a wall: if you have to throw
+it aways, it is not wasted material. Surely it means your time writing code
+was lost, but you got a better understanding about the problem now.
+
 ### Good languages come with integrated tests
 
 You can be sure that if a language brings a testing framework -- even minimal
@@ -230,10 +243,13 @@ I saw this happens _a lot_: We have this problem; a design pattern gets close
 to the proper solution; let's use the design pattern; now we need to add a lot
 of things around the proper solution to make it fit the pattern.
 
-### Cognitive Dissonance is the readability killer
+### Cognitive Cost is the readability killer
 
-"Cognitive dissonance" is a fancy way of saying "I need to remember two (or
-more) different things at the same time to understand this."
+"[Cognitive dissonance](https://en.wikipedia.org/wiki/Cognitive_dissonance)" 
+is a fancy way of saying "I need to remember two (or more) different things at
+the same time to understand this." Keeping those different things in your head
+creates a cost and it keeps accumulating the more inditect the things are
+('cause you'll have to keep all those in your head).
 
 For example, adding booleans to count the number of True values is a mild
 cognitive dissonance; if you're reading a piece of code and see a `sum()`
@@ -243,8 +259,9 @@ count number of True values in a list of booleans, which is confusing as heck.
 
 ### The Magical Number Seven, Plus or Minus Two
 
-"The magical number" is a psychology article about the number of things one
-can keep in their mind at the same time.
+"[The magical number](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two)" 
+is a psychology article about the number of things one can keep in their mind
+at the same time.
 
 If you have a function, that calls a function, that calls a function, that
 calls a function, that calls a function, that calls function, you may be sure
@@ -685,3 +702,13 @@ Don't Know".
 When you find something that seems cool and you'd like to know more, create a
 file/note/whatever with it in the title. Then make notes about what you
 find/figure out.
+
+--- 
+
+**Changelong**:
+
+* 2019-06-12:
+	* Renamed "Cognitive Dissonance" to "Cognitive Cost", as pointed by 
+	  [hellomudder](https://old.reddit.com/user/hellomudder).
+	* As reminded by [DeviceMan](https://old.reddit.com/user/DevIceMan),
+	  I added the "throw away your code" point.
