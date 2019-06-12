@@ -51,9 +51,10 @@ understanding of what it is expected from the app.
 ### Unit tests are good, integration tests are gooder
 
 On my current job, we do test modules and classes only (for example, we write
-tests for the view layer only). It gives us some idea if things are going right
-or not, but they lack a view of how the whole is going on -- a thing
-integration tests, which tests how the system as a whole behaves -- do better.
+tests for the view layer only, then tests for the controller layer only, and so
+on). It gives us some idea if things are going right or not, but they lack a
+view of how the whole is going on -- a thing integration tests, which tests how
+the system as a whole behaves -- do better.
 
 ### Tests make better APIs
 
@@ -325,6 +326,20 @@ process easily.
 
 Think about logs of something you'll have to parse to extract some information
 at that time, not user interface; it doesn't have to be human-readable.
+
+### Debug is over-rated
+
+I heard a lot of people complaining that code editors that don't come with
+debugging are terrible, exactly because they don't come with debugging.
+
+But when your code is in production, you _can't_ run your favorite debugger.
+Heck, you can't even run your favourite IDE. But logging... Logging runs
+everywhere. You may not have the information you want at the time of the crash
+(different logging levels, for example) but you _can_ enable logging to figure
+out something later.
+
+(Not saying debuggers are bad, they just not as helpful as most people would
+think.)
 
 ### Always use a Version Control System
 
