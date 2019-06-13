@@ -610,7 +610,10 @@ worth knowing." -- Alan Perlis
 
 For a long time, I kept a simple programming rule: The language I'm playing at
 home should not be the same language I'm using at work. This allowed me to
-learn new things that later I applied in the work codebase
+learn new things that later I applied in the work codebase.
+
+I learnt how generics work in Java by writing Rust code; I understood how
+Spring does dependency injection by reading how to do it in C++.
 
 ### Think of the users
 
