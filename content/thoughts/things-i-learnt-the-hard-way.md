@@ -382,6 +382,13 @@ to break/rename things to make them easier to understand?
 
 Be curious about what goes behind the curtains.
 
+### **ALWAYS** use timezones with your dates
+
+When dealing with dates, always **always** add the timezone with it. There
+will be _always_ a problem with your computer timezone and the production
+server timezone (or one of the instances timezones) and you'll lose a lot of
+time trying to debug what the heck the interface is showing the wrong time.
+
 ### Start stupid
 
 One way to get away from the IDE is to "start stupid": Just get the compiler
@@ -979,3 +986,4 @@ find/figure out.
 	* Added a point about comments in blogs.
 	* Added a point about flags in functions.
 	* Added a point about API evolution.
+	* Added a point about dates.
