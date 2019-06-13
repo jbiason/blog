@@ -78,7 +78,7 @@ the more you understand that, whatever you wrote, won't solve the problem in
 the long run.
 
 You shouldn't worry about this. Your code is not a wall: if you have to throw
-it aways, it is not wasted material. Surely it means your time writing code
+it always, it is not wasted material. Surely it means your time writing code
 was lost, but you got a better understanding about the problem now.
 
 ### Good languages come with integrated tests
@@ -142,7 +142,9 @@ it has much more beyond special words: It has a build system, it has a
 dependency control system, it has a way of making tools/libraries/frameworks
 interact, it has a community, it has a way of dealing with people.
 
-Don't pick languages just 'cause they easier to use.
+Don't pick languages just 'cause they easier to use. Always remember that you
+may approve the syntax of a language for being that easy, but you're also
+enabling the way maintainers deal with the community by choosing that language.
 
 ### Sometimes, it's better to let the application crash than do nothing
 
@@ -191,6 +193,14 @@ console.log(true+true === 2);
 console.log(true === 1);
 > false
 ```
+
+### If your data has a schema, use a structure to keep it
+
+You may be tempted to use a list (or tuple, if your language allows) to keep
+your data if it's simple -- like, say, only 2 fields.
+
+But if you data has a schema -- it has a fixed format -- you should _always_
+use some structure to keep it, but it a `struct` or a `class`.
 
 ### Understand and stay way of cargo cult
 
@@ -244,12 +254,19 @@ I saw this happens _a lot_: We have this problem; a design pattern gets close
 to the proper solution; let's use the design pattern; now we need to add a lot
 of things around the proper solution to make it fit the pattern.
 
+### Learn functional programming
+
+You don't need to go deep into "what is a monad" and "is this a functor". But
+remember to not keep changing your data all the time, create a new element
+with the new values (treat your data as immutable) and make functions/classes
+that don't keep some internal state (pure functions/classes) if possible.
+
 ### Cognitive Cost is the readability killer
 
 "[Cognitive dissonance](https://en.wikipedia.org/wiki/Cognitive_dissonance)" 
 is a fancy way of saying "I need to remember two (or more) different things at
 the same time to understand this." Keeping those different things in your head
-creates a cost and it keeps accumulating the more inditect the things are
+creates a cost and it keeps accumulating the more indirect the things are
 ('cause you'll have to keep all those in your head).
 
 For example, adding booleans to count the number of True values is a mild
@@ -720,7 +737,7 @@ find/figure out.
 
 --- 
 
-**Changelong**:
+**Changelog**:
 
 * 2019-06-12:
 	* Renamed "Cognitive Dissonance" to "Cognitive Cost", as pointed by 
@@ -729,3 +746,7 @@ find/figure out.
 	  I added the "throw away your code" point.
 	* Remember something about debuggers, which would make some people very
 	  very angry.
+* 2019-06-13:
+	* Clarified the point about choosing a language a bit more.
+	* Added a point to use functional programming.
+	* Added a point about use structures to well-defined data.
