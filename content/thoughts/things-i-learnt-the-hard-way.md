@@ -130,6 +130,47 @@ function documentation and find that you added an "and", it means the function
 is doing more than one thing. Break that function into two and remove the
 "and".
 
+### Don't use Booleans as parameters
+
+When you're designing a function, you may be tempted to add a flag. Don't do
+this.
+
+Here, let me show you an example: Suppose you have a messaging system and you
+have a function that returns all the messages to an user, called
+`getUserMessages`. But there is a case where you need to return a summary of
+each message (say, the first paragraph) or the full message. So you add a
+flag/Boolean parameter called `retrieveFullMessage`.
+
+Again, don't do that.
+
+'Cause anyone reading your code will see `getUserMessage(userId, true)` and
+wonder what the heck that `true` means.
+
+You can either rename the function to `getUserMessageSummaries` and have
+another `getUserMessagesFull` or something around those lines, but each
+function just call the original `getUserMessage` with true or false -- but the
+interface to the outside of your class/module will still be clear.
+
+But _don't_ add flags/Boolean parameters to your functions.
+
+### Beware of interface changes
+
+In the point above, I mentioned about renaming the function. If you control
+the whole source where the function is used, that's not issue, it's just a
+matter of search and replace.
+
+But if that function is actually exposed by a library, you shouldn't change
+function names in a whim. That will break a lot of other applications beyond
+your control and make a lot of other people unhappy.
+
+You can create the new functions and mark the current one as deprecated,
+either by documentation or by some code feature. Then, after a few released,
+you can finally kill the original function.
+
+(A dickish move you can do is to create the new functions, mark the current
+function as deprecated and _add a sleep at the start of the function_, in a
+way that people using the old function are forced to update.)
+
 ### Good languages come with integration documentation
 
 If the language comes with its own way of documenting
@@ -936,3 +977,5 @@ find/figure out.
 	* Added a point about libraries.
 	* Clarified a bit about why generalists win in the end.
 	* Added a point about comments in blogs.
+	* Added a point about flags in functions.
+	* Added a point about API evolution.
