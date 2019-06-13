@@ -883,6 +883,14 @@ Show your growth.
 
 On top of that, they help you keep small notes or things you need to do.
 
+### ... but turn off the comments
+
+One thing about posting your stupid solution is that it will attract people
+who just want to mess with you. "This is stupid", for example. "Your dumb" may
+someone say, unaware of who's actually dumb.
+
+Turn it off. Don't let those people stop you.
+
 ### Post your stupid solution online
 
 Don't keep a Github only for those "cool, almost perfect" projects. You're
@@ -926,3 +934,5 @@ find/figure out.
 	* Added a point about project organization.
 	* Added a point about modularization.
 	* Added a point about libraries.
+	* Clarified a bit about why generalists win in the end.
+	* Added a point about comments in blogs.
