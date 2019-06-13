@@ -272,7 +272,7 @@ I saw this happens _a lot_: We have this problem; a design pattern gets close
 to the proper solution; let's use the design pattern; now we need to add a lot
 of things around the proper solution to make it fit the pattern.
 
-### Learn functional programming
+### Learn the basics functional programming
 
 You don't need to go deep into "what is a monad" and "is this a functor". But
 remember to not keep changing your data all the time, create a new element
@@ -362,7 +362,7 @@ process easily.
 Think about logs of something you'll have to parse to extract some information
 at that time, not user interface; it doesn't have to be human-readable.
 
-### Debug is over-rated
+### Debuggers are over-rated
 
 I heard a lot of people complaining that code editors that don't come with
 debugging are terrible, exactly because they don't come with debugging.
@@ -399,6 +399,85 @@ three files together. Think "if I revert this back, what must go away?")
 (Git topic only) Git allows merging a file partially with "-p". This allows
 you to pick only the related changes and leave the other behind -- probably
 for a new commit.
+
+### Organize projects by data/type, not functionality
+
+Most projects keep an organization like:
+
+```
+.
++-- IncomingModels
+|   +-- DataTypeInterface
+|   +-- DataType1
+|   +-- DataType2
+|   +-- DataType3
++-- Filters
+|   +-- FilterInterface
+|   +-- FilterValidDataType2
++-- Processors
+|   +-- ProcessorInterface
+|   +-- ConvertDataType1ToDto1
+|   +-- ConvertDataType2ToDto2
++-- OutgoingModels
+    +-- DtoInterface
+    +-- Dto1
+	+-- Dto2
+```
+
+in other words, they keep data organized by functionality (all the incoming
+models are in the same directory/package, all the filters are in the same
+directory/package and so on).
+
+This is fine and works. But when you organize by data, it'll make a lot easier
+to split your project in smaller projects -- 'cause, at some point, you may
+want to do almost the same thing as you're doing right now, but with small
+differences.
+
+```
+.
++-- Base
+|   +-- IncomingModels
+|   |   +-- DataTypeInterface
+|   +-- Filters
+|   |   +-- FilterInterface
+|   +-- Processors
+|   |   +-- ProcessorInterface
+|   +-- OutgoingModels
+|       +-- DtoInterface
++-- Data1
+|   +-- IncomingModels
+|   |   +-- DataType1
+|   +-- Processors
+|   |   +-- ConvertDataType1ToDto1
+|   +-- OutgoingModels
+|       +-- Dto1
+...
+```
+
+Now you can make a module that deals _only_ with Data1, another that works
+only with Data2 and so on. And then you can break them into isolated modules.
+
+And then when you have another project that also have Data1 but also deals
+with Data3, you can reuse most of the stuff in the Data1 module.
+
+### Create libraries
+
+I've seen a lot of projects that either make a mega repository with different
+projects or keep different branches that instead of just being a temporary
+environment for later joining the main development area, are just to keep that
+small, different thing going (picking the point above about modularization,
+imagine that instead of building a new project that reuse the Data1 type, I
+have a branch that has a completely different main function and the Data3
+type).
+
+Why not split the common parts into libraries and require it in different
+projects?
+
+The reason is, most of the time, 'cause people don't know how to either
+create libraries or they worry how they are goint to "publish" those libraries
+into the dependency sources without giving it around (so maybe it's a good
+idea to also understand how your project management tool retrieves
+dependencies, so you can create your own dependency repository).
 
 ### Learn to monitor
 
@@ -841,3 +920,6 @@ find/figure out.
 	* Added a point about messing with external libraries.
 	* Added a point about work relationships.
 	* Added a point about tests and CI.
+	* Added a point about project organization.
+	* Added a point about modularization.
+	* Added a point about libraries.
