@@ -68,6 +68,12 @@ can give you a better view on how their API looks like. Then you can have a
 better look on how to call things: Is the API too complex? Do you have to keep
 to much data around to be able to make a single call?
 
+### Make tests that you know how to run on the command line
+
+Not that command lines are important for any projects, but when you know the
+command to run the tests, you know how to automate the execution of the tests,
+which you then can use in a continuous integration tool.
+
 ### Be ready to throw your code away
 
 A lot of people, when they start with TDD, get annoyed when you say that you
@@ -234,6 +240,18 @@ Perl; if it is important for the company, it's better that if it is a C
 project.
 
 PS: Your hero project (more about it later in this doc) may fail due this.
+
+### Don't mess with things outside your project
+
+Sometimes people are tempted to, instead of using the proper extension tools,
+change external libraries/frameworks -- for example, making changes directly
+into WordPress or Django.
+
+This is an easy way to make the project unmaintainable really really fast. As
+soon as a new version is released, you'll have to keep up your changes in sync
+with the main project and, pretty soon, you'll find that the changes don't
+apply anymore and you'll leave the external project in an old version, full of
+security bugs.
 
 ### Data flows beat patterns
 
@@ -541,6 +559,24 @@ But you should try to keep a list of stupid errors that took you 1 hour to
 solve, 'cause later you can use it to not stay more than 1 hour to solve some
 stupid error.
 
+### If it doesn't run on your computer, you have a problem
+
+I've seen a lot of systems that would never run on a isolated computer, like
+the developer tool, 'cause the system requires running on a specialized
+environment.
+
+This is something that really kills productivity.
+
+If your system will run on a specialized environment -- and I'm including "the
+cloud" here -- look for something that can abstract whatever you're using. For
+example, if you're using AWS SQS, which is a queue, look for a library that
+can abstract the way a queue works so you can also run with RabbitMQ, which
+can be easily run on your own computer.
+
+If you're using a very specialized thing, you may have to write the
+abstraction yourself, isolating it from the main system, so you can develop
+the main product in peace.
+
 ## Personal
 
 ### When it's time to stop, it's time to stop
@@ -583,6 +619,17 @@ This is hard. Very very hard. It's the difference between "freedom" and
 There is nothing wrong in writing, for example, a software to capture people's
 faces and detect their ethnicity, but you have to think about what that will
 be used on.
+
+### Don't tell "It's done" when it's not
+
+You are tired of running the same thing over and over again. You kinda
+remember that something weird may happen, but because you're tired, you tell
+everyone that "It's finished".
+
+Don't do that.
+
+Someone will try that weird case on the first run and immediately tell you
+that it is _not_ working.
 
 ### You'll learn about yourself the hard way
 
@@ -691,6 +738,44 @@ solving all the problems.
 
 Don't be that person.
 
+### Learn when to quit
+
+You tell your boss that you didn't finish on time because something weird
+happened and he lashed out at you.
+
+One of your coworkers is constantly micro-attacking you.
+
+Another one is the guy that keeps doing stupid pranks, saying bullshit and
+small talking other groups all the time.
+
+A third is always complaining that when he's not around, things don't work.
+
+It's time to start sending your resume around, no matter how good the pay is
+or how awesome the project is.
+
+... unless you want to be a constantly pissed off, annoyed person when you're
+in the forties.
+
+### I.T. world is a very small egg
+
+We have a expression here: "The world of _something_ is a small egg", which
+means that you don't live in a large world; the world is small.
+
+I.T. world is really small.
+
+The person you work with today will find you again in 15 years after you both
+changed 3 or 4 jobs already.
+
+And you'll meet a lot of other I.T. people in the way.
+
+And they will talk about themselves.
+
+And whatever you say/do will be talked around, which one person will hear and
+pass along another company, which will pass along other people, which will
+pass the story along to another company and, suddenly, when you realized,
+nobody will hire you locally 'cause everybody knows that time when you fucked
+up a project or punched a colleague in the face.
+
 ### Paper notes are actually helpful
 
 I tried to become "paperless" many times. At some point, I did keep the papers
@@ -750,3 +835,9 @@ find/figure out.
 	* Clarified the point about choosing a language a bit more.
 	* Added a point to use functional programming.
 	* Added a point about use structures to well-defined data.
+	* Added a point about using abstractions to run the system on your
+		computer.
+	* Added a point about quitting your job.
+	* Added a point about messing with external libraries.
+	* Added a point about work relationships.
+	* Added a point about tests and CI.
