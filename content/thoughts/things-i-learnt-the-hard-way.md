@@ -389,6 +389,15 @@ will be _always_ a problem with your computer timezone and the production
 server timezone (or one of the instances timezones) and you'll lose a lot of
 time trying to debug what the heck the interface is showing the wrong time.
 
+### **ALWAYS** use UTF-8
+
+The same problem you'll have with dates, you'll have with character encoding.
+So always convert your strings to UTF8; save them in the database as UTF8;
+return UTF8 on your APIs.
+
+(You may convert to any other encoding, but UTF8 won the encoding wars, so it
+is easier to keep it this way.)
+
 ### Start stupid
 
 One way to get away from the IDE is to "start stupid": Just get the compiler
@@ -582,6 +591,35 @@ files, which is way easier.
 
 Worry about talking over the wire later, when you understand how networks
 work.
+
+### Optimization is for compilers
+
+Let's say you need more performance. You may be tempted to look at your code
+and thing "where I can squeeze a little bit more performance here" or "How can
+I remove a few cycles here to get more speed".
+
+Well, guess what? Compilers _know_ how to do that. Smarted compilers can even
+delete your code 'cause it will always generate the same result.
+
+What you need to do is think a better _design_ for your code, not how to
+improve the current code.
+
+Code is humans to read. _ALWAYS_. Optimization is what compilers do. So find a
+smarted way to explain what you're trying to do (in code) instead of using
+shorter words.
+
+### By lazy (evaluated)
+
+A long time ago, a small language made the rounds by not evaluating
+expressions when they appeared, but when they were needed.
+
+Lisp did this a long time ago, and now most languages are getting it too.
+
+For example, Python have the `yield` statement, which will stop the execution
+of the current function and return the value immediately, `yield`ing a new
+value only when the function is called again. If you chain functions that keep
+`yield`ing results, you won't need as much memory as functions that keep
+returning lists.
 
 ## On a Team/Work
 
@@ -987,3 +1025,6 @@ find/figure out.
 	* Added a point about flags in functions.
 	* Added a point about API evolution.
 	* Added a point about dates.
+* 2019-06-14:
+	* Added a point about optimization.
+	* Added a point about lazy evaluation.
