@@ -37,4 +37,4 @@ kind of stuff -- "I don't know what to do next, and I'm not sure if I'm done
 with the current problem" -- then maybe it's time to stop and talk to other
 people in the project to figure that out.
 
-{{ chapters(prev_chapter_link="intro", prev_chapter_title="Intro") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/intro", prev_chapter_title="Intro", next_chapter_link="/books/things-i-learnt/steps-as-comments", next_chapter_title="Write Steps as Comments") }}
