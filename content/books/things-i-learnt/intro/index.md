@@ -42,4 +42,11 @@ properly and add some examples.
 
 And that's how the idea to write this "book" came to life.
 
+One thing you must keep in mind here: *These are my options*. I understand
+that not everything is so black and white as put here, and some people's
+experiences may not match things here. Also, you get a bit cynical about
+technology after 30 years. So... thread carefully, 'cause here be dragons.
+
 [^1]: Yup, I'm guilty of that too.
+
+{{ chapters(next_chapter_link="spec-first", next_chapter_title="Spec First, The Code") }}
