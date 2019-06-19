@@ -11,3 +11,4 @@ template = "section-contentless.html"
 	* [Spec First, Then Code](spec-first)
 	* [Write Steps as Comments](steps-as-comments)
 	* [Gherkin Is Your Friend to Understand Expectations](gherkin)
+	* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
