@@ -63,7 +63,7 @@ layout from previous examples, so they capture the design by osmosis, while
 the big picture starts to get more and more complex, with lots of moving
 parts.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/gherkin", prev_chapter_title="Gherkin Is Your Friend to Understand Expectations") }}
-
 [^1]: There is no "unit" in "unit tests". "Unit test" means the test _is_ a
   unit, indivisible and dependent only on itself.
+
+{{ chapters(prev_chapter_link="/books/things-i-learnt/gherkin", prev_chapter_title="Gherkin Is Your Friend to Understand Expectations") }}
