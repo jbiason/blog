@@ -34,4 +34,4 @@ you have no idea how those things "happen", you'll need the help of someone
 else to actually build this kind of stuff, instead of having the knowledge
 (well, half knowledge, the other half is the CI tool) with you all the time.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/tests-apis", prev_chapter_title="Tests Make Better APIs") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/tests-apis", prev_chapter_title="Tests Make Better APIs", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
