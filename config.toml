@@ -34,11 +34,3 @@ after_dark_menu = [
 	{url = "$BASE_URL/books", name = "Books"},
 ]
 after_dark_title = "JulioBiason.Net 4.0"
-
-hyde_links = [
-	{name = "Category: Book Reviews", url = "/reviews/books"},
-	{name = "Category: Code", url = "/code"},
-	{name = "Category: Reviews", url = "/reviews"},
-	{name = "Tags", url = "/tags"},
-]
-hyde_reverse = true
