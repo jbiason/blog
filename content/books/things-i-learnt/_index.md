@@ -12,3 +12,4 @@ template = "section-contentless.html"
 	* [Write Steps as Comments](steps-as-comments)
 	* [Gherkin Is Your Friend to Understand Expectations](gherkin)
 	* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
+	* [Tests Make Better APIs](tests-apis)
