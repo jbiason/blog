@@ -49,4 +49,4 @@ technology after 30 years. So... thread carefully, 'cause here be dragons.
 
 [^1]: Yup, I'm guilty of that too.
 
-{{ chapters(next_chapter_link="/books/things-i-learnt/spec-first", next_chapter_title="Spec First, The Code") }}
+{{ chapters(next_chapter_link="/books/things-i-learnt/disclaimer", next_chapter_title="Disclaimer") }}

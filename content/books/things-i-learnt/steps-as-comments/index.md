@@ -55,4 +55,4 @@ main code.
 
 [^1]: Yes, that was sarcastic.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/spec-first", prev_chapter_title="Specs First, Then Code") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/spec-first", prev_chapter_title="Specs First, Then Code", next_chapter_link="/books/things-i-learnt/gherkin", next_chapter_title="Gherkin Is Your Friend to Understand Expectations") }}
