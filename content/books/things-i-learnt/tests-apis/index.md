@@ -42,4 +42,4 @@ can see how much one would suffer -- or, hopefully, enjoy -- using that.
 [^1]: Again, let's ignore for a second that there are no "unit" in "unit
   tests"...
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/integration-tests", prev_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/integration-tests", prev_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder", next_chapter_link="/books/things-i-learnt/tests-in-the-command-line", next_chapter_title="Make Tests That You Know How To Run on the Command line") }}
