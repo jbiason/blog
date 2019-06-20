@@ -35,4 +35,4 @@ solves the problem, but also the tests for that code.
 ... unless you focus mostly on [integration
 tests](/books/things-i-learnt/integration-tests).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/tests-in-the-command-line", prev_chapter_title="Make Tests That You Know How To Run on the Command line") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/tests-in-the-command-line", prev_chapter_title="Make Tests That You Know How To Run on the Command line", next_chapter_link="/books/things-i-learnt/language-tests", next_chapter_title="Good Languages Come With Tests") }}
