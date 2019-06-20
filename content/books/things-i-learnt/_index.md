@@ -15,3 +15,4 @@ template = "section-contentless.html"
 	* [Tests Make Better APIs](tests-apis)
 	* [Make Tests That You Know How To Run on the Command line](tests-in-the-command-line)
 	* [Be Ready To Throw Your Code Away](throw-away)
+	* [Good Languages Come With Tests](languages-tests)
