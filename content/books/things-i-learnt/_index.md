@@ -18,3 +18,4 @@ template = "section-contentless.html"
 	* [Good Languages Come With Tests](languages-tests)
 	* [Future Thinking Is Future Trashing](future-trashing)
 	* [Documentation Is a Love Letter To Your Future Self](document-it)
+	* [The Function Documentation Is Its Contract](document-is-contract)
