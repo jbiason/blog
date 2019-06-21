@@ -16,4 +16,5 @@ template = "section-contentless.html"
 	* [Make Tests That You Know How To Run on the Command line](tests-in-the-command-line)
 	* [Be Ready To Throw Your Code Away](throw-away)
 	* [Good Languages Come With Tests](languages-tests)
-	* [Future Think Is Future Trashing](future-trashing)
+	* [Future Thinking Is Future Trashing](future-trashing)
+	* [Documentation Is a Love Letter To Your Future Self](document-it)
