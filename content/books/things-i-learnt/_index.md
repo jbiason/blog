@@ -12,6 +12,7 @@ template = "section-contentless.html"
 	* [Write Steps as Comments](steps-as-comments)
 	* [Gherkin Is Your Friend to Understand Expectations](gherkin)
 	* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
+	* [Testing Every Function Creates Dead Code](tests-dead-code)
 	* [Tests Make Better APIs](tests-apis)
 	* [Make Tests That You Know How To Run on the Command line](tests-in-the-command-line)
 	* [Be Ready To Throw Your Code Away](throw-away)
