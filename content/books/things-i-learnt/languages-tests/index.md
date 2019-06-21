@@ -22,4 +22,4 @@ testing framework in their standard library may have options with better
 support and easier access but, again, when they are there from the start, the
 start is better and the final result is better.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/throw-away", prev_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/throw-away", prev_chapter_title="Be Ready To Throw Your Code Away", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking is Future Trashing") }}
