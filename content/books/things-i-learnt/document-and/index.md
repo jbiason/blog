@@ -29,4 +29,4 @@ called one, you now will need to call two. If your preferred language have
 support for function composition, you can use that to group both functions
 again.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/document-is-contract", prev_chapter_title="The Function Documentation Is Its Contract", next_chapter_link="/books/things-i-learnt/language-docs", next_chapter_title="Good Languages Come With Integrated Documentation") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/document-is-contract", prev_chapter_title="The Function Documentation Is Its Contract", next_chapter_link="/books/things-i-learnt/languages-docs", next_chapter_title="Good Languages Come With Integrated Documentation") }}
