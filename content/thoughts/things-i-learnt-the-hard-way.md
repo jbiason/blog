@@ -171,7 +171,7 @@ you can finally kill the original function.
 function as deprecated and _add a sleep at the start of the function_, in a
 way that people using the old function are forced to update.)
 
-### Good languages come with integration documentation
+### Good languages come with integrated documentation
 
 If the language comes with its own way of documenting
 functions/classes/modules/whatever and it comes even with the simplest doc
