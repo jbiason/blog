@@ -26,3 +26,4 @@ template = "section-contentless.html"
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
 		* [Don't Use Booleans As Parameters](boolean-parameters)
+		* [Beware of Interface Changes](interface-changes)
