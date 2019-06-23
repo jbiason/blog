@@ -23,4 +23,4 @@ solutions and _then_ you'll find your "solve everything". This pattern is the
 _abstraction_ you're looking for and _then_ you'll be able to solve it in a
 simple way.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/throw-away", prev_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/throw-away", prev_chapter_title="Be Ready To Throw Your Code Away", next_chapter_link="/books/things-i-learnt/boolean-parameters", next_chapter_title="Don't Use Booleans As Parameters") }}
