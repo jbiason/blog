@@ -25,4 +25,4 @@ I have some bad news for you...
 
 [^1]: Please, don't make me revise this in 2027... :(
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/future-trashing", prev_chapter_title="Future Thinking is Future Trashing", next_chapter_link="/books/things-i-learnt/document-is-contract", next_chapter_title="The Function Documentation Is Its Contract") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/languages-tests", prev_chapter_title="Good Languages Come With Tests", next_chapter_link="/books/things-i-learnt/document-is-contract", next_chapter_title="The Function Documentation Is Its Contract") }}

@@ -34,4 +34,4 @@ whatever you initially said your function would do -- so the correct solution
 would be to add a new function with a proper contract -- and probably a better
 name.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/document-it", prev_chapter_title="Documentation Is a Love Letter To Your Future Self") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/document-it", prev_chapter_title="Documentation Is a Love Letter To Your Future Self", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
