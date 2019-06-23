@@ -29,4 +29,4 @@ interface to the outside of your class/module will still be clear.
 
 But _don't_ add flags/Boolean parameters to your functions.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/future-trashing", prev_chapter_title="Future Thinking is Future Trashing", next_chapter_link="/books/things-i-learnt/interfaces-changes", next_chapter_title="Beware of Interface Changes") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/future-trashing", prev_chapter_title="Future Thinking is Future Trashing", next_chapter_link="/books/things-i-learnt/interface-changes", next_chapter_title="Beware of Interface Changes") }}

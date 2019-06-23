@@ -22,6 +22,7 @@ template = "section-contentless.html"
 		* [Documentation Is A Love Letter To Your Future Self](document-it)
 		* [The Function Documentation Is Its Contract](document-is-contract)
 		* [If A Function Description Includes An "And", It's Wrong](document-and)
+		* [Good Languages Come With Integrated Documentation](languages-docs)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
