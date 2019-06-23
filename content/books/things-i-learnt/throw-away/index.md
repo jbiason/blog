@@ -35,4 +35,4 @@ solves the problem, but also the tests for that code.
 ... unless you focus mostly on [integration
 tests](/books/things-i-learnt/integration-tests).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/document-is-contract", prev_chapter_title="The Function Documentation Is Its Contract", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/document-and", prev_chapter_title="If A Function Description Includes An And, It's Wrong", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
