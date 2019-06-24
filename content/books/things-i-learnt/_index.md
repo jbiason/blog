@@ -29,5 +29,6 @@ template = "section-contentless.html"
 		* [Don't Use Booleans As Parameters](boolean-parameters)
 		* [Beware of Interface Changes](interface-changes)
 		* [It's Better To Let The Application Crash Than Do Nothing](crash-it)
+		* [If You Know How To Handle It, Handle It](handle-it)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)

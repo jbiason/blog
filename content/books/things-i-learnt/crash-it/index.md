@@ -36,4 +36,4 @@ of error handling -- as long as you don't have any idea on how to handle it.
 Then, when they crash, you can think of a way to deal with it, instead of
 silently capturing it and doing nothing.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/interface-changes", prev_chapter_title="Beware of Interface Changes", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/interface-changes", prev_chapter_title="Beware of Interface Changes", next_chapter_link="/books/things-i-learnt/handle-it", next_chapter_title="If You Know How To Handle It, Handle It") }}
