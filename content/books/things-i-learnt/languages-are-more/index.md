@@ -39,4 +39,4 @@ surface of what the whole of a language encapsulates and if you ignore the
 other elements in it, you may find yourself with a cute language in a
 community that is always fighting and never going forward.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/handle-it", prev_chapter_title="If You Know How To Handle It, Handle It") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/data-types", prev_chapter_title="Types Say What You Data Is") }}

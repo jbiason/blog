@@ -27,4 +27,4 @@ occur, _deal with it_. If you have to save the save the content of the user
 somewhere else, log it to be reprocessed later or even just show an error
 message, do it.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/crash-it", prev_chapter_title="It's Better To Let The Application Crash Than Do Nothing", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/crash-it", prev_chapter_title="It's Better To Let The Application Crash Than Do Nothing", next_chapter_link="/books/things-i-learnt/data-types", next_chapter_title="Types Say What You Data Is") }}

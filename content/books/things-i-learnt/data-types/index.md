@@ -1,0 +1,40 @@
++++
+title = "Things I Learnt The Hard Way - Types Say What You Data Is"
+date = 2019-06-24
+
+[taxonomies]
+tags = ["en-au", "books", "things i learnt", "types"]
++++
+
+Memory is just a sequence of bytes; bytes are just numbers from 0 to 255; what
+those numbers mean is described on the language type system.
+
+<!-- more -->
+
+For example, in C, a `char` type of value 65 is most probably the letter "A",
+which an `int` of value is 65 is the number 65.
+
+Remember this when dealing with your data.
+
+And it doesn't matter of your language of choice uses dynamic typing or static
+typing. The same still applies.
+
+One classic example of misusing types is adding booleans. Booleans are either
+`true` or `false`, but because most languages follow C, which doesn't have a
+boolean type and uses compiler pre-processors to define `TRUE` as an integer
+with the value `1` and `FALSE` with another integer with the value `0`. And
+so, the build on top of what older developers knew, other languages use the
+same concepts. And so, you have a list of booleans and want to know how many
+true values are in the list, you can simply add them all.
+
+Let me point that again: You're adding booleans and expecting a number.
+
+No, you're counting the number of elements in the list 'cause that would see
+the whole list. You're not even filtering the false values over and counting
+the resulting list size. You're jumping the underlying type to get a bit of
+performance out.
+
+Fortunately, new languages are based on ML, which wouldn't allow this kind of
+stuff.
+
+{{ chapters(prev_chapter_link="/books/things-i-learnt/handle-it", prev_chapter_title="If You Know How To Handle It, Handle It", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
