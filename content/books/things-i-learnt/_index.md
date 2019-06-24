@@ -18,7 +18,7 @@ template = "section-contentless.html"
 		* [Tests Make Better APIs](tests-apis)
 		* [Make Tests That You Know How To Run On The Command Line](tests-in-the-command-line)
 		* [Good Languages Come With Tests](languages-tests)
-	* Documentating your code
+	* Documenting your code
 		* [Documentation Is A Love Letter To Your Future Self](document-it)
 		* [The Function Documentation Is Its Contract](document-is-contract)
 		* [If A Function Description Includes An "And", It's Wrong](document-and)
@@ -28,3 +28,5 @@ template = "section-contentless.html"
 		* [Future Thinking Is Future Trashing](future-trashing)
 		* [Don't Use Booleans As Parameters](boolean-parameters)
 		* [Beware of Interface Changes](interface-changes)
+* Community/Teams
+	* [A Language Is Much More Than A Language](languages-are-more)
