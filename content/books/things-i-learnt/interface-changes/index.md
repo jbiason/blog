@@ -32,4 +32,4 @@ you can finally kill the original function.
 function as deprecated and _add a sleep at the start of the function_, in a
 way that people using the old function are forced to update.)
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/boolean-parameters", prev_chapter_title="Don't Use Booleans As Parameters", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/boolean-parameters", prev_chapter_title="Don't Use Booleans As Parameters", next_chapter_link="/books/things-i-learnt/crash-it", next_chapter_title="It's Better To Let The Application Crash Than Do Nothing") }}

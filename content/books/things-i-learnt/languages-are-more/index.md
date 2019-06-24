@@ -39,4 +39,4 @@ surface of what the whole of a language encapsulates and if you ignore the
 other elements in it, you may find yourself with a cute language in a
 community that is always fighting and never going forward.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/interface-changes", prev_chapter_title="Beware of Interface Changes") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/crash-it", prev_chapter_title="It's Better To Let The Application Crash Than Do Nothing") }}

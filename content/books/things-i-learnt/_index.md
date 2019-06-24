@@ -28,5 +28,6 @@ template = "section-contentless.html"
 		* [Future Thinking Is Future Trashing](future-trashing)
 		* [Don't Use Booleans As Parameters](boolean-parameters)
 		* [Beware of Interface Changes](interface-changes)
+		* [It's Better To Let The Application Crash Than Do Nothing](crash-it)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
