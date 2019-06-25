@@ -55,4 +55,18 @@ every time.
 So: You data has a schema? Use a Data Class or Class or Struct. Only if it is
 schemaless, then you can use a tuple.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/data-types", prev_chapter_title="Types Say What Your Data Is", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+I've seen this used at least once. Sure, at the very start of the project, it
+may seem easier to just store the data as a tuple and destructure it and build
+it again when needed. There was even a whole module designed to receiving
+tuples, destructure them and rebuild new ones (for example, a function that
+would receive two tuples and compute the sum of the "value" field of each,
+building a new tuple as a result). But because of this design, to add just a
+new field, I had to change 14 files and do 168 changes around -- 'cause, sure,
+there was a function to add two tuples, but there were points where you need
+just one field, and there wasn't a function for it.
+
+It would be easier to use if there were functions to extract each field, and
+add two tuples, and what else was needed for managing the tuples, but then you
+have to ask yourself: Why not use a class for that?
+
+{{ chapters(prev_chapter_link="/books/things-i-learnt/data-types", prev_chapter_title="Types Say What Your Data Is", next_chapter_link="/books/things-i-learnt/outside-project", next_chapter_title="Don't Mess With Things Outside Your Project") }}
