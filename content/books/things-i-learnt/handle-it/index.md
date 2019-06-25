@@ -27,4 +27,11 @@ occur, _deal with it_. If you have to save the save the content of the user
 somewhere else, log it to be reprocessed later or even just show an error
 message, do it.
 
+Although I seriously meant it, it doesn't mean you have to remember every
+single exception/error code and what it means when calling a function. You can
+write code that will actually go through the happy path and later fill the
+blanks. Or even, when you're working on another part of the code, if you
+remember another problem, just write on a post-it and add the handling later.
+The important bit is not to forget to handle it.
+
 {{ chapters(prev_chapter_link="/books/things-i-learnt/crash-it", prev_chapter_title="It's Better To Let The Application Crash Than Do Nothing", next_chapter_link="/books/things-i-learnt/data-types", next_chapter_title="Types Say What You Data Is") }}

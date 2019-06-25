@@ -34,3 +34,4 @@ template = "section-contentless.html"
 		* [If Your Data Has a Schema, Use a Structure](use-structures)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
+	* [Understand And Stay Away From Cargo Cult](cargo-cult)
