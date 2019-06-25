@@ -21,4 +21,4 @@ their own favourite language/framework, either because they disliked the
 current language/framework or because they don't want to push the "hero
 project".
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/cargo-cult", prev_chapter_title="Understand And Stay Away From Cargo Cult") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/cargo-cult", prev_chapter_title="Understand And Stay Away From Cargo Cult", next_chapter_link="/books/things-i-learnt/right-tool-obvious", next_chapter_title="The Right Tool Is More Obvious Than You Think") }}

@@ -36,3 +36,4 @@ template = "section-contentless.html"
 	* [A Language Is Much More Than A Language](languages-are-more)
 	* [Understand And Stay Away From Cargo Cult](cargo-cult)
 	* ["Right Tool For The Job" Is Just To Push An Agenda](right-tool-agenda)
+	* [The Right Tool Is More Obvious Than You Think](right-tool-obvious)
