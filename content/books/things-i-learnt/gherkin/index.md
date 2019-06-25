@@ -51,4 +51,4 @@ system, you can get a better picture of the whole.
 Also, you may not like to write specs. That's alright, you can replace them
 with Gherkin anyway.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/steps-as-comments", prev_chapter_title="Write Steps as Comments", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/steps-as-comments", prev_chapter_title="Write Steps as Comments", next_chapter_link="/books/things-i-learnt/patterns-not-solutions", next_chapter_title="Design Patters Are Used to Name Solution, Not Find Them") }}

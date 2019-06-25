@@ -66,4 +66,4 @@ parts.
 [^1]: There is no "unit" in "unit tests". "Unit test" means the test _is_ a
   unit, indivisible and dependent only on itself.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/gherkin", prev_chapter_title="Gherkin Is Your Friend to Understand Expectations", next_chapter_title="Testing Every Function Creates Dead Code", next_chapter_link="/books/things-i-learnt/tests-dead-code") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/patterns-not-solutions", prev_chapter_title="Design Patters Are Used to Name Solution, Not Find Them", next_chapter_title="Testing Every Function Creates Dead Code", next_chapter_link="/books/things-i-learnt/tests-dead-code") }}

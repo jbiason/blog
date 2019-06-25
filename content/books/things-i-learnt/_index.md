@@ -12,6 +12,7 @@ template = "section-contentless.html"
 		* [Spec First, Then Code](spec-first)
 		* [Write Steps as Comments](steps-as-comments)
 		* [Gherkin Is Your Friend to Understand Expectations](gherkin)
+		* [Design Patters Are Used to Name Solution, Not Find Them](patterns-not-solutions)
 	* Testing Software
 		* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
 		* [Testing Every Function Creates Dead Code](tests-dead-code)
