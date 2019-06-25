@@ -37,4 +37,4 @@ performance out.
 Fortunately, new languages are based on ML, which wouldn't allow this kind of
 stuff.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/handle-it", prev_chapter_title="If You Know How To Handle It, Handle It", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/handle-it", prev_chapter_title="If You Know How To Handle It, Handle It", next_chapter_link="/books/things-i-learnt/use-structures", next_chapter_title="If Your Data Has a Schema, Use a Structure") }}
