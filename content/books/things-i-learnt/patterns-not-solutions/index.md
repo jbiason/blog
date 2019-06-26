@@ -35,4 +35,4 @@ but above 50%); what happens then is that people start twisting the problem to
 fit the pattern or, worse, add new layers to transform the problem into the
 pattern.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/gherkin", prev_chapter_title="Gherkin Is Your Friend to Understand Expectations", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/gherkin", prev_chapter_title="Gherkin Is Your Friend to Understand Expectations", next_chapter_link="/books/things-i-learnt/data-flow", next_chapter_title="Thinking Data Flow Beats Patterns") }}

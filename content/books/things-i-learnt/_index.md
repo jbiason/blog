@@ -13,6 +13,7 @@ template = "section-contentless.html"
 		* [Write Steps as Comments](steps-as-comments)
 		* [Gherkin Is Your Friend to Understand Expectations](gherkin)
 		* [Design Patters Are Used to Name Solution, Not Find Them](patterns-not-solutions)
+		* [Thinking Data Flow Beats Patterns](data-flow)
 	* Testing Software
 		* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
 		* [Testing Every Function Creates Dead Code](tests-dead-code)
