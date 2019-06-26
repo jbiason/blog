@@ -83,4 +83,10 @@ is to make the code _readable_ and _understandable_. If you need performance,
 you can think of a better sequence of steps, not some "let's make this a mess
 to read" solution.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/data-flow", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+Just a quick note: Although the famous paper mentions that the number is
+around 7, new research is actually pointing that the number is way lower than
+that, at 4. So simply making `func_1` call `func_2`, which would call
+`func_3`, which would call `func_4` may be enough to overload someone and make
+them lose the track of what the code does.
+
+{{ chapters(prev_chapter_link="/books/things-i-learnt/data-flow", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_link="/books/things-i-learnt/functional-programming", next_chapter_title="Learn The Basics of Functional Programming") }}
