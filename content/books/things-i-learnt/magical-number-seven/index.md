@@ -89,4 +89,4 @@ that, at 4. So simply making `func_1` call `func_2`, which would call
 `func_3`, which would call `func_4` may be enough to overload someone and make
 them lose the track of what the code does.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/data-flow", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_link="/books/things-i-learnt/functional-programming", next_chapter_title="Learn The Basics of Functional Programming") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/data-flow", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_link="/books/things-i-learnt/cognitive-cost", next_chapter_title="Cognitive Cost Is The Readability Killer") }}

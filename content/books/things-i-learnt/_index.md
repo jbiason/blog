@@ -15,6 +15,7 @@ template = "section-contentless.html"
 		* [Design Patters Are Used to Name Solution, Not Find Them](patterns-not-solutions)
 		* [Thinking Data Flow Beats Patterns](data-flow)
 		* [The Magic Number Seven, Plus Or Minus Two](magical-number-seven)
+		* [Cognitive Cost Is The Readability Killer](cognitive-cost)
 		* [Learn The Basics of Functional Programming](functional-programming)
 	* Testing Software
 		* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)

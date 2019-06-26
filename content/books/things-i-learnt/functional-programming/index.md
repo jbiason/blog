@@ -65,4 +65,4 @@ more robust code.
   you end up with random values based on the seed, so even there it is a pure
   function.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/magical-number-seven", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/cognitive-cost", prev_chapter_title="Cognitive Cost Is The Readability Killer", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
