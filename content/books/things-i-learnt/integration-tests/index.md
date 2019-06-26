@@ -66,4 +66,4 @@ parts.
 [^1]: There is no "unit" in "unit tests". "Unit test" means the test _is_ a
   unit, indivisible and dependent only on itself.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/data-flow", prev_chapter_title="Thinking Data Flow Beats Patterns", next_chapter_title="Testing Every Function Creates Dead Code", next_chapter_link="/books/things-i-learnt/tests-dead-code") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/magical-number-seven", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_title="Testing Every Function Creates Dead Code", next_chapter_link="/books/things-i-learnt/tests-dead-code") }}

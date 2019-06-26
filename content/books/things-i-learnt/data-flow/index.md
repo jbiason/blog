@@ -32,4 +32,4 @@ In a way, this way of thinking gets things more clear 'cause you have a list
 of steps of transformations you need to do, so you can write them one after
 another, which prevents a lot of bad code in the future.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/patterns-not-solutions", prev_chapter_title="Design Patters Are Used to Name Solution, Not Find Them", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/patterns-not-solutions", prev_chapter_title="Design Patters Are Used to Name Solution, Not Find Them", next_chapter_link="/books/things-i-learnt/magical-number-seven", next_chapter_title="The Magic Number Seven, Plus Or Minus Two") }}
