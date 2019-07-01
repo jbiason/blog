@@ -37,4 +37,4 @@ times before" -- will probably claim "Hey, this is _obvious_!" And I'd have to
 agree. But it's annoying how many times I got bitten by some stupid bug 'cause
 we decided that "well, everything is in the same timezone, so it's all good".
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/resist-easy", prev_chapter_title="Resist The Temptation Of Easy", next_chapter_link="/books/things-i-learnt/utf-utf8", next_chapter_title="Always Use UTF-8 For Your Strings") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/resist-easy", prev_chapter_title="Resist The Temptation Of Easy", next_chapter_link="/books/things-i-learnt/use-utf8", next_chapter_title="Always Use UTF-8 For Your Strings") }}
