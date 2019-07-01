@@ -39,4 +39,4 @@ surface of what the whole of a language encapsulates and if you ignore the
 other elements in it, you may find yourself with a cute language in a
 community that is always fighting and never going forward.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/resist-easy", prev_chapter_title="Resist The Temptation Of Easy", next_chapter_link="/books/things-i-learnt/outside-project", next_chapter_title="Don't Mess With Things Outside Your Project") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-timezones", prev_chapter_title="Always Use Timezones With Your Dates", next_chapter_link="/books/things-i-learnt/outside-project", next_chapter_title="Don't Mess With Things Outside Your Project") }}
