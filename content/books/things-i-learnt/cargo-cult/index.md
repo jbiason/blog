@@ -38,4 +38,4 @@ ProductX good, or even if it fits your solution. And there is much more
 [behind a product](/books/things-i-learnt/languages-are-more) than just its
 development.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/languages-are-more", prev_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/languages-are-more", prev_chapter_title="A Language Is Much More Than A Language", next_chapter_link="/books/things-i-learnt/right-tool-agenda", next_chapter_title="Right Tool For The Job Is Just To Push An Agenda") }}
