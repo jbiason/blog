@@ -30,4 +30,4 @@ what your IDE is doing.
 
 And when you grasp that, you'll be able to use _any_ IDE.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/log-events", next_chapter_title="Logs Are For Events, Not User Interface") }}
