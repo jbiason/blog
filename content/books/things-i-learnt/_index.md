@@ -41,6 +41,7 @@ template = "section-contentless.html"
 		* [Resist The Temptation Of Easy](resist-easy)
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
+		* [Start Stupid](start-stupid)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
 	* [Understand And Stay Away From Cargo Cult](cargo-cult)
