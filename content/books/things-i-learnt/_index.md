@@ -38,6 +38,7 @@ template = "section-contentless.html"
 		* [Types Say What Your Data Is](data-types)
 		* [If Your Data Has a Schema, Use a Structure](use-structures)
 		* [Don't Mess With Things Outside Your Project](outside-project)
+		* [Resist The Temptation Of Easy](resist-easy)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
 	* [Understand And Stay Away From Cargo Cult](cargo-cult)

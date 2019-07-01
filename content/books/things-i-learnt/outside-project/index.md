@@ -32,4 +32,4 @@ thing using extensions or actually coding around the problem, even duplicating
 the framework functions, would probably take longer and make you write more
 code, but in the long run, it's worth the time.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/use-structures", prev_chapter_title="If Your Data Has a Schema, Use a Structure", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-structures", prev_chapter_title="If Your Data Has a Schema, Use a Structure", next_chapter_link="/books/things-i-learnt/resist-easy", next_chapter_title="Resist The Temptation Of Easy") }}
