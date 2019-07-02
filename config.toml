@@ -30,6 +30,7 @@ highlight_code = true
 author = "Julio Biason"
 after_dark_menu = [
     {url = "$BASE_URL", name = "Home"},
+	{url = "$BASE_URL/announcements/about-me", name = "About Me"},
 	{url = "$BASE_URL/tags", name = "Tags"},
 	{url = "$BASE_URL/books", name = "Books"},
 ]
