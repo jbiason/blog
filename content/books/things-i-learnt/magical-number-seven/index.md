@@ -13,10 +13,14 @@ at the same time.
 <!-- more -->
 
 I've seen twice this weird construction on where a function would do some
-processing, but its return value was the return of a second function and
-some bit of processing. Nothing major. But the second function would also do
-some processing and call a third function. And the third function would call a
-fourth. And the fourth a fifth. And the fifth, a sixth function.
+processing, but its return value was the return of this processing, plus the
+result of a second function and some bit of processing. Nothing major. But the
+second function would also do some processing and call a third function. And
+the third function would call a fourth. And the fourth a fifth. And the fifth,
+a sixth function.
+
+And the "processing" was not something small, like "add two" or "multiply by
+itself or a configurable value".
 
 Something like this
 
@@ -29,6 +33,12 @@ func_1
 			     +-- func6
 ```
 
+(If you need the _real_ processing I saw, it was a class that had a function
+with some processing and then it would call a function in an injected
+dependency -- which is pretty nice and dandy. But the injected dependency had
+an injected dependency, and the third injected dependency _also_ had an
+injected dependency, and so forth).
+
 Now, when you're trying to understand this kind of code to find a problem,
 you'll have to keep in mind what the first, second, third, fourth, fifth and
 sixth functions do, 'cause they are all calling each other (inside them).
@@ -36,8 +46,8 @@ sixth functions do, 'cause they are all calling each other (inside them).
 This causes some serious mental overflow that shouldn't be necessary.
 
 Not only that, but imagine that you put a log before and after `func_1`: The
-log before points the data that's being send to func_1, and the log after its
-result.
+log before points the data that's being send to `func_1`, and the log after
+its result.
 
 So you'd end up with the impression that `func_1` does a lot of stuff, when it
 actually is passing the transformation along.
@@ -65,7 +75,14 @@ result6 = func_6(result5)
 result7 = func_7(result6)
 ```
 
-Now you can see _exactly_ how the data is being transfomed -- and, obviously,
+(If we go back to the dependency injection chain, you may think that instead
+of making DI7 receive DI6 as dependency [which would receive DI5 as
+dependency, which would receive DI4 as dependency, which would receive DI3 as
+dependency and so forth] you would actually create all the DI (dependency
+injections) in one single pass and then the starting function would call the
+dependencies in a single shot, not chaining them.)
+
+Now you can see _exactly_ how the data is being transformed -- and, obviously,
 the functions would have better names, like `expand`, `break_lines`,
 `name_fields` and so on, so you can see that that compressed data I mentioned
 before is actually being decompressed, the content is being broke line by
@@ -77,7 +94,7 @@ add this additional step).
 
 "But that isn't performant!" someone may cry. Well, maybe it's just a bit less
 performant than the original chained-calls ('cause it wouldn't create and
-destroy frames in the stack, it would just pile them up and then unstack them
+destroy frames in the stack, it would just pile them up and then "unstack" them
 all in the end), but heck, optimization is for compilers, not people. Your job
 is to make the code _readable_ and _understandable_. If you need performance,
 you can think of a better sequence of steps, not some "let's make this a mess

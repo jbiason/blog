@@ -6,7 +6,7 @@ date = 2019-06-26
 tags = ["en-au", "books", "things i learnt", "functional programming"]
 +++
 
-At this point, you should at least have hard about how cool functional
+At this point, you should at least have heard about how cool functional
 programming is. There are a lot of concepts here, but at least the very basic
 ones you should keep in mind.
 
@@ -18,14 +18,14 @@ A lot of talks about functional programming come with weird words like
 programming is actually easy to understand and grasp.
 
 For example, immutability. This means that all your data can't change once
-it's created. You have a record with user information and the user changed
-this password? No, do not change the password field, create a new user record
-with the updated password and discard the old one. Sure, it creates a lot of
-create and destroy sequences which makes absolutely no sense (why would you
+it's created. Do you have a record with user information and the user changed
+their password? No, do not change the password field, create a new user record
+with the updated password and discard the old one. Sure, it does a lot of
+"create and destroy" sequences which makes absolutely no sense (why would you
 allocate memory for a new user, copy everything from the old one to the new
-one, update one field, and deallocate the memory from the old one? It makes no
-sense!) but, in the long run, it would prevent weird results, specially when
-you understand and start use threads.
+one, update one field, and "deallocate" the memory from the old one? It makes
+no sense!) but, in the long run, it would prevent weird results, specially
+when you understand and start use threads.
 
 (Basically, you're avoiding a shared state -- the memory -- between parts of
 your code.)

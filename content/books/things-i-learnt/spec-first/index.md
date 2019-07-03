@@ -19,8 +19,9 @@ writing a bunch of things that doesn't solve anything -- or, at least,
 anything that _should_ be solved.
 
 So here is the point: Try to get a small spec on whatever you want to solve.
-But be aware that even that spec may have to be thrown out, as the
-understanding of the problem tend to grow as long as the project continue.
+But be aware that even that spec may have to be [thrown
+out](/books/things-i-learnt/throw-away), as the understanding of the problem
+tend to grow as long as the project continue.
 
 Yes, it's paradoxical: You need a spec to know what to code to avoid coding
 the wrong solution, but the spec may be wrong, so you _end up_ solving the
