@@ -14,10 +14,11 @@ personal opinion
 A lot of stuff I'm going to discuss throughout this book will come directly
 from my personal experience in several projects -- system applications, web
 backend, embedded, mobile, stream processing -- in several different languages
--- C, C++, Python, Java. And, because it comes from personal experience,
-everything reflects my own personal opinion on several subjects.
+-- C, C++, Python, Java, Clojure, Rust. And, because it comes from personal
+experience, everything reflects my own personal opinion on several subjects.
 
-Obviously, you don't need to agree with every single point.
+Obviously, you don't need to agree with every single point. But I hope at
+least it will make you rethink a few subjects.
 
 Also, sometimes I may mention some examples that people who know me -- either
 worked with me, heard me complain about some project, inherit one of my
@@ -32,10 +33,11 @@ things properly in a crunchtime. And that's why some things don't look as
 pretty as they should. Heck, if you think I'm attacking the original author of
 some example, look back the stuff I wrote and you'll see things a lot worse.
 
-But I need the example. I want to show people how things can be better. I want
-to show people how my opinion built over some subject. And, again, I'm in no
-way attacking the original author of the code. I may even call the code
-"stupid", but I'm not calling the author _stupid_.
+But I need the example. I have this hope that showing people a few mistakes
+can make things better. I want to show people how my opinion built over
+some subject. And, again, I'm in no way attacking the original author of the
+code. I may even call the code "stupid", but I'm not calling the author
+_stupid_.
 
 With that in mind...
 
