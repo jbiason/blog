@@ -14,10 +14,10 @@ the problem it self -- to fit the pattern.
 
 My guess is that the heavy use of "let's apply _this_ design pattern" before
 even understanding the problem -- or even trying to solve it -- comes as a
-form of [cargo cult](/books/things-i-learnt/cargo-cult): I heard people used
-this pattern and solved their problem, so let's use it too and it will solve
-our problem. Or, worse: Design pattern is described by _Famous Person_, so we
-must use it.
+form of [cargo cult](/books/things-i-learnt/cargo-cult): "We saw that people
+used this pattern and solved their problem, so let's use it too and it will
+solve our problem". Or, worse: "Design pattern is described by _Famous
+Person_, so we must use it".
 
 Here is the thing: Design pattern should _not_ be used as a way to find
 solution to any problems. You may use some of them as base for your solution,
@@ -25,7 +25,7 @@ but you must focus on the _problem_, not the _pattern_.
 
 "Do a visitor pattern will solve this?" is the wrong question. "What should we
 do to solve our problem?" is the real question. Once you went there and solved
-the problem you may look and see if it is a visitor pattern -- or whatever
+the problem you may look back and see if it is a visitor pattern -- or whatever
 pattern. If it doesn't, that's alright, 'cause you _solved the problem_. If it
 did... well, congratulations, you now know how to name your solution.
 

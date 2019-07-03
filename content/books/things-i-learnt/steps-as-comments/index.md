@@ -15,17 +15,18 @@ There you are, looking at the blank file wondering how you're going to solve
 that problem. Here is a tip:
 
 Take the spec you (or someone else) wrote. Break each point into a series of
-steps to reach the expected content. You can even write on your natural
+steps to reach the expected behaviour. You can even write on your natural
 language, if you don't speak English.
 
 Then fill the spaces between the comments with code.
 
 For example, if you have a spec of "connect to server X and retrieve
-everything there. You should save the content in the database. Remember that
-server X has an API that you can pass an ID (the last ID seen) and you can use
-it to not retrieve the same content again." Pretty simple, right?
+everything there. Save the content in the database. Remember that server X API
+allow you can pass an ID (the last ID seen) and you can use it to not retrieve
+the same content again." Pretty simple, right?
 
-Now, writing this in comments, pointing the steps you need to make:
+Writing this as comments, pointing the steps you need to make, you may end up
+with something like this:
 
 ```
 // connect to server X

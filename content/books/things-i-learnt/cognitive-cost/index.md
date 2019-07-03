@@ -36,7 +36,7 @@ sum(is_pred(x) for x in my_list)
 ```
 
 Wait, didn't I say that `sum()` sums numbers? And that `is_pred()` returns a
-boolean? How can I sum booleans? What's the expected result of True + True +
+boolean. How can I sum booleans? What's the expected result of True + True +
 False?
 
 Sadly, this works. Because someone, long time ago, didn't think booleans were
@@ -47,11 +47,11 @@ But, for you, you'll now read a line that says "summing a boolean list returns
 a number". And that's two different, disparate things that you suddenly have
 to keep in mind when reading that line.
 
-That's why [types are important](/books/things-i-learnt/data-types) are
-important. Also, this may sound a bit like [the magical number
+That's why [types are important](/books/things-i-learnt/data-types).  Also,
+this may sound a bit like [the magical number
 seven](/books/things-i-learnt/magical-number-seven), 'cause you have to keep
 two things at your mind at the same thing but, although that's not near seven,
-they are not the same, with opposite (for weird meanings of "opposite", in this
-case) meanings.
+they are not the same, with opposite (for weird meanings of "opposite", in
+this case) meanings.
 
 {{ chapters(prev_chapter_link="/books/things-i-learnt/magical-number-seven", prev_chapter_title="The Magic Number Seven, Plus Or Minus Two", next_chapter_link="/books/things-i-learnt/functional-programming", next_chapter_title="Learn The Basics of Functional Programming") }}
