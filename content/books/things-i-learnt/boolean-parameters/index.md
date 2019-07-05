@@ -6,8 +6,8 @@ date = 2019-06-23
 tags = ["en-au", "books", "things i learnt", "booleans", "functions", "parameters"]
 +++
 
-When you're designing a function, you may be tempted to add a flag. Don't do
-this.
+When you're designing a function, you may be tempted to add a flag (a
+parameter in a function that it is a boolean). Don't do this.
 
 <!-- more -->
 
@@ -27,6 +27,6 @@ another `getUserMessagesFull` or something around those lines, but each
 function just call the original `getUserMessage` with true or false -- but the
 interface to the outside of your class/module will still be clear.
 
-But _don't_ add flags/Boolean parameters to your functions.
+But _don't_ add flags/Boolean parameters to your API.
 
 {{ chapters(prev_chapter_link="/books/things-i-learnt/future-trashing", prev_chapter_title="Future Thinking is Future Trashing", next_chapter_link="/books/things-i-learnt/interface-changes", next_chapter_title="Beware of Interface Changes") }}

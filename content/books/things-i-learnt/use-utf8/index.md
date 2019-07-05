@@ -12,11 +12,11 @@ with no "weird" or "funny" characters.
 
 <!-- more -->
 
-I was born in a time when the only encoding we had was ASCII. You could encode
-all strings in sequences of bytes, 'cause all characters you could use where
-encoded from 1 to 255 (well, from 32 [space] to 93 [close brackets] and you
-still have a few latin-accented characters in some higher positions, although
-not all accents where there).
+I became a developer in a time when the only encoding we had was ASCII. You
+could encode all strings in sequences of bytes, 'cause all characters you
+could use where encoded from 1 to 255 (well, from 32 [space] to 93 [close
+brackets] and you still have a few latin-accented characters in some higher
+positions, although not all accents where there).
 
 Today, accepting characters beyond that is not the exception, but the norm. To
 cope with all that, we have things like
@@ -26,18 +26,18 @@ memory space (UTF-16 is also a good option here, but that would depend on your
 language).
 
 So, as much as you to make your system simple, you will have to keep the
-internal representation of your strings in UTF-8/UTF-16. Surely, you may not
-receive the data as UTF-8/UTF-16, but you'll have to encode it and keep
-transmitting it around as UTF-8/UTF-16 till you have to display it, at which
-point you'll convert from UTF-8/UTF-16 to whatever your display supports
-(maybe it even supports displaying in UTF-8/UTF-16, so you're good already).
+internal representation of your strings in UTF-8/UTF-16. You may not receive
+the data as UTF-8/UTF-16, but you'll have to encode it and keep transmitting
+it around as UTF-8/UTF-16 till you have to display it, at which point you'll
+convert from UTF-8/UTF-16 to whatever your display supports (maybe it even
+supports displaying in UTF-8/UTF-16, so you're good already).
 
-At this point, I believe most languages do support UTF-8, which is great. You
+Today, I believe most languages do support UTF-8, which is great. You
 may still have problems with inputs coming from other systems that are not
 UTF-8 (old Windows versions, for example), but that's fairly easy to convert
 -- the hard part is figuring out the input _encoding_, though. Also, most
-developers tend to ignore this and only accept ASCII characters, or ignore
-UTF-8/whatever-encoding and get a bunch of weird characters on their printing,
+developers tend to ignore this and assume the input is in ASCII, or ignore the
+input encoding and get a bunch of weird characters on their printing,
 'cause they completely ignored the conversion on the output point. That's why
 I'm repeating the mantra of UTF-8: To remind you to always capture your input,
 encode it in UTF-8 and _then_ convert in the output.
@@ -52,4 +52,4 @@ single character. Walking through the whole string would require traversing
 the string character by character, instead of simply jumping straight to the
 proper position. But that's a price worth paying, in the long run.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/use-timezones", prev_chapter_title="Always Use Timezones With Your Dates", next_chapter_link="/books/things-i-learnt/start-stupid", next_chapter_title="Start Stupid") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-timezones", prev_chapter_title="Always Use Timezones With Your Dates", next_chapter_link="/books/things-i-learnt/log-events", next_chapter_title="Logs Are For Events, Not User Interface") }}
