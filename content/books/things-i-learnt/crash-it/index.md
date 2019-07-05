@@ -36,4 +36,16 @@ of error handling -- as long as you don't have any idea on how to handle it.
 Then, when they crash, you can think of a way to deal with it, instead of
 silently capturing it and doing nothing.
 
+Also, keep in mind to not go forth and capture _every_ exception/error in a
+single take -- like the example above, which will capture every exception, or
+like `except Exception` in Python. This last example actually happened to me
+when another developer added this "broad except"[^1] in a network code and, at
+some point, the code would get into the capture all the time. We checked every
+cable, every connection, every interface, till I noticed there was a syntax
+error in the code. In Python, syntax errors raise exceptions and, because we
+had a "capture all exceptions", we lost some pretty good time looking for the
+problem in the wrong place.
+
+[^1]: As called by Pylint.
+
 {{ chapters(prev_chapter_link="/books/things-i-learnt/interface-changes", prev_chapter_title="Beware of Interface Changes", next_chapter_link="/books/things-i-learnt/handle-it", next_chapter_title="If You Know How To Handle It, Handle It") }}

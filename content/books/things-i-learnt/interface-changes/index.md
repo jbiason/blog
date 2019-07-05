@@ -7,7 +7,7 @@ tags = ["en-au", "books", "things i learnt", "interfaces", "apis"]
 +++
 
 Interfaces and APIs is what you give away to others. If you keep changing them,
-you'll make everyone's life a sad life.
+you'll make everyone's life sad.
 
 <!-- more -->
 
@@ -25,7 +25,7 @@ you can see these kind of changes happening and you can see the kind of
 changes you're doing on how they reflect externally.
 
 You can create the new functions and mark the current one as deprecated,
-either by documentation or by some code feature. Then, after a few released,
+either by documentation or by some code feature. Then, after a few releases,
 you can finally kill the original function.
 
 (A dickish move you can do is to create the new functions, mark the current

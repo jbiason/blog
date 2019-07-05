@@ -14,7 +14,7 @@ same results as a real airplane.
 
 <!-- more -->
 
-In I.T., a "cargo cult" is the expectation that if you use the same tools as
+In IT, a "cargo cult" is the expectation that if you use the same tools as
 some big players, you'd end up getting the same results.
 
 One example: Netflix runs a large fleet of microservices daily; they use

@@ -6,8 +6,8 @@ date = 2019-06-25
 tags = ["en-au", "books", "things i learnt", "frameworks"]
 +++
 
-Simple rule: Is the code yours or from your team? Good, go break it. Does it
-come from outside? DON'T. TOUCH. IT.
+Simple rule: Is the code yours or from your team? Good, you can make any
+changes you want. Does it come from outside? DON'T. TOUCH. IT.
 
 <!-- more -->
 
@@ -31,5 +31,13 @@ Sometimes doing it so is faster and cheaper, and if you would do the same
 thing using extensions or actually coding around the problem, even duplicating
 the framework functions, would probably take longer and make you write more
 code, but in the long run, it's worth the time.
+
+Sometimes the change you need is impossible 'cause the framework you're using
+doesn't have any support for extensions. This is the time you'll need to build
+a new layer _on top_ of the framework. Again, this may seem painful and
+changing the framework directly is a lot easier, but you'll have to keep
+updating your patch for newer versions, which may not be that easy. Building
+on top of the framework will at least give you some assurance 'cause the
+exposed API must be way more stable than the internal code.
 
 {{ chapters(prev_chapter_link="/books/things-i-learnt/use-structures", prev_chapter_title="If Your Data Has a Schema, Use a Structure", next_chapter_link="/books/things-i-learnt/resist-easy", next_chapter_title="Resist The Temptation Of Easy") }}

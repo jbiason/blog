@@ -22,19 +22,20 @@ typing. The same still applies.
 One classic example of misusing types is adding booleans. Booleans are either
 `true` or `false`, but because most languages follow C, which doesn't have a
 boolean type and uses compiler pre-processors to define `TRUE` as an integer
-with the value `1` and `FALSE` with another integer with the value `0`. And
-so, the build on top of what older developers knew, other languages use the
-same concepts. And so, you have a list of booleans and want to know how many
-true values are in the list, you can simply add them all.
+with the value `1` and `FALSE` with another integer with the value `0`. Newer
+languages were build on top of what older developers knew, and so, a bunch of
+those languages also assumed using an integer under booleans was a good idea.
+And even today, with modern languages, people rely on those old methods.
 
-Let me point that again: You're adding booleans and expecting a number.
+Let me repeat that: You're adding booleans and expecting a number -- only
+because in the old times there wasn't boolean types.
 
 No, you're counting the number of elements in the list 'cause that would see
 the whole list. You're not even filtering the false values over and counting
 the resulting list size. You're jumping the underlying type to get a bit of
 performance out.
 
-Fortunately, new languages are based on ML, which wouldn't allow this kind of
-stuff.
+Fortunately, some new languages are using booleans as a complete different
+type and wouldn't allow this kind of stuff.
 
 {{ chapters(prev_chapter_link="/books/things-i-learnt/handle-it", prev_chapter_title="If You Know How To Handle It, Handle It", next_chapter_link="/books/things-i-learnt/use-structures", next_chapter_title="If Your Data Has a Schema, Use a Structure") }}

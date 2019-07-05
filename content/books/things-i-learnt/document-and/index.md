@@ -13,9 +13,9 @@ documentation.
 <!-- more -->
 
 This is kind like "sometimes rule", but most of the time, when you feel you
-need to add and "and" to the function documentation (it's
+need to add an "and" to the function documentation (its
 [contract](/books/things-i-learnt/document-is-contract)), then you're telling
-that that function is doing two (or more things).
+that that function is doing two (or more) things.
 
 One of guiding principles of good code is the [Single responsibility
 principle](https://en.wikipedia.org/wiki/Single_responsibility_principle), in
@@ -27,6 +27,7 @@ Ok, but what now? Well, you have two functions, with two distinct contracts.
 Ok, but you _had_ those two being called, what happens now? Well, where you
 called one, you now will need to call two. If your preferred language have
 support for function composition, you can use that to group both functions
-again.
+again. This is the kind of stuff that you'll get when you [learn to use
+functional programming](/books/things-i-learnt/functional-programming).
 
 {{ chapters(prev_chapter_link="/books/things-i-learnt/document-is-contract", prev_chapter_title="The Function Documentation Is Its Contract", next_chapter_link="/books/things-i-learnt/languages-docs", next_chapter_title="Good Languages Come With Integrated Documentation") }}

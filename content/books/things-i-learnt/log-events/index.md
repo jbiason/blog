@@ -12,20 +12,22 @@ necessarily an human readable format.
 
 <!-- more -->
 
-For a long time, I used logs to show to the user what was happening. Nothing
-could be the idea of displaying errors, general information and, if the user
-requested, the internals of whatever is going on in one simple way. I mean,
-yeah, let me add the errors, the info messages and the debug messages and let
-the user decide what they want to see.
+For a long time, I used logs to show to the user what was happening. To me, it
+was logical to use something where I could mark errors as errors, general
+information as information and, if the user requested more information, print
+more information on what was going on. So I just added logging, defined normal
+messages as `info`, errors as `errors`, information that may help me find
+errors as `debug` and use _only_ the logging system for all output of the
+application.
 
 But that's not what logs are targeted for -- and now I'm having to rethink
 most of the stuff I already wrote.
 
 Use the standard output to inform the user what's going on, in a human
-readable format; use the standard err to inform the user when things go wrong;
-but use the logs to capture something that you'll have to process later, so
-you should probably use a format that it is easier to parse, even if it is not
-so friendly.
+readable format; use the standard error output to inform the user when things
+go wrong; but use the logs to capture something that you'll have to process
+later, so you should probably use a format that it is easier to parse, even if
+it is not so friendly.
 
 As an example, let's say you're connecting to a server. You could use the
 standard output to say "Connecting to server", to give the user a feedback
@@ -41,4 +43,4 @@ could have the values to try to figure out why it failed -- surely, logging
 why it failed also helps, but you know what I mean. This is an example of
 something that makes complete sense in logs, but not in user interfaces.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/start-stupid", prev_chapter_title="Start Stupid", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
