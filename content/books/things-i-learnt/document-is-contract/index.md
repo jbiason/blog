@@ -6,24 +6,24 @@ date = 2019-06-21
 tags = ["en-au", "books", "things i learnt", "documentation", "contracts"]
 +++
 
-When you start the code by [writing the
-documentation](/books/things-i-learnt/steps-as-comments), you're actually
-making a contract (probably with your future self): I'm saying this function
-does _this_ and _this_ is what it does.
+When you start the code by [writing the general flow as
+steps](/books/things-i-learnt/steps-as-comments) and making each step a
+function, you're actually making a contract (probably with your future self):
+I'm saying this function does _this_ and _this_ is what it does.
 
 <!-- more -->
 
 Remember that the documentation must be a clear explanation of what your code
-_is_ doing; remember that good messages will make [reading the code only by
-the function documentation](/books/things-i-learnt/document-id) should be
-clear.
+_is_ doing and _why_ it exists; remember that good messages will make [reading
+the code only by the function documentation](/books/things-i-learnt/document-id)
+should be clear.
 
 A function called `mult`, documented as "Get the value and multiply by 2" but,
-when you look at the code, it does multiply by 2, but sends the result through
-the network or even just asks a remote service to multiply the incoming result
-by 2, is clearly breaking its contract. It's not just multiplying by 2, it's
-doing more than just that, or it's asking someone else to manipulate the
-value.
+when you look at the code, it does multiply by 2, but also sends the result
+through the network or even just asks a remote service to multiply the
+incoming result by 2, is clearly breaking its contract. It's not just
+multiplying by 2, it's doing more than just that, or it's asking someone else
+to manipulate the value.
 
 Now, what happens when this kind of thing happens?
 

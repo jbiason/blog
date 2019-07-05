@@ -7,13 +7,13 @@ tags = ["en-au", "books", "things i learnt", "dates", "timezones"]
 +++
 
 No matter if the date you're receiving is in your local timezone and you'll
-display it in your timezone. Sooner or later, the fact that you ignored there
+display it in your timezone, sooner or later, the fact that you ignored there
 was a timezone behind that date will hurt you.
 
 <!-- more -->
 
 (Note: Most of this post when I say "date" you can think of "date and time",
-although the date should also be timezone aware.)
+although the date should also be "timezone aware".)
 
 At some point of my professional life, ignoring timezones was easy: You just
 pick the date, throw in the database, then read it back and everybody was
@@ -32,9 +32,10 @@ timezone as soon as possible and carry it around in all operations.
 Modules/classes that don't support timezones for dates/times should, as soon
 as possible, removed from the system.
 
-Developers a bit more seasoned -- and by "seasoned" I meant "Had to deal with
-times before" -- will probably claim "Hey, this is _obvious_!" And I'd have to
-agree. But it's annoying how many times I got bitten by some stupid bug 'cause
-we decided that "well, everything is in the same timezone, so it's all good".
+Any developers a bit more seasoned -- and by "seasoned" I meant "Had to deal
+with times before" -- will probably claim "Hey, this is _obvious_!" And I'd
+have to agree. But it's annoying how many times I got bitten by some stupid
+bug 'cause we decided that "well, everything is in the same timezone, so it's
+all good".
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/resist-easy", prev_chapter_title="Resist The Temptation Of Easy", next_chapter_link="/books/things-i-learnt/use-utf8", next_chapter_title="Always Use UTF-8 For Your Strings") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/start-stupid", prev_chapter_title="Start Stupid", next_chapter_link="/books/things-i-learnt/use-utf8", next_chapter_title="Always Use UTF-8 For Your Strings") }}

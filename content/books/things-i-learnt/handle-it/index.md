@@ -23,9 +23,9 @@ handle, no exceptions -- and tying with the previous point, if you don't know
 how to handle them, you should not capture them in the first place.
 
 But, no matter what language you're using, if you know an error/exception can
-occur, _deal with it_. If you have to save the save the content of the user
-somewhere else, log it to be reprocessed later or even just show an error
-message, do it.
+occur, _deal with it_. If you have to save the content of the user somewhere
+else, log it to be reprocessed later or even just show an error message, do
+it.
 
 Although I seriously meant it, it doesn't mean you have to remember every
 single exception/error code and what it means when calling a function. You can
