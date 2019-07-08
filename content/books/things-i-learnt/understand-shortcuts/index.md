@@ -37,4 +37,4 @@ me awhile to actually get _what_ I needed to do different from the shortcut to
 solve my problem: I had no idea what the shortcut did and, thus, I had no idea
 what I needed differently from the shortcut to solve my problem.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/functional-programming", prev_chapter_title="Learn The Basics of Functional Programming", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/functional-programming", prev_chapter_title="Learn The Basics of Functional Programming", next_chapter_link="/books/things-i-learnt/debuggers", next_chapter_title="Debuggers Are Overrated") }}
