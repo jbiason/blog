@@ -35,4 +35,4 @@ least, every library will pick its own format, every framework will pick its
 own format and they will never match the language format, and you'll end up
 with a mess of a documentation to decipher.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/document-and", prev_chapter_title="If A Function Description Includes An And, It's Wrong", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/document-and", prev_chapter_title="If A Function Description Includes An And, It's Wrong", next_chapter_link="/books/things-i-learnt/always-vcs", next_chapter_title="Always Use A Version Control System") }}

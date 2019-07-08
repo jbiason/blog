@@ -30,6 +30,8 @@ template = "section-contentless.html"
 		* [The Function Documentation Is Its Contract](document-is-contract)
 		* [If A Function Description Includes An "And", It's Wrong](document-and)
 		* [Good Languages Come With Integrated Documentation](languages-docs)
+	* Source Control
+		* [Always Use A Version Control System](always-vcs)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
