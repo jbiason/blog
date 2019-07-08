@@ -17,6 +17,8 @@ template = "section-contentless.html"
 		* [The Magic Number Seven, Plus Or Minus Two](magical-number-seven)
 		* [Cognitive Cost Is The Readability Killer](cognitive-cost)
 		* [Learn The Basics of Functional Programming](functional-programming)
+		* [Shortcuts Are Nice, But Only In The Short Run](understand-shortcuts)
+		* [Debuggers Are Overrated](debuggers)
 	* Testing Software
 		* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
 		* [Testing Every Function Creates Dead Code](tests-dead-code)
@@ -28,6 +30,8 @@ template = "section-contentless.html"
 		* [The Function Documentation Is Its Contract](document-is-contract)
 		* [If A Function Description Includes An "And", It's Wrong](document-and)
 		* [Good Languages Come With Integrated Documentation](languages-docs)
+	* Source Control
+		* [Always Use A Version Control System](always-vcs)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
