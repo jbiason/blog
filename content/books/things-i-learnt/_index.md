@@ -32,6 +32,7 @@ template = "section-contentless.html"
 		* [Good Languages Come With Integrated Documentation](languages-docs)
 	* Source Control
 		* [Always Use A Version Control System](always-vcs)
+		* [One Commit Per Change](one-change-commit)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)

@@ -39,4 +39,4 @@ And not just code that solves the problem, but also the tests for that code.
 ... unless you focus mostly on [integration
 tests](/books/things-i-learnt/integration-tests).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/always-vcs", prev_chapter_title="Always Use A Version Control System", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/always-vcs", prev_chapter_title="Always Use A Version Control System", next_chapter_link="/books/things-i-learnt/one-change-commit", next_chapter_title="One Commit Per Change") }}
