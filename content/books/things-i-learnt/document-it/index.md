@@ -31,6 +31,15 @@ description of "Multiples two numbers" may look redundant), but you have to
 ask yourself _why_ you needed such simple function. _Why_ it exists? _Where_
 it sits in the general data flow?
 
+Another thing you can document: rarely used functions. One example is Java
+Collectors: In Java, you can create a stream of data, which you can apply
+transformations and such and, in the end, you may put the resulting collection
+of data into another structure -- a list, for example. The thing is,
+collecting to a list is pretty common, but collecting into a map, with a
+function as key and another value as value, splitting the result into two
+different data blocks, is not that common. Because it is uncommon to see such
+collector, it is a good idea to add tips on what each option is.
+
 That's the things you need to document.
 
 [^1]: Please, don't make me revise this in 2027... :(
