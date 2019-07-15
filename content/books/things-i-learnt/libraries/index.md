@@ -45,4 +45,4 @@ your control, they are external to the project. So you may need to learn how
 to deal with this before creating the libraries. And, unfortunately, each
 language and build tool has its own way to manage this.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/project-organization", prev_chapter_title="Organize Your Code by Data/Type, Not Functionality", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/project-organization", prev_chapter_title="Organize Your Code by Data/Type, Not Functionality", next_chapter_link="/books/things-i-learnt/config-file", next_chapter_title="The Config File Is Friend") }}

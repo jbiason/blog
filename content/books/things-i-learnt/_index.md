@@ -36,6 +36,7 @@ template = "section-contentless.html"
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 		* [Create Libraries](libraries)
+		* [The Config File Is Friend](config-file)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)

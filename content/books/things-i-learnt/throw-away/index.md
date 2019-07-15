@@ -39,4 +39,4 @@ And not just code that solves the problem, but also the tests for that code.
 ... unless you focus mostly on [integration
 tests](/books/things-i-learnt/integration-tests).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/libraries", prev_chapter_title="Create Libraries", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/config-file", prev_chapter_title="The Config File Is Friend", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
