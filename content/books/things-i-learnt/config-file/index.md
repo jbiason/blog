@@ -52,4 +52,4 @@ you'll find that you're half-way through it.
 [^1]: In other words, they have a [time to
   live](https://en.wikipedia.org/wiki/Time_to_live).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/libraries", prev_chapter_title="Create Libraries", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/log-events", next_chapter_title="Logs Are For Events, Not User Interface") }}
