@@ -34,4 +34,22 @@ most of its can be used all the time. If the intersection of used things is
 very small, it may make more sense to split into different libraries and just
 "pick and chose" what to use.
 
+But besides the replacement of libraries, you can also think things like: "Ok,
+I have to remove elements after a while[^1]; but which would be a good time
+that they can exist before I can remove them?" Well, if you're not quite sure
+(and, sometimes, even when you're sure), you can use a configuration file to
+define how long those elements will stay in the system before being expunged.
+Maybe you're not even thinking about how long each element will stay in the
+system, but how many of those elements you'll keep in the system before
+removing the old ones -- which is, again, a good candidate to be moved to a
+configuration file.
+
+Configuration files allow you to change properties of the system without
+recompiling everything. And, if in the future you decide to follow the [12
+Factor app](https://en.wikipedia.org/wiki/Twelve-Factor_App_methodology),
+you'll find that you're half-way through it.
+
+[^1]: In other words, they have a [time to
+  live](https://en.wikipedia.org/wiki/Time_to_live).
+
 {{ chapters(prev_chapter_link="/books/things-i-learnt/libraries", prev_chapter_title="Create Libraries", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
