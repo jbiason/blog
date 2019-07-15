@@ -36,7 +36,6 @@ template = "section-contentless.html"
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 		* [Create Libraries](libraries)
-		* [The Config File Is Friend](config-file)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
@@ -51,6 +50,12 @@ template = "section-contentless.html"
 		* [Start Stupid](start-stupid)
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
+		* [Optimization Is For Compilers](optimization)
+	* Making Things Go
+		* [The Config File Is Friend](config-file)
+		* [Command Line Options Are Weird, But Helpful](command-line-options)
+		* [Not Just Function Composition, But Application Composition](application-composition)
+		* [Even for Application Composition, Start Stupid](app-composition-stupid)
 		* [Logs Are For Events, Not User Interface](log-events)
 		* [Learn To Monitor](monitoring)
 * Community/Teams
