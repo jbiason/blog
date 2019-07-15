@@ -35,6 +35,7 @@ template = "section-contentless.html"
 		* [One Commit Per Change](one-change-commit)
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
+		* [Create Libraries](libraries)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)

@@ -39,4 +39,4 @@ And not just code that solves the problem, but also the tests for that code.
 ... unless you focus mostly on [integration
 tests](/books/things-i-learnt/integration-tests).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/project-organization", prev_chapter_title="Organize Your Code by Data/Type, Not Functionality", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/libraries", prev_chapter_title="Create Libraries", next_chapter_link="/books/things-i-learnt/future-trashing", next_chapter_title="Future Thinking Is Future Trashing") }}
