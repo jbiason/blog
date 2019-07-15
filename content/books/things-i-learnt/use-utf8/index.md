@@ -52,4 +52,4 @@ single character. Walking through the whole string would require traversing
 the string character by character, instead of simply jumping straight to the
 proper position. But that's a price worth paying, in the long run.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/use-timezones", prev_chapter_title="Always Use Timezones With Your Dates", next_chapter_link="/books/things-i-learnt/config-file", next_chapter_title="The Config File Is Friend") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-timezones", prev_chapter_title="Always Use Timezones With Your Dates", next_chapter_link="/books/things-i-learnt/optimization", next_chapter_title="Optimization Is For Compilers") }}
