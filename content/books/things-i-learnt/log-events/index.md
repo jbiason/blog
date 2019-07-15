@@ -43,4 +43,4 @@ could have the values to try to figure out why it failed -- surely, logging
 why it failed also helps, but you know what I mean. This is an example of
 something that makes complete sense in logs, but not in user interfaces.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/monitoring", next_chapter_title=Learn To Monitor"") }}

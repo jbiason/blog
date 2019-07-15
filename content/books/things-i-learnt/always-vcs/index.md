@@ -30,4 +30,4 @@ change.
 And, in the long, since you'll end up with working in team and will be
 required to use a VCS, you'll be used to using one.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/languages-docs", prev_chapter_title="Good Languages Come With Integrated Documentation", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/languages-docs", prev_chapter_title="Good Languages Come With Integrated Documentation", next_chapter_link="/books/things-i-learnt/one-change-commit", next_chapter_title="One Commit Per Change") }}

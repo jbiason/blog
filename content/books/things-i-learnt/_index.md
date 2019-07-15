@@ -32,6 +32,11 @@ template = "section-contentless.html"
 		* [Good Languages Come With Integrated Documentation](languages-docs)
 	* Source Control
 		* [Always Use A Version Control System](always-vcs)
+		* [One Commit Per Change](one-change-commit)
+	* Project Organization
+		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
+		* [Create Libraries](libraries)
+		* [The Config File Is Friend](config-file)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
@@ -47,6 +52,7 @@ template = "section-contentless.html"
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
 		* [Logs Are For Events, Not User Interface](log-events)
+		* [Learn To Monitor](monitoring)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
 	* [Understand And Stay Away From Cargo Cult](cargo-cult)
