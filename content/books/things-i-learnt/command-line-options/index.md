@@ -29,4 +29,4 @@ Also, be aware that, today, there may be libraries to handle command line in
 every language, which will help you build a good command line interface, along
 with standardizing it to have the same interface as other applications.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/config-file", prev_chapter_title="The Config File Is Friend", next_chapter_link="/books/things-i-learnt/log-events", next_chapter_title="Logs Are For Events, Not User Interface") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/config-file", prev_chapter_title="The Config File Is Friend", next_chapter_link="/books/things-i-learnt/application-composition", next_chapter_title="Not Just Function Composition, But Application Composition") }}
