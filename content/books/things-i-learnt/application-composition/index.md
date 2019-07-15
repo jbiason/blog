@@ -41,4 +41,4 @@ applications (why would you ask your user to have _two_ applications open at
 the same time to make something work?) but you can extrapolate this for almost
 everything else.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/command-line-options", prev_chapter_title="Command Line Options Are Weird, But Helpful", next_chapter_link="/books/things-i-learnt/log-events", next_chapter_title="Logs Are For Events, Not User Interface") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/command-line-options", prev_chapter_title="Command Line Options Are Weird, But Helpful", next_chapter_link="/books/things-i-learnt/app-composition-stupid", next_chapter_title="Even for Application Composition, Start Stupid") }}

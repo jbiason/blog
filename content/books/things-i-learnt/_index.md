@@ -54,6 +54,7 @@ template = "section-contentless.html"
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)
 		* [Not Just Function Composition, But Application Composition](application-composition)
+		* [Even for Application Composition, Start Stupid](app-composition-stupid)
 		* [Logs Are For Events, Not User Interface](log-events)
 		* [Learn To Monitor](monitoring)
 * Community/Teams
