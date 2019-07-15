@@ -54,4 +54,4 @@ And picking a language for something _above_ the syntax is even worse.
   tool." So, basically, the community ignored whatever the community was
   using.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/log-events", prev_chapter_title="Logs Are For Events, Not User Interface", next_chapter_link="/books/things-i-learnt/outside-project", next_chapter_title="Don't Mess With Things Outside Your Project") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/monitoring", prev_chapter_title="Learn To Monitor", next_chapter_link="/books/things-i-learnt/outside-project", next_chapter_title="Don't Mess With Things Outside Your Project") }}

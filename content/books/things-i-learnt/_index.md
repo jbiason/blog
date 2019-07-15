@@ -51,6 +51,7 @@ template = "section-contentless.html"
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
 		* [Logs Are For Events, Not User Interface](log-events)
+		* [Learn To Monitor](monitoring)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
 	* [Understand And Stay Away From Cargo Cult](cargo-cult)
