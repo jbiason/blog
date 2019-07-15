@@ -33,6 +33,8 @@ template = "section-contentless.html"
 	* Source Control
 		* [Always Use A Version Control System](always-vcs)
 		* [One Commit Per Change](one-change-commit)
+	* Project Organization
+		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)

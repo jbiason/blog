@@ -36,4 +36,4 @@ the changes in the file before committing.
 [^1]: Ok, it _may_ have some issues if the field can't be null, but you get
   what I meant, right?
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/always-vcs", prev_chapter_title="Always Use A Version Control System", next_chapter_link="/books/things-i-learnt/throw-away", next_chapter_title="Be Ready To Throw Your Code Away") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/always-vcs", prev_chapter_title="Always Use A Version Control System", next_chapter_link="/books/things-i-learnt/project-organization", next_chapter_title="Organize Your Code by Data/Type, Not Functionality") }}
