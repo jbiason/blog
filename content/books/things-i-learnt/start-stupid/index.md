@@ -31,4 +31,4 @@ what your IDE is doing.
 
 And when you grasp that, you'll be able to use _any_ IDE.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/command-line-options", prev_chapter_title="Command Line Options Are Weird, But Helpful", next_chapter_link="/books/things-i-learnt/use-timezones", next_chapter_title="Always Use Timezones With Your Dates") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/resist-easy", prev_chapter_title="Resist The Temptation Of Easy", next_chapter_link="/books/things-i-learnt/use-timezones", next_chapter_title="Always Use Timezones With Your Dates") }}

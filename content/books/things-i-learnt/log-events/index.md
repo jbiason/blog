@@ -43,4 +43,4 @@ could have the values to try to figure out why it failed -- surely, logging
 why it failed also helps, but you know what I mean. This is an example of
 something that makes complete sense in logs, but not in user interfaces.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/config-file", prev_chapter_title="The Config File Is Friend", next_chapter_link="/books/things-i-learnt/monitoring", next_chapter_title=Learn To Monitor"") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/command-line-options", prev_chapter_title="Command Line Options Are Weird, But Helpful", next_chapter_link="/books/things-i-learnt/monitoring", next_chapter_title=Learn To Monitor"") }}

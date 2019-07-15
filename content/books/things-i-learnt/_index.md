@@ -47,12 +47,12 @@ template = "section-contentless.html"
 		* [If Your Data Has a Schema, Use a Structure](use-structures)
 		* [Don't Mess With Things Outside Your Project](outside-project)
 		* [Resist The Temptation Of Easy](resist-easy)
-		* [Command Line Options Are Weird, But Helpful](command-line-options)
 		* [Start Stupid](start-stupid)
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
-	* "Usability"
+	* Making Things Go
 		* [The Config File Is Friend](config-file)
+		* [Command Line Options Are Weird, But Helpful](command-line-options)
 		* [Logs Are For Events, Not User Interface](log-events)
 		* [Learn To Monitor](monitoring)
 * Community/Teams
