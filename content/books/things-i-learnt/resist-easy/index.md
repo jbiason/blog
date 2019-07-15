@@ -28,4 +28,4 @@ These days, IDEs can autocomplete almost everything, from function names to
 even how to name your variables. But using the autocomplete is not always a
 good solution. Finding better names is.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/outside-project", prev_chapter_title="Don't Mess With Things Outside Your Project", next_chapter_link="/books/things-i-learnt/start-stupid", next_chapter_title="Start Stupid") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/outside-project", prev_chapter_title="Don't Mess With Things Outside Your Project", next_chapter_link="/books/things-i-learnt/command-line-options", next_chapter_title="Command Line options Are Weird, But Helpful") }}
