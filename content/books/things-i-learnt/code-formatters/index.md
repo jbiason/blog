@@ -46,4 +46,4 @@ have the maturity and responsibility to watch yourself and be willing to fix
 and take responsibility for other people's code when the formatter changes
 their code.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/code-review-styles", prev_chapter_title="Code Reviews Are Not For Style") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/code-review-styles", prev_chapter_title="Code Reviews Are Not For Style", next_chapter_link="/books/things-i-learnt/code-style", next_chapter_title="Code Style: Follow It") }}

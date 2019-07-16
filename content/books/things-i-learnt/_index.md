@@ -65,3 +65,4 @@ template = "section-contentless.html"
 	* [The Right Tool Is More Obvious Than You Think](right-tool-obvious)
 	* [Code Reviews Are Not For Style](code-reviews-style)
 	* [Code Formatting Tools Are Ok, But No Silver Bullet](code-formatters)
+	* [Code Style: Follow It](code-style)
