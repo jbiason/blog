@@ -63,3 +63,7 @@ template = "section-contentless.html"
 	* [Understand And Stay Away From Cargo Cult](cargo-cult)
 	* ["Right Tool For The Job" Is Just To Push An Agenda](right-tool-agenda)
 	* [The Right Tool Is More Obvious Than You Think](right-tool-obvious)
+	* [Code Reviews Are Not For Style](code-reviews-style)
+	* [Code Formatting Tools Are Ok, But No Silver Bullet](code-formatters)
+	* [Code Style: Follow It](code-style)
+	* [... Unless That Code Style Is The Google Code Style](google-code-style)

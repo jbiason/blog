@@ -26,4 +26,4 @@ One of the reason your hero project may fail is because of this: You may even
 prove that what you thought it was a better solution is actually a better
 solution, but it can't be applied 'cause nobody else can maintain it.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/right-tool-agenda", prev_chapter_title="Right Tool For The Job Is Just To Push An Agenda") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/right-tool-agenda", prev_chapter_title="Right Tool For The Job Is Just To Push An Agenda", next_chapter_link="/books/things-i-learnt/code-reviews-style", next_chapter_title="Code Reviews Are Not For Style") }}
