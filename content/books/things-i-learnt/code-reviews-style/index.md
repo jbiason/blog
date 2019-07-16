@@ -29,4 +29,4 @@ On the other hand, if you find something weird in the code which is something
 you want the author to recheck, _then_ you're free to comment that "it would
 be good" if they fix the style. But that's it.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/right-tool-obvious", prev_chapter_title="The Right Tool Is More Obvious Than You Think") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/right-tool-obvious", prev_chapter_title="The Right Tool Is More Obvious Than You Think", next_chapter_link="/books/things-i-learnt/right-tool-obvious", next_chapter_title="The Right Tool Is More Obvious Than You Think") }}

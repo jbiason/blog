@@ -64,3 +64,4 @@ template = "section-contentless.html"
 	* ["Right Tool For The Job" Is Just To Push An Agenda](right-tool-agenda)
 	* [The Right Tool Is More Obvious Than You Think](right-tool-obvious)
 	* [Code Reviews Are Not For Style](code-reviews-style)
+	* [Code Formatting Tools Are Ok, But No Silver Bullet](code-formatters)
