@@ -66,3 +66,4 @@ template = "section-contentless.html"
 	* [Code Reviews Are Not For Style](code-reviews-style)
 	* [Code Formatting Tools Are Ok, But No Silver Bullet](code-formatters)
 	* [Code Style: Follow It](code-style)
+	* [... Unless That Code Style Is The Google Code Style](google-code-style)

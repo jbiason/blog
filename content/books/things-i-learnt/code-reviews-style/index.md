@@ -1,5 +1,5 @@
 +++
-title = "Things I Learnt The Hard Way - The Right Tool Is More Obvious Than You Think"
+title = "Things I Learnt The Hard Way - Code Reviews Are Not For Style"
 date = 2019-07-16
 
 [taxonomies]

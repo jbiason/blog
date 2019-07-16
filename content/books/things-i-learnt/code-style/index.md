@@ -23,4 +23,4 @@ And remember that even your stupid code is [part of the ecosystem of the
 language](/books/things-i-learnt/languages-are-more) and the better you
 interact with the ecosystem, the better citizen in the ecosystem you are.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/code-formatters", prev_chapter_title="Code Formatting Tools Are Ok, But No Silver Bullet") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/code-formatters", prev_chapter_title="Code Formatting Tools Are Ok, But No Silver Bullet", next_chapter_link="/books/things-i-learnt/google-code-style", next_chapter_title="... Unless That Code Style Is The Google Code Style") }}
