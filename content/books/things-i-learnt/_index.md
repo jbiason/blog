@@ -19,6 +19,7 @@ template = "section-contentless.html"
 		* [Learn The Basics of Functional Programming](functional-programming)
 		* [Shortcuts Are Nice, But Only In The Short Run](understand-shortcuts)
 		* [Debuggers Are Overrated](debuggers)
+		* [Think About The Users](users)
 	* Testing Software
 		* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
 		* [Testing Every Function Creates Dead Code](tests-dead-code)
@@ -51,6 +52,7 @@ template = "section-contentless.html"
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
 		* [Optimization Is For Compilers](optimization)
+		* [Units Makes Things Clear](units)
 	* Making Things Go
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)
@@ -67,3 +69,6 @@ template = "section-contentless.html"
 	* [Code Formatting Tools Are Ok, But No Silver Bullet](code-formatters)
 	* [Code Style: Follow It](code-style)
 	* [... Unless That Code Style Is The Google Code Style](google-code-style)
+* Personal
+	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
+	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)

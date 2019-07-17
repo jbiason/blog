@@ -37,4 +37,4 @@ Again, I'm not taking the merits of debuggers, but in the long run, they are
 mostly useless and actually point missing surrounding support to actually
 understand what's going on.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/understand-shortcuts", prev_chapter_title="Shortcuts Are Nice, But Only In The Short Run", next_chapter_link="/books/things-i-learnt/integration-tests", next_chapter_title="Unit Tests Are Good, Integration Tests Are Gooder") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/understand-shortcuts", prev_chapter_title="Shortcuts Are Nice, But Only In The Short Run", next_chapter_link="/books/things-i-learnt/users", next_chapter_title="Think About The Users") }}
