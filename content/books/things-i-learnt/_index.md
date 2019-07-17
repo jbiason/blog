@@ -71,3 +71,4 @@ template = "section-contentless.html"
 	* [... Unless That Code Style Is The Google Code Style](google-code-style)
 * Personal
 	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
+	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)

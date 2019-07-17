@@ -40,4 +40,4 @@ in C show up and guess who also knew C?
 
 [^1]: ... which led me into some sad times when I was working with Python.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/google-code-style", prev_chapter_title="... Unless That Code Style Is The Google Code Style") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/google-code-style", prev_chapter_title="... Unless That Code Style Is The Google Code Style", next_chapter_link="/books/things-i-learnt/stupid-bugs-list", next_chapter_title="Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve") }}
