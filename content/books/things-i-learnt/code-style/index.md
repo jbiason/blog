@@ -23,4 +23,10 @@ And remember that even your stupid code is [part of the ecosystem of the
 language](/books/things-i-learnt/languages-are-more) and the better you
 interact with the ecosystem, the better citizen in the ecosystem you are.
 
+**TIP**: If you don't have a code style yet, and you're using a language
+that's derived from C or C++, use [K&R
+Style](https://en.wikipedia.org/wiki/Indentation_style#K&R_style); if you're
+working with Python, there is only one style:
+[PEP8](https://www.python.org/dev/peps/pep-0008/).
+
 {{ chapters(prev_chapter_link="/books/things-i-learnt/code-formatters", prev_chapter_title="Code Formatting Tools Are Ok, But No Silver Bullet", next_chapter_link="/books/things-i-learnt/google-code-style", next_chapter_title="... Unless That Code Style Is The Google Code Style") }}
