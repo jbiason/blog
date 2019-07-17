@@ -19,6 +19,7 @@ template = "section-contentless.html"
 		* [Learn The Basics of Functional Programming](functional-programming)
 		* [Shortcuts Are Nice, But Only In The Short Run](understand-shortcuts)
 		* [Debuggers Are Overrated](debuggers)
+		* [Think About The Users](users)
 	* Testing Software
 		* [Unit Tests Are Good, Integration Tests Are Gooder](integration-tests)
 		* [Testing Every Function Creates Dead Code](tests-dead-code)

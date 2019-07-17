@@ -72,4 +72,4 @@ of moving parts.
 [^2]: Again, it's pure feeling from my experience. I have no data to back that
   affirmation up, so take it with a grain of salt.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/debuggers", prev_chapter_title="Debuggers Are Overrated", next_chapter_title="Testing Every Function Creates Dead Code", next_chapter_link="/books/things-i-learnt/tests-dead-code") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/users", prev_chapter_title="Think About The Users", next_chapter_title="Testing Every Function Creates Dead Code", next_chapter_link="/books/things-i-learnt/tests-dead-code") }}
