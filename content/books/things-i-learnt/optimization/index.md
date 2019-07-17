@@ -35,5 +35,4 @@ Code is written for humans to read. _ALWAYS_. Optimization is what compilers
 do. So find a smarter way to explain what you're trying to do instead of using
 shorter words or messing with that your code is saying.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/config-file", next_chapter_title="The Config File Is Friend") }}
-
+{{ chapters(prev_chapter_link="/books/things-i-learnt/use-utf8", prev_chapter_title="Always Use UTF-8 For Your Strings", next_chapter_link="/books/things-i-learnt/units", next_chapter_title="Units Makes Things Clear") }}

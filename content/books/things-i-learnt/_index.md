@@ -51,6 +51,7 @@ template = "section-contentless.html"
 		* [Always Use Timezones With Your Dates](use-timezones)
 		* [Always Use UTF-8 For Your Strings](use-utf8)
 		* [Optimization Is For Compilers](optimization)
+		* [Units Makes Things Clear](units)
 	* Making Things Go
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)
