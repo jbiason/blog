@@ -22,4 +22,4 @@ Also, when you're not feeling fine, you won't be able to concentrate and your
 productivity will plunge. It's a lot better to be a burden to society at your
 own place than a burden to society at work.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/stupid-bugs-list", prev_chapter_title="Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/stupid-bugs-list", prev_chapter_title="Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve", next_chapter_link="/books/things-i-learnt/coc", next_chapter_title="Code of Conduct Protect YOU, Not THEM") }}
