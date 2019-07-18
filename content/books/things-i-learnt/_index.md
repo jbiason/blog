@@ -53,6 +53,7 @@ template = "section-contentless.html"
 		* [Always Use UTF-8 For Your Strings](use-utf8)
 		* [Optimization Is For Compilers](optimization)
 		* [Units Makes Things Clear](units)
+		* [If It Doesn't Run On Your Computer, You Have A Problem](run-locally)
 	* Making Things Go
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)
@@ -72,3 +73,8 @@ template = "section-contentless.html"
 * Personal
 	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
 	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)
+	* [When It's Time to Stop, It's Time To Stop](time-to-stop)
+	* [Code of Conduct Protect YOU, Not THEM](coc)
+	* [Learn To Say No](say-no)
+	* [Take Responsibility For The Use Of Your Code](responsible-code)
+	* [Don't Tell It's Done When It's Not](not-done)
