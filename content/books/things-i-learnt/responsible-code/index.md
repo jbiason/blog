@@ -45,4 +45,4 @@ looking for a new place to work. People on larger and "cooler" companies, like
 Google, left their jobs because they didn't agree with what the company was
 doing, and so can you.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/say-no", prev_chapter_title="Learn To Say No") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/say-no", prev_chapter_title="Learn To Say No", next_chapter_link="/books/things-i-learnt/not-done", next_chapter_title="Don't Tell It's Done When It's Not") }}
