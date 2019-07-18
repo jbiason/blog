@@ -26,4 +26,4 @@ That's why adding units to the function or parameters make sense. It removes
 the ambiguity of what it means and doesn't rely on some specialized IDE/Editor
 that display the parameter names.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/optimization", prev_chapter_title="Optimization Is For Compilers", next_chapter_link="/books/things-i-learnt/config-file", next_chapter_title="The Config File Is Friend") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/optimization", prev_chapter_title="Optimization Is For Compilers", next_chapter_link="/books/things-i-learnt/run-locally", next_chapter_title="If It Doesn't Run On Your Computer, You Have A Problem") }}

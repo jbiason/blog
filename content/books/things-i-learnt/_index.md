@@ -53,6 +53,7 @@ template = "section-contentless.html"
 		* [Always Use UTF-8 For Your Strings](use-utf8)
 		* [Optimization Is For Compilers](optimization)
 		* [Units Makes Things Clear](units)
+		* [If It Doesn't Run On Your Computer, You Have A Problem](run-locally)
 	* Making Things Go
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)
