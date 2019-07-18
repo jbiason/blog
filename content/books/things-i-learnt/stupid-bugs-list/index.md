@@ -21,4 +21,4 @@ what went wrong.
 If I just had a list of stupid bugs that took me about 1 hour or more to
 solve, I wouldn't be stuck for another hour figuring out what went wrong.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/specialists", prev_chapter_title="Companies Look For Specialists But Keep Generalists Longer") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/specialists", prev_chapter_title="Companies Look For Specialists But Keep Generalists Longer", next_chapter_link="/books/things-i-learnt/time-to-stop", next_chapter_title="When It's Time to Stop, It's Time To Stop") }}

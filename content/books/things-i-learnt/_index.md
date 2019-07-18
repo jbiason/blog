@@ -73,3 +73,4 @@ template = "section-contentless.html"
 * Personal
 	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
 	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)
+	* [When It's Time to Stop, It's Time To Stop](time-to-stop)
