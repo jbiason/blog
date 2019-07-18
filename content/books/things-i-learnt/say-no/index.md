@@ -24,4 +24,4 @@ you in the former, you should start looking for a new place to work. If you
 said you won't be comfortable and still _did the work_, and they had to label
 you something, then this place doesn't respect you as a person.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/coc", prev_chapter_title="Code of Conduct Protect YOU, Not THEM") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/coc", prev_chapter_title="Code of Conduct Protect YOU, Not THEM", next_chapter_link="/books/things-i-learnt/responsible-code", next_chapter_title="Take Responsibility For The Use Of Your Code") }}

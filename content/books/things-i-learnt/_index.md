@@ -76,3 +76,4 @@ template = "section-contentless.html"
 	* [When It's Time to Stop, It's Time To Stop](time-to-stop)
 	* [Code of Conduct Protect YOU, Not THEM](coc)
 	* [Learn To Say No](say-no)
+	* [Take Responsibility For The Use Of Your Code](responsible-code)
