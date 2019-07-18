@@ -75,3 +75,4 @@ template = "section-contentless.html"
 	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)
 	* [When It's Time to Stop, It's Time To Stop](time-to-stop)
 	* [Code of Conduct Protect YOU, Not THEM](coc)
+	* [Learn To Say No](say-no)

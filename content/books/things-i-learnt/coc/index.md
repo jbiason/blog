@@ -24,4 +24,4 @@ can abuse their position of "veteran" to not respect you.
 Also, remember that most people that are against CoCs are the ones that want
 to be able to call names on everyone.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/time-to-stop", prev_chapter_title="When It's Time to Stop, It's Time To Stop") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/time-to-stop", prev_chapter_title="When It's Time to Stop, It's Time To Stop", next_chapter_link="/books/things-i-learnt/say-no", next_chapter_title="Learn To Say No") }}
