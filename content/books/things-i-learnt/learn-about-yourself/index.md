@@ -22,4 +22,14 @@ The worst part of it all? Very few people will tell you what you're doing
 before it's too late -- you'll get in trouble way before you could actually
 understand what you were doing.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/not-done", prev_chapter_title="Don't Tell It's Done When It's Not") }}
+But, again, you'll get in trouble.
+
+And you _must_ learn about these events. Take the feedback as true, even if
+you don't agree with it. I had my falls, and I always took it as something I
+need to improve, even if later I said to my psychologist that I thought it was
+unfair and biased -- mostly 'cause I'm the quiet guy that always took the
+blows and never complained about, and people taking the flak from me were more
+vocal and friendlier to the higher-ups. But, again, I took it as true, and did
+my best to work on those problems.
+
+{{ chapters(prev_chapter_link="/books/things-i-learnt/people-care", prev_chapter_title="You'll Learn About Yourself The Hard Way") }}
