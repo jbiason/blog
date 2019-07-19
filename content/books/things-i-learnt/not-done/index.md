@@ -30,4 +30,4 @@ On the other hand, if you say "Almost, but there is this thing that bothers me
 and I think it may give us a headache in the future", they will understand. So
 be clear and transparent about your work.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/responsible-code", prev_chapter_title="Take Responsibility For The Use Of Your Code") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/responsible-code", prev_chapter_title="Take Responsibility For The Use Of Your Code", next_chapter_link="/books/things-i-learnt/people-care", next_chapter_title="People Get Upset About Code And Architecture Quality 'Cause They Care") }}
