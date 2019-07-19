@@ -32,4 +32,4 @@ blows and never complained about, and people taking the flak from me were more
 vocal and friendlier to the higher-ups. But, again, I took it as true, and did
 my best to work on those problems.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/people-care", prev_chapter_title="You'll Learn About Yourself The Hard Way") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/people-care", prev_chapter_title="You'll Learn About Yourself The Hard Way", next_chapter_link="/books/things-i-learnt/watch-reactions", next_chapter_title="Pay Attention On How People React To You") }}
