@@ -78,3 +78,4 @@ template = "section-contentless.html"
 	* [Learn To Say No](say-no)
 	* [Take Responsibility For The Use Of Your Code](responsible-code)
 	* [Don't Tell It's Done When It's Not](not-done)
+	* [You'll Learn About Yourself The Hard Way](learn-about-yourself)
