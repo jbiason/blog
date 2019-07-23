@@ -81,3 +81,4 @@ template = "section-contentless.html"
 	* [People Get Upset About Code And Architecture Quality 'Cause They Care](people-care)
 	* [You'll Learn About Yourself The Hard Way](learn-about-yourself)
 	* [Pay Attention On How People React To You](watch-reactions)
+	* [Beware of Toxic People](toxic-people)

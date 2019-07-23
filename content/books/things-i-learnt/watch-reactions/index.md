@@ -28,4 +28,4 @@ they opening themselves to you or are they closing?
 [^1]: I have this "serious" problem that, depending on the word someone says,
   I recall some lyrics and suddenly start singing it.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/learn-about-yourself", prev_chapter_title="You'll Learn About Yourself The Hard Way") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/learn-about-yourself", prev_chapter_title="You'll Learn About Yourself The Hard Way", next_chapter_link="/books/things-i-learnt/toxic-people", next_chapter_title="Beware of Toxic People") }}
