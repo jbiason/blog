@@ -26,4 +26,9 @@ out immediately. Their attitude towards other (and maybe even yourself) will
 drive you so down you'll waste more time wondering what you did wrong than
 doing your job.
 
+One thing to take a lot of care: Even if it is not your intention, you may not
+realize that you may be seen as toxic 'cause [you don't understand yourself
+yet](/books/things-i-learnt/learn-about-yourself) and the way [people react to
+you](/books/things-i-learnt/watch-reactions).
+
 {{ chapters(prev_chapter_link="/books/things-i-learnt/watch-reactions", prev_chapter_title="Pay Attention On How People React To You") }}
