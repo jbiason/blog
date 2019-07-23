@@ -52,4 +52,4 @@ Better just stay away and avoid contact if possible.
 
 [^3]: And I do wish you have a HR department that understand microaggressions.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/toxic-people", prev_chapter_title="Beware of Toxic People") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/toxic-people", prev_chapter_title="Beware of Toxic People", next_chapter_link="/books/things-i-learnt/fixable", next_chapter_title="Toxic/Aggressive People Are Fixable") }}
