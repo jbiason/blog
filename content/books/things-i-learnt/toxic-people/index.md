@@ -31,4 +31,4 @@ realize that you may be seen as toxic 'cause [you don't understand yourself
 yet](/books/things-i-learnt/learn-about-yourself) and the way [people react to
 you](/books/things-i-learnt/watch-reactions).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/watch-reactions", prev_chapter_title="Pay Attention On How People React To You") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/watch-reactions", prev_chapter_title="Pay Attention On How People React To You", next_chapter_link="/books/things-i-learnt/microaggressions", next_chapter_title="Beware of Microaggressions") }}

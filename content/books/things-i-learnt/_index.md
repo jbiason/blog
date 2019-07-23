@@ -82,3 +82,4 @@ template = "section-contentless.html"
 	* [You'll Learn About Yourself The Hard Way](learn-about-yourself)
 	* [Pay Attention On How People React To You](watch-reactions)
 	* [Beware of Toxic People](toxic-people)
+	* [Beware of Microaggressions](microaggressions)
