@@ -86,3 +86,4 @@ template = "section-contentless.html"
 	* [Beware of Toxic People](toxic-people)
 	* [Beware of Microaggressions](microaggressions)
 	* [Toxic/Aggressive People Are Not Fixable -- Unless It's You](fixable)
+	* [Realize When It's Time To Quit](quit)
