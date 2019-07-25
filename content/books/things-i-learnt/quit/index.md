@@ -27,4 +27,4 @@ I've to say it: You're in a toxic environment. Even if the pay is nice and the
 project is interesting, it's not worth your health. You'd end up being a
 constantly pissed off, annoyed person on your forties (_cough_).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/fixable", prev_chapter_title="Toxic/Aggressive People Are Not Fixable -- Unless It's You") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/fixable", prev_chapter_title="Toxic/Aggressive People Are Not Fixable -- Unless It's You", next_chapter_link="/books/things-i-learnt/small-world", next_chapter_title="I.T. World Is Really Small") }}
