@@ -33,4 +33,4 @@ I can but, hey, I'm just human.
   I'm bad mouthing or just telling what happened is up to whoever is listening
   to me.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/quit", prev_chapter_title="Realize When It's Time To Quit") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/quit", prev_chapter_title="Realize When It's Time To Quit", next_chapter_link="/books/things-i-learnt/blogging", next_chapter_title="Blogging About Your Stupid Solution Is Still Better Than Being Quiet") }}
