@@ -82,6 +82,7 @@ template = "section-contentless.html"
 	* [People Get Upset About Code And Architecture Quality 'Cause They Care](people-care)
 	* [You'll Learn About Yourself The Hard Way](learn-about-yourself)
 	* [Pay Attention On How People React To You](watch-reactions)
+	* [Don't Confuse Hero Project With Hero Syndrome](hero-syndrome)
 	* [Beware of Toxic People](toxic-people)
 	* [Beware of Microaggressions](microaggressions)
 	* [Toxic/Aggressive People Are Not Fixable -- Unless It's You](fixable)
