@@ -91,3 +91,4 @@ template = "section-contentless.html"
 	* [I.T. World Is Really Small](small-world)
 	* [Blogging About Your Stupid Solution Is Still Better Than Being Quiet](blogging)
 	* [Don't Hide Your Stupid Solution](post-solution)
+	* [Keep A List of Things I Don't Know](things-i-dont-know)

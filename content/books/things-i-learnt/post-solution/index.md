@@ -31,5 +31,4 @@ about the language/design you used.
   [Rust](https://www.rust-lang.org/) wouldn't think I have 30 years of
   experience in the field. Everybody is a beginner at some point.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/blogging", prev_chapter_title="Blogging About Your Stupid Solution Is Still Better Than Being Quiet") }}
-
+{{ chapters(prev_chapter_link="/books/things-i-learnt/blogging", prev_chapter_title="Blogging About Your Stupid Solution Is Still Better Than Being Quiet", next_chapter_link="/books/things-i-learnt/things-i-dont-know", next_chapter_title="Keep A List of Things I Don't Know") }}
