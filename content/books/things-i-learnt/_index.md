@@ -90,3 +90,4 @@ template = "section-contentless.html"
 	* [Realize When It's Time To Quit](quit)
 	* [I.T. World Is Really Small](small-world)
 	* [Blogging About Your Stupid Solution Is Still Better Than Being Quiet](blogging)
+	* [Don't Hide Your Stupid Solution](post-solution)

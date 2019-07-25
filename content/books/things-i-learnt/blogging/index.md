@@ -30,4 +30,4 @@ towards you.
 There are several options on where to blog; even Github/Gitlab can be used to
 blogging, using their Pages features.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/small-world", prev_chapter_title="I.T. World Is Really Small") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/small-world", prev_chapter_title="I.T. World Is Really Small", next_chapter_link="/books/things-i-learnt/post-solution", next_chapter_title="Don't Hide Your Stupid Solution") }}
