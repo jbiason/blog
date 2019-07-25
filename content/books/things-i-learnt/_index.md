@@ -37,6 +37,7 @@ template = "section-contentless.html"
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 		* [Create Libraries](libraries)
+		* [Paper Notes Are Actually Helpful](paper-notes)
 	* Writing code
 		* [Be Ready To Throw Your Code Away](throw-away)
 		* [Future Thinking Is Future Trashing](future-trashing)
@@ -70,6 +71,7 @@ template = "section-contentless.html"
 	* [Code Formatting Tools Are Ok, But No Silver Bullet](code-formatters)
 	* [Code Style: Follow It](code-style)
 	* [... Unless That Code Style Is The Google Code Style](google-code-style)
+	* [Hero Projects: You'll Have To Do It Yourself](hero-projects)
 * Personal
 	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
 	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)
@@ -81,6 +83,12 @@ template = "section-contentless.html"
 	* [People Get Upset About Code And Architecture Quality 'Cause They Care](people-care)
 	* [You'll Learn About Yourself The Hard Way](learn-about-yourself)
 	* [Pay Attention On How People React To You](watch-reactions)
+	* [Don't Confuse Hero Project With Hero Syndrome](hero-syndrome)
 	* [Beware of Toxic People](toxic-people)
 	* [Beware of Microaggressions](microaggressions)
 	* [Toxic/Aggressive People Are Not Fixable -- Unless It's You](fixable)
+	* [Realize When It's Time To Quit](quit)
+	* [I.T. World Is Really Small](small-world)
+	* [Blogging About Your Stupid Solution Is Still Better Than Being Quiet](blogging)
+	* [Don't Hide Your Stupid Solution](post-solution)
+	* [Keep A List of Things I Don't Know](things-i-dont-know)

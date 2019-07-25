@@ -28,4 +28,4 @@ you](/books/things-i-learnt/watch-reactions), you may notice that you may be
 doing this to others. And now the ball is in your park: Do you want to be a
 better person or not?
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/microaggressions", prev_chapter_title="Beware of Microaggressions") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/microaggressions", prev_chapter_title="Beware of Microaggressions", next_chapter_link="/books/things-i-learnt/quit", next_chapter_title="Realize When It's Time To Quit") }}
