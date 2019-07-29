@@ -34,6 +34,7 @@ template = "section-contentless.html"
 	* Source Control
 		* [Always Use A Version Control System](always-vcs)
 		* [One Commit Per Change](one-change-commit)
+		* [Gerrit Is A Mistake](gerrit)
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 		* [Create Libraries](libraries)
