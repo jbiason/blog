@@ -19,4 +19,4 @@ When I start my research, I keep some notes together, although [not on
 paper](/books/things-i-learnt/paper-notes), so I can use as reference in the
 future.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/post-solution", prev_chapter_title="Don't Hide Your Stupid Solution") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/post-solution", prev_chapter_title="Don't Hide Your Stupid Solution", next_chapter_link="/books/things-i-learnt/time", "next_chapter_title="You Always Have The Time") }}

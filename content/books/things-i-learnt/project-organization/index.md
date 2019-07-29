@@ -81,4 +81,4 @@ transformations and such, but without the Data3 part). By breaking by their
 types, I managed to create small modules for each one and the new project
 would simply reference Data1 and Data2, but not Data3.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/one-change-commit", prev_chapter_title="One Commit Per Change", next_chapter_link="/books/things-i-learnt/libraries", next_chapter_title="Create Libraries") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/gerrit", prev_chapter_title="Gerrit Is A Mistake", next_chapter_link="/books/things-i-learnt/libraries", next_chapter_title="Create Libraries") }}
