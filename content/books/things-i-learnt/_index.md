@@ -56,6 +56,7 @@ template = "section-contentless.html"
 		* [Optimization Is For Compilers](optimization)
 		* [Units Makes Things Clear](units)
 		* [If It Doesn't Run On Your Computer, You Have A Problem](run-locally)
+		* [Nothing More Permanent Than A Temporary Solution](permanent-solution)
 	* Making Things Go
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)

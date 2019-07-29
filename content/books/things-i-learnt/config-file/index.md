@@ -52,4 +52,4 @@ you'll find that you're half-way through it.
 [^1]: In other words, they have a [time to
   live](https://en.wikipedia.org/wiki/Time_to_live).
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/run-locally", prev_chapter_title="If It Doesn't Run On Your Computer, You Have A Problem", next_chapter_link="/books/things-i-learnt/command-line-options", next_chapter_title="Command Line Options Are Weird, But Helpful") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/permanent-solution", prev_chapter_title="Nothing More Permanent Than A Temporary Solution", next_chapter_link="/books/things-i-learnt/command-line-options", next_chapter_title="Command Line Options Are Weird, But Helpful") }}
