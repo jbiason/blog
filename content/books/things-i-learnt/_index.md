@@ -34,6 +34,7 @@ template = "section-contentless.html"
 	* Source Control
 		* [Always Use A Version Control System](always-vcs)
 		* [One Commit Per Change](one-change-commit)
+		* [Gerrit Is A Mistake](gerrit)
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 		* [Create Libraries](libraries)
@@ -55,6 +56,7 @@ template = "section-contentless.html"
 		* [Optimization Is For Compilers](optimization)
 		* [Units Makes Things Clear](units)
 		* [If It Doesn't Run On Your Computer, You Have A Problem](run-locally)
+		* [Nothing More Permanent Than A Temporary Solution](permanent-solution)
 	* Making Things Go
 		* [The Config File Is Friend](config-file)
 		* [Command Line Options Are Weird, But Helpful](command-line-options)
@@ -92,3 +94,4 @@ template = "section-contentless.html"
 	* [Blogging About Your Stupid Solution Is Still Better Than Being Quiet](blogging)
 	* [Don't Hide Your Stupid Solution](post-solution)
 	* [Keep A List of Things I Don't Know](things-i-dont-know)
+	* [You Always Have The Time](time)

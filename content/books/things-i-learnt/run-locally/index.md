@@ -39,4 +39,4 @@ If we had the chance to not use it and run all the development and tests on
 our own computers, I have the feeling we could deliver the product 2-3 months
 earlier.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/units", prev_chapter_title="Units Makes Things Clear", next_chapter_link="/books/things-i-learnt/config-file", next_chapter_title="The Config File Is Friend") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/units", prev_chapter_title="Units Makes Things Clear", next_chapter_link="/books/things-i-learnt/permanent-solution", next_chapter_title="Nothing More Permanent Than A Temporary Solution") }}
