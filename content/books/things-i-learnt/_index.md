@@ -35,6 +35,7 @@ template = "section-contentless.html"
 		* [Always Use A Version Control System](always-vcs)
 		* [One Commit Per Change](one-change-commit)
 		* [Gerrit Is A Mistake](gerrit)
+		* [Git-Flow Is The Way To Go](git-flow)
 	* Project Organization
 		* [Organize Your Code by Data/Type, Not Functionality](project-organization)
 		* [Create Libraries](libraries)
@@ -63,6 +64,7 @@ template = "section-contentless.html"
 		* [Not Just Function Composition, But Application Composition](application-composition)
 		* [Even for Application Composition, Start Stupid](app-composition-stupid)
 		* [Logs Are For Events, Not User Interface](log-events)
+		* [One Version To Add, One Version To Remove](add-then-remove)
 		* [Learn To Monitor](monitoring)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
@@ -95,3 +97,4 @@ template = "section-contentless.html"
 	* [Don't Hide Your Stupid Solution](post-solution)
 	* [Keep A List of Things I Don't Know](things-i-dont-know)
 	* [You Always Have The Time](time)
+	* [Own Your Shit](own-your-shit)

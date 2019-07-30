@@ -34,4 +34,4 @@ Maybe people think "If I don't finish, it's over". Your life doesn't end in
 one day. You still have tomorrow to keep going -- _to keep going_, not to
 start.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/things-i-dont-know", prev_chapter_title="Keep A List of Things I Don't Know") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/things-i-dont-know", prev_chapter_title="Keep A List of Things I Don't Know", next_chapter_link="/books/things-i-learnt/own-your-shit", next_chapter_title="Own Your Shit") }}

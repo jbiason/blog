@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Gerrit Is A Mistake"
 date = 2019-07-29
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "git", "gerrit"]
+tags = ["en-au", "books", "things i learnt", "git", "gerrit", "source control"]
 +++
 
 I hate calling software "a mistake", but I can't find any other way to
@@ -33,4 +33,4 @@ the middle: gERRit.
 
 When I see someone using Gerrit, I know something is wrong there.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/one-change-commit", prev_chapter_title="One Commit Per Change", next_chapter_link="/books/things-i-learnt/project-organization", next_chapter_title="Organize Your Code by Data/Type, Not Functionality") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/one-change-commit", prev_chapter_title="One Commit Per Change", next_chapter_link="/books/things-i-learnt/git-flow", next_chapter_title="Git-Flow Is The Way To Go") }}

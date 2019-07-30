@@ -26,4 +26,4 @@ If you're not measuring, you'll have no idea.
 
 Also, "If you can not measure it, you can not improve it", as Lord Kevin said.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/log-events", prev_chapter_title="Logs Are For Events, Not User Interface", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/add-then-remove", prev_chapter_title="One Version To Add, One Version To Remove", next_chapter_link="/books/things-i-learnt/languages-are-more", next_chapter_title="A Language Is Much More Than A Language") }}
