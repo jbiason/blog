@@ -64,6 +64,7 @@ template = "section-contentless.html"
 		* [Not Just Function Composition, But Application Composition](application-composition)
 		* [Even for Application Composition, Start Stupid](app-composition-stupid)
 		* [Logs Are For Events, Not User Interface](log-events)
+		* [One Version To Add, One Version To Remove](add-then-remove)
 		* [Learn To Monitor](monitoring)
 * Community/Teams
 	* [A Language Is Much More Than A Language](languages-are-more)
