@@ -43,4 +43,4 @@ can't simply move my mistake to some other personality; who was wrong was
 _me_. And unless I own my shit up, I'd never get the understanding I'd need to
 see my mistake about Scala in the first place.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/time", prev_chapter_title="You Always Have The Time") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/time", prev_chapter_title="You Always Have The Time", next_chapter_link="/books/things-i-learnt/bad-code-defense", next_chapter_title="Don't Defend Bad Code") }}

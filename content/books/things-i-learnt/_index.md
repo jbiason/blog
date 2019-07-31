@@ -98,3 +98,4 @@ template = "section-contentless.html"
 	* [Keep A List of Things I Don't Know](things-i-dont-know)
 	* [You Always Have The Time](time)
 	* [Own Your Shit](own-your-shit)
+	* [Don't Defend Bad Code](bad-code-defense)
