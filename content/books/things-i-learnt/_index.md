@@ -64,6 +64,7 @@ template = "section-contentless.html"
 		* [Not Just Function Composition, But Application Composition](application-composition)
 		* [Even for Application Composition, Start Stupid](app-composition-stupid)
 		* [Logs Are For Events, Not User Interface](log-events)
+		* [Be Transparent With The User](transparent)
 		* [One Version To Add, One Version To Remove](add-then-remove)
 		* [Learn To Monitor](monitoring)
 * Community/Teams
@@ -76,6 +77,7 @@ template = "section-contentless.html"
 	* [Code Style: Follow It](code-style)
 	* [... Unless That Code Style Is The Google Code Style](google-code-style)
 	* [Hero Projects: You'll Have To Do It Yourself](hero-projects)
+	* [Global Changes Must Be Discussed With The Whole Team First](team-discussion)
 * Personal
 	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
 	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)
@@ -98,3 +100,4 @@ template = "section-contentless.html"
 	* [Keep A List of Things I Don't Know](things-i-dont-know)
 	* [You Always Have The Time](time)
 	* [Own Your Shit](own-your-shit)
+	* [Don't Defend Bad Code](bad-code-defense)

@@ -40,4 +40,4 @@ in C show up and guess who also knew C?
 
 [^1]: ... which led me into some sad times when I was working with Python.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/hero-projects", prev_chapter_title="Hero Projects: You'll Have To Do It Yourself", next_chapter_link="/books/things-i-learnt/stupid-bugs-list", next_chapter_title="Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/team-discussion", prev_chapter_title="Global Changes Must Be Discussed With The Whole Team First", next_chapter_link="/books/things-i-learnt/stupid-bugs-list", next_chapter_title="Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve") }}
