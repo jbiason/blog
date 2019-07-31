@@ -28,4 +28,4 @@ Just to be clear: Sometimes an hero project will fail [because the answer is
 obvious](/books/things-i-learnt/right-tool-obvious). Don't let that make you
 feel down.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/google-code-style", prev_chapter_title="... Unless That Code Style Is The Google Code Style", next_chapter_link="/books/things-i-learnt/specialists", next_chapter_title="Companies Look For Specialists But Keep Generalists Longer") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/google-code-style", prev_chapter_title="... Unless That Code Style Is The Google Code Style", next_chapter_link="/books/things-i-learnt/team-discussion", next_chapter_title="Global Changes Must Be Discussed With The Whole Team First") }}

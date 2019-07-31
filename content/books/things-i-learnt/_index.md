@@ -76,6 +76,7 @@ template = "section-contentless.html"
 	* [Code Style: Follow It](code-style)
 	* [... Unless That Code Style Is The Google Code Style](google-code-style)
 	* [Hero Projects: You'll Have To Do It Yourself](hero-projects)
+	* [Global Changes Must Be Discussed With The Whole Team First](team-discussion)
 * Personal
 	* [Companies Look For Specialists But Keep Generalists Longer](specialists)
 	* [Keep A List of Stupid Bugs That Took More Than 1 Hour To Solve](stupid-bugs-list)
