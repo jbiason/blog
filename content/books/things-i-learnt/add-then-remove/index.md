@@ -30,4 +30,4 @@ deployed _at the same time_ as the new interface; by adding the new link
 format in another field, we can deploy the backend easily without breaking the
 current system.
 
-{{ chapters(prev_chapter_link="/books/things-i-learnt/log-events", prev_chapter_title="Logs Are For Events, Not User Interface", next_chapter_link="/books/things-i-learnt/monitoring", next_chapter_title="Learn To Monitor") }}
+{{ chapters(prev_chapter_link="/books/things-i-learnt/transparent", prev_chapter_title="Be Transparent With The User", next_chapter_link="/books/things-i-learnt/monitoring", next_chapter_title="Learn To Monitor") }}
