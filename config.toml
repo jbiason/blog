@@ -4,11 +4,12 @@ base_url = "https://blog.juliobiason.net"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-title = "Julio Biason .Net 4.0"
+title = "Julio Biason .Net 4.1"
 description = "Old school dev living in a 2.0 dev world"
 
-theme = "nighttime"
+# theme = "nighttime"
 # theme = "hyde"
+theme = "zola-theme-terminimal"
 
 taxonomies = [
 	# You can enable/disable RSS
@@ -28,10 +29,19 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 author = "Julio Biason"
+accent_color = "orange"
+logo_text = "JulioBiason.Net 4.1"
 after_dark_menu = [
     {url = "$BASE_URL", name = "Home"},
 	{url = "$BASE_URL/announcements/about-me", name = "About Me"},
 	{url = "$BASE_URL/tags", name = "Tags"},
 	{url = "$BASE_URL/books", name = "Books"},
 ]
-after_dark_title = "JulioBiason.Net 4.0"
+menu_items = [
+    {url = "$BASE_URL", name = "Home"},
+	{url = "$BASE_URL/announcements/about-me", name = "About Me"},
+	{url = "$BASE_URL/tags", name = "Tags"},
+	{url = "$BASE_URL/books", name = "Books"},
+]
+after_dark_title = "JulioBiason.Net 4.1"
+enable_post_view_navigation = false

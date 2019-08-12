@@ -1,6 +1,5 @@
 +++
 title = "My Books"
-template = "section-contentless.html"
 transparent = true
 +++
 
