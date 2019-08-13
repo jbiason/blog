@@ -1,6 +1,10 @@
 +++
 title = "My Books"
 transparent = true
+
+[extra]
+hide_pages = true
+hide_content = false
 +++
 
 ## Portuguese/Português
