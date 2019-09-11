@@ -69,6 +69,19 @@ conversou com seus superiores. E, por ter vários problemas com a estrutura em
 C++ do Firefox, a Mozilla resolveu patrocinar Hoare para que ele pudesse
 trabalhar na linguagem.
 
+{% note() %}
+Eu gosto de brincar, dizendo que o Hoare chegou pro gerente dele dizendo que
+iria deixar a Mozilla pra trabalhar na sua linguagem e o gerente, depois de
+pedir pra ele esperar um pouco, chegou dizendo que só conseguiu 2 estagiários.
+
+A verdade é que Hoare realmente quis deixar a Mozilla Foundation, mas ao
+explicar os motivos -- trabalhar na sua própria linguagem, cuja principal
+diferença seria a proteção de memória e velocidade -- a Mozilla se interessou
+pela mesma, por causa dos problemas que eles estavam encontrando ao trabalhar
+com C++. Por isso a Mozilla continuou pagando Hoare para que ele trabalhasse
+na sua linguagem.
+{% end %}
+
 Uma coisa a cuidar: Aqui eu comento que a versão atual é a 1.37. Isso pode não
 ser verdade no momento que você lê esse post (ou viu a apresentação) porque a
 cada 6 semanas uma nova versão do Rust é liberada. Essas versões trazem
@@ -118,3 +131,116 @@ dela todo ano!", você deve estar dizendo. Na verdade, o percentual tem subido
 desde a primeira vez, saindo de 76% em 2016 e indo a 83% em 2019.
 
 ## Motivo 2: "Uma Linguagem de Baixo Nível Com Abstrações de Alto Nível"
+
+Quando comparado com C, Rust tem uma performance bem semelhante:
+
+![Comparativo de algumas linguagens com relação à utilização de CPU, Energia e
+Memória](rust-energy.png)
+
+O gráfico acima foi tirado de uma pesquisa que foi feita para verificar [qual
+linguagem gasta mais
+energia](https://jaxenter.com/energy-efficient-programming-languages-137264.html). 
+
+Na implementação utilizada, C foi a linguagem cujo código gerado usou menos
+energia; em segundo, com uma utilização apenas 3% maior, Rust.
+
+Ainda, em tempo de execução, a aplicação gerada em C também é a mais rápida e
+Rust fica em segundo com um tempo de execução apenas 4% maior.
+
+No quesito utilização de memória é que vemos algo engraçado: A linguagem que
+melhor utiliza memória é Pascal, C utiliza 17% mais memória e Rust 54% a mais.
+A explicação para isso pode ser pela forma como Rust trata memória,
+principalmente de código, mas eu vou explicar isso melhor mais pra frente.
+
+E, apesar disso tudo, Rust tem implementações de:
+
+* Strings com tamanho crescente;
+* Listas dinâmicas;
+* Mapas.
+
+E considerando todo o tempo que eu passei programando em várias linguagens, se
+amanhã surgisse uma linguagem que conseguisse ter uma performance melhor que
+C, mas que eu tivesse que implementar minha própria lista encadeada, eu
+acredito que botaria fogo em tudo e iria plantar batatas, porque,
+honestamente, significa que nós não aprendemos nada sobre linguagens de
+programação.
+
+# Motivo 3: Compilador É Chato, Mas Amigável
+
+Deixem-me mostrar um código Rust:
+
+```rust
+fn main() {
+    let a = 2;
+    a = 3;
+    println!("{}", a);
+}
+```
+
+Aqui temos nosso primeiro contato com a sintaxe de Rust: `fn` define funções;
+assim como C, `main` é a função que indica onde a execução começa; `let` deixa
+definir variáveis e, apesar de não mostrar nesse trecho, as variáveis são
+fortemente tipadas, mas eu não precisei colocar o tipo porque o compilador
+consegue inferir o tipo sozinho; linhas terminam com `;`; `println!` tem uma
+exclamação porque essa função é uma macro e a exclamação é colocada para
+diferenciar de funções normais (no caso, o `println!` vai ser expandido pelo
+compilador por um conjunto maior de comandos).
+
+E esse código Rust não compila.
+
+Se vocês tentarem compilar esse código, vocês verão a seguinte mensagem de
+erro:
+
+```
+3 |     let a = 2;
+  |         -
+  |         |
+  |         first assignment to `a`
+  |         help: make this binding mutable: `mut a`
+4 |     a = 3;
+  |     ^^^^^ cannot assign twice to immutable variable
+```
+
+O que acontece é que, em Rust, alem das variáveis serem fortemente tipadas,
+elas também são, por padrão, imutáveis. Ou seja, não é possível, por padrão,
+alterar o valor de uma variável.
+
+Mas prestem atenção na mensagem de erro:
+
+```
+4 |     a = 3;
+  |     ^^^^^ cannot assign twice to immutable variable
+```
+
+O compilador não apenas disse qual era o erro -- "não é possível atribuir um
+valor duas vezes para uma variável imutável" (indicando, ainda qual a linha)
+como também passou uma dica de como corrigir esse problema:
+
+```
+  |         help: make this binding mutable: `mut a`
+```
+
+{% note() %}
+Essa parte da mensagem de erro é importante para o time de desenvolvimento do
+Rust.
+
+Na Rust Latam, Esteban Kuber fez uma apresentação chamada "Friendly Ferris:
+Developing Kind Compiler Errors" ("Ferris Amigável: Desenvolvendo Erros
+Amigáveis do Compilador", onde "Ferris" é o nome do mascote da linguagem),
+onde ele conta que foi brincar com Rust pela primeira vez e recebeu um erro do
+compilador sobre o código que ele tinha escrito, mas não conseguiu entender
+exatamente qual era o problema.
+
+Aqui fica a pergunta pra vocês: Se vocês encontrassem um erro que não
+entendessem o que vocês fariam? Boa parte provavelmente diria que iria
+perguntar ao Google.
+
+Esteban, no entanto, resolveu abrir um issue no Github da linguagem, para ver
+o que iria acontecer. A resposta? "Você tem razão, a mensagem do erro é
+difícil de entender, e isso é um bug do compilador. Nós vamos arrumar."
+Esteban se ofereceu pra tentar encontrar o problema, recebeu uma tutoria de
+como compiladores funcionam e hoje é um dos expoentes nas questões de
+mensagens de erro do compilador.
+{% end %}
+
+# Motivo 4: O Borrow Checker
