@@ -117,7 +117,7 @@ Quantum (de novo, em Rust, usando a base do Servo), a correção foi (conforme
 descrito por Niko Matsakis na abertura do Rust Latam 2019) "trivial".
 {% end %}
 
-## Motivo 1
+## Motivo 1: Quem Usa, Gosta
 
 Em 2019, O [StackOverflow](https://stackoverflow.com/) fez uma enquete com os
 visitantes, perguntando, entre várias outras perguntas, qual linguagem eles
@@ -165,7 +165,7 @@ acredito que botaria fogo em tudo e iria plantar batatas, porque,
 honestamente, significa que nós não aprendemos nada sobre linguagens de
 programação.
 
-# Motivo 3: Compilador É Chato, Mas Amigável
+## Motivo 3: Compilador É Chato, Mas Amigável
 
 Deixem-me mostrar um código Rust:
 
@@ -181,10 +181,17 @@ Aqui temos nosso primeiro contato com a sintaxe de Rust: `fn` define funções;
 assim como C, `main` é a função que indica onde a execução começa; `let` deixa
 definir variáveis e, apesar de não mostrar nesse trecho, as variáveis são
 fortemente tipadas, mas eu não precisei colocar o tipo porque o compilador
-consegue inferir o tipo sozinho; linhas terminam com `;`; `println!` tem uma
-exclamação porque essa função é uma macro e a exclamação é colocada para
-diferenciar de funções normais (no caso, o `println!` vai ser expandido pelo
-compilador por um conjunto maior de comandos).
+consegue inferir o tipo sozinho (com algumas raras exceções); linhas terminam
+com `;`; `println!` tem uma exclamação porque essa função é uma macro e a
+exclamação é colocada para diferenciar de funções normais (no caso, o
+`println!` vai ser expandido pelo compilador por um conjunto maior de
+comandos).
+
+{% note() %}
+Quem já brincou com `#define`s em C deve saber que não existe nada que indique
+o que foi digitado é uma função mesmo ou um `#define` que vai ser expandido em
+várias outras funções; Rust não deixa isso acontecer.
+{% end %}
 
 E esse código Rust não compila.
 
@@ -243,4 +250,212 @@ como compiladores funcionam e hoje é um dos expoentes nas questões de
 mensagens de erro do compilador.
 {% end %}
 
-# Motivo 4: O Borrow Checker
+## Motivo 4: O Borrow Checker
+
+O Borrow Checker é o cara que faz o Rust ser diferente de outras linguagens. E
+que também mudou como eu pensava sobre programação, apesar de todas as
+linguagens listadas no começo desse post.
+
+Por exemplo, no seguinte código:
+
+```rust
+let a = String::from("hello");
+```
+
+{% note() %}
+O que está sendo feito aqui é que está sendo criada uma string -- uma lista de
+caracteres que pode ser expandida, se necessário -- utilizando uma constante
+que é fica (por ficar em uma página de código em memória) como valor inicial.
+
+Quem já mexeu com C: Isso é o mesmo que alocar uma região de memória e copiar
+o conteúdo de uma variável estática para a nova região alocada.
+{% end %}
+
+Quando vocês olham esse código, o que vocês pensam?
+
+Eu sempre li como "A variável `a` recebe o valor `hello`".
+
+Eu nunca pensei nisso como "A posição de memória apontada por `a` tem o valor
+`hello`"; ou algo como `let 0x3f5cbf89 = "hello"`.
+
+Entretanto, é isso que o compilador do Rust faz: cada atribuição de variável é
+considerada como um indicador de uma posição de memória, algo do tipo
+
+![Visão de memória pelo compilador do Rust](rust-memory.png)
+
+No caso, `a` (a nossa variável) é "dona" de uma região de memória, a
+0x3f5cbf89, que tem o tamanho de 5 bytes, do tipo String.
+
+E aí quando tu tenta fazer uma atribuição de variáveis como, por exemplo:
+
+```rust
+fn main() {
+    let a = String::from("hello");
+    let _b = a;
+    println!("{}", a)
+}
+```
+
+... tudo parece normal.
+
+Exceto que esse código não compila.
+
+```
+error[E0382]: borrow of moved value: `a`
+ --> src/main.rs:5:20
+  |
+4 |     let _b = a;
+  |              - value moved here
+5 |     println!("{}", a)
+  |                    ^ value borrowed here after move
+  |
+  = note: move occurs because `a` has type
+    `std::string::String`, which does not
+    implement the `Copy` trait
+```
+
+Por que? Porque a região de memória que `a` apontava (aquela que fica em
+0x3f5cbf89, que tem 5 bytes e é do tipo String) agora pertence a `b`; `a` fica
+apontando para... nada. E "nada", não é `null`: como todas as variáveis tem
+que apontar para uma posição de memória, `a` se torna inválido e não pode mais
+ser utilizado.
+
+"Mas e se eu precisar acessar uma posição de memória/valor em mais de um
+lugar?" Bom, aí você pode usar referências, usando `&`:
+
+```rust
+fn main() {
+    let a = String::from("hello");
+    let _b = &a;
+    println!("{}", a)
+}
+```
+
+Utilizar referências faz, basicamente, isso:
+
+![Visão de memória pelo compilador do Rust quando você usa referências](rust-reference.png)
+
+Existem várias regras que o Borrow Checker executa:
+
+* Uma região de memória tem apenas um dono;
+* Passar um valor (região de memoria) de uma variável para outra troca o dono;
+* A região é desalocada quando o dono sair de escopo;
+
+{% note() %}
+Estas três regras estão interligadas: com a memória sendo desalocada quando a
+variável sai de escopo, não precisamos mais nos preocupar em fazer `free()`
+(apesar de que, agora, precisamos nos preocupar quanto tempo queremos que a
+variável/região de memória permaneça alocada através dos nossos blocos de
+código); tendo apenas um dono (e esse dono muda em caso de atribuição),
+evita-se o problema de um "double `free()`".
+{% end %}
+
+* Uma região de memória pode ter infinitas referências;
+* ... desde que elas não durem mais que o dono da região original;
+
+{% note() %}
+As referências não devem durar mais que a variável original para evitar que
+elas continuem sendo utilizadas depois que o valor original foi feito
+`free()`.
+{% end %}
+
+* Assim como temos variáveis definidas como mutáveis, referências também podem
+  ser criadas como mutáveis;
+* Não é possível criar referências mutáveis de variáveis imutáveis;
+* Para haver uma referência mutável, é preciso que ela seja a _única_
+  referência (mutável ou não).
+
+{% note() %}
+Isso garante que não existam duas threads tentando escrever na mesma posição
+de memória ao mesmo tempo.
+{% end %}
+
+Ok, com todas essas regras, você deve estar se perguntando: E pra que serve
+tudo isso?
+
+Duas respostas para essa pergunta:
+
+A primeira é o seguinte código (em Go, porque é mais fácil de explicar):
+
+```go
+presente := Presente { ... }
+canal <- presente
+```
+
+`presente` é uma estrutura qualquer que eu criei; `canal` é o canal de
+comunicação entre duas threads; o que está sendo feito aqui é que uma thread
+está criando uma estrutura e enviado para o outra thread.
+
+Nada demais; o problema está em fazer algo do tipo:
+
+```go
+presente := Presente { ... }
+canal <- presente
+presente.abrir()
+```
+
+Se eu enviei o presente para outra pessoa, como foi que eu abri? Se eu mandei
+uma estrutura para outra thread, como foi que o compilador deixou eu fazer uma
+alteração nessa estrutura, se agora ela é da outra thread?
+
+A outra resposta é que chegamos ao limite do silício. Alguns podem não saber
+disso, mas a pouco tempo havia uma ser "briga" entre donos de computadores pra
+ver qual tinha o mais potente, e nós fazíamos isso contando vantagem com o
+clock do processador: "O meu tem 3Ghz", "Ah, mas o meu tem 3Ghz _e meio_!"
+Esse tipo de discussão sumiu, por um único motivo: não temos mais como fazer o
+silício vibrar mais. A coisa ficou tão complexa que o que é feito agora é
+colocar mais CPUs _dentro_ da CPU.
+
+Para tirar proveito da "CPUs dentro da CPU", precisamos de threads, e se o
+compilador não proteger contra o uso inválido de memória entre as threads, nós
+ainda vamos ter aqueles alertas de que a aplicação parou de funcionar as 4 da
+manhã, e você vai tentar descobrir o que aconteceu e nada faz sentido.
+
+A ideia do Borrow Checker é tão boa que mais linguagens estão utilizando:
+Swift 5 tem um controle chamado "Exclusitivy Enforcement" que é, basicamente,
+um borrow checker mais light; Ada, uma das três linguagens aceitas pela MISRA
+para software em que vidas humanas estão em jogo (controle de aviões, carros e
+equipamentos médicos, por exemplo), ganhou um borrow checker na última versão
+(pelo menos, "última" no momento em que esse post estava sendo escrito).
+
+## Intervalo: Anedotas
+
+Duas anedotas sobre a minha vida de programador:
+
+Numa época em que eu trabalhava num projeto gigantesco em C, eu estava
+esperando minha carona para voltar pra casa enquanto uma das desenvolvedoras
+estava brigando com o código. "Eu não consigo entender, " -- disse ela -- "eu
+estou tentando ver o tempo que uma regra de negócio leva pra executar, mas
+está dando que tá levando menos de 1 segundo, quando eu _sei_ que tem uma
+pesquisa no banco que é demorada!"
+
+"Como é que tu tá pegando esse tempo de execução?" -- perguntei.
+
+"Eu faço um `localtime` no começo da execução e um `localtime` no final e vejo
+a diferença."
+
+Nesse momento, me lembrei que `localtime` não é thread-safe: Quando o valor é
+capturado, é passada uma região de memória a ser preenchida, mas cada vez que
+o `localtime` é chamada, a mesma região é atualizada; o que estava acontecendo
+é que as outras threads, que também estavam fazendo a chamada para `localtime`
+estavam todas apontando para a mesma região de memória e todas elas estavam
+mudando na mudança de valor.
+
+Em tempos mais recentes, estávamos trabalhando em Java e usando
+`SimpleDateFormatter`. Em certos casos, começamos a receber alertas do tipo
+"Data inválida: ''" ou "Data inválida: "R"". "Mas como? Tá aqui o JSON de
+entrada e lá _tem_ valor!"
+
+Mais uma vez, acendeu a luzinha na minha cabeça e a primeira coisa que eu fiz
+foi pesquisar "SimpleDateFormatter é thread-safe?" O primeiro resultado foi
+um "Por que SimpleDateFormat não é thread-safe?" Trocamos pela versão mais
+nova (outra classe) e tudo passou a funcionar normalmente.
+
+Aí vem a pergunta: Se usássemos Rust ao invés de C ou Java, isso resolveria
+nossos problemas?"
+
+A resposta é "Sim!", porque o Rust sequer ia deixar o código compilar --
+porque, em ambos os casos, temos threads compartilhando memória mutável, que,
+como vimos pelas regras do Borrow Checker, não é possível fazer em Rust.
+
+## Motivo 5: Tipos Algébricos
