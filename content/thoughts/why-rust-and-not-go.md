@@ -103,20 +103,23 @@ mean?
 > opinion, it’s a killer feature for some types of development, like
 > enterprise software.
 
-Ok, so if we point that Rust does exactly what you're saying and _better_
-("enforce" vs "you need to run something, otherwise nothing changes), then
-Rust kills Go in enterprise software, right?
+If we point that Rust does exactly what you're saying and _better_ ("enforce"
+vs "you need to run something, otherwise nothing changes", which I _will_
+point right now), then Rust kills Go in enterprise software, right?
 
 > Enterprise software always has a big scope.
 
 Yes, and that's why we break this scope -- and some domains and everything
 else -- into smaller parts that connect to each other. Those are called
-"microservices" and one thing is that you can write them in whatever
+"microservices" and one thing is that you can write them in whatever, but the
+scope is always a small one (for different scales of "small") but it won't
+be something ginourmous like a monolith, in which all the scopes exist in the
+same place.
 
 (I'll make this point again later, but it is weird how the author says one can
-spin a Go app really fast, but then comes with the sort of points that make
-sense only for monoliths, and I'm not sure which is the real point being
-pointed in these cases.)
+spin a Go app really fast, but then comes with the sort of points like this
+that make sense only for monoliths, and I'm not sure which is the real point
+being pointed in these cases.)
 
 > To unravel complex domains you need a well-structured process.
 
@@ -141,8 +144,8 @@ to discuss. And it comes in this other point:
 You know who has Google problems? GOOGLE! You know who else has Google
 problems? NO ONE!
 
-No one is a huge search engine that lives into capturing peoples data to
-provide relevant ads (and, sometimes, search results, and shopping lists and
+No one is a huge search engine that lives capturing peoples data to provide
+relevant ads (and, sometimes, search results, and shopping lists and
 whatever).
 
 It's the same bullshit people claiming "Netflix has 600+ microservices using
@@ -171,22 +174,29 @@ Guess you never saw the borrow checker. Or the fact that Rust doesn't allow
 passing an u32 (unsigned int of 32 bits) as a parameter that requires an u64,
 even if the later is larger than the former. There is no implicit conversion
 in Rust and a Rust dev must explicit convert from one type to the other.
+That's very strict in my opinion, even if you believe this is just an
+annoyance.
+
+You can't have strictness with flexibility. The are opposite points: Either
+the language is flexible (allowing you to use an u32 in a u64 parameter and
+doing the conversion to you) or it's very strict (like Rust does).
 
 Also, since you're talking about "strictness", let me ask you this: Have the
-Go code devs fixes this?
+Go core devs fixed this?
 
 ```
 result, err := some_function()
 return result
 ```
 
-What is there to fix? THE FREAKING ERROR TREATMENT, THAT IS! You can't call a
-language strict if, in 2019, it let this kind of stuff slip by. We learnt, in
-those last years, that the "not-happy" path happens more often than the happy
-path. And ignoring such errors is the major cause of headaches we get, and
-that's why we have those stupid "restart job at midnight" cronjobs. We can't
-live with that anymore and unless we are willing to deal with those thorns,
-we'll be stuck in time.
+What is there to fix? No, it's not the "it should complain that err is never
+used" (I could replace `err` with `_` and the error would still be there). It
+is **the freaking error treatment**! You can't call a language strict if, in
+2019, it let this kind of stuff slip by. We learnt, in those last years, that
+the "not-happy" path happens more often than the happy path. And ignoring such
+errors is the major cause of headaches we get, and that's why we have those
+stupid "restart job at midnight" cronjobs or watchdogs that keep checking if
+the process is running and start it again if it crashes. 
 
 I can also bring the borrow checker back into this: You see, we don't talk
 about processor speed anymore these days, we talk about cores. The future (and
@@ -196,7 +206,7 @@ any validation about the memory usage; it won't prevent you from doing
 something like sending a structure over a channel and changing that structure
 _in the same thread_. So, while Go makes it easier, Rust makes sure you're not
 shooting yourself in the foot in the long run -- which would require the
-cronjobs.
+cronjobs or watchdogs.
 
 > Go doesn’t want unused variables or imports
 
@@ -242,7 +252,8 @@ important than function behaviour or class/structure/module behaviour.
 We are, once again, discussing [Fast Test, Slow
 Test](https://www.youtube.com/watch?v=RAxiiRPHS9k), aren't we? Let me write a
 test for every single function, every single class and oh, look how fast they
-run! Then we put the "integration tests" in the CI and everybody is happy.
+run, 'cause the compiler is fast! Then we put the "integration tests" in the
+CI and everybody is happy.
 
 Except you wrote tests twice when the only tests that matter are the ones that
 check the system behaviours.
@@ -251,19 +262,31 @@ check the system behaviours.
 
 [Citation needed]. I know this is pretty close a nitpick and I can understand
 where this is going, but my guess is that, in the long run, when juniors
-understand why certain features don't compile, they can be more productive
+understand why certain snippets don't compile, they can be more productive
 'cause errors in their code will be caught way earlier in compilation (see
-point below about types).
+point below about types and above about compiler strictness).
 
 Also, feel free to call [Citation needed] about my point here too, 'cause we
-both know we are both pulling data from our asses.
+both know we are both pulling data out of our asses.
 
 # The Somewhat Right
 
 > There are a lot of junior developers
 
 Yes, there are. Also, they are, sadly, not getting that many jobs, 'cause as
-this point, nobody is hiring juniors.
+this point, nobody is hiring juniors. We can go back to the point of "juniors
+being more productive" and say "Hey, junior dev, if you learn programming
+language X, you'd get a job, 'cause it's really an easy language" and I'd
+throw Python here and break your engine.
+
+Sure, there _may_ be that Go is simpler than Rust (and I'll outright say that
+Python _is_ easier than Rust), but we can't say Go is easier than Rust.
+
+If I can go into anecdote mode, I could say that I personally find Go code
+harder to understand than Rust, and no, it's not because I've wrote some Rust
+code an no code in Go; Go syntax simply does look weird to me, and one can say
+that is because the order of the languages I learnt. So, for me, it's harder
+to learn Go due its syntax than it is to learn Rust.
 
 > This pushes further down technological concerns such as efficiency, and even
 > correctness. Don’t get me wrong, the business does care about correctness,
@@ -272,8 +295,8 @@ this point, nobody is hiring juniors.
 > back-office for the operations team they keep in a country where labor is
 > cheap.
 
-Wait, it is technological but not technological? I know, this should be in the
-nitpick section, but there is another important point here.
+Wait, so it is technological but it is not technological? I know, this should
+be in the nitpick section, but there is another important point here.
 
 Thing is, business people do not care about reconciliation; they worry about
 deliveries and cheap labor _and that is_. Are they delivering? Are they cheap?
@@ -299,12 +322,11 @@ specially to avoid being stuck in certain domains, 'cause you can just
 rewrite services (yes, you can) or you break code into different services so
 they don't go being the maintainability barrier.
 
-(Deep down, this point annoys the heck out of me: The post starts talking how
-easy it is to spin a new service in Go, which I can't deny compared to Rust,
-but I can argue against Python, and then comes this point that is, in reality
-talking about monoliths. So, which is which? Is Go good for solving monoliths
-or is Go good for spinning smaller services? Are you trying to say it's good
-for everything?)
+(This point is also annoying the heck out of me, with the comparison of Go
+being easy to spin something and then calling monolith problems. Either it is
+a language consistent to huge deployments, like Java, or it is a language with
+prospects towards simpler things, like Python. There are drawbacks in both and
+one can't push towards the to points without breaking everything.)
 
 > Go is much easier to learn than Java or C#.
 
@@ -314,18 +336,21 @@ than Go.
 
 What about Rust? I give that the language is not that easy to pick, but every
 working group on the Rust community writes their own book, so one could bring
-those juniors devs into reading the books they will need to use.
+those juniors devs into reading the books they will need to use and be done
+with that.
 
 > The Go community regards as anti-patterns many abstractions regularly
 > employed by Java / C#
 
 And I guess Java and C# regards Go abstraction as anti-patterns too, so what's
 the point? Any language that has different ways to express abstractions
-different than other languages will call the other language abstractions
-"anti-patterns".
+compared to other languages, and they will call the other language
+abstractions "anti-patterns".
 
 Rust will call some Java patterns anti-patterns too and I have to, once again,
-ask "So what?"
+ask "So what?" Does this makes Rust better than Java if it does? Does it make
+better than Go if it calls the same Java abstractions "anti-patterns", but has
+better performance than Go and is more strict than Go?
 
 > Go is faster than Java
 
@@ -336,9 +361,25 @@ But I have to pull the ["moving
 goalpost"](https://en.wikipedia.org/wiki/Moving_the_goalposts) card in the
 blog post here: "Go is simple so that all of this can hold true when
 confronting the average Go program with the average Java / C# program." So now
-we are comparing the "average" Go vs the "average" Java/C#. Except whatever is
+we are comparing the "average" Go vs the "average" Java/C# (which,
+surprisingly, are nothing like the "average" Rust program). Except whatever is
 an "average" Go/Java/C# program is never defined, so we can keep pulling data
-from our asses.
+from our asses and keep saying that the benchmark game isn't valid 'cause the
+examples are not "average".
+
+And whatever I can point as "average", you will point that is not "average",
+right? That's what a "moving goalpost" means.
+
+Oh, you mean, "on all the things, Go is faster". As in "it compiles faster",
+which we know means nothing, if it doesn't bring the strictness and
+correctness factors into it (let me write a very fast compiler in Bash that
+produces code that never runs, but it is _fast_!); as in "We can fix things
+faster", in which I can call that Rust is pretty close to Elm, in which "if it
+compiles, it will run without runtime exceptions", so in actuality, there are
+less bugs (personal observation, it actually does!).
+
+As "average" as in what, actually? As in "whatever point I want to make about
+Go being better than Java/C#", for absolutely no reason?
 
 # The Things We Don't Talk About
 
@@ -351,19 +392,23 @@ the management deals with it.
 And we have to talk about `go dep`.
 
 `go dep`, the Go dependency tool, is a replacement of the dependency tool
-created by the community, `godep`, after a whole years with said community
+created by the community, `godep`, after a whole year with said community
 asking for a decent dependency tool, specially compared to the `vendor`
 solution. So, without every inquiring the community, the Go core devs decided
 they know better, made a tool and gave a big "screw you" to the community.
 
-Not only that, but just recently the same tool decided to [make the tool call
+Not only that, but just recently the same tool decided to [call
 home](https://codeengineered.com/blog/2019/go-mod-proxy-psa/) by adding a
 proxy on the call of every package, _including your private ones_. Why? No
-real explanation. It simply does.
+real explanation. It simply does. It's not for CDN, 'cause it is just a proxy.
+It's not for CDN, 'cause other it would require coordination between the
+package repository and the CDN and none of this is included in this change.
+Simply, every single install of a package will be captured by Google. For. No.
+Good. Reason.
 
 Not only the situation of the core Go devs going against the wishes of the
 community, there was even some whisper about forking Go into a community
-version, so it could run with a code group that would actually _listen_ to the
+version, so it could run with a core group that would actually _listen_ to the
 community.
 
 And Go is just one year older than Rust. And nobody is saying "Let's fork
@@ -383,19 +428,19 @@ about its syntax going through iterations over the issue list.
 
 # You Have To Have a Posture
 
-Maybe the `go dep` discussion wasn't a big deal for you. Maybe Rust/Cargo
-discussions in the open (and taking longer than they needed) is a big turn off
-for you.
+You, the reader, may now be wondering why I brought the `go dep` discussion
+into this. You may believe that discussions in the open (and taking longer
+than they needed) is a big turn off for you 'cause it makes things move
+slower.
 
 But let me ask you this: Which one of those models follow an open source
-development model?
+development model? Let's take Mike Hoye, from Mozilla, definition of open
+source: "I think that openness as a practice – not just code you can fork but
+the transparency and accessibility of the development process." 
 
-I understand what Mike Hoye, from Mozilla, meant when he said "I think that
-openness as a practice – not just code you can fork but the transparency and
-accessibility of the development process." 
-
-So take a step back and re-read the last point again. Which one of those are
-really an open project?
+With that, take a step back and re-read the last point again. Which one of
+those are really an open project? Is the Go development transparent and
+accessible?
 
 # In Closing
 
@@ -408,37 +453,45 @@ compare Java vs C++ to actually make a point about Go vs Rust with their
 comparative other languages".
 
 And then, when we pick the points in which the author goes straight for the
-"Go vs Rust" discussion, all the points are wrong.
+"Go vs Rust" discussion, all the points are wrong or seemed more about opinion
+than actual facts.
 
 So what is actually the point? That Go is better than Java and Rust is better
-than C++ and, thus, Go is better than Rust? 'Cause if that was it, it failed
-completely.
+than C++ and, thus, Go is better than Rust? 'Cause I can totally buy in the
+first part, but the second is bullshit.
 
-I won't say Go is a bad language, but Go is not a better language than Rust,
-specially if we consider the future, in which more cores will be available
-(considering the current trends) and more threaded applications will be
-necessary. It still doesn't make Rust a better language than Go (or
-vice-versa), although Go seriously need to go back to the basics of error
-control and memory protection if it wants to be a language for the future.
+I won't say Go is a bad language, but Go is in no way a better language than
+Rust, specially if we consider the future, in which more cores will be
+available (considering the current trends) and more threaded applications will
+be more common. I'll say that Rust design decisions give an edge over Go, so
+Go should seriously go back to the basics of error control and memory
+protection if it wants to be a language for the future. But being bad managed
+probably means it would never happen.
 
-But Go is badly _managed_ and that makes it a bad option for anyone writing
-something serious. 
+And those points make Go a bad option for anyone writing something serious. 
 
-What do I meant by "badly managed"? Well, as you can see, the core devs don't
-seem to listen the community on the big issues (there was a discussion about a
-`Try` operator, which would be a minor change, compared to the dependency
-control, which the community said no and was never implemented, but still,
-minor). The `go dep` was a complete "ignore whatever the community built,
-'cause we know better" and the Google proxy in it is simple a PSA, not a
-"let's ask the community what they think about it before doing it so" are two
-signs that they don't care about what the community wants and that means they
-can pivot the language in a way that the community _doesn't_ want and there
-would be nothing one could do.
+But what do I meant by "badly managed"? Well, as you can see, the core devs
+don't seem to listen the community on the big issues (one could bring the
+discussion about a `Try` operator, which would be a minor change, compared to
+the dependency control, which the community said no and the core devs agreed
+but, again, that's a minor thing compared to dependency control tool). The `go
+dep` was a complete "ignore whatever the community built, 'cause we know
+better" and the Google proxy was simple a PSA, not a "let's ask the community
+what they think about it before doing it so" are two signs that they don't
+care about what the community wants and that means they can pivot the language
+in a way that the community _doesn't_ want and there would be nothing one
+could do.
+
+"It's just one tool, not the whole thing!", you're screaming at me. But it is
+a tool the community seriously wanted (the Go Evangelist inside Microsoft came
+to her twitter account to loudly say "Go core, fix this or I will stop
+promoting go inside Microsoft, 'cause it's bad right now") and they were first
+ignored and then pushed aside.
 
 That's not how open source projects should move about.
 
 You may not care about this "open source" thingy, and that's ok. You may
-believe that the core team knows better how Go should be used than the
-developers writing code in Go, and that's ok. But if you're an open source
-proponent, evangelist or admirer, there is absolutely no reason to defend Go
-on _any_ accounts.
+believe that the core team knows better how Go should move forward than the
+people actually writing code in Go, and that's ok. But if you're an open
+source proponent, evangelist or admirer, there is absolutely no reason to
+defend Go on _any_ accounts.
