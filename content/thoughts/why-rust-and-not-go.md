@@ -90,7 +90,8 @@ than CPython". The same thing can be said here: Go/Rust devs call their
 language boring 'cause they want to prove their language is boring. Neither is
 true -- and, weirdly enough, _both_ are true.
 
-One could even claim that Python is more boring that Go.
+One could even claim that Python is more boring that Go. [^1] And Rust, by the
+way.
 
 > do more with less” has proven to be very successful.
 
@@ -105,7 +106,7 @@ mean?
 
 If we point that Rust does exactly what you're saying and _better_ ("enforce"
 vs "you need to run something, otherwise nothing changes", which I _will_
-point right now), then Rust kills Go in enterprise software, right?
+discuss later in this post[^2]), then Rust kills Go in enterprise software, right?
 
 > Enterprise software always has a big scope.
 
@@ -166,7 +167,7 @@ to make here is "worked for Google, will work for you", which is plain wrong.
 And it doesn't even involve Go or Rust. You're trying to make a point by
 saying "They use" and that's not a point. _At all_.
 
-# The Plain Wrong
+## The Plain Wrong
 
 > Go is also strict about things that other languages are usually more lax about.
 
@@ -179,7 +180,8 @@ annoyance.
 
 You can't have strictness with flexibility. The are opposite points: Either
 the language is flexible (allowing you to use an u32 in a u64 parameter and
-doing the conversion to you) or it's very strict (like Rust does).
+doing the conversion to you, for example) or it's very strict (like Rust
+does).
 
 Also, since you're talking about "strictness", let me ask you this: Have the
 Go core devs fixed this?
@@ -269,7 +271,7 @@ point below about types and above about compiler strictness).
 Also, feel free to call [Citation needed] about my point here too, 'cause we
 both know we are both pulling data out of our asses.
 
-# The Somewhat Right
+## The Somewhat Right
 
 > There are a lot of junior developers
 
@@ -286,7 +288,22 @@ If I can go into anecdote mode, I could say that I personally find Go code
 harder to understand than Rust, and no, it's not because I've wrote some Rust
 code an no code in Go; Go syntax simply does look weird to me, and one can say
 that is because the order of the languages I learnt. So, for me, it's harder
-to learn Go due its syntax than it is to learn Rust.
+to learn Go due its syntax than it is to learn Rust. [^3] Does the same apply
+to junior devs? I'm not sure, but languages are not hard per-se, they may have
+some weird stuff, but if you describe the building blocks in order, then _any_
+language is easy to learn.
+
+[^4] Also, let me point out that Rust have an "Ergonomics Working Group" (now
+simply called ["Language Changes RFCs"](https://github.com/rust-lang/rfcs),
+which discuss ways to make the language easier to use and there is a whole
+["Compiler Errors Working
+Group"](https://github.com/rust-lang/rust/labels/WG-compiler-errors) which
+discuss how to make the error messages in the compiler easier to understand.
+With all that, if you junior devs are having issues with the language, they
+are invited to go there and show the problems they are having with the
+language -- and the Rust community is really focused on that, and all they
+need is a Github account, instead of being part of the cabal that decides the
+changes. Do Go devs have an open, transparent discussion like that?
 
 > This pushes further down technological concerns such as efficiency, and even
 > correctness. Don’t get me wrong, the business does care about correctness,
@@ -381,7 +398,39 @@ less bugs (personal observation, it actually does!).
 As "average" as in what, actually? As in "whatever point I want to make about
 Go being better than Java/C#", for absolutely no reason?
 
-# The Things We Don't Talk About
+## [^5] Dropping All Euphemisms
+
+There one point that, if you take the birds-eye view of both posts, is truly
+being discussed here: TTSIW (Time To See It Working).
+
+I'll give it that TTSIW for Go is smaller than Rust, and that seeing something
+"working" is a huge step in producing serotonin in your system.
+
+Rust, with all its checkers and rules and strictness have a larger TTSIW,
+which may cause the release of glucocorticoid -- the stress hormone.
+
+So, the whole point the original post tries to make is "Go gives me
+serotonin".
+
+But after you are in the field for some time, when you have to go back to the
+office 'cause some service is not working, when you have to stop your leisure
+time to find out why something is breaking... That's a glucocorticoid release
+larger than fighting your compiler for 2 hours. In other words: Having to deal
+with stupid mistakes you left behind 'cause your compiler didn't warn you
+about them is more stressful than the ones it warned you about, 'cause it is
+_right_ _there_, in front of you, when you're building the system.
+
+I had a talk with an embedded developer about a month ago. His company was
+replacing Go applications with Rust, simply because the thing would run for
+awhile and then crash because there was some lock he should've used and the
+compiler never told him about it. Replacing with Rust was trading the long
+term glucocorticoid with a short term glucocorticoid and long term serotonin.
+
+And _that's_ what we are talking in those two articles: Do you want a short
+term pleasure and a long term stress or a short term stress and long term
+pleasure?
+
+## The Things We Don't Talk About
 
 There is one important piece that is never discussed: Ecosystem.
 
@@ -495,3 +544,22 @@ believe that the core team knows better how Go should move forward than the
 people actually writing code in Go, and that's ok. But if you're an open
 source proponent, evangelist or admirer, there is absolutely no reason to
 defend Go on _any_ accounts.
+
+Want to bash me? Agree with any of the points? Disagree? Come talk to me [on
+Functional Cafe](https://functional.cafe/@juliobiason/102804921786785051).
+
+---
+
+[^1]: Added in 2019.09.17.
+
+[^2]: Update in 2019.09.17, pointing that the discussion about this will come
+  later in the post.
+
+[^3]: Added in 2019.09.17, to point that senior devs discussing which language
+  is easier or harder to teach to juniors is a moot point.
+
+[^4]: Added in 2019.09.17, pointing that even if senior devs discussing if a
+  language is harder or easier for juniors to understand, Rust have an open
+  door policy for this kind of stuff.
+
+[^5]: Added in 2019.09.17, when I realized what we were really talking about.
