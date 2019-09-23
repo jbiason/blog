@@ -22,7 +22,7 @@ vários conceitos interessantes, eu acho que o título correto deve ser "Porque
 Você DEVE Aprender Rust".
 
 Mas antes de começar a falar sobre Rust, é interessante que vocês conheçam
-quem está falando sobre aprender Rust:
+quem está dizendo que vocês "devem aprender Rust":
 
 Eu comecei a programar a mais de 30 anos. Em todos esses anos, eu já programei
 em Basic (usando número de linhas e Basic estruturado, também conhecido como
@@ -34,7 +34,7 @@ applets Flash sem usar o editor da Adobe), PHP (quem nunca?), JavaScript (quem
 nunca?), Python, Objective-C, Clojure, Java, Scala (que eu não desejo que nem
 meu pior inimigo tenha que programar nela) e Rust. E essas são as linguagens
 que eu já escrevi código e que rodou. Fora essas, eu ainda conheço Haskell,
-Perl e Swift, mas nessas eu não programei nada ainda.
+Perl, um pouco de Ruby e Swift, mas nessas eu não programei nada ainda.
 
 Mas por que eu comentei sobre isso? Porque o que eu vou comentar aqui é,
 basicamente, _minha opinião_, depois de conhecer essas linguagens todas.
@@ -252,9 +252,9 @@ mensagens de erro do compilador.
 
 ## Motivo 4: O Borrow Checker
 
-O Borrow Checker é o cara que faz o Rust ser diferente de outras linguagens. E
-que também mudou como eu pensava sobre programação, apesar de todas as
-linguagens listadas no começo desse post.
+O Borrow Checker é a funcionalidade que faz o Rust ser diferente de outras
+linguagens. E que também mudou como eu pensava sobre programação, apesar de
+todas as linguagens listadas no começo desse post.
 
 Por exemplo, no seguinte código:
 
@@ -265,7 +265,7 @@ let a = String::from("hello");
 {% note() %}
 O que está sendo feito aqui é que está sendo criada uma string -- uma lista de
 caracteres que pode ser expandida, se necessário -- utilizando uma constante
-que é fica (por ficar em uma página de código em memória) como valor inicial.
+que é fixa (por ficar em uma página de código em memória) como valor inicial.
 
 Quem já mexeu com C: Isso é o mesmo que alocar uma região de memória e copiar
 o conteúdo de uma variável estática para a nova região alocada.
@@ -286,7 +286,7 @@ considerada como um indicador de uma posição de memória, algo do tipo
 No caso, `a` (a nossa variável) é "dona" de uma região de memória, a
 0x3f5cbf89, que tem o tamanho de 5 bytes, do tipo String.
 
-E aí quando tu tenta fazer uma atribuição de variáveis como, por exemplo:
+E aí você faz uma atribuição de variáveis como, por exemplo:
 
 ```rust
 fn main() {
@@ -459,3 +459,206 @@ porque, em ambos os casos, temos threads compartilhando memória mutável, que,
 como vimos pelas regras do Borrow Checker, não é possível fazer em Rust.
 
 ## Motivo 5: Tipos Algébricos
+
+("Tipos Algébricos", no nosso caso, é só um nome bonito para parecer
+inteligente ao invés de dizer "Enums".)
+
+Rust, assim como várias outras linguagens, tem enums:
+
+```rust
+enum IpAddr {
+   V4,
+   V6
+}
+```
+
+{% note() %}
+Quando eu estava estuando sobre isso, eu descobri que as opções de um enum são
+chamadas "variantes".
+{% end %}
+
+Mas além de ter enum, uma das coisas que Rust permite é que as opções do enum
+carreguem um valor com elas.
+
+```rust
+enum IpAddr {
+    V4(String),
+    V6(String),
+}
+```
+
+Aqui temos um enum com duas opções, `V4` e `V6`; cada um dessas opções carrega
+uma string junto.
+
+Mas como se usa isso?
+
+```rust
+let home = IpAddr::V4(String::from("127.0.0.1"));
+```
+
+É bem parecido com a forma em que definimos os valores de enumerações em
+outras linguagens, com a String como parâmetro.
+
+É importante notar que não é preciso que todas as opções tenham os mesmos
+parâmetros, e é possível ter opções sem nenhum parâmetro ou mesmo mais de um.
+
+E, para acessar os elementos, usamos `match`:
+
+```rust
+match home {
+    V4(address) =&gt; println!("IPv4 addr: {}", address),
+    V6(address) =&gt; println!("Ipv6 addr: {}", address),
+}
+```
+
+`match` usa pattern matching para validar as opções. No caso, se `home` for
+`V4` com um valor dentro, o valor é extraído e o `println!` com a string
+`IPv4` é usada; se for `V6`, o outro `println!` é usado.
+
+A parte interessante é que se amanhã surgir o IPv8, e eu adicionar `V8` no meu
+enum, o código vai parar de compilar. Por que? Porque o pattern matching tem
+que ser exaustivo -- ou seja, tem que capturar todas as opções possíveis. Isso
+é importante para coisas como, por exemplo:
+
+```rust
+enum Option<T> {
+    Some(T),
+    None
+}
+```
+
+Esse enum é o substituto para coisas com `null`; lembre-se que, em Rust, todas
+as variáveis devem apontar para uma região de memória e `null` não é um
+posição de memória e, por isso, Rust não tem `null`s. Assim, uma função que
+poderia retornar `null` tem que retornar um `Option` e, quando é tratado o
+retorno da função, é preciso tratar o valor do retorno de sucesso (`Some`) _e_
+o valor com `null` (`None`); não é possível acessar o valor com o valor de
+sucesso sem tetar o que acontece se não vier valor.
+
+E isso nos leva ao próximo motivo que é...
+
+## Error Control
+
+Antes de entrar na questão de como Rust faz o tratamento de erros, deixem me
+mostrar alguns exemplos de tratamentos em outras linguagens:
+
+Em Python:
+
+```python
+try:
+    something()
+except Exception:
+    pass
+```
+
+Em Java:
+
+```java
+try {
+   something();
+} catch (Exception ex) {
+   System.out.println(ex);
+}
+```
+
+Ou em C:
+
+```c
+FILE* f = fopen("someting.txt", "wb");
+fprintf(f, "Done!");
+fclose(f);
+```
+
+Qual o problema com esses três exemplos?
+
+O problema é que em nenhum deles a situação do erro foi realmente tratada -- a
+versão em C é a pior delas, pois se o `fopen` falhar por algum motivo, ele
+retorna um `null` e tentar fazer um `fprintf` em um `null` gera um
+Segmentation Fault.
+
+{% note() %}
+Eu já fiz todos esses, na minha vida.
+{% end %}
+
+Desde a base das bibliotecas do Rust, as funções retornam esse enum:
+
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+Como isso ajuda em alguma coisa? Bom, se tudo retorna `Result`, isso significa
+que a única forma que eu tenho para pegar o resultado do sucesso é lidar com o
+caso do erro, porque o `match` não vai deixar que eu simplesmente ignore isso.
+
+No nosso caso do C, o correspondente seria:
+
+```rust
+match File::create("something.txt") {
+    Ok(fp) => fp.write_all(b"Hello world"),
+    Err(err) => println!("Failure! {}", err),
+}
+```
+
+Ou seja, a única forma que eu tenho de pegar o `fp` (file pointer) pra poder
+escrever no arquivo é usando um match tratando o `Ok` (sucesso) e `Err`
+(erro), e eu não tenho como pegar o `fp` sem fazer esse tratamento todo.
+
+A única coisa que faltou é que o write também pode falhar; então teríamos
+
+```rust
+match File::create("something.txt") {
+    Ok(fp) => match fp.write_all(b"Hello world") {
+        Ok(_) => (),
+        Err(err) => println!("Can't write! {}", err),
+    }
+    Err(err) => println!("Failure! {}", err),
+}
+```
+
+... e aqui já estamos ficando verbosos demais. Para facilitar um pouco a vida,
+o enum `Result` do Rust tem uma função chamada `.unwrap()`, que faz o
+seguinte: se o resultado do `Result` for `Ok`, já extrai o valor e retorna o
+valor em si; se o resultado for `Err`, chama um `panic!`, que faz a aplicação
+"capotar":
+
+```rust
+let mut file = File::create("something.txt").unwrap();
+file.write(b"Hello world").unwrap();
+```
+
+"Mas Júlio", você deve estar pensando, "isso não é diferente do segmentation
+fault". Em matéria de resultado final, não; mas se vocês pensarem bem, o que
+está sendo feito é que explicitamente eu estou colocando um "aqui a aplicação
+pode explodir", e não que alguma coisa em tempo de execução vai derrubar a
+aplicação. E a palavra chave aqui é "explicitamente"; alguém pode considerar
+que não tratar o `null` do `fopen` também é uma forma de deixar um "aqui a
+aplicação pode explodir", mas não foi o compilador que deixou isso acontecer;
+sempre que pode, ele tentou me impedir de fazer burrada.
+
+Outra forma de lidar com `Result` é o operador `?`: esse operador só funciona
+em funções que também tem um retorno do tipo `Result`; o que ela faz é que
+caso a chamada de função retorne um `Err`, esse `Err` é passado como retorno
+da função com o operador; se a função retornar um `Ok`, então o valor
+encapsulado é retornado diretamente. Mais uma vez no nosso exemplo da escrita
+em arquivo:
+
+```rust
+let mut file = File::create("something.txt")?;
+file.write(b"Hello world")?;
+OK(())
+```
+
+O que acontece é que agora essas três linhas _tem_ que estar dentro uma função
+com um `Result`.
+
+"Ah, barbada", você pensa, "vou botar `?` em tudo e nunca lidar com o erro".
+Bom, sim, é uma opção, mas existe uma função que não se pode ter `Result`: a
+`main`. Assim, mais cedo ou mais tarde, o erro _vai_ ter que ser lidado.
+
+{% note() %}
+Existe uma forma de fazer o `main` retornar `Result`, mas ele basicamente
+serve para transformar o `Result` num código de erro -- ou 0 em sucesso.
+{% end %}
