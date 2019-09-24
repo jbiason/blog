@@ -187,6 +187,13 @@ exclamação é colocada para diferenciar de funções normais (no caso, o
 `println!` vai ser expandido pelo compilador por um conjunto maior de
 comandos).
 
+Outra coisa a notar é que não estamos definindo o tipo de variável que `a` é.
+Rust é uma linguagem fortemente e estaticamente tipada. O que está acontecendo
+é que estamos deixando o compilador inferir qual o tipo que `a` deve ter -- e
+por ser um inteiro, provavelmente vai ser um u32 ou u64, dependendo da
+arquitetura, pois para desambiguação, Rust usa o tipo que gere um código mais
+rápido, mesmo que ocupe mais memória.
+
 {% note() %}
 Quem já brincou com `#define`s em C deve saber que não existe nada que indique
 o que foi digitado é uma função mesmo ou um `#define` que vai ser expandido em
@@ -537,7 +544,7 @@ sucesso sem tetar o que acontece se não vier valor.
 
 E isso nos leva ao próximo motivo que é...
 
-## Error Control
+## Motivo 6: Error Control
 
 Antes de entrar na questão de como Rust faz o tratamento de erros, deixem me
 mostrar alguns exemplos de tratamentos em outras linguagens:
@@ -662,3 +669,220 @@ Bom, sim, é uma opção, mas existe uma função que não se pode ter `Result`:
 Existe uma forma de fazer o `main` retornar `Result`, mas ele basicamente
 serve para transformar o `Result` num código de erro -- ou 0 em sucesso.
 {% end %}
+
+## Motivo 7: Generics & Traits
+
+Antes de entrar direto sobre generics e traits, vamos falar sobre qual
+estrutura Rust usa para guardar os dados.
+
+Rust usa structs, como C, e não classes como C++ e mais uma gama de outras
+linguagens.
+
+Por exemplo:
+
+```rust
+struct Gift {
+    package_color: String,
+    content: String
+}
+```
+
+Lembram que eu no começo comentei que Rust era fortemente e estaticamente
+tipada e que o compilador estava inferindo o tipo dos dados para nós? Bom,
+para estruturas isso não funciona, e por isso precisamos definir os tipos
+aqui.
+
+Para criar um elemento dessa estrutura, usamos
+
+```rust
+let presente = Gift { package_color: "red", content: "A GIFT!" };
+```
+
+{% note() %}
+Eu normalmente não comento isso nas apresentações que eu faço, mas é possível
+criar uma estrutura do tipo
+
+```rust
+struct Gift(String);
+```
+
+Essa estrutura tem os campos com nomes anônimos e temos que acessar com `.0`
+ou `.1` (se tiver um segundo campo nessa estrutura) e assim por diante.
+
+Esse tipo de construção normalmente é usada para forçar novos tipos no
+sistema, já que se eu quisesse receber um tipo específico de String, eu
+usaria algo do tipo.
+
+Outro exemplo, que talvez fique mais claro:
+
+```rust
+struct Celcius(f32);
+struct Farenheit(f32);
+```
+
+Duas estruturas -- dois tipos -- que englobam floats, mas quando eu estiver
+lendo o código e ver uma função do tipo `convert(c: Celcius)`, eu sei
+exatamente qual a unidade de temperatura que eu preciso passar, deixando o
+código mais claro de ser lido.
+{% end %}
+
+Generics -- a possibilidade de não definir o tipo de um dado previamente é
+feito como em Java, onde os tipos genéricos são listados entre `<>`:
+
+```rust
+struct Point<T> {
+	x: T,
+	y: T,
+}
+```
+
+Se eu quiser criar um `Point` com floats de 32 bits:
+
+```rust
+let my_point = Point<f32>(x: 1.0, y: 2.0);
+```
+
+Além de aplicar Generics para estruturas, podemos aplicar o mesmo para enums
+-- e nós já vimos dois exemplos disso:
+
+```rust
+enum Option<T> {
+    Some(T),
+    None
+}
+```
+
+Option, o substituto de coisas que podem ser null/não ter valor é uma
+enumeração com `Some` que carrega um tipo qualquer, definido quando se cria
+uma variável com essa variante -- e é possível deixar o compilador inferir
+qual o tipo, assim como fizemos com `a` nos primeiros exemplos:
+
+```rust
+let has_value = Some(2);
+```
+
+Outro exemplo básico de enum genérico:
+
+```rust
+enum Result<T, E> {
+    Ok(T),
+    Err(E),
+}
+```
+
+`Result` também permite que sejam carregados valores com as variantes; no
+caso, tanto o tipo do `Ok` quanto `Err` são genéricos e possivelmente
+diferentes -- `Ok` pode ter um tipo `T`, enquanto `Err` tem um tipo qualquer
+`E`, e não há nada obrigando os dois a terem o mesmo tipo, como seria se
+tivéssemos:
+
+```rust
+enum Result<t> {
+	Ok(T),
+	Err(T)
+}
+```
+
+... onde tanto o tipo do sucesso quanto de erro devem ser do mesmo tipo.
+
+{% note() %}
+Em tempo de compilação, Rust vai resolver todos os tipos que as
+estruturas, enums e funções genéricas usam e vai gerar o código para esses
+tipos -- ou seja, se eu tivesse duas funções que retornam `Result`, uma com
+`Result<u32, String>` e `Result<f32, String>`, em tempo de compilação seriam
+geradas duas versões diferentes de `Result`, com os tipos já definidos.
+
+A vantagem disso é que, em tempo de execução, não é preciso tentar detectar o
+tipo que está sendo passado, já que ele já foi definido muito antes. O
+problema é que o código pode ficar maior -- e isso deve explicar o tamanho dos
+executáveis como foi mostrado lá no começo do post.
+{% end %}
+
+Além de estruturas de dados, é possível adicionar funções atreladas à essas
+estruturas:
+
+```rust
+impl Gift {
+	fn yell_content(&self) {
+		println!("{}", self.content);
+	}
+}
+```
+
+(Com exceção de hierarquias, o resultado é bem semelhante à programação
+orientada e objetos.)
+
+Ainda é possível definir interfaces que várias estruturas devem implementar,
+utilizando-se traits:
+
+```rust
+trait Summary {
+    fn summarize(&amp;self) -&gt; String;
+}
+```
+
+Essa trait indica que, qualquer estrutura que queira ser compatível com ela,
+tem que implementar uma função `summarize` que retorna uma `String`.
+
+Para definir que uma estrutura segue a trait, utiliza-se `impl/for`:
+
+```rust
+struct Phrase {
+    phrase: String
+}
+
+impl Summary for Phrase {
+    fn summarize(&amp;self) -&gt; String {
+        self.phrase
+            .split_whitespace()
+            .map(|word| word.chars().nth(0).unwrap())
+            .collect()
+    }
+}
+```
+
+{% note() %}
+Se você está com curiosidade com relação ao código acima:
+
+1. Pega o `phrase`, que foi definido na estrutura como `String`;
+2. Quebra essa string pelos espaços em branco (`split_whitespace`), gerando
+   uma lista;
+3. Transforma (`map`) cada elemento da lista (que chamamos de `word` nesse
+   caso) para pegar o primeiro elemento da lista de caracteres que forma a
+   string (`chars().nth(0).unwrap()`). O `unwrap` está aqui porque `nth`
+   retorna um `Option`, já que pode ser chamado com um número maior que
+   caracteres na String, retornando `None` nesse caso; o `unwrap` serve para
+   pegarmos diretamente o valor do `Some` e, por sorte, não vai haver nenhum
+   pedaço da string quebrada com `split_whitespace` que não tenha nenhum
+   caractere;
+4. Junta (`collect`) todos os elementos. Como Strings são arrays/listas de
+   caracteres, há uma conversão direta para String.
+
+Ou seja, a função pega uma string como "Porque Você Deve Aprender Rust" e
+retorna "PVDAR".
+{% end %}
+
+Traits funcionam com Generics, e assim podemos forçar a receber
+estruturas/enums que tenham certas características, como em:
+
+```rust
+fn get_summary&lt;T&gt;(summarizable: T) -&gt; String
+    where T: Summary
+{
+    ...
+}
+```
+
+Aqui temos uma função genérica que recebe um tipo qualquer `T`, mas obrigamos,
+através do `where` que esse tipo implemente a trait `Summary` -- e assim
+podemos chamar `summarizable.summarize()` sem problemas, porque a trait obriga
+o tipo a ter essa função implementada.
+
+Outra vantagem desse formato é que podemos ter traits próprias do nosso
+sistema, mas implementar a trait para tipos já definidos na linguagem:
+
+```rust
+impl Summary for String { ... }
+```
+
+## Motivo 8: Cargo
