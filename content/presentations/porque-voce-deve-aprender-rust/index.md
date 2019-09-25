@@ -1,6 +1,6 @@
 +++
 title = "Porque Você Deve Aprender Rust"
-date = 2019-09-10
+date = 2019-09-25
 
 [taxonomies]
 tags = ["pt-br", "rust", "companion post"]
@@ -187,18 +187,18 @@ exclamação é colocada para diferenciar de funções normais (no caso, o
 `println!` vai ser expandido pelo compilador por um conjunto maior de
 comandos).
 
+{% note() %}
+Quem já brincou com `#define`s em C deve saber que não existe nada que indique
+o que foi digitado é uma função mesmo ou um `#define` que vai ser expandido em
+várias outras funções; Rust não deixa isso acontecer.
+{% end %}
+
 Outra coisa a notar é que não estamos definindo o tipo de variável que `a` é.
 Rust é uma linguagem fortemente e estaticamente tipada. O que está acontecendo
 é que estamos deixando o compilador inferir qual o tipo que `a` deve ter -- e
 por ser um inteiro, provavelmente vai ser um u32 ou u64, dependendo da
 arquitetura, pois para desambiguação, Rust usa o tipo que gere um código mais
 rápido, mesmo que ocupe mais memória.
-
-{% note() %}
-Quem já brincou com `#define`s em C deve saber que não existe nada que indique
-o que foi digitado é uma função mesmo ou um `#define` que vai ser expandido em
-várias outras funções; Rust não deixa isso acontecer.
-{% end %}
 
 E esse código Rust não compila.
 
@@ -643,10 +643,9 @@ pode explodir", e não que alguma coisa em tempo de execução vai derrubar a
 aplicação. E a palavra chave aqui é "explicitamente"; alguém pode considerar
 que não tratar o `null` do `fopen` também é uma forma de deixar um "aqui a
 aplicação pode explodir", mas não foi o compilador que deixou isso acontecer;
-sempre que pode, ele tentou me impedir de fazer burrada.
+sempre que pode, o compilador do Rust tentou me impedir de fazer burrada.
 
-Outra forma de lidar com `Result` é o operador `?`: esse operador só funciona
-em funções que também tem um retorno do tipo `Result`; o que ela faz é que
+Outra forma de lidar com `Result` é o operador `?`:  o que ela faz é que
 caso a chamada de função retorne um `Err`, esse `Err` é passado como retorno
 da função com o operador; se a função retornar um `Ok`, então o valor
 encapsulado é retornado diretamente. Mais uma vez no nosso exemplo da escrita
@@ -658,8 +657,9 @@ file.write(b"Hello world")?;
 OK(())
 ```
 
-O que acontece é que agora essas três linhas _tem_ que estar dentro uma função
-com um `Result`.
+Como o operador vai fazer com que a função em que essas linhas estão retornem
+o `Err` se a chamada falhar, essas três linhas _tem_ que estar dentro uma
+função que retorne um `Result`.
 
 "Ah, barbada", você pensa, "vou botar `?` em tudo e nunca lidar com o erro".
 Bom, sim, é uma opção, mas existe uma função que não se pode ter `Result`: a
@@ -702,9 +702,7 @@ let presente = Gift { package_color: "red", content: "A GIFT!" };
 Eu normalmente não comento isso nas apresentações que eu faço, mas é possível
 criar uma estrutura do tipo
 
-```rust
-struct Gift(String);
-```
+`struct Gift(String);`
 
 Essa estrutura tem os campos com nomes anônimos e temos que acessar com `.0`
 ou `.1` (se tiver um segundo campo nessa estrutura) e assim por diante.
@@ -715,7 +713,7 @@ usaria algo do tipo.
 
 Outro exemplo, que talvez fique mais claro:
 
-```rust
+```
 struct Celcius(f32);
 struct Farenheit(f32);
 ```
@@ -777,7 +775,7 @@ diferentes -- `Ok` pode ter um tipo `T`, enquanto `Err` tem um tipo qualquer
 tivéssemos:
 
 ```rust
-enum Result<t> {
+enum Result<T> {
 	Ok(T),
 	Err(T)
 }
@@ -817,7 +815,7 @@ utilizando-se traits:
 
 ```rust
 trait Summary {
-    fn summarize(&amp;self) -&gt; String;
+    fn summarize(&self) -> String;
 }
 ```
 
@@ -832,7 +830,7 @@ struct Phrase {
 }
 
 impl Summary for Phrase {
-    fn summarize(&amp;self) -&gt; String {
+    fn summarize(&self) -> String {
         self.phrase
             .split_whitespace()
             .map(|word| word.chars().nth(0).unwrap())
@@ -866,7 +864,7 @@ Traits funcionam com Generics, e assim podemos forçar a receber
 estruturas/enums que tenham certas características, como em:
 
 ```rust
-fn get_summary&lt;T&gt;(summarizable: T) -&gt; String
+fn get_summary<T>(summarizable: T) -> String
     where T: Summary
 {
     ...
@@ -886,3 +884,200 @@ impl Summary for String { ... }
 ```
 
 ## Motivo 8: Cargo
+
+[Cargo](https://doc.rust-lang.org/cargo/) é o gerenciador de pacotes e
+dependências do Rust. Ele também serve como gerenciador de projetos e
+frontend para outras funcionalidades, como executar testes.
+
+Cargo é interessante porque faz parte do pacote principal do Rust -- em outras
+palavras, a linguagem já vem com um eco-sistema completo.
+
+
+## Motivo 9: Testes
+
+Rust já vem com testes integrados -- e, como comentado no motivo anterior,
+Cargo serve como facilitador para a execução dos testes.
+
+Por exemplo, o seguinte código mostra um teste em Rust:
+
+```rust
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn testing() {
+		assert!(1 == 1);
+    }
+}
+```
+
+Esse teste não precisa estar num arquivo específico (mas ajuda se você coloca
+num arquivo específico); ele não precisa estar em um módulo específico (ou
+seja, aquele `mod tests` não necessariamente precisa existir ou mesmo se
+chamar `tests`); e as funções não precisam começar com um nome específico.
+Tudo que você precisa é definir que o código somente vai existir na
+configuração de testes (`#[cfg(test)]`) e marcar cada função que deve ser
+chamada durante os testes (`#[test]`).
+
+Para ver os resultados do teste:
+
+```
+$ cargo test
+   Compiling adder v0.1.0 (file:///projects/adder)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.22 secs
+     Running target/debug/deps/adder-ce99bcc2479f4607
+
+running 1 test
+test tests::testing ... ok
+```
+
+Ao executar `cargo test`, todos os arquivos marcados com testes são compilados
+(porque o cargo já ativou a configuração de testes e os blocos marcados são
+finalmente adicionados) e executa os testes, mostrando o resultado de cada um.
+Não é preciso uma biblioteca externa ou comandos a mais para escrever um
+teste.
+
+{% note() %}
+Uma coisa curiosa sobre o `cargo test` é que ele também sai executando tudo
+que estiver no diretório `examples`, que normalmente contém exemplos de como
+uma biblioteca funciona.
+
+A parte interessante sobre isso é que durante a execução de testes de várias
+bibliotecas, também é validado se os exemplos estão corretos.
+{% end %}
+
+## Motivo 10: Macros
+
+Macros são uma ferramenta poderosa mas realmente complexa do Rust. Tão
+complexa que eu não cheguei a me aprofundar muito, mas como exemplo, deixem-me
+mostrar uma biblioteca do Rust, chamada
+[Log-Derive](https://docs.rs/log-derive/):
+
+```rust
+#[logfn(ok = "TRACE", err = "ERROR")]
+fn call_isan(num: &str) -> Result<Success, Error> {
+    if num.len() >= 10 && num.len() <= 15 {
+        Ok(Success)
+    } else {
+        Err(Error)
+    }
+}
+```
+
+A parte da macro está no começo da função, no `#[logfn(ok = "TRACE", err =
+"ERROR")]`; o que ela indica é que se a função terminar com o status de `Ok`,
+deve ser gerado um log no nível "TRACE" (abaixo de "DEBUG") e se a função sair
+com status de `Err`, deve ser gerado um log no nível de "ERROR".
+
+E aí eu pergunto: Você consegue ver alguma linha de log no código da função?
+Isso é porque a macro do Log-Derive consegue acessar o código em tempo de
+compilação e adicionar/alterar certas construções.
+
+{% note() %}
+Na verdade, eu sei que existem três tipos diferentes de macros em Rust:
+
+1. Macros mais simples, como a `println!`, que se expandem para uma combinação
+   maior de comandos (`println!` expande para a aquisição do lock da escrita
+   padrão -- stdout -- envio dos dados para a saída e liberação do lock, mas
+   você nunca teve que escrever tudo isso por conta);
+2. Macros de implementação de funções em estruturas, que basicamente fazem a
+   geração de funções como vimos com `impl`;
+3. E macros como a Log-Derive, que tem acesso aos tokens que formam o código
+   fonte e geram uma saída de tokens novamente -- e aí podem adicionar,
+   remover ou alterar tokens do jeito que quiserem.
+{% end %}
+
+## Motivo 11: Motivos Malucos
+
+[How Rust’s standard library was vulnerable for years and nobody
+noticed](https://medium.com/@shnatsel/how-rusts-standard-library-was-vulnerable-for-years-and-nobody-noticed-aebf0503c3d6):
+Nesse artigo de 2018, Sergey Davidoff conta que achou uma falha de segurança
+em uma das funções do Rust, mas devido a forma como a mesma deveria ser
+chamada, era basicamente impossível de exploitar a mesma.
+
+[No, the problem isn’t “bad
+coders”](https://medium.com/@sgrif/no-the-problem-isnt-bad-coders-ed4347810270):
+Esse artigo é uma resposta para as respostas de um artigo da Microsoft, em que
+eles reportam que 70% de todos os crashes das aplicações no Windows se devem
+ao acesso inválido de memória. Sean Griffin, criador da biblioteca
+[Diesel](https://diesel.rs/), que serve para escrever ORMs em Rust, conta que
+estava trabalhando em compartilhar uma conexão do PostgreSQL entre várias
+threads, e o compilador não deixou. Quando foi examinar exatamente o porque,
+percebeu que realmente o que ele queria fazer poderia levar a um acesso
+inválido. E Griffin tem experiência de sobra nesse campo, já que também é o
+criador do Active Record do Rails.
+
+Outra coisa maluca:
+
+![Screenshot do Github do Rust](rust-issues.png)
+
+A parte que vocês devem estar estranhando é a quantidade de issues que a
+linguagem tem (algumas vezes o Github chega simplesmente a mostrar "5000+",
+indicado que existem mais de 5000 issues abertas).
+
+Como pode uma linguagem com apenas 4 anos de existência pública ter mais de
+5000 issues abertas? O que acontece é que todo o processo de decisão da
+linguagem passa pelo Github: Quando os desenvolvedores do core da linguagem
+acreditam que uma funcionalidade deva ser adicionada (ou removida), o que eles
+fazem é abrir uma issue no Github para discutir com a comunidade o que e como
+isso deve ser feito.
+
+Lembram que eu comentei que as questões de mensagens de erro não claras podem
+(e devem) ser comunicadas para os desenvolvedores? Isso é feito pelo Github.
+
+Ainda, existem "Working Groups", grupos especializados sobre discussões em
+alguns tópicos. Por exemplo, existe um working group para Bancos de Dados,
+discutindo como a linguagem pode facilitar a criação de conexões com vários
+bancos, interfaces padrões para essas conexões e assim por diante; existe um
+working group para jogos, para discutir as coisas que tornam a vida de
+desenvolvedores de jogos mais fácil.
+
+{% note() %}
+Existia um working group para CLI (command line interface, ou interface de
+linha de comando) para discutir como facilitar a vida de desenvolvedores que
+querem construir ferramentas de linhas de comando. Uma vez que o grupo
+acreditou ter achado a melhor forma, eles publicaram um livro sobre os
+achados, decisões e implementações.
+
+E isso acontece com todos os working groups -- então pode esperar que, se eles
+não fizeram ainda, vai sair um livro de como utilizar bancos de dados com Rust
+do Database Working Group e um livro de como escrever jogos em Rust pelo Games
+Working Group.
+{% end %}
+
+Por último, existe o script [rustup](https://rustup.rs/). Lembram que eu falei
+que Rust tem uma cadência de releases de seis em seis semanas? RustUp ajuda a
+manter a sua instalação do Rust -- e componentes associados -- em dia. Não só
+isso, mas ele permite a instalação de "toolchains" diferentes: Você pode, por
+exemplo, instalar o toolchain para a arquitetura
+`armv7-unknown-linux-gnueabihf` e, a partir da sua máquina Linux rodando Intel
+gerar um executável para arquitetura ARM; ou, ainda, você pode instalar o
+toolchain para a arquitetura `wasm32-unknown-unknown` que, na verdade, não é
+uma arquitetura, é o gerador para WebAssembly, o que permite que você converta
+seu código Rust para WebAssembly (com algumas restrições) -- e, embora seja
+possível gerar WebAssembly em outras linguagens como C++ e C#, se você
+utilizar Rust, todas as validações de acesso de memória continuam valendo.
+
+## E agora?
+
+Bom, se depois de tudo isso você decidir que quer aprender mais sobre Rust, o
+que eu posso sugerir é:
+
+1. Instale o Rust usando o [RustUp](https://rustup.rs).
+2. Leia o [Livro do Rust](https://doc.rust-lang.org/book/); o livro que
+   explica todas as funcionalidades da linguagem está disponível online e é
+   possível comprar a versão em ePub da No Starch Press (mas não há diferença
+   entre a versão online e a impressa/ePub).
+3. Confira como Rust funciona lendo o [Rust By
+   Example](https://doc.rust-lang.org/stable/rust-by-example/). Basicamente
+   tudo que o Livro cobre também está aqui, mas Rust By Example usa uma forma
+   diferente de explicação, partindo a partir de exemplos para cada ponto.
+4. Você pode brincar com Rust no [Rust
+   Playground](https://play.rust-lang.org/?version=stable), onde é possível
+   editar, compilar e executar código Rust de dentro do browser. Somente um
+   número pequeno de bibliotecas está disponível, mas para brincar com Rust
+   básico é possível usar isso ao invés de instalar a linguagem inteira.
+5. Existe um grupo de usuários de Rust no Telegram, o [Rust
+   Brasil](https://t.me/rustlangbr). Se tiver alguma dúvida, é só ir lá e
+   perguntar.
+
+E era isso!
