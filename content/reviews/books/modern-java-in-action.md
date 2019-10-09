@@ -3,7 +3,7 @@ title = "Modern Java in Action - Raoul-Gabriel Urma"
 date = 2019-02-08
 
 [taxonomies]
-tags = ["books", "en-au", "review", "java", "java 8", "java 9", "raoul-gabriel urma"]
+tags = ["books", "en-au", "reviews", "java", "java 8", "java 9", "raoul-gabriel urma"]
 +++
 
 Java 8 Lambdas in Action is a clearly-written guide to Java 8 lambdas and
