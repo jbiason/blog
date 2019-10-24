@@ -1,6 +1,6 @@
 [submodule "themes/nighttime"]
 	path = themes/nighttime
 	url = git@github.com:jbiason/nighttime.git
-[submodule "themes/zola-theme-terminimal"]
-	path = themes/zola-theme-terminimal
-	url = https://github.com/pawroman/zola-theme-terminimal
+[submodule "themes/terminimal-light"]
+	path = themes/terminimal-light
+	url = git@git.juliobiason.me:terminimal-light.git
