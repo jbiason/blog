@@ -1,7 +1,6 @@
 +++
 transparent = false
 title = "Uma Lição de VIM"
-template = "section-contentless.html"
 +++
 
 * [Introdução](00-intro)

@@ -1,7 +1,10 @@
 +++
 title = "My Books"
-template = "section-contentless.html"
 transparent = true
+
+[extra]
+hide_pages = true
+hide_content = false
 +++
 
 ## Portuguese/Português
