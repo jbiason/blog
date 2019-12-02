@@ -54,6 +54,13 @@ writing the code between the comments, you write the functionality in the
 function themselves and keep a clean view of what your application does in the
 main code.
 
+In [A Comment Is An Invitation For
+Refactoring](https://blog.pragmaticengineer.com/a-comment-is-an-invitation-for-refactoring/),
+Gergely Orosz points that comments in the code could be converted to function
+calls, including things like grouping common things, or bugfixes. This is,
+basically, the same thing, except in different points of development: One when
+the code is about to be written and one when the code is already there.
+
 [^1]: Yes, that was sarcastic.
 
 {{ chapters(prev_chapter_link="/books/things-i-learnt/spec-first", prev_chapter_title="Specs First, Then Code", next_chapter_link="/books/things-i-learnt/gherkin", next_chapter_title="Gherkin Is Your Friend to Understand Expectations") }}
