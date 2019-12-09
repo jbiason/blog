@@ -38,4 +38,14 @@ kind of stuff -- "I don't know what to do next, and I'm not sure if I'm done
 with the current problem" -- then maybe it's time to stop and talk to other
 people in the project to figure that out.
 
+Another way to think this: Erik Deitrich have a post about [Don’t Learn to
+Code — Learn to Automate](https://daedtech.com/dont-learn-to-code-learn-to-automate/),
+something I can get behind 'cause most of us, when doing stuff, think "I need
+to do this, then I pick that thingy and put it there and from there I do this
+other work". Basically, we create mental models of specs, step by step, on
+what we need to do. And, from there, it may be even simpler, 'cause now all
+you need to learn is "First, how I do this; Ok, got it, now I get the result
+from this and put there" and so on. You can even have a learning path, if
+you're a beginner.
+
 {{ chapters(prev_chapter_link="/books/things-i-learnt/disclaimer", prev_chapter_title="Disclaimer", next_chapter_link="/books/things-i-learnt/steps-as-comments", next_chapter_title="Write Steps as Comments") }}
