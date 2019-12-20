@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Design Patters Are Used to Name Solution
 date = 2019-06-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "design patterns"]
+tags = ["books", "things i learnt", "design patterns"]
 +++
 
 Most of the times I saw design patterns being applied, they were applied as a

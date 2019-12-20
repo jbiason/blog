@@ -1,13 +1,12 @@
 +++
 title = "Agile vs Culture: The Story of Outliners"
 date = 2015-12-18
-category = "thoughts"
 
 [taxonomies]
-tags = ["agile", "book", "empowerment", "disenfranchise", "en-au"]
+tags = ["agile", "book", "empowerment", "disenfranchise"]
 +++
 
-When the culture goes againt agile.
+When the culture goes against agile.
 
 <!-- more -->
 

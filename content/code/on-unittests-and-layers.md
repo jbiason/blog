@@ -2,10 +2,8 @@
 title = "On Unit Tests and Layers"
 date = 2017-09-11
 
-category = "code"
-
 [taxonomies]
-tags = ["unit tests", "en-au", "testing", "layers"]
+tags = ["unit tests", "testing", "layers"]
 +++
 
 On a recent discussion about testing, I think I came up with a

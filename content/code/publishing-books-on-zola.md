@@ -4,7 +4,7 @@ date = 2019-01-20
 category = "thoughts"
 
 [taxonomies]
-tags = ["en-au", "books", "zola"]
+tags = ["books", "zola"]
 +++
 
 A long time ago I wrote a couple of posts on a WordPress, then moved them to

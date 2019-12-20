@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Good Languages Come With Integrated Docu
 date = 2019-06-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "languages", "documentation"]
+tags = ["books", "things i learnt", "languages", "documentation"]
 +++
 
 If you're worried about learning some new programming language, you can bet

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - It's Better To Let The Application Crash
 date = 2019-06-24
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "exceptions", "error handling"]
+tags = ["books", "things i learnt", "exceptions", "error handling"]
 +++
 
 Although that sounds weird, it's better to not add any error handling than

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Blogging About Your Stupid Solution Is S
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "blogging"]
+tags = ["books", "things i learnt", "personal", "blogging"]
 +++
 
 You may feel "I'm not start enough to talk about this" or "This must be so

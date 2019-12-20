@@ -4,7 +4,7 @@ date = 2015-02-18
 category = "announcements"
 
 [taxonomies]
-tags = ["meta", "blog", "pelican", "en-au"]
+tags = ["meta", "blog", "pelican"]
 +++
 
 Short version: New blog URL, engine and layout.

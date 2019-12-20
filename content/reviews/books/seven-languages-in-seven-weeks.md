@@ -3,10 +3,10 @@ title = "Seven Languages in Seven Weeks"
 date = 2019-07-16
 
 [taxonomies]
-tags = ["books", "reviews", "en-au", "bruce a tate", "clojure", "haskell", "io", "prolog", "scala", "erlang", "ruby"]
+tags = ["books", "reviews", "bruce a tate", "clojure", "haskell", "io", "prolog", "scala", "erlang", "ruby", "it"]
 +++
 
-[Goodreads summary](https://www.goodreads.com/book/show/7912517-seven-languages-in-seven-weeks):
+[GoodReads summary](https://www.goodreads.com/book/show/7912517-seven-languages-in-seven-weeks):
 You should learn a programming language every year, as recommended by The
 Pragmatic Programmer. But if one per year is good, how about Seven Languages
 in Seven Weeks? In this book you'll get a hands-on tour of Clojure, Haskell,

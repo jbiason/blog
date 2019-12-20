@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - \"Right Tool For The Job\" Is Just To Pu
 date = 2019-06-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "right tool", "agenda"]
+tags = ["books", "things i learnt", "right tool", "agenda"]
 +++
 
 A lot of times I heard "We should use the right tool for the job!" Most of

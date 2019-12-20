@@ -2,11 +2,21 @@
 title = "The Planets: Photographs from the Archives of NASA - Nirmala Nataraj, Bill Nye, U.S. Goverment"
 date = 2018-11-25
 
-category = "review"
-
 [taxonomies]
-tags = ["books", "en-au", "nirmala nataraj", "bill nye"]
+tags = ["books", "nirmala nataraj", "bill nye", "reviews", "photos", "pictures"]
 +++
+
+[GoodReads Summary](https://www.goodreads.com/book/show/33889690-the-planets):
+This magnificent volume offers a rich visual tour of the planets in our solar
+system. More than 200 breathtaking photographs from the archives of NASA are
+paired with extended captions detailing the science behind some of our cosmic
+neighborhood's most extraordinary phenomena. Images of newly discovered areas
+of Jupiter, fiery volcanoes on Venus, and many more reveal the astronomical
+marvels of space in engrossing detail. Anyone with an interest in science,
+astronomy, and the mysteries of the universe will delight in this
+awe-inspiring guide to the wonders of the solar system.
+
+<!-- more -->
 
 {{ stars(stars=5) }}
 

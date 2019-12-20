@@ -3,8 +3,12 @@ title = "Hands-On Microservices with Rust - Denis Kolodin"
 date = 2019-03-03
 
 [taxonomies]
-tags = ["reviews", "books", "en-au", "rust", "microservices", "denis kolodin"]
+tags = ["reviews", "books", "rust", "microservices", "denis kolodin", "it"]
 +++
+
+[GoodReads Summary](https://www.goodreads.com/book/show/44079380-hands-on-microservices-with-rust):
+A comprehensive guide in developing and deploying high performance
+microservices with Rust.
 
 <!-- more -->
 

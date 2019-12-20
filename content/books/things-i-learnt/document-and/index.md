@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - If A Function Description Includes An \"
 date = 2019-06-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "documentation", "single responsibility"]
+tags = ["books", "things i learnt", "documentation", "single responsibility"]
 +++
 
 Functions should do one thing and one thing only. I clear indication that

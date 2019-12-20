@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Code Style: Follow It"
 date = 2019-07-16
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "code style"]
+tags = ["books", "things i learnt", "code style"]
 +++
 
 If your project have a defined code style, you must follow it. Sometimes it

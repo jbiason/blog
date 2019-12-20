@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Types Say What You Data Is"
 date = 2019-06-24
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "types"]
+tags = ["books", "things i learnt", "types"]
 +++
 
 Memory is just a sequence of bytes; bytes are just numbers from 0 to 255; what

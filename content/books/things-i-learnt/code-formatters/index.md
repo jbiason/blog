@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Code Formatting Tools Are Ok, But No Sil
 date = 2019-07-16
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "code formatting", "code style"]
+tags = ["books", "things i learnt", "code formatting", "code style"]
 +++
 
 One thing a team may decide to fix the continuous flux of code style comments

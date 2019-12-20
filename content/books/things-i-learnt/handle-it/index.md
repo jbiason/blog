@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - If You Know How To Handle It, Handle It"
 date = 2019-06-24
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "exceptions", "error handling"]
+tags = ["books", "things i learnt", "exceptions", "error handling"]
 +++
 
 If you know an error can occur, then you should handle it properly, instead of

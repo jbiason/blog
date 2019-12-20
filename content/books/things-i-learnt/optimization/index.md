@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Optimization Is For Compilers"
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "optimization"]
+tags = ["books", "things i learnt", "optimization"]
 +++
 
 Let say you need more performance on your application. You may be tempted to

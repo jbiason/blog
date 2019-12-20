@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - If Your Data Has a Schema, Use a Structu
 date = 2019-06-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "data classes", "structs"]
+tags = ["books", "things i learnt", "data classes", "structs"]
 +++
 
 You may be tempted to use a list (or tuple, if your language allows) to keep

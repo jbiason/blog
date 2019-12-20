@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Spec First, Then Code"
 date = 2019-06-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "specs", "code"]
+tags = ["books", "things i learnt", "specs", "code"]
 +++
 
 "Without requirements or design, programming is the art of adding bugs to an

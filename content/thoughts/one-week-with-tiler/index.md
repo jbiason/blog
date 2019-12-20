@@ -3,7 +3,7 @@ title = "One Week with Tiler"
 date = 2019-01-19
 
 [taxonomies]
-tags = ["vim", "en-au", "plugins", "tiler", "tiling"]
+tags = ["vim", "plugins", "tiler", "tiling"]
 +++
 
 Tiler is a tiling split manager for VIM. Here is my experience with it

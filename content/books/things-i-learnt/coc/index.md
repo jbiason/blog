@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Code of Conduct Protect YOU, Not THEM"
 date = 2019-07-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "coc"]
+tags = ["books", "things i learnt", "personal", "coc"]
 +++
 
 When you're beginning with any language/library/framework, check their CoC;

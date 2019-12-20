@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Unit Tests Are Good, Integration Tests A
 date = 2019-06-19
 
 [taxonomies]
-tags = ["en-au", "book", "things i learnt", "unit tests", "integration tests"]
+tags = ["book", "things i learnt", "unit tests", "integration tests"]
 +++
 
 The view of the whole is greater than the sum of its parts. And that includes

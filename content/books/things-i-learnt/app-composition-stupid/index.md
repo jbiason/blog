@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Even for Application Composition, Start 
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "composition", "microservices"]
+tags = ["books", "things i learnt", "composition", "microservices"]
 +++
 
 Application composition may lead to microservices -- which is good -- but

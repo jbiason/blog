@@ -1,14 +1,11 @@
 +++
-
 title = "Let's Not Call It \"Unit Tests\" Anymore"
 date = 2018-05-09
 
-category = "thoughts"
-
 [taxonomies]
-tags = ["unit tests", "en-au"]
-
+tags = ["unit tests"]
 +++
+
 I keep seeing people call tests "integration tests", while they are perfect
 unit tests. So maybe what we call "unit tests" shouldn't be called unit
 tests.

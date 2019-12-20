@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - You'll Learn About Yourself The Hard Way
 date = 2019-07-19
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "burn out"]
+tags = ["books", "things i learnt", "personal", "burn out"]
 +++
 
 We get frustrated with code that doesn't compile. We get angry with customers

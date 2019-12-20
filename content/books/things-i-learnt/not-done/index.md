@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Don't Tell It's Done When It's Not"
 date = 2019-07-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "responsibility"]
+tags = ["books", "things i learnt", "personal", "responsibility"]
 +++
 
 You are tired of running the same thing over and over again. You kinda

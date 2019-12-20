@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - You Always Have The Time"
 date = 2019-07-29
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "time"]
+tags = ["books", "things i learnt", "personal", "time"]
 +++
 
 You may think "Alright, I have a list of things I don't know, but I have no

@@ -3,7 +3,7 @@ title = "Mastering Emacs, Mickey Petersen"
 date = 2019-11-18
 
 [taxonomies]
-tags = ["en-au", "books", "reviews", "emacs", "mickey petersen"]
+tags = ["books", "reviews", "emacs", "mickey petersen", "it"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/25587882-mastering-emacs):

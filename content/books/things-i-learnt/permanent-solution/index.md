@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Nothing More Permanent Than A Temporary 
 date = 2019-07-29
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "code", "writing code", "temporary solutions"]
+tags = ["books", "things i learnt", "code", "writing code", "temporary solutions"]
 +++
 
 Depending on where you look, "Nothing more permanent than a temporary

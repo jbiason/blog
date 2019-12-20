@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Blogging About Your Stupid Solution Is S
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "solutions"]
+tags = ["books", "things i learnt", "personal", "solutions"]
 +++
 
 You may think "This project is so small and so focused on whatever I needed, I

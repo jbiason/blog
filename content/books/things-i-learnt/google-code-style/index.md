@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - ... Unless That Code Style Is The Google
 date = 2019-07-16
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "code style", "google code style"]
+tags = ["books", "things i learnt", "code style", "google code style"]
 +++
 
 Every freaking time Google comes with their own coding style, it's a garbage

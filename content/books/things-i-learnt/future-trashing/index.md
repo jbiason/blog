@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Future Thinking is Future Trashing"
 date = 2019-06-21
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "design", "solution"]
+tags = ["books", "things i learnt", "design", "solution"]
 +++
 
 When developers try to solve a problem, they sometimes try to find a way that

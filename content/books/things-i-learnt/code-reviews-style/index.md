@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Code Reviews Are Not For Style"
 date = 2019-07-16
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "code reviews", "code style"]
+tags = ["books", "things i learnt", "code reviews", "code style"]
 +++
 
 When doing code reviews, do not focus on style; focus on design things that

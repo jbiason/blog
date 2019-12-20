@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Gerrit Is A Mistake"
 date = 2019-07-29
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "git", "gerrit", "source control"]
+tags = ["books", "things i learnt", "git", "gerrit", "source control"]
 +++
 
 I hate calling software "a mistake", but I can't find any other way to

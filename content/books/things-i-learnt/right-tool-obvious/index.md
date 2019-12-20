@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - The Right Tool Is More Obvious Than You 
 date = 2019-06-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "right tool"]
+tags = ["books", "things i learnt", "right tool"]
 +++
 
 Maybe you're in a project that needs to process some text. Maybe you're

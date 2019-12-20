@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Create Libraries"
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "paper notes", "post its", "project organization"]
+tags = ["books", "things i learnt", "paper notes", "post its", "project organization"]
 +++
 
 I've tried to go paperless many, many times. But keeping a notepad and a bunch
