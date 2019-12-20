@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Always Use Timezones With Your Dates"
 date = 2019-07-01
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "dates", "timezones"]
+tags = ["books", "things i learnt", "dates", "timezones"]
 +++
 
 No matter if the date you're receiving is in your local timezone and you'll

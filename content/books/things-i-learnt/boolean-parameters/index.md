@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Don't Use Booleans As Parameters"
 date = 2019-06-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "booleans", "functions", "parameters"]
+tags = ["books", "things i learnt", "booleans", "functions", "parameters"]
 +++
 
 When you're designing a function, you may be tempted to add a flag (a

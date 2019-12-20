@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Beware of Microaggressions"
 date = 2019-07-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "microaggressions"]
+tags = ["books", "things i learnt", "personal", "microaggressions"]
 +++
 
 Microaggressions are defined as "brief, everyday exchanges that send

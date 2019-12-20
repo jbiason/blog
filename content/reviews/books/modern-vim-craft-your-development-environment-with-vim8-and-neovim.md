@@ -3,7 +3,7 @@ title = "Modern Vim: Craft Your Development Environment with Vim 8 and Neovim - 
 date = 2018-12-29
 
 [taxonomies]
-tags = ["en-au", "books", "reviews", "vim", "drew neil"]
+tags = ["books", "reviews", "vim", "drew neil", "it", "neovim"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/36517607-modern-vim):

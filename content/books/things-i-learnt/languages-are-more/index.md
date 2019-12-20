@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - A Language Is Much More Than A Language"
 date = 2019-06-24
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "languages", "community", "ecosystem"]
+tags = ["books", "things i learnt", "languages", "community", "ecosystem"]
 +++
 
 Picking a programming language is much more than just picking the words that

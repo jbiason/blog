@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Good Languages Come With Tests"
 date = 2019-06-20
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "programming languages", "tests"]
+tags = ["books", "things i learnt", "programming languages", "tests"]
 +++
 
 You can be sure that if a language brings a testing framework -- even minimal

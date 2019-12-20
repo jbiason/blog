@@ -1,10 +1,9 @@
 +++
 title = "Mocking A Mock"
 date = 2016-07-21
-category = "code"
 
 [taxonomies]
-tags = ["python", "mock", "mongodb", "find", "count", "en-au"]
+tags = ["python", "mock", "mongodb", "find", "count"]
 +++
 
 Mocks are an important part of testing, but learn how to properly mock stuff.

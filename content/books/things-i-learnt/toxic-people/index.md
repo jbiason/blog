@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Beware of Toxic People"
 date = 2019-07-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "toxic people"]
+tags = ["books", "things i learnt", "personal", "toxic people"]
 +++
 
 You'll find people that, even if they don't small talk you, they will bad

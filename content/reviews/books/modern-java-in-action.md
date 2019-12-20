@@ -3,9 +3,10 @@ title = "Modern Java in Action - Raoul-Gabriel Urma"
 date = 2019-02-08
 
 [taxonomies]
-tags = ["books", "en-au", "reviews", "java", "java 8", "java 9", "raoul-gabriel urma"]
+tags = ["books", "reviews", "java", "java 8", "java 9", "raoul-gabriel urma", "it"]
 +++
 
+[GoodReads Summary](https://www.goodreads.com/book/show/46213396-modern-java-in-action):
 Java 8 Lambdas in Action is a clearly-written guide to Java 8 lambdas and
 functional programming in Java. It begins with a practical introduction to the
 structure and benefits of lambda expressions in real-world Java code. The book

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Own Your Shit"
 date = 2019-07-30
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "own your shit"]
+tags = ["books", "things i learnt", "personal", "own your shit"]
 +++
 
 When I said "Scala is garbage" or "Gerrit is a mistake", it wasn't "l33th4x0r"

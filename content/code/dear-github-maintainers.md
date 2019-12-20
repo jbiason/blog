@@ -4,7 +4,7 @@ date = 2016-01-15
 categories = "code"
 
 [taxonomies]
-tags = ["github", "comments", "en-au"]
+tags = ["github", "comments"]
 +++
 
 A rebuttal to "Dear Github".

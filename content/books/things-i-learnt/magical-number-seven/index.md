@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - The Magical Number Seven, Plus Or Minus 
 date = 2019-06-26
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "complexity"]
+tags = ["books", "things i learnt", "complexity"]
 +++
 
 "[The magical number](https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two)" 

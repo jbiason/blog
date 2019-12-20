@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - When It's Time to Stop, It's Time To Sto
 date = 2019-07-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "stop", "personal time"]
+tags = ["books", "things i learnt", "personal", "stop", "personal time"]
 +++
 
 Learn when you can't code anymore.

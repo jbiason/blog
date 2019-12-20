@@ -1,10 +1,9 @@
 +++
 title = "The Sad Life of Walter Mitty"
 date = 2015-03-28
-category = "thoughts"
 
 [taxonomies]
-tags = ["movies", "the secret life of walter mitty", "rethink", "review", "en-au"]
+tags = ["movies", "the secret life of walter mitty", "rethink", "review"]
 +++
 
 I once wrote about [The Secret Life of Walter

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - I.T. World Is Really Small"
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal"]
+tags = ["books", "things i learnt", "personal"]
 +++
 
 We have two expressions here: "The world turns around"; it means whatever you

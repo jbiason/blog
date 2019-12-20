@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Think About The Users"
 date = 2019-07-17
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "privacy"]
+tags = ["books", "things i learnt", "privacy"]
 +++
 
 Think how the data you're collecting from your users will be used -- this is

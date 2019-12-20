@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Toxic/Aggressive People Are Not Fixable"
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "quit"]
+tags = ["books", "things i learnt", "personal", "quit"]
 +++
 
 Instead of taking the blows and keep moving, maybe it would be better to your

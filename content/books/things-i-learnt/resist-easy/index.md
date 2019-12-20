@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Resist The Temptation Of Easy"
 date = 2019-07-01
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "ides"]
+tags = ["books", "things i learnt", "ides"]
 +++
 
 Sure that IDE will help you with a ton of autocomplete stuff and let you

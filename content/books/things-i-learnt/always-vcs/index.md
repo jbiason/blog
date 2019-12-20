@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Always Use A Version Control System"
 date = 2019-07-08
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "source control", "vcs", "git"]
+tags = ["books", "things i learnt", "source control", "vcs", "git"]
 +++
 
 "This is my stupid application that I just want to learn something" is not

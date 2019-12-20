@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Shortcuts Are nice, But Only In The Shor
 date = 2019-07-08
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "frameworks"]
+tags = ["books", "things i learnt", "frameworks"]
 +++
 
 A lot of languages/libraries/frameworks add a way to make things shorter,

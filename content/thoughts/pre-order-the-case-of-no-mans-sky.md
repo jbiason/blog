@@ -1,10 +1,9 @@
 +++
 title = "Pre-Orders: The Case of No Man's Sky"
 date = 2016-08-25
-category = "thoughts"
 
 [taxonomies]
-tags = ["pre-order", "grim dawn", "no man's sky", "en-au"]
+tags = ["pre-order", "grim dawn", "no man's sky"]
 +++
 
 [No Man's Sky](http://www.no-mans-sky.com/) is getting a lot of heat recently

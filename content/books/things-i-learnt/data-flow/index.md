@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Thinking Data Flow Beats Patterns"
 date = 2019-06-26
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "data flow", "design patterns"]
+tags = ["books", "things i learnt", "data flow", "design patterns"]
 +++
 
 When you're trying to find a solution to your problem, think on the way the

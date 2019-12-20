@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Gherkin Is Your Friend to Understand Exp
 date = 2019-06-19
 
 [taxonomies]
-tags = ["en-au", "book", "things i learnt", "gherkin", "expectations"]
+tags = ["book", "things i learnt", "gherkin", "expectations"]
 +++
 
 Gherkin is file format for writing behaviour tests (BDD). But it can also give

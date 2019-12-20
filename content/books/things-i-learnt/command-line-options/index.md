@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Command Line Options Are Weird, But Help
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "configuration", "command line options", "cli"]
+tags = ["books", "things i learnt", "configuration", "command line options", "cli"]
 +++
 
 In this day and age, when everything has a graphical interface, does it still

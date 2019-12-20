@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Don't Mess With Things Outside Your Proj
 date = 2019-06-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "frameworks"]
+tags = ["books", "things i learnt", "frameworks"]
 +++
 
 Simple rule: Is the code yours or from your team? Good, you can make any

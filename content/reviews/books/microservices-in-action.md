@@ -3,7 +3,7 @@ title = "Microservices In Action - Morgan Bruce"
 date = 2019-08-13
 
 [taxonomies]
-tags = ["books", "en-au", "reviews", "microservices", "morgan bruce"]
+tags = ["books", "reviews", "microservices", "morgan bruce", "it"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/36579817-microservices-in-action):
@@ -35,7 +35,7 @@ they are used for the obvious, it really irks me -- specially 'cause I read
 those books on a "black background with white letters" and images do not fit
 that properly, using a white background that usually just hurts my eyes. And by
 "used for the obvious", there are images follow the description of "A and B
-communicate with C" and a large image showing "A --> C <-- B"; was that really
+communicate with C" and a large image showing `A --> C <-- B`; was that really
 necessary?
 
 The intro says the code is in Python, and that was something that I'd really

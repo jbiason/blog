@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Logs Are For Events, Not User Interface"
 date = 2019-07-01
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "logs", "ui"]
+tags = ["books", "things i learnt", "logs", "ui"]
 +++
 
 Two things in one: First of all, when using logging, use it to log events, not

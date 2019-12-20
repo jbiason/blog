@@ -2,11 +2,24 @@
 title = "Learn You a Haskell for Great Good! - Miran Lipovača"
 date = 2018-11-23
 
-category = "review"
-
 [taxonomies]
-tags = ["books", "en-au", "miran lipovaca", "haskell"]
+tags = ["books", "miran lipovaca", "haskell", "reviews", "it"]
 +++
+
+[GoodReads Summary](https://www.goodreads.com/book/show/6593810-learn-you-a-haskell-for-great-good):
+Learn You a Haskell for Great Good! is a fun, illustrated guide to learning
+Haskell, a functional programming language that's growing in popularity. Learn
+You a Haskell for Great Good! introduces programmers familiar with imperative
+languages (such as C++, Java, or Python) to the unique aspects of functional
+programming. Packed with jokes, pop culture references, and the author's own
+hilarious artwork, Learn You a Haskell for Great Good! eases the learning
+curve of this complex language, and is a perfect starting point for any
+programmer looking to expand his or her horizons. The well-known web tutorial
+on which this book is based is widely regarded as the best way for beginners
+to learn Haskell, and receives over 30,000 unique visitors monthly.
+
+<!-- more -->
+
 {{ stars(stars=2) }}
 
 I have mixed feelings about this book.

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Write Steps as Comments"
 date = 2019-06-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "steps", "comments", "code"]
+tags = ["books", "things i learnt", "steps", "comments", "code"]
 +++
 
 Don't know how to solve your problem? Write the steps as comments in your

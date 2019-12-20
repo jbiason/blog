@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Logs Are For Events, Not User Interface"
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "monitoring"]
+tags = ["books", "things i learnt", "monitoring"]
 +++
 
 On a previous life, to understand how a system behaved, I added a ton of

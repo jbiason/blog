@@ -5,7 +5,7 @@ date = 2018-11-29
 category = "review"
 
 [taxonomies]
-tags = ["books", "en-au", "andrew maynard"]
+tags = ["books", "andrew maynard"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/41045578-films-from-the-future):

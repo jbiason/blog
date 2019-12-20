@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Don't Defend Bad Code"
 date = 2019-07-31
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "bad code", "defend"]
+tags = ["books", "things i learnt", "personal", "bad code", "defend"]
 +++
 
 Bad code exists everywhere. You shouldn't defend it, even if it is your own

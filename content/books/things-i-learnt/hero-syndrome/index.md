@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Don't Confuse Hero Project With Hero Syn
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "hero syndrome"]
+tags = ["books", "things i learnt", "personal", "hero syndrome"]
 +++
 
 Someone that suffers from Hero Syndrome will claim that things won't work

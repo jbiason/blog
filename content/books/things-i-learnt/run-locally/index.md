@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - If It Doesn't Run On Your Computer, You 
 date = 2019-07-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "local run", "cloud"]
+tags = ["books", "things i learnt", "local run", "cloud"]
 +++
 
 I've seen a lot of systems that would never run on a isolated computer, like

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Be Ready To Throw Your Code Away"
 date = 2019-06-19
 
 [taxonomies]
-tags = ["en-au", "book", "things i learnt", "code"]
+tags = ["book", "things i learnt", "code"]
 +++
 
 A lot of people, when they start with TDD, get annoyed when you say that you

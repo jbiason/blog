@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Not Just Function Composition, But Appli
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "composition", "applications"]
+tags = ["books", "things i learnt", "composition", "applications"]
 +++
 
 When we were discussing [the magical number

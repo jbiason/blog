@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Learn The Basics of Functional Programmi
 date = 2019-06-26
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "functional programming"]
+tags = ["books", "things i learnt", "functional programming"]
 +++
 
 At this point, you should at least have heard about how cool functional

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - People Get Upset About Code And Architec
 date = 2019-07-19
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "care"]
+tags = ["books", "things i learnt", "personal", "care"]
 +++
 
 At some point, you'll describe some solution/decision about some piece of

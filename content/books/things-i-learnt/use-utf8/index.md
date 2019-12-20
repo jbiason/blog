@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Always Use UTF-8 For Your Strings"
 date = 2019-07-01
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "utf-8"]
+tags = ["books", "things i learnt", "utf-8"]
 +++
 
 Long gone are the days where [ASCII](https://en.wikipedia.org/wiki/ASCII) was

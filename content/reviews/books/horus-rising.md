@@ -3,7 +3,7 @@ title = "Horus Rising - Dan Abnett"
 date = 2019-10-30
 
 [taxonomies]
-tags = ["en-au", "books", "reviews", "warhammer 40000", "dan abnett"]
+tags = ["books", "reviews", "warhammer 40000", "dan abnett", "horus heresy", "scifi"]
 +++
 
 [Goodreads Summary](https://www.goodreads.com/book/show/625603.Horus_Rising):

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - ... Unless That Code Style Is The Google
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "community", "teams", "hero project"]
+tags = ["books", "things i learnt", "community", "teams", "hero project"]
 +++
 
 An "hero project" is a project/spec change that you personally think will

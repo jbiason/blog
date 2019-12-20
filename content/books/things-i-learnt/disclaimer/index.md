@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Disclaimer"
 date = 2019-06-19
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "disclaimer"]
+tags = ["books", "things i learnt", "disclaimer"]
 +++
 
 There is one magical thing you need to know when reading this book: It's all
