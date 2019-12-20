@@ -3,7 +3,7 @@ title = "One Day On Mars - Travis S. Taylor"
 date = 2019-12-13
 
 [taxonomies]
-tags = ["en-au", "books", "reviews", "travis s taylor", "sci-fi", "mars"]
+tags = ["books", "reviews", "travis s taylor", "scifi", "mars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/20638066-one-day-on-mars):

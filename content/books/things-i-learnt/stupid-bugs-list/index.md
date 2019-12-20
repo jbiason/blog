@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Keep A List of Stupid Bugs That Took Mor
 date = 2019-07-17
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "lists", "stupid bugs"]
+tags = ["books", "things i learnt", "lists", "stupid bugs"]
 +++
 
 If it took you more than one hour for you to figure out what went wrong, it is

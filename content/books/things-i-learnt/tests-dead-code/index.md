@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Testing Every Function Creates Dead Code
 date = 2019-06-21
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "unit tests", "dead code"]
+tags = ["books", "things i learnt", "unit tests", "dead code"]
 +++
 
 If you write a test for every single function on your system, and your system

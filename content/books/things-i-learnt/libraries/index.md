@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Create Libraries"
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "libraries", "project organization"]
+tags = ["books", "things i learnt", "libraries", "project organization"]
 +++
 
 One thing you must learn is how to break your project into smaller libraries,

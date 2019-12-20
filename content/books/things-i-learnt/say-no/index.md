@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Learn To Say No"
 date = 2019-07-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "say no"]
+tags = ["books", "things i learnt", "personal", "say no"]
 +++
 
 Sometimes, you'll have to say no: No, I can't do it; no, it can't be made in

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Pay Attention On How People React To You
 date = 2019-07-19
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "reactions"]
+tags = ["books", "things i learnt", "personal", "reactions"]
 +++
 
 One way you can learn about yourself is to pay attention on how people react

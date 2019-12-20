@@ -2,10 +2,8 @@
 title = "Why Mixing Spaces and Tabs IS a Big Deal"
 date = 2016-12-15
 
-category = "code"
-
 [taxonomies]
-tags = ["tabs", "spaces", "clean code", "editors", "en-au"]
+tags = ["tabs", "spaces", "clean code", "editors"]
 +++
 
 Why something so small is actually a big deal.

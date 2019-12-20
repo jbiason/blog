@@ -4,7 +4,7 @@ date = 2018-11-28
 category = "announcements"
 
 [taxonomies]
-tags = ["meta", "blog", "zola", "en-au"]
+tags = ["meta", "blog", "zola"]
 +++
 
 Short version: New new blog engine and layout.

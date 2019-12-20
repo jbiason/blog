@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Documentation Is a Love Letter To Your F
 date = 2019-06-21
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "documentation"]
+tags = ["books", "things i learnt", "documentation"]
 +++
 
 We all know writing the damn docs for functions and classes and modules is a

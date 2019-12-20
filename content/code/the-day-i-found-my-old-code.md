@@ -1,10 +1,9 @@
 +++
 title = "The Day I Found My Old Code"
 date = 2015-12-18
-category = "code"
 
 [taxonomies]
-tags = ["code", "python", "pep8", "pylint", "en-au"]
+tags = ["code", "python", "pep8", "pylint"]
 +++
 
 Found a piece of code I wrote 2 years ago, following a lot of linters. I'm

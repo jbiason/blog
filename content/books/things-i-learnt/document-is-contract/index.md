@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - The Function Documentation Is Its Contra
 date = 2019-06-21
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "documentation", "contracts"]
+tags = ["books", "things i learnt", "documentation", "contracts"]
 +++
 
 When you start the code by [writing the general flow as

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Toxic/Aggressive People Are Not Fixable"
 date = 2019-07-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "microaggressions", "toxic people"]
+tags = ["books", "things i learnt", "personal", "microaggressions", "toxic people"]
 +++
 
 You may think "But I could go to those people and say 'Why are you being

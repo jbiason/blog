@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - The Config File Is Friend"
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "configuration", "config file"]
+tags = ["books", "things i learnt", "configuration", "config file"]
 +++
 
 Do not ignore the power of configuration files.

@@ -2,10 +2,11 @@
 title = "The Where, the Why, and the How: 75 Artists Illustrate Wondrous Mysteries of Science -  Matt LaMothe, Julia Rothman, Jenny Volvovski, David Macaulay"
 date = 2019-02-17
 
-[taxomonies]
-tags = ["books", "reviews", "en-au", "science", "illutations", "matt lamothe", "julia rothman", "jenny volvovski", "david macaulay"]
+[taxonomies]
+tags = ["books", "reviews", "science", "illutations", "matt lamothe", "julia rothman", "jenny volvovski", "david macaulay"]
 +++
 
+[GoodReads Summary](https://www.goodreads.com/book/show/14553766-the-where-the-why-and-the-how):
 A science book like no other, The Where, the Why, and the How turns loose 75 of
 today's hottest artists onto life's vast questions, from how we got here to
 where we are going. Inside these pages some of the biggest (and smallest)

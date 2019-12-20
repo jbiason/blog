@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Make Tests That You Know How To Run on t
 date = 2019-06-19
 
 [taxonomies]
-tags = ["en-au", "book", "things i learnt", "tests", "command line"]
+tags = ["book", "things i learnt", "tests", "command line"]
 +++
 
 You know that "Play" with a little something on your IDE that runs only the

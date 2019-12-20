@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Be Transparent With The User"
 date = 2019-07-31
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "ux", "ui"]
+tags = ["books", "things i learnt", "ux", "ui"]
 +++
 
 Since we are talking about [logging](/books/things-i-learnt/log-events),

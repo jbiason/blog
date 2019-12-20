@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Companies Look For Specialists But Keep 
 date = 2019-07-17
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "jobs", "specialists", "generalists"]
+tags = ["books", "things i learnt", "jobs", "specialists", "generalists"]
 +++
 
 If you know a lot about one single language, it may make it easier to get a

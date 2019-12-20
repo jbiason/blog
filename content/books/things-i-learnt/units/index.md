@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Units Makes Things Clear"
 date = 2019-07-17
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "units", "explicit"]
+tags = ["books", "things i learnt", "units", "explicit"]
 +++
 
 You know what's one of the worst function names ever? `sleep()`.

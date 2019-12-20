@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Tests Make Better APIs"
 date = 2019-06-19
 
 [taxonomies]
-tags = ["en-au", "book", "things i learnt", "unit tests", "layers", "apis"]
+tags = ["book", "things i learnt", "unit tests", "layers", "apis"]
 +++
 
 Testing things in isolation may give a better view of your APIs.

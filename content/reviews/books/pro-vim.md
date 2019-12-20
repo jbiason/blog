@@ -3,7 +3,7 @@ title = "Pro Vim - Mark McDonnell"
 date = 2019-09-04
 
 [taxonomies]
-tags = ["en-au", "books", "reviews", "vim", "mark mcdonnell"]
+tags = ["books", "reviews", "vim", "mark mcdonnell"]
 +++
 
 [GoodReads link](https://www.goodreads.com/book/show/23717582-pro-vim): (No

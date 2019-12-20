@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Beware of Interface Changes"
 date = 2019-06-23
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "interfaces", "apis"]
+tags = ["books", "things i learnt", "interfaces", "apis"]
 +++
 
 Interfaces and APIs is what you give away to others. If you keep changing them,

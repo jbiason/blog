@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Cognitive Cost Is The Readability Killer
 date = 2019-06-26
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "cognitive dissonance", "cognitive cost"]
+tags = ["books", "things i learnt", "cognitive dissonance", "cognitive cost"]
 +++
 
 "[Cognitive dissonance](https://en.wikipedia.org/wiki/Cognitive_dissonance)" 

@@ -2,10 +2,8 @@
 title = "When I Used PEP8 To Fuck Up Code"
 date = 2016-07-19
 
-category = "code"
-
 [taxonomies]
-tags = ["python", "pep8", "readability", "en-au"]
+tags = ["python", "pep8", "readability"]
 +++
 
 We "inherited" some Python code recently. Although another team was working on

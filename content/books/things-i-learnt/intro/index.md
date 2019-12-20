@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Intro"
 date = 2019-06-18
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "intro"]
+tags = ["books", "things i learnt", "intro"]
 +++
 
 "Things I Learnt The Hard Way (In 30 Years of Software Development)" started

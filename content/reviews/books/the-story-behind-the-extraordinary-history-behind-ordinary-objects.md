@@ -2,11 +2,15 @@
 title = "The Story Behind: The Extraordinary History Behind Ordinary Objects - Emily Prokop"
 date = 2018-11-24
 
-category = "review"
-
 [taxonomies]
-tags = ["en-au", "books", "reviews", "emily prokop"]
+tags = ["books", "reviews", "emily prokop"]
 +++
+
+[GoodReads Summary](https://www.goodreads.com/book/show/38813455-the-story-behind):
+Learn the fascinating history and trivia you never knew about things we use
+daily from the host of The Story Behind podcast.
+
+<!-- more -->
 
 {{ stars(stars=4) }}
 
@@ -14,7 +18,7 @@ One of the books from the "Trivia Champion" Humble Bundle. And yes, it belongs
 to a "Trivia Champion" bundle.
 
 The whole book consists on small stories about random objects: The smiley face,
-the revolver, the hydrant, the wipper, all consist in a small story behind it
+the revolver, the hydrant, the wiper, all consist in a small story behind it
 or some anecdote, like a campus on war due a water gun.
 
 The stories are small and funny.

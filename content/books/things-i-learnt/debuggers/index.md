@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Debuggers Are Overrated"
 date = 2019-07-08
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "debuggers", "debugging"]
+tags = ["books", "things i learnt", "debuggers", "debugging"]
 +++
 
 I heard a lot of people complaining that code editors are bad 'cause it's hard

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - One Commit Per Change"
 date = 2019-07-09
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "source control", "commits"]
+tags = ["books", "things i learnt", "source control", "commits"]
 +++
 
 When working with source control tools, keep one change per commit. Avoid

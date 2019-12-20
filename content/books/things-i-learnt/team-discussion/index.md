@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Global Changes Must Be Discussed With Th
 date = 2019-07-31
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "team", "changes"]
+tags = ["books", "things i learnt", "team", "changes"]
 +++
 
 So you got tired of bad tests and decided it is a good idea to add some [fuzz

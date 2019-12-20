@@ -1,10 +1,9 @@
 +++
 title = "Don't Diminish Types"
 date = 2019-06-03
-categories = "code"
 
 [taxonomies]
-tags = ["programming languages", "dynamic types", "types", "en-au"]
+tags = ["programming languages", "dynamic types", "types"]
 +++
 
 In a previous life, I had a long discussion on why adding booleans was a bad

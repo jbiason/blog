@@ -3,9 +3,10 @@ title = "The Wolf's Hour - Robert R. McCammon"
 date = 2019-02-16
 
 [taxonomies]
-tags = ["books", "reviews", "en-au", "werewolves", "robert r mccammon"]
+tags = ["books", "reviews", "werewolves", "robert r mccammon", "fantasy"]
 +++
 
+[GoodReads Summary](https://www.goodreads.com/book/show/11551.The_Wolf_s_Hour):
 Michael Gallatin is a British spy with a peculiar talent: the ability to
 transform himself into a wolf. Although his work in North Africa helped the
 Allies win the continent in the early days of World War II, he quit the service

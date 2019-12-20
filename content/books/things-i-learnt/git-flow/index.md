@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Git-Flow Is The Way To Go"
 date = 2019-07-30
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "git", "git flow", "source control"]
+tags = ["books", "things i learnt", "git", "git flow", "source control"]
 +++
 
 If [Gerrit is such a mistake](/books/thing-i-learnt/gerrit), what can you use

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Organize Your Code by Data/Type, Not Fun
 date = 2019-07-15
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "project", "project organization"]
+tags = ["books", "things i learnt", "project", "project organization"]
 +++
 
 A lot of projects assume that you'll put things with the same functionality in

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - One Version To Add, One Version To Remov
 date = 2019-07-30
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "versions", "upgrades"]
+tags = ["books", "things i learnt", "versions", "upgrades"]
 +++
 
 A lot of things change during development. One day you need a field, another

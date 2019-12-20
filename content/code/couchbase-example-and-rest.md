@@ -1,10 +1,9 @@
 +++
 title = "Couchbase Example and REST"
 date = 2016-01-12
-category = "code"
 
 [taxonomies]
-tags = ["rest", "couchbase", "example", "restful", "en-au"]
+tags = ["rest", "couchbase", "example", "restful"]
 +++
 
 Using the example Couchbase to show how REST works.

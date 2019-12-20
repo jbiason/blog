@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Understand And Stay Away From Cargo Cult
 date = 2019-06-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "cargo cult"]
+tags = ["books", "things i learnt", "cargo cult"]
 +++
 
 "[Cargo cult](https://en.wikipedia.org/wiki/Cargo_cult)" is a type of cult

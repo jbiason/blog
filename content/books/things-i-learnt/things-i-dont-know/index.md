@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Keep A List of Things I Don't Know"
 date = 2019-07-25
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "personal", "things i don't know", "richard feyman"]
+tags = ["books", "things i learnt", "personal", "things i don't know", "richard feyman"]
 +++
 
 Richard Feymann, famous physicist, kept a notebook with the title "Things I

@@ -3,7 +3,7 @@ title = "Things I Learnt The Hard Way - Start Stupid"
 date = 2019-07-01
 
 [taxonomies]
-tags = ["en-au", "books", "things i learnt", "kiss"]
+tags = ["books", "things i learnt", "kiss"]
 +++
 
 One way to get away from the IDE is to "start stupid": Just get the compiler
