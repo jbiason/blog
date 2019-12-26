@@ -44,6 +44,14 @@ updated or displayed, so it doesn't need constant updates; and so on. Each one
 of those is a different microservice, because each one of those is a different
 artifact.
 
+Just to be clear: our artifacts are kept in a Firestore database, which our
+clients query directly, most of the time receiving the real time notifications
+for changes. But another way to keep those artifacts is to have separate
+services, which the clients would query -- which is really akin to what CQRS
+describes (well, that is, if your microservice receive commands to change the
+data, that is; I won't claim them to be CQRS if your microservices are dealing
+with events directly.)
+
 Alright, if those are artifacts, where does "state" gets into this? The state
 is the amount of information a microservice has to keep in order to build the
 artifact. For example, in the narration, each time a new narration comes in,
@@ -87,3 +95,5 @@ This change in the my way of thinking about microservices design help me
 rethink the way we are building our microservices at work, and it is also
 helping me rethink some things on a personal project (which I hope to finish
 and show it next year).
+
+

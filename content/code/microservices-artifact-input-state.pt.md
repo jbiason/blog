@@ -46,6 +46,14 @@ e por isso não precisam de atualizações visuais constantes; e assim por
 diante. Cada um desses é um microserviço diferente, porque cada um desses é um
 artefato diferente.
 
+Para clarificação: nossos artefatos são mantidos em um banco Firestore, que os
+clientes fazem as requisições diretamente, mas que na maior parte do tempo vão
+simplesmente receber as notificações de alteração dos dados. Mas outra forma
+de manter esses dados é ter serviços separados, que responde às requisições
+dos clientes -- que é bem próximo da forma que CQRS é descrito (bom, quer
+dizer, seria CQRS se o microserviço recebesse comandos; eu não vou dizer que
+são CQRS se o microserviço estão lidando com eventos diretamente).
+
 Bom, se esses são os artefatos, onde é que o "estado" entra nessa história? O
 estado é o conjunto de informações que o microserviço precisa ter para
 produzir o artefato. Por exemplo, na narração, cada vez que uma nova narração
