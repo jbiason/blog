@@ -28,8 +28,6 @@ highlight_code = true
 
 default_language = "en"
 languages = [
-	{code = "en", rss = true},
-	{code = "en", search = false},
 	{code = "pt", rss = true},
 	{code = "pt", search = false},
 ]
