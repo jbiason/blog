@@ -2,6 +2,7 @@
 title = "Announcing JulioBiason.Net 4.0"
 date = 2018-11-28
 category = "announcements"
+language = "en"
 
 [taxonomies]
 tags = ["meta", "blog", "zola"]
