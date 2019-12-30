@@ -15,6 +15,8 @@ taxonomies = [
 	# You can enable/disable RSS
 	{name = "categories", rss = true},
 	{name = "tags", rss = true},
+	{name = "tags", lang = "en"},
+	{name = "tags", lang = "pt"},
 ]
 
 generate_rss = true
@@ -39,10 +41,11 @@ author = "Julio Biason"
 logo_text = "JulioBiason.Net 4.1"
 use_full_hack_font = true
 menu_items = [
-    {url = "$BASE_URL", name = "Home"},
+    {url = "$BASE_URL", name = "English"},
+	{url = "$BASE_URL/pt/", name = "Português"},
 	{url = "$BASE_URL/announcements/about-me", name = "About Me"},
-	{url = "$BASE_URL/tags", name = "Tags"},
-	{url = "$BASE_URL/books", name = "Books"},
+	{url = "$BASE_URL/tags", name = "Tags (EN)"},
+	{url = "$BASE_URL/pt/tags", name = "Tags (PT)"},
 ]
 after_dark_title = "JulioBiason.Net 4.1"
 enable_post_view_navigation = false
