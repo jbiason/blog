@@ -44,8 +44,7 @@ Agenda de coisas que eu vou comentar:
 O que me levou a repensar a forma como eu escrevia testes foi um vídeo do Ian
 Cooper chamado ["TDD, where it all go wrong"](https://vimeo.com/68375232)
 ("TDD, aonde é que a coisa deu errado"). No vídeo, Cooper coloca que o livro que
-Beck escreveu (que deu origem a toda a revolução do TDD) diz apenas duas
-coisas:
+Beck escreveu (que deu origem a toda a revolução do TDD) diz duas coisas:
 
 1. Testes devem ser executados de forma isolada, nada mais, nada menos.
 2. Evite testar detalhes de implementação, teste comportamentos.
@@ -60,15 +59,15 @@ O segundo ponto é que deve ser testado o comportamento, não a implementação.
 Esse é um ponto que eu vejo falhar um bocado quando pensamos em testar todo e
 qualquer classe e/ou função: E se o comportamento esperado é a combinação de
 duas classes? Vale a pena escrever testes para as duas, sendo que a questão de
-separar em duas classes diferentes (ou duas funções diferentes) se referem ao
-mesmo comportamento?
+separar em duas classes diferentes (ou duas funções diferentes) é apenas uma
+questão de implementação/simplicidade de código?
 
 Ainda, outro questionamento sobre testar todas as funções e todas as classes:
 o que sabemos de uma aplicação são os canais de entrada -- que pode ser por um
 botão em uma interface gráfica, um texto digitado na linha de comando ou uma
 requisição web -- e os canais de saída; assim, o _comportamento_ esperado é
 "dado essa entrada pelo canal de entrada, quero ter essa saída", e qualquer
-coisa no meio é implementação. De novo, para fazer a transformação de uma
+coisa no meio é implementação. E para fazer a transformação de uma
 entrada para uma saída específica, eu posso precisar de mais de uma função
 e/ou classe; se eu estiver testando cada uma das funções, eu estou realmente
 testando o comportamento ou a implementação?
@@ -80,7 +79,7 @@ formato, o que deu origem ao ATDD (Acceptance-Test Driven Development,
 Desenvolvimento Guiado por Testes de Aceitação) e BDD (Behaviour Driven
 Development, Desenvolvimento Guiado por Comportamentos).
 
-Um exemplo de como testar comportamento: No Subreddit do Django, foi criada
+Um exemplo de testes de comportamento: No Subreddit do Django, foi criada
 uma pergunta: [Devo Escrever Testes Para os Tipos Built-In do
 Django?](https://www.reddit.com/r/django/comments/5bearg/should_i_write_unit_tests_for_djangos_built_in/) 
 A questão se resume ao seguinte: Sabendo que no Django eu tenho tipos
@@ -90,20 +89,20 @@ servem para validar os dados de entrada; assim, se eu defini que há um campo
 no meu banco chamado "Ano de nascimento" -- que só pode receber números
 inteiros -- e eu crio o formulário a partir do banco, coloco no meu template,
 recebo os dados de volta e o próprio Django vai garantir, pelo tipo do dado no
-banco, que o resultado é um número inteiro, eu ainda preciso escrever um
+banco, que o valor do campo é um número inteiro. Eu ainda preciso escrever um
 teste para isso?
 
-A solução, no entanto, é dar um passo atrás e fazer a seguinte pergunta: _Por
-que_ o ano é um inteiro? Obviamente, porque anos são definidos como números e,
-portanto, o comportamento do campo foi definido bem antes do campo ser
-adicionado na tabela. Ainda, imagine que, por algum acidente do destino, eu
-precise guardar o ano como uma string[^1]; se o tipo foi alterado, o
-_comportamento_ vai ser alterado também? Provavelmente não.
+A resposta, no entanto, está em dar um passo atrás e fazer a seguinte
+pergunta: _Por que_ o ano é um inteiro? Obviamente, porque anos são definidos
+como números[^1] e, portanto, o comportamento do campo foi definido bem antes do
+campo ser adicionado na tabela. Ainda, imagine que, por algum acidente do
+destino, eu precise guardar o ano como uma string[^2]; se o tipo foi alterado,
+o _comportamento_ vai ser alterado também? Provavelmente não.
 
 Quando eu ignorei que ano deve ser um número porque "o framework cuida disso
 pra mim", eu ignorei o comportamento esperado por culpa da implementação.
 
-De novo, "teste comportamentos, não implementação".
+E "teste comportamentos, não implementação".
 
 Embora não factual, uma anedota: Num projeto, tínhamos um "gerenciador de
 alarmes" onde, a partir de um evento, poderia ser gerado simplesmente um log,
@@ -125,7 +124,7 @@ agora era possível executar centenas de testes em menos de 1 segundo (um
 exemplo mostra aproximadamente 600 testes em 1.5 segundos).
 
 O que o Bernhardt sugere é escrever testes apenas para os models, sem conexão
-com o banco ou views; testes de controllers sem conexão com os models ou
+com o banco ou controllers; testes de controllers sem conexão com os models ou
 views; e testes de views sem controllers.
 
 Soa familiar (principalmente em frameworks MVC que separam cada um destes em
@@ -152,16 +151,16 @@ deixam a impressão que, a longo prazo, eles tendem a se parecerem,
 estruturalmente, muito parecidos, enquanto que (assim chamados) testes de
 integração tendem a dar mais retorno a longo prazo para a qualidade do
 projeto: Testes que definem uma entrada e um resultado esperado tendem a
-garantir que, a longo prazo, o funcionando do sistema continuará sendo igual.
+garantir que, a longo prazo, o funcionamento do sistema continuará sendo igual.
 
 ## Explosão de Testes Lentos
 
 A primeira consideração que surge numa declaração como a de cima é que "testes
 de integração são lentos e isso vai tornar os testes lentos e reduzir a
-produtividade dos desenvolvedores.
+produtividade dos desenvolvedores."
 
 Sim, testes de integração são lentos, principalmente porque há um bom trabalho
-em criar o estado esperado, todas as entradas conforme esperado pelo sistema
+em criar o estado inicial esperado, todas as entradas conforme esperado pelo sistema
 de I/O (de novo, interface gráfica, linha de comando, web), percorrer todo o
 percurso do processamento e verificar a saída. E sim, esperar esse tempo de
 execução pode acabar distraindo o desenvolvedor.
@@ -219,7 +218,7 @@ uma questão sobre qual dos dois testes deveria ser eliminado. Mas nós tínhamo
 pelas duas validações.
 
 Um exemplo mais prático. Imagine uma classe que guarde dados de clientes de
-um serviço web de compras[^2]:
+um serviço web de compras[^3]:
 
 ```python
 class Client:
@@ -232,7 +231,7 @@ está criando usuários sem parar, sem fazer compras, só pra sujar o banco;
 devemos bloquear todos os cadastros que tenham como nome do usuário apenas um
 nome.
 
-Aí, pensando em SOLID[^3], o desenvolvedor altera o código para o seguinte:
+Aí, pensando em SOLID[^4], o desenvolvedor altera o código para o seguinte:
 
 ```python
 def _multiple_names(name):
@@ -251,7 +250,7 @@ class Client:
 
 Agora o que acontece é que quando um cliente é criado, são passadas as
 validações sobre o nome, e uma dessas é que o nome deve ter múltiplos
-nomes[^4].
+nomes[^5].
 
 Nova funcionalidade, precisamos de novos testes, certo?
 
@@ -316,7 +315,7 @@ class Client:
         self.name = name
 ```
 
-Pronto, não tem mais validação[^5] e agora a Xuxa pode comprar. Mas ao rodar
+Pronto, não tem mais validação[^6] e agora a Xuxa pode comprar. Mas ao rodar
 os testes:
 
 
@@ -424,18 +423,20 @@ estão sendo criados.
 
 ---
 
-[^1]: O porque vai ser uma string pode ser variado: por causa de um plugin de
+[^1]: A não ser que você use anos com números romanos.
+
+[^2]: O porque vai ser uma string pode ser variado: por causa de um plugin de
   segurança, porque é feito um armazenamento num banco que não trabalha bem
   com inteiros, por causa de uma integração com sistema legado...
 
-[^2]: Uma classe de entidades de clientes deveria ser bem mais completa que
+[^3]: Uma classe de entidades de clientes deveria ser bem mais completa que
   essa, mas vamos deixar ela simples assim para fins de exemplo.
 
-[^3]: E não, isso também não é SOLID de verdade, mas vamos deixar assim de
+[^4]: E não, isso também não é SOLID de verdade, mas vamos deixar assim de
   novo para fins de exemplo.
 
-[^4]: E alguém vai me passar o link do "Falácias que Desenvolvedores Acreditam
+[^5]: E alguém vai me passar o link do "Falácias que Desenvolvedores Acreditam
   Sobre Nomes de Usuários" por causa disso.
 
-[^5]: E sim, deveria alterar só o `_validate_name`, mas assim fica mais claro
+[^6]: E sim, deveria alterar só o `_validate_name`, mas assim fica mais claro
   onde está o problema.
