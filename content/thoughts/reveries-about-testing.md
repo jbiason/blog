@@ -190,6 +190,242 @@ said tests in suites to be run that way).
 
 ## Coverage
 
+Against what most people claim, I do believe that you can reach 100% coverage
+pretty easily: You just need to delete code.
+
+The idea is quite simple, actually: If your tests check the system behavior,
+and I'm proving that all tests pass, everything that doesn't have coverage
+point to code that isn't necessary and, thus, can be deleted.
+
+It is not every code that can be removed. In the alarm manager example, even
+when our "unit tests" cover all functionalities of each module, we got a block
+in the "integration tests" that didn't have any coverage. This block was
+responsible for checking the input of a module (for example, it won't allow
+sending a SNMP message without a text). But, when we checked the code, we
+realized that the base module (the one calling the others) was already doing
+that validation and that this check was unnecessary. This lead into the
+discussion of which test (and code block) should be removed. But we did have a
+piece of "dead code" that was being marked as "alive" because we had unit
+tests for both blocks.
+
+A more practical example. Imagine there is a class that keeps customer data in
+a web shop[^3]:
+
+```python
+class Client:
+    def __init__(self, name):
+        self.name = name
+```
+
+After awhile, comes a new requirement: A certain "Dewey" keeps creating
+accounts non-stop, without doing any purchases, just to put trash in the
+database; we need to block any new customers that make their name as just one
+name.
+
+Then, thinking about SOLID[^4], the developer changes teh code to this:
+
+```python
+def _multiple_names(name):
+    split_names = name.split(' ')
+    return len(split_names) > 1
+
+def _validate_name(name):
+    if not _multiple_names(name):
+        raise Exception("Invalid name")
+    return name
+
+class Client:
+    def __init__(self, name):
+        self.name = _validate_name(name)
+```
+
+Now, when there is any service trying to create a new customer, the name is
+validated against a certain rules and one of those is that the name must have
+multiple names[^5].
+
+New funcionality, new tests, right?
+
+```python
+import pytest
+
+def test_single_name():
+	"""'Cher' não tem multiplos nomes."""
+    assert not _multiple_names('Cher')
+
+def test_multiple_name():
+	"""'Julio Biason' tem múltiplos nomes."""
+    assert _multiple_names('Julio Biason')
+
+def test_valid_name():
+	"""'Julio Biason' é um nome válido."""
+    _validate_name('Julio Biason')
+
+def test_invalid_name():
+	"""'Cher' não é um nome válido e por isso levanta uma exceção."""
+    with pytest.raises(Exception):
+        _validate_name('Cher')
+
+def test_client_error():
+	"""Se tentar criar uma conta com 'Cher', deve dar erro."""
+    with pytest.raises(Exception):
+        Client(name='Cher')
+
+def test_client():
+	"""Uma conta com nome 'Julio Biason' deve funcionar."""
+    Client(name='Julio Biason')
+```
+
+Running the tests:
+
+```
+$ pytest --cov=client client.py
+==== test session starts ====
+plugins: cov-2.4.0
+collected 6 items
+
+client.py ......
+
+---- coverage: platform linux, python 3.4.3-final-0 ----
+Name        Stmts   Miss  Cover
+-------------------------------
+client.py      25      0   100%
+
+==== 6 passed in 0.11 seconds ====
+```
+
+100% coverage and new functionality done! The developer give themselves some
+pats in the back and go home.
+
+But, in the middle of the night, one of the managers who is also a friend of
+Björk, gets a call from her telling that she tried to buy something and just
+got an error message. The developer gets in the office next morning, sees the
+manager email complaining about their famous friend being blocked and goes
+into fixing the code:
+
+```python
+class Client:
+    def __init__(self, name):
+        self.name = name
+```
+
+There, no more validation[^6] e now Björk can buy whatever she wants. But
+running the tests:
+
+```
+==== FAILURES ====
+____ test_client_error ____
+
+    def test_client_error():
+        with pytest.raises(Exception):
+>           Client(name='Cher')
+E           Failed: DID NOT RAISE <class 'Exception'>
+
+client.py:37: Failed
+==== 1 failed, 5 passed in 0.63 seconds ====
+```
+
+Oh, sure! Cher is now a valid name and that behavior being tested is invalid.
+We need to change the test to accept Cher:
+
+```python
+def test_client_error():
+	"""Se tentar criar uma conta com 'Cher', deve funcionar."""
+	Client(name='Cher')
+```
+
+And running the tests once again:
+
+```
+$ pytest --cov=client  client.py
+==== test session starts ====
+rootdir: /home/jbiason/unitt, inifile:
+plugins: cov-2.4.0
+collected 6 items
+
+client.py ......
+
+---- coverage: platform linux, python 3.4.3-final-0 ----
+Name        Stmts   Miss  Cover
+-------------------------------
+client.py      24      0   100%
+
+==== 6 passed in 0.12 seconds ====
+```
+
+Wonderful! Everything is working with the expected behaviors and we still have
+100% coverage.
+
+But can you spot the problem in the code?
+
+The problem is now that `_multiple_names` is not being used anywhere, but it
+is shown as "alive" 'cause there is a lost test that keeps saying that the
+code is being used. If we had started with just the behavior tests --
+using just the system inputs and outputs -- right out of the bat we would see
+that the function is not used anymore -- and if we need it in the future...
+well, that's what version control systems are for.
+
+Although this looks like a silly example, there are some cases in which the
+processing flow can be changed by the environment itself. For example, in
+Django, you can add "middleware" classes, which are capable of intercepting
+Requests or Responses and change their result. The most common example of
+middleware is the Authentication, which adds the logged user information in
+the Request; but those changes can be more deep, like changing some form
+information. In those cases, the input (or the output, or both) is changed
+and writing tests that ignore the middleware will not be a correct
+representation of the input (or output, or both) of the system. And there we
+can ask if the test is valid 'cause it is using a state that should not exist
+in the normal use of the system.
+
+## Mocks
+
+Some time ago, I used to say that mocks should be used for things external to
+the system. But I realized that definition is not quite correct -- there are
+external things that shouldn't be mocked -- and that a better definition for
+what should be mocked is "anything that you have no control".
+
+For example, if you're writing a system that uses IP geolocation using an
+external service, you probably will mock the call for that service, as it is
+out of your control. But a call to a database, when you're using a
+system/framework that abstracts all the calls for the database (like Django
+does), then the database, even being an external resource, is still under your
+control and, thus, shouldn't be mocked -- but since the system/framework
+offers a database abstraction, using any database shouldn't affect the
+results.
+
+Another example are microservices. Even microservices inside the same company
+or steam are external and out of control of the project and, thus, should be
+mocked. "But they are from the same team!" Yes, but they are not part of the
+same project and a) the idea behind microservices is to uncouple those
+services and/or b) are in different directory trees. One of the advantages of
+microservices from the same team is that the expected contract from one is
+know by the team and that could be easily mocked (the team knows that, calling
+a service with X inputs, it should receive an Y response -- or error).
+
+# Conclusion
+
+Again, the idea is not to rewrite every test that you have 'cause "the right
+way is my way". On the other hand, I see a lot of tests being written in any
+way, just using the context of "one test for each function/class" and, in some
+cases, that doesn't make any sense and should get a little more thinking. By
+exposing those "impure thoughts" about tests, I hope that would make people
+rethink the way they are writing their tests
+
 ---
 
 [^1]: Unless you want to use roman numerals, but anyway...
+
+[^2]: The reason for being changed to a string can be anything: due some
+  security plugin, 'cause we are using a database that doesn't work properly
+  with integers, 'cause we are plugging this system with a legacy one...
+
+[^3]: A class that keeps customer information should be way more complex that
+  this, but let's keep it simple just for this example.
+
+[^4]: No, that's not really SOLID, but that's keep it simple again for this
+  example.
+
+[^5]: Someone will send me the "Fallacies Developers Believe About User Names"
+  links for this, right?
+
+[^6]: Sure, I should change just `_validate_name`, but this way it makes it
+  even more clear what the problem is.

@@ -226,7 +226,7 @@ class Client:
         self.name = name
 ```
 
-Entretanto, depois de um tempo, surge um novo requisito: Um tal de "Zézinho"
+Depois de um tempo, surge um novo requisito: Um tal de "Zézinho"
 está criando usuários sem parar, sem fazer compras, só pra sujar o banco;
 devemos bloquear todos os cadastros que tenham como nome do usuário apenas um
 nome.
@@ -318,7 +318,6 @@ class Client:
 Pronto, não tem mais validação[^6] e agora a Xuxa pode comprar. Mas ao rodar
 os testes:
 
-
 ```
 ==== FAILURES ====
 ____ test_client_error ____
@@ -342,7 +341,6 @@ def test_client_error():
 ```
 
 E rodando os testes de novo:
-
 
 ```
 $ pytest --cov=client  client.py
@@ -379,28 +377,28 @@ exemplo, no Django, é possível ter classes "middleware", que são capazes de
 interceptar Requisições ou Respostas e alterar o resultado o mesmo. O exemplo
 mais comum é o middleware de Autenticação, que adiciona informações do usuário
 logado na Requisição; mas essas alterações podem ser mais profundas, como
-alterar os dados do formulário, por exemplo. Nesses casos, a entrada (ou a
-saída, ou ambos) é afetada e, portanto, qualquer coisa que ignore os
-middlewares não vai representar a entrada (ou saída, ou ambos) do sistema
-corretamente. E aí podemos perguntar se o teste é válido por gerar estados que
-não devem existir naturalmente no sistema.
+alterar os dados do formulário. Nesses casos, a entrada (ou a
+saída, ou ambos) é afetada e, portanto, escrever testes que ignorem os
+middlewares não vão representar a entrada (ou saída, ou ambos) do sistema
+corretamente. E aí podemos perguntar se o teste é válido por usar estados que
+não existem naturalmente no sistema.
 
 ## Mocks
 
 Há um tempo, eu indicava que "mocks" deveriam ser usados para coisas externas
 ao sistema. Entretanto, eu percebi que essa definição não é bem precisa --
-existem coisas externas que não devem ser mockadas -- mas que uma definição
+existem coisas externas que não devem ser mockadas -- e que uma definição
 melhor para o que deve ser mockado é "qualquer coisa que esteja fora do seu
 controle".
 
 Por exemplo, se você está escrevendo um sistema que faz geolocalização de IPs
 através de um serviço externo, você provavelmente irá mockar a chamada para o
 serviço, já que ele está fora do seu controle. Mas uma chamada para o banco de
-dados, quando você já utiliza um sistema de abstrai toda a parte de banco de
-dados (por exemplo, Django), então o banco não é mais uma entidade externa, e
-sim interna do sistema e que, portanto, não deveria ser mockada -- mas como o
-sistema oferece uma abstração do banco, então usar qualquer banco não deve
-afetar o resultado.
+dados, quando você já utiliza um sistema/framework de abstrai toda a parte de
+banco de dados (por exemplo, Django), então o banco, apesar de ser uma entidade
+externa, ainda está sob seu controle e, portanto, não deveria ser mockada --
+mas como o sistema/framework oferece uma abstração do banco, então usar
+qualquer banco não deve afetar o resultado.
 
 Outro exemplo são microserviços. Mesmo microserviços dentro da mesma empresa
 ou mesmo grupo são externos e fora do controle do projeto e, portanto,
@@ -413,7 +411,7 @@ com dados X, haverá a resposta Y -- ou erro).
 
 # Conclusão
 
-De novo, a ideia não é reescrever todos os casos de testes que você tem para
+De novo, a ideia não é reescrever todos os testes que você tem porque
 "o jeito certo, que é o meu jeito". Entretanto, eu realmente vejo muitos
 testes sendo escritos "a revelia", considerando a simples métrica de "um teste
 por função/classe" e, em muitos casos, isso não faz sentido e que precisariam
