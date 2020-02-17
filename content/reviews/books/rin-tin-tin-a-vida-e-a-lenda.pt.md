@@ -6,7 +6,7 @@ date = 2016-07-04
 tags = ["books", "susan orlean", "biografia", "rin tin tin"]
 +++
 
-[Resumo GoodReads]():
+[Resumo GoodReads](https://www.goodreads.com/book/show/18396199-rin-tin-tin):
 Ele achava que o cão era imortal. Assim começa a vasta, poderosa e comovente
 narrativa de Susan Orlean sobre a jornada de Rin Tin Tin – de sobrevivente
 órfão a astro do cinema e ícone internacional do showbiz. Suzan, redatora da

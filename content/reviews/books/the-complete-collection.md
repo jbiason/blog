@@ -6,7 +6,7 @@ date = 2014-11-29
 tags = ["books", "h.p. lovecraft", "reviews", "horror"]
 +++
 
-[GoodReads Summary]():
+[GoodReads Summary](https://www.goodreads.com/book/show/50029451-h-p-lovecraft):
 The weird fiction short stories of H.P. Lovecraft from 1917-1935. Excludes
 collaborations.
 
