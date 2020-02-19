@@ -1,6 +1,5 @@
 +++
-title = "Adult Stuff: Things You Need to Know to Win at Real Life - Robert Boesel,
-Matt Moore"
+title = "Adult Stuff: Things You Need to Know to Win at Real Life - Robert Boesel, Matt Moore"
 date = 2020-02-09
 
 [taxonomies]

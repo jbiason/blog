@@ -1,13 +1,13 @@
 +++
 title = "K is for Knifeball: An Alphabet of Terrible Advice -  Avery Monsen, Jory John"
-date = 2020-02-19
+date = 2020-01-26
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "avery monsen", "jory john"]
 
 +++
 
-[GoodReads Summary](https://www.goodreads.com/book/show/14553581-k-is-for-knifeball)
+[GoodReads Summary](https://www.goodreads.com/book/show/14553581-k-is-for-knifeball):
 From the authors of the breakout bestseller All my friends are dead. (more
 than 175,000 copies sold) and in the humorous vein of Go the F**k to Sleep
 comes a laugh-out-loud collection of bad advice that turns the children's
