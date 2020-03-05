@@ -21,42 +21,52 @@ features and less time fixing problems.
 
 {{ stars(stars=0) }}
 
-* (-) Some phrase constructions are a bit hard to read. Maybe it's because I'm
-	not a native English speaker, but some phrases are akin to "my beautiful
-	nature photos", which you can read in different ways ("my beautiful
-	photos of nature", "my photos of beautiful nature") and I had to backtrack
-	and read the whole thing again.
-* (-) Code is a mess. Long listings with no separation of concerns. I mean,
-	ok, you can use lambdas for simpler functions, but when you keep piling
-	lambdas over lambdas, things get a bit out of hand. Trying to explain
-	some functionality in a 200 line function is not actually helpful.
+* (-) Some phrases are a bit hard to read. Maybe it's because I'm
+	not a native English speaker[^1], but some are akin to "my beautiful
+	nature photos", which you can read in different ways ("my beautiful photos
+	of nature", "my photos of beautiful nature") and I had to backtrack and
+	read the whole thing again.
+* (-) Code listings are a mess: long and with no separation of concerns. It is
+    ok if you use lambdas for simpler functions, but when you keep piling
+	lambdas over lambdas, things get a bit out of hand. Trying to explain some
+	functionality in a 200 line function is not actually helpful.
 * (-) The ePub version seriously need another check. Some code listings are
-	pure text, so it follows the user font size; but other are
-	screenshots/images of code, which get way out of hand, as some listings
-	had fonts that where 1/5 of the font I use to read (yes, I use a large
-	font, I'm reading at night without my glasses, but the point remains).
+	pure text, following the font size the user set in their reader; other are
+	screenshots/images of code, which get way out of hand, as some of those
+	had a font 1/5 of the size I set up (yes, I use a large font, I'm reading
+	at night without my glasses, but the point remains).
 * (--) There is very little explanation on what FRP really is, but a lot about
-	how to do things with Sodium, the authors library. Instead of focusing on
-	how to build your own FRP system, using Sodium as reference, the books
-	focuses _a lot_ in using Sodium and why that implementation is FRP instead
+	how to do things with Sodium, the authors' library. Instead of focusing on
+	how to build your own FRP system, using Sodium as reference, the book
+	focuses _a lot_ in using Sodium and its relationship with FRP instead
 	of explaining the concept behind the FRP functionality itself.
-* (--) The authors shows some weird prejudices against TDD. For example, they
+* (--) The authors show some weird prejudices against TDD. For example, they
 	say that FRP doesn't require TDD and that using TDD is actually _harmful_
-	for FRP, "unless you test logic". I mean, seriously? What do you think TDD
-	is about? Lines of code? TDD says that "tests should validate behaviors,
-	not implementation" and I'm wondering why the authors are so reticent
-	against TDD when their concept of TDD seems completely out of place.
+	for FRP (!!![^2]), "unless you test logic" (???[^3]). I have to ask: Seriously?
+	What do you think TDD is about? Lines of code? TDD says that "tests should
+	validate behaviors, not implementation" and I'm wondering why the authors
+	are so reticent against TDD when their concept of TDD seems completely out
+	of place.
 * (---) There is a strong gatekeeping in the book. While talking about other
-	frameworks, the authors, they decide to focus more on "why this framework
+	frameworks, the authors decided to focus more on "why this framework
 	is not pure FRP, while Sodium is" instead of, again, focusing on the
 	concepts of FRP itself. "FRP says so and so, you can build this with
 	framework X using that and that" is a good way to do it; "FRP says so and
 	so, framework X do this which is not what the FRP says, so framework X is
 	not FRP, but Sodium is!" is a dickish way to downplay other frameworks.
-	Also, it's weird that every time Sodium breaks some FRP rule (rules that
+	Not only that, but every time Sodium break some FRP rule (rules that
 	the authors themselves keep listing), they put a long explanation on why
-	it's ok to break the rule there, saying that it's ok that Sodium breaks
-	it.
+	it's ok for you to break the rule there when using Sodium, but Sodium,
+	although requiring you to break some FRP rule, is actually a pure-FRP
+	framework, and not those pesky other frameworks that are not pure-FRP
+	frameworks.
 
 Honestly, I read the book and I still don't understand FRP; all I got was some
 concepts for a Sodium framework.
+
+---
+
+[^1]: ... which may appear as no surprise, with the amount of grammar mistakes
+  in this post. :p
+[^2]: That's surprise.
+[^3]: That's confusion.
