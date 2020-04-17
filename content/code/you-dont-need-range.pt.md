@@ -272,6 +272,12 @@ Iteráveis são as grandes potências de Python, como você pode ter percebido c
 a lista de coisas que podem ser iteradas. Entendendo-os vai lhe ajudar a
 escrever código Python melhor e mais conciso, sem perda de significado.
 
+---
+
+Esse conteúdo foi criado baseado nas discussões no [Telegram do
+PyTche](https://t.me/pytche). Se quiser, junte-se a nós para conversarmos
+sobre Python.
+
 <!-- 
 vim:spelllang=pt:
 -->
