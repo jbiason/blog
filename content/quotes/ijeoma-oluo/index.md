@@ -1,6 +1,9 @@
 +++
 title = "Ijeoma Oluo"
 weight = 105
+
+[taxonomies]
+tags = ["quotes", "ijeoma oluo", "racism", "justice"]
 +++
 
 > "If you live in this system of white supremacy, you are either fighting the

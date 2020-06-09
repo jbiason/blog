@@ -1,6 +1,9 @@
 +++
 title = "Banksy"
 weight = 98
+
+[taxonomies]
+tags = ["quotes", "banksy", "racism"]
 +++
 
 > "At first I thought I should just shut up and listen to black people about
