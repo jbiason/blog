@@ -13,4 +13,4 @@ Rector at St. Phillip's Episcopal Church in Tucson, Ariz.
 > protect power he gained via accepting feign interference, exploiting fear
 > and anger he loves to stroke, after failing to address a pandemic he was
 > warned about, and building it all on a bed of constant lies and childish
-> inanity.
+> inanity."
