@@ -1,14 +1,15 @@
 +++
 title = "Python Losing the 2nd Place on Loved Languages: A Thought"
-date = 2020-06-08
+date = 2020-06-09
 
 [taxonomies]
 tags = ["python", "typescript", "stackoverflow", "survey"]
 +++
 
-On this year StackOverflow Survey, Python lost its 2nd place to TypeScript. On
-our Python group, people started wondering why that. And I just thought it
-would be nice to post my thoughts on the situation.
+On this year StackOverflow Survey, Python lost its 2nd place in the "Most
+Loved Languages" ranking to TypeScript. On our Python group, people started
+wondering why. And I just thought it would be nice to post my thoughts on
+the situation.
 
 <!-- more -->
 
@@ -31,7 +32,7 @@ TypeScript is aimed to JavaScript development, a zone where anything goes,
 types are very flexible and magical -- to the point what most of things
 actually produce a [Wat](https://www.destroyallsoftware.com/talks/wat). By
 using types, making sure you're not adding a string to an array, a lot of
-problems suddenly disappear. It is no silver bullet, but it fixes a whole
+problems suddenly disappear. It is no silver bullet, but it prevents a whole
 class of issues that would popup in production.
 
 So, in an environment that chaotic things happen, suddenly you have something
@@ -75,10 +76,14 @@ Python is not the hot stuff on web dev anymore. And because it is not the hot
 stuff, people don't _want_ the old stuff; the old stuff is not cool anymore,
 so they don't like it anymore.
 
+Related: Just because something has hype, it doesn't mean it is _better_; it
+just makes the non-hyped stuff "not better", even if there was no change at
+all in the latest.
+
 ## Side-point
 
 One point not raised by anyone in the group: Although Python lost its second
-place, it is still the most wanted language -- meaning, it is the language
-most developers _want_ to learn. If the general feeling was "Python sucks!", I
-pretty much doubt the want would still be representative -- and Python have a
-large lead compared to JavaScript.
+place in the "Most Loved" ranking, it is still the most wanted language --
+meaning, it is the language most developers _want_ to learn. If the general
+feeling was "Python sucks!", I pretty much doubt the want would still be
+representative -- and Python have a large lead compared to JavaScript.
