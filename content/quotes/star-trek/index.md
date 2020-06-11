@@ -10,6 +10,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > still the same song."
 -- Eve McHuron, "Mudd's Women", stardate 1330.1
 
+> "It is more rational to sacrifice one life than six."
+-- Spock, "The Galileo Seven", stardate 2822.3
+
 > "Totally illogical, there was no chance."
 -- Spock, "The Galileo Seven", stardate 2822.3
 
