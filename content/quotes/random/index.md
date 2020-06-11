@@ -12,3 +12,6 @@ tags = ["quotes", "graffiti"]
 
 > "There is no education that is not political. An apolitical education is
 > also political because it is purposely isolating."
+
+> "People change and forget to tell each other."
+-- a marquee at a fucking carpet cleaning store

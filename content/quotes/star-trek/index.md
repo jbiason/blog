@@ -10,6 +10,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > still the same song."
 -- Eve McHuron, "Mudd's Women", stardate 1330.1
 
+> "It is more rational to sacrifice one life than six."
+-- Spock, "The Galileo Seven", stardate 2822.3
+
 > "Totally illogical, there was no chance."
 -- Spock, "The Galileo Seven", stardate 2822.3
 
@@ -18,3 +21,15 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 
 > "One does not thank logic."
 -- Sarek, "Journey to Babel", stardate 3842.4
+
+> "It would seem that evil retreats when forcibly confronted."
+-- Yarnek of Excalbia, "The Savage Curtain", stardate 5906.5
+
+> "Murder is contrary to the laws of man and God."
+-- M-5 Computer, "The Ultimate Computer", stardate 4731.3
+
+> "When one has been angry for a very long time, one gets used to it. And it
+> becomes comfortable, like... like old leather. And finally, it becomes so
+> familiar that one can't ever remember feeling any other way."
+-- Captain Jean-Luc Picard, "The Drumhead", stardate 44765.2
+
