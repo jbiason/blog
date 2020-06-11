@@ -18,3 +18,6 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 
 > "One does not thank logic."
 -- Sarek, "Journey to Babel", stardate 3842.4
+
+> "It would seem that evil retreats when forcibly confronted."
+-- Yarnek of Excalbia, "The Savage Curtain", stardate 5906.5
