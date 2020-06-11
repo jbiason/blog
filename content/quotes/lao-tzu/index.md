@@ -3,7 +3,7 @@ title = "Lao Tzu"
 weight = 106
 
 [taxonomies]
-tags = ["quotes", "lao tzu", "peace"]
+tags = ["quotes", "lao tzu", "peace", "trust"]
 +++
 
 > "Do you imagine the universe is agitated? Go into the desert at night and
