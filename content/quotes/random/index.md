@@ -17,3 +17,5 @@ tags = ["quotes", "graffiti"]
 -- a marquee at a fucking carpet cleaning store
 
 > "Misery loves company, but company does not reciprocate."
+
+> "Preserve the old, but know the new."
