@@ -15,3 +15,7 @@ tags = ["quotes", "graffiti"]
 
 > "People change and forget to tell each other."
 -- a marquee at a fucking carpet cleaning store
+
+> "Misery loves company, but company does not reciprocate."
+
+> "Preserve the old, but know the new."
