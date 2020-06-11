@@ -21,3 +21,6 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 
 > "It would seem that evil retreats when forcibly confronted."
 -- Yarnek of Excalbia, "The Savage Curtain", stardate 5906.5
+
+> "Murder is contrary to the laws of man and God."
+-- M-5 Computer, "The Ultimate Computer", stardate 4731.3
