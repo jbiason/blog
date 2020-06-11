@@ -27,3 +27,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 
 > "Murder is contrary to the laws of man and God."
 -- M-5 Computer, "The Ultimate Computer", stardate 4731.3
+
+> "When one has been angry for a very long time, one gets used to it. And it
+> becomes comfortable, like... like old leather. And finally, it becomes so
+> familiar that one can't ever remember feeling any other way."
+-- Captain Jean-Luc Picard, "The Drumhead", stardate 44765.2
+
