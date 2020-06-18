@@ -46,6 +46,7 @@ menu_items = [
 	{url = "$BASE_URL/announcements/about-me", name = "About Me"},
 	{url = "$BASE_URL/tags", name = "Tags (EN)"},
 	{url = "$BASE_URL/pt/tags", name = "Tags (PT)"},
+	{url = "$BASE_URL/quotes", name = "Quotes"},
 ]
 after_dark_title = "JulioBiason.Net 4.1"
 enable_post_view_navigation = false
