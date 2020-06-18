@@ -33,3 +33,6 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > familiar that one can't ever remember feeling any other way."
 -- Captain Jean-Luc Picard, "The Drumhead", stardate 44765.2
 
+> "If some day we are defeated, well, war has its fortunes, good and bad."
+-- Commander Kor, "Errand of Mercy", stardate 3201.7
+
