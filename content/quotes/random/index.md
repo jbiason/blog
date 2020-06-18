@@ -21,3 +21,6 @@ tags = ["quotes", "graffiti"]
 > "Preserve the old, but know the new."
 
 > "Distributed Systems people do it loosely coupled."
+
+> "Gort, klaatu nikto barada."
+-- The Day the Earth Stood Still
