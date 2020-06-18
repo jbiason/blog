@@ -3,8 +3,11 @@ title = "Isaac Asimov"
 weight = 105
 
 [taxonomies]
-tags = ["quotes", "isaac asimov", "science", "wisdom"]
+tags = ["quotes", "isaac asimov", "science", "wisdom", "discoveries"]
 +++
 
 > "The saddest aspect of life right now is that science gathers knowledge
 > faster than society gathers wisdom"
+
+> "The most exciting phrase to hear in science, the one that heralds new
+> discoveries, is not "Eureka!" (I found it!) but 'That's funny ...'"
