@@ -19,3 +19,5 @@ tags = ["quotes", "graffiti"]
 > "Misery loves company, but company does not reciprocate."
 
 > "Preserve the old, but know the new."
+
+> "Distributed Systems people do it loosely coupled."
