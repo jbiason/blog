@@ -6,5 +6,5 @@ weight = 98
 tags = ["quotes", "bette midler", "success"]
 +++
 
-> The worst part of having success is trying to find someone who is happy for you.
+> "The worst part of having success is trying to find someone who is happy for you."
 

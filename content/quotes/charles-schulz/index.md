@@ -6,6 +6,6 @@ weight = 99
 tags = ["quotes", "charles schulz", "future"]
 +++
 
-> Don't worry about the world coming to an end today. It's already tomorrow
-> in Australia.
+> "Don't worry about the world coming to an end today. It's already tomorrow
+> in Australia."
 

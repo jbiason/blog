@@ -6,5 +6,5 @@ weight = 106
 tags = ["quotes", "james h boren", "leadership"]
 +++
 
-> When in doubt, mumble; when in trouble, delegate; when in charge, ponder.
+> "When in doubt, mumble; when in trouble, delegate; when in charge, ponder"
 
