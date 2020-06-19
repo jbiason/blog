@@ -4,7 +4,7 @@ weight = 103
 
 [taxonomies]
 tags = ["quotes", "george bernard shaw", "history", "learning", "cliques",
-"sex"]
+"sex", "government"]
 +++
 
 > "We learn from history that we learn nothing from history."
@@ -12,3 +12,7 @@ tags = ["quotes", "george bernard shaw", "history", "learning", "cliques",
 > "The worst cliques are those which consist of one man."
 
 > "Sex is the poor man's opera."
+
+> "Democracy is a form of government that substitutes election by the
+> incompetent many for appointment by the corrupt few."
+
