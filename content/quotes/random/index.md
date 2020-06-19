@@ -4,7 +4,7 @@ weight = 300
 
 [taxonomies]
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
-"the day the earth stood still", "atheism", "religion"]
+"the day the earth stood still", "atheism", "religion", "following"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -27,3 +27,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 -- The Day the Earth Stood Still
 
 > "Atheism and truth, 2 words 1 meaning."
+
+> "Zisla's Law:
+> If you're asked to join a parade, don't march behind the elephants."
