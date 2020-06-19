@@ -11,3 +11,7 @@ tags = ["quotes", "isaac asimov", "science", "wisdom", "discoveries"]
 
 > "The most exciting phrase to hear in science, the one that heralds new
 > discoveries, is not "Eureka!" (I found it!) but 'That's funny ...'"
+
+> "To surrender to ignorance and call it God has always
+> been premature, and it remains premature today."
+
