@@ -3,7 +3,7 @@ title = "Steven Wright"
 weight = 200
 
 [taxonomies]
-tags = ["quotes", "steven wright"]
+tags = ["quotes", "steven wright", "puns"]
 +++
 
 Comedian.
