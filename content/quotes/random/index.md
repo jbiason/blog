@@ -33,3 +33,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Working here is like a pregnancy. After nine months you wish you hadn't
 > come."
+
+> "If God lived on Earth, people would knock out all His windows."
+-- Yiddish saying
