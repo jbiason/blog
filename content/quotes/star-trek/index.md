@@ -20,6 +20,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > your human intuition."
 -- Spock, "Assignment: Earth", stardate unknown
 
+> "Violence in reality is quite different from theory."
+-- Spock, "The Cloud Minders", stardate 5818.4
+
 > "We do not colonize. We conquer. We rule. There is no other way for us."
 -- Rojan, "By Any Other Name", stardate 4657.5
 

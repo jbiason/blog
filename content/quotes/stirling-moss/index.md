@@ -1,6 +1,6 @@
 +++
 title = "Stirling Moss"
-weight = 200
+weight = 115
 
 [taxonomies]
 tags = ["quotes", "stirling moss", "limits"]
