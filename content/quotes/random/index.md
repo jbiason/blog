@@ -48,3 +48,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Materialism: buying things we don't need with money we don't have to
 > impress people that don't matter."
+
+> The sign of a truly totalitarian culture is that important truths simply
+> lack cognitive meaning.
+
