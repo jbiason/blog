@@ -3,7 +3,8 @@ title = "Random Quotes"
 weight = 300
 
 [taxonomies]
-tags = ["quotes", "graffiti"]
+tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
+"the day the earth stood still", "atheism", "religion", "following", "regrets"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -24,3 +25,11 @@ tags = ["quotes", "graffiti"]
 
 > "Gort, klaatu nikto barada."
 -- The Day the Earth Stood Still
+
+> "Atheism and truth, 2 words 1 meaning."
+
+> "Zisla's Law:
+> If you're asked to join a parade, don't march behind the elephants."
+
+> "Working here is like a pregnancy. After nine months you wish you hadn't
+> come."

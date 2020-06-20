@@ -16,6 +16,10 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > "Totally illogical, there was no chance."
 -- Spock, "The Galileo Seven", stardate 2822.3
 
+> "Without facts, the decision cannot be made logically. You must rely on
+> your human intuition."
+-- Spock, "Assignment: Earth", stardate unknown
+
 > "We do not colonize. We conquer. We rule. There is no other way for us."
 -- Rojan, "By Any Other Name", stardate 4657.5
 
