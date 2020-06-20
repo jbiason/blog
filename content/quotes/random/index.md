@@ -4,7 +4,8 @@ weight = 300
 
 [taxonomies]
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
-"the day the earth stood still", "atheism", "religion", "following", "regrets"]
+"the day the earth stood still", "atheism", "religion", "following",
+"regrets", "money"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -36,3 +37,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "If God lived on Earth, people would knock out all His windows."
 -- Yiddish saying
+
+> "When you go out to buy, don't show your silver."
