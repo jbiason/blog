@@ -43,3 +43,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "If practice makes perfect, and nobody's perfect, why practice?"
 
 > "Freeing the nerds was what got us here"
+
+> "Workers of the world, relax!"
