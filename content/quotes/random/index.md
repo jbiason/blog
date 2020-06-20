@@ -4,7 +4,7 @@ weight = 300
 
 [taxonomies]
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
-"the day the earth stood still", "atheism", "religion", "following"]
+"the day the earth stood still", "atheism", "religion", "following", "regrets"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -30,3 +30,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Zisla's Law:
 > If you're asked to join a parade, don't march behind the elephants."
+
+> "Working here is like a pregnancy. After nine months you wish you hadn't
+> come."
