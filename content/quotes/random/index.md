@@ -45,3 +45,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Freeing the nerds was what got us here"
 
 > "Workers of the world, relax!"
+
+> "Materialism: buying things we don't need with money we don't have to
+> impress people that don't matter."
