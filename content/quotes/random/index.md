@@ -5,7 +5,7 @@ weight = 300
 [taxonomies]
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
-"regrets", "money", "perfection", "practice"]
+"regrets", "money", "perfection", "practice", "nerds"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -41,3 +41,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "When you go out to buy, don't show your silver."
 
 > "If practice makes perfect, and nobody's perfect, why practice?"
+
+> "Freeing the nerds was what got us here"
