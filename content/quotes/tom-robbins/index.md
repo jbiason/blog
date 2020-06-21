@@ -1,6 +1,6 @@
 +++
 title = "Tom Robbins"
-weight = 201
+weight = 116
 
 [taxonomies]
 tags = ["quotes", "tom robbins", "education", "brain"]
