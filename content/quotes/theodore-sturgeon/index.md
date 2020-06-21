@@ -1,6 +1,6 @@
 +++
 title = "Theodore Sturgeon"
-weight = 201
+weight = 116
 
 [taxonomies]
 tags = ["quotes", "theodore sturgeon", "quality"]

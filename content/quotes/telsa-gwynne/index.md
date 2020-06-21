@@ -1,6 +1,6 @@
 +++
 title = "Telsa Gwynne"
-weight = 201
+weight = 116
 
 [taxonomies]
 tags = ["quotes", "telsa gwynne", "permissions", "sex", "root"]
