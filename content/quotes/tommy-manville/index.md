@@ -1,6 +1,6 @@
 +++
 quotes = "Tommy Manville"
-weight = 201
+weight = 116
 
 [taxonomies]
 tags = ["quotes", "tommy manville", "marriage", "divorce"]

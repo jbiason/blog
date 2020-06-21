@@ -12,3 +12,6 @@ tags = ["quotes", "neil degrasse tyson", "life"]
 > "There are more stars in the universe than all the sounds and words ever
 > uttered by all humans who have ever lived."
 
+> "The urge to want some bit of information to be true often clouds our
+> ability to assess why that information may be false."
+

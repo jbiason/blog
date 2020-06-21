@@ -20,6 +20,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > your human intuition."
 -- Spock, "Assignment: Earth", stardate unknown
 
+> "Violence in reality is quite different from theory."
+-- Spock, "The Cloud Minders", stardate 5818.4
+
 > "We do not colonize. We conquer. We rule. There is no other way for us."
 -- Rojan, "By Any Other Name", stardate 4657.5
 
@@ -40,3 +43,5 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > "If some day we are defeated, well, war has its fortunes, good and bad."
 -- Commander Kor, "Errand of Mercy", stardate 3201.7
 
+> "Suffocating together ... would create heroic camaraderie."
+-- Khan Noonian Singh, "Space Seed", stardate 3142.8

@@ -4,7 +4,9 @@ weight = 300
 
 [taxonomies]
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
-"the day the earth stood still", "atheism", "religion", "following", "regrets"]
+"the day the earth stood still", "atheism", "religion", "following",
+"regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
+"materialism", "god", "time"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -33,3 +35,22 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Working here is like a pregnancy. After nine months you wish you hadn't
 > come."
+
+> "If God lived on Earth, people would knock out all His windows."
+-- Yiddish saying
+
+> "When you go out to buy, don't show your silver."
+
+> "If practice makes perfect, and nobody's perfect, why practice?"
+
+> "Freeing the nerds was what got us here"
+
+> "Workers of the world, relax!"
+
+> "Materialism: buying things we don't need with money we don't have to
+> impress people that don't matter."
+
+> The sign of a truly totalitarian culture is that important truths simply
+> lack cognitive meaning.
+
+> "Time is an illusion perpetrated by the manufacturers of space."
