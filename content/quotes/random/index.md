@@ -67,3 +67,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > [An uninvited guest is worse than the Mongol invasion]
 -- Russian proverb
 
+> "The dynamic I'm subjected to doesn't become less toxic just because I can
+> take it."
