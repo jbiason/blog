@@ -17,3 +17,7 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 > editor will delete it and the writing will be just as it should be."
 
 > "Always do right. This will gratify some people and astonish the rest."
+
+> "If it is a Miracle, any sort of evidence will answer, but if it is a Fact,
+> proof is necessary."
+
