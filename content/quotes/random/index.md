@@ -6,7 +6,7 @@ weight = 300
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
-"materialism", "god", "time", "privacy"]
+"materialism", "god", "time", "privacy", "guests", "proverbs", "russian"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -63,4 +63,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > be rescued by a team of web developers rather than the police."
 -- u/jaso151 on Reddit
 
+> "Nezvannyi gost'--khuzhe tatarina."
+> [An uninvited guest is worse than the Mongol invasion]
+-- Russian proverb
 
