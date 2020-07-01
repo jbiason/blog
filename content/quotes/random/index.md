@@ -54,3 +54,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > lack cognitive meaning.
 
 > "Time is an illusion perpetrated by the manufacturers of space."
+
+> Non-Reciprocal Laws of Expectations:
+> Negative expectations yield negative results.
+> Positive expectations yield negative results.
