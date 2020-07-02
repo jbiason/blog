@@ -6,7 +6,7 @@ weight = 300
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
-"materialism", "god", "time"]
+"materialism", "god", "time", "privacy", "guests", "proverbs", "russian"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -54,3 +54,18 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > lack cognitive meaning.
 
 > "Time is an illusion perpetrated by the manufacturers of space."
+
+> Non-Reciprocal Laws of Expectations:
+> Negative expectations yield negative results.
+> Positive expectations yield negative results.
+
+> "I’m being tracked by so many websites that if I get kidnapped, I expect to
+> be rescued by a team of web developers rather than the police."
+-- u/jaso151 on Reddit
+
+> "Nezvannyi gost'--khuzhe tatarina."
+> [An uninvited guest is worse than the Mongol invasion]
+-- Russian proverb
+
+> "The dynamic I'm subjected to doesn't become less toxic just because I can
+> take it."

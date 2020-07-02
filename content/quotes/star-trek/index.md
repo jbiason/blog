@@ -45,3 +45,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 
 > "Suffocating together ... would create heroic camaraderie."
 -- Khan Noonian Singh, "Space Seed", stardate 3142.8
+
+> "What terrible way to die."
+> "There are no good ways."
+-- Sulu and Kirk, "That Which Survives", stardate unknown
+
+
