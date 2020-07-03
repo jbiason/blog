@@ -69,3 +69,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "The dynamic I'm subjected to doesn't become less toxic just because I can
 > take it."
+
+> "Somehow, the world always affects you more than you affect it."
