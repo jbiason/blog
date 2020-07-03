@@ -71,3 +71,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > take it."
 
 > "Somehow, the world always affects you more than you affect it."
+
+> "I suspect the people responsible are the kinds of men who get MBAs
+> specifically to boss around people who are smarter than they are."
