@@ -6,7 +6,8 @@ weight = 300
 tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
-"materialism", "god", "time", "privacy", "guests", "proverbs", "russian"]
+"materialism", "god", "time", "privacy", "guests", "proverbs", "russian",
+"incompetence"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -76,3 +77,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > specifically to boss around people who are smarter than they are."
 
 > "Talk is cheap because supply always exceeds demand."
+
+> "If you had better tools, you could more effectively demonstrate your
+> total incompetence."
