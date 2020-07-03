@@ -49,6 +49,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > "Suffocating together ... would create heroic camaraderie."
 -- Khan Noonian Singh, "Space Seed", stardate 3142.8
 
+> "There are certain things men must do to remain men."
+-- Kirk, "The Ultimate Computer", stardate 4929.4
+
 > "What terrible way to die."
 > "There are no good ways."
 -- Sulu and Kirk, "That Which Survives", stardate unknown
