@@ -23,6 +23,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > your human intuition."
 -- Spock, "Assignment: Earth", stardate unknown
 
+> "Insufficient facts always invite danger."
+-- Spock, "Space Seed", stardate 3141.9
+
 > "Violence in reality is quite different from theory."
 -- Spock, "The Cloud Minders", stardate 5818.4
 
