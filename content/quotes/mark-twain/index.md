@@ -3,7 +3,8 @@ title = "Mark Twain"
 weight = 109
 
 [taxonomies]
-tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing"]
+tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
+"right", "speeches"]
 +++
 
 > "Few things are harder to put up with than the annoyance of a good example."
@@ -15,3 +16,9 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing"]
 > "Substitute 'damn' every time you're inclined to write 'very'; your
 > editor will delete it and the writing will be just as it should be."
 
+> "Always do right. This will gratify some people and astonish the rest."
+
+> "If it is a Miracle, any sort of evidence will answer, but if it is a Fact,
+> proof is necessary."
+
+> "It usually takes more than three weeks to prepare a good impromptu speech."
