@@ -74,3 +74,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "I suspect the people responsible are the kinds of men who get MBAs
 > specifically to boss around people who are smarter than they are."
+
+> "Talk is cheap because supply always exceeds demand."
