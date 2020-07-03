@@ -6,6 +6,9 @@ weight = 200
 tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 +++
 
+> "Vulcans believe peace should not depend on force."
+-- Amanda, "Journey to Babel", stardate 3842.3
+
 > "Oh, that sound of male ego. You travel halfway across the galaxy and it's
 > still the same song."
 -- Eve McHuron, "Mudd's Women", stardate 1330.1
