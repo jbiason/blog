@@ -4,7 +4,7 @@ weight = 109
 
 [taxonomies]
 tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
-"right"]
+"right", "speeches"]
 +++
 
 > "Few things are harder to put up with than the annoyance of a good example."
@@ -21,3 +21,4 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 > "If it is a Miracle, any sort of evidence will answer, but if it is a Fact,
 > proof is necessary."
 
+> "It usually takes more than three weeks to prepare a good impromptu speech."
