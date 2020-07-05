@@ -3,7 +3,8 @@ title = "Storm Real-Time Processing Cookbook - Quinton Anderson"
 date = 2017-07-30
 
 [taxonomies]
-tags = ["books", "quinton anderson", "reviews", "it", "storm", "stream processing", "big data"]
+tags = ["books", "quinton anderson", "reviews", "it", "storm", 
+"stream processing", "big data", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18430542-storm-real-time-processing-cookbook):

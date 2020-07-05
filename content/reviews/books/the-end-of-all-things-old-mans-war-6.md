@@ -3,7 +3,8 @@ title = "The End of All Things (Old Man's War, #6) - John Scalzi"
 date = 2017-02-10
 
 [taxonomies]
-tags = ["books", "john scalzi", "reviews", "scifi", "old man's war"]
+tags = ["books", "john scalzi", "reviews", "scifi", "old man's war", 
+"4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23168809-the-end-of-all-things):

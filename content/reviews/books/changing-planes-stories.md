@@ -3,7 +3,7 @@ title = "Changing Planes: Stories - Ursula K. Le Guin"
 date = 2018-03-13
 
 [taxonomies]
-tags = ["books", "ursula k. le guin", "reviews", "scifi"]
+tags = ["books", "ursula k. le guin", "reviews", "scifi", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/13657.Changing_Planes):

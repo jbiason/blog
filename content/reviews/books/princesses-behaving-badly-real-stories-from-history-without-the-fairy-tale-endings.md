@@ -3,7 +3,7 @@ title = "Princesses Behaving Badly: Real Stories from History Without the Fairy-
 date = 2018-06-16
 
 [taxonomies]
-tags = ["books", "linda rodriguez mcrobbie", "reviews", "history"]
+tags = ["books", "linda rodriguez mcrobbie", "reviews", "history", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/36297174-princesses-behaving-badly):

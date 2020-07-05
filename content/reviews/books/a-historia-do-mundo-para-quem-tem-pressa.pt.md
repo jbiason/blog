@@ -3,7 +3,7 @@ title = "A História do Mundo Para Quem Tem Pressa - Emma Marriott"
 date = 2016-05-10
 
 [taxonomies]
-tags = ["books", "emma marriott", "história", "review"]
+tags = ["books", "emma marriott", "história", "review", "5 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25543485-a-hist-ria-do-mundo-para-quem-tem-pressa):

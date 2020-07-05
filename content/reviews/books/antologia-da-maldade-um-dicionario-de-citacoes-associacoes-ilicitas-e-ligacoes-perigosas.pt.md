@@ -3,7 +3,7 @@ title = "Antologia da maldade: Um Dicionário de Citações, Associações Ilíc
 date = 2016-03-19
 
 [taxonomies]
-tags = ["books", "gustavo h. b. franco", "reviews", "citações"]
+tags = ["books", "gustavo h. b. franco", "reviews", "citações", "2 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/27871962-antologia-da-maldade):

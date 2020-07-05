@@ -3,7 +3,8 @@ title = "Reactive Programming with JavaScript - Jonathan Hayward"
 date = 2016-05-27
 
 [taxonomies]
-tags = ["books", "jonathan hayward", "reviews", "javascript", "reactive", "it"]
+tags = ["books", "jonathan hayward", "reviews", "javascript", "reactive",
+"it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26202851-reactive-programming-with-javascript):

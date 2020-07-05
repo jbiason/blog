@@ -3,7 +3,7 @@ title = "12 Years a Slave - Solomon Northup"
 date = 2015-04-09
 
 [taxonomies]
-tags = ["books", "solomon northup", "reviews", "biography"]
+tags = ["books", "solomon northup", "reviews", "biography", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18478222-twelve-years-a-slave):

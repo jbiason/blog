@@ -3,7 +3,7 @@ title = "Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Mart
 date = 2015-01-25
 
 [taxonomies]
-tags = ["books", "robert c. martin", "it", "reviews"]
+tags = ["books", "robert c. martin", "it", "reviews", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/3735293-clean-code):

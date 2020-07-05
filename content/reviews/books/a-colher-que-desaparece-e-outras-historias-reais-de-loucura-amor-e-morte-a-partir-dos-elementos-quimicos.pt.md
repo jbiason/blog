@@ -3,7 +3,7 @@ title = "A Colher que desaparece: e outras histórias reais de loucura, amor e m
 date = 2017-02-18
 
 [taxonomies]
-tags = ["books", "sam kean", "reviews", "ciência"]
+tags = ["books", "sam kean", "reviews", "ciência", "3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/24266615-a-colher-que-desaparece):

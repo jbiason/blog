@@ -3,7 +3,8 @@ title = "Hadoop in Practice - Alex Holmes"
 date = 2018-02-16
 
 [taxonomies]
-tags = ["books", "alex holmes", "reviews", "ti", "hadoop", "big data"]
+tags = ["books", "alex holmes", "reviews", "ti", "hadoop", "big data", 
+"1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/13496907-hadoop-in-practice):

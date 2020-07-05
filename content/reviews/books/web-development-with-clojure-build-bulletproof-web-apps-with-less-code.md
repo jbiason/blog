@@ -3,7 +3,8 @@ title = "Web Development with Clojure: Build Bulletproof Web Apps with Less Code
 date = 2017-06-22
 
 [taxonomies]
-tags = ["books", "dmitri sotnikov", "reviews", "clojure", "web development", "it"]
+tags = ["books", "dmitri sotnikov", "reviews", "clojure", "web development",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18399028-web-development-with-clojure):

@@ -3,7 +3,7 @@ title = "Land of Lisp: Learn to Program in Lisp, One Game at a Time! - Conrad Ba
 date = 2017-03-16
 
 [taxonomies]
-tags = ["books", "conrad barski", "lisp", "reviews", "it"]
+tags = ["books", "conrad barski", "lisp", "reviews", "it", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/6905041-land-of-lisp):

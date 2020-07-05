@@ -3,7 +3,7 @@ title = "The Cyberiad - Stanisław Lem"
 date = 2018-09-14
 
 [taxonomies]
-tags = ["books", "stanislaw lem", "reviews", "scifi"]
+tags = ["books", "stanislaw lem", "reviews", "scifi", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18194.The_Cyberiad):

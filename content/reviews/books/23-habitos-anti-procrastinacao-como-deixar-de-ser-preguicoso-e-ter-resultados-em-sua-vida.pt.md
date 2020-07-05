@@ -3,7 +3,7 @@ title = "23 Hábitos Anti-Procrastinação: Como Deixar de Ser Preguiçoso e Ter
 date = 2016-08-08
 
 [taxonomies]
-tags = ["books", "s.j. scott", "reviews"]
+tags = ["books", "s.j. scott", "reviews", "2 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23846012-23-h-bitos-anti-procrastina-o):

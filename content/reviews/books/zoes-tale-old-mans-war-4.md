@@ -3,7 +3,8 @@ title = "Zoe's Tale (Old Man's War, #4) - John Scalzi"
 date = 2017-01-25
 
 [taxonomies]
-tags = ["books", "john scalzi", "reviews", "old man's war", "scifi"]
+tags = ["books", "john scalzi", "reviews", "old man's war", "scifi", 
+"4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/2102600.Zoe_s_Tale):

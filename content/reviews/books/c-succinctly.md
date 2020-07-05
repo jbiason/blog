@@ -3,7 +3,7 @@ title = "C# Succinctly - Joe Mayo"
 date = 2016-04-17
 
 [taxonomies]
-tags = ["books", "joe mayo", "reviews", "it", "c#"]
+tags = ["books", "joe mayo", "reviews", "it", "c#", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26101445-c-succinctly):

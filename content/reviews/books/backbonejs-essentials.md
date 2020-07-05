@@ -3,7 +3,8 @@ title = "Backbone.js Essentials - Jeremy Walker"
 date = 2016-04-26
 
 [taxonomies]
-tags = ["books", "jeremy walker", "backbone.js", "javascript", "reviews", "web development", "it"]
+tags = ["books", "jeremy walker", "backbone.js", "javascript", "reviews", 
+"web development", "it", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25979896-backbone-js-essentials):

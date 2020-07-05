@@ -3,7 +3,8 @@ title = "Getting Started with Meteor.js JavaScript Framework - Second Edition - 
 date = 2016-03-25
 
 [taxonomies]
-tags = ["books", "isaac strack", "meter.js", "javascript", "reviews", "web development", "it"]
+tags = ["books", "isaac strack", "meter.js", "javascript", "reviews", 
+"web development", "it", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25903452-getting-started-with-meteor-js-javascript-framework---second-edition):

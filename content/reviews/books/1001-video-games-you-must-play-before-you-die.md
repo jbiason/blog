@@ -3,7 +3,7 @@ title = "1001 Video Games You Must Play Before You Die - Tony Mott"
 date = 2015-01-11
 
 [taxonomies]
-tags = ["books", "tony mott", "video games", "reviews"]
+tags = ["books", "tony mott", "video games", "reviews", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/8390909-1001-video-games-you-must-play-before-you-die):

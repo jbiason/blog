@@ -3,7 +3,7 @@ title = "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, S
 date = 2018-01-19
 
 [taxonomies]
-tags = ["books", "martin kleppmann", "reviews", "it", "big data"]
+tags = ["books", "martin kleppmann", "reviews", "it", "big data", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/34626431-designing-data-intensive-applications):

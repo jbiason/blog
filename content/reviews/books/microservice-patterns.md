@@ -3,7 +3,7 @@ title = "Microservice Patterns - Chris Richardson"
 date = 2019-10-09
 
 [taxonomies]
-tags = ["books", "reviews", "microservices", "spring", "java"]
+tags = ["books", "reviews", "microservices", "spring", "java", "1 star"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/34372564-microservice-patterns):

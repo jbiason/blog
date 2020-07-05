@@ -3,7 +3,8 @@ title = "A Devil's Chaplain: Reflections on Hope, Lies, Science, and Love"
 date = 2019-07-16
 
 [taxonomies]
-tags = ["books", "reviews", "richard dawkins", "history", "biography"]
+tags = ["books", "reviews", "richard dawkins", "history", "biography", 
+"2 stars"]
 +++
 
 [Goodreads summary](https://www.goodreads.com/book/show/61536.A_Devil_s_Chaplain):

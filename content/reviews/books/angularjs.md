@@ -3,7 +3,8 @@ title = "AngularJS - Brad Green"
 date = 2014-07-19
 
 [taxonomies]
-tags = ["books", "brad green", "javascript", "angularjs", "web development", "it"]
+tags = ["books", "brad green", "javascript", "angularjs", "web development",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16087709-angularjs):

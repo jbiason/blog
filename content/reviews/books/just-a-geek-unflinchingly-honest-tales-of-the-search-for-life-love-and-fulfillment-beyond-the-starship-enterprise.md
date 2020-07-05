@@ -3,7 +3,7 @@ title = "Just a Geek: Unflinchingly honest tales of the search for life, love, a
 date = 2015-01-31
 
 [taxonomies]
-tags = ["books", "wil wheaton", "reviews", "geek", "star trek"]
+tags = ["books", "wil wheaton", "reviews", "geek", "star trek", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/65692.Just_a_Geek):

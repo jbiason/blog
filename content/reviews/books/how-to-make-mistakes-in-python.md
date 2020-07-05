@@ -3,7 +3,7 @@ title = "How to Make Mistakes in Python - Mike Pirnat"
 date = 2017-01-01
 
 [taxonomies]
-tags = ["books", "mike pirnat", "python", "review", "it"]
+tags = ["books", "mike pirnat", "python", "review", "it", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/28166034-how-to-make-mistakes-in-python):

@@ -3,7 +3,7 @@ title = "Learn You a Haskell for Great Good! - Miran Lipovača"
 date = 2018-11-23
 
 [taxonomies]
-tags = ["books", "miran lipovaca", "haskell", "reviews", "it"]
+tags = ["books", "miran lipovaca", "haskell", "reviews", "it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/6593810-learn-you-a-haskell-for-great-good):

@@ -3,7 +3,8 @@ title = "The Last Colony (Old Man's War #3) - John Scalzi"
 date = 2016-04-23
 
 [taxonomies]
-tags = ["books", "john scalzi", "scifi", "old man's war", "reviews"]
+tags = ["books", "john scalzi", "scifi", "old man's war", "reviews", 
+"5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/88071.The_Last_Colony):

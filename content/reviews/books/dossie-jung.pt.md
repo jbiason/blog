@@ -3,7 +3,8 @@ title = "Dossiê Jung - Elizabeth Mednicoff"
 date = 2017-03-21
 
 [taxonomies]
-tags = ["books", "elizabeth mednicoff", "reviews", "psicologia", "carl jung"]
+tags = ["books", "elizabeth mednicoff", "reviews", "psicologia", "carl jung",
+"1 star"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23356314-dossi-jung):

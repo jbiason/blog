@@ -3,7 +3,7 @@ title = "Silence on the Wire: A Field Guide to Passive Reconnaissance and Indire
 date = 2016-06-23
 
 [taxonomies]
-tags = ["books", "michal zalewski", "reviews", "it"]
+tags = ["books", "michal zalewski", "reviews", "it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/82994.Silence_on_the_Wire):

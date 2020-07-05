@@ -3,7 +3,8 @@ title = "Galaxy in Flames, Ben Counter"
 date = 2019-11-20
 
 [taxonomies]
-tags = ["books", "reviews", "horus heresy", "ben counter", "scifi", "warhammer 40000"]
+tags = ["books", "reviews", "horus heresy", "ben counter", "scifi", 
+"warhammer 40000", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/815091.Galaxy_in_Flames):

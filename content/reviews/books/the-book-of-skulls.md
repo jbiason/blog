@@ -3,7 +3,7 @@ title = "The Book of Skulls - Robert Silverberg"
 date = 2018-09-03
 
 [taxonomies]
-tags = ["books", "robert silverberg", "review", "horror"]
+tags = ["books", "robert silverberg", "review", "horror", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/219107.The_Book_of_Skulls):

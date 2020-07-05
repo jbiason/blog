@@ -3,7 +3,7 @@ title = "Hegel em 90 Minutos - Paul Strathern"
 date = 2019-10-10
 
 [taxonomies]
-tags = ["books", "reviews", "hegel", "biografia"]
+tags = ["books", "reviews", "hegel", "biografia", "1 star"]
 +++
 
 [Resumo do GoodReads](https://www.goodreads.com/book/show/19265618-hegel-em-90-minutos):

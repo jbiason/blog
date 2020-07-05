@@ -3,7 +3,7 @@ title = "Programming Rust: Fast, Safe Systems Development - Jim Blandy"
 date = 2018-05-22
 
 [taxonomies]
-tags = ["books", "jim blandy", "reviews", "it", "rust"]
+tags = ["books", "jim blandy", "reviews", "it", "rust", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25550614-programming-rust):

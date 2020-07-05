@@ -3,7 +3,7 @@ title = "Oh Myyy! (There Goes the Internet): Life, the Internet and Everything -
 date = 2015-09-18
 
 [taxonomies]
-tags = ["books", "george takei", "reviews", "star trek"]
+tags = ["books", "george takei", "reviews", "star trek", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16059137-oh-myyy):

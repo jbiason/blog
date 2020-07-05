@@ -3,7 +3,7 @@ title = "Tecnicas de Memorizacao Para Estudantes: Porque Voce Pode IR Alem - Rod
 date = 2016-03-14
 
 [taxonomies]
-tags = ["books", "rodrigo vargas", "reviews", "memória"]
+tags = ["books", "rodrigo vargas", "reviews", "memória", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/38092282-tecnicas-de-memorizacao-para-estudantes):

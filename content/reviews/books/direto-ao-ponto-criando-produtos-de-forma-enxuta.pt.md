@@ -3,7 +3,7 @@ title = "Direto ao Ponto - criando produtos de forma enxuta - Paulo Caroli"
 date = 2016-03-26
 
 [taxonomies]
-tags = ["books", "paulo caroli", "ágil", "reviews"]
+tags = ["books", "paulo caroli", "ágil", "reviews", "3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23834245-direto-ao-ponto---criando-produtos-de-forma-enxuta):

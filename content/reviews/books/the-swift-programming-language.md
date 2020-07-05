@@ -3,7 +3,7 @@ title = "The Swift Programming Language - Apple Inc."
 date = 2017-02-26
 
 [taxonomies]
-tags = ["books", "apple inc.", "reviews", "swift", "it"]
+tags = ["books", "apple inc.", "reviews", "swift", "it", "5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22394477-the-swift-programming-language):

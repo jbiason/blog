@@ -3,7 +3,8 @@ title = "Django Design Patterns and Best Practices - Arun Ravindran"
 date = 2016-07-07
 
 [taxonomies]
-tags = ["books", "arun ravindran", "python", "django", "web development", "reviews", "design patterns", "it"]
+tags = ["books", "arun ravindran", "python", "django", "web development",
+"reviews", "design patterns", "it", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25567728-django-design-patterns-and-best-practices):

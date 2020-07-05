@@ -3,7 +3,7 @@ title = "Brave New World - Aldous Huxley"
 date = 2014-12-31
 
 [taxonomies]
-tags = ["books", "aldous huxley", "reviews", "scifi", "fantasy"]
+tags = ["books", "aldous huxley", "reviews", "scifi", "fantasy", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/5129.Brave_New_World):

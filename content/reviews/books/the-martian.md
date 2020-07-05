@@ -3,7 +3,7 @@ title = "The Martian - Andy Weir"
 date = 2015-07-18
 
 [taxonomies]
-tags = ["books", "andy weir", "review", "scifi"]
+tags = ["books", "andy weir", "review", "scifi", "5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18007564-the-martian):

@@ -3,7 +3,8 @@ title = "American Gods - Neil Gaiman"
 date = 2015-04-04
 
 [taxonomies]
-tags = ["books", "neil gaiman", "reviews", "fiction", "american gods"]
+tags = ["books", "neil gaiman", "reviews", "fiction", "american gods", 
+"5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/30165203-american-gods):

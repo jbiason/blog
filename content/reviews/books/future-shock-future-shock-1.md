@@ -3,7 +3,8 @@ title = "Future Shock (Future Shock, #1) - Elizabeth Briggs"
 date = 2018-06-05
 
 [taxonomies]
-tags = ["books", "elizabeth briggs", "reviews", "future shock", "scifi"]
+tags = ["books", "elizabeth briggs", "reviews", "future shock", "scifi", 
+"3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26722944-future-shock):

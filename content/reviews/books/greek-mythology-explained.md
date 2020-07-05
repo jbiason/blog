@@ -3,7 +3,8 @@ title = "Greek Mythology Explained: A Deeper Look at Classical Greek Lore and My
 date = 2019-01-05
 
 [taxonomies]
-tags = ["book", "reviews", "greek mythology", "marios christou", "david ramenah"]
+tags = ["book", "reviews", "greek mythology", "marios christou", 
+"david ramenah", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/41822694-greek-mythology-explained):

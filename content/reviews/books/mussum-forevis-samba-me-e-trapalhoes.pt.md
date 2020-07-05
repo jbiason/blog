@@ -3,7 +3,8 @@ title = "Mussum Forévis: Samba, mé e trapalhões - Juliano Barreto"
 date = 2016-02-21
 
 [taxonomies]
-tags = ["books", "juliano barreto", "reviews", "história", "history"]
+tags = ["books", "juliano barreto", "reviews", "história", "history", 
+"4 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23751843-mussum-for-vis):

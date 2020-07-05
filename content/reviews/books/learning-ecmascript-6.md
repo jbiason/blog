@@ -3,7 +3,8 @@ title = "Learning ECMAScript 6 - Narayan Prusty"
 date = 2016-02-18
 
 [taxonomies]
-tags = ["books", "narayan prusty", "reviews", "javascript", "web development", "it"]
+tags = ["books", "narayan prusty", "reviews", "javascript", "web development",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26236031-learning-ecmascript-6):

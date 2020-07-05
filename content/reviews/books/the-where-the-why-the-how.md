@@ -3,7 +3,8 @@ title = "The Where, the Why, and the How: 75 Artists Illustrate Wondrous Mysteri
 date = 2019-02-17
 
 [taxonomies]
-tags = ["books", "reviews", "science", "illutations", "matt lamothe", "julia rothman", "jenny volvovski", "david macaulay"]
+tags = ["books", "reviews", "science", "illutations", "matt lamothe", 
+"julia rothman", "jenny volvovski", "david macaulay", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/14553766-the-where-the-why-and-the-how):

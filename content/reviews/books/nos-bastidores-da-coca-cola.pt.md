@@ -3,7 +3,7 @@ title = "Nos Bastidores da Coca-Cola - Neville Isdell"
 date = 2017-01-14
 
 [taxonomies]
-tags = ["books", "neville isdell", "história", "coca-cola", "ceo"]
+tags = ["books", "neville isdell", "história", "coca-cola", "ceo", "2 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26831728-nos-bastidores-da-coca-cola):

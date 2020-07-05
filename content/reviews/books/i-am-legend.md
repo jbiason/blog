@@ -3,7 +3,7 @@ title = "I Am Legend - Richard Matheson"
 date = 2014-05-20
 
 [taxonomies]
-tags = ["books", "richard matheson", "reviews", "fiction"]
+tags = ["books", "richard matheson", "reviews", "fiction", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/40940649-i-am-legend):

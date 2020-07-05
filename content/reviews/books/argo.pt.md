@@ -3,7 +3,8 @@ title = "Argo - Antonio J. Méndez"
 date = 2017-04-17
 
 [taxonomies]
-tags = ["books", "antonio j. mendez", "reviews", "history", "biography", "história", "biografia"]
+tags = ["books", "antonio j. mendez", "reviews", "history", "biography",
+"história", "biografia", "3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/16252385-argo):

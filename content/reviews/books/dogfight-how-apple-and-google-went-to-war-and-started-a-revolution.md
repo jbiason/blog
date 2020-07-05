@@ -3,7 +3,8 @@ title = "Dogfight: How Apple and Google Went to War and Started a Revolution - F
 date = 2014-03-07
 
 [taxonomies]
-tags = ["books", "fred vogelstein", "reviews", "it", "apple", "google"]
+tags = ["books", "fred vogelstein", "reviews", "it", "apple", "google", 
+"2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/17332226-dogfight):

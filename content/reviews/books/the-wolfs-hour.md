@@ -3,7 +3,8 @@ title = "The Wolf's Hour - Robert R. McCammon"
 date = 2019-02-16
 
 [taxonomies]
-tags = ["books", "reviews", "werewolves", "robert r mccammon", "fantasy"]
+tags = ["books", "reviews", "werewolves", "robert r mccammon", "fantasy", 
+"3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/11551.The_Wolf_s_Hour):

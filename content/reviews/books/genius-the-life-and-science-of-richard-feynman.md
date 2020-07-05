@@ -3,7 +3,8 @@ title = "Genius: The Life and Science of Richard Feynman - James Gleick"
 date = 2018-10-28
 
 [taxonomies]
-tags = ["books", "james gleick", "richard feynman", "reviews", "biography", "history"]
+tags = ["books", "james gleick", "richard feynman", "reviews", "biography",
+"history", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/98685.Genius):

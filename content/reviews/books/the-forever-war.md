@@ -3,7 +3,8 @@ title = "The Forever War - Joe Haldeman"
 date = 2014-12-05
 
 [taxonomies]
-tags = ["books", "joe haldeman", "reviews", "scifi", "the forever war"]
+tags = ["books", "joe haldeman", "reviews", "scifi", "the forever war", 
+"5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/21611.The_Forever_War):

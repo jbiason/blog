@@ -3,7 +3,7 @@ title = "Antifragile Systems and Teams - Dave Zwieback"
 date = 2017-04-17
 
 [taxonomies]
-tags = ["books", "dave zwieback", "reviews", "it"]
+tags = ["books", "dave zwieback", "reviews", "it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22466476-antifragile-systems-and-teams):

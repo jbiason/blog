@@ -3,7 +3,7 @@ title = "One Day On Mars - Travis S. Taylor"
 date = 2019-12-13
 
 [taxonomies]
-tags = ["books", "reviews", "travis s taylor", "scifi", "mars"]
+tags = ["books", "reviews", "travis s taylor", "scifi", "mars", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/20638066-one-day-on-mars):
@@ -57,7 +57,7 @@ weapons are "borrowed" from the series, without ever making any connection
 with it.
 
 And, while we are talking about the weapons, the descriptions put a massive
-army of robots against another huge army of robots. Now, think we me: You have
+army of robots against another huge army of robots. Now, think with me: You have
 an army. A well funded army. By a country that loves the army. And then you
 have some rebels, that don't have the proper tech or research for creating
 such weapons. Which side do you think would amass a larger numerical

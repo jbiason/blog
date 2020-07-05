@@ -3,7 +3,7 @@ title = "iPad Productivity Essentials: The Definitive Guide to Getting More Prod
 date = 2015-03-21
 
 [taxonomies]
-tags = ["books", "christopher j. lee", "ipad", "reviews", "it"]
+tags = ["books", "christopher j. lee", "ipad", "reviews", "it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/24440122-ipad-productivity-essentials):

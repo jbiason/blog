@@ -3,7 +3,8 @@ title = "The Little Book of HTML/CSS Coding Guidelines - Jens Oliver Meiert"
 date = 2016-10-18
 
 [taxonomies]
-tags = ["books", "jens oliver meiert", "html", "css", "web development", "reviews", "it"]
+tags = ["books", "jens oliver meiert", "html", "css", "web development",
+"reviews", "it", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/28196387-the-little-book-of-html-css-coding-guidelines):

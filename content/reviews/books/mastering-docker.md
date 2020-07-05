@@ -3,7 +3,8 @@ title = "Mastering Docker -  Russ McKendrick"
 date = 2019-12-21
 
 [taxonomies]
-tags = ["books", "reviews", "docker", "packt", "russ mckendrick", "it"]
+tags = ["books", "reviews", "docker", "packt", "russ mckendrick", "it", 
+"1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/35820617-mastering-docker---second-edition):

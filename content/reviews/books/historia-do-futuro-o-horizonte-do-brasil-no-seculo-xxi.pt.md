@@ -3,7 +3,7 @@ title = "História do Futuro: O Horizonte do Brasil no Século XXI - Miriam Leit
 date = 2016-04-16
 
 [taxonomies]
-tags = ["books", "miriam leitao", "reviews"]
+tags = ["books", "miriam leitao", "reviews", "2 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25855630-hist-ria-do-futuro):

@@ -3,7 +3,7 @@ title = "Como convencer alguém em 90 segundos - Nicholas Boothman"
 date = 2016-07-24
 
 [taxonomies]
-tags = ["books", "nicholas boothman", "reviews"]
+tags = ["books", "nicholas boothman", "reviews", "4 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/31222406-como-convencer-algu-m-em-90-segundos):

@@ -3,7 +3,7 @@ title = "The Origin of Names, Words and Everything in Between - Patrick Foote"
 date = 2018-11-30
 
 [taxonomies]
-tags = ["books", "etymology", "patrick foote", "reviews"]
+tags = ["books", "etymology", "patrick foote", "reviews", "3 stars"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/41224588-the-origin-of-names-words-and-everything-in-between):

@@ -3,7 +3,7 @@ title = "In the Beginning...: Science Faces God in the Book of Genesis - Isaac A
 date = 2018-06-25
 
 [taxonomies]
-tags = ["books", "isaac asimov", "reviews", "history"]
+tags = ["books", "isaac asimov", "reviews", "history", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/39341052-in-the-beginning):
