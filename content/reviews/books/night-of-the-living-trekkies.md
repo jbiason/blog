@@ -3,7 +3,8 @@ title = "Night of the Living Trekkies - Kevin David Anderson"
 date = 2018-08-28
 
 [taxonomies]
-tags = ["books", "kevin david anderson", "reviews", "star trek", "zombies", "fiction"]
+tags = ["books", "kevin david anderson", "reviews", "star trek", "zombies",
+"fiction", "5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/7884969-night-of-the-living-trekkies):

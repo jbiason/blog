@@ -3,7 +3,8 @@ title = "The Planets: Photographs from the Archives of NASA - Nirmala Nataraj, B
 date = 2018-11-25
 
 [taxonomies]
-tags = ["books", "nirmala nataraj", "bill nye", "reviews", "photos", "pictures"]
+tags = ["books", "nirmala nataraj", "bill nye", "reviews", "photos",
+"pictures", "5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/33889690-the-planets):

@@ -3,7 +3,8 @@ title = "Backbone.Js Testing - Ryan Roemer"
 date = 2016-05-02
 
 [taxonomies]
-tags = ["books", "ryan roemer", "reviews", "backbone.js", "javascript", "web development", "it"]
+tags = ["books", "ryan roemer", "reviews", "backbone.js", "javascript", 
+"web development", "it", "5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18902858-backbone-js-testing):

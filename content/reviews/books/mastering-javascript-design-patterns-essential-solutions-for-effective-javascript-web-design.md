@@ -3,7 +3,8 @@ title = "Mastering JavaScript Design Patterns - Essential Solutions for Effectiv
 date = 2016-03-12
 
 [taxonomies]
-tags = ["books", "simon timms", "reviews", "javascript", "design patterns", "it"]
+tags = ["books", "simon timms", "reviews", "javascript", "design patterns",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23847040-mastering-javascript-design-patterns---essential-solutions-for-effective):

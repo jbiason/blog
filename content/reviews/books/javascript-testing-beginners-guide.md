@@ -3,7 +3,8 @@ title = "JavaScript Testing Beginner's Guide - Liang Yuxian Eugene"
 date = 2015-09-10
 
 [taxonomies]
-tags = ["books", "liang yuxian eugene", "reviews", "javascript", "tests", "it"]
+tags = ["books", "liang yuxian eugene", "reviews", "javascript", "tests",
+"it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/9272372-javascript-testing-beginner-s-guide):

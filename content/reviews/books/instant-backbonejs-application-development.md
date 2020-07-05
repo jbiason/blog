@@ -3,7 +3,8 @@ title = "Instant Backbone.js Application Development - Thomas Hunter II"
 date = 2016-04-03
 
 [taxonomies]
-tags = ["books", "thomas hunter ii", "reviews", "javascript", "backbone.js", "web development", "it"]
+tags = ["books", "thomas hunter ii", "reviews", "javascript", "backbone.js",
+"web development", "it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18301513-instant-backbone-js-application-development):

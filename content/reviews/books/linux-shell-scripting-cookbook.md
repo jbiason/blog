@@ -3,7 +3,8 @@ title = "Linux Shell Scripting Cookbook - Shantanu Tushar"
 date = 2016-01-13
 
 [taxonomies]
-tags = ["books", "shantanu tushar", "reviews", "it", "shell script"]
+tags = ["books", "shantanu tushar", "reviews", "it", "shell script", 
+"2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10370134-linux-shell-scripting-cookbook):

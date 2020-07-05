@@ -3,7 +3,7 @@ title = "A Filosofia Explica as Grandes Questões da Humanidade - Clóvis de Bar
 date = 2017-06-05
 
 [taxonomies]
-tags = ["books", "clovis de barros filho", "reviews", "filosofia"]
+tags = ["books", "clovis de barros filho", "reviews", "filosofia", "2 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/18624377-a-filosofia-explica-as-grandes-quest-es-da-humanidade):

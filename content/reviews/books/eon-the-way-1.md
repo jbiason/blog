@@ -3,7 +3,7 @@ title = "Eon (The Way, #1) - Greg Bear"
 date = 2018-04-12
 
 [taxonomies]
-tags = ["books", "greg bear", "reviews", "the way", "scifi"]
+tags = ["books", "greg bear", "reviews", "the way", "scifi", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/840278.Eon):

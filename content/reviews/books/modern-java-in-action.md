@@ -3,7 +3,8 @@ title = "Modern Java in Action - Raoul-Gabriel Urma"
 date = 2019-02-08
 
 [taxonomies]
-tags = ["books", "reviews", "java", "java 8", "java 9", "raoul-gabriel urma", "it"]
+tags = ["books", "reviews", "java", "java 8", "java 9", "raoul-gabriel urma",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/46213396-modern-java-in-action):

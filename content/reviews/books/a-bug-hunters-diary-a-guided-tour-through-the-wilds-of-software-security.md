@@ -3,7 +3,7 @@ title = "A Bug Hunter's Diary: A Guided Tour Through the Wilds of Software Secur
 date = 2016-10-14
 
 [taxonomies]
-tags = ["books", "tobias klein", "reviews", "it"]
+tags = ["books", "tobias klein", "reviews", "it", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/12746081-a-bug-hunter-s-diary):

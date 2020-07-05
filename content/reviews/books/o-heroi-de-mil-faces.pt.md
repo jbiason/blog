@@ -3,7 +3,7 @@ title = "O Herói de Mil Faces - Joseph Campbell"
 date = 2016-01-05
 
 [taxonomies]
-tags = ["books", "joseph campbell", "reviews", "filosofia"]
+tags = ["books", "joseph campbell", "reviews", "filosofia", "1 star"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/6406621-o-her-i-de-mil-faces):

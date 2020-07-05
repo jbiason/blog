@@ -3,7 +3,7 @@ title = "Object-oriented JavaScript - Second Edition - Stoyan Stefanov"
 date = 2015-10-03
 
 [taxonomies]
-tags = ["books", "stoyan stefanov", "javascript", "it", "reviews"]
+tags = ["books", "stoyan stefanov", "javascript", "it", "reviews", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/4355468-object-oriented-javascript):

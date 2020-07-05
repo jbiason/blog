@@ -3,7 +3,8 @@ title = "The Waste Lands (The Dark Tower #3) - Stephen King"
 date = 2017-09-04
 
 [taxonomies]
-tags = ["books", "stephen king", "the dark tower", "reviews", "the dark tower", "fiction"]
+tags = ["books", "stephen king", "the dark tower", "reviews", 
+"the dark tower", "fiction", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/34084.The_Waste_Lands):

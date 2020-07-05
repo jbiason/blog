@@ -3,7 +3,7 @@ title = "Apache Kafka - Nishant Garg"
 date = 2017-07-05
 
 [taxonomies]
-tags = ["books", "nishant garg", "reviews", "it", "big data"]
+tags = ["books", "nishant garg", "reviews", "it", "big data", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18702022-apache-kafka):

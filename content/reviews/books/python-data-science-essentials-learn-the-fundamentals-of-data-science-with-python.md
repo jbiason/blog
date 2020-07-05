@@ -3,7 +3,8 @@ title = "Python Data Science Essentials - Learn the fundamentals of Data Science
 date = 2016-12-16
 
 [taxonomies]
-tags = ["books", "alberto boschetti", "reviews", "python", "data science", "it"]
+tags = ["books", "alberto boschetti", "reviews", "python", "data science",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25527772-python-data-science-essentials---learn-the-fundamentals-of-data-science):

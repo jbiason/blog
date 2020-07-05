@@ -3,7 +3,8 @@ title = "Hap and Leonard: Blood and Lemonade - Joe R. Lansdale"
 date = 2018-01-30
 
 [taxonomies]
-tags = ["books", "joe r. lansdale", "hap and leonard", "reviews", "fiction"]
+tags = ["books", "joe r. lansdale", "hap and leonard", "reviews", "fiction",
+"3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/31921113-blood-and-lemonade):

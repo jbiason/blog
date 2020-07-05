@@ -1,6 +1,6 @@
 +++
 title = "Research Notes"
-transparent = true
+transparent = false
 +++
 
 <div class="post">

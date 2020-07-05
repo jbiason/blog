@@ -3,7 +3,7 @@ title = "Python Playground: Geeky Projects for the Curious Programmer - Mahesh V
 date = 2016-10-12
 
 [taxonomies]
-tags = ["books", "mahesh venkitachalam", "reviews", "python", "it"]
+tags = ["books", "mahesh venkitachalam", "reviews", "python", "it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22978167-python-playground):

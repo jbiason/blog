@@ -3,7 +3,7 @@ title = "All You Need Is Kill - Hiroshi Sakurazaka"
 date = 2014-12-03
 
 [taxonomies]
-tags = ["books", "hiroshi sakurazaka", "reviews", "scifi"]
+tags = ["books", "hiroshi sakurazaka", "reviews", "scifi", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/6255949-all-you-need-is-kill):

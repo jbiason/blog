@@ -5,7 +5,8 @@ date = 2016-10-05
 category = "review"
 
 [taxonomies]
-tags = ["books", "randall hyde", "reviews", "coding", "computer architecture", "it"]
+tags = ["books", "randall hyde", "reviews", "coding", "computer architecture",
+"it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/35873018-write-great-code):

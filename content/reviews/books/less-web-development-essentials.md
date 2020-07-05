@@ -3,7 +3,8 @@ title = "Less Web Development Essentials - Bass Jobsen"
 date = 2016-08-02
 
 [taxonomies]
-tags = ["books", "bass jobsen", "reviews", "css", "less", "web development", "it"]
+tags = ["books", "bass jobsen", "reviews", "css", "less", "web development",
+"it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22130122-less-web-development-essentials):

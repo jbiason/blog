@@ -3,7 +3,7 @@ title = "A Garota no Trem - Paula Hawkins"
 date = 2017-03-18
 
 [taxonomies]
-tags = ["books", "paula hawkins", "reviews", "ficção"]
+tags = ["books", "paula hawkins", "reviews", "ficção", "4 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25758236-a-garota-no-trem):

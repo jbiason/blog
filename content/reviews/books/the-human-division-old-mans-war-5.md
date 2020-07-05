@@ -5,7 +5,8 @@ date = 2017-02-04
 category = "review"
 
 [taxonomies]
-tags = ["books", "john scalzi", "reviews", "old man's war", "scifi"]
+tags = ["books", "john scalzi", "reviews", "old man's war", "scifi", 
+"3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/15698479-the-human-division):

@@ -3,7 +3,7 @@ title = "21 Erros Clássicos da Gestão de Projetos - Eli Rodrigues"
 date = 2017-05-10
 
 [taxonomies]
-tags = ["books", "eli rodrigues", "gestão", "reviews"]
+tags = ["books", "eli rodrigues", "gestão", "reviews", "3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26082064-21-erros-cl-ssicos-da-gest-o-de-projetos):

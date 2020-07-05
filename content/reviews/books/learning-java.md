@@ -3,7 +3,7 @@ title = "Learning Java - Patrick Niemeyer"
 date = 2018-08-03
 
 [taxonomies]
-tags = ["books", "patrick niemeyer", "reviews", "java", "it"]
+tags = ["books", "patrick niemeyer", "reviews", "java", "it", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/665984.Learning_Java):

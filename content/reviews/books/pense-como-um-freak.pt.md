@@ -3,7 +3,7 @@ title = "Pense Como Um Freak - Steven D. Levitt"
 date = 2016-02-28
 
 [taxonomies]
-tags = ["books", "steven d. levitt", "reviews", "psicologia"]
+tags = ["books", "steven d. levitt", "reviews", "psicologia", "5 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/24689125-pense-como-um-freak):

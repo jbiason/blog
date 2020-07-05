@@ -3,7 +3,7 @@ title = "The Island of Doctor Moreau (Unabridged) - H.G. Wells"
 date = 2014-12-09
 
 [taxonomies]
-tags = ["books", "h.g. wells", "fantasy", "scifi", "reviews"]
+tags = ["books", "h.g. wells", "fantasy", "scifi", "reviews", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/29981.The_Island_of_Doctor_Moreau):

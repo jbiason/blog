@@ -3,7 +3,8 @@ title = "Clojure for Machine Learning - Akhil Wali"
 date = 2017-05-01
 
 [taxonomies]
-tags = ["books", "akhil wali", "reviews", "clojure", "it", "machine learning"]
+tags = ["books", "akhil wali", "reviews", "clojure", "it", "machine learning",
+"2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22062479-clojure-for-machine-learning):

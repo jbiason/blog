@@ -3,7 +3,7 @@ title = "Adult Stuff: Things You Need to Know to Win at Real Life - Robert Boese
 date = 2020-02-09
 
 [taxonomies]
-tags = ["books", "reviews", "fun", "robert boesel", "matt moore"]
+tags = ["books", "reviews", "fun", "robert boesel", "matt moore", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26544444-adult-stuff):

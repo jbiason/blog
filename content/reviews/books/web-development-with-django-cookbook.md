@@ -3,7 +3,8 @@ title = "Web Development with Django Cookbook - Aidas Bendoraitis"
 date = 2016-07-10
 
 [taxonomies]
-tags = ["books", "aidas bendoraitis", "reviews", "python", "django", "web development", "it"]
+tags = ["books", "aidas bendoraitis", "reviews", "python", "django", 
+"web development", "it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23477190-web-development-with-django-cookbook):

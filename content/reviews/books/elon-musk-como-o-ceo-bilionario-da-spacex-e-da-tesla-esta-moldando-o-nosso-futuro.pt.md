@@ -3,7 +3,8 @@ title = "Elon Musk: Como o CEO bilionário da SpaceX e da Tesla está moldando o
 date = 2016-02-17
 
 [taxonomies]
-tags = ["books", "ashlee vance", "reviews", "elon musk", "biografia"]
+tags = ["books", "ashlee vance", "reviews", "elon musk", "biografia", 
+"4 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26866506-elon-musk):

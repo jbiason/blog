@@ -3,7 +3,7 @@ title = "Arrival - Ted Chiang"
 date = 2017-02-28
 
 [taxonomies]
-tags = ["books", "ted chiang", "reviews", "scifi", "fantasy"]
+tags = ["books", "ted chiang", "reviews", "scifi", "fantasy", "5 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/31625351-arrival):

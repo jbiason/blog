@@ -3,7 +3,7 @@ title = "An Illustrated Book of Bad Arguments - Ali Almossawi"
 date = 2015-03-05
 
 [taxonomies]
-tags = ["books", "ali almossawi", "reviews", "logic", "fallacies"]
+tags = ["books", "ali almossawi", "reviews", "logic", "fallacies", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18753581-an-illustrated-book-of-bad-arguments):

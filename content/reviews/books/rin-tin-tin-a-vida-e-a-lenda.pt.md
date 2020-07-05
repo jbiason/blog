@@ -3,7 +3,7 @@ title = "Rin Tin Tin: A Vida e a Lenda - Susan Orlean"
 date = 2016-07-04
 
 [taxonomies]
-tags = ["books", "susan orlean", "biografia", "rin tin tin"]
+tags = ["books", "susan orlean", "biografia", "rin tin tin", "3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/18396199-rin-tin-tin):

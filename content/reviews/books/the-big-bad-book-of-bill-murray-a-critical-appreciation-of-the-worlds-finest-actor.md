@@ -3,7 +3,8 @@ title = "The Big Bad Book of Bill Murray: A Critical Appreciation of the World's
 date = 2018-06-03
 
 [taxonomies]
-tags = ["books", "robert schnakenberg", "bill murray", "cinema", "reviews"]
+tags = ["books", "robert schnakenberg", "bill murray", "cinema", "reviews", 
+"2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23995466-the-big-bad-book-of-bill-murray):

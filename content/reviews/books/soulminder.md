@@ -3,7 +3,7 @@ title = "Soulminder - Timothy Zahn"
 date = 2018-12-13
 
 [taxonomies]
-tags = ["books", "timothy zahn", "scifi", "reviews"]
+tags = ["books", "timothy zahn", "scifi", "reviews", "2 stars"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/21822375-soulminder):

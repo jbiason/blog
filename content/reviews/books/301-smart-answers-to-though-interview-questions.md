@@ -3,7 +3,7 @@ title = "301 Smart Answers To Though Interview Questions - Vicky Oliver"
 date = 2019-11-24
 
 [taxonomies]
-tags = ["en-au", "books", "reviews", "interviews", "vicky oliver"]
+tags = ["books", "reviews", "interviews", "vicky oliver", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/287009.301_Smart_Answers_to_Tough_Interview_Questions):

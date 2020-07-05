@@ -3,7 +3,8 @@ title = "Quatro Heróis e um Bardo contra a Realidade Medieval - Rodrigo Assis M
 date = 2016-10-12
 
 [taxonomies]
-tags = ["books", "rodrigo assis mesquita", "fantasia", "reviews", "fantasy"]
+tags = ["books", "rodrigo assis mesquita", "fantasia", "reviews", "fantasy",
+"1 star"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26137212-quatro-her-is-e-um-bardo-contra-a-realidade-medieval):

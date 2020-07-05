@@ -3,7 +3,8 @@ title = "Imperative to Functional Programming Succinctly - Marc Clifton"
 date = 2016-12-30
 
 [taxonomies]
-tags = ["books", "marc clifton", "programming", "functional", "c#", "f#", "reviews", "it"]
+tags = ["books", "marc clifton", "programming", "functional", "c#", "f#",
+"reviews", "it", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23434690-imperative-to-functional-programming-succinctly):

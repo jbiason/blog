@@ -3,7 +3,7 @@ title = "Scrum: A arte de fazer o dobro de trabalho na metade do tempo - Jeff Su
 date = 2016-06-08
 
 [taxonomies]
-tags = ["books", "jeff sutherland", "ágil", "scrum", "reviews"]
+tags = ["books", "jeff sutherland", "ágil", "scrum", "reviews", "5 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25053915-scrum):

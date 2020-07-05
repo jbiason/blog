@@ -3,7 +3,8 @@ title = "Mujica – A revolução tranquila - Mauricio Rabuffetti"
 date = 2017-03-05
 
 [taxonomies]
-tags = ["books", "mauricio rabuffetti", "uruguai", "mujica", "reviews", "história"]
+tags = ["books", "mauricio rabuffetti", "uruguai", "mujica", "reviews",
+"história", "2 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25792025-mujica-a-revolu-o-tranquila):

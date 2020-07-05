@@ -3,7 +3,7 @@ title = "Will Eisner's the Spirit: Who Killed the Spirit? - Matt Wagner"
 date = 2017-09-04
 
 [taxonomies]
-tags = ["books", "matt wagner", "comics", "reviews"]
+tags = ["books", "matt wagner", "comics", "reviews", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/31170820-will-eisner-s-the-spirit):

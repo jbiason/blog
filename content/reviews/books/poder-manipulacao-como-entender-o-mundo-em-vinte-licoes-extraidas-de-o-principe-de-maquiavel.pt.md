@@ -3,7 +3,7 @@ title = "Poder & Manipulação: Como entender o mundo em vinte lições extraíd
 date = 2016-08-27
 
 [taxonomies]
-tags = ["books", "jacob petry", "o príncipe", "reviews"]
+tags = ["books", "jacob petry", "o príncipe", "reviews", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/30321814-poder-manipula-o):

@@ -3,7 +3,8 @@ title = "CoffeeScript Application Development - Ian Young"
 date = 2016-05-07
 
 [taxonomies]
-tags = ["books", "ian young", "reviews", "javascript", "coffeescript", "web development", "it"]
+tags = ["books", "ian young", "reviews", "javascript", "coffeescript", 
+"web development", "it", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18430540-coffeescript-application-development):

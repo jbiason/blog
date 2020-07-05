@@ -5,7 +5,7 @@ date = 2016-04-29
 category = "review"
 
 [taxonomies]
-tags = ["books", "leandro narloch", "reviews", "história", "history"]
+tags = ["books", "leandro narloch", "reviews", "história", "history", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18172387-guia-politicamente-incorreto-da-hist-ria-do-mundo):

@@ -3,7 +3,8 @@ title = "The Flight of the Eisenstein - James Swallow"
 date = 2020-01-17
 
 [taxonomies]
-tags = ["books", "reviews", "horus heresy", "warhammer 40000", "sci", "james swallow"]
+tags = ["books", "reviews", "horus heresy", "warhammer 40000", "sci", 
+"james swallow", "1 star"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/80155.The_Flight_of_the_Eisenstein):

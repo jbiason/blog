@@ -3,7 +3,7 @@ title = "O Príncipe - Niccolò Machiavelli"
 date = 2016-11-28
 
 [taxonomies]
-tags = ["books", "niccolo machiavelli", "reviews", "ficção"]
+tags = ["books", "niccolo machiavelli", "reviews", "ficção", "3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/28551872-o-pr-ncipe):

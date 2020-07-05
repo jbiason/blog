@@ -3,7 +3,7 @@ title = "Chthon - Piers Anthony"
 date = 2019-09-13
 
 [taxonomies]
-tags = ["books", "reviews", "piers anthony", "scifi"]
+tags = ["books", "reviews", "piers anthony", "scifi", "2 stars"]
 +++
 
 [Goodreads Summary](https://www.goodreads.com/book/show/23352267-chthon):

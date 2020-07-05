@@ -3,7 +3,7 @@ title = "Como a música ficou grátis - Stephen Witt"
 date = 2016-05-21
 
 [taxonomies]
-tags = ["books", "stephen witt", "review", "streaming", "música"]
+tags = ["books", "stephen witt", "review", "streaming", "música", "4 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/31306379-como-a-m-sica-ficou-gr-tis):

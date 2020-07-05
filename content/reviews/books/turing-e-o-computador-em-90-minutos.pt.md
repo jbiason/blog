@@ -3,7 +3,8 @@ title = "Turing e o Computador em 90 minutos - Paul Strathern"
 date = 2017-02-19
 
 [taxonomies]
-tags = ["books", "paul strathern", "review", "alan turing", "história"]
+tags = ["books", "paul strathern", "review", "alan turing", "história", 
+"3 stars"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/24921251-turing-e-o-computador-em-90-minutos):

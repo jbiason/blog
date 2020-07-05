@@ -3,7 +3,7 @@ title = "Getting Things Done: The Art of Stress-Free Productivity - David Allen"
 date = 2015-03-05
 
 [taxonomies]
-tags = ["books", "david allen", "reviews"]
+tags = ["books", "david allen", "reviews", "3 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/1633.Getting_Things_Done):
