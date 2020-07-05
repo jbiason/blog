@@ -3,7 +3,8 @@ title = "The League of Regrettable Superheroes: Half-Baked Heroes from Comic Boo
 date = 2020-02-02
 
 [taxonomies]
-tags = ["books", "reviews", "fun", "comics", "superheroes", "jon morris"]
+tags = ["books", "reviews", "fun", "comics", "superheroes", "jon morris",
+"2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23164984-the-league-of-regrettable-superheroes):

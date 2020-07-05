@@ -1,5 +1,6 @@
 +++
 title = "ElasticSearch"
+weight = 101
 
 [taxonomies]
 tags = ["research", "elastic", "elasticsearch", "docker"]

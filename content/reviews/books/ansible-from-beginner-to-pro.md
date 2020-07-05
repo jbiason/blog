@@ -3,7 +3,7 @@ title = "Ansible: From Beginner to Pro - Michael Heap"
 date = 2020-04-03
 
 [taxonomies]
-tags = ["books", "reviews", "ti", "ansible", "michael heap"]
+tags = ["books", "reviews", "ti", "ansible", "michael heap", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/29201033-ansible):

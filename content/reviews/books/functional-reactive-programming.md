@@ -3,7 +3,8 @@ title = "Functional Reactive Programming -  Stephen Blackheath, Anthony Jones"
 date = 2020-03-04
 
 [taxonomies]
-tags = ["books", "reviews", "stephen blackheath", "it", "anthony jones"]
+tags = ["books", "reviews", "stephen blackheath", "it", "anthony jones", 
+"2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/24671986-functional-reactive-programming)

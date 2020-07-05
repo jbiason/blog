@@ -3,7 +3,7 @@ title = "Fledgling -  Sharon Lee, Steve Miller"
 date = 2020-05-12
 
 [taxonomies]
-tags = ["books", "reviews", "scifi", "liaden universe"]
+tags = ["books", "reviews", "scifi", "liaden universe", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/5585180-fledgling):

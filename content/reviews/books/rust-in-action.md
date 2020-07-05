@@ -3,7 +3,7 @@ title = "Rust In Action - T.S. McNamara"
 date = 2020-04-28
 
 [taxonomies]
-tags = ["books", "reviews", "rust", "t s mcnamara"]
+tags = ["books", "reviews", "rust", "t s mcnamara", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/45731908-rust-in-action):

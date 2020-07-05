@@ -1,6 +1,7 @@
 +++
 title = "Research Notes"
-transparent = true
+transparent = false
+sort_by = "weight"
 +++
 
 <div class="post">
