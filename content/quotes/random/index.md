@@ -80,3 +80,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "If you had better tools, you could more effectively demonstrate your
 > total incompetence."
+
+> "Seeing is believing. You wouldn't have seen it if you hadn't believed it."
+
+> "The world is an 8000 mile in diameter spherical pile of shit."
