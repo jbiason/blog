@@ -4,7 +4,7 @@ weight = 103
 
 [taxonomies]
 tags = ["quotes", "george bernard shaw", "history", "learning", "cliques",
-"sex", "government"]
+"sex", "government", "life"]
 +++
 
 > "We learn from history that we learn nothing from history."
@@ -16,3 +16,4 @@ tags = ["quotes", "george bernard shaw", "history", "learning", "cliques",
 > "Democracy is a form of government that substitutes election by the
 > incompetent many for appointment by the corrupt few."
 
+> "Life isn't about finding yourself. Life is about creating yourself."
