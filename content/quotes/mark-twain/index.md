@@ -22,3 +22,5 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 > proof is necessary."
 
 > "It usually takes more than three weeks to prepare a good impromptu speech."
+
+> "Water, taken in moderation cannot hurt anybody."
