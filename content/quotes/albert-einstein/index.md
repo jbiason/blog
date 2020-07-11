@@ -13,3 +13,6 @@ tags = ["quotes", "albert einstein", "einstein", "cleverness", "theory",
 > "If the facts don't fit the theory, change the facts."
 
 > "Imagination is more important than knowledge."
+
+> "Life is like riding a bicycle. Too keep your balance, you must keep
+> moving."
