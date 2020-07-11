@@ -86,3 +86,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "The world is an 8000 mile in diameter spherical pile of shit."
 
 > "Ah say, son, you're about as sharp as a bowlin' ball."
+
+> "Blame Saint Andreas -- it's all his fault."
