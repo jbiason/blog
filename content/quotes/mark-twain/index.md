@@ -4,7 +4,7 @@ weight = 109
 
 [taxonomies]
 tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
-"right", "speeches"]
+"right", "speeches", "heaven", "hell"]
 +++
 
 > "Few things are harder to put up with than the annoyance of a good example."
@@ -22,3 +22,6 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 > proof is necessary."
 
 > "It usually takes more than three weeks to prepare a good impromptu speech."
+
+> "Go to Heaven for the climate, Hell for the company."
+
