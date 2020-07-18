@@ -7,7 +7,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
 "materialism", "god", "time", "privacy", "guests", "proverbs", "russian",
-"incompetence", "insanity"]
+"incompetence", "insanity", "instagram"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -93,3 +93,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > Whatever it is that hits the fan will not be evenly distributed."
 
 > "All that glitters has a high refractive index."
+
+> "Aren't Instagram influencers just Ads in human form?"
+-- hackiechan@mastodon.social
