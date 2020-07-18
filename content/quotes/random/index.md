@@ -91,3 +91,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Law of Probable Dispersal:
 > Whatever it is that hits the fan will not be evenly distributed."
+
+> "All that glitters has a high refractive index."
