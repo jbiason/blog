@@ -3,7 +3,7 @@ title = "97 Things Every Programmer Should Know: Collective Wisdom from the Expe
 date = 2020-03-22
 
 [taxonomies]
-tags = ["books", "reviews", "it", "3 stars"]
+tags = ["books", "reviews", "it", "3 stars", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/7003902-97-things-every-programmer-should-know):

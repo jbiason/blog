@@ -4,7 +4,7 @@ date = 2020-04-14
 
 [taxonomies]
 tags = ["books", "reviews", "scifi", "fiction", "warhammer 40000", 
-"horus heresy", "graham mcneill", "0 stars"]
+"horus heresy", "graham mcneill", "0 stars", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/957931.Fulgrim)

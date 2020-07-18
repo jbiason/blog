@@ -4,7 +4,7 @@ date = 2020-03-06
 
 [taxonomies]
 tags = ["books", "reviews", "movies", "horror", "seth grahame-smith", 
-"2 stars"]
+"2 stars", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/293217.How_to_Survive_a_Horror_Movie):

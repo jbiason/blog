@@ -3,7 +3,7 @@ title = "Creating Interfaces with Bulma -  Jeremy Thomas, Oleksii Potiekhin, Mik
 date = 2020-01-20
 
 [taxonomies]
-tags = ["books", "reviews", "bulma", "it", "2 stars"]
+tags = ["books", "reviews", "bulma", "it", "2 stars", "css", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/38473029-creating-interfaces-with-bulma):
