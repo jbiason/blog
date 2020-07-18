@@ -86,3 +86,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "The world is an 8000 mile in diameter spherical pile of shit."
 
 > "Insanity is hereditary. You get it from your kids."
+
+> "Morale will continue until the beatings improve."
