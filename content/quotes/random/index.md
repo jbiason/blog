@@ -88,3 +88,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Insanity is hereditary. You get it from your kids."
 
 > "Morale will continue until the beatings improve."
+
+> "Law of Probable Dispersal:
+> Whatever it is that hits the fan will not be evenly distributed."
