@@ -96,3 +96,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Aren't Instagram influencers just Ads in human form?"
 -- hackiechan@mastodon.social
+
+> "Don’t say condemn it because it can happen to you one day. Condemn it
+> because it is wrong."
+-- mysticashi@mastodon.social
