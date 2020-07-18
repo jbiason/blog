@@ -3,7 +3,8 @@ title = "Isaac Asimov"
 weight = 105
 
 [taxonomies]
-tags = ["quotes", "isaac asimov", "science", "wisdom", "discoveries"]
+tags = ["quotes", "isaac asimov", "science", "wisdom", "discoveries",
+"violence"]
 +++
 
 > "The saddest aspect of life right now is that science gathers knowledge
@@ -19,3 +20,5 @@ tags = ["quotes", "isaac asimov", "science", "wisdom", "discoveries"]
 > a perceptible difference -- but how ashamed I would be to let a day pass
 > without making one more effort."
 
+> "Violence is the last refuge of the incompetent."
+-- Salvador Hardin, "Foundation"
