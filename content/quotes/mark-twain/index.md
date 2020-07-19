@@ -25,3 +25,4 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 
 > "Go to Heaven for the climate, Hell for the company."
 
+> "Water, taken in moderation cannot hurt anybody."

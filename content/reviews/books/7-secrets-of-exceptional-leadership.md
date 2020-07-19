@@ -3,7 +3,8 @@ title = "The 7 Secrets of Exceptional Leadership - Brian Tracy"
 date = 2020-05-24
 
 [taxonomies]
-tags = ["books", "reviews", "leadership", "brian tracy", "0 stars"]
+tags = ["books", "reviews", "leadership", "brian tracy", "0 stars",
+"2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18523862-the-7-secrets-of-exceptional-leadership):

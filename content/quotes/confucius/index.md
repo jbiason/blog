@@ -12,3 +12,6 @@ tags = ["quotes", "confucius", "virtues", "learning", "work", "thinking"]
 > "Learning without thought is labor lost; thought without learning is
 > perilous."
 
+> "The superior man understands what is right; the inferior man understands
+> what will sell."
+

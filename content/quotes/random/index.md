@@ -7,7 +7,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
 "materialism", "god", "time", "privacy", "guests", "proverbs", "russian",
-"incompetence"]
+"incompetence", "insanity", "instagram"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -88,3 +88,19 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Ah say, son, you're about as sharp as a bowlin' ball."
 
 > "Blame Saint Andreas -- it's all his fault."
+
+> "Insanity is hereditary. You get it from your kids."
+
+> "Morale will continue until the beatings improve."
+
+> "Law of Probable Dispersal:
+> Whatever it is that hits the fan will not be evenly distributed."
+
+> "All that glitters has a high refractive index."
+
+> "Aren't Instagram influencers just Ads in human form?"
+-- hackiechan@mastodon.social
+
+> "Don’t say condemn it because it can happen to you one day. Condemn it
+> because it is wrong."
+-- mysticashi@mastodon.social

@@ -3,7 +3,8 @@ title = "88 Days to Any Goal - Rolland Roberts"
 date = 2020-02-20
 
 [taxonomies]
-tags = ["books", "reviews", "self-help", "rolland roberts", "1 star"]
+tags = ["books", "reviews", "self-help", "rolland roberts", "1 star", 
+"2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/40597273-the-90-day-promise):

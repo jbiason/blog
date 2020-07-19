@@ -3,7 +3,8 @@ title = " Mothers & Other Monsters: Stories - Maureen F. McHugh"
 date = 2020-03-28
 
 [taxonomies]
-tags = ["books", "reviews", "fiction", "maureen f mchugh", "1 star"]
+tags = ["books", "reviews", "fiction", "maureen f mchugh", "1 star",
+"2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/8157780-mothers-other-monsters):

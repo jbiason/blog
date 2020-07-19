@@ -4,7 +4,7 @@ date = 2020-01-08
 
 [taxonomies]
 tags = ["books", "reviews", "devops", "phoenix", "gene kim", "kevin behr",
-"eorge spafford", "1 star"]
+"george spafford", "1 star", "2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/17255186-the-phoenix-project):
