@@ -106,3 +106,8 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 -- mysticashi@mastodon.social
 
 > "He that would govern others, first should be the master of himself."
+
+> "To err is human.
+> To blame someone else for your mistakes is even more human."
+
+
