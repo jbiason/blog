@@ -4,7 +4,7 @@ weight = 109
 
 [taxonomies]
 tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
-"right", "speeches", "heaven", "hell"]
+"right", "speeches", "heaven", "hell", "generalizations"]
 +++
 
 > "Few things are harder to put up with than the annoyance of a good example."
@@ -26,3 +26,5 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 > "Go to Heaven for the climate, Hell for the company."
 
 > "Water, taken in moderation cannot hurt anybody."
+
+> "All generalizations are false, including this one."
