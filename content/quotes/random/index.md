@@ -7,7 +7,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
 "materialism", "god", "time", "privacy", "guests", "proverbs", "russian",
-"incompetence", "insanity", "instagram"]
+"incompetence", "insanity", "instagram", "leadership"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -104,3 +104,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Don’t say condemn it because it can happen to you one day. Condemn it
 > because it is wrong."
 -- mysticashi@mastodon.social
+
+> "He that would govern others, first should be the master of himself."
