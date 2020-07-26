@@ -3,7 +3,8 @@ title = "21st Century Robot: The Dr. Simon Egerton Stories - Brian David Johnson
 date = 2020-07-04
 
 [taxonomies]
-tags = ["books", "reviews", "david johnson", "robotics", "it", "2 stars"]
+tags = ["books", "reviews", "david johnson", "robotics", "it", "2 stars",
+"2020 challenge"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16087659-21st-century-robot):
