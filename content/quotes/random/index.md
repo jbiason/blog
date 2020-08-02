@@ -114,4 +114,8 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "A company is known by the men it keeps."
 
+> "The loneliest people are the kindest. The saddest people smile the
+> brightest. The most damaged people are the wisest. All because they do not
+> wish to see anyone else suffer the way they do."
+
 
