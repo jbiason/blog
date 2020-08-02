@@ -110,4 +110,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "To err is human.
 > To blame someone else for your mistakes is even more human."
 
+> "Stay together, drag each other down."
+
 
