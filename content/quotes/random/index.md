@@ -112,4 +112,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 
 > "Stay together, drag each other down."
 
+> "A company is known by the men it keeps."
+
 
