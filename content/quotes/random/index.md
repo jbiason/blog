@@ -110,4 +110,12 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "To err is human.
 > To blame someone else for your mistakes is even more human."
 
+> "Stay together, drag each other down."
+
+> "A company is known by the men it keeps."
+
+> "The loneliest people are the kindest. The saddest people smile the
+> brightest. The most damaged people are the wisest. All because they do not
+> wish to see anyone else suffer the way they do."
+
 
