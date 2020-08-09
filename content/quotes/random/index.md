@@ -118,4 +118,6 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > brightest. The most damaged people are the wisest. All because they do not
 > wish to see anyone else suffer the way they do."
 
+> "Don't be irreplaceable, if you can't be replaced, you can't be promoted."
+
 
