@@ -10,3 +10,5 @@ tags = ["quotes", "lao tzu", "peace", "trust"]
 > look at the stars. This practice should answer the question."
 
 > "Who does not trust enough will not be trusted."
+
+> "He who knows, does not speak. He who speaks, does not know."
