@@ -4,7 +4,7 @@ weight = 111
 
 [taxonomies]
 tags = ["quotes", "oscar wilde", "virtues", "vices", "truth", "questions",
-"answers", "gossip", "tastes"]
+"answers", "gossip", "tastes", "advices"]
 +++
 
 > "He hadn't a single redeeming vice."
@@ -17,3 +17,6 @@ tags = ["quotes", "oscar wilde", "virtues", "vices", "truth", "questions",
 > their lives a mimicry, their passions a quotation."
 
 > "I have the simplest tastes. I am always satisfied with the best."
+
+> "The only thing to do with good advice is pass it on. It is never any
+> use to oneself."
