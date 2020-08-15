@@ -129,3 +129,5 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > A political position which seeks to rebuild society so that
 > both men and women are treated as women wish to be treated."
 
+> "A religion without a goddess is half-way to atheism."
+
