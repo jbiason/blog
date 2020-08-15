@@ -125,3 +125,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Better to light one candle than to curse the darkness."
 -- motto of the Christopher Society
 
+> "Feminism, n.:
+> A political position which seeks to rebuild society so that
+> both men and women are treated as women wish to be treated."
+
