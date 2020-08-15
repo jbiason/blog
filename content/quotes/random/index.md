@@ -121,3 +121,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Don't be irreplaceable, if you can't be replaced, you can't be promoted."
 
 > "Words must be weighed, not counted."
+
+> "Better to light one candle than to curse the darkness."
+-- motto of the Christopher Society
+
