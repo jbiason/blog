@@ -7,7 +7,7 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 "the day the earth stood still", "atheism", "religion", "following",
 "regrets", "money", "perfection", "practice", "nerds", "totalitarianism",
 "materialism", "god", "time", "privacy", "guests", "proverbs", "russian",
-"incompetence", "insanity", "instagram", "leadership"]
+"incompetence", "insanity", "instagram", "leadership", "marriage"]
 +++
 
 > If you took all the students that felt asleep in class and laid them end to
@@ -128,4 +128,9 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > "Feminism, n.:
 > A political position which seeks to rebuild society so that
 > both men and women are treated as women wish to be treated."
+
+> "A religion without a goddess is half-way to atheism."
+
+> 'A diplomatic husband said to his wife, "How do you expect me to remember
+> your birthday when you never look any older?"'
 
