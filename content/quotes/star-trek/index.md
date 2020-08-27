@@ -32,6 +32,9 @@ tags = ["star trek", "quotes", "eve mchuron", "spock", "rojan", "sarek"]
 > "Men of peace usually are [brave]."
 -- Spock, "The Savage Curtain", stardate 5906.5
 
+> "Madness has no purpose. Or reason. But it may have a goal."
+-- Spock, "The Alternative Factor", stardate 3088.7
+
 > "We do not colonize. We conquer. We rule. There is no other way for us."
 -- Rojan, "By Any Other Name", stardate 4657.5
 

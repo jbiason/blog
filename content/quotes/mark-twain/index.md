@@ -4,7 +4,7 @@ weight = 109
 
 [taxonomies]
 tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
-"right", "speeches", "heaven", "hell", "generalizations"]
+"right", "speeches", "heaven", "hell", "generalizations", "public"]
 +++
 
 > "Few things are harder to put up with than the annoyance of a good example."
@@ -28,3 +28,5 @@ tags = ["quotes", "mark twain", "annoyance", "examples", "fame", "writing",
 > "Water, taken in moderation cannot hurt anybody."
 
 > "All generalizations are false, including this one."
+
+> "The Public is merely a multiplied 'me.'"
