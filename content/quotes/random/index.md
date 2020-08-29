@@ -134,3 +134,10 @@ tags = ["quotes", "graffiti", "education", "misery", "distributed systems",
 > 'A diplomatic husband said to his wife, "How do you expect me to remember
 > your birthday when you never look any older?"'
 
+> "The alternative to cooperation is not competition. It is annihilation."
+
+> Ryan's Law:
+> Make three correct guesses consecutively
+> and you will establish yourself as an expert.
+
+
