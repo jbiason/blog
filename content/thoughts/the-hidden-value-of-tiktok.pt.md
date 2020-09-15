@@ -28,7 +28,7 @@ controlado por uma empresa americana.
 
 Oracle é famosa por seus bancos de dados. Quando alguém diz "Oracle", a maior
 parte dos desenvolvedores pensa em bancos de dados, tanto pelo banco com o
-mesmo nome ou pelo MySQL ou pelo SQLite[^1].
+mesmo nome ou pelo MySQL ou pelo SQLite[^1][^2].
 
 Assim, quando as notícias de qua a Oracle estaria comprando as operações do
 TikTok nos EUA apareceu, isso confundiu várias pessoas, ao ponto de dizer que
@@ -90,6 +90,9 @@ hosts desses dois serviços podem dar a impressão que eles passaram do GCP.
 ---
 
 [^1]: Sim, MySQL e SQLite são produtos Oracle.
+
+[^2]: NÃO! Não o SQLite! Oracle comprou o *Berkeley DB*, que está disponível na
+  maior parte das distribuições Linux.
 
 <!-- 
 vim:spelllang=pt:

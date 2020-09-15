@@ -27,7 +27,7 @@ by an American company.
 
 Oracle is famous for its databases. When someone says "Oracle", the mind of
 most developers jump to databases, either by its namesake or MySQL or
-SQLite[^1].
+SQLite[^1][^2].
 
 So, when the news of Oracle buying the TikTok operations in USA, that confused
 a lot of people, to the point of saying that [it would accomplish
@@ -89,3 +89,6 @@ It's all a marketing move. And a pretty clever one.
 ---
 
 [^1]: Yes, MySQL and SQLite are Oracle products.
+
+[^2]: NO! Not SQLite! Oracle bought *Berkeley DB*, which is mostly always
+  available on Linux systems.
