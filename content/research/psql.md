@@ -1,9 +1,31 @@
 +++
 title = "psql"
 weight = 112
+
+[taxonomies]
+tags = ["research", "postgresql", "psql", "database", "schema", "table"]
 +++
 
-- [Show databases](@/research/psql/show-database.md)
-- [Use database](@/research/psql/use-database.md)
-- [Show schemas](@/research/psql/show-schemas.md)
-- [Show tables](@/research/psql/show-tables.md)
+## Show Database
+
+```
+\l
+```
+
+## Use Database
+
+```
+\c [database_name]
+```
+
+## Show Schemas
+
+```
+\dn
+```
+
+## Show Tables
+
+```
+\dt
+```
