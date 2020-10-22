@@ -1,6 +1,6 @@
 #!/bin/sh
 
-git tag `date +'%Y%m%d'`
+git tag -f `date +'%Y%m%d'`
 
 zola build
 cd public
