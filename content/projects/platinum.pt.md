@@ -26,6 +26,8 @@ Nomes de Projetos Rust.
   distância.
 - Juntar tudo.
 
+Repositório: [nrp.git](https://git.juliobiason.me/nrp.git/)
+
 <!--
 vim:spelllang=pt:
 --> 
