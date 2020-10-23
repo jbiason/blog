@@ -1,6 +1,7 @@
 +++
 title = "Potent Thrifty Iridium"
 date = 2020-10-22
+updated = 2020-10-23
 
 [taxonomies]
 tags = ["projetos", "pessoal", "postgres", "tui"]
@@ -35,6 +36,10 @@ tags = ["projetos", "pessoal", "postgres", "tui"]
 - Salvar queries?
 - Como fazer para desconectar/retornar para a lista de servidores?
 - Teclas tipo Vim, talvez?
+- Alterar comandos como `\dt` para `show tables` (mas acertar os dois)
+   - Melhor ainda, se o usuário usar `show tables`, mostrar que o comando de
+       verdade é `\dt`
+- Auto-complete tabelas e campos (mais ou menos o que o psql já faz hoje)
 
 <!--
 vim:spelllang=pt:
