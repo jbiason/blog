@@ -3,7 +3,7 @@ title = "Neil deGrasse Tyson"
 weight = 110
 
 [taxonomies]
-tags = ["quotes", "neil degrasse tyson", "life", "past", "future"]
+tags = ["quotes", "neil degrasse tyson", "life", "past", "future", "education"]
 +++
 
 > "Life is fragile We live 80 years. But we’re dead after 8 weeks without
@@ -18,3 +18,5 @@ tags = ["quotes", "neil degrasse tyson", "life", "past", "future"]
 > "We are prisoners of the present, in perpetual transition from an
 > inaccessible past to an unknowable future."
 
+> "We spend more time forcing students to learn than we do motivating them to
+> learn in the first place."
