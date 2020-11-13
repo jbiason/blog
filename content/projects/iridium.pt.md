@@ -1,7 +1,7 @@
 +++
 title = "Potent Thrifty Iridium"
 date = 2020-10-22
-updated = 2020-10-23
+updated = 2020-11-13
 
 [taxonomies]
 tags = ["projetos", "pessoal", "postgres", "tui"]
@@ -34,6 +34,8 @@ tags = ["projetos", "pessoal", "postgres", "tui"]
 
 - `<Tab>` pula entre resultados e query.
 - Salvar queries?
+   - Salvar arquivos SQL, eles são basicamente arquivos texto de qualquer
+       forma...
 - Como fazer para desconectar/retornar para a lista de servidores?
 - Teclas tipo Vim, talvez?
 - Alterar comandos como `\dt` para `show tables` (mas acertar os dois)

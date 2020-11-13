@@ -1,7 +1,7 @@
 +++
 title = "Potent Thrifty Iridium"
 date = 2020-10-22
-updated = 2020-10-23
+updated = 2020-11-13
 
 [taxonomies]
 tags = ["projects", "personal", "postgres", "tui"]
@@ -35,6 +35,7 @@ Postgres Text Interface.
 
 - `<Tab>` jumps between results and query.
 - Save queries?
+   - Could save and load files, the are pure text anyway...
 - How does one disconnect/return to server list?
 - VIM-like keybinds, maybe?
 - Replace commands like `\dt` with `show tables` (accept both)
