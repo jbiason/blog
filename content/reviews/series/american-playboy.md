@@ -6,7 +6,7 @@ date = 2020-11-05
 tags = ["reviews", "series", "playboy", "amazon", "hugh hefner"]
 +++
 
-[IMDB Summary](https://www.imdb.com/title/tt5968748/?ref_=fn_al_tt_3):
+[IMDB Summary](https://www.imdb.com/title/tt5968748/):
 The Amazon Original Series draws from unprecedented access to more than 17,000
 hours of footage and over 2,600 scrapbooks from Hefner's personal archives,
 chronicling the life of an American icon and the history of the brand he
