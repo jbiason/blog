@@ -1,3 +1,0 @@
-+++
-title = "SQL: Right Join"
-+++

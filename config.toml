@@ -47,7 +47,6 @@ menu_items = [
 	{url = "$BASE_URL/tags", name = "Tags (EN)"},
 	{url = "$BASE_URL/pt/tags", name = "Tags (PT)"},
 	{url = "$BASE_URL/quotes", name = "Quotes"},
-	{url = "$BASE_URL/research", name = "Research Notes"},
 ]
 after_dark_title = "JulioBiason.Net 4.1"
 enable_post_view_navigation = false
