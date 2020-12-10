@@ -19,6 +19,7 @@ Aplicação web de status de clientes:
         * Empresa
 * Clientes são basicamente grupos de contatos + interações.
 * Interações podem ser marcadas como "Sucesso" ou "Aguardando".
+* Arquivos podem ser anexados nas interações.
 * Dashboard mostra todos os clientes e seus status.
 
 ```

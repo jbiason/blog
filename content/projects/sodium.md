@@ -19,6 +19,7 @@ A Client Status web app.
         * Company
 * Clients are basically groups of contacts + interactions.
 * Interaction can be marked as "Successful" or "Waiting".
+* Files can be attached to interactions.
 * Dashboard shows all clients with their statuses.
 
 ```
