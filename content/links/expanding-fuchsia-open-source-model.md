@@ -1,6 +1,7 @@
 +++
 title = "Commented link: Expanding Fuchsia's open source model"
 date = 2020-12-13
+updated = 2020-12-14
 
 [taxonomies]
 tags = ["links", "google", "fuchsia", "open source"]
@@ -30,6 +31,16 @@ as an open source project? Are they opening the lines for accepting external
 pull requests? No, they are just creating a maillist and writing down how one
 can get permission to submit patches or become a committer. How open is a
 project that you need to have badge to be able to be part of the project?
+
+Let me try to explain this by using an analogy: Imagine a house with a
+huge, sound-proof window. Sure you can look inside the house, but
+there is no way you can tell people that the sofa looks better if
+facing the other wall, that a vase is about to fall down and break or
+even get in and help them move the sofa to the other side of the
+room. You wouldn't call that an "open" house, would you? Well, that's
+the current model for Google projects: Look, but we won't listen to
+you and we won't let you get in to move the sofa the way we actually
+want.
 
 "In addition, we are also publishing a technical roadmap for Fuchsia to provide
 better insights for project direction and priorities." Remember the first point

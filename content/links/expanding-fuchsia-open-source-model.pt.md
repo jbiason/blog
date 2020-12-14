@@ -38,6 +38,16 @@ consegue ganhar permissão para enviar patches ou se tornar um committer. Quão
 aberto é um projeto que você precisa de um distintivo para fazer parte do
 projeto?
 
+Deixem-me tentar explicar isso usando uma analogia: Imaginem uma casa
+com uma grande janela a prova de som. Vocês conseguem olhar o que tem
+dentro da casa, mas não tem forma alguma que vocês consigam dizer que
+o sofá fica melhor se ficar apontando para a outra parede, que um vaso
+está pra cair e quebrar ou até mesmo ajudar a mover o sofá para o
+outro lado da sala. Vocês não chamariam isso de uma casa aberta
+(open), certo? Bom, esse é o modelo open source dos projetos do
+Google: Pode olhar, mas nós não vamos te escutar e nós não vamos
+deixar você entrar para mover o sofá para onde a gente quer.
+
 "Ainda, estamos publicando um roteiro do Fuchsia para dar uma melhor ideia da
 direção e prioridades do projeto." Lembram do primeiro ponto sobre ser mais
 fácil para que o público possa contribuir com o projeto? Bom, como podem haver
