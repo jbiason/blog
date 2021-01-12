@@ -4,7 +4,7 @@ date = 2020-03-22
 updated = 2020-10-26
 
 [taxonomies]
-tags = ["books", "reviews", "it", "3 stars", "2020 challenge"]
+tags = ["books", "reviews", "it", "3 stars", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/7003902-97-things-every-programmer-should-know):

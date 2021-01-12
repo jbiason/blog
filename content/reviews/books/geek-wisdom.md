@@ -5,7 +5,7 @@ date = 2020-03-10
 [taxonomies]
 tags = ["books", "reviews", "fun", "stephen h segal", "n k jemisin", 
 "eric san juan", "genevieve valentine", "zaki hasan", "1 star", 
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10418415-geek-wisdom):

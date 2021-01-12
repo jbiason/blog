@@ -4,7 +4,7 @@ date = 2020-01-26
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "brian mcgackin", "4 stars", "poetry",
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10326288-broetry-poetry-for-dudes):

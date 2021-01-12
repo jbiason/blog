@@ -3,7 +3,7 @@ title = "Realm of Racket: Lean to Program, One Game at a Time!"
 date = 2020-12-18
 
 [taxonomies]
-tags = ["books", "reviews", "it", "racket", "2020 challenge", "2 stars"]
+tags = ["books", "reviews", "it", "racket", "books:2020", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/17153511-realm-of-racket):

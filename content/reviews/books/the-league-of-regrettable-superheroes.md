@@ -4,7 +4,7 @@ date = 2020-02-02
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "comics", "superheroes", "jon morris", 
-"4 stars", "2020 challenge"]
+"4 stars", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23164984-the-league-of-regrettable-superheroes):

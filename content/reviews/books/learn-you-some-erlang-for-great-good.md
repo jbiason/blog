@@ -5,7 +5,7 @@ updated = 2020-10-26
 
 [taxonomies]
 tags = ["books", "reviews", "it", "erlang", "fred hebert", "4 stars",
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/6718693-learn-you-some-erlang-for-great-good):

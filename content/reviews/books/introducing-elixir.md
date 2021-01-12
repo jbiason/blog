@@ -4,7 +4,7 @@ date = 2020-07-24
 
 [taxonomies]
 tags = ["books", "reviews", "simon st laurent", "j david eisenberg", "it",
-"elixir", "2020 challenge", "4 stars"]
+"elixir", "books:2020", "4 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18194084-introducing-elixir):

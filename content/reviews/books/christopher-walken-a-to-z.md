@@ -4,7 +4,7 @@ date = 2020-02-18
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "biography", "christopher walken", 
-"robert schnakenberg", "3 stars", "2020 challenge"]
+"robert schnakenberg", "3 stars", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23838378-christopher-walken-a-to-z):

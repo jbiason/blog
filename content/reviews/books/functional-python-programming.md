@@ -4,7 +4,7 @@ date = 2020-08-27
 
 [taxonomies]
 tags = ["books", "review", "it", "steven f lott", "python", "functional", 
-"1 star", "2020 challenge"]
+"1 star", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/24925633-functional-python-programming---create-succinct-and-expressive-implement):

@@ -4,7 +4,7 @@ date = 2020-03-08
 
 [taxonomies]
 tags = ["books", "reviews", "microservices", "antipatterns", "pitfalls", 
-"mark richards", "4 stars", "2020 challenge"]
+"mark richards", "4 stars", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/31291348-microservices-antipatterns-and-pitfalls):

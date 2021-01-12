@@ -5,7 +5,7 @@ updated = 2020-10-26
 
 [taxonomies]
 tags = ["books", "reviews", "simon st laurent", "erlang", "it", 
-"2020 challenge", "2 stars"]
+"books:2020", "2 stars"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/15811999-introducing-erlang):

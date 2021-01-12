@@ -4,7 +4,7 @@ date = 2020-02-09
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "robert boesel", "matt moore", "3 stars",
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26544444-adult-stuff):

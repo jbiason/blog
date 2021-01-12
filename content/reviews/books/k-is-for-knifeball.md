@@ -4,7 +4,7 @@ date = 2020-01-26
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "avery monsen", "jory john", "3 stars",
-"kids", "2020 challenge"]
+"kids", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/14553581-k-is-for-knifeball):

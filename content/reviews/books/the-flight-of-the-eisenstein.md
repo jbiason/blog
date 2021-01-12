@@ -4,7 +4,7 @@ date = 2020-01-17
 
 [taxonomies]
 tags = ["books", "reviews", "horus heresy", "warhammer 40000", "sci", 
-"james swallow", "1 star", "2020 challenge"]
+"james swallow", "1 star", "books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/80155.The_Flight_of_the_Eisenstein):

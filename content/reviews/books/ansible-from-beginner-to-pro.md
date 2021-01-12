@@ -4,7 +4,7 @@ date = 2020-04-03
 
 [taxonomies]
 tags = ["books", "reviews", "ti", "ansible", "michael heap", "3 stars",
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/29201033-ansible):

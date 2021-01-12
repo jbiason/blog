@@ -4,7 +4,7 @@ date = 2020-07-04
 
 [taxonomies]
 tags = ["books", "reviews", "david johnson", "robotics", "it", "2 stars",
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16087659-21st-century-robot):

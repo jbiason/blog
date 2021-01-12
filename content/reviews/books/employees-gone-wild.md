@@ -4,7 +4,7 @@ date = 2020-01-26
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "richard burton", "3 stars", "work", 
-"2020 challenge"]
+"books:2020"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23130072-employees-gone-wild):
