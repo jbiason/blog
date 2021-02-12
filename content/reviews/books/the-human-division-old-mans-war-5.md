@@ -1,12 +1,11 @@
 +++
 title = "The Human Division (Old Man's War, #5) - John Scalzi"
 date = 2017-02-04
-
-category = "review"
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "john scalzi", "reviews", "old man's war", "scifi", 
-"3 stars"]
+"stars:3", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/15698479-the-human-division):

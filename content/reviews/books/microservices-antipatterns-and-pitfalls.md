@@ -1,10 +1,11 @@
 +++
 title = " Microservices AntiPatterns and Pitfalls - Mark Richards"
 date = 2020-03-08
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "microservices", "antipatterns", "pitfalls", 
-"mark richards", "4 stars", "books:2020"]
+"mark richards", "stars:4", "books:2020", "published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/31291348-microservices-antipatterns-and-pitfalls):

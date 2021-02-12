@@ -1,10 +1,11 @@
 +++
 title = "Moon Shot: The Inside Story of America's Race to the Moon - Alan Shepard"
 date = 2018-12-28
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["en-us", "alan shepard", "book", "reviews", "nasa", "apollo", 
-"0 stars"]
+"stars:0", "published:1994"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/37711959-moon-shot):

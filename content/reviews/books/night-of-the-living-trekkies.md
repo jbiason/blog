@@ -1,10 +1,11 @@
 +++
 title = "Night of the Living Trekkies - Kevin David Anderson"
 date = 2018-08-28
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "kevin david anderson", "reviews", "star trek", "zombies",
-"fiction", "5 stars"]
+"fiction", "stars:5", "published:2010"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/7884969-night-of-the-living-trekkies):

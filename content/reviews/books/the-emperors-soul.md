@@ -1,9 +1,11 @@
 +++
 title = "The Emperor's Soul - Brandon Sanderson"
 date = 2018-01-21
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "brandon sanderson", "review", "fantasy", "2 stars"]
+tags = ["books", "brandon sanderson", "review", "fantasy", "stars:2",
+"published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/13578175-the-emperor-s-soul):

@@ -1,10 +1,11 @@
 +++
 title = "Turing e o Computador em 90 minutos - Paul Strathern"
 date = 2017-02-19
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "paul strathern", "review", "alan turing", "história", 
-"3 stars"]
+"stars:3", "published:1997"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/24921251-turing-e-o-computador-em-90-minutos):
@@ -38,3 +39,7 @@ entender que sua foto clássica de cabelos cortados e barba feita era uma
 anomalia); seu comportamento promíscuo, em que saída a noite para procura de
 novos jovens homossexuais... Essas partes são contadas no livro em questão,
 que é um resumo do livro escrito por Andrew Hodges.
+
+<!-- 
+vim:spelllang=pt:
+-->

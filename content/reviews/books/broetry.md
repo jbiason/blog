@@ -1,10 +1,11 @@
 +++
 title = "Broetry Poetry for Dudes - Brian McGackin"
 date = 2020-01-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "fun", "brian mcgackin", "4 stars", "poetry",
-"books:2020"]
+tags = ["books", "reviews", "fun", "brian mcgackin", "stars:4", "poetry",
+"books:2020", "published:2011"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10326288-broetry-poetry-for-dudes):

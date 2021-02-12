@@ -1,9 +1,10 @@
 +++
 title = "A Colher que desaparece: e outras histórias reais de loucura, amor e morte a partir dos elementos químicos - Sam Kean"
 date = 2017-02-18
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "sam kean", "reviews", "ciência", "3 stars"]
+tags = ["books", "sam kean", "reviews", "ciência", "stars:3", "published:2010"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/24266615-a-colher-que-desaparece):
@@ -45,3 +46,9 @@ Com alguma revisão para evitar que os assuntos fiquem empilham sem solução e
 uma revisão na acessibilidade do conteúdo, seria um livro excelente para que
 várias pessoas deixassem de ver física e química como um bicho de sete
 cabeças.
+
+
+
+<!-- 
+vim:spelllang=pt:
+-->

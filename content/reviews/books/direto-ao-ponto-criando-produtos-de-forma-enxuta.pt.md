@@ -1,9 +1,10 @@
 +++
 title = "Direto ao Ponto - criando produtos de forma enxuta - Paulo Caroli"
 date = 2016-03-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "paulo caroli", "ágil", "reviews", "3 stars"]
+tags = ["books", "paulo caroli", "ágil", "reviews", "stars:3", "published:2014"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23834245-direto-ao-ponto---criando-produtos-de-forma-enxuta):
@@ -46,3 +47,7 @@ idéia dos métodos ágeis.
 Então embora o livro descreva como fazer uma inception completa, com o maior
 número de acertos possíveis, o fato que uma inception não parece se encaixar
 na metodologia ágil nunca é discutido.
+
+<!-- 
+vim:spelllang=pt:
+-->

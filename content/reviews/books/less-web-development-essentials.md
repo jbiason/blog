@@ -1,10 +1,11 @@
 +++
 title = "Less Web Development Essentials - Bass Jobsen"
 date = 2016-08-02
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "bass jobsen", "reviews", "css", "less", "web development",
-"it", "2 stars"]
+"it", "stars:2", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22130122-less-web-development-essentials):

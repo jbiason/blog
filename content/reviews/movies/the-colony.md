@@ -1,9 +1,10 @@
 +++
 title = "The Colony (2013)"
 date = 2020-12-13
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "reviews", "scifi"]
+tags = ["movies", "reviews", "scifi", "stars:4"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt1160996/):

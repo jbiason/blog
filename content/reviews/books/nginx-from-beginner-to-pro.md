@@ -1,9 +1,11 @@
 +++
 title = "Nginx: From Beginner to Pro - Rahul Soni"
 date = 2017-06-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "rahul soni", "reviews", "nginx", "it", "1 star"]
+tags = ["books", "rahul soni", "reviews", "nginx", "it", "stars:1",
+"published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/30892392-nginx):

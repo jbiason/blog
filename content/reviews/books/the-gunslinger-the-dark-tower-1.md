@@ -1,9 +1,11 @@
 +++
 title = "The Gunslinger (The Dark Tower, #1) - Stephen King"
 date = 2017-06-11
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "stephen king", "reviews", "the dark tower", "3 stars"]
+tags = ["books", "stephen king", "reviews", "the dark tower", "stars:3",
+"published:1982"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/43615.The_Gunslinger):

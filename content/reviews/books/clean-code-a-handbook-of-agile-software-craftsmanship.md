@@ -1,15 +1,17 @@
 +++
 title = "Clean Code: A Handbook of Agile Software Craftsmanship - Robert C. Martin"
 date = 2015-01-25
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "robert c. martin", "it", "reviews", "3 stars"]
+tags = ["books", "robert c. martin", "it", "reviews", "stars:3",
+"published:2007"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/3735293-clean-code):
-Even bad code can function. But if code isn t clean, it can bring a
+Even bad code can function. But if code isn't clean, it can bring a
 development organization to its knees. Every year, countless hours and
-significant resources are lost because of poorly written code. But it doesn t
+significant resources are lost because of poorly written code. But it doesn't
 have to be that way. 
 
 <!-- more -->

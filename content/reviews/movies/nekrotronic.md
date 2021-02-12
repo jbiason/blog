@@ -1,9 +1,10 @@
 +++
 title = "Nekrotronic (2018)"
 date = 2020-11-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "reviews", "comedy"]
+tags = ["movies", "reviews", "comedy", "stars:3"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt7453418/):

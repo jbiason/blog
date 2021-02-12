@@ -1,9 +1,11 @@
 +++
 title = "All Quiet on the Western Front - Erich Maria Remarque"
 date = 2014-12-24
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "erich maria remarque", "reviews", "fiction", "5 stars"]
+tags = ["books", "erich maria remarque", "reviews", "fiction", "stars:5",
+"published:1929"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/355697.All_Quiet_on_the_Western_Front):

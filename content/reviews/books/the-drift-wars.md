@@ -1,9 +1,10 @@
 +++
 title = "The Drift Wars - Brett James"
 date = 2015-02-03
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "brett james", "reviews", "scifi", "3 stars"]
+tags = ["books", "brett james", "reviews", "scifi", "stars:3", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18188712-the-drift-wars):

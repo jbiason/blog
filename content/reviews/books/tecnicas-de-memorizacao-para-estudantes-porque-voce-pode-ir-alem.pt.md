@@ -1,9 +1,11 @@
 +++
 title = "Tecnicas de Memorizacao Para Estudantes: Porque Voce Pode IR Alem - Rodrigo Vargas"
 date = 2016-03-14
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "rodrigo vargas", "reviews", "memória", "2 stars"]
+tags = ["books", "rodrigo vargas", "reviews", "memória", "stars:2",
+"published:1993"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/38092282-tecnicas-de-memorizacao-para-estudantes):
@@ -31,3 +33,7 @@ até nem precisa tanto) e 50% do livro é perdido falando como descobrir o dia
 da semana de qualquer ano.
 
 Simples, direto e superficial. É como preciso descrever esse livro.
+
+<!-- 
+vim:spelllang=pt:
+-->

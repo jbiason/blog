@@ -1,9 +1,11 @@
 +++
 title = "\"Repent, Harlequin!\" Said the Ticktockman - Harlan Ellison"
 date = 2021-01-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "short", "harlan ellison", "4 stars", "books:2021"]
+tags = ["books", "reviews", "short", "harlan ellison", "stars:4", "books:2021",
+"published:1965"]
 +++
 
 [Wikipedia Summary](https://en.wikipedia.org/wiki/%22Repent,_Harlequin!%22_Said_the_Ticktockman):

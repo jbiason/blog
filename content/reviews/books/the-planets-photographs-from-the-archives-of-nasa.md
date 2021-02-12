@@ -1,10 +1,11 @@
 +++
 title = "The Planets: Photographs from the Archives of NASA - Nirmala Nataraj, Bill Nye, U.S. Goverment"
 date = 2018-11-25
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "nirmala nataraj", "bill nye", "reviews", "photos",
-"pictures", "5 stars"]
+"pictures", "stars:5", "published:2017"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/33889690-the-planets):

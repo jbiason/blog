@@ -1,9 +1,11 @@
 +++
 title = "Microservices In Action - Morgan Bruce"
 date = 2019-08-13
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "microservices", "morgan bruce", "it", "2 stars"]
+tags = ["books", "reviews", "microservices", "morgan bruce", "it", "stars:2",
+"published:2017"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/36579817-microservices-in-action):

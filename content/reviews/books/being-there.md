@@ -1,9 +1,11 @@
 +++
 title = "Being There - Jerzy Kosiński"
 date = 2018-05-31
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "jerzy kosinski", "reviews", "fiction", "2 stars"]
+tags = ["books", "jerzy kosinski", "reviews", "fiction", "stars:2",
+"published:1970"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/677877.Being_There):

@@ -1,9 +1,11 @@
 +++
 title = "21 Erros Clássicos da Gestão de Projetos - Eli Rodrigues"
 date = 2017-05-10
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "eli rodrigues", "gestão", "reviews", "3 stars"]
+tags = ["books", "eli rodrigues", "gestão", "reviews", "stars:3",
+"published:2014"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26082064-21-erros-cl-ssicos-da-gest-o-de-projetos):
@@ -51,3 +53,7 @@ métodos ágeis, principalmente scrum.
 Deve ser interessante para quem vai gerenciar um projeto para ter ideia do que
 pode acontecer, mas para quem já vivenciou esses problemas ou já usou outras
 metodologias, a falta de soluções é preocupante.
+
+<!-- 
+vim:spelllang=pt:
+-->

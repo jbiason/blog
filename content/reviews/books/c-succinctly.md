@@ -1,9 +1,10 @@
 +++
 title = "C# Succinctly - Joe Mayo"
 date = 2016-04-17
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "joe mayo", "reviews", "it", "c#", "2 stars"]
+tags = ["books", "joe mayo", "reviews", "it", "c#", "stars:2", "published:2017"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26101445-c-succinctly):

@@ -1,12 +1,11 @@
 +++
 title = "Write Great Code: Volume I: Understanding the Machine - Randall Hyde"
 date = 2016-10-05
-
-category = "review"
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "randall hyde", "reviews", "coding", "computer architecture",
-"it", "1 star"]
+"it", "stars:1", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/35873018-write-great-code):

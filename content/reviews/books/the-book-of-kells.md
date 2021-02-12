@@ -1,9 +1,11 @@
 +++
 title = "The Book of Kells - R.A. MacAvoy"
 date = 2018-08-13
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "r.a. macavoy", "reviews", "fantasy", "2 stars"]
+tags = ["books", "r.a. macavoy", "reviews", "fantasy", "stars:2",
+"published:1985"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/941468.The_Book_of_Kells):

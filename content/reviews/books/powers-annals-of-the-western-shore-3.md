@@ -1,10 +1,11 @@
 +++
 title = "Powers (Annals of the Western Shore, #3) - Ursula K. Le Guin"
 date = 2018-05-27
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "ursula k. le guin", "reviews", 
-"annals of the western shore", "fantasy", "5 stars"]
+"annals of the western shore", "fantasy", "stars:5", "published:2007"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/68020.Powers):

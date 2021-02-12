@@ -1,9 +1,11 @@
 +++
 title = "Redshirts - John Scalzi"
 date = 2015-01-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "john scalzi", "reviews", "scifi", "comedy", "5 stars"]
+tags = ["books", "john scalzi", "reviews", "scifi", "comedy", "stars:5",
+"published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/13055592-redshirts):

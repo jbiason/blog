@@ -1,9 +1,11 @@
 +++
 title = "In the Beginning...: Science Faces God in the Book of Genesis - Isaac Asimov"
 date = 2018-06-25
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "isaac asimov", "reviews", "history", "3 stars"]
+tags = ["books", "isaac asimov", "reviews", "history", "stars:3",
+"published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/39341052-in-the-beginning):

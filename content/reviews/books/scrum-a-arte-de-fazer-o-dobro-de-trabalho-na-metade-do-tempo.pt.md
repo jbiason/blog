@@ -1,9 +1,11 @@
 +++
 title = "Scrum: A arte de fazer o dobro de trabalho na metade do tempo - Jeff Sutherland"
 date = 2016-06-08
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "jeff sutherland", "ágil", "scrum", "reviews", "5 stars"]
+tags = ["books", "jeff sutherland", "ágil", "scrum", "reviews", "stars:5",
+"published:2014"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25053915-scrum):
@@ -44,3 +46,7 @@ o passo a passo de iniciar um projeto scrum, com indicadores de onde encontrar
 maiores informações dentro do próprio livro. Ou seja, o livro não serve apenas
 como um "como aprender scrum", mas também possui informações suficientes para
 servir de referência futura.
+
+<!-- 
+vim:spelllang=pt:
+-->

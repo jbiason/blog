@@ -1,9 +1,11 @@
 +++
 title = "Ready Player One - Ernest Cline"
 date = 2015-03-24
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "ernest cline", "reviews", "scifi", "5 stars"]
+tags = ["books", "ernest cline", "reviews", "scifi", "stars:5",
+"published:2011"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/9969571-ready-player-one):

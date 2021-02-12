@@ -1,9 +1,11 @@
 +++
 title = "Rust Essentials - Ivo Balbaert"
 date = 2015-07-02
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "ivo balbaert", "reviews", "rust", "it", "3 stars"]
+tags = ["books", "ivo balbaert", "reviews", "rust", "it", "stars:3",
+"published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25644753-rust-essentials):

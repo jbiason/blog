@@ -1,10 +1,11 @@
 +++
 title = "Seven Languages in Seven Weeks"
 date = 2019-07-16
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "bruce a tate", "clojure", "haskell", "io",
-"prolog", "scala", "erlang", "ruby", "it", "1 star"]
+"prolog", "scala", "erlang", "ruby", "it", "stars:1", "published:2010"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/7912517-seven-languages-in-seven-weeks):

@@ -1,10 +1,11 @@
 +++
 title = "Django Design Patterns and Best Practices - Arun Ravindran"
 date = 2016-07-07
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "arun ravindran", "python", "django", "web development",
-"reviews", "design patterns", "it", "3 stars"]
+"reviews", "design patterns", "it", "stars:3", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25567728-django-design-patterns-and-best-practices):

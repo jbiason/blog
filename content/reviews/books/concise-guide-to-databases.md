@@ -1,10 +1,11 @@
 +++
 title = "Concise Guide To Databases - Peter Lake, Paul Crowther"
 date = 2021-02-10
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "it", "books:2021", "published:2013", "peter lake",
-"paul crowther"]
+"paul crowther", "stars:1"]
 +++
 
 [GoodReads

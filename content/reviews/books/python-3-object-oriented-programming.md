@@ -1,9 +1,11 @@
 +++
 title = "Python 3 Object Oriented Programming - Dusty Phillips"
 date = 2016-04-02
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "dusty phillips", "review", "python", "it", "5 stars"]
+tags = ["books", "dusty phillips", "review", "python", "it", "stars:5",
+"published:2010"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/8679996-python-3-object-oriented-programming):

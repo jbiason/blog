@@ -1,9 +1,11 @@
 +++
 title = "I Have No Mouth and I Must Scream - Harlan Ellison"
 date = 2018-08-23
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "harlan ellison", "reviews", "scifi", "4 stars"]
+tags = ["books", "harlan ellison", "reviews", "scifi", "stars:4",
+"published:1967"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/415459.I_Have_No_Mouth_and_I_Must_Scream):

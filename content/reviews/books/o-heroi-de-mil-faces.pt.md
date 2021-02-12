@@ -1,9 +1,11 @@
 +++
 title = "O Herói de Mil Faces - Joseph Campbell"
 date = 2016-01-05
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "joseph campbell", "reviews", "filosofia", "1 star"]
+tags = ["books", "joseph campbell", "reviews", "filosofia", "stars:1",
+"published:1949"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/6406621-o-her-i-de-mil-faces):
@@ -57,3 +59,7 @@ autor e o tradutor fumaram durante seus trabalhos.
 O monomito parece ser realmente correto, mas para isso existem filmes de 3
 minutos que conseguem explicar todos os pontos de forma sucinta e com mitos
 comuns hoje. Veja os filmes e esqueça o livro.
+
+<!-- 
+vim:spelllang=pt:
+-->

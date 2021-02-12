@@ -1,9 +1,11 @@
 +++
 title = "Learn Amazon Web Services In A Month Of Lunches"
 date = 2020-12-31
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "aws", "it", "books:2020"]
+tags = ["books", "reviews", "aws", "it", "books:2020", "stars:2",
+"published:2017"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/34013923-learn-amazon-web-services-in-a-month-of-lunches):

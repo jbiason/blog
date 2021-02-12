@@ -1,10 +1,11 @@
 +++
 title = "How To Survive A Horror Movie - Seth Grahame-Smith"
 date = 2020-03-06
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "movies", "horror", "seth grahame-smith", 
-"2 stars", "books:2020"]
+"stars:2", "books:2020", "published:2007"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/293217.How_to_Survive_a_Horror_Movie):

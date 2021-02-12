@@ -1,9 +1,11 @@
 +++
 title = "Oh Myyy! (There Goes the Internet): Life, the Internet and Everything - George Takei"
 date = 2015-09-18
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "george takei", "reviews", "star trek", "2 stars"]
+tags = ["books", "george takei", "reviews", "star trek", "stars:2",
+"published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16059137-oh-myyy):

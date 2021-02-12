@@ -1,9 +1,11 @@
 +++
 title = "Designing Data-Intensive Applications: The Big Ideas Behind Reliable, Scalable, and Maintainable Systems - Martin Kleppmann"
 date = 2018-01-19
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "martin kleppmann", "reviews", "it", "big data", "3 stars"]
+tags = ["books", "martin kleppmann", "reviews", "it", "big data", "stars:3",
+"published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/34626431-designing-data-intensive-applications):

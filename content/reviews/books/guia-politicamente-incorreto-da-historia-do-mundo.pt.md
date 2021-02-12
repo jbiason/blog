@@ -1,11 +1,10 @@
 +++
 title = "Guia politicamente incorreto da história do mundo - Leandro Narloch"
 date = 2016-04-29
-
-category = "review"
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "leandro narloch", "reviews", "história", "history", "1 star"]
+tags = ["books", "leandro narloch", "reviews", "história", "history", "stars:1", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18172387-guia-politicamente-incorreto-da-hist-ria-do-mundo):
@@ -44,7 +43,7 @@ industrial, mas quando "a grande maioria" morre por algo, como é que ela pode
 
 Essas imbecilidades que beiram a infantilidade nesses 4 primeiros capítulos
 fazem com que o resto do livro fique com uma sensação ruim ao ler. Não só
-falácias e erros crasos de lógica percorrem o livro inteiro, a postura
+falácias e erros crassos de lógica percorrem o livro inteiro, a postura
 política do autor também fica extremamente clara. Se houvesse, logo de cara,
 um aviso sobre isso, não seria grande problema; o problema ocorre que o livro
 aparentemente escolheu fatos justamente para justificar a postura política ao
@@ -63,3 +62,9 @@ especificamente, um amontoado de situações da história usados simplesmente
 para provar (com erros de lógica que fariam os pensadores gregos rirem até a
 morrerem) a posição do política do autor realmente destroem qualquer
 consideração que deveria ser feita ao conteúdo real.
+
+
+
+<!-- 
+vim:spelllang=pt:
+-->

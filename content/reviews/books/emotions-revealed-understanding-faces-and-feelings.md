@@ -1,9 +1,11 @@
 +++
 title = "Emotions Revealed: Understanding Faces and Feelings - Paul Ekman"
 date = 2014-12-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "paul ekman", "psychology", "reviews", "3 stars"]
+tags = ["books", "paul ekman", "psychology", "reviews", "stars:3",
+"published:2004"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/156462.Emotions_Revealed):

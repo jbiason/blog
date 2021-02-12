@@ -1,9 +1,10 @@
 +++
 title = "Ad Astra - Jack Campbell"
 date = 2019-12-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "scifi", "5 stars"]
+tags = ["books", "reviews", "scifi", "stars:5", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23766830-ad-astra):

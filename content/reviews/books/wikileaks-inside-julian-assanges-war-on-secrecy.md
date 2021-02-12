@@ -1,10 +1,11 @@
 +++
 title = "WikiLeaks: Inside Julian Assange's War on Secrecy - David Leigh"
 date = 2015-03-29
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "david leigh", "reviews", "history", "biography", 
-"julian assange", "wikileaks", "3 stars"]
+"julian assange", "wikileaks", "stars:3", "published:2011"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10318540-wikileaks):

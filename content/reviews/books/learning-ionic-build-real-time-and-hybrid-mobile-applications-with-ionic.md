@@ -1,10 +1,11 @@
 +++
 title = "Learning Ionic - Build real-time and hybrid mobile applications with Ionic - Arvind Ravulavaru"
 date = 2016-02-04
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "arvind ravulavaru", "mobile", "ionic", "reviews", "it", 
-"4 stars"]
+"stars:4", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26080566-learning-ionic---build-real-time-and-hybrid-mobile-applications-with-ion):

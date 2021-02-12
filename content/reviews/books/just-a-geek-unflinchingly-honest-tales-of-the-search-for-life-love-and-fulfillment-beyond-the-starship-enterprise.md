@@ -1,9 +1,11 @@
 +++
 title = "Just a Geek: Unflinchingly honest tales of the search for life, love, and fulfillment beyond the Starship Enterprise - Wil Wheaton"
 date = 2015-01-31
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "wil wheaton", "reviews", "geek", "star trek", "4 stars"]
+tags = ["books", "wil wheaton", "reviews", "geek", "star trek", "stars:4",
+"published:2004"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/65692.Just_a_Geek):

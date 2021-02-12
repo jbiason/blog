@@ -1,10 +1,11 @@
 +++
 title = "Genius: The Life and Science of Richard Feynman - James Gleick"
 date = 2018-10-28
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "james gleick", "richard feynman", "reviews", "biography",
-"history", "2 stars"]
+"history", "stars:2", "published:1992"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/98685.Genius):

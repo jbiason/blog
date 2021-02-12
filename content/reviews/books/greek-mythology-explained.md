@@ -1,10 +1,11 @@
 +++
 title = "Greek Mythology Explained: A Deeper Look at Classical Greek Lore and Myth -  Marios Christou, David Ramenah"
 date = 2019-01-05
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["book", "reviews", "greek mythology", "marios christou", 
-"david ramenah", "4 stars"]
+"david ramenah", "stars:4", "published:2018"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/41822694-greek-mythology-explained):

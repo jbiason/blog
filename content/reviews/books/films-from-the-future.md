@@ -1,12 +1,11 @@
 +++
 title = "Films from the Future: The Technology and Morality of Sci-Fi Movies - Andrew Maynard"
 date = 2018-11-29
-
-category = "review"
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "andrew maynard", "movies", "scifi", "technology",
-"philosophy", "4 stars"]
+"philosophy", "stars:4", "published:2018"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/41045578-films-from-the-future):

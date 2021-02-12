@@ -1,10 +1,11 @@
 +++
 title = "Ad Astra (2019)"
 date = 2020-11-01
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["reviews", "movies", "2019", "brad pitt", "tommy lee jones",
-"donald sutherland"]
+"donald sutherland", "stars:2"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt2935510/):

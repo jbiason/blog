@@ -1,10 +1,11 @@
 +++
 title = "AngularJS - Brad Green"
 date = 2014-07-19
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "brad green", "javascript", "angularjs", "web development",
-"it", "2 stars"]
+"it", "stars:2", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16087709-angularjs):

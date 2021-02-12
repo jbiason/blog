@@ -1,10 +1,11 @@
 +++
 title = "Quatro Heróis e um Bardo contra a Realidade Medieval - Rodrigo Assis Mesquita"
 date = 2016-10-12
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "rodrigo assis mesquita", "fantasia", "reviews", "fantasy",
-"1 star"]
+"stars:1", "published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26137212-quatro-her-is-e-um-bardo-contra-a-realidade-medieval):
@@ -27,3 +28,7 @@ mais cruas e sem sentido, ao ponto que a parte engraçada se perde
 completamente -- ok, tem <I>uma</I> absurdice que é realmente engraçada, mas
 ela é jogada de forma tão direta e vindo tão do nada que a piada se perde
 completamente. 
+
+<!-- 
+vim:spelllang=pt:
+-->

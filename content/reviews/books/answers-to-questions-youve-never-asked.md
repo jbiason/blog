@@ -1,10 +1,11 @@
 +++
 title = "Answers to Questions You’ve Never Asked: Explaining the What If in Science, Geography and the Absurd - Joseph Pisenti"
 date = 2018-12-04
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "trivia", "joseph pisenti", "science", "geography",
-"reviews", "3 stars"]
+"reviews", "stars:3", "published:2017"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/36049427-answers-to-questions-you-ve-never-asked):

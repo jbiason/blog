@@ -1,10 +1,11 @@
 +++
 title = "CoffeeScript Application Development - Ian Young"
 date = 2016-05-07
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "ian young", "reviews", "javascript", "coffeescript", 
-"web development", "it", "4 stars"]
+"web development", "it", "stars:4", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18430540-coffeescript-application-development):

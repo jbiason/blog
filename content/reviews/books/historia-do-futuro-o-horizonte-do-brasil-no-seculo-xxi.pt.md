@@ -1,9 +1,10 @@
 +++
 title = "História do Futuro: O Horizonte do Brasil no Século XXI - Miriam Leitão"
 date = 2016-04-16
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "miriam leitao", "reviews", "2 stars"]
+tags = ["books", "miriam leitao", "reviews", "stars:2", "published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25855630-hist-ria-do-futuro):
@@ -83,3 +84,7 @@ No fim, é um livro interessante pelas informações, mas como sugestões de
 futuro, parece mais uma tentativa de atirar várias pedras pra ver qual, daqui
 a alguns anos, atingiu o alvo -- e, as que não atingiram, serão solenemente
 ignoradas.
+
+<!-- 
+vim:spelllang=pt:
+-->

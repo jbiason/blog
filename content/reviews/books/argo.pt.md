@@ -1,10 +1,11 @@
 +++
 title = "Argo - Antonio J. Méndez"
 date = 2017-04-17
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "antonio j. mendez", "reviews", "history", "biography",
-"história", "biografia", "3 stars"]
+"história", "biografia", "stars:3", "published:2012"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/16252385-argo):
@@ -53,3 +54,7 @@ extremamente contrastantes com o resto da linguagem usada.
 
 No fim, o livro é muito interessante pela explicação histórica dos eventos e
 para ver o quão disparate da verdade o filme é.
+
+<!-- 
+vim:spelllang=pt:
+-->

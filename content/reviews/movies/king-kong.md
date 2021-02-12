@@ -1,9 +1,10 @@
 +++
 title = "King Kong (2005)"
 date = 2020-12-13
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "reviews", "fantasy", "2 stars"]
+tags = ["movies", "reviews", "fantasy", "stars:2"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt0360717/): A greedy film

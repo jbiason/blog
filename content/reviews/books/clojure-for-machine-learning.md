@@ -1,10 +1,11 @@
 +++
 title = "Clojure for Machine Learning - Akhil Wali"
 date = 2017-05-01
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "akhil wali", "reviews", "clojure", "it", "machine learning",
-"2 stars"]
+"stars:2", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22062479-clojure-for-machine-learning):

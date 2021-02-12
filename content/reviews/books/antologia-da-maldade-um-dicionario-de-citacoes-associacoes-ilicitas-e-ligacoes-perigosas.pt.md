@@ -1,9 +1,11 @@
 +++
 title = "Antologia da maldade: Um Dicionário de Citações, Associações Ilícitas e Ligações Perigosas - Gustavo H. B. Franco"
 date = 2016-03-19
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "gustavo h. b. franco", "reviews", "citações", "2 stars"]
+tags = ["books", "gustavo h. b. franco", "reviews", "citações", "stars:2",
+"published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/27871962-antologia-da-maldade):
@@ -49,3 +51,7 @@ citações são sempre simpáticas e amáveis.
 Assim, de "maldade" há muito pouco, a não ser que seja considerada maldade
 reproduzir citações de Nelson Rodrigues, cuja existência deveria ser atirada
 no passado negro do Brasil junto com a ditadura.
+
+<!-- 
+vim:spelllang=pt:
+-->

@@ -1,11 +1,12 @@
 +++
 title = "Geek Wisdom: The Sacred Teachings of Nerd Culture -  Stephen H. Segal, N.K. Jemisin, Eric San Juan, Genevieve Valentine, Zaki Hasan"
 date = 2020-03-10
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "stephen h segal", "n k jemisin", 
-"eric san juan", "genevieve valentine", "zaki hasan", "1 star", 
-"books:2020"]
+"eric san juan", "genevieve valentine", "zaki hasan", "stars:1", 
+"books:2020", "published:2011"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10418415-geek-wisdom):

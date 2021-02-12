@@ -1,9 +1,10 @@
 +++
 title = "The Story Behind: The Extraordinary History Behind Ordinary Objects - Emily Prokop"
 date = 2018-11-24
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "emily prokop", "4 stars"]
+tags = ["books", "reviews", "emily prokop", "stars:4", "published:2018"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/38813455-the-story-behind):

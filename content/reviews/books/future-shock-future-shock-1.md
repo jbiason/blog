@@ -1,10 +1,11 @@
 +++
 title = "Future Shock (Future Shock, #1) - Elizabeth Briggs"
 date = 2018-06-05
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "elizabeth briggs", "reviews", "future shock", "scifi", 
-"3 stars"]
+"stars:3", "published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26722944-future-shock):

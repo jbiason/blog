@@ -1,10 +1,11 @@
 +++
 title = "Mujica – A revolução tranquila - Mauricio Rabuffetti"
 date = 2017-03-05
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "mauricio rabuffetti", "uruguai", "mujica", "reviews",
-"história", "2 stars"]
+"história", "stars:2", "published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25792025-mujica-a-revolu-o-tranquila):
@@ -43,3 +44,7 @@ basicamente no "não gostaram".
 É interessante para se ter uma visão da questão política-diplomática do
 Uruguai nos tempos de Mujica, mas muito pouco para se ter uma visão diferente
 do "presidente pobre", como os grandes meios projetaram Mujica.
+
+<!-- 
+vim:spelllang=pt:
+-->

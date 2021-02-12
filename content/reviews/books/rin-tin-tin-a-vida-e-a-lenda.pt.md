@@ -1,9 +1,11 @@
 +++
 title = "Rin Tin Tin: A Vida e a Lenda - Susan Orlean"
 date = 2016-07-04
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "susan orlean", "biografia", "rin tin tin", "3 stars"]
+tags = ["books", "susan orlean", "biografia", "rin tin tin", "stars:3",
+"published:2013"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/18396199-rin-tin-tin):
@@ -69,3 +71,7 @@ evidência ao invés de ficar no produto metafísico "Rin Tin Tin".
 No fim, ao invés de focar no cachorro, como esperado, o livro se foca no
 produto e seus coadjuvantes, deixando a impressão de que tudo não passou parte
 de um roteiro dentro do roteiro.
+
+<!-- 
+vim:spelllang=pt:
+-->

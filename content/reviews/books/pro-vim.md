@@ -1,9 +1,11 @@
 +++
 title = "Pro Vim - Mark McDonnell"
 date = 2019-09-04
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "vim", "mark mcdonnell", "2 stars"]
+tags = ["books", "reviews", "vim", "mark mcdonnell", "stars:2",
+"published:2019"]
 +++
 
 [GoodReads link](https://www.goodreads.com/book/show/23717582-pro-vim): (No

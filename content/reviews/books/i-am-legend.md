@@ -1,9 +1,11 @@
 +++
 title = "I Am Legend - Richard Matheson"
 date = 2014-05-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "richard matheson", "reviews", "fiction", "4 stars"]
+tags = ["books", "richard matheson", "reviews", "fiction", "stars:4",
+"published:1954"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/40940649-i-am-legend):

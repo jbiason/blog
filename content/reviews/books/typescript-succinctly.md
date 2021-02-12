@@ -1,10 +1,11 @@
 +++
 title = "TypeScript Succinctly - Steve Fenton"
 date = 2016-02-22
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "steve fenton", "javascript", "typescript", 
-"web development", "reviews", "it", "4 stars"]
+"web development", "reviews", "it", "stars:4", "published:2017"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18405331-typescript-succinctly):

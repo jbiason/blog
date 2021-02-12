@@ -1,9 +1,10 @@
 +++
 title = "The Escort (2015)"
 date = 2021-02-03
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "reviews", "comedy", "movies:2021"]
+tags = ["movies", "reviews", "comedy", "movies:2021", "stars:2"]
 +++
 
 [Wikipedia Summary](https://en.wikipedia.org/wiki/The_Escort_(2015_film)):

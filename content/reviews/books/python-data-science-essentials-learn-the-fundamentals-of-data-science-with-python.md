@@ -1,10 +1,11 @@
 +++
 title = "Python Data Science Essentials - Learn the fundamentals of Data Science with Python - Alberto Boschetti"
 date = 2016-12-16
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "alberto boschetti", "reviews", "python", "data science",
-"it", "2 stars"]
+"it", "stars:2", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25527772-python-data-science-essentials---learn-the-fundamentals-of-data-science):

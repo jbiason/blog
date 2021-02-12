@@ -1,9 +1,11 @@
 +++
 title = "Clojure for the Brave and True - Daniel Higginbotham"
 date = 2017-04-09
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "daniel higginbotham", "clojure", "reviews", "it", "3 stars"]
+tags = ["books", "daniel higginbotham", "clojure", "reviews", "it", "stars:3",
+"published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/20873338-clojure-for-the-brave-and-true):

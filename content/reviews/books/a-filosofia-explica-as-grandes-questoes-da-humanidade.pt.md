@@ -1,9 +1,11 @@
 +++
 title = "A Filosofia Explica as Grandes Questões da Humanidade - Clóvis de Barros Filho"
 date = 2017-06-05
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "clovis de barros filho", "reviews", "filosofia", "2 stars"]
+tags = ["books", "clovis de barros filho", "reviews", "filosofia", "stars:2",
+"published:2013"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/18624377-a-filosofia-explica-as-grandes-quest-es-da-humanidade):
@@ -46,3 +48,9 @@ um fim.
 
 Vale pelo último 1/3, o resto é uma baderna de ser lido sem que se chegue a
 uma conclusão.
+
+
+
+<!-- 
+vim:spelllang=pt:
+-->

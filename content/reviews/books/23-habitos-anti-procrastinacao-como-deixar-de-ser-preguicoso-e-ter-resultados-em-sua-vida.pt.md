@@ -1,9 +1,10 @@
 +++
 title = "23 Hábitos Anti-Procrastinação: Como Deixar de Ser Preguiçoso e Ter Resultados Em Sua Vida - S.J. Scott"
 date = 2016-08-08
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "s.j. scott", "reviews", "2 stars"]
+tags = ["books", "s.j. scott", "reviews", "stars:2", "published:2013"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23846012-23-h-bitos-anti-procrastina-o):
@@ -27,3 +28,7 @@ menos, a origem do mesmo (de novo, do GTD).
 
 O livro não é ruim, mas para quem já se preparou para seguir o GTD, boa parte
 do que foi apresentado já é feito.
+
+<!-- 
+vim:spelllang=pt:
+-->

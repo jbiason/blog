@@ -1,10 +1,11 @@
 +++
 title = "American Gods - Neil Gaiman"
 date = 2015-04-04
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "neil gaiman", "reviews", "fiction", "american gods", 
-"5 stars"]
+"stars:5", "published:2001"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/30165203-american-gods):
@@ -21,7 +22,7 @@ threatens to break.
 
 {{ stars(stars=5) }}
 
-**A very hard book to read **
+**A very hard book to read**
 
 When I was halfway through it, I though I'd give this book 4 stars; when I was
 3/4 through it, I though about giving it only 3 stars; then, in the very end,

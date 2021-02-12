@@ -1,10 +1,11 @@
 +++
 title = "Elon Musk: Como o CEO bilionário da SpaceX e da Tesla está moldando o nosso futuro - Ashlee Vance"
 date = 2016-02-17
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "ashlee vance", "reviews", "elon musk", "biografia", 
-"4 stars"]
+"stars:4", "published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26866506-elon-musk):
@@ -41,3 +42,7 @@ de discussão.
 
 É um livro interessante para entender a SpaceX e a Tesla, mas pouco para se
 entender Elon Musk.
+
+<!-- 
+vim:spelllang=pt:
+-->

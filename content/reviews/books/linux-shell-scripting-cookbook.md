@@ -1,10 +1,11 @@
 +++
 title = "Linux Shell Scripting Cookbook - Shantanu Tushar"
 date = 2016-01-13
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "shantanu tushar", "reviews", "it", "shell script", 
-"2 stars"]
+"stars:2", "published:2011"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/10370134-linux-shell-scripting-cookbook):

@@ -1,9 +1,11 @@
 +++
 title = "The Book of Skulls - Robert Silverberg"
 date = 2018-09-03
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "robert silverberg", "review", "horror", "1 star"]
+tags = ["books", "robert silverberg", "review", "horror", "stars:1",
+"published:1971"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/219107.The_Book_of_Skulls):
@@ -19,8 +21,8 @@ farm boy obsessed with death.
 
 The story of four friends that go after some mysterious book -- said "Book of
 Skulls" -- which tells about the secret for eternal life, but it requires four
-people, one which must be "removed" by the group and another that must be
-"removed" by themselves.
+people, one which must be "removed" by the group and another that must "remove"
+themselves.
 
 But that's not the horror of it.
 

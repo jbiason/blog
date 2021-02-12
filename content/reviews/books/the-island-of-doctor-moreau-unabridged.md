@@ -1,9 +1,11 @@
 +++
 title = "The Island of Doctor Moreau (Unabridged) - H.G. Wells"
 date = 2014-12-09
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "h.g. wells", "fantasy", "scifi", "reviews", "4 stars"]
+tags = ["books", "h.g. wells", "fantasy", "scifi", "reviews", "stars:4",
+"published:1896"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/29981.The_Island_of_Doctor_Moreau):

@@ -1,9 +1,11 @@
 +++
 title = "Creating Interfaces with Bulma -  Jeremy Thomas, Oleksii Potiekhin, Mikko Lauhakari, Aslam Shah, Dave Berning"
 date = 2020-01-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "bulma", "it", "2 stars", "css", "books:2020"]
+tags = ["books", "reviews", "bulma", "it", "stars:2", "css", "books:2020",
+"published:2018"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/38473029-creating-interfaces-with-bulma):

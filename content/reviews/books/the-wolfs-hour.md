@@ -1,10 +1,11 @@
 +++
 title = "The Wolf's Hour - Robert R. McCammon"
 date = 2019-02-16
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "werewolves", "robert r mccammon", "fantasy", 
-"3 stars"]
+"stars:3", "published:1989"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/11551.The_Wolf_s_Hour):

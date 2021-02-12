@@ -1,9 +1,10 @@
 +++
 title = "Grand Prix Driver"
 date = 2020-11-07
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["reviews", "series", "3 stars", "amazon", "formula 1"]
+tags = ["reviews", "series", "amazon", "formula 1", "stars:3"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt7841526/?ref_=fn_al_tt_1):

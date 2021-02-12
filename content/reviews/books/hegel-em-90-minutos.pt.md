@@ -1,9 +1,10 @@
 +++
 title = "Hegel em 90 Minutos - Paul Strathern"
 date = 2019-10-10
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "hegel", "biografia", "1 star"]
+tags = ["books", "reviews", "hegel", "biografia", "stars:1", "published:1990"]
 +++
 
 [Resumo do GoodReads](https://www.goodreads.com/book/show/19265618-hegel-em-90-minutos):
@@ -33,3 +34,7 @@ apontadas pelo autor, Hegel passa de tutor de uma família em Bern à reitor da
 Universidade de Berlim. E como é que diabos, apesar de uma vida de conteúdo
 "entediante" e que era "incapaz de seguir uma linha de raciocínio em suas
 aulas", lotava salas de aula.
+
+<!-- 
+vim:spelllang=pt:
+-->

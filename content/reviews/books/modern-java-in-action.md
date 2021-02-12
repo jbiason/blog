@@ -1,10 +1,11 @@
 +++
 title = "Modern Java in Action - Raoul-Gabriel Urma"
 date = 2019-02-08
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "java", "java 8", "java 9", "raoul-gabriel urma",
-"it", "2 stars"]
+"it", "stars:2", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/46213396-modern-java-in-action):

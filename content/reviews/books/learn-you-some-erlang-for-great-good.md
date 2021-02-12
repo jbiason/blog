@@ -1,11 +1,11 @@
 +++
 title = " Learn you some Erlang for great good! - Fred Hebert"
 date = 2020-10-25
-updated = 2020-10-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "it", "erlang", "fred hebert", "4 stars",
-"books:2020"]
+tags = ["books", "reviews", "it", "erlang", "fred hebert", "stars:4",
+"books:2020", "published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/6718693-learn-you-some-erlang-for-great-good):

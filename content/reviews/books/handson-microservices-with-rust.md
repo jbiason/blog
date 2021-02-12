@@ -1,10 +1,11 @@
 +++
 title = "Hands-On Microservices with Rust - Denis Kolodin"
 date = 2019-03-03
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["reviews", "books", "rust", "microservices", "denis kolodin", "it", 
-"2 stars"]
+"stars:2", "published:2019"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/44079380-hands-on-microservices-with-rust):
@@ -30,8 +31,8 @@ is. There are a bunch of grammatical errors from the half of the book to the
 end, which should've picked by the editor; there are a bunch of weird
 explanations and the incredible tendency of use a different package on each
 project (one project uses Hyper, the other Rocket, the other Actix-Web) which
-should've been picked by the reviewer; the whole book have a bunch of what the
-code is doing, but not why it was designed that way.
+should've been picked by the reviewer; the whole book have a bunch of text
+saying what the code is doing, but not why it was designed that way.
 
 So the whole thing feels rushed and without thought.
 

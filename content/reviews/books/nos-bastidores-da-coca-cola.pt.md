@@ -1,9 +1,11 @@
 +++
 title = "Nos Bastidores da Coca-Cola - Neville Isdell"
 date = 2017-01-14
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "neville isdell", "história", "coca-cola", "ceo", "2 stars"]
+tags = ["books", "neville isdell", "história", "coca-cola", "ceo", "stars:2",
+"published:2011"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/26831728-nos-bastidores-da-coca-cola):
@@ -42,3 +44,7 @@ vezes é "Coca-Cola", outras é "Coke". Poderia ser que uma refere-se à bebida 
 a outra à empresa (ou vice-versa), mas não. É como se o tradutor -- ou mesmo o
 autor, nesse ponto -- não consiga ter uma visão do que é uma e o que é a
 outra.
+
+<!-- 
+vim:spelllang=pt:
+-->

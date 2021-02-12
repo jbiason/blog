@@ -1,9 +1,11 @@
 +++
 title = "A História do Mundo Para Quem Tem Pressa - Emma Marriott"
 date = 2016-05-10
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "emma marriott", "história", "review", "5 stars"]
+tags = ["books", "emma marriott", "história", "review", "stars:5",
+"published:2012"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25543485-a-hist-ria-do-mundo-para-quem-tem-pressa):
@@ -42,3 +44,7 @@ No fim, o livro se torna divertido mesmo nos tempos modernos, onde a
 abundância de informações permite uma maior "manobrabilidade" do conteúdo.
 Mas, como tido no começo, o livro sofre com a própria ideia de ser um livro de
 história com 200 páginas e acaba sacrificando o entendimento em alguns casos.
+
+<!-- 
+vim:spelllang=pt:
+-->

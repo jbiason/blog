@@ -1,9 +1,11 @@
 +++
 title = "The Complete Collection - H.P. Lovecraft"
 date = 2014-11-29
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "h.p. lovecraft", "reviews", "horror", "1 star"]
+tags = ["books", "h.p. lovecraft", "reviews", "horror", "stars:1",
+"published:2002"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/50029451-h-p-lovecraft):

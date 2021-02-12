@@ -1,11 +1,11 @@
 +++
 title = "Introducing Erlang: Getting Started in Functional Programming - Simon St. Laurent"
 date = 2020-08-05
-updated = 2020-10-26
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "simon st laurent", "erlang", "it", 
-"books:2020", "2 stars"]
+"books:2020", "stars:2", "published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/15811999-introducing-erlang):

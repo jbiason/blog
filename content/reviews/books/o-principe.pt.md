@@ -1,9 +1,11 @@
 +++
 title = "O Príncipe - Niccolò Machiavelli"
 date = 2016-11-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "niccolo machiavelli", "reviews", "ficção", "3 stars"]
+tags = ["books", "niccolo machiavelli", "reviews", "ficção", "stars:3",
+"published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/28551872-o-pr-ncipe):
@@ -33,3 +35,7 @@ partes são excruciantes de ler.
 Fora isso, O Príncipe fala muito de como manter o poder a qualquer custo. E é
 impossível não ler e não pensar em vários políticos nacionais brasileiros, que
 aparentemente seguem o livrinho a risca.
+
+<!-- 
+vim:spelllang=pt:
+-->

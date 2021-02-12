@@ -1,9 +1,11 @@
 +++
 title = "The Swift Programming Language - Apple Inc."
 date = 2017-02-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "apple inc.", "reviews", "swift", "it", "5 stars"]
+tags = ["books", "apple inc.", "reviews", "swift", "it", "stars:5",
+"published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22394477-the-swift-programming-language):

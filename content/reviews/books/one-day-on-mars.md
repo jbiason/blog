@@ -1,9 +1,11 @@
 +++
 title = "One Day On Mars - Travis S. Taylor"
 date = 2019-12-13
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "travis s taylor", "scifi", "mars", "2 stars"]
+tags = ["books", "reviews", "travis s taylor", "scifi", "mars", "stars:2",
+"published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/20638066-one-day-on-mars):
@@ -35,7 +37,7 @@ Mars, under the influence of the huge "UNITED STATES OF FUCKING AMERICA" (not
 actual title, but actual feeling given by the author), is being terraformed.
 But rebels, which think America diverted from the forefathers ideals, think
 it's better to move to somewhere else and make the "REAL AMERICA" (again, not
-actual title in the title, but feeling given by the rebel characters).
+actual description in the book, but feeling given by the rebel characters).
 
 What happens is a clusterfuck of information and lack of information at the
 same time: It starts with one event, in which the backstory is giving in long,

@@ -1,10 +1,11 @@
 +++
 title = "Storm Real-Time Processing Cookbook - Quinton Anderson"
 date = 2017-07-30
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "quinton anderson", "reviews", "it", "storm", 
-"stream processing", "big data", "2 stars"]
+"stream processing", "big data", "stars:2", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18430542-storm-real-time-processing-cookbook):

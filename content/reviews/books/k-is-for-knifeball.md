@@ -1,10 +1,11 @@
 +++
 title = "K is for Knifeball: An Alphabet of Terrible Advice -  Avery Monsen, Jory John"
 date = 2020-01-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "fun", "avery monsen", "jory john", "3 stars",
-"kids", "books:2020"]
+tags = ["books", "reviews", "fun", "avery monsen", "jory john", "stars:3",
+"kids", "books:2020", "published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/14553581-k-is-for-knifeball):

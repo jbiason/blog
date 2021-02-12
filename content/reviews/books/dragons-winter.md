@@ -1,9 +1,11 @@
 +++
 title = "Dragon's Winter - Elizabeth A. Lynn"
 date = 2019-08-14
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "fantasy", "elizabeth a lynn", "3 stars"]
+tags = ["books", "reviews", "fantasy", "elizabeth a lynn", "stars:3",
+"published:1997"]
 +++
 
 [Goodreads Summary](https://www.goodreads.com/book/show/22746453-dragon-s-winter):

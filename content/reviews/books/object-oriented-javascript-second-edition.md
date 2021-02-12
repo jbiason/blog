@@ -1,9 +1,11 @@
 +++
 title = "Object-oriented JavaScript - Second Edition - Stoyan Stefanov"
 date = 2015-10-03
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "stoyan stefanov", "javascript", "it", "reviews", "3 stars"]
+tags = ["books", "stoyan stefanov", "javascript", "it", "reviews", "stars:3",
+"published:2008"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/4355468-object-oriented-javascript):

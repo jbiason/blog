@@ -1,9 +1,11 @@
 +++
 title = "Poder & Manipulação: Como entender o mundo em vinte lições extraídas de \"O Príncipe\", de Maquiavel - Jacob Pétry"
 date = 2016-08-27
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "jacob petry", "o príncipe", "reviews", "2 stars"]
+tags = ["books", "jacob petry", "o príncipe", "reviews", "stars:2",
+"published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/30321814-poder-manipula-o):
@@ -37,3 +39,7 @@ com B?
 De novo, O Príncipe parece ser, pelos trechos escolhidos, bem interessante. A
 análise, conteúdo desse livro, no entanto, parece se referenciar a algo
 completamente diferente. 
+
+<!-- 
+vim:spelllang=pt:
+-->

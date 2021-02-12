@@ -1,9 +1,10 @@
 +++
 title = "American Playboy: The Hugh Hefner Story"
 date = 2020-11-05
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["reviews", "series", "playboy", "amazon", "hugh hefner"]
+tags = ["reviews", "series", "playboy", "amazon", "hugh hefner", "stars:1"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt5968748/):

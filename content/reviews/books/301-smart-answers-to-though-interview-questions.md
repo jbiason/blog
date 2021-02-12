@@ -1,9 +1,11 @@
 +++
 title = "301 Smart Answers To Though Interview Questions - Vicky Oliver"
 date = 2019-11-24
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "interviews", "vicky oliver", "1 star"]
+tags = ["books", "reviews", "interviews", "vicky oliver", "stars:1",
+"published:2005"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/287009.301_Smart_Answers_to_Tough_Interview_Questions):

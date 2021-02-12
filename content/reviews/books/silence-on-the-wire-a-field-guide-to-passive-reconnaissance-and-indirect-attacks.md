@@ -1,9 +1,11 @@
 +++
 title = "Silence on the Wire: A Field Guide to Passive Reconnaissance and Indirect Attacks - Michal Zalewski"
 date = 2016-06-23
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "michal zalewski", "reviews", "it", "2 stars"]
+tags = ["books", "michal zalewski", "reviews", "it", "stars:2",
+"published:2005"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/82994.Silence_on_the_Wire):

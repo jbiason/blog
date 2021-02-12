@@ -1,9 +1,10 @@
 +++
 title = "Como convencer alguém em 90 segundos - Nicholas Boothman"
 date = 2016-07-24
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "nicholas boothman", "reviews", "4 stars"]
+tags = ["books", "nicholas boothman", "reviews", "stars:4", "published:2002"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/31222406-como-convencer-algu-m-em-90-segundos):
@@ -28,3 +29,7 @@ uma história que capture a atenção das pessoas.... cada ponto tem um
 exercício. Além disso, no final de cada capítulo, existe um resumo do que foi
 falado no livro -- embora a forma como esse resumo apareça não tenha nenhum
 indicativo que é o resumo e não apenas mais um tópico do capítulo.
+
+<!-- 
+vim:spelllang=pt:
+-->

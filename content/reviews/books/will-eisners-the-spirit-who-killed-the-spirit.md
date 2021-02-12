@@ -1,9 +1,11 @@
 +++
 title = "Will Eisner's the Spirit: Who Killed the Spirit? - Matt Wagner"
 date = 2017-09-04
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "matt wagner", "comics", "reviews", "2 stars"]
+tags = ["books", "matt wagner", "comics", "reviews", "stars:2",
+"published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/31170820-will-eisner-s-the-spirit):
@@ -11,6 +13,8 @@ To celebrate the 75th anniversary of Will Eisner's most iconic character,
 Dynamite Entertainment proudly assembled the creative dream team of Eisner
 Award-winning author Matt Wagner, artist Dan Schkade, and colorist Brennan
 Wagner to honor the legend with an all-new adventure!
+
+<!-- more -->
 
 {{ stars(stars=2) }}
 

@@ -1,9 +1,11 @@
 +++
 title = "Spy Game (2001)"
 date = 2020-11-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "reviews", "thriller", "brad pitt", "robert redford"]
+tags = ["movies", "reviews", "thriller", "brad pitt", "robert redford",
+"stars:2"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt0266987/):

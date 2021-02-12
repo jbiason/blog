@@ -1,10 +1,11 @@
 +++
 title = "The 7 Secrets of Exceptional Leadership - Brian Tracy"
 date = 2020-05-24
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "leadership", "brian tracy", "0 stars",
-"books:2020"]
+tags = ["books", "reviews", "leadership", "brian tracy", "stars:0",
+"books:2020", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18523862-the-7-secrets-of-exceptional-leadership):
@@ -30,5 +31,5 @@ knowing what you want (even couple with the other points) doesn't make you a
 leader -- heck, it doesn't even _fit_ the description of a leader.
 
 This was a book that I picked up and dropped next day 'cause fuck confusing
-"being a boss" with "being a leader" -- and those two are completelly
+"being a boss" with "being a leader" -- and those two are completely
 different aspects.

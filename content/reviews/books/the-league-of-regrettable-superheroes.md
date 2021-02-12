@@ -1,10 +1,11 @@
 +++
 title = "The League of Regrettable Superheroes: Half-Baked Heroes from Comic Book History  - Jon Morris"
 date = 2020-02-02
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "comics", "superheroes", "jon morris", 
-"4 stars", "books:2020"]
+"stars:4", "books:2020", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23164984-the-league-of-regrettable-superheroes):

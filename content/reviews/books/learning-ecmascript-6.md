@@ -1,10 +1,11 @@
 +++
 title = "Learning ECMAScript 6 - Narayan Prusty"
 date = 2016-02-18
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "narayan prusty", "reviews", "javascript", "web development",
-"it", "2 stars"]
+"it", "stars:2", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/26236031-learning-ecmascript-6):

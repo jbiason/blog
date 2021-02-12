@@ -1,9 +1,11 @@
 +++
 title = "How to Make Mistakes in Python - Mike Pirnat"
 date = 2017-01-01
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "mike pirnat", "python", "review", "it", "3 stars"]
+tags = ["books", "mike pirnat", "python", "review", "it", "stars:3",
+"published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/28166034-how-to-make-mistakes-in-python):

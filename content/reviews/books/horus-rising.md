@@ -1,10 +1,11 @@
 +++
 title = "Horus Rising - Dan Abnett"
 date = 2019-10-30
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "warhammer 40000", "dan abnett", "horus heresy",
-"scifi", "2 stars"]
+"scifi", "stars:2", "published:2006"]
 +++
 
 [Goodreads Summary](https://www.goodreads.com/book/show/625603.Horus_Rising):

@@ -1,9 +1,10 @@
 +++
 title = "Subterranean Scalzi Super Bundle - John Scalzi"
 date = 2015-03-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "john scalzi", "reviews", "scifi", "3 stars"]
+tags = ["books", "john scalzi", "reviews", "scifi", "stars:3", "published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/16157467-subterranean-scalzi-super-bundle):

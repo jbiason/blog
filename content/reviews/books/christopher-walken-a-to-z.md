@@ -1,10 +1,11 @@
 +++
 title = "Christopher Walken A to Z: The Man, the Movies, the Legend - Robert Schnakenberg"
 date = 2020-02-18
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "fun", "biography", "christopher walken", 
-"robert schnakenberg", "3 stars", "books:2020"]
+"robert schnakenberg", "stars:3", "books:2020", "published:2008"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23838378-christopher-walken-a-to-z):

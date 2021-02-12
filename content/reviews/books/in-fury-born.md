@@ -1,9 +1,11 @@
 +++
 title = "In Fury Born - David Weber"
 date = 2020-06-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "review", "scifi", "fantasy", "1 star", "books:2020"]
+tags = ["books", "review", "scifi", "fantasy", "stars:1", "books:2020",
+"published:2006"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/130528.In_Fury_Born):

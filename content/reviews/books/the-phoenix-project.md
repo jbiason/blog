@@ -1,10 +1,11 @@
 +++
 title = "The Phoenix Project: A Novel About IT, DevOps, and Helping Your Business Win -  Gene Kim, Kevin Behr, George Spafford"
 date = 2020-01-08
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "devops", "phoenix", "gene kim", "kevin behr",
-"george spafford", "1 star", "books:2020"]
+"george spafford", "stars:1", "books:2020", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/17255186-the-phoenix-project):

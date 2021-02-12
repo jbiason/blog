@@ -1,9 +1,11 @@
 +++
 title = "Microservice Patterns - Chris Richardson"
 date = 2019-10-09
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "microservices", "spring", "java", "1 star"]
+tags = ["books", "reviews", "microservices", "spring", "java", "stars:1",
+"published:2017"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/34372564-microservice-patterns):
@@ -30,7 +32,7 @@ The first 1/4 of the book is pretty good, showing patterns and giving
 explanations about it. The rest of the book is strongly focused on external
 frameworks and libraries and has almost no patterns discussion at all -- for
 example, the second 1/4 is, basically, focused on the author's framework -- a
-Java framework. . Also, the author seems strongly focused on Java code, even
+Java framework. Also, the author seems strongly focused on Java code, even
 after explaining that a microservice fleet can be written in lots of different
 languages -- even listing some languages.
 
@@ -42,11 +44,11 @@ framework".
 The code examples are also bad. It seems the author decided to use IntelliJ as
 IDE and use its variable-name-generator (based on the class name) to create
 the variable names. Classes names are really long on Java and, using the IDE,
-the variables names <i>also</i> get really long, which by itself is not bad,
+the variables names *also* get really long, which by itself is not bad,
 but in a book, it means the code will get formatted like any text and, thus,
 get completely broken, and really hard to read.
 
-There are <i>lots</i> of images. And, as usual with a lot of images, 90% of
+There are *lots* of images. And, as usual with a lot of images, 90% of
 them are completely irrelevant, adding absolutely nothing of whatever was
 described already.
 

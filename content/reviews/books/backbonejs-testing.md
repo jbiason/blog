@@ -1,10 +1,11 @@
 +++
 title = "Backbone.Js Testing - Ryan Roemer"
 date = 2016-05-02
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "ryan roemer", "reviews", "backbone.js", "javascript", 
-"web development", "it", "5 stars"]
+"web development", "it", "stars:4", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18902858-backbone-js-testing):
@@ -16,7 +17,7 @@ backbone application, then this book is ideal for you.
 
 <!-- more -->
 
-{{ stars(stars=5) }}
+{{ stars(stars=4) }}
 
 At the very begin of the book, the author mentioned that, for the sake of
 showing tests, there would be a complete application to be used as an example.
@@ -29,7 +30,7 @@ talk about Mocha, Chai and Sinon. If the author decided to write a "React.js
 Testing", there wouldn't be more much in the topics, just a few adjustments
 there and there.
 
-This means this book is back? Actually not. Although not focusing directly on
+This means this book is bad? Actually not. Although not focusing directly on
 Backbone, it *does* focus a lot on testing and all related libraries. Even if
 you don't work with Backbone -- but have at least some general idea about how
 it works -- it is a damn good book about JavaScript testing.

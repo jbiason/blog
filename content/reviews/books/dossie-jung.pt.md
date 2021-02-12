@@ -1,10 +1,11 @@
 +++
 title = "Dossiê Jung - Elizabeth Mednicoff"
 date = 2017-03-21
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "elizabeth mednicoff", "reviews", "psicologia", "carl jung",
-"1 star"]
+"stars:1"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23356314-dossi-jung):
@@ -38,3 +39,7 @@ Então fica tudo em conceitos e nada palpável.
 E ainda, existe muito mais opinião ("creio" em alguns pontos) e falta de
 conteúdo direto (como indicar ao leitor para "procurar na web") que realmente
 tiram a ideia de que é um trabalho completo.
+
+<!-- 
+vim:spelllang=pt:
+-->

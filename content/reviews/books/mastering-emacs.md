@@ -1,9 +1,11 @@
 +++
 title = "Mastering Emacs, Mickey Petersen"
 date = 2019-11-18
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "emacs", "mickey petersen", "it", "4 stars"]
+tags = ["books", "reviews", "emacs", "mickey petersen", "it", "stars:4",
+"published:2015"]
 +++
 
 [GoodReads summary](https://www.goodreads.com/book/show/25587882-mastering-emacs):

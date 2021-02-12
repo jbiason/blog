@@ -1,10 +1,11 @@
 +++
 title = "Reactive Microservices Architecture - Jonas Bonér"
 date = 2020-02-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "it", "microservices", "jonas boner", "1 star",
-"books:2020"]
+tags = ["books", "reviews", "it", "microservices", "jonas boner", "stars:1",
+"books:2020", "published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/29630482-reactive-microservices-architecture):

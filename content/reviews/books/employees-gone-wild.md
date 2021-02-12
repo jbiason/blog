@@ -1,10 +1,11 @@
 +++
 title = "Employees Gone Wild: Crazy (and True!) Stories of Office Misbehavior, and What You Can Learn From the Mistakes of Others - Richard Burton"
 date = 2020-01-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "fun", "richard burton", "3 stars", "work", 
-"books:2020"]
+tags = ["books", "reviews", "fun", "richard burton", "stars:3", "work", 
+"books:2020", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23130072-employees-gone-wild):

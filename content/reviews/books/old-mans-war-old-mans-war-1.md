@@ -1,9 +1,11 @@
 +++
 title = "Old Man's War (Old Man's War, #1) - John Scalzi"
 date = 2015-07-19
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "john scalzi", "reviews", "scifi", "old man's war", "4 stars"]
+tags = ["books", "john scalzi", "reviews", "scifi", "old man's war", "stars:4",
+"published:2005"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/36510196-old-man-s-war):

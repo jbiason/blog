@@ -1,9 +1,11 @@
 +++
 title = "Brave New World - Aldous Huxley"
 date = 2014-12-31
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "aldous huxley", "reviews", "scifi", "fantasy", "3 stars"]
+tags = ["books", "aldous huxley", "reviews", "scifi", "fantasy", "stars:3",
+"published:1932"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/5129.Brave_New_World):

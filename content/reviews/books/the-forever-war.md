@@ -1,10 +1,11 @@
 +++
 title = "The Forever War - Joe Haldeman"
 date = 2014-12-05
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "joe haldeman", "reviews", "scifi", "the forever war", 
-"5 stars"]
+"stars:5", "published:1974"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/21611.The_Forever_War):

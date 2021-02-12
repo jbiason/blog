@@ -1,10 +1,11 @@
 +++
 title = "Central Station - Lavie Tidhar"
 date = 2021-01-20
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "fantasy", "scifi", "books:2021", "1 star",
-"lavie tidhar"]
+tags = ["books", "reviews", "fantasy", "scifi", "books:2021", "stars:1",
+"lavie tidhar", "published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/25986774-central-station):

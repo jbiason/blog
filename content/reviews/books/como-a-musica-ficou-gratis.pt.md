@@ -1,9 +1,11 @@
 +++
 title = "Como a música ficou grátis - Stephen Witt"
 date = 2016-05-21
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "stephen witt", "review", "streaming", "música", "4 stars"]
+tags = ["books", "stephen witt", "review", "streaming", "música", "stars:4",
+"published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/31306379-como-a-m-sica-ficou-gr-tis):
@@ -53,3 +55,7 @@ sido sumariamente ignorados.
 Outro problema com o livro é a leitura. Por algum motivo, o conteúdo é
 complicado de ser lido, possivelmente porque vai construindo hipótese sobre
 hipótese e contexto sobre contexto, o que deixa o livro “lento” de ser lido.
+
+<!-- 
+vim:spelllang=pt:
+-->

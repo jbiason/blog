@@ -1,9 +1,11 @@
 +++
 title = "Learning Java - Patrick Niemeyer"
 date = 2018-08-03
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "patrick niemeyer", "reviews", "java", "it", "2 stars"]
+tags = ["books", "patrick niemeyer", "reviews", "java", "it", "stars:2",
+"published:2005"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/665984.Learning_Java):

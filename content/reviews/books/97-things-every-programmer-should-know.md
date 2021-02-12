@@ -1,10 +1,10 @@
 +++
 title = "97 Things Every Programmer Should Know: Collective Wisdom from the Experts - Kevlin Henney"
 date = 2020-03-22
-updated = 2020-10-26
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "it", "3 stars", "books:2020"]
+tags = ["books", "reviews", "it", "stars:3", "books:2020", "published:2010"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/7003902-97-things-every-programmer-should-know):

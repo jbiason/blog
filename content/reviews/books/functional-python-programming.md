@@ -1,10 +1,11 @@
 +++
 title = "Functional Python Programming - Create Succinct and Expressive Implementations with Python - Steven F. Lott"
 date = 2020-08-27
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "review", "it", "steven f lott", "python", "functional", 
-"1 star", "books:2020"]
+"stars:1", "books:2020", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/24925633-functional-python-programming---create-succinct-and-expressive-implement):

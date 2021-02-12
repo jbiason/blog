@@ -1,10 +1,11 @@
 +++
 title = "Mussum Forévis: Samba, mé e trapalhões - Juliano Barreto"
 date = 2016-02-21
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "juliano barreto", "reviews", "história", "history", 
-"4 stars"]
+"stars:4", "published:2014"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/23751843-mussum-for-vis):
@@ -43,3 +44,7 @@ Antônio Carlos -- mas nem por isso o conteúdo deixa de ser informativo.
 PS: Acabei esquecendo de mencionar: A forma como o livro foi escrito é de uma
 acessibilidade tão grande que eu consegui ler todas as 440 páginas em apenas 3
 dias.
+
+<!-- 
+vim:spelllang=pt:
+-->

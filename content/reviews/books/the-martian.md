@@ -1,9 +1,10 @@
 +++
 title = "The Martian - Andy Weir"
 date = 2015-07-18
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "andy weir", "review", "scifi", "5 stars"]
+tags = ["books", "andy weir", "review", "scifi", "stars:5", "published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18007564-the-martian):

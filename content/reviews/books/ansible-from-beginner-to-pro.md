@@ -1,10 +1,11 @@
 +++
 title = "Ansible: From Beginner to Pro - Michael Heap"
 date = 2020-04-03
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "ti", "ansible", "michael heap", "3 stars",
-"books:2020"]
+tags = ["books", "reviews", "ti", "ansible", "michael heap", "stars:3",
+"books:2020", "published:2016"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/29201033-ansible):

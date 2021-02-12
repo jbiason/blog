@@ -1,10 +1,11 @@
 +++
 title = "Functional Reactive Programming -  Stephen Blackheath, Anthony Jones"
 date = 2020-03-04
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "stephen blackheath", "it", "anthony jones", 
-"0 stars", "books:2020"]
+"stars:0", "books:2020", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/24671986-functional-reactive-programming)

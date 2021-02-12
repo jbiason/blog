@@ -1,9 +1,10 @@
 +++
 title = "A Bug Hunter's Diary: A Guided Tour Through the Wilds of Software Security - Tobias Klein"
 date = 2016-10-14
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "tobias klein", "reviews", "it", "4 stars"]
+tags = ["books", "tobias klein", "reviews", "it", "stars:4", "published:2011"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/12746081-a-bug-hunter-s-diary):

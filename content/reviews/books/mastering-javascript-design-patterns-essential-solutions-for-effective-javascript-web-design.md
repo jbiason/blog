@@ -1,10 +1,11 @@
 +++
 title = "Mastering JavaScript Design Patterns - Essential Solutions for Effective JavaScript Web Design - Simon Timms"
 date = 2016-03-12
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "simon timms", "reviews", "javascript", "design patterns",
-"it", "2 stars"]
+"it", "stars:2", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23847040-mastering-javascript-design-patterns---essential-solutions-for-effective):

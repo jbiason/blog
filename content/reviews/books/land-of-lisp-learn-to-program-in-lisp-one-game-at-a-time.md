@@ -1,9 +1,11 @@
 +++
 title = "Land of Lisp: Learn to Program in Lisp, One Game at a Time! - Conrad Barski"
 date = 2017-03-16
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "conrad barski", "lisp", "reviews", "it", "3 stars"]
+tags = ["books", "conrad barski", "lisp", "reviews", "it", "stars:3",
+"published:2010"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/6905041-land-of-lisp):

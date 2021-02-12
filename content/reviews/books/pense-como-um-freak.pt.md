@@ -1,9 +1,11 @@
 +++
 title = "Pense Como Um Freak - Steven D. Levitt"
 date = 2016-02-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "steven d. levitt", "reviews", "psicologia", "5 stars"]
+tags = ["books", "steven d. levitt", "reviews", "psicologia", "stars:5",
+"published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/24689125-pense-como-um-freak):
@@ -34,3 +36,7 @@ aparentemente sem conexão na verdade estão relacionadas.
 A parte interessante é que o livro termina nos 70%. Os demais 30% são
 divididos entre um índice gigantesco de assuntos abordados e a lista de
 referências utilizadas para chegarem as conclusões apresentadas.
+
+<!-- 
+vim:spelllang=pt:
+-->

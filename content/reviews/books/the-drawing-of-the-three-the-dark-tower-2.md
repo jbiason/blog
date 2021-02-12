@@ -1,10 +1,11 @@
 +++
 title = "The Drawing of the Three (The Dark Tower, #2) - Stephen King"
 date = 2017-08-20
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "stephen king", "reviews", "the dark tower", "fantasy", 
-"5 stars"]
+"stars:5", "published:1987"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/5094.The_Drawing_of_the_Three):

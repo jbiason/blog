@@ -1,9 +1,11 @@
 +++
 title = "Swan Song - Robert R. McCammon"
 date = 2020-11-18
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "reviews", "fiction", "books:2020", "3 stars"]
+tags = ["books", "reviews", "fiction", "books:2020", "stars:3",
+"published:1987"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/12972591-swan-song):

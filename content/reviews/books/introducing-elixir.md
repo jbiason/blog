@@ -1,10 +1,11 @@
 +++
 title = "Introducing Elixir: Getting Started in Functional Programming - Simon St.Laurent, J. David Eisenberg"
 date = 2020-07-24
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "simon st laurent", "j david eisenberg", "it",
-"elixir", "books:2020", "4 stars"]
+"elixir", "books:2020", "stars:4", "published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18194084-introducing-elixir):

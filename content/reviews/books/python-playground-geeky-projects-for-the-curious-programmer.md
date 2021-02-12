@@ -1,9 +1,11 @@
 +++
 title = "Python Playground: Geeky Projects for the Curious Programmer - Mahesh Venkitachalam"
 date = 2016-10-12
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "mahesh venkitachalam", "reviews", "python", "it", "2 stars"]
+tags = ["books", "mahesh venkitachalam", "reviews", "python", "it", "stars:2",
+"published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/22978167-python-playground):

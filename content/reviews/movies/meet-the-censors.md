@@ -1,9 +1,10 @@
 +++
 title = "Meet the Censors (2020)"
 date = 2020-11-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "reviews", "documentary", "censorship"]
+tags = ["movies", "reviews", "documentary", "censorship", "stars:5"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt12782812/):

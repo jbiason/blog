@@ -1,9 +1,11 @@
 +++
 title = "An Illustrated Book of Bad Arguments - Ali Almossawi"
 date = 2015-03-05
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "ali almossawi", "reviews", "logic", "fallacies", "4 stars"]
+tags = ["books", "ali almossawi", "reviews", "logic", "fallacies", "stars:4",
+"published:2013"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18753581-an-illustrated-book-of-bad-arguments):

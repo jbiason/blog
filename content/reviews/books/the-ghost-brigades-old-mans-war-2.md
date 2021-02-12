@@ -1,10 +1,11 @@
 +++
 title = "The Ghost Brigades (Old Man's War, #2) - John Scalzi"
 date = 2016-04-21
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "john scalzi", "reviews", "scifi", "old man's war", 
-"5 stars"]
+"stars:5", "published:2006"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/239399.The_Ghost_Brigades):

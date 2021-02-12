@@ -1,10 +1,11 @@
 +++
 title = "Zoe's Tale (Old Man's War, #4) - John Scalzi"
 date = 2017-01-25
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "john scalzi", "reviews", "old man's war", "scifi", 
-"4 stars"]
+"stars:4", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/2102600.Zoe_s_Tale):

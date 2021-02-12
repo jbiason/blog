@@ -1,10 +1,11 @@
 +++
 title = "Hadoop in Practice - Alex Holmes"
 date = 2018-02-16
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "alex holmes", "reviews", "ti", "hadoop", "big data", 
-"1 star"]
+"stars:1", "published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/13496907-hadoop-in-practice):

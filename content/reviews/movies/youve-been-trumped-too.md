@@ -1,9 +1,10 @@
 +++
 title = "You've Been Trumped Too (2016)"
 date = 2020-11-28
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["movies", "documentaries", "trump"]
+tags = ["movies", "documentaries", "trump", "stars:3"]
 +++
 
 [IMDB Summary](https://www.imdb.com/title/tt6158604/):

@@ -1,10 +1,11 @@
 +++
 title = "The Flight of the Eisenstein - James Swallow"
 date = 2020-01-17
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "reviews", "horus heresy", "warhammer 40000", "sci", 
-"james swallow", "1 star", "books:2020"]
+"james swallow", "stars:1", "books:2020", "published:2007"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/80155.The_Flight_of_the_Eisenstein):
@@ -18,15 +19,15 @@ Terra in time?
 
 {{ stars(stars=1) }}
 
- How do you tell a following story that takes over from another one, one that
- feels somewhat complete, one that, even when discussing several events, have
- at least one that goes to conclusion? One solution is to continue the story
- from the point the previous one completed, but one could try to push the
- story further by picking one of those events and showing another point of
- view of something readers already know how it will end, being careful to not
- build any suspense on what will happen, 'cause the reader knows what it will
- end and you end up with just a bunch of text that it is just boring as heck
- to read.
+How do you tell a following story that takes over from another one, one that
+feels somewhat complete, one that, even when discussing several events, have
+at least one that goes to conclusion? One solution is to continue the story
+from the point the previous one completed, but one could try to push the
+story further by picking one of those events and showing another point of
+view of something readers already know how it will end, being careful to not
+build any suspense on what will happen, 'cause the reader knows what it will
+end and you end up with just a bunch of text that it is just boring as heck
+to read.
 
 Another thing one should take care is to not build long sentences that just
 keeps going on and on that add very little except burn the reader time, like

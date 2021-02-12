@@ -1,9 +1,11 @@
 +++
 title = "A Garota no Trem - Paula Hawkins"
 date = 2017-03-18
+updated = 2021-02-12
 
 [taxonomies]
-tags = ["books", "paula hawkins", "reviews", "ficção", "4 stars"]
+tags = ["books", "paula hawkins", "reviews", "ficção", "stars:4",
+"published:2015"]
 +++
 
 [Resumo GoodReads](https://www.goodreads.com/book/show/25758236-a-garota-no-trem):
@@ -40,3 +42,7 @@ espaços temporais para ter a visão do todo da história.
 
 Fora isso, é um excelente mistério, com uma boa percepção dos clichés e como
 utilizá-los para criar plot twists.
+
+<!-- 
+vim:spelllang=pt:
+-->

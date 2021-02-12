@@ -1,10 +1,11 @@
 +++
 title = "Web Development with Django Cookbook - Aidas Bendoraitis"
 date = 2016-07-10
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "aidas bendoraitis", "reviews", "python", "django", 
-"web development", "it", "1 star"]
+"web development", "it", "stars:1", "published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23477190-web-development-with-django-cookbook):

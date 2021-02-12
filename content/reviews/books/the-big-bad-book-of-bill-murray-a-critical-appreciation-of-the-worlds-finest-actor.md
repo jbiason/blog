@@ -1,10 +1,11 @@
 +++
 title = "The Big Bad Book of Bill Murray: A Critical Appreciation of the World's Finest Actor - Robert Schnakenberg"
 date = 2018-06-03
+updated = 2021-02-12
 
 [taxonomies]
 tags = ["books", "robert schnakenberg", "bill murray", "cinema", "reviews", 
-"2 stars"]
+"stars:2", "published:2015"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/23995466-the-big-bad-book-of-bill-murray):
