@@ -1,11 +1,13 @@
 +++
 title = "Potent Thrifty Iridium"
 date = 2020-10-22
-updated = 2020-11-13
+updated = 2021-02-17
 
 [taxonomies]
 tags = ["projects", "personal", "postgres", "tui"]
 +++ 
+
+**ARCHIVED** [pgcli](https://www.pgcli.com/) does everything I wish.
 
 Postgres Text Interface.
 

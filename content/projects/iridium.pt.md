@@ -1,11 +1,13 @@
 +++
 title = "Potent Thrifty Iridium"
 date = 2020-10-22
-updated = 2020-11-13
+updated = 2021-02-17
 
 [taxonomies]
 tags = ["projetos", "pessoal", "postgres", "tui"]
 +++ 
+
+**ARQUIVADO** [pgcli](https://www.pgcli.com/) faz exatamente o que eu queria.
 
 - TUI para Postgres.
 - Interface simples, tipo Borland.
