@@ -3,7 +3,8 @@ title = "Undercity - Catherine Asaro"
 date = 2021-03-19
 
 [taxonomies]
-tags = ["books", "reviews", "catherine asaro", "scifi"]
+tags = ["books", "reviews", "catherine asaro", "scifi", "books:2021",
+"published:2014"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/21412186-undercity):

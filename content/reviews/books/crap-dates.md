@@ -3,7 +3,8 @@ title = "Crap Dates - Rhodri Marsden"
 date = 2021-03-19
 
 [taxonomies]
-tags = ["books", "reviews", "twitter", "dates"]
+tags = ["books", "reviews", "twitter", "dates", "books:2021", "stars:2",
+"published:2012"]
 +++
 
 [GoodReads Summary](https://www.goodreads.com/book/show/18152436-crap-dates):
