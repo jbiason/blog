@@ -1,7 +1,7 @@
 +++
 title = "American Playboy: The Hugh Hefner Story"
 date = 2020-11-05
-updated = 2021-02-12
+updated = 2021-03-28
 
 [taxonomies]
 tags = ["reviews", "series", "playboy", "amazon", "hugh hefner", "stars:1"]
@@ -55,7 +55,7 @@ openly admits he can't be alone, his affairs are sidelined, ex-wifes always say
 he's so loving, just *one* admits she didn't like that he wanted an open
 marriage for him and not for her and one you can clearly see that she does not
 want to have Hef around, looks annoyed in the filming, but the narration said
-they divorce and are "friends".
+they divorced and are "friends".
 
 This is the kind of thing that push a documentary down. There are no downsides
 of Hefner: He's loving, he's successful and he got ideas. Things he did wrong?
