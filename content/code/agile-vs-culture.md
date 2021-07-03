@@ -20,7 +20,7 @@ telling one story from
 about the number of accidents in Asian and South American
 airlines. The book points that there is a cultural difference between those
 two and American people, in which the former see a larger distance between
-them and their superiores than the later.
+them and their superiors than the later.
 
 Why I keep recalling this? Because in agile teams, there is no hierarchy: the
 PO is as important as the junior developer; the tester has the same input
@@ -55,4 +55,4 @@ they are below in the chain and "disenfranchise" those who think they are
 above everyone else due the role name.
 
 My plan for 2016 is to read some books about those topics and bring this
-dicussion to future events. Which me luck. ;)
+discussion to future events. Which me luck. ;)
