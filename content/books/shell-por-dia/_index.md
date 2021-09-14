@@ -11,3 +11,4 @@ hide_content = false
 
 * [Introdução](@./introducao.md)
 * [Entradas e Saídas](@./entradas-e-saidas.md)
+* [Redirecionamento](@./redicionamento.md)
