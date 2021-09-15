@@ -7,8 +7,7 @@ hide_pages = true
 hide_content = false
 +++
 
-## Portuguese/Português
-
 * [Introdução](@./introducao.md)
 * [Entradas e Saídas](@./entradas-e-saidas.md)
 * [Redirecionamento](@./redicionamento.md)
+* [Pipes](@./pipes.md)
