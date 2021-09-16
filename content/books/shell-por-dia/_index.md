@@ -11,3 +11,4 @@ hide_content = false
 * [Entradas e Saídas](@./entradas-e-saidas.md)
 * [Redirecionamento](@./redicionamento.md)
 * [Pipes](@./pipes.md)
+* [Shells](@./shells.md)
