@@ -12,3 +12,4 @@ hide_content = false
 * [Redirecionamento](@./redicionamento.md)
 * [Pipes](@./pipes.md)
 * [Shells](@./shells.md)
+* [Subcomandos](@./subcomandos.md)
