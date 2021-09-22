@@ -3,7 +3,7 @@ title = "Um Shell Por Dia: Redirecionamento"
 date = 2021-09-14
 
 [taxonomies]
-tags = ["por dia", "shell", "redirecionamento", "stdin", "stdout", "stderr"]
+tags = ["book", "por dia", "shell", "redirecionamento", "stdin", "stdout", "stderr"]
 +++
 
 Agora que conhecemos os descritores de entrada, saída e erro, vamos ver como

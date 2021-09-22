@@ -3,7 +3,7 @@ title = "Um Shell Por Dia: Introdução"
 date = 2021-09-13
 
 [taxonomies]
-tags = ["por dia", "shell"]
+tags = ["book", "por dia", "shell"]
 +++
 
 Assim como eu já tinha feito com "Um Python Por Dia" e "Um Vim Por Dia", eu

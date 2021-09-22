@@ -13,3 +13,4 @@ hide_content = false
 * [Pipes](@./pipes.md)
 * [Shells](@./shells.md)
 * [Subcomandos](@./subcomandos.md)
+* [Error chain](@./error-chain.md)

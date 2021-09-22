@@ -3,7 +3,7 @@ title = "Um Shell Por Dia: Entradas e Saídas"
 date = 2021-09-13
 
 [taxonomies]
-tags = ["por dia", "shell", "entradas", "saídas", "stdin", "stdout", "stderr"]
+tags = ["books", "por dia", "shell", "entradas", "saídas", "stdin", "stdout", "stderr"]
 +++
 
 Antes de sairmos vendo comandos e coisas do tipo, vamos começar com um conceito

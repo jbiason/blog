@@ -3,7 +3,7 @@ title = "Um Shell Por Dia: Pipes"
 date = 2021-09-14
 
 [taxonomies]
-tags = ["por dia", "shell", "entradas", "saídas", "stdin", "stdout"]
+tags = ["book", "por dia", "shell", "entradas", "saídas", "stdin", "stdout"]
 +++
 
 Ainda sobre entradas e saídas, imagine que você queira usar a saída de um

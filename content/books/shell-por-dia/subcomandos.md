@@ -3,7 +3,7 @@ title = "Um Shell por Dia: Sub comandos"
 date = 2021-09-21
 
 [taxonomies]
-tags = ["books", "shell por dia", "subcomandos"]
+tags = ["books", "por dia", "shell", "subcomandos"]
 +++
 
 Algumas vezes queremos que parte do comando que será executado seja calculado
