@@ -14,3 +14,4 @@ hide_content = false
 * [Shells](@./shells.md)
 * [Subcomandos](@./subcomandos.md)
 * [Error chain](@./error-chain.md)
+* [Comandos Obscuros](@./comandos-obscuros.md)
