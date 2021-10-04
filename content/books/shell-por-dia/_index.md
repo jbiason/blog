@@ -15,3 +15,4 @@ hide_content = false
 * [Subcomandos](@./subcomandos.md)
 * [Error chain](@./error-chain.md)
 * [Comandos Obscuros](@./comandos-obscuros.md)
+* [Jobs](@./jobs.md)
