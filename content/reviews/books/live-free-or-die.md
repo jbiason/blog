@@ -59,3 +59,15 @@ happen.
 Even if the writing style is good to read and you can churn chunks of the story
 in fast pace, the whole is enough to make you want to punch a fictional person
 in the face. Hard.
+
+PS: Oh, there is another point to the hate for the protagonist: After a few
+cities were completely obliterated by said Horvath, the protagonist starts
+building a space force along with NASA but requires pilots to get augmentations
+and he comes with "I hope the government will pay for the augmentations after
+all the taxes I'm paying". Sure, asshole, the government has to make the thing
+that will make him more money (he's basically building a space station, which he
+plans to sell to the government); fuck the build of hospitals and roads and
+schools and what not what were destroyed when three cities turned to dust. Fuck
+the population, all you want is the government to work for *you*. That attitude
+just adds to the general sense of privilege this guy feels toward everything
+else. So yeah, sad he didn't die.
