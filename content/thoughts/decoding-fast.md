@@ -1,6 +1,7 @@
 +++
 title = "Decoding the FAST Protocol"
 date = 2022-01-05
+draft = true
 
 [taxonomies]
 tags = ["finance", "binary", "protocol", "fix", "fast"]
