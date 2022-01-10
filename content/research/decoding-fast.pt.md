@@ -1,6 +1,6 @@
 +++
 title = "Decodificando o Protocolo FAST"
-date = 2021-01-10
+date = 2022-01-10
 
 [taxonomies]
 tags = ["finanças", "binário", "protocolo", "fix", "fast"]
@@ -9,6 +9,8 @@ tags = ["finanças", "binário", "protocolo", "fix", "fast"]
 Recentemente tive que trabalhar com um FAST (FIX Adapted for Streaming) e
 como a documentação está espalhada, decidi colocar as coisas que descobri em um
 único lugar para (minha) referência futura.
+
+<!-- more -->
 
 {% note() %}
 Como isso é baseado na minha experiência pessoal e eu tive contato com uma
@@ -546,6 +548,12 @@ se você pensar que o protocolo é, basicamente, um gerador de FIX. Eu não faç
 ideia porque não foi padronizado que tamanhos são mandatórios e um valor de 0
 significa que não há valores ao invés de ficar fazendo uma dança ao redor de
 sequências mandatórias e opcionais.
+
+---
+
+Changelog:
+
+2021-01-10: Primeira versão.
 
 <!-- 
 vim:spelllang=pt:
