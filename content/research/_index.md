@@ -1,5 +1,4 @@
 +++
-transparent = false
+transparent = true
 title = "Research Notes"
-sort_by = "none"
 +++

@@ -1,7 +1,6 @@
 +++
 title = "Decoding the FAST Protocol"
-date = 2022-01-05
-draft = true
+date = 2022-01-10
 
 [taxonomies]
 tags = ["finance", "binary", "protocol", "fix", "fast"]
@@ -395,37 +394,37 @@ Map, [according to JetTek](https://jettekfix.com/education/fix-fast-tutorial/):
     </tr>
     <tr>
         <td>No Operator</td>
-        <td>No</td>
-        <td>No</td>
+        <td>No.</td>
+        <td>No.</td>
     </tr>
     <tr>
         <td>Constant</td>
-        <td>No, the Constant value should be used</td>
-        <td>Yes; if set, use the Constant value; otherwise the field is Null</td>
+        <td>No, the Constant value should be used.</td>
+        <td>Yes; if set, use the Constant value; otherwise the field is Null.</td>
     </tr>
     <tr>
         <td>Copy</td>
         <td>Yes; if set, use the incoming value is the current value;
-        otherwise, use the previous value</td>
-        <td>Yes; same as above, but the value can be Null (e.g., it was read as
-        0 for Ints or a single Null byte for Strings.</td>
+        otherwise, use the previous value.</td>
+        <td>Yes; same as Mandatory fields, but the value can be Null (e.g., it
+        was read as 0 for Ints or a single Null byte for Strings.</td>
     </tr>
     <tr>
         <td>Default</td>
         <td>Yes; if set, read the value from the incoming data; otherwise, use
         the default value.</td>
-        <td>Yes; same as above</td>
+        <td>Yes; same as Mandatory fields.</td>
     </tr>
     <tr>
         <td>Delta</td>
         <td>No; the value should always be added to the previous one.</td>
-        <td>No; same as above</td>
+        <td>No; same as Mandatory fields.</td>
     </tr>
     <tr>
         <td>Increment</td>
         <td>Yes; if set, read the value from the incoming data; otherwise, add
         1 to the previous value.</td>
-        <td>Yes; same as above</td>
+        <td>Yes; same as Mandatory fields.</td>
     </tr>
 </table>
 
@@ -498,4 +497,4 @@ my code, so...
 
 ### Changelog:
 
-2022-01-05: First release.
+2022-01-10: First release.
