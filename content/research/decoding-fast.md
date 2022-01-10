@@ -39,8 +39,8 @@ defined by the protocol (there is a whole list
 [here](https://www.inforeachinc.com/fix-dictionary/index.html)) but each
 exchange can create their own IDs.
 
-For example, if you have MsgType (ID 35) with value "`y`" and Security ID (ID
-48) with value "`123456`", you'd get the message:
+For example, if you have the field MsgType (ID 35) with value "`y`" and the
+field Security ID (ID 48) with value "`123456`", the message received would be
 
 ```
 35=y^A48=123456
@@ -49,12 +49,13 @@ For example, if you have MsgType (ID 35) with value "`y`" and Security ID (ID
 # And Back to FAST
 
 One of the things FAST is designed for is removing duplicate and/or constant
-content. For example, MsgType (ID 35) is the "SecurityList" message, which
-contains information about all the symbols (the their security IDs) handled by
-the exchange. Because the exchange is the same in all the symbols, FAST allows
-defining the fields related to it (Source, field ID 22, and Exchange, field ID
-207) to constant values, so they don't need to be transmitted and, when decoding
-FAST back to FIX, the decoder simply add the constant value.
+content. For example, MsgType (ID 35) identifies that the message is
+"SecurityList" (symbol list), which contains information about all the symbols
+(the their security IDs) available in the exchange. Because the exchange is the
+same in all the symbols, FAST allows defining the fields related to it (Source,
+field ID 22, and Exchange, field ID 207) to constant values, so they don't need
+to be transmitted and, when decoding FAST back to FIX, the decoder simply add
+the constant value.
 
 To know which fields are constant and which are not (and some other information),
 the protocol defines a template, which have a well defined schema, to report
@@ -62,21 +63,20 @@ that information.
 
 # The Template
 
-The template is, as mentioned before, a XML file (which the protocol definition
-doesn't provide any default way to actually receive that field, and thus is left
-for the exchange to find their way) which describes field types, names, IDs and
-operators.
+The template is a XML file which describes the fields, their types, names, IDs
+and operators. The protocol itself doesn't provide any default way to actually
+receive that field, and thus is left for the exchange to find their way.
 
-Note that the template describe the field IDs and their types, which the
-incoming data have only the values. If we use the FIX description above, the
-template defines the left side of the pair, while the incoming have have only
-the right side.
+Note that the template describe the field IDs and their types, and the incoming
+data have only the values. If we use the FIX description above, the template
+defines the left side of the pair, while the incoming data have have only the
+right side.
 
 ## Field Types
 
 The protocol have a few field types: Unsigned Ints of 32 and 64 bits, Signed
 Ints of 32 and 64 bits, ASCII strings, UTF-8 strings, sequences, decimals and a
-type called "presence map".
+special type called "Presence Map".
 
 One thing to note is that all fields use a "stop bit" format. This is quite
 similar to UTF8, although UTF8 uses a "continuation bit" instead of "stop bit",
@@ -85,23 +85,25 @@ but the process of reading is the same:
 - Read a byte;
 - Does it have the high order by set to 0?
   - Yes: Keep reading;
-  - No: Stop reading the conclude the field value.
+  - No: Stop reading the field value.
+
+I'll show some examples later in this post.
 
 ## Field definitions
 
-On the template, the fields have their type, name (optional), ID, a presence
-indicator and an operator (optional).
+The template defines the fields with their type, name (optional), ID, a
+presence indicator and an operator (optional).
 
-For example, if you have an unsigned int of 32 bits, named "MsgType" with ID
-"35", that would be described in the template as
+For example, to describe an unsigned int of 32 bits, named "MsgType" with ID
+"35", it would be described in the template as
 
 ```xml
 <uInt32 name="MsgType" id="35"/>
 ```
 
 Because there is no indication of presence, it is assumed that the field is
-"mandatory" and should always have a value. On the other hand, if you have a
-field defined as
+"mandatory" and should always have a value. On the other hand, if the field
+definition was something like
 
 ```xml
 <int32 name="ImpliedMarketIndicator" id="1144" presence="optional"/>
@@ -110,17 +112,34 @@ field defined as
 ... then the field may not not have a value. This is also referred as "nullable"
 field.
 
+## Optional and Mandatory Fields
+
+The difference between optional and mandatory fields is that mandatory fields
+*always* have a value, even if 0. Optional fields, on the other hand, can be
+null and have no value at all.
+
+{% note() %}
+I have the impression that this is done if the exchange wants to mark a field
+as "do not appear in the FIX version"; so even if the field have a definition,
+the resulting FIX version would not have the field.
+
+So it is more of a "backwards compatibility" than anything else.
+{% end %}
+
+## Types
+
 ### Types: Ints
 
-To read an Int, you pick the 7 low order bits (everything except the high order
-one) and move to the resulting variable. If the stop bit is there, you're done;
-if it is not, you shift the result by 7 bits and add the 7 bits from the next
-byte and so on, till you find a byte with the stop bit set.
+To read an Int, the decoder would pick the 7 low order bits (everything except
+the high order one) and move them to the resulting variable. If the stop bit is
+there, the read is complete; if it is not, the result should be shifted by 7
+bits and add the 7 bits from the next byte and so on, till you find a byte with
+the stop bit set.
 
-The 32 and 64 bits only define the maximum value of the field and should not be
-used as "number of bits to be read" -- because of the stop bit. If the value
-exceeds 32 or 64 bits, that is considered an error and the processing should be
-aborted.
+The 32 and 64 bits only define the maximum value of the field and should not
+necessarily be used as "number of bits to be read" -- because of the stop bit.
+If the value exceeds 32 or 64 bits, that is considered an error and the
+processing should be aborted.
 
 Signed Int work exactly the same, but as 2's complement.
 
@@ -133,32 +152,32 @@ to make it easier to read):
 ```
 
 ... the decoder will read the first byte and see that it doesn't have the high
-order bit set, so it keep just the "1" for the value and shift everything by 7
-bits. Then the second byte is read; this one have the high order bit set, so
+order bit set, so it keep just the "1" for the value and shift 7 bits to the
+left. Then the second byte is read; this one have the high order bit set, so
 the remaining bits (in this case "001_0010") are added to the resulting value
 and get `1001_0010` -- or 146.
 
-Negative numbers are represented using 2's so you'd get, for example:
+Negative numbers are represented using 2's so if the decoder receives, for
+example:
 
 ```
 0000_0011 0111_1110 1110_1110
 ```
 
-... which, when you remove the high order bits and follow the high order to find
-the stop bit, you get "`1111_1111 0110_1110`", which is -146 (in 16 bits, just
-to make it shorter).
+... which, when the high order bits are removed, it should generate "`1111_1111
+0110_1110`", which is -146 (in 16 bits, just to make it shorter).
 
 When an integer field is optional, the result must be decremented by 1. The
-reason for this is that, when the field is marked as optional -- also called
-"nullable" -- we need something to differentiate both 0 and Null. So, an
-optional integer with value 0 is, actually, Null; if we have a value of 0, we
-incoming data will have the value 1, which we'll decrement by 1 and become 0.
+reason is that it should be something to differentiate both 0 and Null. So, an
+optional integer with value 0 is, actually, Null; to get the value 0 for the
+field, the incoming data will have value 1, which is decremented in 1 and goes
+back to 0.
 
 ### Types: Strings
 
-ASCII strings are pretty simple to read: Again, you keep reading the incoming
-data till you find a byte with the high order bit set (again, the stop bit) and
-just convert to their respective ASCII character.
+ASCII strings are pretty simple to read: Again, the decoder keeps reading the
+incoming data till you find a byte with the high order bit set (again, the stop
+bit) and just convert to their respective ASCII character.
 
 For example
 
@@ -166,9 +185,9 @@ For example
 0100_1000 0110_0101 0110_1100 0110_1100 1110_1111
 ```
 
-Would generate the bytes 72, 101, 108, 108 and 111, which using the values as
-ASCII codes would result in "Hello". Note that the stop bit here represents "end
-of string" and the bytes should not be grouped like in Ints.
+Would generate the bytes 72, 101, 108, 108 and 111, which using the ASCII table
+would result in "Hello". Note that the stop bit here represents "end of string"
+and the bytes should not be grouped like in Ints.
 
 {% note() %}
 So far, I didn't find any UTF8 strings, so I'm not quite sure how to process
@@ -187,22 +206,22 @@ Sequences are basically arrays. The first field of a sequence is the "length"
 present. Inside the sequence, you have a list of field definitions, which may
 even include more sequences.
 
-Optional Sequences follow the same idea of optional Ints: You read the length
-and, it is null, there is nothing in the sequence -- and mandatory Sequences can
-be zero.
+Optional sequences affect the way the length is read: If optional, the length
+should be treated as an optional Integer and thus the size is decremented by 1.
 
 ### Types: Decimals
 
 Decimals are formed by two fields: Exponent and Mantissa. The way it works is
-that if you have an Exponent of "-2" and a Mantissa of "1020", you'd do `1020 *
-10 ^ -2` ("1020 times 10 to the power of -2"), and the actual value is "10.20".
+that if you have an Exponent of "-2" and a Mantissa of "1020", the resulting
+value is  `1020 * 10 ^ -2` ("1020 times 10 to the power of -2"), or "10.20".
 
 Both Exponent and Mantissa are read as Signed Ints.
 
 An Optional Decimal means the Exponent is optional. The documentation says that
-the Mantissa is always mandatory, but there is a catch: If the Exponent is null,
-then the Mantissa is not present and shouldn't be read; otherwise, you read the
-Mantissa and apply the conversion.
+the Mantissa is always mandatory, but there is a catch: If the Exponent is
+null, then the Mantissa is not present and the whole Decimal is Null;
+otherwise, the decoder is expected to read the Mantissa and the formula above
+should be applied.
 
 Also, because Exponent and Mantissa are two fields, they can have different
 operators. I'll show some examples after the Operator, mostly because I've seen
@@ -210,18 +229,19 @@ both with different operators and they make a mess to read.
 
 ### Type: Presence Map
 
-Presence Maps are used in conjunction with operators. They are read basically
-like you'd read an unsigned int (read bytes till you find the one with the high
-order bit) but do not have any conversion in themselves. Every time you need to
-check if a field is present by checking the presence map, you consume the high
+Presence Maps are used in conjunction with operators. They are read like
+unsigned Ints are read (read bytes till you find the one with the high order
+bit, remove the high order bits and put all the bits in sequence) but do not
+have any conversion in themselves. Every time the decoder need to check if a
+field is present in the presence map, the bit is consumed and the line
+moves on.
 
 Presence Maps are not present in the template and their presence is implied if
-there is the need for one. For example, in a pure mandatory sequence of fields,
-there will be no presence map at all.
-order bit from it, so it is never used again.
+there is at least one field that requires it. For example, if all the fields in
+a sequence are mandatory, there will be no Presence Map in the incoming data.
 
-The bits in the Presence Map are in the order of the required fields. For
-example, if a template with:
+The bits in the Presence Map are in the order of the fields in the template.
+For example, if a template with:
 
 1. A mandatory field;
 2. A field with an operator that requires the presence map (I'll mention those
@@ -229,17 +249,16 @@ example, if a template with:
 3. Another mandatory field;
 4. And, finally, another field with operator.
 
-You may receive a Presence Map as `1110_0000`, in which:
+... it is possible to have a Presence Map as `1110_0000`, in which:
 
 1. The first bit is the stop bit, so the decoder assumes this is the last byte
    of the presence map.
 2. The second bit indicates that the first field with operator is present. It
-   does *not* represent the mandatory field, 'cause, well, it is mandatory and,
+   does *not* represent the mandatory field 'cause, well, it is mandatory and,
    thus, is always present.
-3. The second bit indicates the second field with an operator.
+3. The second bit indicates the second field with an operator is present.
 
-Again, I'll mention which ones the decoder should be checked in the presence
-map.
+(Again, I'll mention which operators require the presence map.)
 
 ## Operators
 
@@ -255,18 +274,18 @@ operators:
 
 ### Operator: No Operator
 
-When there is no operator defined, you have a "no operator" operator. It means
-there is no special way of dealing with the incoming value: You just capture it
-and use it.
+When there is no operator defined in the field definition in the template, then
+the operator is the "no operator" operator. It means there is no special way of
+dealing with the incoming value.
 
 When a field have No Operator, there will be no bit in the Presence Map.
 
 ### Operator: Constant
 
-A field with the Constant operator will not appear in the incoming data and you
-should assume that its value is the value in the constant. Previously I
+A field with the Constant operator will not appear in the incoming data and the
+decoder should assume that its value is the value in the constant. Previously I
 mentioned that a list of securities may have the field 22, "Source", and field
-207, "Exchange", with constant values, they would be defined as
+207, "Exchange", with constant values, so they would be defined as
 
 ```xml
 <string name="Source" id="22">
@@ -277,18 +296,25 @@ mentioned that a list of securities may have the field 22, "Source", and field
 </string>
 ```
 
-There is a catch, though: When a constant can be Null (`presence="optional"`),
-then the decoder needs to use the Presence Map bit; if it is set, the constant
-value should be used; if it is not set, then the field value is Null.
+There is a catch, though: When a Constant field can be Null
+(`presence="optional"`), then the decoder needs to use the Presence Map bit; if
+it is set, the constant value should be used; if it is not set, then the field
+value is Null.
 
 The Presence Map should be use only if there is a field with a constant value
 that is optional.
 
 ### Operator: Default
 
-The Default operator is similar to the Constant operator, but the decoder needs
-to check the Presence Map; if the bit for the field is set, then you use the
-default value; if it is not set, then the field is Null.
+The Default operator is similar to the Constant operator, but if the bit for
+the field is set in the Presence Map, then the value for the field should be
+read in the incoming data; otherwise, the Default value should be used.
+
+{% note() %}
+In a way, you can read this: Is the value present in the incoming data
+(indicated in the Presence Map)? Then read the value in the incoming data;
+otherwise, use the default value.
+{% end %}
 
 ### Operator: Copy
 
@@ -296,8 +322,11 @@ The copy operator indicates that the value for this record have the same value
 of the previous record; if it is the first record, then the value should be
 used. If the Presence Map bit is set for the field, then the decoder must read
 the value in the incoming data; if it is not set, then the previous value should
-be used. In the data I saw, every first record have the bit set, so you get the
-initial/previous value.
+be used. 
+
+{% note() %}
+In the data I saw, every first record have the bit set.
+{% end %}
 
 An example: You can have a template like
 
@@ -307,11 +336,11 @@ An example: You can have a template like
 </string>
 ```
 
-... and you have the following records and their Presence Maps:
+... and the incoming data had the following records and their Presence Maps:
 
 1. The first record have the bit set for this field in the Presence Map and the
-   strings reads "first". This record will have this field with the value
-   "first".
+   strings reads "first". The result for this field in this record will be
+   the value "first".
 2. The second record doesn't have the bit set in the Presence Map. So the
    decoder reuses the previous value and this record will have the field with
    the value "first" (again).
@@ -320,8 +349,7 @@ An example: You can have a template like
 4. The fourth record doesn't have the bit set and the decoder reuses the value
    "second" for the field.
 
-The Copy operator may have the initial value, so you don't need to read it. For
-example
+The Copy operator may have the initial value. For example
 
 ```xml
 <string name="MDReqID" id="262">
@@ -330,7 +358,7 @@ example
 ```
 
 This means that you should use "string" as previous value, even in the first
-field.
+record.
 
 As pointed, fields with the Copy operator appear in the Presence Map.
 
@@ -338,7 +366,7 @@ As pointed, fields with the Copy operator appear in the Presence Map.
 
 Delta is an operator similar to Copy, but instead of using the value of the
 previous record in this field, the new value must be computed using the previous
-value and the current one. Again, if you have no previous value, then there is
+value and the current one. Again, if there is no previous value, then there is
 no operation to be done and the incoming value is the current one.
 
 An example:
@@ -353,18 +381,20 @@ An example:
    field.
 2. The second record comes with the value "2". That should be added in the
    previous value and used, so the field for the second record is "302".
-3. The third record comes with the value "3". Again, you reuse the previous
-   value and add the current one. So the field for the third record have the
-   value "305".
+3. The third record comes with the value "3". Again, the previous value should
+   be used and the current one should be added. So the field for the third
+   record have the value "305".
 
 Fields with the Delta operator do not appear in the Presence Map.
 
 ### Operator: Increment
 
-Increment is another operator that works similar to the Copy operator, but if
-its bit is set in the Presence Map, the decoder reads the field value from the
-incoming data; if it is not set, the decoder does not read any data, but reuses
-the previous value with an increment of 1.
+Increment works like the Delta operator 'cause it always add a value to the
+previous one, but the value to be added is always 1.
+
+If the bit for the field is set in the Presence Map, the value for the field is
+the one in the incoming data; otherwise, the value will be the previous value
+added by 1.
 
 Example:
 
@@ -399,8 +429,8 @@ Map, [according to JetTek](https://jettekfix.com/education/fix-fast-tutorial/):
     </tr>
     <tr>
         <td>Constant</td>
-        <td>No, the Constant value should be used.</td>
-        <td>Yes; if set, use the Constant value; otherwise the field is Null.</td>
+        <td>No, the Constant value should always be used.</td>
+        <td>Yes; if set, use the Constant value; otherwise the field value is Null.</td>
     </tr>
     <tr>
         <td>Copy</td>
@@ -417,7 +447,8 @@ Map, [according to JetTek](https://jettekfix.com/education/fix-fast-tutorial/):
     </tr>
     <tr>
         <td>Delta</td>
-        <td>No; the value should always be added to the previous one.</td>
+        <td>No; the value in the incoming data should always be added to the
+        previous one.</td>
         <td>No; same as Mandatory fields.</td>
     </tr>
     <tr>
@@ -452,46 +483,59 @@ That seems simple. But there are a lot of moving pieces here:
 
 1. The `presence="optional"` in the decimal means that the `exponent` can be
    Null and only that.
-2. The `default` operator in the Exponent means the decoder must check if the
-   Exponent have a value or should use the default value of "0".
+2. The Default operator in the Exponent means the decoder must check if the
+   Exponent have a value in the incoming data or should use the default value
+   of "0".
 
-   There is another issue here: If the Presence Map indicates that the value is
-   present and the read value is 0, because the Exponent is optional, it should
-   be considered Null and, thus, there is no Mantissa and everything is Null.
-3. The `delta` operator in the Mantissa should be used applying the incoming
-   value to the previous one. But, if the Exponent is Null, then there is no
-   Mantissa, but the previous value is kept.
+   There is an issue here: If the Presence Map indicates that the value is
+   present and the read value is 0, because the field is optional, the decoder
+   should consider the Exponent Null and, thus, there is no Mantissa and
+   everything is Null.
+3. The Delta operator in the Mantissa should be used applying the incoming
+   value to the previous one. But, if the Exponent is not in the presence map,
+   because it has a default value, that's its value and it shouldn't be read in
+   the incoming data and the read value is actually applied to the Mantissa.
 
-This causes a bunch of weird, "exception of the rule" dealings:
+Like this:
 
 1. The first record have the field set in the Presence Map and it is read as
-   "-2". That's the Exponent, reading the mantissa gives the value "1020", so
-   the whole decimal is "10.20";
+   "-2"; that's the Exponent. The next value is "1020", which is the Mantissa,
+   so the whole decimal is "10.20";
 2. The second record have the field set in the Presence Map and it is read as
    "0". Because the decimal is optional, the exponent is optional, and because
-   0 is Null, there is no Exponent, and the next value is *not* the Mantissa.
-3. The third record have the field set in the Presence Map and it is again,
-   "-2" for the Exponent and we read the Mantissa. The value read for the
-   Mantissa is "-20", but instead of assuming that the Mantissa was Null in the
-   previous record, it uses the first record value, so the Mantissa for this
-   record is "1000" and the value for the decimal is "10.00".
+   0 is Null for optional fields, there is no Exponent, and the next value is
+   *not* the Mantissa. The value for the field in this record is Null.
+3. The third record have the field not set in the Presence Map. Because
+   Exponent has a default value, it becomes "0", and the Mantissa should be read.
+   If the incoming data have the value "10", the decimal becomes "10" (or
+   "10.00", if we use the same decimal places everywhere).
 
-Another weird thing I saw was related to the way the exchange was ordering the
+A weird thing I saw was related to the way the exchange was ordering the
 results. It had a sequence of sell and buy orders in which
 
-1. The first record was the sell order, with an Exponent of 0 and a Mantissa of
-   "5410". That meant the value is "5410" (pretty straight).
+1. The first record was the sell order, with an Exponent of "0" and a Mantissa
+   of "5410". That meant the value is "5410" (pretty straight).
 2. The second record was the buy order. It had an Exponent of "-2" and the
-   Mantissa had an incoming value of 526604. That gives the value of "532014",
-   but because the Exponent is "-2", the actual value is "5320.14".
+   Mantissa had an incoming value of "526604". With the Delta operador, that
+   gives the value of "532014", but because the Exponent is "-2", the actual
+   value is "5320.14".
 3. The weird thing happened in the third record, which was again a sell order.
    The value should be exactly the same as the first, but the exchange sent an
-   Exponent of 0 and a Mantissa of "−526604". With the delta, that would bring
+   Exponent of "0" and a Mantissa of "−526604". With the delta, that would bring
    the value back to "5410".
 
 I found it weird that they kept jumping between two different Exponents instead
 of using a single one, and at the time I had some issues with the delta math in
 my code, so...
+
+## Null Length Sequences
+
+Another strange thing I saw was the optional sequence: In practice there is no
+difference between a sequence with 0 elements and one which the length is Null
+-- specially if you think the protocol is, basically, a FIX generator. I have
+no idea why it wasn't standardized that lengths are mandatory and a value of 0
+means there is no values on it instead of doing a dance around optional and
+mandatory sequences.
 
 ---
 
