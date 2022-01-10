@@ -459,6 +459,52 @@ Map, [according to JetTek](https://jettekfix.com/education/fix-fast-tutorial/):
     </tr>
 </table>
 
+# Template Versioning
+
+I didn't mentioned this before, but now that I explained some things about the
+types and some information about the template, I can point that the template
+file allows multiple versions of the same message types.
+
+For example
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xmlns="http://www.fixprotocol.org/ns/fast/td/1.1">
+  <template xmlns="http://www.fixprotocol.org/ns/fast/td/1.1" name="SomeRecordType" id="1">
+    <string name="MsgType" id="35">
+      <constant value="Z"/>
+    </string>
+    <string name="SomeField" id="1"/>
+  </template>
+
+  <template xmlns="http://www.fixprotocol.org/ns/fast/td/1.1" name="SomeRecordType" id="2">
+    <string name="MsgType" id="35">
+      <constant value="Z"/>
+    </string>
+    <string name="SomeField" id="1"/>
+    <string name="SomeOtherField" id="2">
+      <default value="A Value!"/>
+    </string>
+  </template>
+</templates>
+```
+
+The first thing you may notice is that there are two templates defined, one
+with ID "1" and another with ID "2". Both have the same name and the same
+constant value in the same field ID, but the initial data in the incoming block
+defines which one should be used.
+
+The incoming data starts with a Presence Map. The first bit on this is the
+"Template ID". With that Template ID, the decoder can find the list of fields
+that should be processed. This Presence Map also contains the map for the
+fields in the root sequence -- in our example, if the Template ID decodes to
+"2", the other bit in the Presence Map is the indication of the
+"SomeOtherField".
+
+{% note() %}
+So far, I didn't find any data that didn't had the bit set for the template ID,
+so I'm not actually sure what would happen if the bit is unset.
+{% end %}
 
 # Anomalies
 
@@ -542,3 +588,4 @@ mandatory sequences.
 ### Changelog:
 
 2022-01-10: First release.
+2022-01-10: Added information about the template versioning.

@@ -471,6 +471,53 @@ Presença, [de acordo com a JetTek](https://jettekfix.com/education/fix-fast-tut
     </tr>
 </table>
 
+# Versionamento de Templates
+
+Eu não mencionei isso antes, mas agora que eu expliquei algumas coisas sobre os
+tipos e algumas informações sobre o template, eu posso dizer que o arquivo de
+template permite que existam múltiplas versões das mesmas mensagens.
+
+Por exemplo
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xmlns="http://www.fixprotocol.org/ns/fast/td/1.1">
+  <template xmlns="http://www.fixprotocol.org/ns/fast/td/1.1" name="SomeRecordType" id="1">
+    <string name="MsgType" id="35">
+      <constant value="Z"/>
+    </string>
+    <string name="SomeField" id="1"/>
+  </template>
+
+  <template xmlns="http://www.fixprotocol.org/ns/fast/td/1.1" name="SomeRecordType" id="2">
+    <string name="MsgType" id="35">
+      <constant value="Z"/>
+    </string>
+    <string name="SomeField" id="1"/>
+    <string name="SomeOtherField" id="2">
+      <default value="A Value!"/>
+    </string>
+  </template>
+</templates>
+```
+
+Uma coisa que você pode notar é que existem dois templates definidos, um com ID
+"1" e outro com ID "2". Ambos tem o mesmo nome e o mesmo campo com um valor
+constante, mas a informação inicial dos dados de entrada indica qual destes
+dois deve ser usada.
+
+Os dados de entrada começam com um Mapa de Presença. O primeiro bit deste mapa
+é o "Template ID". Com este Template ID, o decodificador pode encontrar a lista
+de campos que devem ser processados. Este mapa também tem os campos da
+sequência inicial -- no nosso exemplo, se o Template ID for "2", o outro bit no
+Mapa de Presença é o indicador do "SomeOtherField".
+
+{% note() %}
+Até agora, eu não vi dados de entrada que não tivessem o bit indicador do
+template ID ligado, então eu não tenho muita certeza do que fazer caso isso
+aconteça.
+{% end %}
+
 # Anomalias
 
 Eu chamo "anomalia" qualquer coisa que eu levei muito tempo para entender.
@@ -553,7 +600,8 @@ sequências mandatórias e opcionais.
 
 Changelog:
 
-2021-01-10: Primeira versão.
+2022-01-10: Primeira versão.
+2o22-01-10: Adicionada informações sobre o versionamento de templates.
 
 <!-- 
 vim:spelllang=pt:
