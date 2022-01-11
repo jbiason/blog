@@ -53,7 +53,7 @@ Security ID (ID 48) com valor " 123456", a mensagem recebida seria
 Uma das coisas para que o FAST foi projetado é remover conteúdo duplicado e/ou
 constante. Por exemplo, MsgType (ID 35) identifica que a mensagem é
 "SecurityList" (lista de ativos), que contém informações sobre todos os
-símbolos (seus IDs de segurança) disponíveis na exchange. Como a exchange é a
+símbolos (seus IDs de segurança) disponíveis na Exchange. Como a Exchange é a
 mesma em todos os símbolos, o FAST permite definir os campos relacionados a ela
 (Source, campo ID 22, e Exchange, campo ID 207) para valores constantes, para
 que não precisem ser transmitidos e, na decodificação FAST de volta a FIX, o
@@ -66,8 +66,8 @@ para relatar essas informações.
 # O Template
 
 O template é um arquivo XML que descreve os campos, seus tipos, nomes, IDs e
-operatores. O protocolo em si não fornece nenhuma maneira padrão de realmente
-receber esse campo e, portanto, é deixado para que a exchange defina a forma
+operadores. O protocolo em si não fornece nenhuma maneira padrão de realmente
+receber esse campo e, portanto, é deixado para que a Exchange defina a forma
 dos clientes encontrar este arquivo.
 
 Note que o modelo descreve os IDs de campo e seus tipos, e os dados recebidos
@@ -123,7 +123,7 @@ A diferença entre campos opcionais e mandatórios é que campos mandatórios
 podem ser null e não ter valor algum.
 
 {% note() %}
-Eu tenho a impressão que isso foi feito para que a exchange possa marcar um
+Eu tenho a impressão que isso foi feito para que a Exchange possa marcar um
 campo como "não parece na versão FIX"; então mesmo que o campo tenha uma
 definição, o resultado em FIX não teria o campo.
 
@@ -212,7 +212,7 @@ presentes. Dentro da sequência, você tem uma lista de definições de campos, 
 podem até mesmo incluir outras sequências.
 
 Sequências opcionais afetam a forma como o campo de tamanho é lido: Se a
-sequência é opcional, o tamanho deve ser tratato como um inteiro opcional e,
+sequência é opcional, o tamanho deve ser tratado como um inteiro opcional e,
 portanto, decrementando em 1.
 
 ### Tipos: Decimais
@@ -290,7 +290,7 @@ entrada.
 Quando um campo tem o operador "Nenhum", não haverá bit para o mesmo no Mapa de
 Presença.
 
-### Operador: Contant
+### Operador: Constant
 
 Um campo com o operador Constant (Constante) não irá ser enviado nos dados de
 entrada e o decodificador deve assumir que o valor é o valor constante.
@@ -601,7 +601,8 @@ sequências mandatórias e opcionais.
 Changelog:
 
 2022-01-10: Primeira versão.
-2o22-01-10: Adicionada informações sobre o versionamento de templates.
+
+2022-01-10: Adicionada informações sobre o versionamento de templates.
 
 <!-- 
 vim:spelllang=pt:

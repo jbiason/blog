@@ -588,4 +588,5 @@ mandatory sequences.
 ### Changelog:
 
 2022-01-10: First release.
+
 2022-01-10: Added information about the template versioning.
