@@ -1,6 +1,6 @@
 +++
 title = "Decoding the FAST Protocol: Examples"
-date = 2022-01-10
+date = 2022-01-11
 draft = true
 
 [taxonomies]
@@ -98,7 +98,7 @@ Let's expand our example to have a sequence and a few more operators:
         <length name="NoInnerSequence" id="25"/>
         <string name="Username" id="4"/>
         <uInt32 name="ID" id="32" presence="optional">
-          <delta/>
+          <increment/>
         </uInt32>
       </sequence>
     </sequence>
@@ -114,7 +114,80 @@ list of users and their IDs.
 ## Incoming Data
 
 ```
-1100_0000   1000_0010   
+1100_0000   1000_0010   1000_0011   0000_0011
+0010_0011   0001_1000   1110_0111   1000_0010
+1100_0000   0101_0101   0111_0011   0110_0101
+0111_0010   1011_0001   1000_0100   1000_0000
+0101_0101   0111_0011   0110_0101   0111_0010   
+1011_0010
 ```
 
 ## Processing
+
+As mentioned before, the first byte, `1100_0000` is the Presence Map of the
+root element with the leading Template ID. There is only one bit set, which
+means the Template ID is present.
+
+The second byte, `1000_0010` is the Template ID. Because it have the stop bit,
+that's the only byte for it. Removing the high order bit gives us `000_0010`,
+which is "2", so we know we are dealing with the "SequenceOfSequences"
+template.
+
+Now that we have the template and know the fields, we know what to read. The
+first field in our template is the sequence. The first thing we have in the
+sequence (and this is the first thing for *every* sequence) is the length of
+it. So we read the next byte, `1000_0011`, which is the only byte we need to
+read. It represents an unsigned int, which is "3", so this sequence have 3
+elements -- and using our description in the previous sections, we know now
+that we have 3 groups.
+
+One point here: Because all fields in this sequence don't have any operators,
+it means the Presence Map doesn't exist. For sequences, every start of a new
+record contains a Presence Map only if at least one of the fields in the
+sequence require a Presence Map. That's not the case here.
+
+Because there is no Presence Map for the "OuterSequence", the next bytes are
+the "GroupID" field. We should read everything till we find the stop bit, so we
+get `0000_0011`, `0010_0011`, `0001_1000` and `1110_0111`. For every byte we
+remove the high order bit and then join everything into a single thing, in this
+case `000_0011 010_0011 001_1000 110_0111` or simply
+`0000_0110_1000_1100_1100_0110_0111`; this value, being an unsigned int, is
+"6868070". Here is a good point to remind that, because the field is mandatory,
+it means that's actually the value of "GroupID"; if the field as optional, the
+actual value would be "6868069".
+
+Now for he "InnerSequence" field. The first step is to gather the number of
+elements (the length of the sequence). That's the `1000_0010` byte, which is
+"2". So there are two users in this group.
+
+Because "InnerSequence" has a field that uses the Presence Map ("ID" uses the
+Increment operator, so we need to check if there is an incoming value for it or
+we should just increment the value), the first thing after the length is the
+Presence Map for this record. The byte `1100_0000` indicates that the first
+field that requires a Presence Map is present.
+
+But that's not the time to use the Presence Map yet. The field after the length
+is the "Username", which is a mandatory string. Mandatory strings with no
+operators are always present and we don't need to check the map. Same as we did
+with "String" in the example for Hello World, we read the bytes till the stop
+bit, but don't merge them: `0101_0101` (85), `0111_0011` (115), `0110_0101`
+(101), `0111_0010` (114) and `1011_0001` (49, if we remove the stop bit, that
+is), which converted by the ASCII table gives us "User1".
+
+Remember that we jumped the Presence Map? Now it is the time to use it, since
+we are reading "ID" and it has an operator that requires the Presence Map. The
+Presence Map we read before was `100_0000` (with the stop bit removed), so
+yeah, the "ID" is present. We read the next byte, `1000_0100`, which is "4".
+But there is a gotcha here: The field is optional. So although we read "4", the
+actual value is "3" -- if the value read was "0" it meant that the ID is Null.
+
+Good. We just finished reading the first record of "InnerSequence". Now we read
+the second record.
+
+We don't need to read the length again, but we need to read the Presence Map
+for this record. It is the byte `1000_0000`, a Presence Map indicating that
+none of the fields with operators are present. But, again, it is not the time
+for the Presence Map, but for the "Username". The bytes for the field are
+`0101_0101` (85), `0111_0011` (115), `0110_0101` (101), `0111_0010` (114) and
+`1011_0001` (50), which is "User2".
+
