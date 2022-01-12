@@ -600,9 +600,8 @@ sequências mandatórias e opcionais.
 
 Changelog:
 
-2022-01-10: Primeira versão.
-
-2022-01-10: Adicionada informações sobre o versionamento de templates.
+- 2022-01-10: Primeira versão.
+- 2022-01-10: Adicionada informações sobre o versionamento de templates.
 
 <!-- 
 vim:spelllang=pt:

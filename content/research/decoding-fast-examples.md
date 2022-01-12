@@ -1,6 +1,6 @@
 +++
 title = "Decoding the FAST Protocol: Examples"
-date = 2022-01-11
+date = 2022-01-12
 draft = true
 
 [taxonomies]
@@ -13,11 +13,17 @@ understand.
 
 <!-- more -->
 
+{% note() %}
+Same disclaimer as before: Because this is based on my personal experience,
+some things may be out of place. I tried my best to keep things correctly, but
+I may have misunderstood something, or maybe I just typed the value wrong here.
+{% end %}
+
 # Simple Hello World
 
 This example is basically the same one in
 [JetTek](https://jettekfix.com/education/fix-fast-tutorial/) but it is really
-simple, so here we go:
+simple to explain, so here we go:
 
 ## Template
 
@@ -52,12 +58,12 @@ far; there is no information whatsoever about that second bit in the Presence
 Map -- we need to find out which template should be used first.
 
 The next byte is read: `1000_0001`. As mentioned above, this is the Template
-ID. Being a signed integer (and probably mandatory, but don't ask me how that
-works), we read the value, it has the stop bit, so that's the whole integer.
-Dropping the high order bit, we get the Integer "1", which is the exactly same
-ID we have in the template, so now we know which fields are here.
+ID. Being an unsigned integer (and probably mandatory, but don't ask me how
+that works) and dropping high order bit, we get the Integer "1", which is the
+exactly same ID we have in the template; now we know which fields should be
+processed.
 
-The first field in the template is the string with a default value. Because the
+The first field in the template is a string with a default value. Because the
 field uses the Default operator, we need to check if the value is in the data
 or we should use the default value. The bit in the Presence Map for this field
 is `1` meaning the value for the string is in the incoming data and we should
@@ -69,7 +75,7 @@ letter in the ASCII table. The sequence is `100_1000` (72), `110_0101` (101),
 `110_1100` (108), `110_1100` (108), `100_1111` (79), `101_0111` (87),
 `110_1111` (79), `111_0010` (114), `110_1100` (108) and `110_0100` (100).
 Notice that we consumed all the bytes, and the last one have the stop, so
-that's the end of string. Converting the bytes using the ASCII string, we get
+that's the end of string. Converting the bytes using the ASCII table, we get
 "HelloWorld".
 
 So, there we have it: We received a record of the "HelloWorld" type, with the
@@ -119,7 +125,10 @@ list of users and their IDs.
 1100_0000   0101_0101   0111_0011   0110_0101
 0111_0010   1011_0001   1000_0100   1000_0000
 0101_0101   0111_0011   0110_0101   0111_0010   
-1011_0010
+1011_0010   1111_1111   1000_0001   1100_0000
+0101_0101   1011_0001   1111_1111   0000_1000 
+1000_0000   1000_0010   1100_0000   1100_1001
+1011_0110   1000_0000   0100_1101   1110_0101
 ```
 
 ## Processing
@@ -191,3 +200,38 @@ for the Presence Map, but for the "Username". The bytes for the field are
 `0101_0101` (85), `0111_0011` (115), `0110_0101` (101), `0111_0010` (114) and
 `1011_0001` (50), which is "User2".
 
+This second record have an empty presence map (`1000_0000`) meaning that the ID
+is not present in the incoming data. Because the field has the Increment
+operator, we should use the previous value -- 3 -- and increment by 1. So
+"User2" have the ID 4.
+
+That ends the "InnerSequence" for the first record of "OuterSequence". Going
+faster now:
+
+- `1111_1111`: The second "GroupID" (only one byte due the stop bit), which is
+  127.
+- `1000_0001`: The length of "InnerSequence"; it is just 1 element.
+- `1100_0000`: The presence map for the first record of "InnerSequence"; it
+  means the "ID" is present.
+- `0101_0101`, `1011_0001`: The username. "U1".
+- `1111_1111`: The "ID" for user "U1" is 126 (it reads as 127, but because the
+  field is optional, we decrement the value by 1).
+- `0000_1000`, `1000_0000`: The third "GroupID". Removing the stop bit and
+  joining the bits we have `1000_0000_0000` which is 2048.
+- `1000_0010`: Length of the "InnerSequence" in the 3rd group; 2 elements.
+- `1100_0000`: Presence Map of the first record of "InnerSequence"; ID is
+  present.
+- `1100_1001`: Username. "I".
+- `1011_0110`: The "ID" for user "I". 53.
+- `1000_0000`: Presence Map for the second record of "InnerSequence"; ID is not
+  present.
+- `0100_1101`, `1110_0101`: Username. "Me".
+- Not reading any bytes now 'cause the Presence Map pointed that the "ID" is
+  not present, but because the previous value was 53, the ID for username "Me"
+  is 54.
+
+---
+
+Changelog:
+
+- 2022-01-12: First release.
