@@ -1,0 +1,7 @@
+{% macro tags(page) %}
+    {%- if page.taxonomies and page.taxonomies.tags %}
+        {%- for tag in page.taxonomies.tags %}
+            <a href="{{ get_taxonomy_url(kind='tags', lang=page.lang, name=tag) | safe }}">#{{ tag }}</a>
+        {% endfor -%}
+    {% endif -%}
+{% endmacro tags %}

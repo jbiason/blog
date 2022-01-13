@@ -49,5 +49,11 @@ menu_items = [
 	{url = "$BASE_URL/quotes", name = "Quotes"},
 	{url = "$BASE_URL/research", name = "Research Notes"},
 ]
+hyde_links = [
+	{url = "$BASE_URL", name = "English"},
+	{url = "$BASE_URL/pt", name = "Português"},
+	{url = "$BASE_URL/tags", name = "Tags (EN)"},
+	{url = "$BASE_URL/pt/tags", name = "Tags (PT)"},
+]
 after_dark_title = "JulioBiason.Net 4.1"
 enable_post_view_navigation = false
