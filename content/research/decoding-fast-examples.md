@@ -134,45 +134,51 @@ list of users and their IDs.
 ## Processing
 
 As mentioned before, the first byte, `1100_0000` is the Presence Map of the
-root element with the leading Template ID. There is only one bit set, which
-means the Template ID is present.
+root element. There is only one bit set, which means the Template ID is
+present.
 
-The second byte, `1000_0010` is the Template ID. Because it have the stop bit,
-that's the only byte for it. Removing the high order bit gives us `000_0010`,
-which is "2", so we know we are dealing with the "SequenceOfSequences"
-template.
+Because the Template ID is present in the Presence Map, we read the next byte,
+`1000_0010`. Because this byte have the stop bit, we stop reading. Removing
+this stop bit gives us `000_0010`, which is "2", so we know we are dealing with
+the "SequenceOfSequences" template.
 
 Now that we have the template and know the fields, we know what to read. The
-first field in our template is the sequence. The first thing we have in the
+first field in our template is a sequence. The first thing we have in the
 sequence (and this is the first thing for *every* sequence) is the length of
 it. So we read the next byte, `1000_0011`, which is the only byte we need to
 read. It represents an unsigned int, which is "3", so this sequence have 3
-elements -- and using our description in the previous sections, we know now
-that we have 3 groups.
+records -- and using our description in the previous sections, we know now
+that we have 3 user groups.
 
 One point here: Because all fields in this sequence don't have any operators,
-it means the Presence Map doesn't exist. For sequences, every start of a new
-record contains a Presence Map only if at least one of the fields in the
-sequence require a Presence Map. That's not the case here.
+the Presence Map is not necessary and, thus, it doesn't exist (or, better yet,
+we shouldn't try to read something and assume it is a Presence Map). For
+sequences, every start of a new record contains a Presence Map only if at least
+one of the fields in the sequence require a Presence Map. That's not the case
+here.
 
 Because there is no Presence Map for the "OuterSequence", the next bytes are
 the "GroupID" field. We should read everything till we find the stop bit, so we
 get `0000_0011`, `0010_0011`, `0001_1000` and `1110_0111`. For every byte we
 remove the high order bit and then join everything into a single thing, in this
 case `000_0011 010_0011 001_1000 110_0111` or simply
-`0000_0110_1000_1100_1100_0110_0111`; this value, being an unsigned int, is
-"6868070". Here is a good point to remind that, because the field is mandatory,
-it means that's actually the value of "GroupID"; if the field as optional, the
-actual value would be "6868069".
+`0000_0110_1000_1100_1100_0110_0111`. This value, being an unsigned int, is
+"6868070". 
+
+{% note() %}
+Here is a good point to remind that, because the field is mandatory, it means
+that's actually the value of "GroupID"; if the field as optional, the actual
+value would be "6868069".
+{% end %}
 
 Now for he "InnerSequence" field. The first step is to gather the number of
 elements (the length of the sequence). That's the `1000_0010` byte, which is
 "2". So there are two users in this group.
 
-Because "InnerSequence" has a field that uses the Presence Map ("ID" uses the
-Increment operator, so we need to check if there is an incoming value for it or
-we should just increment the value), the first thing after the length is the
-Presence Map for this record. The byte `1100_0000` indicates that the first
+Because "InnerSequence" has a field that needs the Presence Map ("ID" uses the
+Increment operator, that we need either read the incoming value for it or we
+should just increment the previous value), the first thing after the length is
+the Presence Map for this record. The byte `1100_0000` indicates that the first
 field that requires a Presence Map is present.
 
 But that's not the time to use the Presence Map yet. The field after the length

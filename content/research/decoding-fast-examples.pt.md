@@ -52,17 +52,17 @@ Bytes:
 
 O primeiro byte é o Mapa de Presença. Removendo o bit de parada, temos
 `110_0000`. Esse Mapa de Presença tem um campo que não é descrito no template:
-O ID do Template. Como o primeiro bit está ligado, nós sabemos que o ID está
-lá. Ainda, tenha em mente que o ID do Template é o único campo que nós sabemos
-que existe até agora; não existe nenhuma outra informação sobre o que é aquele
-segundo bit no Mapa de Presença -- nós precisamos encontrar qual template vamos
-usar antes de mais nada.
+O Template ID (ID de Template). Como o primeiro bit está ligado, nós sabemos
+que o ID está lá. Ainda, tenha em mente que o Template ID é o único campo que
+nós sabemos que existe até agora; não existe nenhuma outra informação sobre o
+que é aquele segundo bit no Mapa de Presença -- nós precisamos encontrar qual
+template vamos usar antes de mais nada.
 
-O próximo byte é lido: `1000_0001`. Como mencionado acima, isso é o ID do
-Template. Sendo um inteiro sem sinal (e provavelmente mandatório, mas não me
-pergunte como isso funciona) e removendo o bit de parada, temos o inteiro "1",
-que é exatamente o mesmo ID que temos no nosso template; agora nós sabemos
-quais campos devem ser processados.
+O próximo byte é lido: `1000_0001`. Como mencionado acima, isso é o Template
+ID. Sendo um inteiro sem sinal (e provavelmente mandatório, mas não me pergunte
+como isso funciona) e removendo o bit de parada, temos o inteiro "1", que é
+exatamente o mesmo ID que temos no nosso template; agora nós sabemos quais
+campos devem ser processados.
 
 O primeiro campo do template é uma string com um valor default. Como o campo
 usa o operador Default, nós precisamos verificar se o valor está presente nos
@@ -133,6 +133,64 @@ grupo, uma lista de usuários e seus IDs.
 ```
 
 ## Processamento
+
+Como mencionado anteriormente, o primeiro byte, `1100_0000` é o Mapa de
+Presença do elemento raiz. Existe apenas um bit ligado, o que indica que o
+Template ID está presente.
+
+Como o Template ID está presente no Mapa de Presença, nós lemos o próximo byte
+`1000_0010`. Como este byte tem o bit de parada, nós paramos de ler. Removendo
+este bit, nós temos `000_0010`, que é "2", e agora sabemos que estamos lidando
+com o template "SequenceOfSequences".
+
+Agora que temos o template e conhecemos os campos, nós sabemos o que precisamos
+ler. O primeiro campo do nosso template é uma sequência. A primeira coisa que
+nós temos em uma sequência (e é a primeira coisa em *todas* as sequências) é o
+tamanho desta. Assim, nós lemos o próximo byte, `1000_0011`, que é o único byte
+que precisamos ler. Ele representa um inteiro sem sinal, que é 3, então esta
+sequência tem 3 registros -- e usando nossa descrição anterior, nós sabemos que
+temos 3 grupos de usuários.
+
+Um ponto ser visto aqui: Como todos os campos desta sequência não tem qualquer
+operador, o Mapa de Presença não é necessário e, assim, ele não existe (ou,
+melhor, nós não devemos tentar ler alguma coisa e assumir que é o Mapa de
+Presença). Para sequências, o começo de cada registro contém um Mapa de
+Presença apenas se pelo menos um dos campos na sequência precisa do Mapa. O que
+não é o caso aqui.
+
+Como não há Mapa de Presença para a sequência "OuterSequence", os próximos
+bytes são o campo "GroupID". Nós devemos ler os bytes até encontrar o bit de
+parada; assim, recebemos `0000_0011`, `0010_0011`, `0001_1000` e `1110_0111`.
+Para cada byte nós removemos o bit de mais alta ordem (o bit de parada) e
+juntamos tudo em uma única coisa, neste caso, `00_0011 010_0011 001_1000
+110_0111` ou simplesmente `0000_0110_1000_1100_1100_0110_0110`. Este valor,
+sendo um inteiro sem sinal, é "6868070". 
+
+{% note() %}
+Aqui é um bom ponto para lembrar que, como o campo é mandatório, isto significa
+que este é realmente o valor para "GroupID"; se o campo fosse opcional, o valor
+de verdade seria "6868069".
+{% end %}
+
+Agora para o campo "InnerSequence". O primeiro passo é recuperar o número de
+elementos (o "length" da sequência). Esse é o byte `1000_0010`, que é 2. Assim,
+há dois usuários neste grupo.
+
+Como o "InnerSequence" tem um campo que precisa do Mapa de Presença ("ID" usa o
+operador Increment, o que indica que ou iremos ler o o valor vindo dos dados de
+entrada ou iremos incrementar o valor anterior), o primeiro byte depois do
+tamanho é o Mapa de Presença para este registro. O byte `1100_0000` indica que
+o primeiro campo que precisa do Mapa de Presença está presente.
+
+Mas ainda não é o momento de usar o Mapa de Presença. O campo logo após o
+tamanho é "Username", que é uma string mandatória. Strings mandatórias sem
+operadores estão sempre presentes e nós não precisamos olhar o Mapa de
+Presença. Assim como fizemos com "String" no exemplo anterior, nós lemos os
+bytes até encontrar um com o bit de parada, mas não juntamos os mesmos:
+`0101_0101` (85), `0111_0011` (115), `0110_0101` (101), `0111_0010` (114) e
+`1011_0001` (49, se removermos o bit de parada), que convertidos pela tabela
+ASCII nos dá o valor "User1".
+
 
 <!-- 
 vim:spelllang=pt:
