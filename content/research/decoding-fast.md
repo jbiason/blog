@@ -1,6 +1,7 @@
 +++
 title = "Decoding the FAST Protocol"
 date = 2022-01-10
+updated = 2022-01-13
 
 [taxonomies]
 tags = ["finance", "binary", "protocol", "fix", "fast"]
@@ -173,6 +174,13 @@ optional integer with value 0 is, actually, Null; to get the value 0 for the
 field, the incoming data will have value 1, which is decremented in 1 and goes
 back to 0.
 
+In the template, the fields appear as
+
+- `<uInt32/>`: Unsigned Int of 32 bits.
+- `<uInt64/>`: Unsigned Int of 64 bits.
+- `<int32/>`: Signed Int of 32 bits.
+- `<int64/>`: Signed Int of 64 bits.
+
 ### Types: Strings
 
 ASCII strings are pretty simple to read: Again, the decoder keeps reading the
@@ -199,6 +207,8 @@ here.
 Optional strings are Null when the first byte have a stop bit set and every
 other bit is zero.
 
+In the template, a string field appears as `<string>`.
+
 ### Types: Sequences
 
 Sequences are basically arrays. The first field of a sequence is the "length"
@@ -208,6 +218,20 @@ even include more sequences.
 
 Optional sequences affect the way the length is read: If optional, the length
 should be treated as an optional Integer and thus the size is decremented by 1.
+
+In the template, the sequence appears as `<sequence>`, with the length
+following it. An example is
+
+```xml
+<sequence name="Sequence">
+  <length name="NoSequence" id="123"/>
+</sequence>
+```
+
+{% note() %}
+I describe most of the length fields with a name starting with "No". That's
+because the FIX spec defines the lengths with that prefix.
+{% end %}
 
 ### Types: Decimals
 
@@ -226,6 +250,16 @@ should be applied.
 Also, because Exponent and Mantissa are two fields, they can have different
 operators. I'll show some examples after the Operator, mostly because I've seen
 both with different operators and they make a mess to read.
+
+In the template, the decimal field appears as `<decimal>`, with the exponent
+and mantissa as internal fields.
+
+```xml
+<decimal name="ADecimal" id="123">
+  <exponent/>
+  <mantissa/>
+</decimal>
+```
 
 ### Type: Presence Map
 
@@ -280,6 +314,8 @@ dealing with the incoming value.
 
 When a field have No Operator, there will be no bit in the Presence Map.
 
+All the previous examples of the template have no operator.
+
 ### Operator: Constant
 
 A field with the Constant operator will not appear in the incoming data and the
@@ -315,6 +351,14 @@ In a way, you can read this: Is the value present in the incoming data
 (indicated in the Presence Map)? Then read the value in the incoming data;
 otherwise, use the default value.
 {% end %}
+
+Example
+
+```xml
+<uInt32 name="Type" id="3">
+  <default value="1"/>
+</uInt32>
+```
 
 ### Operator: Copy
 
@@ -589,3 +633,5 @@ mandatory sequences.
 
 - 2022-01-10: First release.
 - 2022-01-10: Added information about the template versioning.
+- 2022-01-13: Added examples of the tags in the template for the field types
+  and examples for operators.

@@ -1,6 +1,7 @@
 +++
 title = "Decodificando o Protocolo FAST"
 date = 2022-01-10
+updated = 2022-01-13
 
 [taxonomies]
 tags = ["finanças", "binário", "protocolo", "fix", "fast"]
@@ -177,6 +178,13 @@ em 1. O motivo é que deve haver uma forma de diferenciar entre 0 e Null. Assim,
 um inteiro que seja decodificado para 0 é, na verdade, Null; para obter o valor
 0 num inteiro, é enviado o valor 1, que é decrementando por 1 e volta a zero.
 
+No template, os campos aparecem como
+
+- `<uInt32/>`: Inteiro sem sinal de 32 bits.
+- `<uInt64/>`: Inteiro sem sinal de 64 bits.
+- `<int32/>`: Inteiro com sinal de 32 bits.
+- `<int64/>`: Inteiro sem sinal de 64 bits.
+
 ### Tipos: Strings
 
 Strings em ASCII são bem simples de serem lidas: Novamente, o decodificador
@@ -204,6 +212,8 @@ eu decidi não comentar aqui.
 Strings opcionais são Null quando o primeiro byte tiver o bit de mais alta
 ordem ligado e todos os demais desligados.
 
+No template, um campo de string aparece como `<string>`.
+
 ### Tipos: Sequências
 
 Sequências são basicamente arrays. O primeiro campo de uma sequência é o
@@ -214,6 +224,20 @@ podem até mesmo incluir outras sequências.
 Sequências opcionais afetam a forma como o campo de tamanho é lido: Se a
 sequência é opcional, o tamanho deve ser tratado como um inteiro opcional e,
 portanto, decrementando em 1.
+
+No template, a sequência aparece como `<sequence>`, com o tamanho logo depois.
+Um exemplo é
+
+```xml
+<sequence name="Sequence">
+  <length name="NoSequence" id="123"/>
+</sequence>
+```
+
+{% note() %}
+Eu descrevo a maior parte dos campos de tamanho com um nome que começa com
+"No". Isso é porque a especificação do FIX define os tamanhos com esse prefixo.
+{% end %}
 
 ### Tipos: Decimais
 
@@ -234,6 +258,16 @@ Ainda, como o Expoente e a Mantissa são dois campos, eles podem ter operadores
 diferentes. Eu vou mostrar exemplos depois de explicar os Operadores,
 principalmente porque eu vi os dois com operadores diferentes e a leitura é
 complicada.
+
+No template, um campo decimal aparece como `<decimal>`, com o expoente e a
+mantissa como campos internos.
+
+```xml
+<decimal name="ADecimal" id="123">
+  <exponent/>
+  <mantissa/>
+</decimal>
+```
 
 ### Tipo: Mapa de Presença
 
@@ -327,6 +361,14 @@ Uma forma de ler isso é: O valor está presente nos dados de entrada (indicado
 pelo Mapa de Presença)? Leia o valor dos dados de entrada; caso contrário, use
 o valor default.
 {% end %}
+
+Exemplo
+
+```xml
+<uInt32 name="Type" id="3">
+  <default value="1"/>
+</uInt32>
+```
 
 ### Operador: Copy
 
@@ -602,6 +644,8 @@ Changelog:
 
 - 2022-01-10: Primeira versão.
 - 2022-01-10: Adicionada informações sobre o versionamento de templates.
+- 2022-01-13: Adicionados exemplos das tags no template para os tipos de campos
+  e exemplos dos operadores.
 
 <!-- 
 vim:spelllang=pt:

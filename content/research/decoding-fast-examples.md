@@ -230,6 +230,10 @@ faster now:
   not present, but because the previous value was 53, the ID for username "Me"
   is 54.
 
+# Decimals
+
+# Presence Map Usage
+
 ---
 
 Changelog:
