@@ -191,6 +191,58 @@ bytes até encontrar um com o bit de parada, mas não juntamos os mesmos:
 `1011_0001` (49, se removermos o bit de parada), que convertidos pela tabela
 ASCII nos dá o valor "User1".
 
+Agora é o momento de usar o Mapa de Presença, já que estamos lendo o campo "ID"
+e ele tem um operador que usa o Mapa. O Mapa de Presença que lemos
+anteriormente foi `100_0000` (com o bit de parada removido), então sim, o "ID"
+está presente nos dados de entrada. Nós lemos o próximo byte, `1000_0100`, que
+é "4". Mas tem uma pegadinha aqui: O campo é opcional. Então embora tenhamos
+lido "4", o valor de verdade é "3" -- se o valor lido fosse "0", significaria
+que o ID é Null.
+
+Beleza. Terminamos de ler o primeiro registro de "InnerSequence": O usuário
+"User1" tem ID "3" e pertence ao grupo "6868070". Agora vamos ler o segundo
+registro.
+
+Não precisamos ler o tamanho de novo, mas precisamos ler o Mapa de Presença
+deste registro. É o byte `1000_0000` um Mapa de Presença indicando que nenhum
+dos campos com operadores estão presentes. Mas, de novo, não é hora de usar o
+Mapa de Presença, porque nós temos que ler o "Username". Os bytes do campo são
+`0101_0101` (85), `0111_0011` (115), `0110_0101` (101), `0111_0010` (114) e
+`1011_0001` (50), que gera o valor "User2".
+
+O segundo registro tem um Mapa de Presença vazio (`1000_0000`) o que indica que
+o ID não está presente nos dados de entrada. Como o campo tem o operador
+Increment, nós precisamos pegar o valor anterior -- "3" -- e incrementar em 1>
+Assim, "User2" tem o ID "4".
+
+E assim termina o "InnerSequence" do primeiro regsitro do "OuterSequence".
+Agora mais rápido:
+
+- `1111_1111`: O segundo "GroupID" (que usa apenas um byte por causa do bit de
+  parada), que é "127".
+- `1000_0001`: O tamanho do "InnerSequence"; apenas 1 elemento.
+- `1100_0000`: O Mapa de Presença do segundo registro de "InnerSequence";
+  significa que o "ID" está presente.
+- `0101_0101`, `1011_0001`: Username. "U1".
+- `1111_1111`: O valor de "ID" para o usuário "U1" é 126 (é lido "127", mas
+  como o campo é opcional, o valor é decrementado em 1).
+- `0000_1000`, `1000_0000`: O terceiro "GroupID". Removendo os bits de parada e
+  juntando os bits restantes temos `0000_1000 0000_0000`, que é "2048".
+- `1000_0010`: Tamanho da sequência "InnerSequence" do terceiro grupo; 2
+  elementos.
+- `1100_0000`: Mapa de Presença do primeiro registro de "InnerSequence"; ID
+  está presente.
+- `1100_1001`: Username. "I".
+- `1011_0110`: "ID" para o usuário "I". 53.
+- `1000_0000`: Mapa de presença do segundo registro de "InnerSequence"; ID não
+  está presente.
+- `0100_1101`, `1110_0101`: Username. "Me".
+- Agora não precisamos ler nada, pois o Mapa de Presença aponta que o ID não
+  está presente, mas como o valor lido anteriormente para este campo foi "53",
+  o ID para o usuário "Me" é "54". E como este era o último elemento de
+  "InnerSequence", a sequência está completa; ainda, como este era o último
+  elemento de "OuterSequence", a leitura terminou.
+
 
 <!-- 
 vim:spelllang=pt:

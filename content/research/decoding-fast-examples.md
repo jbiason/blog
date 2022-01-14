@@ -189,22 +189,23 @@ bit, but don't merge them: `0101_0101` (85), `0111_0011` (115), `0110_0101`
 (101), `0111_0010` (114) and `1011_0001` (49, if we remove the stop bit, that
 is), which converted by the ASCII table gives us "User1".
 
-Remember that we jumped the Presence Map? Now it is the time to use it, since
-we are reading "ID" and it has an operator that requires the Presence Map. The
-Presence Map we read before was `100_0000` (with the stop bit removed), so
-yeah, the "ID" is present. We read the next byte, `1000_0100`, which is "4".
-But there is a gotcha here: The field is optional. So although we read "4", the
+Now it is the time to use the Presence Map, since we are reading the "ID" field
+and it has an operator that requires the Presence Map. The Presence Map we read
+before was `100_0000` (with the stop bit removed), so yeah, the "ID" is present
+in the incoming data. We read the next byte, `1000_0100`, which is "4". But
+there is a gotcha here: The field is optional. So although we read "4", the
 actual value is "3" -- if the value read was "0" it meant that the ID is Null.
 
-Good. We just finished reading the first record of "InnerSequence". Now we read
-the second record.
+Good. We just finished reading the first record of "InnerSequence": The user
+"User1" has ID "3" and belongs to group "6868070". Now we read the second
+record.
 
 We don't need to read the length again, but we need to read the Presence Map
 for this record. It is the byte `1000_0000`, a Presence Map indicating that
 none of the fields with operators are present. But, again, it is not the time
-for the Presence Map, but for the "Username". The bytes for the field are
-`0101_0101` (85), `0111_0011` (115), `0110_0101` (101), `0111_0010` (114) and
-`1011_0001` (50), which is "User2".
+for the Presence Map, 'cause we have to read "Username". The bytes for the
+field are `0101_0101` (85), `0111_0011` (115), `0110_0101` (101), `0111_0010`
+(114) and `1011_0001` (50), which is "User2".
 
 This second record have an empty presence map (`1000_0000`) meaning that the ID
 is not present in the incoming data. Because the field has the Increment
@@ -215,15 +216,15 @@ That ends the "InnerSequence" for the first record of "OuterSequence". Going
 faster now:
 
 - `1111_1111`: The second "GroupID" (only one byte due the stop bit), which is
-  127.
+  "127".
 - `1000_0001`: The length of "InnerSequence"; it is just 1 element.
 - `1100_0000`: The presence map for the first record of "InnerSequence"; it
   means the "ID" is present.
 - `0101_0101`, `1011_0001`: The username. "U1".
 - `1111_1111`: The "ID" for user "U1" is 126 (it reads as 127, but because the
   field is optional, we decrement the value by 1).
-- `0000_1000`, `1000_0000`: The third "GroupID". Removing the stop bit and
-  joining the bits we have `1000_0000_0000` which is 2048.
+- `0000_1000`, `1000_0000`: The third "GroupID". Removing the stop bits and
+  joining the bits we have `0000_1000 0000_0000` which is 2048.
 - `1000_0010`: Length of the "InnerSequence" in the 3rd group; 2 elements.
 - `1100_0000`: Presence Map of the first record of "InnerSequence"; ID is
   present.
@@ -233,8 +234,10 @@ faster now:
   present.
 - `0100_1101`, `1110_0101`: Username. "Me".
 - Not reading any bytes now 'cause the Presence Map pointed that the "ID" is
-  not present, but because the previous value was 53, the ID for username "Me"
-  is 54.
+  not present, but because the previous value for this field was 53, the ID for
+  username "Me" is 54. Since this is the last element of "InnerSequence", that
+  sequence is complete; also, this is the last element of "OuterSequence", so
+  everything is done.
 
 # Decimals
 
