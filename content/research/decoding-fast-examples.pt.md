@@ -1,7 +1,6 @@
 +++
 title = "Decodificando o Protocolo FAST: Exemplos"
 date = 2022-01-12
-draft = true
 
 [taxonomies]
 tags = ["finanças", "binário", "protocolo", "fix", "fast", "exemplos"]
@@ -17,6 +16,9 @@ Mesmo aviso do post anterior: Como isso tudo é baseado na minha experiência
 pessoal, algumas coisas podem estar erradas. Eu tentei o meu melhor para deixar
 tudo correto, mas eu posso ter entendido alguma coisa errada, ou digitei errado
 aqui.
+
+Ainda, a medida que eu for encontrando casos que eu acredite sejam
+interessantes, novos exemplos serão adicionados.
 {% end %}
 
 # Hello World
@@ -243,6 +245,11 @@ Agora mais rápido:
   "InnerSequence", a sequência está completa; ainda, como este era o último
   elemento de "OuterSequence", a leitura terminou.
 
+---
+
+Changelog:
+
+- 2022-01-17: Versão inicial.
 
 <!-- 
 vim:spelllang=pt:

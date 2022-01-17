@@ -1,7 +1,6 @@
 +++
 title = "Decoding the FAST Protocol: Examples"
 date = 2022-01-12
-draft = true
 
 [taxonomies]
 tags = ["finance", "binary", "protocol", "fix", "fast", "examples"]
@@ -17,6 +16,8 @@ understand.
 Same disclaimer as before: Because this is based on my personal experience,
 some things may be out of place. I tried my best to keep things correctly, but
 I may have misunderstood something, or maybe I just typed the value wrong here.
+
+Also, if I find any other interesting examples, I'll add them here.
 {% end %}
 
 # Simple Hello World
@@ -239,12 +240,8 @@ faster now:
   sequence is complete; also, this is the last element of "OuterSequence", so
   everything is done.
 
-# Decimals
-
-# Presence Map Usage
-
 ---
 
 Changelog:
 
-- 2022-01-12: First release.
+- 2022-01-17: First release.
