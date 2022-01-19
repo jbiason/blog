@@ -39,3 +39,29 @@ and wristles:
 
 The whole configuration file is [in my personal Git
 repo](https://git.juliobiason.me/dotfiles.git/tree/nvim).
+
+### What was left out?
+
+When migrating, I few things I did not add in this new configuration:
+
+- Fuzzy find: Previously I was using [Skim](https://github.com/lotabout/skim)
+  for opening files with fuzzy find (e.g., type a few letters, see a list of
+  the files with those letters). The Vim plugin for it was a bit flaky
+  (sometimes it would completely ignore the typed input, which I think it meant
+  it crashed somehow). But, 'cause I used only when bored, I decided that I
+  won't use a fuzzy find; my favourite way of finding files is using the `-`
+  shortcut, which I set to open `:Ex`.
+- Snippets: [UltiSnips](https://github.com/sirver/UltiSnips) was not working
+  before, so I decided not to try it again. I'll probably look at some other
+  option in the future.
+- Per FileType configuration: Previously I had a bunch of autocommands to set
+  specific configuration for each file type (e.g., Python files should always
+  use spaces instead of tabs, but HTML should use tabs instead of spaces). I
+  left it out mostly 'cause there is no Lua support for such commands yet, as
+  far as I know (you can run VimScript commands still, but I'm being a bit
+  retentive about mixing those).
+- Auto-trim lines: My previous configuration used an autocommand for running a
+  regular expression that would remove all tailing spaces in the lines. Because
+  I use Rust mostly these days and the LSP configuration can run the
+  autoformatter (`rustfmt`, in this case) and this already remove tailing
+  spaces, I decided to leave this option out for now.

@@ -41,6 +41,36 @@ firulas:
 O arquivo de configuração (e submódulos) está no [meu repositório pessoal do
 Git](https://git.juliobiason.me/dotfiles.git/tree/nvim).
 
+### O que ficou pra trás?
+
+Enquanto eu estava migrandion, eu resolvi não adicionar algumas coisas nessa
+nova configuração:
+
+- Fuzzy find: Anteriormente eu estava usando o
+  [Skim](https://github.com/lotabout/skim) para abrir arquivos com fuzzy find
+  (digite algumas letras, veja uma lista de arquivos que tem essas letras). O
+  plugin do Vim para o Skim apresentava alguns problemas (algumas vezes
+  ignorando completamente o que era digitado na entrada, o que me faz pensar
+  que o plugin teria crasheado de alguma forma). Mas, como eu só usava quando
+  estava entediado, eu acabei deixando a opção de fuzzy find de fora; minha
+  forma favorita de procurar arquivos é usando o atalho `-`, que eu botei para
+  chamar o `:Ex`.
+- Snippets: [UltiSnips](https://github.com/sirver/UltiSnips) não estava
+  funcionando antes então eu resolvi não tentar de novo. Eu provavelmente vou
+  procurar por alguma outra opção no futuro.
+- Configuração por tipo de arquivo: Anteriormente eu tinha um bocado de
+  "autocommands" para definir configurações específicas para cada arquivo (por
+  exemplo, arquivos Python devem usar espaços ao invés de tabulações, mas
+  arquivos HTML devem usar tabulações ao invés de espaços). Eu deixei de fora
+  porque, até onde eu vi, não há suporte na versão em Lua para isso (ainda é
+  possível rodar comandos VimScript, mas eu tô sendo meio chato com relação à
+  isso).
+- Remover espaços no final das linhas: A minha configuração anterior tinha um
+  autocommand para executar uma expressão regular que removia todos os espaços
+  no final das linhas. Como eu atualmente estou usando mais Rust e a
+  configuração do LSP roda um autoformatter (no caso, o `rustfmt`) e isso já
+  remove os espaços, eu decidi não aplicar essa opção de novo.
+
 <!-- 
 vim:spelllang=pt:
 -->
