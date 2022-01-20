@@ -9,5 +9,18 @@
   </span>
   {{ page.content | safe }}
 </div>
-{% endblock content %}
 
+{% if page.extra and page.extra.changelog %}
+  <hr>
+
+  <h4>Changelog</h4>
+
+  <ul>
+  {% for key, value in page.extra.changelog %}
+    <li>{{ key }}: {{ value }}</li>
+  {% endfor  %}
+  </ul>
+{% endif  %}
+
+{% endblock content %}
+ 

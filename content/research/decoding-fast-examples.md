@@ -4,6 +4,9 @@ date = 2022-01-12
 
 [taxonomies]
 tags = ["finance", "binary", "protocol", "fix", "fast", "examples"]
+
+[extra.changelog]
+2022-01-12 = "First release"
 +++
 
 After the whole explanation about the definition of the FAST protocol, I
@@ -239,9 +242,3 @@ faster now:
   username "Me" is 54. Since this is the last element of "InnerSequence", that
   sequence is complete; also, this is the last element of "OuterSequence", so
   everything is done.
-
----
-
-Changelog:
-
-- 2022-01-17: First release.
