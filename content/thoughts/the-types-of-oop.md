@@ -103,3 +103,62 @@ together, so we added a "behaviour" (method) to produce that for us.
 Quite simple.
 
 ## The Façade
+
+Façade is, actually, a design pattern: You want to hide what the code does
+behind the curtain, so changing the underlying structure would not affect the
+code.
+
+For example, let's take our Name example before. Let's say we want to save
+it. We could do
+
+```python
+class Name:
+	def __init__(self, first_name, last_name):
+		self.first_name = first_name
+		self.last_name = last_name
+
+	def full_name(self):
+		return "{} {}".format(self.first_name, self.last_name)
+
+	def save(self):
+		# saving to disk
+		with open(self.full_name(), 'w') as target:
+			target.write("first_name: {}\n".format(self.first_name))
+			target.write("last_name: {}\n".format(self.last_name))
+```
+
+All good, we are just keeping our names saved on disk, with the filename being
+the full name and, inside, we keep the first and last names. But let's say our
+disk is full, and someone thought a good replacement would be to store all those
+files in S3. Later, someone came with the great idea of saving those in a
+database. And, much later, we realized we can speed things up by saving the
+content in a Redis store for faster retrieval. In all those changes, we exposed
+how things are saved inside our class, which may be simple enough, but imagine
+you have hundreds of things to be stored, with their classes, and now you have
+to go there and replace every one of those classes for every time we thought we
+found a better way to store it.
+
+In this case, we could've come with a `Storage` class, which would hide the way
+we are storing (and probably retrieving, although I haven't shown in this
+example) from the classes, so our `save()` method could be
+
+```python
+def save(self, storage):
+	# convert to some format `Storage` knows, or just break the content of the
+	# class down in some dictionary, for example.
+	storage.save(self)
+```
+
+The `Storage` is just a façade to do the way we are actually saving the
+data. The class doesn't know how its contents are stored, but it also doesn't
+have to worry about it. `Storage` may even contain some related information to
+save the content properly, but it's real purpose is just to hide whatever is
+under it so the rest of the system doesn't have to worry about it.
+
+{% note() %}
+For languages that have support for it may use "interfaces" or "traits" to
+ensure that whatever the Storage is doing, it has the same appearance
+everywhere.
+{% end %}
+
+## The Framework
