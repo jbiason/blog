@@ -12,7 +12,6 @@ theme = "hyde"
 # theme = "terminimal-light"
 
 taxonomies = [
-	# You can enable/disable RSS
 	{name = "categories", rss = true},
 	{name = "tags", rss = true},
 	{name = "tags", lang = "en"},
@@ -25,10 +24,18 @@ generate_rss = true
 # build_search_index = true
 
 default_language = "en"
-languages = [
-	{code = "pt", rss = true},
-	{code = "pt", search = false},
+
+[languages.pt]
+rss = true
+build_search_index = true
+taxonomies = [
+	{name = "categories", rss = true},
+	{name = "tags", rss = true},
+	{name = "tags", lang = "en"},
+	{name = "tags", lang = "pt"},
 ]
+title = "Julio Biason .Net 4.2"
+description = "Old school dev living in a 2.0 dev world"
 
 [markdown]
 highlight_code = true

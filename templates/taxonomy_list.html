@@ -1,0 +1,9 @@
+{% extends "index.html" %} 
+
+{% block content %}
+	{% for tag in terms %}
+		<a href="{{ tag.permalink | safe }}">
+			<span>{{ tag.name }} ({{ tag.pages | length }})</span>
+		</a>
+	{% endfor %}
+{% endblock content %}
