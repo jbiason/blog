@@ -31,10 +31,11 @@ base class in a child class and overrides the method. And that's basically it.
 
 But, in real life, things are not quite like that.
 
-Ok ok, there are examples in real life that are basically that, but I don't
-think we *start* with that, we *use* that.
+Ok ok, there are way more examples of things written in real life OO beyond the
+ones I talk here, but in my experinece they are not that common. Of course, your
+mileage may vary.
 
-So, what do I mean by "Types of OOP"?
+So, what do I mean by "Types of OOP" in "the real world"?
 
 ## The Grouping
 
@@ -162,3 +163,11 @@ everywhere.
 {% end %}
 
 ## The Framework
+
+The last common OOP design I usually see is what I can call "the
+framework". Usually, projects are not written in this style, but the framework
+they use allows this.
+
+The framework is focused on having lots of methods in some class that you extend
+and override a couple of methods. For example, if you are using Django, you may
+use 
