@@ -120,18 +120,22 @@ And absolutely no example of those kinds.
 This is one cool thing: Racket keeps the values in their fractional
 format.
 
-> ```(struct student (name id# dorm))
+> ```
+> (struct student (name id# dorm))
 > (student-name freshman1)
 > 'Joe
 > (student-id# freshman1)
-> 1234```
+> 1234
+> ```
 
 Creating structs and extracting values from them.
 
-> ```(define x 7)
+> ```
+> (define x 7)
 >   (cond [(= x 7) 5]
 >         [(odd? x) 'odd-number]
->         [else 'even-number])```
+>         [else 'even-number])
+> ```
 
 Multiple tests. Also, there is this use of brackets ("[") and
 parenthesis ("(") which is never properly explained, though.

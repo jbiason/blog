@@ -29,7 +29,7 @@ Por exemplo, para garantir que meus templates Jinja fiquem com a sintaxe
 correta (usando a sintaxe de templates do Django), eu tenho colocado, como
 última linha do arquivo
 
-```django
+```vim
 {# vim: set ft=htmldjango: #}
 ```
 
@@ -42,14 +42,14 @@ Usando o exemplo acima, se eu quisesse que meus templates usassem tabulações a
 invés de espaços para identação mas fossem apenas 2 espaços por tabulação, eu
 poderia colocar, no final do arquivo:
 
-```django
+```vim
 {# vim: set ft=htmldjango noet ts=2 sts=2 sw=2: #}
 ```
 
 O VIM ainda aceita que as opções sejam separadas em vários comandos, com a
 adição de ":":
 
-```django
+```vim
 {# vim: set ft=htmldjango:set noet:set ts=2:set sts=2:set sw=2: #}
 ```
 

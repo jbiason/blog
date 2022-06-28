@@ -26,7 +26,7 @@ all the result records in the collection. Because it is a list (iterator,
 whatever), it has a `count()` function that returns the number of records. So
 you have something like this:
 
-```mongodb
+```javascript
 connector.collection.find({'field': 'value'}).count()
 ```
 
