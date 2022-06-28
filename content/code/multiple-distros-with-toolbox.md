@@ -26,14 +26,14 @@ By default, on Silverblue, there is basically just one image: fedora-toolbox.
 It is the default Fedora Workstation install, but you can pick any version you
 want. You can do 
 
-```
+```shell
 toolbox create
 ```
 
 ... to create an environment with a Fedora install in the same version of the
 current Silverblue install and then 
 
-```
+```shell
 toolbox enter
 ```
 
@@ -85,7 +85,7 @@ issues.
 
 So I have this `Containerfile`:
 
-```
+```dockerfile
 FROM opensuse/leap:15.1
 
 LABEL com.github.containers.toolbox="true" \
@@ -106,7 +106,7 @@ using `sudo` without a password.
 {% note() %}
 If you're curious, the whole `sudoers` I use have just one line:
 
-```
+```sudo
 %wheel        ALL=(ALL)       NOPASSWD: ALL
 ```
 {% end %}
@@ -128,7 +128,7 @@ Other distributions I build images:
 Similar to OpenSuse, Ubuntu default image also doesn't come with `capsh` and
 `sudo`, but this can fixed with this `Containerfile`:
 
-```
+```dockerfile
 FROM ubuntu:18.04
 
 LABEL com.github.containers.toolbox="true" \
@@ -148,7 +148,7 @@ Also, the `sudo` group is "sudo", so the `sudoers` file had to reflect this.
 Centos 7 comes with `capsh`, but not `sudo`. So another custom image needs to
 be used:
 
-```
+```dockerfile
 FROM centos:7.3.1611
 
 LABEL com.github.containers.toolbox="true" \
