@@ -4,7 +4,7 @@ base_url = "https://blog.juliobiason.me"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-title = "Julio Biason .Net 4.2"
+title = "Julio Biason.Me 4.3"
 description = "Old school dev living in a 2.0 dev world"
 
 # theme = "nighttime"
@@ -34,7 +34,7 @@ taxonomies = [
 	{name = "tags", lang = "en"},
 	{name = "tags", lang = "pt"},
 ]
-title = "Julio Biason .Net 4.2"
+title = "Julio Biason.Me 4.3"
 description = "Old school dev living in a 2.0 dev world"
 
 [markdown]
@@ -45,7 +45,7 @@ highlight_code = true
 # Put all your custom variables here
 author = "Julio Biason"
 # accent_color = "cyan"
-logo_text = "JulioBiason.Net 4.1"
+logo_text = "Julio Biason.Me 4.3"
 use_full_hack_font = true
 menu_items = [
 	{url = "$BASE_URL", name = "English"},
@@ -62,5 +62,5 @@ hyde_links = [
 	{url = "/tags", name = "Tags (EN)"},
 	{url = "/pt/tags", name = "Tags (PT)"},
 ]
-after_dark_title = "JulioBiason.Net 4.1"
+after_dark_title = "Julio Biason.Me 4.3"
 enable_post_view_navigation = false
