@@ -4,7 +4,7 @@ base_url = "https://blog.juliobiason.me"
 # Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-title = "Julio Biason.Me 4.3"
+title = "Julio Biason .Me 4.3"
 description = "Old school dev living in a 2.0 dev world"
 
 # theme = "nighttime"
@@ -34,7 +34,6 @@ taxonomies = [
 	{name = "tags", lang = "en"},
 	{name = "tags", lang = "pt"},
 ]
-title = "Julio Biason.Me 4.3"
 description = "Old school dev living in a 2.0 dev world"
 
 [markdown]
@@ -62,5 +61,4 @@ hyde_links = [
 	{url = "/tags", name = "Tags (EN)"},
 	{url = "/pt/tags", name = "Tags (PT)"},
 ]
-after_dark_title = "Julio Biason.Me 4.3"
 enable_post_view_navigation = false
