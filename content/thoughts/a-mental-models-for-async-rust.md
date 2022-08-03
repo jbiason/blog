@@ -85,5 +85,38 @@ fn main() {
 
 (Yeah, I did all in a single file. Sue me.)
 
-[async is channel, not spawn]
+Quick explanation: Here, there are two threads, one for the producer and one
+for the consumer; the MPSC (Multiple Producer, Single Consumer) channel is the
+communication channel between those two. With the exception that it has only
+one consumer, it is pretty close to the way I learnt producer/consumer
+architecture at uni (not in Rust, but C, using mutexes).
 
+## Where it falls apart
+
+Now, the first thing one would do, knowing about "greenthreads" and
+`tokio::spawn` is just to replace `thread::spawn` for the Tokio API and think
+it is done.
+
+And that's where my initial mental model broke down.
+
+'Cause, you see, async is not the threads; **async is the channel**. And by
+that I mean that each task is put in a queue (the event loop queue) and then
+processed. Instead of just having data (in our example, an integer), it has
+data and code; the code is the task and the data is whatever Rust moves into
+the task.
+
+## I saw multitasking correctly
+
+One thing I believe I did right was to "mentalize" the way the event loop works
+akin to Windows 3.11, which was really prone to become completely unresponsive
+from time to time. The reason for that is that the event loop keeps running
+things till someone says "Ok, I give up my time and someone else can run their
+stuff" -- a.k.a. "cooperative multitasking".
+
+Async works akin to cooperative multitasking, but instead of having the
+developer add a bunch of "event loop, you can run something else" statements,
+this is done in I/O layer, for one simple reason: Your code would, normally,
+block on those, and the event loop will take care of running this in a
+non-blocking fashion.
+
+## 
