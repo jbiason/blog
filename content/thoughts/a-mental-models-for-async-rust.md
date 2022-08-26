@@ -15,13 +15,71 @@ It took me awhile to figure out a mental model for doing it right.
 
 <!-- more -->
 
-## A problem with naming
+## But first...
 
-I think my initial problem started with naming. The concept of async/await is
-quite recent, but for a long time we've been talking about "greenthreads" and
-"light-weight threads" -- "threads" that are managed by the application and not
-the OS. While there are some differences between greenthreads and async things, 
-the naming stuck with me (and I *think* I saw some posts linking the two).
+Before jumping into the model, I need to throw some other concepts that lead to
+this model. It may seem a bit not related to async, but it will make sense in
+the end (I hope 🙂).
+
+### Windows 3 and Cooperative multitasking
+
+People may not remember, but there was a magical time on the old DOS days when
+you could not only have a graphical interface, but you could ALSO run more than
+one application at the same time. 
+
+That was done in a "shell" called... Windows.
+
+But Windows 3 did not run like Windows does today. Today, every process
+"compete" against each other to have some time running. The OS let an
+application run for some time, pauses it, unpauses another, let it run for some
+time, pauses, switches to another, and so on. 
+
+But Windows 3 had a different method to give time to different applications:
+Instead of the OS saying "your time is over" the application itself must say
+"Hey OS, if there is another process that wants to run, I yield my own
+execution".
+
+Besides the application saying that they allow another application to run, the
+OS have some control points for them to yield control, in the I/O calls. While
+one application is waiting for a read or write to complete, either on disk or
+socket, the OS would take care of when the operation completed and then return
+control to the application.
+
+### `epoll()`
+
+### "Greenthreads"
+
+I think my initial problem started with naming. The concept of async/await
+constructs is quite recent, but for a long time we've been talking about
+"greenthreads" and "light-weight threads" -- "threads" that are managed by the
+application and not the OS. While there are some differences between
+greenthreads and async things, the naming stuck with me (and I *think* I saw
+some posts linking the two).
+
+### Rust and threads
+
+Let's talk about Rust memory model for a second here. Rust emphasises memory
+protection by giving regions of memory to owners; a region can only be owner by
+one and only one owner and when the owner goes away, the memory is freed.
+Nothing fancy.
+
+This is particularly awesome when you're dealing with multi-threaded code, as a
+region of memory can only belong to a price of code in one thread and other
+threads can't mess with it. I think the greatest analogy for this behavior is
+the explanation Miko Matsakis, which explained this using gifts:
+
+Imagine you have a gift. You want to give it to someone, but while it is in
+your hands, you can unwrap, replace the bow and paper, anything. But once you
+*give* it to someone else's, that's their gift; it is up to them to unwrap,
+replace bow and paper and whatnot.
+
+The process of writing code in Rust with that control is sometimes annoying
+when you're dealing with code that is not multi-threaded, but when you think
+"What would happen if I run this in a separate thread?", then all the complains
+make sense. You can even understand that the Rust compiler will not complain
+when you end your main code in a loop or a `.join()`.
+
+## A problem with naming
 
 Still on naming, [Tokio](https://tokio.rs/), the most popular async framework
 in Rust, uses `task::spawn` to spawn a new task, which is pretty close to the
@@ -36,7 +94,7 @@ with async was with Rust, so...
 
 ## A problem with structure
 
-So you get this "async is thread" mentality due aproximation. And then you try
+So you get this "async is thread" mentality due approximation. And then you try
 to build something async using the same model.
 
 For example, a producer/consumer in Rust would be something like:
@@ -107,7 +165,7 @@ the task.
 
 ## I saw multitasking correctly
 
-One thing I believe I did right was to "mentalize" the way the event loop works
+One thing I believe I did right was to "metallize" the way the event loop works
 akin to Windows 3.11, which was really prone to become completely unresponsive
 from time to time. The reason for that is that the event loop keeps running
 things till someone says "Ok, I give up my time and someone else can run their
@@ -119,4 +177,8 @@ this is done in I/O layer, for one simple reason: Your code would, normally,
 block on those, and the event loop will take care of running this in a
 non-blocking fashion.
 
-## 
+## So, what the model, anyway?
+
+You see, seeing task as threads is not the right thing to do. The way that made
+everything make sense was to see tasks as **the elements being added to the
+MPSC channel**.
