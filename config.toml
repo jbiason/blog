@@ -26,6 +26,8 @@ generate_rss = true
 default_language = "en"
 
 [languages.pt]
+title = "Julio Biason .Me 4.3"
+description = "Old school dev living in a 2.0 dev world"
 rss = true
 build_search_index = true
 taxonomies = [
@@ -34,7 +36,6 @@ taxonomies = [
 	{name = "tags", lang = "en"},
 	{name = "tags", lang = "pt"},
 ]
-description = "Old school dev living in a 2.0 dev world"
 
 [markdown]
 highlight_code = true

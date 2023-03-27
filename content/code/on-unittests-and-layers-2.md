@@ -15,9 +15,7 @@ about "Fast Test, Slow Test".
 Just after posting about 
 [who one could see the layers through unit testing](@/code/on-unittests-and-layers.md),
 I finally watched a video of Gary
-Bernhardt (of the "DestroyAllSoftware" fame) about "Fast Test, Slow Test":
-
-{{ youtube(id="RAxiiRPHS9k") }}
+Bernhardt (of the "DestroyAllSoftware" fame) about "Fast Test, Slow Test".
 
 Basically, what Gary is going after is saying "write tests for the layer ONLY,
 so all your tests are fast". Ok, I can get behind it, in a way. Because layers
