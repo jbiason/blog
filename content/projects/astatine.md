@@ -1,6 +1,7 @@
 +++
 title = "Nice Troubled Astatine"
 date = 2022-08-03
+update = 2023-07-27
 
 [taxonomies]
 tags = ["projects", "personal", "notes", "note taking", "microblog", "twitter"]
@@ -63,5 +64,57 @@ an issue when the user manually changes a note.
 | A note  |-
 +---------+ \ +-------------------+   +------------------------+
              -| Another follow up |---| Follow up of "Another" |
-	      +-------------------+   +------------------------+
+              +-------------------+   +------------------------+
 ```
+
+## Storage
+
+Since we are keeping things in Markdown, it seems it would be good to have a
+proper format that could also be read as a normal markdown.
+
+```
+# Note title
+
+This is a note
+---
+2022-08-23 15:53
+[parent-note-id](parent note)
+Children:
+  - [child1](Child 1)
+  - [child2](Child 2)
+```
+
+```
+# A note
+
+This note has no parent and no children.
+
+---
+2023-07-27 14:46
+```
+
+```
+# A prent note
+
+This note has no parent, only children.
+
+---
+2022-08-23 15:53
+Children:
+  - [child1](Child 1)
+  - [child2](Child 2)
+```
+
+The "note title" would also be the filename, *sluggered* (if that's even a
+word). Also note that the GUI design does not have title, but those are
+interesting 'cause that would produce the proper filename[^1].
+
+There should be an index of sorts, with all the notes in order of insertion
+(most recent to the oldest), just to speed up loading. This "index" would be
+read as paging, so if we want Page 10, we would probably need
+
+---
+
+[^1]: Note that there aren't titles in the GUI mock up 'cause the Mockup is
+    older than the idea of using Markdown files, and I want to keep some
+    "history" of the project there.
