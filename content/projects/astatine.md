@@ -113,6 +113,17 @@ There should be an index of sorts, with all the notes in order of insertion
 (most recent to the oldest), just to speed up loading. This "index" would be
 read as paging, so if we want Page 10, we would probably need
 
+## Web
+
+One nice thing to have, which could replace the GUI, is to have a Web
+interface. This would allow using outside our device (as long as it have
+internet access) and to make notes public or private.
+
+If we do this, there should be two indexes files: One for everything and one
+for only public notes. When the user is logged in (and since notes are
+personal, only one user would be accepted), the system loads notes from the all
+notes index; if it is not, only the public notes index is read.
+
 ---
 
 [^1]: Note that there aren't titles in the GUI mock up 'cause the Mockup is
