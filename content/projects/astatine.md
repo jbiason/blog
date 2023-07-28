@@ -94,7 +94,7 @@ This note has no parent and no children.
 ```
 
 ```
-# A prent note
+# A parent note
 
 This note has no parent, only children.
 
@@ -108,6 +108,22 @@ Children:
 The "note title" would also be the filename, *sluggered* (if that's even a
 word). Also note that the GUI design does not have title, but those are
 interesting 'cause that would produce the proper filename[^1].
+
+Another option for the title: Top level notes can have just one line, which is
+the title for the thread. All child notes could have a versioning-like scheme
+for them, like
+
+```
+Single line note  (becomes single-line-note.md)
+|-- note content (becomes single-line-note-1.md)
+| |-- another note content (becomes single-line-note-1-1.md)
+| \-- more content (becomes single-line-content-1-2.md)
+\-- more content (becomes single-line-note-2.md)
+```
+
+This can be done 'cause the note we would add a follow up already have a list
+of children, so it's just a matter of adding "-1" if the note has no children
+yet, or "last id + 1" otherwise.
 
 There should be an index of sorts, with all the notes in order of insertion
 (most recent to the oldest), just to speed up loading. This "index" would be
