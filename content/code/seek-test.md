@@ -67,7 +67,7 @@ async fn main() {
 
     let file = File::open(&file_name).await.unwrap();
     let reader = BufReader::new(file);
-    // Here is why I can't seek after using `.lines()`:
+    // Here is why we need to the the `.into_inner()` later:
     // `.lines()` takes `self` and not `&self`.
     let mut lines = reader.lines();
 
