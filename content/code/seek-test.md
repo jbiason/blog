@@ -97,3 +97,11 @@ async fn main() {
     }
 }
 ```
+
+{% note() %}
+The actual effect for using this is that I need to walk two of those files at
+the same time. By walking the first file, grabbing the headers and then
+returning to the actual data and doing the same with the second file, I could
+avoid an issue of files with different header sizes (e.g., the second file was
+updated with new comments before the actual header).
+{% end %}
