@@ -1,9 +1,3 @@
-[submodule "themes/nighttime"]
-	path = themes/nighttime
-	url = git@github.com:jbiason/nighttime.git
-[submodule "themes/terminimal-light"]
-	path = themes/terminimal-light
-	url = git@git.juliobiason.me:terminimal-light.git
 [submodule "themes/hyde"]
 	path = themes/hyde
 	url = https://github.com/getzola/hyde.git

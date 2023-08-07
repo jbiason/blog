@@ -7,9 +7,7 @@ compile_sass = true
 title = "Julio Biason .Me 4.3"
 description = "Old school dev living in a 2.0 dev world"
 
-# theme = "nighttime"
 theme = "hyde"
-# theme = "terminimal-light"
 
 taxonomies = [
 	{name = "categories", rss = true},
