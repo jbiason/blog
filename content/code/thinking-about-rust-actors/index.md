@@ -1,7 +1,6 @@
 +++
 title = "Thinking About Rust Actors"
 date = 2023-08-11
-draft =true
 
 [taxonomies]
 tags = ["rust", "actor model"]
@@ -35,14 +34,18 @@ this function exposes the `Sender` part of a channel which acts as the Inbox of
 it and the task PID, so the can `.await` it to avoid the main application from
 finishing with the actor still running. 
 
+{% note() %}
+For now, I'm ignoring Tokio and async for next examples.
+{% end %}
+
 And because there is no "Post Office" kind of solver in Rust, we can actually
 short circuit the actors by giving the `Sender` channel of an actor as
 parameter to a second, so it knows where to send its messages. Something like:
 
 ```rust
-let channel3 = actor3::run(...).await;
-let channel2 = actor2::run(channel3).await;
-actor1::run(channel2).await;
+let channel3 = actor3::run(...);
+let channel2 = actor2::run(channel3);
+actor1::run(channel2);
 ```
 
 In this short sample, whatever "actor1" produces, it sends directly to
@@ -72,12 +75,12 @@ trait!
 
 So, what should be the Actor trait?
 
-First thing, its `new()` or similar function should expose its PID. Something
-like:
+First thing, its `run()` or similar function should expose its PID and its
+receiving channel. Something like:
 
 ```rust
 pub trait Actor {
-    fn new(..) -> Sender<TheKindOfMessageTheActorAccepts>;
+    fn run() -> (task::JoinHandle<()>, Sender<TheKindOfMessageTheActorAccepts>);
 }
 ```
 
@@ -90,8 +93,27 @@ type:
 
 ```rust
 pub trait Actor {
-    type Input = TheKindOfMessageTheActorAccepts;
+    type Input;
 
-    fn new(..) -> Sender<Self::Input>;
+    fn run() -> (task::JoinHandle<()>, Sender<Self::Input>);
 }
 ```
+
+So the basic idea is that, once the trait is implemented in a struct, we could
+managed it like:
+
+```rust
+let actor3 = Actor3::new(..);
+let (actor3_pid, actor3_channel) = actor3::run();
+```
+
+Wait, what about the chaining? We could do something simple like:
+
+```rust
+let actor3 = Actor3::new(..);
+let (actor3_pid, actor3_channel) = actor3::run();
+let actor2 = Actor2::new(actor3_channel);
+let (actor2_pid, actor2_channel) = actor2::run();
+```
+
+... which is kinda verbose, but does work.
