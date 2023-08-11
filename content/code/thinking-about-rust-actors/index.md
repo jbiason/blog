@@ -117,3 +117,8 @@ let (actor2_pid, actor2_channel) = actor2::run();
 ```
 
 ... which is kinda verbose, but does work.
+
+I have some ideas to make this part more fluent, but I need to do some more
+exploration about the topic (specially since I think we can leverage the type
+system to now allow actors with different outputs to connect). Once I get those
+hammered down, I'll get a follow up post.
