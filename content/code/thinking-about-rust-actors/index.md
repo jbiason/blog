@@ -30,17 +30,18 @@ Actors:
 ![](actors.png "A silly representation of the actor model")
 
 On my implementation, the actor is actually a module with a `run()` function;
-this function exposes the `Sender` part of a channel which acts as the Inbox of
-it and the task PID, so the can `.await` it to avoid the main application from
-finishing with the actor still running. 
+this function exposes the `Sender` part of a MPSC
+(Multiple-Producer-Single-Consumer) channel which acts as the Inbox of it and
+the task PID, so the can `.await` the actor processing loop to avoid the main
+application from finishing with the actor still running. 
 
 {% note() %}
 For now, I'm ignoring Tokio and async for next examples.
 {% end %}
 
-And because there is no "Post Office" kind of solver in Rust, we can actually
-short circuit the actors by giving the `Sender` channel of an actor as
-parameter to a second, so it knows where to send its messages. Something like:
+And because there is no "Post Office" kind of solver in Rust, I short-circuited
+the actors by giving the `Sender` channel of an actor as parameter to a second,
+so it knows where to send its messages. Something like:
 
 ```rust
 let channel3 = actor3::run(...);
@@ -48,9 +49,10 @@ let channel2 = actor2::run(channel3);
 actor1::run(channel2);
 ```
 
-In this short sample, whatever "actor1" produces, it sends directly to
-"actor2"; "actor2", on its part, produces something that is received by
-"actor3". And, with more actors, things just keep chaining.
+In this short sample, whatever "actor1" produces, it sends directly to "actor2"
+though the channel the latter created; "actor2", on its part, produces
+something that is received by "actor3". And, with more actors, things just keep
+chaining.
 
 {% note() %}
 I am intentionally ignoring the internals of each actor and their `run()`
@@ -120,5 +122,10 @@ let (actor2_pid, actor2_channel) = actor2::run();
 
 I have some ideas to make this part more fluent, but I need to do some more
 exploration about the topic (specially since I think we can leverage the type
-system to now allow actors with different outputs to connect). Once I get those
-hammered down, I'll get a follow up post.
+system to not allow connecting actors whose input type is not the same as the
+output type of the previous actor). Once I get those hammered down, I'll get a
+follow up post.
+
+<!-- 
+vim:spell:
+-->
