@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Don&#x27;t Use Booleans As Parameters</h1>
+  <span class="post-date">
+	2019-06-23
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/booleans/">#booleans</a>
+        
+            <a href="https://blog.juliobiason.me/tags/functions/">#functions</a>
+        
+            <a href="https://blog.juliobiason.me/tags/parameters/">#parameters</a>
+        
+  </span>
+  <p>When you're designing a function, you may be tempted to add a flag (a
+parameter in a function that it is a boolean). Don't do this.</p>
+<span id="continue-reading"></span>
+<p>Here, let me show you an example: Suppose you have a messaging system and you
+have a function that returns all the messages to an user, called
+<code>getUserMessages</code>. But there is a case where you need to return a summary of
+each message (say, the first paragraph) or the full message. So you add a
+flag/Boolean parameter called <code>retrieveFullMessage</code>.</p>
+<p>Again, don't do that.</p>
+<p>'Cause anyone reading your code will see <code>getUserMessage(userId, true)</code> and
+wonder what the heck that <code>true</code> means.</p>
+<p>You can either rename the function to <code>getUserMessageSummaries</code> and have
+another <code>getUserMessagesFull</code> or something around those lines, but each
+function just call the original <code>getUserMessage</code> with true or false -- but the
+interface to the outside of your class/module will still be clear.</p>
+<p>But <em>don't</em> add flags/Boolean parameters to your API.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;future-trashing">Future Thinking is Future Trashing</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;interface-changes">Beware of Interface Changes</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

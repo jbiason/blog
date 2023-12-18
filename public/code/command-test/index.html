@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Running a Command and Saving Its Output to File in Rust</h1>
+  <span class="post-date">
+	2023-09-01
+	
+            <a href="https://blog.juliobiason.me/tags/random/">#random</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/command/">#command</a>
+        
+            <a href="https://blog.juliobiason.me/tags/log/">#log</a>
+        
+  </span>
+  <p>I had an issue: I needed to run a command inside Rust, but I needed that all
+its output should go to a file, and I needed to check if there were certain
+phrases in it.</p>
+<span id="continue-reading"></span>
+<p>So, first step: Create a script that could &quot;replicate&quot; the output of a command,
+with the expected strings to be captured:</p>
+<pre data-lang="bash" style="background-color:#2b303b;color:#c0c5ce;" class="language-bash "><code class="language-bash" data-lang="bash"><span style="color:#65737e;">#!/usr/bin/env bash
+</span><span>
+</span><span style="color:#b48ead;">for</span><span> loop </span><span style="color:#b48ead;">in </span><span>{1..1000}
+</span><span style="color:#b48ead;">do
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Hello, I&#39;m a script!</span><span>&quot;
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">I write stuff in the output.</span><span>&quot;
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Everything should go to a file.</span><span>&quot;
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">But also, you need to capture warnings:</span><span>&quot;
+</span><span>
+</span><span>	</span><span style="color:#b48ead;">if </span><span>(( $</span><span style="color:#bf616a;">loop</span><span>%</span><span style="color:#d08770;">7 </span><span>== </span><span style="color:#d08770;">0</span><span>)); </span><span style="color:#b48ead;">then
+</span><span>		</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">WARNING: This is a warning</span><span>&quot;
+</span><span>		</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">   It continues if the line starts with spaces</span><span>&quot;
+</span><span>		</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">   And keeps going till there are no more spaces-prefixes</span><span>&quot;
+</span><span>	</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span>	</span><span style="color:#b48ead;">if </span><span>(( $</span><span style="color:#bf616a;">loop</span><span>%</span><span style="color:#d08770;">8 </span><span>== </span><span style="color:#d08770;">0</span><span>)); </span><span style="color:#b48ead;">then
+</span><span>		</span><span style="color:#65737e;"># ERR is just to make sure we find it easily in the logs
+</span><span>		</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">ERR: Sometimes, I also write in stderr!</span><span>&quot; &gt;&amp;</span><span style="color:#d08770;">2
+</span><span>		</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">ERR: Just for funsies!</span><span>&quot; &gt;&amp;</span><span style="color:#d08770;">2
+</span><span>	</span><span style="color:#b48ead;">fi
+</span><span>
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Like this.</span><span>&quot;
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;</span><span style="color:#a3be8c;">Then you&#39;re good to go.</span><span>&quot;
+</span><span>	</span><span style="color:#96b5b4;">echo </span><span>&quot;&quot;
+</span><span style="color:#b48ead;">done
+</span></code></pre>
+<p>What this script does is to print a message over 1,000 times, and sometimes it
+will display a &quot;WARNING&quot; text -- which is the special output I need to capture --
+and sometimes it will print things to stderr.</p>
+<p>For the code, what we need to do is:</p>
+<ol>
+<li>Spawn the command;</li>
+<li>Take the stdour (and stderr) from it.</li>
+<li>Spawn a thread that will keep listening to the output, doing the search,
+and writing everything to a file (our log).</li>
+<li>The thread returns the list of captured messages, which we can get back
+when we <code>.join()</code> it.</li>
+<li>Since I was expecting stderr to be smaller enough, I did the capturing of
+it after the thread completes (which would also close the file, so we can
+be sure that we can open it again without any issues).</li>
+</ol>
+<p>The first step is quite easy: Just use <code>std::process::Command</code> and use the
+<code>.spawn()</code> function to create the <code>Child</code> controller.</p>
+<p>For the second step, we use the <code>Child</code> structure and use <code>.take()</code> on both
+stdout and stderr. This will give us the file descriptor for both (think about
+them as <code>File</code>s).</p>
+<p>The third step is quite easy, actualy: <code>std::thread::spawn()</code> to create a
+thread, and just read the content from the file descriptors from step 2. In
+this, I used <code>BufReader</code>, which gives access to reading the content line by
+line, which is way easier than reading to a buffer and processing it.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>std::fs::{File, OpenOptions};
+</span><span style="color:#b48ead;">use </span><span>std::io::{BufRead, BufReader, Read, Write};
+</span><span style="color:#b48ead;">use </span><span>std::path::PathBuf;
+</span><span style="color:#b48ead;">use </span><span>std::process::Command;
+</span><span>
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#65737e;">// this requires always running with `cargo run`
+</span><span>    </span><span style="color:#b48ead;">let</span><span> base = PathBuf::from(env!(&quot;</span><span style="color:#a3be8c;">CARGO_MANIFEST_DIR</span><span>&quot;));
+</span><span>    </span><span style="color:#b48ead;">let</span><span> the_script = base.</span><span style="color:#96b5b4;">join</span><span>(&quot;</span><span style="color:#a3be8c;">src</span><span>&quot;).</span><span style="color:#96b5b4;">join</span><span>(&quot;</span><span style="color:#a3be8c;">the_script.sh</span><span>&quot;);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> cmd = Command::new(&quot;</span><span style="color:#a3be8c;">bash</span><span>&quot;)
+</span><span>        .</span><span style="color:#96b5b4;">arg</span><span>(the_script)
+</span><span>        .</span><span style="color:#96b5b4;">stdout</span><span>(std::process::Stdio::piped())
+</span><span>        .</span><span style="color:#96b5b4;">stderr</span><span>(std::process::Stdio::piped())
+</span><span>        .</span><span style="color:#96b5b4;">spawn</span><span>()
+</span><span>        .</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// capture both the stdout and stderr as File structs (actually FDs, but basically the same
+</span><span>    </span><span style="color:#65737e;">// thing)
+</span><span>    </span><span style="color:#b48ead;">let</span><span> stdout = cmd.stdout.</span><span style="color:#96b5b4;">take</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> stderr = cmd.stderr.</span><span style="color:#96b5b4;">take</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// spawn a thread to keep capturing and processing the stdout.
+</span><span>    </span><span style="color:#b48ead;">let</span><span> writer_pid = std::thread::spawn(</span><span style="color:#b48ead;">move </span><span>|| {
+</span><span>        </span><span style="color:#b48ead;">let</span><span> reader = BufReader::new(stdout);
+</span><span>        </span><span style="color:#b48ead;">let</span><span> lines = reader.</span><span style="color:#96b5b4;">lines</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> log_file = File::create(&quot;</span><span style="color:#a3be8c;">script.log</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> in_warning = </span><span style="color:#d08770;">false</span><span>;
+</span><span>        </span><span style="color:#b48ead;">let mut</span><span> result = Vec::new();
+</span><span>
+</span><span>        </span><span style="color:#b48ead;">for</span><span> line in lines {
+</span><span>            </span><span style="color:#b48ead;">let</span><span> line = line.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>            log_file.</span><span style="color:#96b5b4;">write</span><span>(line.</span><span style="color:#96b5b4;">as_bytes</span><span>()).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>            log_file.</span><span style="color:#96b5b4;">write</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#96b5b4;">\n</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>(); </span><span style="color:#65737e;">// &#39;cause lines() eat it
+</span><span>
+</span><span>            </span><span style="color:#b48ead;">if</span><span> line.</span><span style="color:#96b5b4;">starts_with</span><span>(&quot;</span><span style="color:#a3be8c;">WARNING:</span><span>&quot;) {
+</span><span>                in_warning = </span><span style="color:#d08770;">true</span><span>;
+</span><span>            } </span><span style="color:#b48ead;">else if</span><span> line.</span><span style="color:#96b5b4;">starts_with</span><span>(&quot;   &quot;) &amp;&amp; in_warning {
+</span><span>                result.</span><span style="color:#96b5b4;">push</span><span>(line);
+</span><span>            } </span><span style="color:#b48ead;">else if</span><span> in_warning {
+</span><span>                in_warning = </span><span style="color:#d08770;">false</span><span>;
+</span><span>            }
+</span><span>        }
+</span><span>
+</span><span>        result
+</span><span>    });
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// run the command till it finishes
+</span><span>    cmd.</span><span style="color:#96b5b4;">wait</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// ... and wait till the thread finishes processing the whole output.
+</span><span>    </span><span style="color:#b48ead;">let</span><span> warnings = writer_pid.</span><span style="color:#96b5b4;">join</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// this is somewhat a hack: Instead of spawning a thread for stderr and trying to fight with
+</span><span>    </span><span style="color:#65737e;">// stdout for the lock to be able to write in the log file, we do this after the thread ends
+</span><span>    </span><span style="color:#65737e;">// (which closes the file) and then open it again and write the stderr in the end. We do this
+</span><span>    </span><span style="color:#65737e;">// &#39;cause we expect that the stderr is way smaller than stdout and can fit in memory without
+</span><span>    </span><span style="color:#65737e;">// any issues.
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> buffer = String::new();
+</span><span>    stderr.</span><span style="color:#96b5b4;">read_to_string</span><span>(&amp;</span><span style="color:#b48ead;">mut</span><span> buffer).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> file = OpenOptions::new().</span><span style="color:#96b5b4;">append</span><span>(</span><span style="color:#d08770;">true</span><span>).</span><span style="color:#96b5b4;">open</span><span>(&quot;</span><span style="color:#a3be8c;">script.log</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    file.</span><span style="color:#96b5b4;">write</span><span>(buffer.</span><span style="color:#96b5b4;">as_bytes</span><span>()).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>    </span><span style="color:#65737e;">// This is purely for diagnostic purposes. We could put the warnings in another file, or pass
+</span><span>    </span><span style="color:#65737e;">// it along to something else to process it. Here, we just display them.
+</span><span>    </span><span style="color:#65737e;">// Same for stderr: Since we already put them in the file, this is used just to make sure we
+</span><span>    </span><span style="color:#65737e;">// are capturing the errors without looking at the file.
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Warnings:</span><span style="color:#96b5b4;">\n</span><span style="color:#d08770;">{:?}</span><span>&quot;, warnings);
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">ERR:</span><span style="color:#96b5b4;">\n</span><span style="color:#d08770;">{:?}</span><span>&quot;, buffer)
+</span><span>}
+</span></code></pre>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

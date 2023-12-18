@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Command Pattern Experiments in Rust</h1>
+  <span class="post-date">
+	2021-07-22
+	
+            <a href="https://blog.juliobiason.me/tags/design-patterns/">#design patterns</a>
+        
+            <a href="https://blog.juliobiason.me/tags/command/">#command</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+  </span>
+  <p>I've been doing some experiments in using the command pattern in Rust and found
+at least two ways to write it.</p>
+<span id="continue-reading"></span><h2 id="but-first-why">But first... Why?</h2>
+<p>There is one thing I'm trying to do in which the command pattern fits
+perfectly: I want to have a library with all the actions and then plug
+interfaces on top of, being either a CLI interface or a Web interface or
+whatever interface. For that, the logic behind the action should be somewhat
+isolated from whatever source it is calling it.</p>
+<h2 id="what-it-is">What It Is</h2>
+<p>The Command Pattern is described as having one object for each action ('cause,
+you know, the patterns focused more on OO designs) and each of those have an
+<code>execute</code> method which... well... execute the command.</p>
+<h2 id="the-enum-solution">The Enum Solution</h2>
+<p>As what you have is a list of actions, one of the ideas was to use <code>Enums</code>,
+even if it is not exactly what the pattern describes.</p>
+<p>Say, we have two actions can be called: deposit money and withdraw money.
+Simple.</p>
+<p>So one could have the following Enum<sup class="footnote-reference"><a href="#1">1</a></sup>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>Command {
+</span><span>    Deposit(Decimal),
+</span><span>    Withdraw(Decimal),
+</span><span>}
+</span></code></pre>
+<p>Because Rust allows enum variants to carry a value with them, the amount to be
+deposited/withdraw is attached directly to the variant.</p>
+<p>And then you have the <code>execute()</code> function. And, again, 'cause Rust allows
+adding functions to almost everything, what I did was add a method in the Enum:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">impl </span><span>Command {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">execute</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; Result&lt;</span><span style="background-color:#bf616a;color:#2b303b;">.</span><span>..&gt; {
+</span><span>        </span><span style="color:#b48ead;">match </span><span style="color:#bf616a;">self </span><span>{
+</span><span>            Deposit(value) =&gt; </span><span style="color:#96b5b4;">do_the_deposit</span><span>(value),
+</span><span>            Withdraw(value) =&gt; </span><span style="color:#96b5b4;">withdraw_money</span><span>(value),
+</span><span>        }
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>... and so on.</p>
+<p>To use it, I put something pretty close to this in my interface layer:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> value = incoming_external_request.</span><span style="color:#96b5b4;">value</span><span>()
+</span><span style="color:#b48ead;">let</span><span> command = </span><span style="color:#b48ead;">match</span><span> incoming_external_request.</span><span style="color:#96b5b4;">command</span><span>() {
+</span><span>    &quot;</span><span style="color:#a3be8c;">deposit</span><span>&quot; =&gt; Command::Deposit(value),
+</span><span>    &quot;</span><span style="color:#a3be8c;">withdraw</span><span>&quot; =&gt; Command::Withdraw(value),
+</span><span>}
+</span><span>command.</span><span style="color:#96b5b4;">execute</span><span>();
+</span></code></pre>
+<p>It feels fine and all, but it tends to make a mess with the amount of content
+that goes in or around the <code>impl</code>, in my opinion. But, at the same time, the
+dispatch layer (between the service/enum layer and the interface layer) is
+pretty basic.</p>
+<p>One solution to the amount of &quot;content in or around <code>impl</code>&quot; could be use
+multiple <code>impl</code>: So I could have a module <code>deposit.rs</code> which <code>impl</code>s the
+<code>do_the_deposit</code> and another module <code>withdraw.rs</code> which also <code>impl</code>s inside the
+enum with the <code>withdraw_money</code> content. But I'd still need the center <code>execute</code>
+to do the proper &quot;dispatch&quot; of the calls.</p>
+<h2 id="the-trait-solution">The Trait Solution</h2>
+<p>The trait solution is very close to what the pattern is: You create a trait
+(interface) and &quot;impl&quot; it for all the commands, which are just structs. For
+example:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">trait </span><span>Command {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">execute</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; Result&lt;</span><span style="background-color:#bf616a;color:#2b303b;">.</span><span>..&gt;;
+</span><span>}
+</span></code></pre>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">struct </span><span>Deposit(Decimal);
+</span><span style="color:#b48ead;">impl </span><span>Command </span><span style="color:#b48ead;">for </span><span>Deposit {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">execute</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; Result&lt;</span><span style="background-color:#bf616a;color:#2b303b;">.</span><span>..&gt; {
+</span><span>        </span><span style="color:#65737e;">// what was `do_the_deposit` now goes here.
+</span><span>    }
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">struct </span><span>Withdraw(Decimal);
+</span><span style="color:#b48ead;">impl </span><span>Command </span><span style="color:#b48ead;">for </span><span>Withdraw {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">execute</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; Result&lt;</span><span style="background-color:#bf616a;color:#2b303b;">.</span><span>..&gt; {
+</span><span>        </span><span style="color:#65737e;">// what was `withdraw_money` now goes here.
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>... which feels a bit cleaner, since all related things to Deposit or Withdraw
+are now tied together.</p>
+<p>However, this causes a slight problem with the interface layer: Now it can't
+just return one sized thing: It needs to return a dynamic dispatchable content,
+like <code>Box&lt;dyn Command&gt;</code>, which isn't as pretty as the direct Enum/Struct/sized
+content.</p>
+<p>On the other hand, since <code>Box</code> implements <code>Deref</code>, once the interface throws
+something-that-implements-Command, one could just call <code>execute()</code> directly on
+it.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> command = </span><span style="color:#96b5b4;">interface_that_returns_a_box_dyn_command</span><span>();
+</span><span>command.</span><span style="color:#96b5b4;">execute</span><span>();
+</span></code></pre>
+<h2 id="where-i-see-those-two">Where I see those two</h2>
+<p>I can see the Enum being used for simple, single domain architectures. Since
+all things are related, they can reside correctly under the Enum.</p>
+<p>But when dealing with multiple domains, the trait/dynamic dispatch feels more
+at home: Related things get into their own module, in their own space and the
+idea of mixing them (for example, if you have a money domain and a tag domain,
+and you want to tag money operations) goes on layer above.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p><code>Decimal</code> is not part of Rust Standard Library, but can be used from the
+<a href="https://crates.io/crates/rust_decimal">rust_decimal crate</a>.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

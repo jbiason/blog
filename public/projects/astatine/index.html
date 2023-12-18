@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Nice Troubled Astatine</h1>
+  <span class="post-date">
+	2022-08-03
+	
+            <a href="https://blog.juliobiason.me/tags/projects/">#projects</a>
+        
+            <a href="https://blog.juliobiason.me/tags/personal/">#personal</a>
+        
+            <a href="https://blog.juliobiason.me/tags/notes/">#notes</a>
+        
+            <a href="https://blog.juliobiason.me/tags/note-taking/">#note taking</a>
+        
+            <a href="https://blog.juliobiason.me/tags/microblog/">#microblog</a>
+        
+            <a href="https://blog.juliobiason.me/tags/twitter/">#twitter</a>
+        
+  </span>
+  <p>Note Taking Application</p>
+<span id="continue-reading"></span>
+<p>A (I hope) novel idea about note taking apps: Instead of keeping the notes and
+having either links or tags to link different content, each note is short and
+you can create a thread of notes, somewhat similar to the way microblogging
+tools like Twitter and Mastodon work.</p>
+<p>Still thinking on storage. Initially, it feels like using SQLite would suffice,
+but I'd prefer some text format for not &quot;locking&quot; the content into a single
+thing.</p>
+<p>Text Storage could be a couple of Markdown with special links, but that means
+that building a whole graph of connected notes (all the threads in your notes)
+would take a massive time, since every note would have to be scanned and marked
+as a parent or child of another (also, a child note could appear before a
+parent, and we would need to take that in care). Another solution would use a
+hidden file for the index: all notes are markdown (with or without the special
+links) but a single file contains the whole note structure. This could create
+an issue when the user manually changes a note.</p>
+<h2 id="ideas-for-a-gui">Ideas for a GUI</h2>
+<h3 id="insert-note">Insert note</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>+-------------------------------------------------+
+</span><span>| +---------------------------------------------+ |
+</span><span>| | New note:                                   | |
+</span><span>| | [                                         ] | |
+</span><span>| | [                                         ] | |
+</span><span>| |                               [ + Add new ] | |
+</span><span>| +---------------------------------------------+ |
+</span><span>|                                                 |
+</span><span>| +---------------------------------------------+ |
+</span><span>| | This is a note                              | |
+</span><span>| | 2022-08-03 15:53  [ Delete ] [ + Followup ] | |
+</span><span>| +---------------------------------------------+ |
+</span><span>|                                                 |
+</span><span>| +---------------------------------------------| |
+</span><span>| | Another note, not necessarily a follow up   | |
+</span><span>| | of the one above.                           | |
+</span><span>| | 2022-08-03 15:50  [ Delete ] [ + Followup ] | |
+</span><span>| +---------------------------------------------+ |
+</span><span>+-------------------------------------------------+
+</span></code></pre>
+<h3 id="map-view">Map view</h3>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>              +-------------------------+
+</span><span>             -| A follow up of &quot;A note&quot; |
+</span><span>+---------+ / +-------------------------+
+</span><span>| A note  |-
+</span><span>+---------+ \ +-------------------+   +------------------------+
+</span><span>             -| Another follow up |---| Follow up of &quot;Another&quot; |
+</span><span>              +-------------------+   +------------------------+
+</span></code></pre>
+<h2 id="storage">Storage</h2>
+<p>Since we are keeping things in Markdown, it seems it would be good to have a
+proper format that could also be read as a normal markdown.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># Note title
+</span><span>
+</span><span>This is a note
+</span><span>---
+</span><span>2022-08-23 15:53
+</span><span>[parent-note-id](parent note)
+</span><span>Children:
+</span><span>  - [child1](Child 1)
+</span><span>  - [child2](Child 2)
+</span></code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># A note
+</span><span>
+</span><span>This note has no parent and no children.
+</span><span>
+</span><span>---
+</span><span>2023-07-27 14:46
+</span></code></pre>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span># A parent note
+</span><span>
+</span><span>This note has no parent, only children.
+</span><span>
+</span><span>---
+</span><span>2022-08-23 15:53
+</span><span>Children:
+</span><span>  - [child1](Child 1)
+</span><span>  - [child2](Child 2)
+</span></code></pre>
+<p>The &quot;note title&quot; would also be the filename, <em>sluggered</em> (if that's even a
+word). Also note that the GUI design does not have title, but those are
+interesting 'cause that would produce the proper filename<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>Another option for the title: Top level notes can have just one line, which is
+the title for the thread. All child notes could have a versioning-like scheme
+for them, like</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Single line note  (becomes single-line-note.md)
+</span><span>|-- note content (becomes single-line-note-1.md)
+</span><span>| |-- another note content (becomes single-line-note-1-1.md)
+</span><span>| \-- more content (becomes single-line-content-1-2.md)
+</span><span>\-- more content (becomes single-line-note-2.md)
+</span></code></pre>
+<p>This can be done 'cause the note we would add a follow up already have a list
+of children, so it's just a matter of adding &quot;-1&quot; if the note has no children
+yet, or &quot;last id + 1&quot; otherwise.</p>
+<p>There should be an index of sorts, with all the notes in order of insertion
+(most recent to the oldest), just to speed up loading. This &quot;index&quot; would be
+read as paging, so if we want Page 10, we would probably need</p>
+<h2 id="web">Web</h2>
+<p>One nice thing to have, which could replace the GUI, is to have a Web
+interface. This would allow using outside our device (as long as it have
+internet access) and to make notes public or private.</p>
+<p>If we do this, there should be two indexes files: One for everything and one
+for only public notes. When the user is logged in (and since notes are
+personal, only one user would be accepted), the system loads notes from the all
+notes index; if it is not, only the public notes index is read.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Note that there aren't titles in the GUI mock up 'cause the Mockup is
+older than the idea of using Markdown files, and I want to keep some
+&quot;history&quot; of the project there.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

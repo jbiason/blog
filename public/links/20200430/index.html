@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-04-30</h1>
+  <span class="post-date">
+	2020-04-30
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/events/">#events</a>
+        
+            <a href="https://blog.juliobiason.me/tags/event-source/">#event source</a>
+        
+            <a href="https://blog.juliobiason.me/tags/shell/">#shell</a>
+        
+            <a href="https://blog.juliobiason.me/tags/scripts/">#scripts</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/dynamic-dispatch/">#dynamic dispatch</a>
+        
+            <a href="https://blog.juliobiason.me/tags/actix/">#actix</a>
+        
+            <a href="https://blog.juliobiason.me/tags/diesel/">#diesel</a>
+        
+            <a href="https://blog.juliobiason.me/tags/slides/">#slides</a>
+        
+            <a href="https://blog.juliobiason.me/tags/presentations/">#presentations</a>
+        
+            <a href="https://blog.juliobiason.me/tags/runbook/">#runbook</a>
+        
+  </span>
+  <p>Event Driven Architectures, Shell Scripts, Rust Dynamic Dispatch, Actix and
+Diesel, CLI Slides, Making Presentations, Runbooks.</p>
+<span id="continue-reading"></span><h1 id="event-driven-architecture"><a href="https://pradeeploganathan.com/architecture/event-driven-architecture/">Event Driven Architecture</a></h1>
+<p>A long explanation on what Event Driven Architectures are.</p>
+<p>Honestly, it is one of my favourite patterns, 'cause it allows high decoupling
+of data. You have one thing creating events and you can have a lot of things
+consuming those events: You can save them directly to the database; you can
+make them go through a summing service, so you have the data read ready; and
+so on.</p>
+<h1 id="writing-safe-shell-scripts"><a href="https://sipb.mit.edu/doc/safe-shell/">Writing Safe Shell Scripts</a></h1>
+<p>I've seen a couple of tips like these floating around, so I picked one.</p>
+<p>Shell scripts are a hell of lifesaver, giving the initial states for a way to
+automate stuff. But doing it right is a bit hard, and starting it in the safe
+way can save your bacon in the long run -- or, at least, till you find a more
+suitable tool.</p>
+<h1 id="rust-dynamic-dispatching-deep-dive"><a href="https://medium.com/digitalfrontiers/rust-dynamic-dispatching-deep-dive-236a5896e49b">Rust Dynamic Dispatching deep-dive</a></h1>
+<p>Dynamic Dispatching is a way to make Rust applications behave like you had
+polymorphism: You attach a trait (interface) to a structure and call methods
+using the trait instead.</p>
+<p>I had trouble making it work recently and this explanation -- which is pretty
+complete -- got me back in track.</p>
+<h1 id="rust-web-development-tutorial-rest-api"><a href="https://cloudmaker.dev/how-to-create-a-rest-api-in-rust/">Rust Web Development Tutorial: REST API</a></h1>
+<p>Actix is all in rage for development web applications in Rust: It basically
+took almost <a href="https://www.techempower.com/benchmarks/">every position on web frameworks
+benchmark</a> a few months ago and has
+only consolidated its position -- not that the things it does are important
+for CRUDs.</p>
+<p>But the tutorial does the full job, explaining not only Actix, but also how to
+plug Diesel, Rust famous ORM, into it.</p>
+<h1 id="shlide-a-slide-deck-presentation-tool-written-in-pure-bash"><a href="https://github.com/icyphox/shlide">Shlide: a slide deck presentation tool written in pure bash</a></h1>
+<p>Say goodbye to the problems of resolution! Do the hipster thing and instead of
+using graphics, do everything in the console.</p>
+<h1 id="an-open-source-collection-of-200-algorithmic-flash-cards-to-help-you-preparing-your-algorithm-data-structure-interview"><a href="https://github.com/teivah/algodeck">An Open-Source Collection of +200 Algorithmic Flash Cards to Help you Preparing your Algorithm &amp; Data Structure Interview</a></h1>
+<p>While some people work on those &quot;Awesome X&quot;, some people actually builds cards
+for you to learn about algorithms and related knowledge.</p>
+<p>And it's all open source.</p>
+<h1 id="how-to-give-a-great-presentation-timeless-advice-from-a-legendary-adman-1981"><a href="https://www.brainpickings.org/2012/12/20/writing-that-works-roman/">How to Give a Great Presentation: Timeless Advice from a Legendary Adman, 1981</a></h1>
+<p>Working one a presentation? Thinking on doing some online presentation in
+these days of &quot;stay at home&quot;?</p>
+<p>On a personal note, I've been doing presentations for over two years already,
+and most of the stuff I learnt in the field instead of some technical list.
+But I see that small tips like these really do help, specially when you see
+people actually paying attention (well, at least, when you're not doing this
+online).</p>
+<h1 id="writing-runbook-documentation-when-you-re-an-sre"><a href="https://www.transposit.com/blog/2020.01.30-writing-runbook-documentation-when-youre-an-sre/">Writing Runbook Documentation When You’re An SRE</a></h1>
+<p>I worked with Runbooks once and I think they are awesome: &quot;If you find this
+problem, do this&quot;.</p>
+<p>The only &quot;but&quot; I could add to this is that it focused on SRE people, and I do
+believe who should write those are the <em>developers</em>: they are the ones that
+know why a save file operation failed.</p>
+<p>Sadly, this is not quite true, 'cause developers tend to ignore errors, or use
+some tool that doesn't provide a good view on where things can fail -- or,
+worse, can fail without notifying the developer. In this case, the Runbook
+should be built with the SRE <em>and</em> developers, so both can learn how the
+application work and where it can fail.</p>
+<hr />
+<p>This post was built with the help of</p>
+<ul>
+<li><a href="https://social.troll.academy/@clonejo">clonejo</a></li>
+<li><a href="https://mastodon.social/@hntooter">HN Tooter</a></li>
+<li><a href="https://mastodon.social/@newsbot">newsbot</a></li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

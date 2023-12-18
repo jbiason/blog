@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Gherkin Is Your Friend to Understand Expectations</h1>
+  <span class="post-date">
+	2019-06-19
+	
+            <a href="https://blog.juliobiason.me/tags/book/">#book</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/gherkin/">#gherkin</a>
+        
+            <a href="https://blog.juliobiason.me/tags/expectations/">#expectations</a>
+        
+  </span>
+  <p>Gherkin is file format for writing behaviour tests (BDD). But it can also give
+you some insights on what you should do.</p>
+<span id="continue-reading"></span>
+<p>Alright, let's talk a bit about Gherkin:</p>
+<p><a href="https://en.wikipedia.org/wiki/Cucumber_(software)#Gherkin_language">Gherkin</a>
+is a file format created for <a href="https://en.wikipedia.org/wiki/Cucumber_(software)">Cucumber</a>,
+which describes scenarios, what's in them, what actions the user/system will
+do and what's expected after those actions, in a very high level, allowing
+people without programming experience can describe what's expected from the
+system.</p>
+<p>Although Gherkin was born with Cucumber, it is now supported by a bunch of
+programming languages, through external libraries.</p>
+<p>A typical Gherkin file may look something like this:</p>
+<ul>
+<li><strong>Given that</strong> <em>initial system environment</em></li>
+<li><strong>When</strong> <em>action performed by the user or some external system</em></li>
+<li><strong>Then</strong> <em>expected system environment</em></li>
+</ul>
+<p>Or, in a more concrete example:</p>
+<ul>
+<li><strong>Given that</strong> The system is retrieving all tweets liked by the user</li>
+<li><strong>When</strong> It finds a tweet with an attachment</li>
+<li><strong>Then</strong> The attachment should be saved along the tweet text</li>
+</ul>
+<p>Pretty simple, right?</p>
+<p>Now, why I'm mentioning this?</p>
+<p>Sometimes, specs are not the most clear source of information about what it is
+expected from the system, and up can't think of <a href="/books/things-i-learnt/steps-as-comments">steps to do
+so</a>. If you're confused about what
+you should write, asking the person responsible for the request to write
+something like Gherkin may give you some better insights about it.</p>
+<p>Obviously, it won't be complete. People tend to forget the error situations --
+like filling the name field with numbers, using characters in age fields,
+tweets with no text and just attachments -- but at least with a Gherkin
+description of the system, you can get a better picture of the whole.</p>
+<p>Also, you may not like to write specs. That's alright, you can replace them
+with Gherkin anyway.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;steps-as-comments">Write Steps as Comments</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;patterns-not-solutions">Design Patters Are Used to Name Solution, Not Find Them</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

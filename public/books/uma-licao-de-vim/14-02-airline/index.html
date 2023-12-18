@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.02. Plugins - Airline</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que o &quot;laststatus&quot; fica interessante.</p>
+<span id="continue-reading"></span>
+<p>Quando estávamos falando de configurações, falamos de uma configuração chamada
+“laststatus”. Esta configuração tem 3 valores possíveis:</p>
+<ul>
+<li>0 – não apresenta a barra de status, nunca.</li>
+<li>1 – apresenta a barra de status se houver pelo menos um split.</li>
+<li>2 – sempre apresenta a barra de status.</li>
+</ul>
+<p>E, conforme eu mostrei no meu arquivo de configuração, eu sempre deixo com 2&quot;.</p>
+<p>Acontece que a barra de status não é tããão informativa assim.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/14-02-airline/laststatus.png" alt="" /></p>
+<p>Ela tem o básico, mas o básico não é o suficiente, sejamos honestos. É possível
+adicionar mais informações setando &quot;statusline&quot; (que eu não vou entrar em
+detalhes aqui, mas para configurar, você tem que usar letras únicas indicado
+para cada coisa que deseja apresentar tal como se faz com &quot;guioptions&quot;) mas,
+mesmo assim, certas coisas tem que vir de scripts externos (por exemplo, para
+mostrar o branch atual que você está) e, como eu falei, essa parte é meio
+chata.</p>
+<p>Para aliviar essa confusão, existe um plugin chamado &quot;Vim-Airline&quot;, que tem uma
+apresentação mais complexa e oferece mais informações, baseados plugins que
+você tem instalado.</p>
+<p>Ainda, o Airline é uma versão mais leve do Powerline, que na verdade passou de
+ser um simples plugin para VIM para ser um plugin para praticamente tudo (hoje
+eu uso o Powerline para configurar meu prompt do terminal, por exemplo) e
+algumas coisas ainda são usadas do Powerline (por exemplo, as fontes, mas
+esperem aí que eu já explico o porque o Airline usa fontes especiais.)</p>
+<p>(Conforme formos passando a lista de plugins que eu tenho, vocês vão ver o
+Airline mudando de formato com o tempo.)</p>
+<p>Como falei do Vundle como gerenciador de plugins, vamos usar o mesmo para
+instalar (e manter, no futuro) o Airline.</p>
+<p>No seu vimrc, adicione o seguinte:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;bling/vim-airline&quot;
+</span></code></pre>
+<p>E, revisando: <code>:Plugin</code> adiciona um plugin na lista de plugins gerenciados pelo
+Vundle (e apenas isso, nada mais); por ter uma barra no meio, estamos falando
+de um repositório do Github; para instalar o plugin, você precisa ou adicionar
+o plugin na lista manualmente (com o comando <code>:Plugin</code>) ou reiniciar o VIM caso
+você queria conferir se a configuração no seu vimrc está certa e fazer
+<code>:PluginInstall.</code></p>
+<p>Se nada apareceu, é porque o seu &quot;laststatus&quot; não está em &quot;2&quot;.</p>
+<p>Se tudo deu certo, você verá o seguinte:</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/14-02-airline/airline-nofonts.png" alt="" /></p>
+<p>Não que tenha melhorado muito, mas agora você tem informações sobre qual o modo
+que você está atualmente (que vai mudar de cor conforme você passa para o modo
+de inserção ou visual), o nome do arquivo, o tipo de arquivo (que define qual a
+sintaxe está sendo usada), posição do cursor em relação ao todo do arquivo (em
+percentual) e a posição absoluta do mesmo (em linhas em colunas).</p>
+<p>Ok, duas coisas: Ainda não é muito melhor (embora a parte de mostrar o modo
+ajude, acredite), mas temos alguns caracteres estranhos na barra.</p>
+<p>É aí que entra a história do Powerline de novo: Os criadores do Powerline
+usaram &quot;posições&quot; não usadas nas fontes unicode para adicionar outros
+caracteres que são usados para melhorar a apresentação do status. Eles mantém
+<a href="https://github.com/powerline/fonts">um repositório com fontes já com os caracteres especiais</a>
+e, caso a fonte que você queria não esteja na lista deles, <a href="https://github.com/powerline/powerline/tree/develop/font">eles tem um script
+para &quot;patchear&quot; a fonte desejada</a>.</p>
+<p>Uma vez que você tenha a fonte disponível no seu sistema, você deve adicionar no seu vimrc</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#96b5b4;">let </span><span style="color:#bf616a;">g:airline_powerline_fonts</span><span> = </span><span style="color:#d08770;">1
+</span></code></pre>
+<p>E o seu Airline, na próxima execução, deve ficar</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/14-02-airline/airline-laststatus.png" alt="" /></p>
+<p>Que é mais bonito, mas ainda continua mostrando as mesmas informações. Mais pra
+frente veremos ã integração com “Fugitive” (um plugin para VIM para Git) e o
+Syntastic (para validar o código com ferramentas externas) e como ambos são
+suportados pelo Airline, você terá todas as informações ao alcance do rodapé da
+janela.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/14-02-airline/airline-everything.png" alt="" /></p>
+<p>Uma última nota: O Airline vem com suporte a temas, que você pode trocar usando
+<code>:AirlineTheme</code> (e um duplo [Tab] depois disso irá mostrar os temas instalados).
+Depois que escolher um, você pode definir</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>let g:airline_theme = &#39;{nome do tema}&#39;
+</span></code></pre>
+<p>no seu vimrc.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-01-vundle">Plugins - Vundle</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-03-fugitive">Plugins - Fugitive</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

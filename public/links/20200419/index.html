@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-04-19</h1>
+  <span class="post-date">
+	2020-04-19
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/hierarchical-data/">#hierarchical data</a>
+        
+            <a href="https://blog.juliobiason.me/tags/mysql/">#mysql</a>
+        
+            <a href="https://blog.juliobiason.me/tags/licenses/">#licenses</a>
+        
+            <a href="https://blog.juliobiason.me/tags/commons-clause/">#commons clause</a>
+        
+            <a href="https://blog.juliobiason.me/tags/clojure/">#clojure</a>
+        
+            <a href="https://blog.juliobiason.me/tags/generics/">#generics</a>
+        
+            <a href="https://blog.juliobiason.me/tags/configuration/">#configuration</a>
+        
+            <a href="https://blog.juliobiason.me/tags/config-files/">#config files</a>
+        
+            <a href="https://blog.juliobiason.me/tags/zoom/">#zoom</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cli/">#cli</a>
+        
+            <a href="https://blog.juliobiason.me/tags/seo/">#seo</a>
+        
+  </span>
+  <p>Managing Nested Data in MySQL, The Commons Clause License, Clojure, A Look
+into Compilers, No <code>&lt;&gt;</code> to Generics, Configuration Files, Zoom Fiasco, Rust
+CLI tools, SEO.</p>
+<span id="continue-reading"></span><h1 id="managing-hierarchical-data-in-mysql"><a href="http://mikehillyer.com/articles/managing-hierarchical-data-in-mysql/">Managing Hierarchical Data in MySQL</a></h1>
+<p>A bunch of tips on how to manage nested/hierarchical information in MySQL.
+While the storage format could be used in any database, it seems the insertion
+part in the post is MySQL specific.</p>
+<p>Curious, nonetheless.</p>
+<h1 id="the-commons-clause-will-destroy-open-source"><a href="https://drewdevault.com/2018/08/22/Commons-clause-will-destroy-open-source.html">The Commons Clause will destroy open source</a></h1>
+<p>While I don't agree with Drew in some points (mostly the things he rants
+about), and while I don't think, on the surface, that the Commons Clause may
+destroy open source, his words are a cautionary tale about picking the right
+license<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<h1 id="guide-to-starting-with-clojure"><a href="https://grison.me/2020/04/04/starting-with-clojure/">Guide to starting with Clojure</a></h1>
+<p>It's been too long since I saw a very detailed introduction of a language like
+this. Explaining installs, IDE/Editor configuration, a short description of
+the language, a toy problem and a way to build and deploy the result.</p>
+<p>Really complete -- and, on the plus side, it's Clojure!</p>
+<h1 id="the-svelte-compiler-handbook"><a href="https://lihautan.com/the-svelte-compiler-handbook/">The Svelte Compiler Handbook</a></h1>
+<p>While related to Svelte -- the JavaScript templating language -- what it
+describes is pretty close to what every compiler do, in a high level, even if
+some do more stuff, like Rust having two more steps before the code
+generation, for optimization.</p>
+<h1 id="language-design-stop-using-for-generics"><a href="https://soc.me/languages/stop-using-for-generics">Language Design: Stop Using &lt;&gt; for Generics</a></h1>
+<p>Let's get into some controversy, shall we?</p>
+<p>One the major points of Clojure is exactly how it pick one single pair for
+each different aspect, contrary to Lisp, which used parenthesis for
+everything.</p>
+<p>So, what is being described here is to use <code>[]</code> instead of <code>&lt;&gt;</code> for generics.
+But wouldn't that clash with array access? Sure, that's why array access
+should be <code>()</code>. But wouldn't that clash with function calling? Sure, that's
+why function calling should be... should be what again? Nothing? So we let it
+clash?</p>
+<p>&quot;<code>&lt;&gt;</code> is hard for compilers to parse&quot;. Oh, poor compiwer, it is weaving a bad
+time? Newsflash, the job of a compiler <em>is</em> to take the hard work and leave
+the simpler thing to users; the harder it does its work, the easier it is for
+their users. If the users can clearly see generics with <code>&lt;&gt;</code> -- because it is
+different from everything else -- then it is good.<sup class="footnote-reference"><a href="#2">2</a></sup></p>
+<h1 id="your-configs-suck-try-a-real-programming-language"><a href="https://beepb00p.xyz/configs-suck.html">Your configs suck? Try a real programming language.</a></h1>
+<p>Another controversy, just for fun.</p>
+<p>Ok, so config formats are bad 'cause you can't replicate some stuff -- I can
+agree with that, imagine having to copy and paste the same value over and
+over?</p>
+<p>But the problem is: Using a &quot;real programming language&quot; for configuration may
+also have a problem: you need to cut a lot of stuff. Django uses Python itself
+as a configuration -- and, again, I can agree with that, 'cause it allows one
+to have a default configuration and just import it and override things for
+your local execution -- but it doesn't block running anything. Worse, because
+you can import things into the configuration file, one project that gets
+compromised will <em>always</em> run the code.</p>
+<p>Again, I agree with a lot of points, including the fact that the current
+formats for configuration files are bad, but using a programming language for
+it is not the solution. Besides, it is possible to overcome those problems
+with better configuration settings themselves than the format; as hard as it
+is.</p>
+<h1 id="security-and-privacy-implications-of-zoom"><a href="https://www.schneier.com/blog/archives/2020/04/security_and_pr_1.html">Security and Privacy Implications of Zoom</a></h1>
+<p>While articles about the raise of Zoom and its problems popping everywhere,
+but Bruce Schneier, the father of internet security, made a post with all its
+problems, from privacy to security.</p>
+<h1 id="my-tools-are-going-rusty"><a href="https://elliehuxtable.com/my-tools-are-pretty-rusty/">My tools are going Rusty</a></h1>
+<p>A short summary of common Unix/Posix/GNU tools written in Rust.</p>
+<h1 id="how-seo-ruined-the-internet"><a href="https://www.superhighway98.com/seo">How SEO Ruined the Internet</a></h1>
+<p>Yes, everybody knows how the current trend of creating content focused on
+producing better search results -- instead of, say, better quality content
+that <em>should</em> be indexed due its quality -- basically made the internet a
+terrible place.</p>
+<p>This post describes some of the effects of this focus on the general internet
+content.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>This was weirdly timed with a presentation I finished talking about
+licenses -- it's in Portuguese, and I haven't present it yet, but at some
+point there will be a companion post for it, even in English.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Personally, using Scala as an example of &quot;doing right&quot; feels really
+wrong. Scala does <em>a lot</em> wrong, I don't freaking care how much you like
+Scala. Also, saying Python uses <code>[]</code> for generics is wrong 'cause Python
+does <em>not</em> have generics.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

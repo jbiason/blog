@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.04. Plugins - Commentary</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que automatizamos a técnica de sumir código sem sumir com o
+código.</p>
+<span id="continue-reading"></span>
+<p>O quarto plugin da lista de plugins é
+<a href="https://github.com/tpope/vim-commentary">Commentary</a>.</p>
+<p>Como de costume, para instalar, você pode baixar o conteúdo do repositório
+acima para dentro do seu ~/.vim/ (o diretório, não o arquivo de inicialização)
+ou usar o Vundle:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;tpope/vim-commentary&quot;
+</span></code></pre>
+<p>Commentary não é um plugin visual, o que significa que, mais uma vez, depois de
+instalado você não verá nada de novo.</p>
+<p>O que o Commentary faz é adicionar um atalho para comentar linhas de código,
+baseado no tipo de arquivo atual. O atalho é \\{movimentação} ou \\\ para
+comentar a linha atual (ou você pode entrar em modo visual para selecionar as
+linhas e fazer \\ e a parte selecionada vai ficar comentada); para descomentar,
+basta fazer a mesma coisa (ou seja, se o pedaço selecionado não estiver
+comentado, ele será comentado; se já estiver comentado, o comentário será
+removido.)</p>
+<p>E era isso.</p>
+<p>A única ressalva aqui fica por conta de um comportamento padrão do VIM: O VIM
+tem apenas um tipo de arquivo (definido com <code>:set filetype={sintaxe}</code>) que vale
+para todo o arquivo. Assim, se você estiver usando a sintaxe de HTML,
+Commentary provavelmente não irá comentar seu código JavaScript corretamente. A
+coisa fica pior se você estiver editando um arquivo com sintaxe de template, já
+que o tipo de arquivo é o template, não HTML ou JavaScript ou CSS.</p>
+<p>Ainda, aproveitando o gancho, existem sintaxes e sintaxes. Algumas sintaxes são
+antigas e estão definidas de uma forma que o VIM perde o contexto do código
+apresentado e apresenta com a coloração errada (andar no texto em direção ao
+começo do arquivo, com [PageUp], normalmente resolve esse problema, pois o VIM
+encontra um ponto onde a sintaxe volta a fazer sentido). Por exemplo, a sintaxe
+&quot;htmldjango&quot;, que funciona também para arquivos Jinja2 tem a leve tendência de
+se perder em arquivos muito longos; usando uma sintaxe externa para Jinja2
+(usando <code>:Plugin &quot;Glench/Vim-Jinja2-Syntax&quot;</code>) esse problema não acontece.</p>
+<p>Então lembre-se: Se a sintaxe &quot;pirar&quot;, voltar um pouco para o começo do arquivo
+deve resolver (e, depois disso, o VIM carrega o contexto a medida que você for
+voltando para o ponto original) e sempre verifique se não há um arquivo de
+sintaxe que corresponda melhor às suas necessidades.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-03-fugitive">Plugins - Fugitive</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-05-tabular">Plugins - Tabular</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

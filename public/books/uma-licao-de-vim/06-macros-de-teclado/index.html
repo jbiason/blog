@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">06. Macros de Teclado</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você repete várias coisas sem repetir várias coisas.</p>
+<span id="continue-reading"></span>
+<p>No capítulo #3, eu falei rapidamente do commando <code>.</code>, que repete o último comando
+completo. Mas como repetir comandos que são, na verdade, uma composição de
+vários outros comandos?</p>
+<p>A resposta são macros de teclado.</p>
+<p>Macros de teclado permitem que você grave uma execução qualquer e depois a
+repita quantas vezes quiser.</p>
+<p>Para fazer uma macro de teclado, você deve, em modo normal, executar
+<code>q{registrador}</code>. Ao fazer isso, a última linha do VIM irá mostrar &quot;recording&quot;,
+indicando que o editor está agora gravandos todas as teclas pressionadas no
+registrador. Para encerrar a gravação pressione <code>q</code> novamente (desta vez, sem o
+registrador). Para &quot;tocar&quot; a macro, é necessário usar <code>@{registrador}</code>.</p>
+<p>Quem prestou atenção no capítulo #5, deve ter notado que eu usei a palavra
+&quot;registrador&quot; de novo. E a base da questão é que realmente os dois são a mesma
+coisa: Se você copiar algo para o registrador <code>a</code> (<code>&quot;ayy</code>, por exemplo) e depois
+gravar a macro &quot;a&quot;, o conteúdo copiado para a área de transferência será perdido.
+Em compensação, se você criar a macro no registrador &quot;a&quot;, você pode ver
+exatamente a sequência de comandos usados usando <code>&quot;ap</code>. Ou ainda, você pode
+colocar a sequência de comandos desejada num arquivo (ou no próprio arquivo),
+copiar para o registrador necessário e depois só &quot;tocar&quot; o registrador.</p>
+<p>Como exemplo, imagine que você tem uma lista de constantes que você quer
+transformar em uma lista de strings. No caso, você teria que adicionar uma aspa
+no começo, uma aspa no final, uma vírgula e passar para a próxima linha. Se
+forem apenas 4 constantes, é fácil repetir os comandos em cada linha; mas se
+forem 100, a coisa fica diferente.</p>
+<p>Neste caso, você faria o seguinte: Na primeira linha, executaria
+<code>qaI&quot;[Esc]A&quot;,[Esc]jq</code> -- ou seja, iniciaria a macro &quot;a&quot;, entraria em modo de
+inserção no primeiro caractere não branco da linha (<code>I</code>), colocaria uma aspa,
+sairia do modo de inserção, entraria novamente no modo de inserção mas desta
+vez movendo o cursor para o último caractere antes (<code>A</code>), adicionaria a aspa que
+encerra a string e uma vírgula, moveria para a linha de baixo e encerraria a
+macro de teclado. Até aqui espero que não tenha nada de surpresas. Agora você
+pode repetir <code>@a</code> 99 vezes para as próximas linhas ou simplesmente executar <code>99@a</code>
+e deixar o VIM repetir a macro 99 vezes. No final, bastaria simplesmente
+remover a última vírgula.</p>
+<p>Uma coisa a ter em mente -- além da questão do registrador -- é que o VIM
+encerra tanto a macro quanto o número de repetições se houver qualquer
+problema. Por exemplo, se no meio da sua macro você colocar um <code>f.</code> para mover
+o cursor para o próximo ponto, mas no meio da execução não for encontrado
+nenhum ponto, a macro será interrompida e qualquer execução posterior será
+encerrada, não importando se for a 99<sup>a</sup> execução da macro ou a
+1</sup>a</sup>. Se você perceber que a execução não terminou onde deveria,
+basta executar <code>u</code> em modo de comando para desfazer a execução da macro.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;05-marcadores">Marcadores</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;07-procurar-varios-arquivos">Procurar em Vários Arquivos</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

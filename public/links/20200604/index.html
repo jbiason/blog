@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented Links for 2020-06-03</h1>
+  <span class="post-date">
+	2020-06-03
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/scotty/">#scotty</a>
+        
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/pyramid/">#pyramid</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cornice/">#cornice</a>
+        
+            <a href="https://blog.juliobiason.me/tags/datetime/">#datetime</a>
+        
+            <a href="https://blog.juliobiason.me/tags/mercurial/">#mercurial</a>
+        
+            <a href="https://blog.juliobiason.me/tags/async-requests/">#async requests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/httpx/">#httpx</a>
+        
+            <a href="https://blog.juliobiason.me/tags/advertising/">#advertising</a>
+        
+            <a href="https://blog.juliobiason.me/tags/google/">#google</a>
+        
+            <a href="https://blog.juliobiason.me/tags/python-3/">#python 3</a>
+        
+  </span>
+  <p>Scotty, Pyramid and Cornice, Problems with <code>datetime.now()</code>, Mercurial and
+Python 3, Fast Python, Async Python Request Library, Online Advertising,
+Google and Web.</p>
+<span id="continue-reading"></span><h2 id="scotty-transports-you-to-any-directory-you-have-visited-before"><a href="https://github.com/wdullaer/scotty">scotty: Transports you to any directory you have visited before</a></h2>
+<p>I have been using Scotty for some time and I really like it.</p>
+<p>What Scotty does is keep a list of directories you accessed recently and,
+after a while, you can simply use <code>s &lt;directory&gt;</code> to get straight into it. Not
+only that, but Scotty uses fuzzy searching to find the directory that closely
+matches whatever you typed.</p>
+<h2 id="how-to-write-a-python-web-api-with-pyramid-and-cornice"><a href="https://opensource.com/article/20/1/python-web-api-pyramid-cornice">How to write a Python web API with Pyramid and Cornice</a></h2>
+<p>Pyramid is the &quot;less known&quot; Python web framework around. But this post shows
+how simple is to build a (simple) API with it.</p>
+<h2 id="stop-using-datetime-now"><a href="https://hakibenita.com/python-dependency-injection">Stop Using datetime.now!</a></h2>
+<p>Slightly clickbait title, but great content. Not only pointing out the
+problems when using <code>datetime.now()</code> (no, it's not the function itself that
+has a problem, it is the way we use that may cause problems), but going into
+lenghts explaining dependency injection in Python.</p>
+<h2 id="mercurial-s-journey-to-and-reflections-on-python-3"><a href="https://gregoryszorc.com/blog/2020/01/13/mercurial%27s-journey-to-and-reflections-on-python-3/">Mercurial's Journey to and Reflections on Python 3</a></h2>
+<p>Ding dong, the witch is dead, and so is Python 2.</p>
+<p>But there is still a large base of Python 2 projects that need to be converted
+to Python 3, and Mercurial did this, and here's the experience of a
+maintained on doing it so.</p>
+<p>I do understand that converting Python 2 to 3 is not a simple task, but there
+are a few misconceptions in the post. For example, &quot;the approach of assuming
+the world is Unicode is flat out wrong and has significant implications for
+systems level applications&quot;. The word <em>is</em> unicode. Go read the Portuguese
+version of this blog to have some idea. Go read any Chinese/Japonese blog to
+see how it looks. Do you really think those people do not use system level
+applications anywhere? Also, what do you think are mostly used: User level
+applications or system level?</p>
+<p>Not saying the conversion is perfect -- in a way, unicode is simply a way of
+dealing with the underlying bytes -- but ranting that this change made <em>your</em>
+specific way to think harder is not an excuse to not understand where the
+whole ecosystem was moving -- and it also doesn't mean your specific thing is
+not welcome, but you have to understand you're in the minority case here.</p>
+<p>(Also, it's no surprise to me that claiming &quot;world is unicode is wrong&quot; is
+coming from someone living in an ASCII country.)</p>
+<h2 id="making-python-programs-blazingly-fast"><a href="https://martinheinz.dev/blog/13">Making Python Programs Blazingly Fast</a></h2>
+<p>A set of tips on how to make Python applications faster. Some of those may
+seem weird in the first glance (make a variable in the function point to the
+a variable in the same class?) but the post also explains <em>why</em> this may
+improve the general performance.</p>
+<h2 id="httpx-a-next-generation-http-client-for-python"><a href="https://www.python-httpx.org/">Httpx: A next-generation HTTP client for Python</a></h2>
+<p><a href="https://2.python-requests.org/en/master/">Requests</a> shown to everyone how
+APIs should work, but it kinda got stuck in time, without async support (and a few
+other glitches in the project management). Now there is Httpx, which is,
+again, another HTTP request library, but this time with async support and,
+basically, the same interface.</p>
+<h2 id="no-judgment-digital-definitions-online-advertising-strategies"><a href="https://blog.mozilla.org/firefox/online-advertising-strategies/">No-judgment digital definitions: Online advertising strategies</a></h2>
+<p>Have you ever wondered why after you search something -- say, &quot;gamer chair&quot; --
+suddenly you start getting a lot of promotions and ads for chairs in your
+social networks?</p>
+<p>Nothing happens by simple chance, and that's the effect of all the trackers
+that someone puts on a page. But how they identify who is who is the real
+question.</p>
+<p>This post by Mozilla may seem a little bit basic, but shows pretty damn well
+how those things are done.</p>
+<h2 id="google-is-not-god-of-the-web"><a href="https://bilge.world/google-page-experience">Google Is Not God of The Web</a></h2>
+<p>Another clickbait title but, again, good content.</p>
+<p>A point that caught my attention was &quot;Google has the right to dictate 'Best
+Practices', although I think the topic is quite the opposite, based on its
+content.</p>
+<p>Imagine that Google start giving points of &quot;user experience&quot; to pages that use
+the Material design. Pages and pages that look like Android apps. But if you
+use your own layout, your own colors, you lose points. What now?</p>
+<p>This is the greatest problem on people depending on Google, and all the
+relationship of one of their groups working on web standards, a group working
+on a browser and a group to take advantage of whatever the previous two did.
+The less dependent on Google you become, the more you use alternative search
+engines (DuckDuckGo, Searx and even Bing), the more you use other email
+providers (ProtonMail), the more you use browsers that are not Chrome
+(Firefox, Safari or anything based on WebKit), the lesser the chance of the
+internet becoming the thing of a single company.</p>
+<hr />
+<p>This post was built with the help of</p>
+<ul>
+<li><a href="https://mastodon.social/@hntooter">HN Tooter</a></li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

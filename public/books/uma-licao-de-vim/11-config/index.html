@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">11. Arquivos de Configuração</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que eu menti.</p>
+<span id="continue-reading"></span>
+<p>Lembram que bem no começo, quando estávamos falando dos modos de execução, eu
+comentei que o modo Ex não era usado?</p>
+<p>Bom, eu menti. MUAHAHAHAHA!</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/11-config/muahaha.jpg" alt="" /></p>
+<p>Na verdade, o Modo Ex não é chamado comumente, mas os arquivos de configuração
+do VIM são um grande amontoado de comandos executando em modo Ex.</p>
+<p>E o que é o modo Ex, afinal de contas? O modo Ex nada mais é que o modo de
+comando sem a necessidade de usar <code>:</code> na frente de todos os comandos. Como
+ficaria complicado para, por exemplo, entrar no modo Ex, executar e arquivo,
+sair do modo ex e entrar em modo de inserção, até o momento temos usado o modo
+de comando para isso, já que economiza um monte de tecladas. Como não iremos
+ficar indo para o modo de inserção o tempo todo, e não faz sentido fazer um
+arquivo gigantesco com várias linhas começando com <code>:</code>, também faz sentido que o
+arquivo de configuração seja executado em modo Ex.</p>
+<p>O VIM tem um arquivo de configuração global (conhecido com &quot;vimrc&quot;) e um arquivo
+para execução em modo gráfico (&quot;gvimrc&quot;)<sup class="footnote-reference"><a href="#1">1</a></sup>. Ainda, existem duas versões de cada
+um destes arquivos: uma versão global para todos os usuários e uma versão
+definida para o usuário atual. Daqui pra frente, iremos ver as configurações do
+usuário, já que estas sobrepõem as globais.</p>
+<p>&quot;vimrc&quot; e &quot;gvimrc&quot; ficam no diretório dos dados do usuário; em qualquer um dos
+sistemas operacionais hoje, você consegue descobrir o diretório destes arquivos
+com <code>:echo $HOME</code> dentro do próprio VIM. Apenas note que embora eu venho chamando
+os arquivos de vimrc e gvimrc, os nomes são, na verdade, &quot;.vimrc&quot; e &quot;.gvimrc&quot; (ou
+&quot;_vimrc&quot; e &quot;_gvimrc&quot; no caso do Windows).</p>
+<p>Como existem muitas opções, não vou aqui explicar cada uma delas -- mas, no
+próximo capítulo eu vou mostrar o arquivo que eu estou usando para servir de
+guia.</p>
+<p>O que você vai ver quando abrir um arquivo de configuração:</p>
+<h2 id="set">set</h2>
+<p><code>set</code> é, efetivamente, a forma de &quot;setar&quot; alguma configuração no VIM.</p>
+<p>Existem dois tipos de configurações: As com valores e flags.</p>
+<p>Flags é mais fácil de ser explicado: você simplesmente seta a configuração. Por
+exemplo, fazer com que o VIM mostre uma coluna com o número de cada linha,
+você pode usar <code>:set number</code> (ou simplesmente <code>set number</code> dentro do arquivo de
+configuração). Para desligar uma opção deste tipo, você só precisa adicionar
+&quot;no&quot; na frente (para desligar number é usado <code>:set nonumber</code>).</p>
+<p>&quot;Valores&quot; é exatamente o que significa: Ao invés de ser uma simples flag, a
+opção recebe uma string ou número. Por exemplo, <code>:set tabstop=4</code> irá definir que
+o tamanho da tabulação é de 4 espaços. <code>:set notabstop</code> não tem efeito aqui, já
+que não é uma flag.</p>
+<p>Para fazer com que uma configuração volte ao seu valor/estado original, use
+<code>:set {opção}&amp;</code>; para verificar o valor de uma opção, use <code>:set {opção}?</code>.</p>
+<p>Talvez a coisa não esteja muito clara aqui, mas quando examinarmos um arquivo
+de configuração real, as coisas irão clarear.</p>
+<h2 id="let">let</h2>
+<p><code>let</code> é usado para definir o valor de uma variável. Uma variável tem sempre um
+valor -- ou seja, não existem &quot;variáveis flags&quot;. Variáveis são normalmente
+utilizadas por plugins ou arquivos de sintaxe e, portanto, as variáveis que
+você terá que usar vão depender do que você está usando.</p>
+<p>(Obviamente, se você estiver escrevendo seu próprio plugin — que eu não vou
+abordar aqui — o uso de variáveis vai ser praticamente obrigatório.)</p>
+<h2 id="if">if</h2>
+<p><code>if</code>, como em qualquer linguagem de programação, serve para execução
+condicional. Você pode, por exemplo, verificar se alguma feature foi ativada na
+compilação do binário, se alguma opção está ligada, etc.</p>
+<p>Por exemplo, para verificar se o suporte à scripts Python foi adicionado, você
+pode fazer:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#b48ead;">if </span><span style="color:#8fa1b3;">has</span><span>(</span><span style="color:#a3be8c;">&#39;python&#39;</span><span>)
+</span><span style="color:#65737e;">   &quot; configuração em python vai aqui
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<p>Para verificar se alguma opção está ativa:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#b48ead;">if </span><span style="color:#bf616a;">&amp;compatible
+</span><span style="color:#65737e;">   &quot; configuração em modo de compatibilidade com o VI original
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<p>ou para conferir um valor:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#b48ead;">if </span><span style="color:#bf616a;">&amp;t_Co</span><span> &gt; </span><span style="color:#d08770;">2
+</span><span style="color:#65737e;">   &quot; configuração quando há suporte a mais de 2 cores.
+</span><span style="color:#b48ead;">end
+</span></code></pre>
+<p>E assim por diante.</p>
+<h2 id="map-imap-e-outros">map, imap (e outros)</h2>
+<p><code>map</code> pode ser usado para mapear teclas para outras funções. Por exemplo <code>:map Y y$</code> irá mapear &quot;Y&quot; para executar <code>y$</code> (copiar da posição atual do cursor até o fim
+da linha). Com excessão de [Shift], qualquer modificador pode ser usado:</p>
+<ul>
+<li>C - para <code>[Control]</code></li>
+<li>M - para <code>[Alt]</code> (que normalmente é chamado de &quot;Meta&quot; em sistemas Unix — e por isso &quot;M&quot;)</li>
+<li>O - para <code>[Command]</code> (somente em Macs)</li>
+</ul>
+<p>Por exemplo, <code>:map C-m yy</code> irá adicionar <code>[Ctrl]m</code> para copiar a linha inteira.</p>
+<p>Ainda, a diferença entre <code>map</code> e <code>imap</code> é que <code>map</code> é global enquanto que
+<code>imap</code> só irá funcionar em modo de inserção (e assim você pode imaginar o que
+<code>nmap</code> e <code>vmap</code> fazem, certo?)</p>
+<h2 id="au-ou-autocmd">au (ou autocmd)</h2>
+<p>Comandos que são executados em determinadas condições. Condições podem desde
+&quot;FileType&quot; para ações confirme o tipo de arquivo e &quot;BufRead&quot;, &quot;BufWrite&quot; e
+relacionados quando um buffer for aberto ou fechado.</p>
+<p>O que seriam os &quot;relacionados&quot;? Bom, alem de ser na leitura/escrita do arquivo,
+podem ser adicionados comandos antes da execução (&quot;BufReadPre&quot;, &quot;BufWritePre&quot;),
+depois da execução (&quot;BufReadPost&quot;, &quot;BufWritePost&quot;) e durante (&quot;BufReadCmd&quot;,
+&quot;BufWriteCmd&quot;).</p>
+<p>(Existem ainda auto-comandos para quando o editor entrar em modo de edição,
+abrir o VIM gráfico, VIM está fechando, e assim por diante. Para ver todos os
+eventos, digite <code>:help autocmd-events</code>.)</p>
+<p>Por exemplo, <code>au FileType smarty set ai</code> para ligar a auto-identação quando VIM
+detectar que você está editando um arquivo Smarty (engine de templates para
+PHP). Ou ainda <code>au BufRead set nocompatible</code> irá configurar o editor para entrar
+em modo de não-compatibilidade com VI depois de abrir qualquer arquivo.</p>
+<p>Ainda, é possível encadear auto-comandos, por exemplo, <code>autocmd FileType python autocmd BufWritePre :%s/\s+$//e</code> irá fazer com que quando o tipo de arquivo for
+&quot;python&quot;, seja criado um auto-comando que antes de salvar o arquivo, seja
+executado um comando de substituição no buffer -- que remove espaços em branco
+no final da linha).</p>
+<p>(Se você está perdido com o que está vendo aqui, não se preocupe -- a tendência
+é que, ao ver um arquivo de configuração real, você entenda o que está
+acontecendo).</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> Existe um terceiro, .exrc, mas honestamente, em todo esse tempo usando o
+VIM, eu nunca tinha ouvido falar que este arquivo sequer existia.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;10-abas">Abas</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;11-01-vimrc">Meu .vimrc</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

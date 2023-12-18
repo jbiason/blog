@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - The Config File Is Friend</h1>
+  <span class="post-date">
+	2019-07-15
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/configuration/">#configuration</a>
+        
+            <a href="https://blog.juliobiason.me/tags/config-file/">#config file</a>
+        
+  </span>
+  <p>Do not ignore the power of configuration files.</p>
+<span id="continue-reading"></span>
+<p>Imagine you wrote a function that you have to pass a value for it to start
+processing (say, a twitter user account id). But then you have to do that with
+two values and you just call the function again with the other value.</p>
+<p>It makes more sense to use a config file and just run the application twice
+with two different config files 'cause, this way, you have a single, small,
+testable application instead of two, or a very complex application that does a
+lot of stuff.</p>
+<p>We can even jump into the idea of <a href="/books/things-i-learnt/libraries">creating
+libraries</a> and say that, instead of
+splitting your e-commerce application into smaller parts and making a big one
+by grouping these smaller parts, you could simply have one e-commerce
+application and, for each of your clients, you would have a different
+configuration file, pointing to different assets. This way, even the assets
+may reside in the same repository in the same branch, 'cause all that
+identifies which assets should be used are defined in the configuration file.</p>
+<p>&quot;But which one should I use?&quot; you may ask. Well, &quot;it depends&quot;. It may make
+sense to have one single application with different configuration files if
+most of its can be used all the time. If the intersection of used things is
+very small, it may make more sense to split into different libraries and just
+&quot;pick and chose&quot; what to use.</p>
+<p>But besides the replacement of libraries, you can also think things like: &quot;Ok,
+I have to remove elements after a while<sup class="footnote-reference"><a href="#1">1</a></sup>; but which would be a good time
+that they can exist before I can remove them?&quot; Well, if you're not quite sure
+(and, sometimes, even when you're sure), you can use a configuration file to
+define how long those elements will stay in the system before being expunged.
+Maybe you're not even thinking about how long each element will stay in the
+system, but how many of those elements you'll keep in the system before
+removing the old ones -- which is, again, a good candidate to be moved to a
+configuration file.</p>
+<p>Configuration files allow you to change properties of the system without
+recompiling everything. And, if in the future you decide to follow the <a href="https://en.wikipedia.org/wiki/Twelve-Factor_App_methodology">12
+Factor app</a>,
+you'll find that you're half-way through it.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>In other words, they have a <a href="https://en.wikipedia.org/wiki/Time_to_live">time to
+live</a>.</p>
+</div>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;permanent-solution">Nothing More Permanent Than A Temporary Solution</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;command-line-options">Command Line Options Are Weird, But Helpful</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

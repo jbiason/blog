@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Rust in Real Life</h1>
+  <span class="post-date">
+	2022-07-26
+	
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+  </span>
+  <p>For a while, I've been talking about Rust, making presentations, going to
+meetups...</p>
+<p>But a few months back I had the opportunity to finally work in a real
+project in Rust.</p>
+<p>So, how was it?</p>
+<span id="continue-reading"></span><h2 id="cargo-is-magic">Cargo is magic</h2>
+<p>The first application I used Rust was a small part of a bigger project. I had
+to capture the values coming in a websocket and store them in a database.</p>
+<p>There were two options for languages straight away: Python and C. Python was
+being used in other parts of the company, so it would have more eyes in case
+something went wrong. C was used in another application of the same project, so
+I could keep the project itself in a single language. Both languages had a
+couple of problems: I wasn't sure if Python could handle the load of a
+continuous stream of the websocket and I didn't want to write my own websocket
+and JSON parser in C.</p>
+<p>And that's why I picked Rust for this application: I had the performance of C
+with a very good package manager, plus a thousand packages already available.</p>
+<p>So Cargo was the thing that drove the inclusion of Rust in the project. And the
+language proved quite capable, as the application kept running to the point we
+forgot it was running.</p>
+<h2 id="unwrap-is-the-enemy"><code>.unwrap()</code> is the enemy</h2>
+<p>I point in my presentations how you can do use <code>.unwrap()</code> (and <code>.expect()</code>) to
+avoid dealing with errors, and although that would close your application, you
+have total control on <em>where</em> it can close itself (compared to a
+NullPointerException or reading NULL values or not capturing the proper
+exceptions). But, in the end, <code>.unwrap()</code> will hurt you. Badly.</p>
+<p>That happened in the second application I wrote: The main part of the
+application was reading a bunch of bytes, and the meaning of those bytes were
+in the bits themselves, in a combination of bitmap and UTF-8-like numbers. But
+it wasn't simply parsing that was involved: There was a socket to be read, and
+the parsed data should be stored in a database, and there were usually problems
+involved in it -- the socket may be closed on the server side, we could lose
+connectivity, the parser could produce weird values in case of a missed bit,
+which couldn't be stored in the database...</p>
+<p>For all the possible problems (which are pretty clear, as <code>Result</code> is the base
+for almost everything), and because I was in a hurry to deliver the
+application, I did use a lot of <code>.expect()</code> around -- again, with the idea
+that, if it crashes, at least I told it it could crash, and it would give me a
+somewhat traceable message. The reality is that issues happened with such
+frequency (specially the parser receiving weird bits that would produce weird
+values) that the application would not run for very long.</p>
+<p>The solution to this constant crashes was quite simple, although laborious:
+replace every <code>.unwrap()</code> and <code>.expect()</code> with <code>if let Ok(_)</code> and <code>match</code>. That
+gave me total control on how to deal with unexpected values/results. The result
+was that the application run without stop for days, to the point that we,
+again, forgot it was running -- except when the data changed and we needed to
+update our filters.</p>
+<h2 id="cargo-again">Cargo again</h2>
+<p>In this second application, there were a bunch of little finicky things in the
+protocol that were really hard to grasp. Fortunately, we captured some packets
+from the service, which allow us to test the parser locally. All I needed was
+something to give me a harness to throw those bits and see how the code would
+process them.</p>
+<p>With C, this would probably mean building another executable for testing and
+running it instead of the real executable (and, to be honest, that's what Rust
+does) but Cargo hid all the complexities of getting this done. I just dropped a
+<code>test.rs</code> into my modules, marked it as <code>#[cfg(test)]</code> (meaning, build this
+only if the configuration is the test configuration), and <code>cargo test</code> would
+build the code and run the tests.</p>
+<p>The fact that I had a testing framework and a test runner just there was a huge
+helper, specially when thing broke down.</p>
+<h2 id="should-ve-tryed-more">Should've <code>try</code>ed more</h2>
+<p>One of the side-effects of switching every <code>.unwrap()</code> and <code>.expect()</code> for some
+explicit error management was the increase in indentation -- 'cause <em>all</em> I did
+was do this replace, but I did not break things into smaller functions.</p>
+<p>Rust have the <code>try</code> operator -- <code>?</code> -- but that requires that the function
+using it should return a <code>Result</code>, which I kinda neglected in the first pass
+'cause, well, the only exit on all functions was success, and failure meant
+<code>panic!()</code> (due <code>.unwrap()</code>).</p>
+<p>If I was using <code>Result</code> as return values from the start, I have the impression
+that the code would not be a mess of 7-8 indentation levels. So, another thing
+I would have &quot;gained&quot; if I hadn't used <code>.unwrap()</code>.</p>
+<h2 id="async-doesn-t-make-sense-till-it-does">Async doesn't make sense till it does</h2>
+<p>The third application in the project required a lot of I/O -- reading from
+multiple databases, sending data through a socket, writing again in the
+database... It seemed a perfect fit for an async experiment.</p>
+<p>In the initial version I wrote, I used tasks (async functions) the same way I
+did with threads. It initially produced a bunch of errors from the borrow
+checker that I couldn't figure out why -- at this point, I could understand
+exactly why the borrow checker complained about something in an application
+using threads, but the errors were really confusing, to the point that I may
+have mentioned that &quot;async is unnatural for Rust&quot;. And, when I did manage to
+avoid the borrow checker complaints, the performance was... abysmal. Something
+like 0.8 records processed per second, which was extremely low for what we
+expected.</p>
+<p>Due this bad performance, I removed all the async things and used threads. That
+was in my ballpark -- I knew what I did wrong when the borrow checker
+complained -- and the performance did improve: Now it was processing 7 records
+per second.</p>
+<p>During the rewrite, I kept reading about async and how it works, till I came
+with a mental model to work with async (more about this in a future post). I
+did managed to take some time later to actually apply this mental model -- and
+then the errors from the borrow checker made sense, and I felt productive
+again. The result? 70 records per second, a whole 10x improvement from simple
+threads.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>All that I learnt in a space of 6 months. I ended up switching jobs to a place
+that doesn't have anything in Rust (yet 😈), and although the road for Rust is
+a bit steep and with some tight corners, it is still worth going.</p>
+<p>(And, as far as I know, all those applications are <em>still</em> running...)</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

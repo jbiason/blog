@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microserviços: Onde Fica a Fonte da Verdade?</h1>
+  <span class="post-date">
+	2020-02-17
+	
+            <a href="https://blog.juliobiason.me/pt/tags/microservicos/">#microserviços</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/fonte-da-verdade/">#fonte da verdade</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/estado/">#estado</a>
+        
+  </span>
+  <p>Quando estamos falando de um sistema, existe um ponto que precisamos discutir
+que é onde a &quot;fonte da verdade&quot; está. Em monolitos, a fonte da verdade está no
+armazenamento dos dados em si. Mas onde é que essa fonte fica em um sistema
+que é composto de múltiplas partes?</p>
+<span id="continue-reading"></span>
+<p>Só para ficar claro aqui: O que eu quero dizer com &quot;fonte da verdade&quot; é
+qualquer coisa que você possa usar para verificar se o sistema está produzindo
+os valores corretos. Por exemplo, em um pipeline que conta quanto foi
+transferido de cada usuário em uma CDN, a fonte da verdade podem ser os logs
+(você pode ler os logs e verificar se o sistema responsável por somar os
+valores está correto); num site de e-commerce, podemos assumir que a fonta da
+verdade é a lista de itens comprados em cada pedido para receita total (se
+você somar todas as quantidades e seus preços de venda, você vai ter a receita
+total de volta).</p>
+<p>Um fator importante da fonte da verdade e que você pode usar tanto para
+verificar se os serviços estão corretos quanto reaplicar o conteúdo de volta
+no sistema para que artefatos sejam reconstruídos.</p>
+<p>Mas existe um problema: Se o sistema é distribuído e <a href="https://blog.juliobiason.me/pt/code/microservices-source-of-truth/@./microservices-artifact-input-state.pt.md">cada microserviço cria
+um artefato diferente</a>, onde é
+que fica a fonte da verdade?</p>
+<p>Anteriormente, eu mencionei que microserviços podem manter um estado para
+produzir o artefato. Essa pode ser a fonte da verdade para o microserviço,
+desde que o mesmo não apague dados antigos -- nesse caso, como é que artefatos
+antigos seriam reconstruídos se você não pode retornar o estado a um estado
+anterior?</p>
+<p>Outra solução é alterar o microserviço de importação de dados (aquele que
+captura dados de uma fonte externa) para construir a fonte da verdade; havendo
+a necessidade de reconstruir artefatos, você pode simplesmente adicionar uma
+API nesse microserviço para que ele republique os dados relacionados com um
+determinado objeto, que irão percorrer o pipeline e cada microserviço irá
+reconstruir seus artefatos.</p>
+<p>E, finalmente, se você construir um pipeline de event source corretamente,
+você pode criar um serviço que irá escutar <em>todos</em> os eventos e manter um
+event source global, que você pode, novamente, expor uma API para reenviar os
+eventos relacionados com um objeto.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>... embora eu tenha a sensação que certos eventos precisariam ser alterados;
+por exemplo, se você mandar o event source reenviar os eventos relacionados
+com um epdido -- para que seja recriado o artefato desse pedido -- você pode
+ter que reaplicar um evento de &quot;criar usuário&quot;, que não vai fazer sentido
+porque o objeto já existe e não deve ser criado mais um usuário com as mesmas
+informações.</p>
+<p>Ou isso ou você vai ter que fazer com que o serviço de pedidos peça os dados
+do cliente se ele já não tiver os mesmos.</p>
+
+</div>
+<p>De qualquer forma, uma recomendação que eu tenho é sempre construir alguma
+coisa que possa guardar os seus dados, de forma que você possa reconstruir
+seus artefatos novamente e os serviços apagam dados antigos (que é
+perfeitamente normal, diga-se de passagem).</p>
+<!-- vim:spelllang=pt 
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

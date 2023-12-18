@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Fugindo Para as Colinas Com Python</h1>
+  <span class="post-date">
+	2017-09-18
+	
+            <a href="https://blog.juliobiason.me/pt/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/companion-post/">#companion post</a>
+        
+  </span>
+  <p>&quot;Hello World&quot; não mostra exatamente o poder de qualquer linguagem.
+Por isso resolvi fazer uma &quot;introdução&quot; ao Python com um problema de
+fujir para as colinas. Ou quase isso.</p>
+<span id="continue-reading"></span>
+<p>Um dos problemas de qualquer iniciante em qualquer linguagem é pegar o
+&quot;feeling&quot; da linguagem. E, realcionado com isso, é o fato que a maior parte
+dos códigos introdutórios de uma linguagem é o &quot;hello world&quot;. Por exemplo:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#a3be8c;">hello world</span><span>&#39;)
+</span></code></pre>
+<p>O que isso diz de Python? No máximo que <code>print</code> precisa de parentêses,
+strings podem ser geradas com aspas simples e não precisa de pronto-e-vírgula
+no final.</p>
+<p>O que não é muita coisa.</p>
+<p>Uma coisa que eu sempre digito quando acontece algum problema é </p>
+<blockquote>
+<p>Fujam para as colinas!</p>
+</blockquote>
+<p>Só que repetir isso toda hora não me faz um cara muito popular. É por isso que
+eu fico mudando essa frase para coisas do tipo</p>
+<blockquote>
+<p>Funam para as colijas!</p>
+</blockquote>
+<p>Ou ainda</p>
+<blockquote>
+<p>Lunam para as jocifas!</p>
+</blockquote>
+<p>Obviamente eu não paro para ficar pensando em todas as possibilidades e fico
+alterando letras randomicamente manualmente. Eu tenho um script para isso. Um
+script em Python.</p>
+<h2 id="o-basico">O Básico</h2>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#a3be8c;">Fujam para as colinas!</span><span>&#39;)
+</span></code></pre>
+<p>Assim já podemos irritar as pessoas repetindo a mesma informação.</p>
+<p>O próximo passo é preparar o terreno para a randomicidade de frase.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">u</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">am para as </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">o</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">i</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">as!</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(&#39;</span><span style="color:#a3be8c;">f</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">j</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">l</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">n</span><span>&#39;))
+</span></code></pre>
+<p>Agora já temos algumas coisas pra estudar.</p>
+<h3 id="help-incluso-e-format">Help incluso e <code>format</code></h3>
+<p>Primeiro, <code>format</code>. <code>format</code> é um método dos objetos do tipo string. Como
+eu sei disso? Porque, um dia, estava eu muito belo e folgado, me perguntando
+&quot;O que as strings em Python podem fazer?&quot;, abri o interpretador do Python e
+digitei:</p>
+<blockquote>
+<p><code>help(str)</code></p>
+</blockquote>
+<p>E, lá no meio...</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>|  format(...)
+</span><span>|      S.format(*args, **kwargs) -&gt; string
+</span><span>|
+</span><span>|      Return a formatted version of S, using substitutions from args and kwargs.
+</span><span>|      The substitutions are identified by braces (&#39;{&#39; and &#39;}&#39;).
+</span></code></pre>
+<p>E uma das coisas legais do Python é que ele é capaz de buscar o tipo através
+de um dado; e o que eu quero dizer com isso é que eu não precisaria saber que
+o tipo de uma string é <code>str</code>, eu poderia simplesmente fazer <code>help('fujam para as colinas')</code> e o interpretador mostraria o mesmo help.</p>
+<p>Aqui temos mais uma informação importante: <code>*args</code> e <code>**kwargs</code>. O que são
+esses dois desgraçados?</p>
+<h3 id="definindo-funcoes">Definindo Funções</h3>
+<p>Em outras linguagens esses são os chamados &quot;variable arguments&quot; ou &quot;argumentos
+variáveis&quot; ou ainda &quot;varargs&quot;. Ao invés de definir uma função que tenha um
+número definido de parâmetros, <em>varargs</em> permite que a função tenha um número
+indefinido de parâmetros. E eles funcionam da seguinte forma:</p>
+<p>Vamos começar definindo uma função:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">soma</span><span>(</span><span style="color:#bf616a;">primeiro</span><span>, </span><span style="color:#bf616a;">segundo</span><span>):
+</span><span>  total = primeiro + segundo
+</span><span>  </span><span style="color:#b48ead;">return </span><span>total
+</span></code></pre>
+<p>Uma pequena pausa para falar de uma coisa que acabamos de ver de Python, que
+não tínhamos visto ainda: definição de funções e blocos.</p>
+<p>Primeiro, funções são definidas com <code>def</code>, seguidas do nome da função, um
+parênteses, a lista de argumentos separados por vírgulas, fecha parênteses e
+dois pontos. Em Python, os dois pontos indicam que haverá um início de bloco.</p>
+<p>Segundo, ao contrário de outras linguagens, Python não usa colchetes para
+definir os blocos. Isso é feito através da identação (e, obviamente, os dois
+pontos).</p>
+<p>Terceiro, Python é uma linguagem de tipagem dinâmica, o que significa que não
+se define o tipo do parâmetro, simplesmente se usa.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Em Python 3, é possível definir um &quot;hint&quot; para o tipo, da
+seguinte forma:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">soma</span><span>(</span><span style="color:#bf616a;">primeiro</span><span>: Int, </span><span style="color:#bf616a;">segundo</span><span>: Int) -&gt; Int:
+</span><span>   </span><span style="color:#b48ead;">return </span><span>primeiro + segundo
+</span></code></pre>
+<p>A única coisa a se cuidar é que isso é só um hint e que se for passado uma
+string, não irá ocorrer qualquer erro.</p>
+
+</div>
+<h3 id="chamando-funcoes">Chamando Funções</h3>
+<p>Ainda, existem duas formas de passar valores para uma função:</p>
+<p>A primeira é só chamar a função passando os argumentos:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">soma</span><span>(</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>A segunda é que o Python aceita que sejam nomeados os argumentos:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">soma</span><span>(</span><span style="color:#bf616a;">primeiro</span><span>=</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#bf616a;">segundo</span><span>=</span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>O interessante de se nomear os argumentos é que é possível passar os mesmos
+fora da ordem original da função:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">soma</span><span>(</span><span style="color:#bf616a;">segundo</span><span>=</span><span style="color:#d08770;">2</span><span>, </span><span style="color:#bf616a;">primeiro</span><span>=</span><span style="color:#d08770;">1</span><span>)
+</span></code></pre>
+<p>(Essa parte de nomear os argumentos é importante para entender o <code>**kwargs</code>.)</p>
+<h3 id="de-volta-a-varargs">De volta a Varargs</h3>
+<p>Mas voltando aos <em>varargs</em>, o important é notar que a função acima tem dois
+parâmetros. Se eu tentar chamar a função com um número diferente de
+argumentos, o Python vai reclamar:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; </span><span style="color:#bf616a;">soma</span><span>(</span><span style="color:#d08770;">1</span><span>)
+</span><span style="color:#bf616a;">Traceback </span><span>(most recent call last):
+</span><span>   File &quot;</span><span style="color:#a3be8c;">&lt;stdin&gt;</span><span>&quot;, line </span><span style="color:#d08770;">1</span><span>, in &lt;module&gt;
+</span><span>TypeError: </span><span style="color:#bf616a;">soma</span><span>() takes exactly </span><span style="color:#d08770;">2 </span><span style="color:#bf616a;">arguments </span><span>(</span><span style="color:#d08770;">1 </span><span>given)
+</span></code></pre>
+<p><em>varargs</em> remove essa limitação. Se eu mudar a função para:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">soma</span><span>(*</span><span style="color:#bf616a;">args</span><span>):
+</span><span>   </span><span style="color:#96b5b4;">print</span><span>(args)
+</span></code></pre>
+<p>O que <code>*args</code> faz é pegar todos os argumentos e transformar numa lista. No
+caso, se eu chamar:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">soma</span><span>(</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>)
+</span></code></pre>
+<p>O resultado seria:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>[</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>]
+</span></code></pre>
+<p>E se eu chamar da forma original, com <code>soma(1, 2)</code>, eu tenho: [#fixo]_</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>[</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>]
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Também é possível criar funções com parâmetros fixos e uma parte
+variável, com algo do tipo <code>def fun(param1, param2, *outros)</code>; se a
+função for chamada com <code>fun(1, 2)</code>, <code>outros</code> ficará como uma lista
+vazia (<code>[]</code>); se for passado <code>fun(1, 2, 3, 4)</code>, <code>outros</code> ficará com 3
+e 4, já que 1 pertence à <code>param1</code> e 2 pertence à <code>param2</code>.</p>
+
+</div>
+<p>O que nós temos aqui é uma lista de elementos. Para fazer o <code>soma</code> funcionar
+com uma lista ao invés de argumentos, teríamos que fazer o seguinte:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">soma</span><span>(*</span><span style="color:#bf616a;">argumentos</span><span>):
+</span><span>   total = </span><span style="color:#d08770;">0
+</span><span>   </span><span style="color:#b48ead;">for </span><span>valor </span><span style="color:#b48ead;">in </span><span>argumentos:
+</span><span>      total = total + valor
+</span><span>   </span><span style="color:#b48ead;">return </span><span>total
+</span></code></pre>
+<p>De novo, coisas novas:</p>
+<p>De novo, blocos são marcados com dois-pontos e uma identação. Assim, o bloco
+do <code>for</code> tem uma linha só, porque o <code>return</code> está no mesmo nível do
+<code>for</code>, ele só vai ser executado depois que o <code>for</code> terminar.</p>
+<p>E aqui vemos como percorrer elementos de uma lista: <code>for/in</code> faz com que
+seja percorrido cada elemento de <code>argumentos</code> e o valor será colocado em
+<code>valor</code>.</p>
+<p>Agora que vimos <em>varargs</em> e listas, existe uma coisa mágica do Python que o
+<code>*</code>, além de servir para receber um número variável de argumentos e
+transformar numa lista, também serve para fazer o contrário: converter uma
+lista para uma lista de argumentos.</p>
+<p>De novo, com o nosso <code>soma</code> original:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">soma</span><span>(</span><span style="color:#bf616a;">primeiro</span><span>, </span><span style="color:#bf616a;">segundo</span><span>):
+</span><span>   </span><span style="color:#b48ead;">return </span><span>primeiro + segundo
+</span></code></pre>
+<p>Eu posso chamar com:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">soma</span><span>(</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>Mas eu também posso chamar com:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>argumentos = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>]
+</span><span style="color:#bf616a;">soma</span><span>(*argumentos)
+</span></code></pre>
+<h3 id="varargs-de-kwargs">Varargs de kwargs</h3>
+<p>Nós vimos duas coisas relacionadas a chamadas de função:</p>
+<ol>
+<li>É possível criar funções com número variável de parâmetros, usando <code>*</code>.</li>
+<li>É possível chamar funcões passando o nome do parâmetro.</li>
+</ol>
+<p>O que acontece quando juntamos os dois?</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; </span><span style="background-color:#bf616a;color:#2b303b;">def</span><span> </span><span style="color:#bf616a;">fun</span><span>(*args):
+</span><span style="color:#d08770;">...   </span><span style="color:#b48ead;">print </span><span>args
+</span><span>
+</span><span>&gt;&gt;&gt; </span><span style="color:#bf616a;">fun</span><span>(</span><span style="color:#bf616a;">args</span><span>=</span><span style="color:#d08770;">1</span><span>)
+</span><span style="color:#bf616a;">Traceback </span><span>(most recent call last):
+</span><span>  File &quot;</span><span style="color:#a3be8c;">&lt;stdin&gt;</span><span>&quot;, line </span><span style="color:#d08770;">1</span><span>, in &lt;module&gt;
+</span><span>TypeError: </span><span style="color:#bf616a;">fun</span><span>() got an unexpected keyword argument &#39;</span><span style="color:#a3be8c;">args</span><span>&#39;
+</span></code></pre>
+<p>O problema aqui é que <code>*</code> recolhe todos os argumentos sem nome. Para
+recolher os com nomes, é preciso usar <code>**</code>. Ele funciona praticamente da
+mesma forma que <code>*</code> mas ao invés de uma lista, ele irá conter um dicionário
+-- também conhecido como &quot;array associativo&quot;, &quot;objeto&quot;, &quot;mapa&quot; e outros nomes,
+dependendo da linguagem.</p>
+<p>Por exemplo:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">fun</span><span>(**</span><span style="color:#bf616a;">names</span><span>):
+</span><span>    </span><span style="color:#b48ead;">print </span><span>names
+</span><span>
+</span><span style="color:#bf616a;">fun</span><span>(</span><span style="color:#d08770;">1</span><span>)
+</span><span style="color:#bf616a;">Traceback </span><span>(most recent call last):
+</span><span>  File &quot;</span><span style="color:#a3be8c;">&lt;stdin&gt;</span><span>&quot;, line </span><span style="color:#d08770;">1</span><span>, in &lt;module&gt;
+</span><span>TypeError: </span><span style="color:#bf616a;">fun</span><span>() takes exactly </span><span style="color:#d08770;">0 </span><span style="color:#bf616a;">arguments </span><span>(</span><span style="color:#d08770;">1 </span><span>given)
+</span></code></pre>
+<p>O problema aqui é que não foi passado nenhum argumento nomeado. Obviamente o
+Python não sabe o que fazer com um valor qualquer e deu erro.</p>
+<p>Agora, se a função for chamada com:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">fun</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Julio</span><span>&#39;, </span><span style="color:#bf616a;">age</span><span>=</span><span style="color:#d08770;">41</span><span>)
+</span><span>{&#39;</span><span style="color:#a3be8c;">age</span><span>&#39;: </span><span style="color:#d08770;">41</span><span>, &#39;</span><span style="color:#a3be8c;">name</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">Julio</span><span>&#39;}
+</span></code></pre>
+<p>Ou seja, é possível criar uma função que só aceita parâmetro nomeados, mas é
+preciso que os valores sejam buscados do dicionário ao invés de &quot;aparecerem&quot;
+no bloco pelos parâmetros.</p>
+<h2 id="colocando-tudo-junto">Colocando tudo junto</h2>
+<p>Por que tudo isso é importante?</p>
+<p>Porque, como foi visto no nosso primeiro código com o <code>format</code>, o que a
+gente precisa é passar um número variável de elementos</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">u</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">am para as </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">o</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">i</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">as!</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(&#39;</span><span style="color:#a3be8c;">f</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">j</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">l</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">n</span><span>&#39;))
+</span></code></pre>
+<p>E nós precisamos alterar a ordem dos argumentos e a única forma que temos de
+fazer isso é usando o <em>varargs</em> reverso:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>consoantes = [&#39;</span><span style="color:#a3be8c;">f</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">j</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">l</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">n</span><span>&#39;]
+</span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">u</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">am para as </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">o</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">i</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">as!</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(*consoantes)
+</span></code></pre>
+<p>Nesse momento, os dois códigos vão fazer a mesma coisa. A questão é que agora
+temos uma lista que podemos mexer no conteúdo.</p>
+<p>O que precisamos fazer agora: Embaralhar o conteúdo de <code>consoantes</code>. O resto
+do código continua o mesmo, já que ele imprime as consoantes nos lugares
+marcados e nós estamos passando a lista para isso.</p>
+<p>Para randomizar o conteúdo, nós vamos utilizar uma das bibliotecas disponíveis
+pelo próprio Python: <code>random</code>.</p>
+<p>Para usar uma biblioteca -- que no Python são chamadas de &quot;módulos&quot; --, é só
+fazer <code>import</code> e o nome da biblioteca. No nosso caso</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>random
+</span></code></pre>
+<p>Mas o que diabos tem dentro de <code>random</code>? Bom, dá pra ver tudo no site
+oficial do Python, onde tem a documentação, ou nós podemos fazer o mesmo
+<code>help(random)</code> para ver o help ou ainda usar <code>dir(random)</code> para ver o
+conteúdo do módulo.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&gt;&gt;&gt; import random
+</span><span>&gt;&gt;&gt; dir(random)
+</span><span>[&#39;BPF&#39;, &#39;LOG4&#39;, &#39;NV_MAGICCONST&#39;, &#39;RECIP_BPF&#39;, &#39;Random&#39;, &#39;SG_MAGICCONST&#39;,
+</span><span>&#39;SystemRandom&#39;, &#39;TWOPI&#39;, &#39;WichmannHill&#39;, &#39;_BuiltinMethodType&#39;,
+</span><span>&#39;_MethodType&#39;, &#39;__all__&#39;, &#39;__builtins__&#39;, &#39;__doc__&#39;, &#39;__file__&#39;,
+</span><span>&#39;__name__&#39;, &#39;__package__&#39;, &#39;_acos&#39;, &#39;_ceil&#39;, &#39;_cos&#39;, &#39;_e&#39;, &#39;_exp&#39;,
+</span><span>&#39;_hashlib&#39;, &#39;_hexlify&#39;, &#39;_inst&#39;, &#39;_log&#39;, &#39;_pi&#39;, &#39;_random&#39;, &#39;_sin&#39;, &#39;_sqrt&#39;,
+</span><span>&#39;_test&#39;, &#39;_test_generator&#39;, &#39;_urandom&#39;, &#39;_warn&#39;, &#39;betavariate&#39;, &#39;choice&#39;,
+</span><span>&#39;division&#39;, &#39;expovariate&#39;, &#39;gammavariate&#39;, &#39;gauss&#39;, &#39;getrandbits&#39;,
+</span><span>&#39;getstate&#39;, &#39;jumpahead&#39;, &#39;lognormvariate&#39;, &#39;normalvariate&#39;,
+</span><span>&#39;paretovariate&#39;, &#39;randint&#39;, &#39;random&#39;, &#39;randrange&#39;, &#39;sample&#39;, &#39;seed&#39;,
+</span><span>&#39;setstate&#39;, &#39;shuffle&#39;, &#39;triangular&#39;, &#39;uniform&#39;, &#39;vonmisesvariate&#39;,
+</span><span>&#39;weibullvariate&#39;]
+</span></code></pre>
+<p>No caso, o que nós queremos é o <code>shuffle</code> (como eu sei? Porque eu olhei a
+documentação, oras!)</p>
+<p>E assim nós temos o código:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>random
+</span><span>consoantes = [&#39;</span><span style="color:#a3be8c;">f</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">j</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">l</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">n</span><span>&#39;]
+</span><span>random.</span><span style="color:#bf616a;">shuffle</span><span>(consoantes)
+</span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">u</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">am para as </span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">o</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">i</span><span style="color:#d08770;">{}</span><span style="color:#a3be8c;">as!</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(*consoantes)
+</span></code></pre>
+<p>E está feito nosso randomizador de Fugir para as Colinas.</p>
+<p>Embora aqui tenhamos alcançado nosso objetivo, existem algumas outras
+coisinhas que são interessantes de se ver.</p>
+<h2 id="in-place">In-place</h2>
+<p>Uma das coisas que <code>random.shuffle</code> faz é alterar a ordem do conteúdo, não
+retornando nada no resultado. Por exemplo</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span>random
+</span><span>&gt;&gt;&gt; lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>&gt;&gt;&gt; random.</span><span style="color:#bf616a;">shuffle</span><span>(lista)
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista)
+</span><span>[</span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">3</span><span>]
+</span></code></pre>
+<p>Isso não é um problema caso a lista não seja mais necessária depois do uso (ou
+a ordem original não seja mais necessária). Se fosse necessária, seria preciso
+fazer uma cópia da lista antes de usar o <code>shuffle</code>. Existe um módulo chamado
+<code>copy</code> para fazer cópias tanto de listas quanto de dicionários.
+Entretamento, para este caso, existe uma forma mais simples.</p>
+<h2 id="slices">Slices</h2>
+<p>Para acessar um elemento de uma lista, basta usar a posição do element
+(começando em zero, obviamente).</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[</span><span style="color:#d08770;">1</span><span>])
+</span><span>&#39;</span><span style="color:#a3be8c;">b</span><span>&#39;
+</span></code></pre>
+<p>Também é possível acessar um grupo de elementos usando <code>:</code>, com a posição
+inicial e a posição final (que é exclusiva, ou seja, antes de chegar no
+elemento indicado).</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[</span><span style="color:#d08770;">1</span><span>:</span><span style="color:#d08770;">3</span><span>])
+</span><span>[&#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;]
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Existe ainda um terceiro parâmetro para slides, que é o &quot;step&quot;.
+Por exemplo, </p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[::</span><span style="color:#d08770;">2</span><span>])
+</span><span>[</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">3</span><span>]
+</span></code></pre>
+<p>Aqui foi indicado que é pra ir do começo da lista até o final, mas pulando
+de dois em dois.</p>
+<p>Embora não muito usado, a parte que realmente importa é que step também
+aceita valores negativos, indicando que é pra seguir na ordem inversa. E o
+uso mais comum é criar uma cópia da lista, mas com os valores invertidos.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[::-</span><span style="color:#d08770;">1</span><span>])
+</span><span>[</span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">1</span><span>]
+</span></code></pre>
+
+</div>
+<p>Também é possível omitir as posições: Se for omitida a primeira posição,
+significa &quot;desde o começo&quot;; se for omitida a posição final, significa &quot;até o
+fim&quot;.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[:</span><span style="color:#d08770;">3</span><span>])
+</span><span>[&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;]
+</span></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[</span><span style="color:#d08770;">1</span><span>:])
+</span><span>[&#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span></code></pre>
+<p>Também é possível usar índices negativos, tanto na posição inicial quanto
+final, indica que é &quot;a partir do fim da lista&quot;.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; lista = [&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista[-</span><span style="color:#d08770;">2</span><span>:])
+</span><span>[&#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;]
+</span></code></pre>
+<p>Essas operações de &quot;pegar pedaços de uma lista a partir de uma posição inicial
+e final&quot; são chamados de <em>slides</em>.</p>
+<h2 id="copiando-listas-por-slices">Copiando listas por Slices</h2>
+<p>Mas porque eu comentei de slices? Porque, se você reparar, quando é utilizada
+uma faixa, o Python retorna o resultado como uma lista. Na verdade, não é um
+pedaço da lista original, é uma nova lista. </p>
+<p>Considerando que:</p>
+<ol>
+<li>Sem uma posição inicial, significa que é pra começar do começo da lista.</li>
+<li>Sem uma posição final, significa que é ir até o final da lista.</li>
+<li>Slices são cópias de uma lista.</li>
+</ol>
+<p>O que você acha que acontece se não forem passadas as <em>duas</em> posições ao mesmo
+tempo?</p>
+<p>Sim, você cria uma cópia da lista.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>&gt;&gt;&gt; </span><span style="color:#b48ead;">import </span><span>random
+</span><span>&gt;&gt;&gt; lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>&gt;&gt;&gt; copia = lista[:]
+</span><span>&gt;&gt;&gt; random.</span><span style="color:#bf616a;">shuffle</span><span>(copia)
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(copia)
+</span><span>[</span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">3</span><span>]
+</span><span>&gt;&gt;&gt; </span><span style="color:#96b5b4;">print</span><span>(lista)
+</span><span>[</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span></code></pre>
+<p>E, com essa cópia, evitamos de termos problemas com a lista passado pelo
+<code>shuffle</code>, porque a lista original vai ter sempre os dados na mesma ordem, sem
+nunca ser alterada -- desde que o <code>shuffle</code> seja feita na cópia.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

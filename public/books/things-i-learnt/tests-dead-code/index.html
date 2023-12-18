@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Testing Every Function Creates Dead Code</h1>
+  <span class="post-date">
+	2019-06-21
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/dead-code/">#dead code</a>
+        
+  </span>
+  <p>If you write a test for every single function on your system, and your system
+keeps changing, how will you know when a function is not necessary anymore?</p>
+<span id="continue-reading"></span>
+<p>Writing a test for every single function on your system may come from the
+&quot;100% Coverage Syndrome&quot;, which afflicts some managers, thinking that the only
+way to be completely sure your system is &quot;bug free&quot; is to write tests for
+every single line of code, till you reach the magical &quot;100% coverage&quot; in all
+the tests.</p>
+<p>I do believe you can reach 100% coverage, as long as you're willing to
+<em>delete</em> your code.</p>
+<p>(Cue the universal grasps here.)</p>
+<p>But how do you know which pieces of code can be deleted?</p>
+<p>When I mentioned <a href="/books/things-i-learnt/integration-tests">integration
+tests</a>, I mentioned how much more
+sense it made to me reading them instead of the &quot;unit&quot; tests, because they
+were describing exactly how the system would operate in normal (and some
+abnormal) conditions. If you write tests that go through the system, assuming
+it is a black box with an input point and an output, and you can get tests for
+all the normal cases -- and some &quot;abnormal&quot;, like when things go wrong -- then
+you know that, if you run those tests and they mark some lines as &quot;not
+tested&quot;, it's because you don't need them.</p>
+<p>&quot;But Julio, you're forgetting the error control!&quot; I do agree, specially when
+you're talking with project owners or some other expert, that people will
+forget to tell you what to do in case of things going wrong -- say, the user
+typing their name in the age field -- but <em>you</em> can see those and <em>you</em> know
+that you need error control so <em>you</em> can add the error control and describe
+the situation where that error control would trigger.</p>
+<p>If, on the other hand, you write a test for every function, when you do a
+short/simple check, you'll find that the function is still being used in the
+system by the tests, not actually, &quot;value to the user&quot; code. Sure, you can
+use your IDE to go back and forth between code and test and see if it points a
+use beyond the test, but it won't do it for yourself.</p>
+<p>There is one other weird thing about using integration tests for error
+controls: Sometimes, you can't reach the control statement. It's true! I did
+wrote control checks for every function once but, when running in the
+integration tests, there was no way to produce an input at the input layer of
+the system that would reach the error control in that function 'cause the
+other functions, which would run before the one I was trying to test, would
+catch the error before it. If that's a design problem or not -- it probably
+was -- it's a different discussion, but the fact is that that function didn't
+need error control, something that I wouldn't see if I wrote test specifically
+for it, but it was clear in an integration test run.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;integration-tests">Unit Tests Are Good, Integration Tests Are Gooder</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;tests-apis">Tests Make Better APIs</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

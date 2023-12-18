@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">On Unit Tests and Layers, Part II</h1>
+  <span class="post-date">
+	2017-09-15
+	
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+  </span>
+  <p>After coming with a discussion about unit tests and layers, I got a
+bunch of other insights, specially from a video of Gary Bernhardt
+about &quot;Fast Test, Slow Test&quot;.</p>
+<span id="continue-reading"></span>
+<p>Just after posting about 
+<a href="https://blog.juliobiason.me/code/on-unittests-and-layers/">who one could see the layers through unit testing</a>,
+I finally watched a video of Gary
+Bernhardt (of the &quot;DestroyAllSoftware&quot; fame) about &quot;Fast Test, Slow Test&quot;.</p>
+<p>Basically, what Gary is going after is saying &quot;write tests for the layer ONLY,
+so all your tests are fast&quot;. Ok, I can get behind it, in a way. Because layers
+have their behaviour -- in a &quot;mechanical&quot; sense, since they don't require
+human interaction, but behaviour nonetheless -- so you're testing behaviour.</p>
+<p>But that also rises one question: <em>What are you testing?</em> Are you testing the
+<em>component</em> or the <em>application</em>? What do you deliver, anyway? <em>Components</em> or
+an <em>application</em>? How do you make sure you're delivering an application in the
+proper way?</p>
+<p>Testing layer behaviour also has a bad side effect: If you're application
+doesn't need a certain part of your layer -- say, you wrote a validator in the
+model layer, but the powers to be decided it wasn't required anymore --, how
+do you make sure it will go away? Your tests will still test those validators
+-- after all, you're testing your model layer -- and your coverage will still
+point that that piece of code is needed and you'll end up with a bunch of dead
+code that is kept alive only because the tests require them.</p>
+<p>Also, because Gary points out that the &quot;integration tests&quot; are still required,
+you'll end up with a lot more tests than necessary. Why not focus on the
+behaviour your <em>application</em> should have instead of the behaviour your
+<em>layers</em> have?</p>
+<p>I'm not against layer testing per-se, I'm just against writing tests that do
+not reflect the general expected behaviour of the application and duplicating
+tests because you're testing layer after layer and then testing them all
+together. You should test the <em>value</em> of your application, not its components.</p>
+<p>On a side note, Gary still does the same mistake everyone does, calling the
+&quot;all layers&quot; tests &quot;system tests&quot;. That's wrong. Just because you're going
+through different layers it doesn't mean it can't be a unit test. It depends
+only on itself? Does it test behaviour? Congratulations, you have a unit test.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Decodificando o Protocolo FAST</h1>
+  <span class="post-date">
+	2022-01-10
+	
+            <a href="https://blog.juliobiason.me/pt/tags/financas/">#finanças</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/binario/">#binário</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/protocolo/">#protocolo</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/fix/">#fix</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/fast/">#fast</a>
+        
+  </span>
+  <p>Recentemente tive que trabalhar com um FAST (FIX Adapted for Streaming) e
+como a documentação está espalhada, decidi colocar as coisas que descobri em um
+único lugar para (minha) referência futura.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Como isso é baseado na minha experiência pessoal e eu tive contato com uma
+única instância disso até agora, existem algumas coisas que estão incompletas
+e/ou erradas. Vou continuar atualizando este post enquanto descubro coisas
+novas.</p>
+<p>O changelog está no final deste post.</p>
+
+</div>
+<h1 id="o-que-e-o-fast">O que é o FAST</h1>
+<p><a href="https://en.wikipedia.org/wiki/FAST_protocol">FAST</a> é, basicamente, um método
+de compressão para o protocolo FIX.</p>
+<h1 id="e-o-que-e-fix">E o que é FIX</h1>
+<p><a href="https://en.wikipedia.org/wiki/Financial_Information_eXchange">FIX</a> é um
+protocolo criado para as instituições financeiras trocarem informações. Embora
+não haja nada &quot;financeiramente&quot; relacionado a ele - você poderia usar o
+protocolo para qualquer coisa, basicamente - a maioria das empresas financeiras
+o usa.</p>
+<p>FIX é um protocolo muito simples: você tem pares de &quot;campo ID&quot; e &quot;valor&quot;
+separados por um &quot;<code>=</code>&quot; (sinal de igual) e os pares são separados pelo caractere
+ASCII com código 1 (que é representado por <code>^A</code> em alguns editores). Alguns IDs
+de campo são definidos pelo protocolo (há uma lista completa
+<a href="https://www.inforeachinc.com/fix-dictionary/index.html">aqui</a>), mas cada
+central pode criar seus próprios IDs.</p>
+<p>Por exemplo, se você tiver o campo MsgType (ID 35) com valor &quot;<code>y</code>&quot; e o campo
+Security ID (ID 48) com valor &quot; 123456&quot;, a mensagem recebida seria</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>35=y^A48=123456
+</span></code></pre>
+<h1 id="e-de-volta-ao-fast">E de Volta ao FAST</h1>
+<p>Uma das coisas para que o FAST foi projetado é remover conteúdo duplicado e/ou
+constante. Por exemplo, MsgType (ID 35) identifica que a mensagem é
+&quot;SecurityList&quot; (lista de ativos), que contém informações sobre todos os
+símbolos (seus IDs de segurança) disponíveis na Exchange. Como a Exchange é a
+mesma em todos os símbolos, o FAST permite definir os campos relacionados a ela
+(Source, campo ID 22, e Exchange, campo ID 207) para valores constantes, para
+que não precisem ser transmitidos e, na decodificação FAST de volta a FIX, o
+decodificador simplesmente adiciona o valor constante.</p>
+<p>Para saber quais campos são constantes e quais não (e algumas outras
+informações), o protocolo define um modelo, que possui um esquema bem definido,
+para relatar essas informações.</p>
+<h1 id="o-template">O Template</h1>
+<p>O template é um arquivo XML que descreve os campos, seus tipos, nomes, IDs e
+operadores. O protocolo em si não fornece nenhuma maneira padrão de realmente
+receber esse campo e, portanto, é deixado para que a Exchange defina a forma
+dos clientes encontrar este arquivo.</p>
+<p>Note que o modelo descreve os IDs de campo e seus tipos, e os dados recebidos
+possuem apenas os valores. Se usarmos a descrição FIX acima, o modelo define o
+lado esquerdo do par, enquanto os dados de entrada têm apenas o lado direito.</p>
+<h2 id="tipos-de-campos">Tipos de Campos</h2>
+<p>O protocolo define arquivos tipos de dados: Inteiros de 32 e 64 bits sem sinal,
+Inteiros de 32 e 64 bits com sinal, strings em ASCII, strings em UTF8,
+sequências, decimais e um tipo especial chamando &quot;Mapa de Presença&quot; (Presence
+Map).</p>
+<p>Uma coisa que o processamento de todos os campos é que estes usam um formato de
+&quot;bit de parada&quot;. O formato é bem parecido com o formato de UTF8, embora UTF8
+use um &quot;bit de continuação&quot; ao invés de &quot;bit de parada&quot;, mas o processo de
+leitura é o mesmo:</p>
+<ul>
+<li>Ler um byte;</li>
+<li>O bit de mais alta ordem é 0?
+<ul>
+<li>Sim: Continue lendo;</li>
+<li>Não: Pare de ler o valor do campo.</li>
+</ul>
+</li>
+</ul>
+<p>Eu vou mostrar alguns exemplos mais a frente neste post.</p>
+<h2 id="definicao-dos-campos">Definição dos Campos</h2>
+<p>O template define os campos com seus tipo nome (opcional), ID,
+um indicador de presença e um operador (opcional).</p>
+<p>Por exemplo, para descrever um inteiro sem sinal de 32 bits, chamado &quot;MsgType&quot;
+com ID &quot;35&quot;, ele seria descrito no template como</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MsgType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">35</span><span>&quot;/&gt;
+</span></code></pre>
+<p>Como não há indicador de presença, é assumido que o campo é &quot;mandatório&quot; e deve
+sempre deve ter um valor. Por outro lado, se a definição do campo for algo do
+tipo</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">int32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">ImpliedMarketIndicator</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1144</span><span>&quot; </span><span style="color:#d08770;">presence</span><span>=&quot;</span><span style="color:#a3be8c;">optional</span><span>&quot;/&gt;
+</span></code></pre>
+<p>... então o campo pode não ter valor. Isso também é definido como campo
+&quot;nulável&quot; (nullable).</p>
+<h2 id="campos-mandatorios-e-opcionais">Campos Mandatórios e Opcionais</h2>
+<p>A diferença entre campos opcionais e mandatórios é que campos mandatórios
+<em>sempre</em> tem um valor, mesmo que seja 0. Campos opcionais, por outro lado,
+podem ser null e não ter valor algum.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Eu tenho a impressão que isso foi feito para que a Exchange possa marcar um
+campo como &quot;não parece na versão FIX&quot;; então mesmo que o campo tenha uma
+definição, o resultado em FIX não teria o campo.</p>
+<p>Então é algo mais como &quot;compatibilidade com versões anteriores&quot; do que qualquer
+outra coisa.</p>
+
+</div>
+<h2 id="tipos">Tipos</h2>
+<h3 id="tipos-inteiros">Tipos: Inteiros</h3>
+<p>Para ler um inteiro, o decodificador pegaria os 7 bits mais baixos (tudo exceto
+o bit de alta ordem) e mover os mesmos para o valor resultante. Se o bit de
+parada estiver presente, a leitura está completa; se não estiver, deve ser
+feito um &quot;shift&quot; de 7 bits no valor resultado e movidos os 7 bits do próximo
+byte e assim por diante, até que seja encontrado um byte com o bit de parada.</p>
+<p>Inteiros de 32 e 64 bits definem apenas os valores máximos de um campo e não
+necessariamente usados como &quot;número de bits a serem lidos&quot; -- justamente por
+causa do bit de parada. Se o valor excede 32 ou 64 bits, isso é considerado um
+erro e o processamento deve ser abortado.</p>
+<p>Inteiros com sinal funcionam exatamente igual, mas com complemento de 2.</p>
+<p>Por exemplo, se os dados de entrada tem os seguintes bytes (em binário, para
+ficar mais fácil de ler; eu adicionei um underscore entre cada 4
+valores, também para ficar mais fácil de ler):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0000_0001 1001_0010
+</span></code></pre>
+<p>... o decodificador irá ler o primeiro byte e ver que o bit de mais alta ordem
+não está ligado, então ele mantém apenas o &quot;1&quot; do valor e move 7 bits à
+esquerda. O segundo byte então é ligado; este tem o bit de alta ordem ligado,
+então os bits restantes (no caso, &quot;001_0010&quot;) são adicionados no valor final e
+temos <code>1001_0010</code> -- ou 146.</p>
+<p>Números negativos são representados por complemento de 2, então se o
+decodificador receber, por exemplo:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0000_0011 0111_1110 1110_1110
+</span></code></pre>
+<p>... que, quando os bits de alta ordem são removidos, deve gerar &quot;<code>1111_1111 0110_1110</code>&quot;, que é -146 (em 16 bits, apenas para ficar mais fácil de ler).</p>
+<p>Quando um campo inteiro é opcional, o valor resultante deve se decrementado 
+em 1. O motivo é que deve haver uma forma de diferenciar entre 0 e Null. Assim,
+um inteiro que seja decodificado para 0 é, na verdade, Null; para obter o valor
+0 num inteiro, é enviado o valor 1, que é decrementando por 1 e volta a zero.</p>
+<p>No template, os campos aparecem como</p>
+<ul>
+<li><code>&lt;uInt32/&gt;</code>: Inteiro sem sinal de 32 bits.</li>
+<li><code>&lt;uInt64/&gt;</code>: Inteiro sem sinal de 64 bits.</li>
+<li><code>&lt;int32/&gt;</code>: Inteiro com sinal de 32 bits.</li>
+<li><code>&lt;int64/&gt;</code>: Inteiro sem sinal de 64 bits.</li>
+</ul>
+<h3 id="tipos-strings">Tipos: Strings</h3>
+<p>Strings em ASCII são bem simples de serem lidas: Novamente, o decodificador
+fica lendo os dados de entrada até que encontre um byte com o bit de mais alta
+ordem ligado (novamente, o bit de parada) e converte cada byte para o
+respectivo caractere em ASCII.</p>
+<p>Por exemplo</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0100_1000 0110_0101 0110_1100 0110_1100 1110_1111
+</span></code></pre>
+<p>... iria gerar os bytes 72, 101, 108, 108 e 111, que usando a tabela ASCII
+geraria o valor &quot;Hello&quot;. Note que o bit de parada aqui representa &quot;acabou a
+string&quot; e os bytes não devem ser agrupados como em Inteiros.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Até aqui eu não tive nenhum contato com strings UTF8, então eu não tenho
+certeza de como estes devem ser lidos. Com certeza há documentação em como
+devem ser lidos, mas como esta é a minha experiência pessoal com o protocolo,
+eu decidi não comentar aqui.</p>
+
+</div>
+<p>Strings opcionais são Null quando o primeiro byte tiver o bit de mais alta
+ordem ligado e todos os demais desligados.</p>
+<p>No template, um campo de string aparece como <code>&lt;string&gt;</code>.</p>
+<h3 id="tipos-sequencias">Tipos: Sequências</h3>
+<p>Sequências são basicamente arrays. O primeiro campo de uma sequência é o
+&quot;tamanho&quot; (com o tipo &quot;<code>&lt;length&gt;</code>&quot; no template) com o número de registros
+presentes. Dentro da sequência, você tem uma lista de definições de campos, que
+podem até mesmo incluir outras sequências.</p>
+<p>Sequências opcionais afetam a forma como o campo de tamanho é lido: Se a
+sequência é opcional, o tamanho deve ser tratado como um inteiro opcional e,
+portanto, decrementando em 1.</p>
+<p>No template, a sequência aparece como <code>&lt;sequence&gt;</code>, com o tamanho logo depois.
+Um exemplo é</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Sequence</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">length </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NoSequence</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">123</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">sequence</span><span>&gt;
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Eu descrevo a maior parte dos campos de tamanho com um nome que começa com
+&quot;No&quot;. Isso é porque a especificação do FIX define os tamanhos com esse prefixo.</p>
+
+</div>
+<h3 id="tipos-decimais">Tipos: Decimais</h3>
+<p>Decimais são formados por dois campos: Expoente e Mantissa. A forma como isso
+funciona é que se você tiver um Expoente de &quot;-2&quot; e uma Mantissa de &quot;1020&quot;, o
+valor resultante é <code>1020 * 10 ^ -2</code> (&quot;1020 vezes 10 na potência -2&quot;) ou
+&quot;10.20&quot;.</p>
+<p>Tanto o Expoente quanto a Mantissa são lidos como Inteiros com sinal.</p>
+<p>Um Decimal opcional significa que o Expoente é opcional. A documentação diz que
+a Mantissa é sempre mandatória, mas tem uma pegadinha: Se o Expoente é Null,
+então a Mantissa não está presente nos dados de entrada e o Decimal inteiro é
+Null; caso contrário, o decodificador deve ler a Mantissa e aplicar a forma
+acima.</p>
+<p>Ainda, como o Expoente e a Mantissa são dois campos, eles podem ter operadores
+diferentes. Eu vou mostrar exemplos depois de explicar os Operadores,
+principalmente porque eu vi os dois com operadores diferentes e a leitura é
+complicada.</p>
+<p>No template, um campo decimal aparece como <code>&lt;decimal&gt;</code>, com o expoente e a
+mantissa como campos internos.</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">decimal </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">ADecimal</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">123</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">exponent</span><span>/&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">mantissa</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">decimal</span><span>&gt;
+</span></code></pre>
+<h3 id="tipo-mapa-de-presenca">Tipo: Mapa de Presença</h3>
+<p>Mapas de Presença são usados em conjunto com operadores. Eles são lidos da
+mesma forma como Inteiros sem sinal (ler os bytes até encontrar o byte com o
+bit de mais alta ordem ligado, remover os bits de alta ordem e colocar os bits
+em sequência) mas não há uma conversão em si. Cada vez que o decodificador
+precisa verificar se um campo está presente no Mapa de Presença, o bit é
+consumido e a linha avança.</p>
+<p>Mapas de Presença não estão presentes no template e a existência do Mapa ocorre
+se pelo menos um dos campos precisa do Mapa de Presença. Por exemplo, se os campos
+de uma sequência são todos mandatórios, não haverá Mapa de Presença nos dados
+de entrada.</p>
+<p>Os bits do Mapa de Presença sequem a ordem dos campos no template. Por exemplo,
+se um template tem</p>
+<ol>
+<li>Um campo mandatório;</li>
+<li>Um campo com um operador que requer o Mapa de Presença (eu vou comentar
+sobre estes mais pra frente);</li>
+<li>Outro campo mandatório;</li>
+<li>E, finalmente, outro campo com operador.</li>
+</ol>
+<p>... é possível ter um mapa de presença como <code>1110_0000</code>, no qual:</p>
+<ol>
+<li>O primeiro bit é o bit de parada, e o decodificar assume que este é o último
+byte do Mapa de Presença.</li>
+<li>O segundo bit indica que o primeiro com operador está presente. Ele <em>não</em>
+representa o campo mandatório porque, bom, o campo é mandatório e, assim,
+está sempre presente.</li>
+<li>O segundo bit indica que o segundo campo com operador está presente.</li>
+</ol>
+<p>(De novo, eu vou mencionar quais operadores requerem o Mapa de Presença.)</p>
+<h2 id="operadores">Operadores</h2>
+<p>Operadores definem a forma como alguns campos devem ser tratados. Eu vi 5 tipos
+diferentes de Operadores:</p>
+<ul>
+<li>Nenhum;</li>
+<li>Constant;</li>
+<li>Default;</li>
+<li>Copy;</li>
+<li>Delta;</li>
+<li>Increment.</li>
+</ul>
+<h3 id="operador-nenhum">Operador: Nenhum.</h3>
+<p>Quando não há operador definido para o campo no template, então o operador e o
+&quot;Nenhum&quot;. Isto significa que não há forma especial de lidar com o valor de
+entrada.</p>
+<p>Quando um campo tem o operador &quot;Nenhum&quot;, não haverá bit para o mesmo no Mapa de
+Presença.</p>
+<h3 id="operador-constant">Operador: Constant</h3>
+<p>Um campo com o operador Constant (Constante) não irá ser enviado nos dados de
+entrada e o decodificador deve assumir que o valor é o valor constante.
+Anteriormente eu mencionei que uma lista de símbolos pode ter o campo 22,
+&quot;Source&quot; e o campo 207 &quot;Exchange&quot;, com valores contantes, e assim eles seriam
+definidos como</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Source</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">22</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">123</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Exchange</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">207</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">EXCHANGE</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span></code></pre>
+<p>Existe uma pegadinha, no entanto: Se um campo contante pode ser Null
+(<code>presence=&quot;optional&quot;</code>), então o decodificador precisa verificar o Mapa de
+Presença: Se estiver ligado, o valor contante deve ser usado; caso contrário, o
+valor do campo é Null.</p>
+<p>O Mapa de Presença deve ser usado apenas se o campo com valor contante é
+opcional.</p>
+<h3 id="operador-default">Operador: Default</h3>
+<p>O operador Default é parecido com o operador Constante, mas o decodificador
+precisa verificar o bit do campo no Mapa de Presença; se estiver ligado, o
+valor do campo deve ser lido dos dados de entrada; caso contrário, deve ser
+usado o valor Default.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Uma forma de ler isso é: O valor está presente nos dados de entrada (indicado
+pelo Mapa de Presença)? Leia o valor dos dados de entrada; caso contrário, use
+o valor default.</p>
+
+</div>
+<p>Exemplo</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Type</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">3</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span></code></pre>
+<h3 id="operador-copy">Operador: Copy</h3>
+<p>O operador Copy (Cópia) indica que o valor deste campo neste registro tem o
+mesmo valor do registro anterior; se este é o primeiro registro, então o valor
+atual deve ser usado. Se o bit no Mapa de Presença estiver ligado para este
+campo, então o decodificador deve ler o campo dos dados de entrada; caso
+contrário, o valor anterior deve ser usado. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Nos dados que eu vi, todo primeiro registro tinha o bit ligado.</p>
+
+</div>
+<p>Por exemplo: Com um template como:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MDReqID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">262</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">copy</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span></code></pre>
+<p>... e os dados de entrada tem os seguintes registros e Mapas de Presença:</p>
+<ol>
+<li>O primeiro registro tem o bit do campo ligado no Mapa de Presença e a string
+é lida como &quot;primeiro&quot;. O resultado para este campo neste registro será o
+valor &quot;primeiro&quot;.</li>
+<li>O segundo registro não tem o bit ligado no Mapa de Presença. Assim, o
+decodificador usa o valor anterior e este campo neste registro terá o valor
+&quot;primeiro&quot; (de novo).</li>
+<li>O terceiro registro tem o bit do Mapa de Presença ligado novamente, e é lido
+o valor &quot;segundo&quot;. Este é o valor para este campo neste registro.</li>
+<li>O quatro registro não tem o bit ligado no Mapa de Presença e o decodificador
+usa o valor &quot;segundo&quot; para o campo.</li>
+</ol>
+<p>O operador Copy pode indicar o valor inicial do campo. Por exemplo</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MDReqID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">262</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">copy </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span></code></pre>
+<p>Isso significa que deve usar &quot;string&quot; como valor anterior, mesmo no primeiro
+registro.</p>
+<p>Conforme indicado, campos com o operador Copy sempre aparecem no Mapa de
+Presença.</p>
+<h3 id="operador-delta">Operador: Delta</h3>
+<p>Delta é um operador parecido com Copy, mas ao invés de usar o valor do registro
+anterior neste campo, o novo valor deve ser calculado usando o valor anterior e
+o atual. De novo, se não há valor anterior, então nenhuma operação é feita o
+valor nos dados de entrada é o valor atual.</p>
+<p>Um exemplo:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NumberOfOrders</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">346</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">delta</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span></code></pre>
+<ol>
+<li>O primeiro registro vem com o valor &quot;300&quot;. Este é o valor do campo.</li>
+<li>O segundo registro vem com o valor &quot;2&quot;. Este valor deve ser adicionado no
+valor anterior e usado, então o valor no segundo registro é &quot;302&quot;.</li>
+<li>O terceiro registro vem com o valor &quot;3&quot;. Novamente, deve ser usado o valor
+anterior e o valor atual deve ser adicionar. Assim, o campo no terceiro
+registro terá o valor &quot;305&quot;.</li>
+</ol>
+<h3 id="operador-increment">Operador: Increment</h3>
+<p>Increment (Incremento) funciona de forma similar ao operador Delta por estar
+sempre adicionando um valor ao valor anterior, mas o valor adicionar é sempre
+1.</p>
+<p>Se o bit do campo estiver ligado no Mapa de Presença, o valor do campo será o
+valor vindo dos dados de entrada; caso contrário, deverá ser usado o valor
+anterior acrescido de 1.</p>
+<p>Exemplo:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">RptSeq</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">83</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">increment</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span></code></pre>
+<ol>
+<li>O primeiro registro tem o bit ligado para o campo no Mapa de Presença e o
+decodificador lê o valor &quot;100&quot; nos dados de entrada. Este é o valor do campo
+neste registro.</li>
+<li>O segundo registro não tem o bit ligado, então não há nada a ser lido dos
+dados de entrada, mas o campo deve ter o valor &quot;101&quot; para este registro.</li>
+</ol>
+<p>Campos com o operador Increment devem aparecer no Mapa de Presença.</p>
+<h2 id="mapa-do-mapa-de-presenca">Mapa do Mapa de Presença</h2>
+<p>Existe um mapa simples que indica se um campo aparece ou não no Mapa de
+Presença, <a href="https://jettekfix.com/education/fix-fast-tutorial/">de acordo com a JetTek</a>:</p>
+<table>
+    <tr>
+        <th>Operador</th>
+        <th>Aparece para campos Mandatórios?</th>
+        <th>Aparece para campos Opcionais?</th>
+    </tr>
+    <tr>
+        <td>Nenhum</td>
+        <td>Não.</td>
+        <td>Não.</td>
+    </tr>
+    <tr>
+        <td>Constant</td>
+        <td>Não, o valor constante é sempre usado.</td>
+        <td>Sim; se ligado, deve usar o valor Constante; caso contrario, o
+        valor do campo é Null.</td>
+    </tr>
+    <tr>
+        <td>Copy</td>
+        <td>Sim; se ligado, deve usar o valor dos dados de entrada; caso
+        contrário, deve ser usado o valor anterior.</td>
+        <td>Sim, mesma coisa que campos Mandatórios.</td>
+    </tr>
+    <tr>
+        <td>Default</td>
+        <td>Sim; se ligado, deve usar o valor vindo dos dados de entrada; caso
+        contrário, use o valor default.</td>
+        <td>Sim; mesma coisa que campos Mandatórios.</td>
+    </tr>
+    <tr>
+        <td>Delta</td>
+        <td>Não; o valor vindo dos dados de entrada deve ser adicionado ao
+        anterior.</td>
+        <td>Não; mesma coisa que campos Mandatórios.</td>
+    </tr>
+    <tr>
+        <td>Increment</td>
+        <td>Sim; se ligado, deve usar o valor vindo dos dados de entrada; caso
+        contrário, adicionar 1 no valor anterior.</td>
+        <td>Sim; mesma coisa que campos Mandatórios.</td>
+    </tr>
+</table>
+<h1 id="versionamento-de-templates">Versionamento de Templates</h1>
+<p>Eu não mencionei isso antes, mas agora que eu expliquei algumas coisas sobre os
+tipos e algumas informações sobre o template, eu posso dizer que o arquivo de
+template permite que existam múltiplas versões das mesmas mensagens.</p>
+<p>Por exemplo</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;?</span><span style="color:#bf616a;">xml </span><span style="color:#d08770;">version</span><span>=&quot;</span><span style="color:#a3be8c;">1.0</span><span>&quot; </span><span style="color:#d08770;">encoding</span><span>=&quot;</span><span style="color:#a3be8c;">UTF-8</span><span>&quot;?&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">templates </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeRecordType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MsgType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">35</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">Z</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeField</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;/&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeRecordType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MsgType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">35</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">Z</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeField</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;/&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeOtherField</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">A Value!</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">templates</span><span>&gt;
+</span></code></pre>
+<p>Uma coisa que você pode notar é que existem dois templates definidos, um com ID
+&quot;1&quot; e outro com ID &quot;2&quot;. Ambos tem o mesmo nome e o mesmo campo com um valor
+constante, mas a informação inicial dos dados de entrada indica qual destes
+dois deve ser usada.</p>
+<p>Os dados de entrada começam com um Mapa de Presença. O primeiro bit deste mapa
+é o &quot;Template ID&quot;. Com este Template ID, o decodificador pode encontrar a lista
+de campos que devem ser processados. Este mapa também tem os campos da
+sequência inicial -- no nosso exemplo, se o Template ID for &quot;2&quot;, o outro bit no
+Mapa de Presença é o indicador do &quot;SomeOtherField&quot;.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Até agora, eu não vi dados de entrada que não tivessem o bit indicador do
+template ID ligado, então eu não tenho muita certeza do que fazer caso isso
+aconteça.</p>
+
+</div>
+<h1 id="anomalias">Anomalias</h1>
+<p>Eu chamo &quot;anomalia&quot; qualquer coisa que eu levei muito tempo para entender.</p>
+<h2 id="decimais-com-operadores-diferentes">Decimais com Operadores Diferentes</h2>
+<p>Isso foi uma coisa meio complicada para entender inicialmente. Por exemplo:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">decimal </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MDEntryPX</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">270</span><span>&quot; </span><span style="color:#d08770;">presence</span><span>=&quot;</span><span style="color:#a3be8c;">optional</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">exponent</span><span>&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">0</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">exponent</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">mantissa</span><span>&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">delta</span><span>/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">mantissa</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">decimal</span><span>&gt;
+</span></code></pre>
+<p>Parece simples, mas tem várias peças se movendo ao mesmo tempo aqui:</p>
+<ol>
+<li>
+<p>O indicador <code>presence=&quot;optional&quot;</code> no decimal significa que o <code>exponent</code> pode
+ser Null e apenas isso.</p>
+</li>
+<li>
+<p>O operador Default no Expoente significa que o decodificador deve verificar
+se o expoente tem um valor presente nos dados de entrada ou se deve ser
+usado o valor default de &quot;0&quot;.</p>
+<p>Existe um problema aqui: Se o Mapa de Presença indica que o valor está
+presente e é lido o valor 0, como o campo é opcional, o decodificador deve
+considerada o Expoente Null e, portanto, não há Mantissa e todo o valor é
+Null.</p>
+</li>
+<li>
+<p>O operador Delta na Mantissa deve ser usado aplicando o valor de entrada com
+o valor anterior. Mas, se o Expoente não estiver com o bit ligado no Mapa de
+Presença, como há um valor default, este deve ser usado e não lido dos dados
+de entrada, e o valor lido deve ser usado na Mantissa.</p>
+</li>
+</ol>
+<p>Tipo isso:</p>
+<ol>
+<li>O primeiro registro tem o bit no Mapa de Presença ligado e o valor lido é
+&quot;-2&quot;; este é o Expoente. O próximo valor valor é &quot;1020&quot;, que é o valor da
+Mantissa, e o decimal inteiro é &quot;10.20&quot;.</li>
+<li>O segundo registro tem o bit ligado no Mapa de Presença e o valor lido é
+&quot;0&quot;. Como o Decimal é opcional, o Expoente é opcional e como 0 é Null para
+campos opcionais, não há Expoente e o próximo valor não é a Mantissa. O
+valor do campo neste registro é Null.</li>
+<li>O terceiro registro não tem o bit ligado no Mapa de Presença. Como o
+Expoente tem um valor default, ele fica como &quot;0&quot; e a Mantissa deve ser lida.
+Se vier o valor &quot;10&quot;, o decimal se torna &quot;10&quot; (ou &quot;10.00&quot; para mantermos o
+mesmo número de casas decimais).</li>
+</ol>
+<p>Uma coisa estranha que vi foi relacionada com a forma como a Exchange estava
+ordenando os resultados. Era uma sequência de ordens de compra e venda, na
+quais</p>
+<ol>
+<li>O primeiro registro era a ordem de venda, com um Expoente de &quot;0&quot; e Mantissa
+de &quot;5410&quot;. Isso significa que o valor era &quot;5410&quot;.</li>
+<li>O segundo registro era uma ordem de compra. Ele tinha o Expoente de &quot;-2&quot; e
+Mantissa tinha o valor de &quot;526604&quot;. Com o operador Delta, isso dá a Mantissa
+o valor de &quot;532014&quot;, mas como o Expoente é &quot;-2&quot;, o valor real era de
+&quot;5420.14&quot;.</li>
+<li>A coisa estranha aconteceu no terceiro registro, que era novamente uma ordem
+de venda. O valor deveria ser o valor igual ao primeiro, mas a Exchange
+mandou o valor &quot;0&quot; para o Expoente e Mantissa de &quot;-526604&quot;. Com o Delta,
+isso trouxe o valor de volta a &quot;5410&quot;.</li>
+</ol>
+<p>Eu achei estranho que a Exchange ficou mudando entre dois Expoentes ao invés de
+usar apenas um, e na época eu estava com problemas com o cálculo de Deltas no
+meu código, então...</p>
+<h2 id="sequencias-com-tamanho-null">Sequências com Tamanho Null</h2>
+<p>Outra coisa que eu vi foi a Sequência opcional: Na prática não há diferença
+entre uma sequência com 0 elementos e uma com o tamanho Null -- especialmente
+se você pensar que o protocolo é, basicamente, um gerador de FIX. Eu não faço
+ideia porque não foi padronizado que tamanhos são mandatórios e um valor de 0
+significa que não há valores ao invés de ficar fazendo uma dança ao redor de
+sequências mandatórias e opcionais.</p>
+<hr />
+<p>Changelog:</p>
+<ul>
+<li>2022-01-10: Primeira versão.</li>
+<li>2022-01-10: Adicionada informações sobre o versionamento de templates.</li>
+<li>2022-01-13: Adicionados exemplos das tags no template para os tipos de campos
+e exemplos dos operadores.</li>
+</ul>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

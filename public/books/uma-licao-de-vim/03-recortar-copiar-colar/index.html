@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">03. Recortar, Copiar e Colar</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte que você não deve fazer muitas vezes quando estiver
+programando.</p>
+<span id="continue-reading"></span>
+<p>Assim como outros editores, o VIM tem um sistema de copiar e colar. E, como
+vimos vendo desde o começo, o VIM tem seu modo peculiar de lidar com isso.</p>
+<p>Toda a parte de copiar-e-colar do VIM é feita em modo normal. E sem que você
+soubesse, você já stava vendo a parte de recordar textos desde a parte de
+comandos do modo normal: Qualquer comando que exclua texto imediatamente
+transfere a parte excluído para a área de transferência do VIM. A única parte
+que ficou faltando foi como você “cola” estes textos de volta.</p>
+<p>E, para colar, você usa <code>p</code> (de &quot;paste&quot;, veja só!).</p>
+<p>E, obviamente, existe o <code>[Shift]+p</code> também. E a diferença é facilmente explicada
+se voltarmos para o capítulo #2.2.</p>
+<p>Quando falamos do cursor, eu disse que o cursor encontra-se na parte inferior
+esquerda do bloco do cursor. O colar do VIM é feito depois do cursor. Assim, ao
+pressionar <code>p</code>, o texto irá aparecer depois do caractere sob o cursor; se for
+pressionado <code>[Shift]+p</code>, o texto será colado antes do caractere atual, empurrando
+o mesmo pra frente.</p>
+<p>O funcionamento muda um pouco se você recortar o texto usando o modo visual de
+linha (ou recortar usando algum movimento que desconsidere a coluna atual).
+Nestes casos, o VIM entende que você quer colar uma linha inteira e, ao invés
+de mover o conteúdo da linha atual, o texto é colado abaixo da linha atual,
+desconsiderando a posição do cursor. <code>[Shift]+p</code> irá colar o texto antes da linha
+atual.</p>
+<p>(Embora pareça complicado, a medida que você for se aclimatando com o
+copiar-e-colar do VIM, você verá que não é tão diferente dos demais editores --
+com a exceção que os outros editores tentam adivinhar quando você quer fazer
+copia de linhas inteiras ou apenas pedaços, enquanto que o VIM deixa você mesmo
+decidir quando fazer isso.)</p>
+<p>A única coisa que ficou faltando agora foi como copiar o texto sem remover o
+mesmo antes -- porque, vamos admitir, recortar e colar de novo seria muita
+burrice.</p>
+<p>O comando para copiar é <code>y{movimentação}</code>. Normalmente, ele é chamado de &quot;yank&quot;
+(arrancar) e por isso muitos chamam o sistema de &quot;copy'n'paste&quot; do VIM de
+&quot;yank'n'paste&quot;.</p>
+<p>Para copiar a linha inteira, você pode usar <code>yy</code>. Isto copia toda a linha,
+incluindo o marcador de nova linha, e o VIM vai entender que, na hora de colar,
+você quer colar a linha inteira, seguindo as mesmas regras que eu expliquei
+acima sobre o modo visual de linha.</p>
+<p>Assim como outros editores, o VIM mantém a área de transferência entre arquivos
+(com isso, você pode abrir um arquivo, copiar um texto, abrir outro arquivo e
+colar a parte selecionada do primeiro) e, normalmente, o VIM ainda consegue
+manter a área de transferência entre execuções. Entretanto, uma coisa que você
+pode não gostar é que a área de transferência pertence e é gerenciada
+exclusivamente pelo VIM -- ou seja, ele não usa a área de transferência do
+sistema operacional<sup class="footnote-reference"><a href="#1">1</a></sup>. Assim, você não vai conseguir copiar do VIM e colar no
+seu browser ou vice-versa.</p>
+<p>.. a não ser que você use registradores, que nós vamos ver a seguir.</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> E não, o &quot;botão do meio dentro do X&quot; não é a mesma coisa a área de
+transferência.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;02-outros-comandos">Outros Comandos</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;04-registradores">Registradores</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

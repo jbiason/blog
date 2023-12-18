@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">02. Outros Comandos</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Esta é a parte em que eu comento alguns comandos que você vai usar
+esporadicamente.</p>
+<span id="continue-reading"></span>
+<p>Neste ponto você deve estar entendendo como os modos do VIM funcionam, para que
+cada um funciona e tento uma idéia básica de como editar arquivos. Como eu
+falei já duas vezes, a quantidade de comandos disponíveis é gigantesca, então
+vamos aproveitar esse pequeno momento em que as coisas começam a fazer sentido
+para ver mais alguns comandos.</p>
+<h2 id="shift-j-modo-normal">[Shift]+j (Modo normal)</h2>
+<p>&quot;Junta&quot; a linha abaixo do cursor com a atual. Pode não parecer muito, mas o VIM
+irá colocar um espaço no final da linha atual<sup class="footnote-reference"><a href="#1">1</a></sup> antes de juntar com a linha
+abaixo e removerá todo caractere branco da linha de baixo antes de juntar as
+duas linhas.</p>
+<h2 id="x-modo-normal">x (Modo normal)</h2>
+<p>Apaga o caractere sob o cursor. O mesmo que <code>[Del]</code>.</p>
+<h2 id="gq-modo-normal">gq (Modo normal)</h2>
+<p>Reformata o parágrafo. Não faz muito sentido para código (com algumas
+exceções), mas se você tiver configurado a coluna máxima (vou explicar como
+fazer isso na parte de configuração do VIM), você pode selecionar um comentário
+em modo visual e usar gq para que o VIM alinhe o comentário no espaço definido.
+Também serve para quando você estiver editando arquivos de markup (MarkDown,
+reSTRUCTURED text, HTML, etc).</p>
+<h2 id="gg-e-g-modo-normal">gg e G (Modo normal)</h2>
+<p><code>gg</code> move o cursor para o início do arquivo e <code>G</code> move o cursor para o fim do
+arquivo. Efetivamente, fazer <code>ggdG</code> (mover o cursor para o início do arquivo,
+remover tudo até o final do arquivo) irá remover todo o conteúdo do arquivo.</p>
+<h2 id="modo-normal">= (Modo normal)</h2>
+<p>Reidenta o código usando a sintaxe atual.</p>
+<h2 id="u-e-ctrl-r-modo-normal">u e [Ctrl]+r (Modo normal)</h2>
+<p>Undo e redo, respectivamente.</p>
+<h2 id="ctrl-y-e-ctrl-e-modo-normal-e-modo-de-insercao">[Ctrl]+y e [Ctrl]+e (Modo normal e Modo de inserção)</h2>
+<p>Dois comandos que funcionam de forma diferente se executados em modo normal ou
+modo de inserção.</p>
+<p>No modo normal, <code>[Ctrl]+y</code> irá rolar o conteúdo do texto para baixo, mantendo o
+cursor na mesma posição enquanto que <code>[Ctrl]+e</code> irá rolar o conteúdo para cima,
+ainda mantendo o cursor na mesma posição. Se você abusar destes comandos,
+movendo a linha onde o cursor se encontra para fora da área visível, o cursor
+irá se mover.</p>
+<p>No modo de inserção, no entanto, <code>[Ctrl]+y</code> irá copiar o caractere da linha de
+cima na mesma coluna na posição atual; <code>[Ctrl]+e</code> faz o mesmo, mas com a linha de
+baixo.</p>
+<h2 id="modo-normal-1">. (Modo normal)</h2>
+<p>Repete o último comando. Note que <code>.</code> irá repetir o último comando completo. Por
+exemplo, quando eu falei sobre <code>ggdG</code>, estamos falando, na verdade, de dois
+comandos completos: <code>gg</code> e <code>d{movimentação}</code>. <code>.</code>, neste caso, irá repetir o comando
+<code>dG</code>. Mais adiante veremos como criar &quot;macros de teclado&quot; e efetivamente permitir
+a execução de coleções de comandos.</p>
+<h2 id="e-e-files-modo-de-comando">:e e :files (Modo de comando)</h2>
+<p>Edita um arquivo. Se não for passado o nome do arquivo depois do comando, o
+mesmo arquivo é recarregado do disco (em outras palavras, o buffer é atualizado
+com o conteúdo do arquivo). <code>:e#</code> recarrega o último arquivo aberto (por exemplo,
+se você estiver com o arquivo &quot;arquivo&quot; aberto e fizer <code>:e arquivo2</code>, usar <code>:e#</code>
+irá recarregar &quot;arquivo&quot; para o editor; usando <code>:e#</code> de novo, &quot;arquivo2&quot; será
+apresentado).</p>
+<p>Você pode ver os últimos arquivos abertos na sessão atual do VIM com <code>:files</code>. Se
+quiser recarregar algum destes arquivos de novo, basta usar <code>:e#{número}</code>, onde
+{número} é o número do arquivo na lista.</p>
+<h2 id="sh-modo-de-comando">:sh (Modo de comando)</h2>
+<p>Abre um shell dentro do VIM. Para retornar ao VIM, basta encerrar o shell.</p>
+<h2 id="numero-modo-de-comando">:{número} (Modo de comando)</h2>
+<p>Pula para a linha indicada. Por exemplo, <code>:100</code> irá para a centésima linha do
+arquivo.</p>
+<h2 id="ctrl-e-ctrl-t-modo-normal">[Ctrl]+] e [Ctrl]+t (Modo normal)</h2>
+<p><code>[Ctrl]+]</code> pula para a tag sob o cursor e <code>[Ctrl]+t</code> retorna. Mais adiante veremos
+como criar um arquivo de tags para que o VIM consiga navegar pelo código. A
+mesma idéia é usada no help do VIM: se você digitar <code>:help</code> irá ver a primeira
+página de ajuda do editor; para navegar entre os tópicos apresentados (marcados
+de forma diferente, dependendo do esquema de cor utilizado), é utilizado
+<code>[Ctrl]+]</code> para avançar e <code>[Ctrl]+t</code> para retornar para a página anterior.</p>
+<h2 id="modo-normal-2">~ (Modo normal)</h2>
+<p>Altera o caractere sob o cursor para maiúscula se for minúscula e vice-versa e
+move o cursor uma posição pra frente.</p>
+<h2 id="gu-movimentacao-gu-movimentacao-e-g-movimentacao-modo-normal">gu{movimentação}, gU{movimentação} e g~{movimentação} (Modo normal)</h2>
+<p><code>gu{movimentação}</code> altera todos os caracteres em {movimentação} para minúsculas.</p>
+<p><code>gU{movimentação}</code> altera todos os caracteres em {movimentação} mara maiúsculas.</p>
+<p><code>g~{movimentação}</code> faz <code>~</code> nos caracteres em {movimentação} (ou seja, os caracteres
+da posição do cursor até movimentação ficarão em maiúsculas se estiverem em
+minúsculas e vice-versa).</p>
+<h2 id="ctrl-p-e-ctrl-n-modo-de-insercao">[Ctrl]+p e [Ctrl]+n (Modo de inserção)</h2>
+<p>Auto-complete. <code>[Ctrl]+p</code> tenta completar a palavra antes do cursor voltando no
+texto enquanto que <code>[Ctrl]+n</code> tenta completar com palavras mais a frente no
+texto.</p>
+<h2 id="ctrl-a-e-ctrl-x-modo-normal">[Ctrl]+a e [Ctrl]+x (Modo normal)</h2>
+<p>Incrementa (<code>[Ctrl]+a</code>) ou decrementa (<code>[Ctrl]+x</code>) o número sob o cursor. O VIM
+automaticamente detecta se o número está em decimal, octal ou hexa.</p>
+<p>E MAIS!</p>
+<h2 id="w-modo-normal">w (Modo normal)</h2>
+<p>Move o cursor para o começo da próxima palavra.</p>
+<h2 id="e-modo-normal">e (Modo normal)</h2>
+<p>Move o cursor para o fim da próxima palavra.</p>
+<h2 id="b-modo-normal">b (Modo normal)</h2>
+<p>Move o cursor para o começo da palavra anterior.</p>
+<h2 id="ge-modo-normal">ge (Modo normal)</h2>
+<p>Move o cursor para o fim da palavra anterior.</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> ... a não ser que o primeiro caractere (não branco) da linha de baixo seja
+um &quot;)&quot;; neste caso, o VIM não adiciona o espaço.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;01-05-modo-de-comando">Modo de Comando</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;03-recortar-copiar-colar">Recordar, Copiar e Colar</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

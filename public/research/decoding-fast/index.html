@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Decoding the FAST Protocol</h1>
+  <span class="post-date">
+	2022-01-10
+	
+            <a href="https://blog.juliobiason.me/tags/finance/">#finance</a>
+        
+            <a href="https://blog.juliobiason.me/tags/binary/">#binary</a>
+        
+            <a href="https://blog.juliobiason.me/tags/protocol/">#protocol</a>
+        
+            <a href="https://blog.juliobiason.me/tags/fix/">#fix</a>
+        
+            <a href="https://blog.juliobiason.me/tags/fast/">#fast</a>
+        
+  </span>
+  <p>Recently I have to work with a FAST (FIX Adapted for Streaming) and because the
+documentation is scattered around, I decided to put the things I discovered in a
+single place for (my own) future reference.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Because this is based on my personal experience and I had contact with a single
+instance of this so far, there are some things that are incomplete and/or
+wrong. I'll keep updating this post as I figure out new things.</p>
+<p>The changelog is in the end of the post.</p>
+
+</div>
+<h1 id="what-is-fast">What is FAST</h1>
+<p><a href="https://en.wikipedia.org/wiki/FAST_protocol">FAST</a> is, basically, a compression
+method for the FIX protocol.</p>
+<h1 id="and-what-is-fix">And What is FIX?</h1>
+<p><a href="https://en.wikipedia.org/wiki/Financial_Information_eXchange">FIX</a> is a
+protocol created for financial institutions to exchange information. Although
+there is nothing &quot;financially&quot; related to it -- you could use the protocol for
+anything, basically -- most financial companies use it.</p>
+<p>FIX is a very simple protocol: You have pairs of &quot;field ID&quot; and &quot;value&quot;
+separated by a &quot;<code>=</code>&quot; (equal sign) and the pairs are separated by the ASCII char
+with code 1 (which is represented by <code>^A</code> in some editors). Some field IDs are
+defined by the protocol (there is a whole list
+<a href="https://www.inforeachinc.com/fix-dictionary/index.html">here</a>) but each
+exchange can create their own IDs.</p>
+<p>For example, if you have the field MsgType (ID 35) with value &quot;<code>y</code>&quot; and the
+field Security ID (ID 48) with value &quot;<code>123456</code>&quot;, the message received would be</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>35=y^A48=123456
+</span></code></pre>
+<h1 id="and-back-to-fast">And Back to FAST</h1>
+<p>One of the things FAST is designed for is removing duplicate and/or constant
+content. For example, MsgType (ID 35) identifies that the message is
+&quot;SecurityList&quot; (symbol list), which contains information about all the symbols
+(the their security IDs) available in the exchange. Because the exchange is the
+same in all the symbols, FAST allows defining the fields related to it (Source,
+field ID 22, and Exchange, field ID 207) to constant values, so they don't need
+to be transmitted and, when decoding FAST back to FIX, the decoder simply add
+the constant value.</p>
+<p>To know which fields are constant and which are not (and some other information),
+the protocol defines a template, which have a well defined schema, to report
+that information.</p>
+<h1 id="the-template">The Template</h1>
+<p>The template is a XML file which describes the fields, their types, names, IDs
+and operators. The protocol itself doesn't provide any default way to actually
+receive that field, and thus is left for the exchange to find their way.</p>
+<p>Note that the template describe the field IDs and their types, and the incoming
+data have only the values. If we use the FIX description above, the template
+defines the left side of the pair, while the incoming data have have only the
+right side.</p>
+<h2 id="field-types">Field Types</h2>
+<p>The protocol have a few field types: Unsigned Ints of 32 and 64 bits, Signed
+Ints of 32 and 64 bits, ASCII strings, UTF-8 strings, sequences, decimals and a
+special type called &quot;Presence Map&quot;.</p>
+<p>One thing to note is that all fields use a &quot;stop bit&quot; format. This is quite
+similar to UTF8, although UTF8 uses a &quot;continuation bit&quot; instead of &quot;stop bit&quot;,
+but the process of reading is the same:</p>
+<ul>
+<li>Read a byte;</li>
+<li>Does it have the high order by set to 0?
+<ul>
+<li>Yes: Keep reading;</li>
+<li>No: Stop reading the field value.</li>
+</ul>
+</li>
+</ul>
+<p>I'll show some examples later in this post.</p>
+<h2 id="field-definitions">Field definitions</h2>
+<p>The template defines the fields with their type, name (optional), ID, a
+presence indicator and an operator (optional).</p>
+<p>For example, to describe an unsigned int of 32 bits, named &quot;MsgType&quot; with ID
+&quot;35&quot;, it would be described in the template as</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MsgType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">35</span><span>&quot;/&gt;
+</span></code></pre>
+<p>Because there is no indication of presence, it is assumed that the field is
+&quot;mandatory&quot; and should always have a value. On the other hand, if the field
+definition was something like</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">int32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">ImpliedMarketIndicator</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1144</span><span>&quot; </span><span style="color:#d08770;">presence</span><span>=&quot;</span><span style="color:#a3be8c;">optional</span><span>&quot;/&gt;
+</span></code></pre>
+<p>... then the field may not not have a value. This is also referred as &quot;nullable&quot;
+field.</p>
+<h2 id="optional-and-mandatory-fields">Optional and Mandatory Fields</h2>
+<p>The difference between optional and mandatory fields is that mandatory fields
+<em>always</em> have a value, even if 0. Optional fields, on the other hand, can be
+null and have no value at all.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>I have the impression that this is done if the exchange wants to mark a field
+as &quot;do not appear in the FIX version&quot;; so even if the field have a definition,
+the resulting FIX version would not have the field.</p>
+<p>So it is more of a &quot;backwards compatibility&quot; than anything else.</p>
+
+</div>
+<h2 id="types">Types</h2>
+<h3 id="types-ints">Types: Ints</h3>
+<p>To read an Int, the decoder would pick the 7 low order bits (everything except
+the high order one) and move them to the resulting variable. If the stop bit is
+there, the read is complete; if it is not, the result should be shifted by 7
+bits and add the 7 bits from the next byte and so on, till you find a byte with
+the stop bit set.</p>
+<p>The 32 and 64 bits only define the maximum value of the field and should not
+necessarily be used as &quot;number of bits to be read&quot; -- because of the stop bit.
+If the value exceeds 32 or 64 bits, that is considered an error and the
+processing should be aborted.</p>
+<p>Signed Int work exactly the same, but as 2's complement.</p>
+<p>For example, if incoming data have the following bytes (in binary, to make it
+easier to read; also, I added a single underscore between each 4 values, also
+to make it easier to read):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0000_0001 1001_0010
+</span></code></pre>
+<p>... the decoder will read the first byte and see that it doesn't have the high
+order bit set, so it keep just the &quot;1&quot; for the value and shift 7 bits to the
+left. Then the second byte is read; this one have the high order bit set, so
+the remaining bits (in this case &quot;001_0010&quot;) are added to the resulting value
+and get <code>1001_0010</code> -- or 146.</p>
+<p>Negative numbers are represented using 2's so if the decoder receives, for
+example:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0000_0011 0111_1110 1110_1110
+</span></code></pre>
+<p>... which, when the high order bits are removed, it should generate &quot;<code>1111_1111 0110_1110</code>&quot;, which is -146 (in 16 bits, just to make it shorter).</p>
+<p>When an integer field is optional, the result must be decremented by 1. The
+reason is that it should be something to differentiate both 0 and Null. So, an
+optional integer with value 0 is, actually, Null; to get the value 0 for the
+field, the incoming data will have value 1, which is decremented in 1 and goes
+back to 0.</p>
+<p>In the template, the fields appear as</p>
+<ul>
+<li><code>&lt;uInt32/&gt;</code>: Unsigned Int of 32 bits.</li>
+<li><code>&lt;uInt64/&gt;</code>: Unsigned Int of 64 bits.</li>
+<li><code>&lt;int32/&gt;</code>: Signed Int of 32 bits.</li>
+<li><code>&lt;int64/&gt;</code>: Signed Int of 64 bits.</li>
+</ul>
+<h3 id="types-strings">Types: Strings</h3>
+<p>ASCII strings are pretty simple to read: Again, the decoder keeps reading the
+incoming data till you find a byte with the high order bit set (again, the stop
+bit) and just convert to their respective ASCII character.</p>
+<p>For example</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>0100_1000 0110_0101 0110_1100 0110_1100 1110_1111
+</span></code></pre>
+<p>Would generate the bytes 72, 101, 108, 108 and 111, which using the ASCII table
+would result in &quot;Hello&quot;. Note that the stop bit here represents &quot;end of string&quot;
+and the bytes should not be grouped like in Ints.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>So far, I didn't find any UTF8 strings, so I'm not quite sure how to process
+them yet. Surely there is documentation around on how to read those, but since
+this is my personal experience with the protocol, I decided to not mention it
+here.</p>
+
+</div>
+<p>Optional strings are Null when the first byte have a stop bit set and every
+other bit is zero.</p>
+<p>In the template, a string field appears as <code>&lt;string&gt;</code>.</p>
+<h3 id="types-sequences">Types: Sequences</h3>
+<p>Sequences are basically arrays. The first field of a sequence is the &quot;length&quot;
+(with the type &quot;<code>&lt;length&gt;</code>&quot; in the template) with the number of records
+present. Inside the sequence, you have a list of field definitions, which may
+even include more sequences.</p>
+<p>Optional sequences affect the way the length is read: If optional, the length
+should be treated as an optional Integer and thus the size is decremented by 1.</p>
+<p>In the template, the sequence appears as <code>&lt;sequence&gt;</code>, with the length
+following it. An example is</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Sequence</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">length </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NoSequence</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">123</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">sequence</span><span>&gt;
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>I describe most of the length fields with a name starting with &quot;No&quot;. That's
+because the FIX spec defines the lengths with that prefix.</p>
+
+</div>
+<h3 id="types-decimals">Types: Decimals</h3>
+<p>Decimals are formed by two fields: Exponent and Mantissa. The way it works is
+that if you have an Exponent of &quot;-2&quot; and a Mantissa of &quot;1020&quot;, the resulting
+value is  <code>1020 * 10 ^ -2</code> (&quot;1020 times 10 to the power of -2&quot;), or &quot;10.20&quot;.</p>
+<p>Both Exponent and Mantissa are read as Signed Ints.</p>
+<p>An Optional Decimal means the Exponent is optional. The documentation says that
+the Mantissa is always mandatory, but there is a catch: If the Exponent is
+null, then the Mantissa is not present and the whole Decimal is Null;
+otherwise, the decoder is expected to read the Mantissa and the formula above
+should be applied.</p>
+<p>Also, because Exponent and Mantissa are two fields, they can have different
+operators. I'll show some examples after the Operator, mostly because I've seen
+both with different operators and they make a mess to read.</p>
+<p>In the template, the decimal field appears as <code>&lt;decimal&gt;</code>, with the exponent
+and mantissa as internal fields.</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">decimal </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">ADecimal</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">123</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">exponent</span><span>/&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">mantissa</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">decimal</span><span>&gt;
+</span></code></pre>
+<h3 id="type-presence-map">Type: Presence Map</h3>
+<p>Presence Maps are used in conjunction with operators. They are read like
+unsigned Ints are read (read bytes till you find the one with the high order
+bit, remove the high order bits and put all the bits in sequence) but do not
+have any conversion in themselves. Every time the decoder need to check if a
+field is present in the presence map, the bit is consumed and the line
+moves on.</p>
+<p>Presence Maps are not present in the template and their presence is implied if
+there is at least one field that requires it. For example, if all the fields in
+a sequence are mandatory, there will be no Presence Map in the incoming data.</p>
+<p>The bits in the Presence Map are in the order of the fields in the template.
+For example, if a template with:</p>
+<ol>
+<li>A mandatory field;</li>
+<li>A field with an operator that requires the presence map (I'll mention those
+later);</li>
+<li>Another mandatory field;</li>
+<li>And, finally, another field with operator.</li>
+</ol>
+<p>... it is possible to have a Presence Map as <code>1110_0000</code>, in which:</p>
+<ol>
+<li>The first bit is the stop bit, so the decoder assumes this is the last byte
+of the presence map.</li>
+<li>The second bit indicates that the first field with operator is present. It
+does <em>not</em> represent the mandatory field 'cause, well, it is mandatory and,
+thus, is always present.</li>
+<li>The second bit indicates the second field with an operator is present.</li>
+</ol>
+<p>(Again, I'll mention which operators require the presence map.)</p>
+<h2 id="operators">Operators</h2>
+<p>Operators define a way to deal with some fields. I've seen 5 different types of
+operators:</p>
+<ul>
+<li>No Operator;</li>
+<li>Constant;</li>
+<li>Default;</li>
+<li>Copy;</li>
+<li>Delta;</li>
+<li>Increment.</li>
+</ul>
+<h3 id="operator-no-operator">Operator: No Operator</h3>
+<p>When there is no operator defined in the field definition in the template, then
+the operator is the &quot;no operator&quot; operator. It means there is no special way of
+dealing with the incoming value.</p>
+<p>When a field have No Operator, there will be no bit in the Presence Map.</p>
+<p>All the previous examples of the template have no operator.</p>
+<h3 id="operator-constant">Operator: Constant</h3>
+<p>A field with the Constant operator will not appear in the incoming data and the
+decoder should assume that its value is the value in the constant. Previously I
+mentioned that a list of securities may have the field 22, &quot;Source&quot;, and field
+207, &quot;Exchange&quot;, with constant values, so they would be defined as</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Source</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">22</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">123</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Exchange</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">207</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">EXCHANGE</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span></code></pre>
+<p>There is a catch, though: When a Constant field can be Null
+(<code>presence=&quot;optional&quot;</code>), then the decoder needs to use the Presence Map bit; if
+it is set, the constant value should be used; if it is not set, then the field
+value is Null.</p>
+<p>The Presence Map should be use only if there is a field with a constant value
+that is optional.</p>
+<h3 id="operator-default">Operator: Default</h3>
+<p>The Default operator is similar to the Constant operator, but if the bit for
+the field is set in the Presence Map, then the value for the field should be
+read in the incoming data; otherwise, the Default value should be used.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>In a way, you can read this: Is the value present in the incoming data
+(indicated in the Presence Map)? Then read the value in the incoming data;
+otherwise, use the default value.</p>
+
+</div>
+<p>Example</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Type</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">3</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span></code></pre>
+<h3 id="operator-copy">Operator: Copy</h3>
+<p>The copy operator indicates that the value for this record have the same value
+of the previous record; if it is the first record, then the value should be
+used. If the Presence Map bit is set for the field, then the decoder must read
+the value in the incoming data; if it is not set, then the previous value should
+be used. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>In the data I saw, every first record have the bit set.</p>
+
+</div>
+<p>An example: You can have a template like</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MDReqID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">262</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">copy</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span></code></pre>
+<p>... and the incoming data had the following records and their Presence Maps:</p>
+<ol>
+<li>The first record have the bit set for this field in the Presence Map and the
+strings reads &quot;first&quot;. The result for this field in this record will be
+the value &quot;first&quot;.</li>
+<li>The second record doesn't have the bit set in the Presence Map. So the
+decoder reuses the previous value and this record will have the field with
+the value &quot;first&quot; (again).</li>
+<li>The third record have the bit set again, and the value &quot;second&quot;. This is the
+value for the field in this record.</li>
+<li>The fourth record doesn't have the bit set and the decoder reuses the value
+&quot;second&quot; for the field.</li>
+</ol>
+<p>The Copy operator may have the initial value. For example</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MDReqID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">262</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">copy </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">string</span><span>&quot;/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span></code></pre>
+<p>This means that you should use &quot;string&quot; as previous value, even in the first
+record.</p>
+<p>As pointed, fields with the Copy operator appear in the Presence Map.</p>
+<h3 id="operator-delta">Operator: Delta</h3>
+<p>Delta is an operator similar to Copy, but instead of using the value of the
+previous record in this field, the new value must be computed using the previous
+value and the current one. Again, if there is no previous value, then there is
+no operation to be done and the incoming value is the current one.</p>
+<p>An example:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NumberOfOrders</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">346</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">delta</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span></code></pre>
+<ol>
+<li>The first record comes with the value of &quot;300&quot;. That's the value for the
+field.</li>
+<li>The second record comes with the value &quot;2&quot;. That should be added in the
+previous value and used, so the field for the second record is &quot;302&quot;.</li>
+<li>The third record comes with the value &quot;3&quot;. Again, the previous value should
+be used and the current one should be added. So the field for the third
+record have the value &quot;305&quot;.</li>
+</ol>
+<p>Fields with the Delta operator do not appear in the Presence Map.</p>
+<h3 id="operator-increment">Operator: Increment</h3>
+<p>Increment works like the Delta operator 'cause it always add a value to the
+previous one, but the value to be added is always 1.</p>
+<p>If the bit for the field is set in the Presence Map, the value for the field is
+the one in the incoming data; otherwise, the value will be the previous value
+added by 1.</p>
+<p>Example:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">RptSeq</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">83</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">increment</span><span>/&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span></code></pre>
+<ol>
+<li>The first record have the bit set in the Presence Map, the decoder reads the
+value &quot;100&quot;. That's the field value for the record.</li>
+<li>The second have doesn't have the bit set, so nothing should be read from the
+incoming data, but the field value should be &quot;101&quot; for this record.</li>
+</ol>
+<p>Fields with the Increment operator appear in the presence map.</p>
+<h2 id="presence-map-map">Presence Map Map</h2>
+<p>There is a simple map that indicates if a field appears or not in the Presence
+Map, <a href="https://jettekfix.com/education/fix-fast-tutorial/">according to JetTek</a>:</p>
+<table>
+    <tr>
+        <th>Operator</th>
+        <th>Appears for Mandatory Fields?</th>
+        <th>Appears for Optional Fields?</th>
+    </tr>
+    <tr>
+        <td>No Operator</td>
+        <td>No.</td>
+        <td>No.</td>
+    </tr>
+    <tr>
+        <td>Constant</td>
+        <td>No, the Constant value should always be used.</td>
+        <td>Yes; if set, use the Constant value; otherwise the field value is Null.</td>
+    </tr>
+    <tr>
+        <td>Copy</td>
+        <td>Yes; if set, use the incoming value is the current value;
+        otherwise, use the previous value.</td>
+        <td>Yes; same as Mandatory fields, but the value can be Null (e.g., it
+        was read as 0 for Ints or a single Null byte for Strings.</td>
+    </tr>
+    <tr>
+        <td>Default</td>
+        <td>Yes; if set, read the value from the incoming data; otherwise, use
+        the default value.</td>
+        <td>Yes; same as Mandatory fields.</td>
+    </tr>
+    <tr>
+        <td>Delta</td>
+        <td>No; the value in the incoming data should always be added to the
+        previous one.</td>
+        <td>No; same as Mandatory fields.</td>
+    </tr>
+    <tr>
+        <td>Increment</td>
+        <td>Yes; if set, read the value from the incoming data; otherwise, add
+        1 to the previous value.</td>
+        <td>Yes; same as Mandatory fields.</td>
+    </tr>
+</table>
+<h1 id="template-versioning">Template Versioning</h1>
+<p>I didn't mentioned this before, but now that I explained some things about the
+types and some information about the template, I can point that the template
+file allows multiple versions of the same message types.</p>
+<p>For example</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;?</span><span style="color:#bf616a;">xml </span><span style="color:#d08770;">version</span><span>=&quot;</span><span style="color:#a3be8c;">1.0</span><span>&quot; </span><span style="color:#d08770;">encoding</span><span>=&quot;</span><span style="color:#a3be8c;">UTF-8</span><span>&quot;?&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">templates </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeRecordType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MsgType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">35</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">Z</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeField</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;/&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeRecordType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MsgType</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">35</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">constant </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">Z</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeField</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;/&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SomeOtherField</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">A Value!</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">templates</span><span>&gt;
+</span></code></pre>
+<p>The first thing you may notice is that there are two templates defined, one
+with ID &quot;1&quot; and another with ID &quot;2&quot;. Both have the same name and the same
+constant value in the same field ID, but the initial data in the incoming block
+defines which one should be used.</p>
+<p>The incoming data starts with a Presence Map. The first bit on this is the
+&quot;Template ID&quot;. With that Template ID, the decoder can find the list of fields
+that should be processed. This Presence Map also contains the map for the
+fields in the root sequence -- in our example, if the Template ID decodes to
+&quot;2&quot;, the other bit in the Presence Map is the indication of the
+&quot;SomeOtherField&quot;.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>So far, I didn't find any data that didn't had the bit set for the template ID,
+so I'm not actually sure what would happen if the bit is unset.</p>
+
+</div>
+<h1 id="anomalies">Anomalies</h1>
+<p>I call &quot;anomaly&quot; anything that I had to spent way too much time to understand.</p>
+<h2 id="decimals-with-different-operators">Decimals With Different Operators</h2>
+<p>This is one thing that made things pretty hard to grasp at first. For example:</p>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;</span><span style="color:#bf616a;">decimal </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">MDEntryPX</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">270</span><span>&quot; </span><span style="color:#d08770;">presence</span><span>=&quot;</span><span style="color:#a3be8c;">optional</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">exponent</span><span>&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;</span><span style="color:#a3be8c;">0</span><span>&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">exponent</span><span>&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">mantissa</span><span>&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">delta</span><span>/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">mantissa</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">decimal</span><span>&gt;
+</span></code></pre>
+<p>That seems simple. But there are a lot of moving pieces here:</p>
+<ol>
+<li>
+<p>The <code>presence=&quot;optional&quot;</code> in the decimal means that the <code>exponent</code> can be
+Null and only that.</p>
+</li>
+<li>
+<p>The Default operator in the Exponent means the decoder must check if the
+Exponent have a value in the incoming data or should use the default value
+of &quot;0&quot;.</p>
+<p>There is an issue here: If the Presence Map indicates that the value is
+present and the read value is 0, because the field is optional, the decoder
+should consider the Exponent Null and, thus, there is no Mantissa and
+everything is Null.</p>
+</li>
+<li>
+<p>The Delta operator in the Mantissa should be used applying the incoming
+value to the previous one. But, if the Exponent is not in the presence map,
+because it has a default value, that's its value and it shouldn't be read in
+the incoming data and the read value is actually applied to the Mantissa.</p>
+</li>
+</ol>
+<p>Like this:</p>
+<ol>
+<li>The first record have the field set in the Presence Map and it is read as
+&quot;-2&quot;; that's the Exponent. The next value is &quot;1020&quot;, which is the Mantissa,
+so the whole decimal is &quot;10.20&quot;;</li>
+<li>The second record have the field set in the Presence Map and it is read as
+&quot;0&quot;. Because the decimal is optional, the exponent is optional, and because
+0 is Null for optional fields, there is no Exponent, and the next value is
+<em>not</em> the Mantissa. The value for the field in this record is Null.</li>
+<li>The third record have the field not set in the Presence Map. Because
+Exponent has a default value, it becomes &quot;0&quot;, and the Mantissa should be read.
+If the incoming data have the value &quot;10&quot;, the decimal becomes &quot;10&quot; (or
+&quot;10.00&quot;, if we use the same decimal places everywhere).</li>
+</ol>
+<p>A weird thing I saw was related to the way the exchange was ordering the
+results. It had a sequence of sell and buy orders in which</p>
+<ol>
+<li>The first record was the sell order, with an Exponent of &quot;0&quot; and a Mantissa
+of &quot;5410&quot;. That meant the value is &quot;5410&quot; (pretty straight).</li>
+<li>The second record was the buy order. It had an Exponent of &quot;-2&quot; and the
+Mantissa had an incoming value of &quot;526604&quot;. With the Delta operador, that
+gives the value of &quot;532014&quot;, but because the Exponent is &quot;-2&quot;, the actual
+value is &quot;5320.14&quot;.</li>
+<li>The weird thing happened in the third record, which was again a sell order.
+The value should be exactly the same as the first, but the exchange sent an
+Exponent of &quot;0&quot; and a Mantissa of &quot;−526604&quot;. With the delta, that would bring
+the value back to &quot;5410&quot;.</li>
+</ol>
+<p>I found it weird that they kept jumping between two different Exponents instead
+of using a single one, and at the time I had some issues with the delta math in
+my code, so...</p>
+<h2 id="null-length-sequences">Null Length Sequences</h2>
+<p>Another strange thing I saw was the optional sequence: In practice there is no
+difference between a sequence with 0 elements and one which the length is Null
+-- specially if you think the protocol is, basically, a FIX generator. I have
+no idea why it wasn't standardized that lengths are mandatory and a value of 0
+means there is no values on it instead of doing a dance around optional and
+mandatory sequences.</p>
+<hr />
+<h3 id="changelog">Changelog:</h3>
+<ul>
+<li>2022-01-10: First release.</li>
+<li>2022-01-10: Added information about the template versioning.</li>
+<li>2022-01-13: Added examples of the tags in the template for the field types
+and examples for operators.</li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

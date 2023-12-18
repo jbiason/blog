@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Um Shell por Dia: Sub comandos</h1>
+  <span class="post-date">
+	2021-09-21
+	
+            <a href="https://blog.juliobiason.me/pt/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/por-dia/">#por dia</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/shell/">#shell</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/subcomandos/">#subcomandos</a>
+        
+  </span>
+  <p>Algumas vezes queremos que parte do comando que será executado seja calculado
+automaticamente e, para isso, temos sub comandos.</p>
+<p>Por exemplo, digamos que você queria executar um comando e mandar para um
+arquivo com a data atual. Existe um comando pronto para mostrar a data atual,
+<code>date</code>, que permite que o formato de saída seja definido como, por exemplo,
+<code>date +&quot;%Y%m%d&quot;</code>, que gera algo como &quot;20210921&quot;.</p>
+<p>Apenas para lembrar, você pode querer fazer</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>comando &gt; 20210921.txt
+</span></code></pre>
+<p>E amanhã fazer</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>comando &gt; 20210922.txt
+</span></code></pre>
+<p>Só que isso significa que não é possível automatizar isso. Quer dizer, não
+<em>daria</em>, se não fossem os subcomandos. E para usar subcomandos, são usadas
+crases (ou, no original, &quot;back-ticks&quot;). No nosso exemplo</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>comando &gt; `date +&quot;%Y%m%d&quot;`
+</span></code></pre>
+<p>E, assim, podemos automatizar a geração e não se preocupar em ver o dia correto
+todo dia.</p>
+<p>Mas um aviso: não são todos os shells que suportam esse formato. Fish, por
+exemplo, requer que os subcomandos sejam executando entre parênteses (<code>comando &gt; (date +&quot;%Y%m%d&quot;)</code>) e Bash suporta o formato de <code>$(subcomando)</code>. Portanto, cuide
+qual o shell está sendo executado antes de sair usando os ticks.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-03-11</h1>
+  <span class="post-date">
+	2020-03-11
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/google/">#google</a>
+        
+            <a href="https://blog.juliobiason.me/tags/agpl/">#agpl</a>
+        
+  </span>
+  <p>Google Policy towards AGPL software, Swift vs Rust, Open Source Economics,
+JUnit 5, cfg(doctest), Firefox on Flathub.</p>
+<span id="continue-reading"></span><h1 id="agpl-policy"><a href="https://opensource.google/docs/using/agpl-policy/">AGPL Policy</a></h1>
+<p>Google policy towards using AGPL software. Basically, because AGPL says
+&quot;source is <em>always</em> available&quot;, Google says &quot;maintain an aggressively-broad
+ban on all AGPL software&quot;</p>
+<p>Take away: Release <strong>everything</strong> under the AGPL.</p>
+<h1 id="impressions-of-rust-as-a-swift-developer-memory-management"><a href="https://blog.spencerkohan.com/impressions-of-rust-as-a-swift-developer-2/">Impressions of Rust as a Swift Developer: Memory Management</a></h1>
+<p>A take on the way Rust and Swift manages memory. While I agree with the
+drawbacks of Rust, the author forgets to mention the price Swift pays for its
+simplicity: A runtime.</p>
+<p>Having a runtime is bad? Well, it depends: If you're not using anything the
+runtime offers (your application does a full allocation upfront and never
+deallocates, it completes its job before it has time to actually use the
+garbage collector), you're basically wasting resources. Sure, you pay this in
+development time, but this has to be measured.</p>
+<p>Also, a runtime means another problem: Runtime errors. Unless your compiler
+picks those and stop you from creating code that can generate those errors,
+you'll get those.</p>
+<p>(Also, fun fact: Graydon Hoare, the creator of Rust, worked on Swift.)</p>
+<h1 id="cfg-doctest-is-stable-and-you-should-use-it"><a href="https://blog.guillaume-gomez.fr/articles/2020-03-07+cfg%28doctest%29+is+stable+and+you+should+use+it">cfg(doctest) is stable and you should use it</a></h1>
+<p>Speaking of Rust, here's a feature I was not aware of: You can create testing
+modules that test Markdown documentation. Why would anyone do that? Well,
+markdown is usually the way people document their applications and you want
+your examples to actually work, right?</p>
+<h1 id="can-we-make-open-source-more-sustainable"><a href="https://www.telerik.com/blogs/can-we-make-open-source-more-sustainable">Can We Make Open Source More Sustainable?</a></h1>
+<p>A big problem with open source is that actually nobody cares about how it is
+developed: Sure, there is a <em>person</em> (or <em>persons</em>) behind it, but how are
+those people paying for their living, eating and health? The post points some
+things open source developers can do to get something out.</p>
+<h1 id="improve-your-tests-with-junit-5"><a href="https://98elements.com/blog/improve-your-tests-with-junit-5/">Improve your tests with JUnit 5</a></h1>
+<p>A few tips on using JUnit 5 -- some that I was not aware of.</p>
+<h1 id="mozilla-makes-firefox-beta-available-on-flathub"><a href="https://eischmann.wordpress.com/2020/03/10/mozilla-makes-firefox-beta-available-on-flathub/">Mozilla makes Firefox Beta available on Flathub</a></h1>
+<p>Mozilla is making Firefox available on Flathub, which means now it is even
+easier to test Firefox without breaking your system -- 'cause Flatpak keeps
+the whole package in its own container and it does not touch your system.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

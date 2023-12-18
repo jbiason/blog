@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Even for Application Composition, Start Stupid</h1>
+  <span class="post-date">
+	2019-07-15
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/composition/">#composition</a>
+        
+            <a href="https://blog.juliobiason.me/tags/microservices/">#microservices</a>
+        
+  </span>
+  <p>Application composition may lead to microservices -- which is good -- but
+microservices require some ideas about how applications &quot;talk&quot; between them
+over the wire (protocols and such) which you don't need to start with.</p>
+<span id="continue-reading"></span>
+<p>Again, because you just want to simplify your work, you can make the
+applications use files directly: Have your first application generate two
+files and the second application receive the file names from <a href="/books/things-i-learnt/command-line-options">the command
+line</a>. There, simple and stupid,
+and works.</p>
+<p>You can even make the first application, instead of generating a file, just
+send its result on the standard output, and have the second application
+receive the data from the standard input -- both of which are managed as
+files, anyway. Then, with a bit of magic, you can put everything together
+without wasting space.</p>
+<p>Worry about talking over the wire later, when you understand how networks
+work.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;application-composition">Not Just Function Composition, But Application Composition</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;log-events">Logs Are For Events, Not User Interface</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

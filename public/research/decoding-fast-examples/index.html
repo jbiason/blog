@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Decoding the FAST Protocol: Examples</h1>
+  <span class="post-date">
+	2022-01-12
+	
+            <a href="https://blog.juliobiason.me/tags/finance/">#finance</a>
+        
+            <a href="https://blog.juliobiason.me/tags/binary/">#binary</a>
+        
+            <a href="https://blog.juliobiason.me/tags/protocol/">#protocol</a>
+        
+            <a href="https://blog.juliobiason.me/tags/fix/">#fix</a>
+        
+            <a href="https://blog.juliobiason.me/tags/fast/">#fast</a>
+        
+            <a href="https://blog.juliobiason.me/tags/examples/">#examples</a>
+        
+  </span>
+  <p>After the whole explanation about the definition of the FAST protocol, I
+noticed there was something missing: Examples, to make things easier to
+understand.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Same disclaimer as before: Because this is based on my personal experience,
+some things may be out of place. I tried my best to keep things correctly, but
+I may have misunderstood something, or maybe I just typed the value wrong here.</p>
+<p>Also, if I find any other interesting examples, I'll add them here.</p>
+
+</div>
+<h1 id="simple-hello-world">Simple Hello World</h1>
+<p>This example is basically the same one in
+<a href="https://jettekfix.com/education/fix-fast-tutorial/">JetTek</a> but it is really
+simple to explain, so here we go:</p>
+<h2 id="template">Template</h2>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;?</span><span style="color:#bf616a;">xml </span><span style="color:#d08770;">version</span><span>=&quot;</span><span style="color:#a3be8c;">1.0</span><span>&quot; </span><span style="color:#d08770;">encoding</span><span>=&quot;</span><span style="color:#a3be8c;">UTF-8</span><span>&quot;?&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">templates </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">HelloWorld</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">String</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">templates</span><span>&gt;
+</span></code></pre>
+<h2 id="incoming-data">Incoming Data</h2>
+<p>Bytes:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1110_0000   1000_0001   0100_1000   0110_0101
+</span><span>0110_1100   0110_1100   0100_1111   0101_0111
+</span><span>0110_1111   0111_0010   0110_1100   1110_0100
+</span></code></pre>
+<h2 id="processing">Processing</h2>
+<p>The first byte is the Presence Map. Removing the stop bit, we get <code>110_0000</code>.
+This Presence Map have one field that isn't described in the template: The
+template ID. Because the first bit is set, we know the template ID is there.
+Also, keep in mind that the Template ID is the only field we know it exists so
+far; there is no information whatsoever about that second bit in the Presence
+Map -- we need to find out which template should be used first.</p>
+<p>The next byte is read: <code>1000_0001</code>. As mentioned above, this is the Template
+ID. Being an unsigned integer (and probably mandatory, but don't ask me how
+that works) and dropping high order bit, we get the Integer &quot;1&quot;, which is the
+exactly same ID we have in the template; now we know which fields should be
+processed.</p>
+<p>The first field in the template is a string with a default value. Because the
+field uses the Default operator, we need to check if the value is in the data
+or we should use the default value. The bit in the Presence Map for this field
+is <code>1</code> meaning the value for the string is in the incoming data and we should
+read it.</p>
+<p>The field is string, so we keep reading every byte till we find one with the
+stop bit. Also, being a string, we don't &quot;merge&quot; the values: each byte is a
+letter in the ASCII table. The sequence is <code>100_1000</code> (72), <code>110_0101</code> (101),
+<code>110_1100</code> (108), <code>110_1100</code> (108), <code>100_1111</code> (79), <code>101_0111</code> (87),
+<code>110_1111</code> (79), <code>111_0010</code> (114), <code>110_1100</code> (108) and <code>110_0100</code> (100).
+Notice that we consumed all the bytes, and the last one have the stop, so
+that's the end of string. Converting the bytes using the ASCII table, we get
+&quot;HelloWorld&quot;.</p>
+<p>So, there we have it: We received a record of the &quot;HelloWorld&quot; type, with the
+field ID &quot;1&quot; (a.k.a. &quot;String&quot;) with the value &quot;HelloWorld&quot;.</p>
+<h1 id="sequences">Sequences</h1>
+<p>Let's expand our example to have a sequence and a few more operators:</p>
+<h2 id="template-1">Template</h2>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;?</span><span style="color:#bf616a;">xml </span><span style="color:#d08770;">version</span><span>=&quot;</span><span style="color:#a3be8c;">1.0</span><span>&quot; </span><span style="color:#d08770;">encoding</span><span>=&quot;</span><span style="color:#a3be8c;">UTF-8</span><span>&quot;?&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">templates </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">HelloWorld</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">String</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SequenceOfSequences</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">OuterSequence</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">length </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NoOuterSequence</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">3</span><span>&quot;/&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">GroupID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;/&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">InnerSequence</span><span>&quot;&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">length </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NoInnerSequence</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">25</span><span>&quot;/&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Username</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">4</span><span>&quot;/&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">ID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">32</span><span>&quot; </span><span style="color:#d08770;">presence</span><span>=&quot;</span><span style="color:#a3be8c;">optional</span><span>&quot;&gt;
+</span><span>          &lt;</span><span style="color:#bf616a;">increment</span><span>/&gt;
+</span><span>        &lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span><span>      &lt;/</span><span style="color:#bf616a;">sequence</span><span>&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">sequence</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">templates</span><span>&gt;
+</span></code></pre>
+<p>Although FAST was defined to work with FIX and the financial market, there is
+nothing stopping it from being used for other things. The new template actually
+describe a group of users, so we have a list of groups and, for each group, a
+list of users and their IDs.</p>
+<h2 id="incoming-data-1">Incoming Data</h2>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1100_0000   1000_0010   1000_0011   0000_0011
+</span><span>0010_0011   0001_1000   1110_0111   1000_0010
+</span><span>1100_0000   0101_0101   0111_0011   0110_0101
+</span><span>0111_0010   1011_0001   1000_0100   1000_0000
+</span><span>0101_0101   0111_0011   0110_0101   0111_0010   
+</span><span>1011_0010   1111_1111   1000_0001   1100_0000
+</span><span>0101_0101   1011_0001   1111_1111   0000_1000 
+</span><span>1000_0000   1000_0010   1100_0000   1100_1001
+</span><span>1011_0110   1000_0000   0100_1101   1110_0101
+</span></code></pre>
+<h2 id="processing-1">Processing</h2>
+<p>As mentioned before, the first byte, <code>1100_0000</code> is the Presence Map of the
+root element. There is only one bit set, which means the Template ID is
+present.</p>
+<p>Because the Template ID is present in the Presence Map, we read the next byte,
+<code>1000_0010</code>. Because this byte have the stop bit, we stop reading. Removing
+this stop bit gives us <code>000_0010</code>, which is &quot;2&quot;, so we know we are dealing with
+the &quot;SequenceOfSequences&quot; template.</p>
+<p>Now that we have the template and know the fields, we know what to read. The
+first field in our template is a sequence. The first thing we have in the
+sequence (and this is the first thing for <em>every</em> sequence) is the length of
+it. So we read the next byte, <code>1000_0011</code>, which is the only byte we need to
+read. It represents an unsigned int, which is &quot;3&quot;, so this sequence have 3
+records -- and using our description in the previous sections, we know now
+that we have 3 user groups.</p>
+<p>One point here: Because all fields in this sequence don't have any operators,
+the Presence Map is not necessary and, thus, it doesn't exist (or, better yet,
+we shouldn't try to read something and assume it is a Presence Map). For
+sequences, every start of a new record contains a Presence Map only if at least
+one of the fields in the sequence require a Presence Map. That's not the case
+here.</p>
+<p>Because there is no Presence Map for the &quot;OuterSequence&quot;, the next bytes are
+the &quot;GroupID&quot; field. We should read everything till we find the stop bit, so we
+get <code>0000_0011</code>, <code>0010_0011</code>, <code>0001_1000</code> and <code>1110_0111</code>. For every byte we
+remove the high order bit and then join everything into a single thing, in this
+case <code>000_0011 010_0011 001_1000 110_0111</code> or simply
+<code>0000_0110_1000_1100_1100_0110_0111</code>. This value, being an unsigned int, is
+&quot;6868070&quot;. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Here is a good point to remind that, because the field is mandatory, it means
+that's actually the value of &quot;GroupID&quot;; if the field as optional, the actual
+value would be &quot;6868069&quot;.</p>
+
+</div>
+<p>Now for he &quot;InnerSequence&quot; field. The first step is to gather the number of
+elements (the length of the sequence). That's the <code>1000_0010</code> byte, which is
+&quot;2&quot;. So there are two users in this group.</p>
+<p>Because &quot;InnerSequence&quot; has a field that needs the Presence Map (&quot;ID&quot; uses the
+Increment operator, that we need either read the incoming value for it or we
+should just increment the previous value), the first thing after the length is
+the Presence Map for this record. The byte <code>1100_0000</code> indicates that the first
+field that requires a Presence Map is present.</p>
+<p>But that's not the time to use the Presence Map yet. The field after the length
+is the &quot;Username&quot;, which is a mandatory string. Mandatory strings with no
+operators are always present and we don't need to check the map. Same as we did
+with &quot;String&quot; in the example for Hello World, we read the bytes till the stop
+bit, but don't merge them: <code>0101_0101</code> (85), <code>0111_0011</code> (115), <code>0110_0101</code>
+(101), <code>0111_0010</code> (114) and <code>1011_0001</code> (49, if we remove the stop bit, that
+is), which converted by the ASCII table gives us &quot;User1&quot;.</p>
+<p>Now it is the time to use the Presence Map, since we are reading the &quot;ID&quot; field
+and it has an operator that requires the Presence Map. The Presence Map we read
+before was <code>100_0000</code> (with the stop bit removed), so yeah, the &quot;ID&quot; is present
+in the incoming data. We read the next byte, <code>1000_0100</code>, which is &quot;4&quot;. But
+there is a gotcha here: The field is optional. So although we read &quot;4&quot;, the
+actual value is &quot;3&quot; -- if the value read was &quot;0&quot; it meant that the ID is Null.</p>
+<p>Good. We just finished reading the first record of &quot;InnerSequence&quot;: The user
+&quot;User1&quot; has ID &quot;3&quot; and belongs to group &quot;6868070&quot;. Now we read the second
+record.</p>
+<p>We don't need to read the length again, but we need to read the Presence Map
+for this record. It is the byte <code>1000_0000</code>, a Presence Map indicating that
+none of the fields with operators are present. But, again, it is not the time
+for the Presence Map, 'cause we have to read &quot;Username&quot;. The bytes for the
+field are <code>0101_0101</code> (85), <code>0111_0011</code> (115), <code>0110_0101</code> (101), <code>0111_0010</code>
+(114) and <code>1011_0001</code> (50), which is &quot;User2&quot;.</p>
+<p>This second record have an empty presence map (<code>1000_0000</code>) meaning that the ID
+is not present in the incoming data. Because the field has the Increment
+operator, we should use the previous value -- 3 -- and increment by 1. So
+&quot;User2&quot; have the ID 4.</p>
+<p>That ends the &quot;InnerSequence&quot; for the first record of &quot;OuterSequence&quot;. Going
+faster now:</p>
+<ul>
+<li><code>1111_1111</code>: The second &quot;GroupID&quot; (only one byte due the stop bit), which is
+&quot;127&quot;.</li>
+<li><code>1000_0001</code>: The length of &quot;InnerSequence&quot;; it is just 1 element.</li>
+<li><code>1100_0000</code>: The presence map for the first record of &quot;InnerSequence&quot;; it
+means the &quot;ID&quot; is present.</li>
+<li><code>0101_0101</code>, <code>1011_0001</code>: The username. &quot;U1&quot;.</li>
+<li><code>1111_1111</code>: The &quot;ID&quot; for user &quot;U1&quot; is 126 (it reads as 127, but because the
+field is optional, we decrement the value by 1).</li>
+<li><code>0000_1000</code>, <code>1000_0000</code>: The third &quot;GroupID&quot;. Removing the stop bits and
+joining the bits we have <code>0000_1000 0000_0000</code> which is 2048.</li>
+<li><code>1000_0010</code>: Length of the &quot;InnerSequence&quot; in the 3rd group; 2 elements.</li>
+<li><code>1100_0000</code>: Presence Map of the first record of &quot;InnerSequence&quot;; ID is
+present.</li>
+<li><code>1100_1001</code>: Username. &quot;I&quot;.</li>
+<li><code>1011_0110</code>: The &quot;ID&quot; for user &quot;I&quot;. 53.</li>
+<li><code>1000_0000</code>: Presence Map for the second record of &quot;InnerSequence&quot;; ID is not
+present.</li>
+<li><code>0100_1101</code>, <code>1110_0101</code>: Username. &quot;Me&quot;.</li>
+<li>Not reading any bytes now 'cause the Presence Map pointed that the &quot;ID&quot; is
+not present, but because the previous value for this field was 53, the ID for
+username &quot;Me&quot; is 54. Since this is the last element of &quot;InnerSequence&quot;, that
+sequence is complete; also, this is the last element of &quot;OuterSequence&quot;, so
+everything is done.</li>
+</ul>
+
+</div>
+
+
+  <hr>
+
+  <h4>Changelog</h4>
+
+  <ul>
+  
+    <li>2022-01-12: First release</li>
+  
+  </ul>
+
+
+
+        </div>
+
+    </body>
+
+</html>

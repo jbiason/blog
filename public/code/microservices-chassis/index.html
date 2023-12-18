@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microservices: Chassis</h1>
+  <span class="post-date">
+	2020-04-17
+	
+            <a href="https://blog.juliobiason.me/tags/microservices/">#microservices</a>
+        
+            <a href="https://blog.juliobiason.me/tags/chassis/">#chassis</a>
+        
+            <a href="https://blog.juliobiason.me/tags/frameworks/">#frameworks</a>
+        
+            <a href="https://blog.juliobiason.me/tags/languages/">#languages</a>
+        
+  </span>
+  <p>The chassis for a microservices fleet is defined as the libraries and
+frameworks that one should use when creating a new microservice.</p>
+<span id="continue-reading"></span>
+<p>The &quot;chassis&quot; is actually a <a href="https://microservices.io/patterns/microservice-chassis.html">known
+pattern</a>, but the
+literature points it as a decision about the libraries and frameworks that
+should be used when creating microservices.</p>
+<p>For example, if you're working with Java, you'd probably pick something like
+Spring Boot as a chassis for your microservices, in a way that anyone creating
+a new microservice already have the library (and local knowledge) on how to
+build it.</p>
+<p>And, for each language, you need to pick a different chassis -- you can't use
+Spring Boot with Python, for example.</p>
+<p>You may have noticed that &quot;but&quot; in the second paragraph. Personally, I think
+the choice of chassis go way beyond just creating a microservices.</p>
+<h2 id="shared-knowledge">Shared Knowledge</h2>
+<p>One of the major factors of using chassis for your microservices is the shared
+knowledge between teams. Teams that are using the same chassis can exchange
+solutions on how to solve some problems, how to make processing faster, new
+releases information and so on.</p>
+<p>Even if the teams will never touch each other's code, the simply fact that
+they can share these information between them is a huge boom.</p>
+<p>And even for teams using different languages is a major point: One team can
+point that their framework allows them to do things in a more simpler way that
+can be researched by some other team, using a complete different framework, in
+a complete different language, on how to build the same stuff.</p>
+<h2 id="applying-a-common-view">Applying a Common View</h2>
+<p>While the pattern describes only frameworks and libraries, the choices of
+surrounding services also makes part of the chassis, in my opinion.</p>
+<p>For example, the teams pick Kafka as a messaging broker between services --
+which would allow any team, on any framework, on any language, to use the same
+service for exchanging messages -- allowing any team that has a need
+for a message broker can use the same install (but using different
+topics) and reduce maintenance costs. But what happens when one team decides
+to use Kafka as a database and put a retention to &quot;forever&quot;? That would
+utterly confused everyone else.  &quot;Why is this topic getting bigger and
+bigger?&quot; Worse, without a well described DevOps documentation, someone may see
+that growing topic, check it out, see that is has no retention policy and add
+one based on the other projects.</p>
+<p>Another example: For highly relational data, there is a PostgreSQL
+installation for everyone. Each team have their own database and users. But
+one team, which got responsible for two microservices, have one with data
+which is relational and another that basically requires a key-value store.
+Instead of asking for key-value store, they decide to create a database with a
+single table, with a key field and a large text field for storing JSONs.
+This, again, breaks the defined chassis, as one would expect PostgreSQL to be
+the relational database and not as a key-value store.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Chassis are good for microservices development due their quick development
+start up and shared knowledge, but they go way beyond just frameworks and
+libraries: They related to everything around the services and the way they are
+viewed by each microservice.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

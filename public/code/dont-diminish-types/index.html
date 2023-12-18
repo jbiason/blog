@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Don&#x27;t Diminish Types</h1>
+  <span class="post-date">
+	2019-06-03
+	
+            <a href="https://blog.juliobiason.me/tags/programming-languages/">#programming languages</a>
+        
+            <a href="https://blog.juliobiason.me/tags/dynamic-types/">#dynamic types</a>
+        
+            <a href="https://blog.juliobiason.me/tags/types/">#types</a>
+        
+  </span>
+  <p>In a previous life, I had a long discussion on why adding booleans was a bad
+idea. And just recently one of the core Python developers suggested the same
+thing -- adding booleans, that is. This is a long rant on why such things are
+bad.</p>
+<span id="continue-reading"></span>
+<p>Once at some previous job, I blocked a code review in which the other developer
+did something like </p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">if </span><span>boolean1 + boolean2:
+</span><span>	</span><span style="color:#bf616a;">do_thing</span><span>()
+</span></code></pre>
+<p>Why this was bad, in my view? 'Cause it was reducing the booleans into simple
+integers. While it is true that booleans are, internally, in Python, integers,
+what they <em>represent</em> is not integers, but actually true or false. People got
+it -- or, at least, they say they got it, but the code changed, anyway -- and
+live moved on.</p>
+<p>But, last month, I had to see Raymond Hettinger, one of the core Python
+developers, post 
+<a href="https://twitter.com/raymondh/status/1123950707273551878">this on twitter</a>:</p>
+<blockquote>
+<p>#python tip:  The boolean values False and True are equal to zero and one.</p>
+<p>Replace:
+sum(1 for x in data if pred(x))</p>
+<p>with:
+sum(pred(x))</p>
+</blockquote>
+<p>Obviosly, what he meant was to use</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">sum</span><span>(</span><span style="color:#bf616a;">pred</span><span>(x) </span><span style="color:#b48ead;">for </span><span>x </span><span style="color:#b48ead;">in </span><span>my_list)
+</span></code></pre>
+<p>... instead of</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">sum</span><span>(</span><span style="color:#d08770;">1 </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">pref</span><span>(x) </span><span style="color:#b48ead;">else </span><span style="color:#d08770;">0 </span><span style="color:#b48ead;">for </span><span>x </span><span style="color:#b48ead;">in </span><span>my_list)
+</span></code></pre>
+<p>Again, basing on the fact that Python uses integers behind the scenes to deal
+with booleans.</p>
+<p>And, as you can guess, that really annoyed me.</p>
+<h2 id="what-are-types">What Are Types</h2>
+<p>Let me explain, in a long rant, why &quot;booleans are integers&quot; is bad.</p>
+<p>Imagine the computer memory. Imagine one specific memory location, being used,
+with this value:</p>
+<blockquote>
+<p>65</p>
+</blockquote>
+<p>What does it mean? That's where languages and their types come in.</p>
+<p>For example, let's imagine that this location is being managed by a C program
+and the program and this program marked this value as a <code>char</code>. While <code>char</code>s
+in C represent 8 bit integers<sup class="footnote-reference"><a href="#1">1</a></sup>, they have being for a long time used to
+represent one character in a string -- a sequence of <code>char</code>s actually
+represents a string<sup class="footnote-reference"><a href="#2">2</a></sup>. So, when other developers see <code>char</code>, they think &quot;Ok,
+this is the character with code 65&quot; (which is &quot;A&quot;, by the way).</p>
+<p>If the same code use <code>int</code>, other developers would think &quot;Yeah, this is the
+<em>number</em> 65&quot;.</p>
+<p>And, just to screw things up, it could be an <code>enum</code>, in which the value
+represents the 65th variant (element) of that enum.</p>
+<p>And that's the reason types exist: -- instead of, say, developers managing
+memory directly and just changing their representation, like in Assembly --
+they provide consistent representation over the internal storage.</p>
+<h2 id="the-problem-with-adding-booleans">The Problem With Adding Booleans</h2>
+<p>So, we saw that memory is just a bunch of bytes and what gives meaning for
+those bytes -- in programming languages, that is -- are types<sup class="footnote-reference"><a href="#3">3</a></sup>.</p>
+<p>Now let's see another developer seeing the code above; they go from the top of
+the code to the bottom, and reach the line of <code>sum(pred(x) for x in my_list</code>.
+The first thought they come is that <code>sum</code> acts on numbers, so obviously <code>pred</code>
+is a function that return numbers. But what number it represents? So they go
+check <code>pref</code> and see it returning <code>True</code> or <code>False</code>. Now they have to trace
+back and rethink what the line did, leaving them with <a href="https://en.wikipedia.org/wiki/Cognitive_dissonance">cognitive
+dissonance</a>, which is a
+clever way of saying &quot;they have to rethink what they already though&quot;.</p>
+<p>And too many situations with cognitive dissonance is what makes code
+&quot;unreadable&quot; -- the line above is still readable, but it doesn't actually
+represent what it shows.</p>
+<h2 id="respect-your-types">Respect Your Types</h2>
+<p>Python is very loose with its type system<sup class="footnote-reference"><a href="#4">4</a></sup>, but it doesn't mean one could
+play &quot;fast and furious&quot; over it. Let's say that, at some point, Python
+developers decide to change <code>True</code> and <code>False</code> from their integer roots to be
+actually symbols -- things that simply &quot;exist&quot; and have no value<sup class="footnote-reference"><a href="#5">5</a></sup><sup class="footnote-reference"><a href="#6">6</a></sup>. Then
+everyone that managed booleans as integers would see their code misbehaving or
+crashing, simply because they didn't thread booleans <em>as booleans</em>.</p>
+<p>Now let's see the other option: <code>sum(1 if pred(x) else 0 for x in my_list)</code>.
+This line is (a) longer and (b) slower due the branching during execution (the
+<code>if</code>). But when you read something like this you see that there is a function
+where its value isn't being checked, which probably means it returns a
+boolean<sup class="footnote-reference"><a href="#7">7</a></sup>; if it is true, returns 1; if it is false, returns 0; and you're
+actually doing a sum of ones and zeroes -- as numbers.</p>
+<p>No cognitive dissonance, no messing around and just because we treated types
+as types.</p>
+<p>PS: After a small discussion about what's better, I came with a better line
+than the <code>1 if pred(x) else 0</code>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#96b5b4;">sum</span><span>(</span><span style="color:#d08770;">1 </span><span style="color:#b48ead;">for </span><span>x </span><span style="color:#b48ead;">in </span><span>my_list </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">pred</span><span>(x))
+</span></code></pre>
+<p>Why this would be better? Because, when you think what you actually want --
+count the number of <code>True</code>s in the list -- you can actually use a feature in
+list comprehensions for filtering: the <code>if</code> at the end. This will count 1 (a
+number) only if the element being processed &quot;agrees&quot; with the predicate.</p>
+<p>That line could be translated like something as</p>
+<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span>myList.</span><span style="color:#bf616a;">stream</span><span>()
+</span><span>	.</span><span style="color:#bf616a;">filter</span><span>(</span><span style="color:#bf616a;">x </span><span style="color:#b48ead;">-&gt; </span><span style="color:#bf616a;">pred</span><span>(x))
+</span><span>	.</span><span style="color:#bf616a;">map</span><span>(</span><span style="color:#bf616a;">x </span><span style="color:#b48ead;">-&gt; </span><span style="color:#d08770;">1</span><span>)
+</span><span>	.</span><span style="color:#bf616a;">sum</span><span>();
+</span></code></pre>
+<p>... in Java 8: You remove the non-True values of the list, convert the <code>True</code>s
+to 1 (a number) and sum the total.</p>
+<hr />
+<p>Footnotes:</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>They could use more than 8 bits, depending on the architecture, and due
+the fact that the C Standard is very flexible in this concept</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>It doesn't mean that every single <code>char</code> is a character in a string, it
+could be used exactly as an 8 bit integer</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>I'm being very lose here about types, there is a lot more complex
+context in them, but I'm going to stick with this &quot;representation&quot; for now.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>Maybe nose as loose as C, which lets you &quot;convert&quot; a memory that
+represents a float into a integer with no sign.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>Or, better yet, that can have <em>any</em> value and would still work.</p>
+</div>
+<div class="footnote-definition" id="6"><sup class="footnote-definition-label">6</sup>
+<p>As far as I know, Python standard already forced booleans to be
+integers, so that will never happen, but let's add this for the sake of
+discussion.</p>
+</div>
+<div class="footnote-definition" id="7"><sup class="footnote-definition-label">7</sup>
+<p>This is one of times I feel jealous of Clojurist, which can use <code>?</code> in
+their functions and actually have a coding style that says that predicates
+-- functions that either return True or False -- end with <code>?</code>; so not only
+someone reading a piece of Clojure code seeing a <code>is_valid?</code> knows it
+returns a boolean, it actually <em>reads</em> like a boolean check.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

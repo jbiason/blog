@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Pyngos de Python I</h1>
+  <span class="post-date">
+	2023-03-27
+	
+            <a href="https://blog.juliobiason.me/pt/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/generators/">#generators</a>
+        
+  </span>
+  <p>&quot;Pyngos de Python&quot; são pequenas explicações de Python.</p>
+<p>Nesse post, vamos falor sobre generators.</p>
+<span id="continue-reading"></span>
+<p>Vamos começar falando sobre list comprehensions, que são bem comuns em Python.
+De forma gera, um list comprehension é definido como</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>[transformação
+</span><span> </span><span style="color:#b48ead;">for </span><span>variável
+</span><span> </span><span style="color:#b48ead;">in </span><span>iterável
+</span><span> </span><span style="color:#b48ead;">if </span><span>condição]
+</span></code></pre>
+<ul>
+<li><code>iterável</code> é o container com os elementos que queremos percorrer;</li>
+<li><code>variável</code> define qual vai ser o nome da variável que vamos lidar cada um dos
+elementos do <code>iterável</code>;</li>
+<li><code>transformação</code> é qualquer transformação que queremos fazer sobre <code>variável</code>;</li>
+<li><code>condição</code> é um opcional caso queiremos processar apenas alguns elementos.</li>
+</ul>
+<p>Um exemplo de list comprehension em ação:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>lc = [i * </span><span style="color:#d08770;">2 </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>lista]
+</span><span style="color:#96b5b4;">print</span><span>(lc)   </span><span style="color:#65737e;"># [2, 4, 6, 8]
+</span></code></pre>
+<p>Embora útil, existe um problema: List comprehensions geram uma lista com, no
+máximo, o mesmo tamanho do iterável original; se você tiver um array de 500.000
+elementos, um list comprehension que não tenha uma condição vai gerar outro
+array com 500.000 elementos.</p>
+<p>E, em alguns casos, isso não é necessário.</p>
+<p>Antes de ver onde generators podem ser usados, veremos a sintaxe de um:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>(transformação
+</span><span> </span><span style="color:#b48ead;">for </span><span>variável
+</span><span> </span><span style="color:#b48ead;">in </span><span>iterável
+</span><span> </span><span style="color:#b48ead;">if </span><span>condição)
+</span></code></pre>
+<p>Como pode ser visto, a sintaxe é bem semelhante; a diferença é que
+comprehensions usam <code>[]</code>, enquanto generators usam <code>()</code>.</p>
+<p>E como exemplo:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>gen = (i * </span><span style="color:#d08770;">2 </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>lista)
+</span><span style="color:#96b5b4;">print</span><span>(gen)   </span><span style="color:#65737e;"># &lt;generator object &lt;genexpr&gt; at 0x7f7f30843df0&gt;
+</span></code></pre>
+<p>O que diabos é esse <code>generator object</code>?</p>
+<p>Generators não geram os dados todos numa passada; os dados somente são
+processados quando pedidos. A forma de pedir o próximo elemento é usando a
+função <code>next</code>; quando o generator encontra o final do iterável, ele levanta a
+exceção <code>StopIteration</code>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>gen = (i * </span><span style="color:#d08770;">2 </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>lista)
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#96b5b4;">next</span><span>(gen))    </span><span style="color:#65737e;"># 2
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#96b5b4;">next</span><span>(gen))    </span><span style="color:#65737e;"># 4
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#96b5b4;">next</span><span>(gen))    </span><span style="color:#65737e;"># 6
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#96b5b4;">next</span><span>(gen))    </span><span style="color:#65737e;"># 8
+</span><span style="color:#96b5b4;">print</span><span>(</span><span style="color:#96b5b4;">next</span><span>(gen))    </span><span style="color:#65737e;"># Exceção: StopIteration
+</span></code></pre>
+<p>Curiosamente, <code>for</code> sabe lidar com <code>StopIteration</code> e <code>next()</code>, o que torna
+possível usar um generator diretamente no <code>for</code>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>lista = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>(i * </span><span style="color:#d08770;">2 </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>l):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(i)    </span><span style="color:#65737e;"># 2, 4, 6, 8
+</span><span style="color:#65737e;"># Nenhuma exceção aqui.
+</span></code></pre>
+<p>Mas é a vantagem de usar generators?</p>
+<p>A primeira vantagem pode ser vista no <code>for</code> acima: Imagine que <code>lista</code> tem
+500.000 elementos. Usar list comprehensions não mudaria nada no código (com a
+exceção de usar <code>[]</code> ao invés de <code>()</code>), mas estamos gerando a multiplicação
+somente quando necessário. Agora imagine que estamos procurando algo na lista
+original e vamos parar assim que encontrarmos o registro: com list
+comprehension, a nova lista será sempre gerada, e se o o elemento procurado for
+o primeiro, acabamos gerando 499.999 elementos que não vamos usar. Com
+generators, no momento que encerramos a procura, nada mais é gerado -- e
+somente o elemento procurado é gerado.</p>
+<p>Um exemplo mais real: Arquivos são iteráveis, onde cada requisição é uma linha
+do arquivo. Se o arquivo sendo processado é um CSV, podemos fazer um generator
+que separa os campos sobre a iteração do arquivo enquanto procuramos um
+registro específico:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">with </span><span style="color:#96b5b4;">open</span><span>(&#39;</span><span style="color:#a3be8c;">arquivo.csv</span><span>&#39;) </span><span style="color:#b48ead;">as </span><span>origem:
+</span><span>   </span><span style="color:#b48ead;">for </span><span>registro </span><span style="color:#b48ead;">in </span><span>(linha.</span><span style="color:#bf616a;">split</span><span>(&#39;</span><span style="color:#a3be8c;">,</span><span>&#39;) </span><span style="color:#b48ead;">for </span><span>linha </span><span style="color:#b48ead;">in </span><span>origem):
+</span><span>      </span><span style="color:#b48ead;">if </span><span>registro[</span><span style="color:#d08770;">1</span><span>] == &#39;</span><span style="color:#a3be8c;">entrada</span><span>&#39;:
+</span><span>         </span><span style="color:#b48ead;">return </span><span>registro[</span><span style="color:#d08770;">2</span><span>]
+</span></code></pre>
+<p>Neste código, estamos procurando a linha do CSV cujo 2o elemento (listas
+começam em 0) tem o valor &quot;entrada&quot;; quando encontrarmos, retornamos o valor da
+coluna seguinte. A medida que o <code>for</code> for pedindo valores, o generator é
+chamado; o generator que criamos quebra a linha usando &quot;,&quot; como separador; como
+o generator usa o iterável do arquivo (que, por baixo dos panos, também é um
+generator), somente quando for pedido um registro é que uma linha será lida;
+somente quando a linha vier é que vai ser feito o split. E se, por algum
+motivo, o registro procurando for o primeiro, foi somente lida uma linha do
+arquivo<sup class="footnote-reference"><a href="#1">1</a></sup> e feito o split somente uma vez.</p>
+<h2 id="bonus-generator-functions">BÔNUS: Generator Functions!</h2>
+<p>Existe uma forma de criar uma função que age como um generator, usando o
+statement <code>yield</code>, da mesma forma que se usaria o statement <code>return</code>. A
+diferença é que quando o Python encontra <code>yield</code>, ao invés de destruir tudo que
+estava na função, ele guarda a posição atual e, na chamada do <code>next()</code>,
+continua naquela posição.</p>
+<p>Por exemplo, se tivermos:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">double</span><span>(</span><span style="color:#bf616a;">lista</span><span>):
+</span><span>   </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>lista:
+</span><span>      </span><span style="color:#b48ead;">return </span><span>i * </span><span style="color:#d08770;">2
+</span><span>
+</span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>])
+</span></code></pre>
+<p>Irá retornar apenas <code>2</code> porque, ao ver o <code>return</code>, o Python vai destruir tudo
+que a função já fez e retornar o valor indicado -- incluindo encerrar o <code>for</code>
+antes de chegar no final.</p>
+<p>Com generator functions, teríamos:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">double</span><span>(</span><span style="color:#bf616a;">lista</span><span>):
+</span><span>   </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>lista:
+</span><span>      </span><span style="color:#b48ead;">return </span><span>i
+</span><span>
+</span><span>
+</span><span>gen = </span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>])
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 2
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 4
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 6
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 8
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># StopIteration
+</span></code></pre>
+<p>Note que a chamada para a função é que retorna um generator. Tentar fazer</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">double</span><span>(</span><span style="color:#bf616a;">lista</span><span>):
+</span><span>   </span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span>lista:
+</span><span>      </span><span style="color:#b48ead;">return </span><span>i
+</span><span>
+</span><span>
+</span><span style="color:#96b5b4;">next</span><span>(</span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]))   </span><span style="color:#65737e;"># 2
+</span><span style="color:#96b5b4;">next</span><span>(</span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]))   </span><span style="color:#65737e;"># 2
+</span><span style="color:#96b5b4;">next</span><span>(</span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]))   </span><span style="color:#65737e;"># 2
+</span><span style="color:#96b5b4;">next</span><span>(</span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]))   </span><span style="color:#65737e;"># 2
+</span><span style="color:#d08770;">...
+</span></code></pre>
+<p>... vai gerar um novo generator a cada chamada.</p>
+<p>Ainda, é possível que a função tenha mais de um <code>yield</code>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">double</span><span>(</span><span style="color:#bf616a;">lista</span><span>):
+</span><span>   </span><span style="color:#b48ead;">yield </span><span>lista[</span><span style="color:#d08770;">0</span><span>] * </span><span style="color:#d08770;">2
+</span><span>   </span><span style="color:#b48ead;">yield </span><span>lista[</span><span style="color:#d08770;">1</span><span>] * </span><span style="color:#d08770;">2
+</span><span>   </span><span style="color:#b48ead;">yield </span><span>lista[</span><span style="color:#d08770;">2</span><span>] * </span><span style="color:#d08770;">2
+</span><span>
+</span><span>gen = </span><span style="color:#bf616a;">double</span><span>([</span><span style="color:#d08770;">4</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">1</span><span>])
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 8
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 6
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># 4
+</span><span style="color:#96b5b4;">next</span><span>(gen)   </span><span style="color:#65737e;"># StopIteration
+</span></code></pre>
+<p>Aqui, a primeira chamada de <code>next()</code> vai retornar o valor do primeiro <code>yield</code>,
+que é o primeiro elemento da lista multiplicado por 2; o próximo <code>next()</code> vai
+executar o comando logo depois do primeiro <code>yield</code>, que é o segundo <code>yield</code>; e
+a terceira chamada vai continuar a execução logo depois desse, que é o terceiro
+<code>yield</code>. Como o código termina aí, o generator vai levantar a exceção
+<code>StopIteration</code>.</p>
+<p>Mas o que aconteceria se... a função nunca retornasse nada?</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">gen</span><span>():
+</span><span>   i = </span><span style="color:#d08770;">0
+</span><span>   </span><span style="color:#b48ead;">while </span><span style="color:#d08770;">True</span><span>:
+</span><span>      </span><span style="color:#b48ead;">yield </span><span>i * </span><span style="color:#d08770;">2
+</span><span>      i += </span><span style="color:#d08770;">1
+</span></code></pre>
+<p>Neste caso, usando <code>next()</code> no generator, a primeira vez será retornado &quot;0&quot;; o
+<code>next()</code> seguinte irá continuar o código, somando &quot;1&quot; ao nosso contador,
+retornando para o começo do loop e retornando &quot;2&quot;; e assim sucessivamente até o
+fim do mundo (ou até ser pressionado Ctrl+C, desligado o computador ou atingido
+o número máximo permitido para inteiros em Python).</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Tecnicamente, vai ser lido mais, porque o Python usa &quot;buffers&quot; de
+leitura, carregando blocos e depois enviando apenas os bytes desde a última
+posição lida até o caracter de nova linha. Mas, para simplificar as coisas,
+imaginem que apenas uma linha é lida mesmo.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

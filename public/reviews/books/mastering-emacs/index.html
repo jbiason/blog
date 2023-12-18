@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Mastering Emacs, Mickey Petersen</h1>
+  <span class="post-date">
+	2019-11-18
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reviews/">#reviews</a>
+        
+            <a href="https://blog.juliobiason.me/tags/emacs/">#emacs</a>
+        
+            <a href="https://blog.juliobiason.me/tags/mickey-petersen/">#mickey petersen</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-4/">#stars:4</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2015/">#published:2015</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/25587882-mastering-emacs">GoodReads summary</a>:
+Learn Emacs from the ground up. In the Mastering Emacs ebook you will learn
+the answers to all the concepts that take weeks, months or even years to truly
+learn, all in one place.</p>
+<span id="continue-reading"></span><div>
+	★★★★☆
+</div>
+<p>Why is an avid VIM user -- to the point that I usually do some <em>gatekeeping</em> in
+which is the true editor for real programmers <sup class="footnote-reference"><a href="#1">1</a></sup> -- reading a book about
+Emacs?</p>
+<p>Well, for one, I wanted to learn how to use Org-Mode better, but with my usual
+EVIL bindings, its keybinds feel alien and did not make a lot of sense.</p>
+<p>And, thus, I decided to read a book about Emacs, to gear me up for using Emacs
+without EVIL and make a more smooth passage to Org-Mode.</p>
+<p>In that, I guess I can say that the book helped me, although I'm pretty
+confident that I'm going to use VIM/EVIL bindings from time to time -- muscle
+memory is not that easy to change.</p>
+<p>One thing that stuck with me after reading the book is the concept of &quot;flow&quot;,
+in which you start a sequence of commands all with the same modifiers (or, at
+least, with a bigger set and then with a reduced set). For example, how you
+can keep Ctrl+Alt pressed and execute a bunch of changes without ever removing
+your hand from Ctrl+Alt, or maybe just dropping one of those two keys, but you
+keep the modifiers up all the time through the transformation. And while this
+sounds awesome, it also shows that some Emacs commands do not follow the flow
+and make a big mess of &quot;Ctrl+Alt+key, key, Alt+key&quot; in sequence -- thus,
+removing you from the &quot;flow&quot;.</p>
+<p>Even with that, I feel not everything was perfect:</p>
+<ul>
+<li>There is a push towards using the configuration buffer/tool inside Emacs,
+instead of showing the elisp command for that. I do understand that this
+makes the book lighter and removes a lot of redundant information (why
+describe how to set things up twice?) but with some things not being able to
+configure through the configuration tool and some not, it just looks...
+weird. And, to be honest, I'd prefer to see the elisp changes, 'cause one
+could expand it into &quot;let me show you some changes you can make on your
+<code>init.el</code> to make this work&quot; and, from there, you could expand to everything,
+including package management.</li>
+<li>Speaking of package management, I already have experience with use-package,
+which would download and enable packages, but there is no mention of it
+(maybe it is a recent addition?)</li>
+<li>Sometimes, there is the same mistake VIM books do: explaining some topic and
+going through it in a way to never come back. Although it does make sense
+sometimes, sometimes it does not: You can be talking about movement and,
+instead of explaining every single movement, you go to how to modify your
+code and then come back to movement to explain more complex things, 'cause
+they make more sense with text modification, making it easier to grasp the
+movement concepts than explaining it along several others (and, again,
+that's a mistake several VIM books do).</li>
+<li>As pointed, sometimes it shows how the flow can be broken, which would be
+better moved out of the way and kept at the very end of the book, which
+could be taken as being an example of the above point.</li>
+</ul>
+<p>I could point that I'd like to have an EVIL topic, but the book starts saying
+that it wouldn't touch that, so far point -- although I'd still prefer to have
+some chapter about EVIL.</p>
+<p>Also, I'd like to have a chapter about Org-Mode, but we can argue if that
+makes sense to put along a &quot;Mastering Emacs&quot; topic or it should belong to some
+other &quot;Advanced&quot; Emacs concepts.</p>
+<p>In general, it's a good book about Emacs, specially pushing the concept of the
+flow.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Again, this is me playing with gatekeeping, a real programmer uses
+whatever editor fits their workflow better -- and that includes editors
+which do not fit my workflow.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

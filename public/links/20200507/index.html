@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-05-07</h1>
+  <span class="post-date">
+	2020-05-07
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/io-uring/">#io-uring</a>
+        
+            <a href="https://blog.juliobiason.me/tags/async/">#async</a>
+        
+            <a href="https://blog.juliobiason.me/tags/github/">#github</a>
+        
+            <a href="https://blog.juliobiason.me/tags/codespaces/">#codespaces</a>
+        
+            <a href="https://blog.juliobiason.me/tags/virtual/">#virtual</a>
+        
+            <a href="https://blog.juliobiason.me/tags/insights/">#insights</a>
+        
+            <a href="https://blog.juliobiason.me/tags/jira/">#jira</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reports/">#reports</a>
+        
+            <a href="https://blog.juliobiason.me/tags/codescanning/">#codescanning</a>
+        
+            <a href="https://blog.juliobiason.me/tags/security/">#security</a>
+        
+  </span>
+  <p>The difference between Epoll and IO-URing and how it related to async apps and
+things announced on Github Satellite.</p>
+<span id="continue-reading"></span><h1 id="notes-on-io-uring"><a href="https://boats.gitlab.io/blog/post/io-uring/">Notes on io-uring</a></h1>
+<p>Although focused on the problems of using (said) io-uring on Rust, Boats does
+one hell of a job explaining what io-uring is, how it works and how async
+systems must deal with the way it works.</p>
+<p>For those not aware, io-uring is another async IO layer, which appeared in the
+last few versions of the Linux kernel. It allows one program to ask to the OS
+to do something and just receive a notification when it's done, so it can do
+other things -- you know, async stuff. The difference here is that the
+previous system, epoll, would notify the program when it was <em>ready</em> to
+perform an operation, while io-uring notifies when the operation is
+<em>complete</em>.</p>
+<p>But enough spoilers, it is a well written description of the current state of
+asynchronous IO.</p>
+<h1 id="github-codespaces"><a href="https://github.com/features/codespaces">Github Codespaces</a></h1>
+<p>In case you missed Github Satellite presentation this year, Github announced a
+new service that will allow you to run a whole dev environment in the cloud,
+using your Github repo as a starting point.</p>
+<p>The interesting points, though, is that this environment will, initially,
+support VS Code, which is quite weird, considering that Github itself is
+the one that started the Atom editor. Why would they pick another editor
+instead of working with what they already have? Another point is that you can
+define what your environment have, which is basically a container, but it
+<em>doesn't</em> use the Dockerfile format; it is a completely different format,
+using JSON instead of YAML. Again, since everything runs on Docker, why use
+another format?</p>
+<p>The feature is still in beta, and should be rolled to all users, with
+undefined pricing at this point, later.</p>
+<h1 id="github-insights"><a href="https://github.com/features/insights">GitHub Insights</a></h1>
+<p>Another feature presented on Github Satellite was &quot;Insights&quot;, Jira-like
+reports based on the work done on Github repos. While most of us, personal
+users of Github, will find it only curious, managers will find it quite
+interesting, specially since if their team is already using Github, they don't
+need to pay for Jira anymore.</p>
+<p>Couple this with the fact that Github already has a virtual kanban and you can
+see exactly where Github is aiming.</p>
+<h1 id="github-codescanning"><a href="https://github.com/features/security/">Github Codescanning</a></h1>
+<p>The third feature announced was Codescanning, a tool that can scan your code
+(if it is hosted on Github) for vulnerabilities. What it does is that it
+follows the data coming from outside the system to the inside, figuring out
+how it is used and if it can lead to some security failure.</p>
+<p>While cool, one has to wonder how the tool knows the entry point for your
+application; what happens if you have multiple entry points (for example, you
+provide a web interface and console interface); how it detects unsanitized
+inputs when the underlying framework does this already (like Django). Sure it
+has &quot;decades of research behind it&quot; (as pointed in the presentation) and
+everything else, but I end up with more questions than answers.</p>
+<hr />
+<p>This post was built with the help of</p>
+<ul>
+<li><a href="https://botsin.space/@readrust">Read Rust</a></li>
+<li><a href="https://mastodon.social/@hntooter">HN Tooter</a></li>
+<li><a href="https://mastodon.social/@newsbot">newsbot</a></li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

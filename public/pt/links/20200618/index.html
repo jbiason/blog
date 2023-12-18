@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links Commentados de 2020-06-18</h1>
+  <span class="post-date">
+	2020-06-18
+	
+            <a href="https://blog.juliobiason.me/pt/tags/links/">#links</a>
+        
+  </span>
+  <p>Mensagens de Commit (de novo), Ansible, Nomes de CLIs, Feature Flags, Tamanho
+dos Binários Rust, Mongo com Rust, Gerenciador de Tarefas em CLI.</p>
+<span id="continue-reading"></span><h2 id="how-to-write-good-git-commit-messages"><a href="https://altcampus.io/blog/how-to-write-good-git-commit-message">How to write good Git commit messages</a></h2>
+<p>Eu compartilhei um link sobre mensagens de commit a quase um mês, e esse post
+fala mais sobre isso -- e tem citações de coisas que eu realmente sinto falta
+quando vou fazer code review.</p>
+<h2 id="ansible-tasks-vs-roles-vs-handlers"><a href="https://roelofjanelsinga.com/articles/ansible-difference-between-tasks-and-roles">Ansible: Tasks vs Roles vs Handlers</a></h2>
+<p>Mais um &quot;Eu compartilhei algo parecido com isso a algum tempo&quot;, esse post foca
+no Ansible em si ao invés de alguma outra ferramenta de configuração. Embora
+não se aprofunde muito, ele explica muito das coisas de &quot;superfície&quot; do
+Ansible.</p>
+<h2 id="the-poetics-of-cli-command-names"><a href="https://smallstep.com/blog/the-poetics-of-cli-command-names/">The Poetics of CLI Command Names</a></h2>
+<p>Então você decidiu criar a sua própria ferramenta de linha de comando para
+aprender uma nova linguagem. Parabéns. Mas o sucesso da sua ferramenta depende
+(parcialmente) do nome escolhido e como você considera toda a &quot;mística&quot; por
+trás desse nome.</p>
+<p>Infelizmente, eu não concordo com alguns pontos. Por exemplo, reclamar que
+<code>cfdisk</code> foi uma má escolha para um <code>fdisk</code> em curses; <code>fdisk</code> é bem
+conhecido, e utilizar o mesmo nome na como parte do novo nome para mostrar que
+é uma versão diferente e fornece como informação para quem conhece o que
+<code>fdisk</code> o que essa aplicação faz.  Mesmo caso: <code>top</code> e <code>htop</code>.</p>
+<h2 id="what-are-feature-flags"><a href="https://launchdarkly.com/blog/what-are-feature-flags/">What Are Feature Flags?</a></h2>
+<p>No projeto que eu trabalhava antes, nós tivemos uma discussão sobre a forma
+como os projetos estão utilizado feature flags.</p>
+<p>Embora não seja discutido aqui, eu acredito que feature flags devem, em algum
+ponto, serem removidas, tanto pelo time quando uma funcionalidade se torna
+disponível para todos ou movida para uma configuração de usuário. Mas ela
+<em>precisa</em> sair das mãos dos desenvolvedores em algum ponto e não viver para
+sempre como uma flag.</p>
+<h2 id="how-to-minimize-rust-binary-size"><a href="https://github.com/johnthagen/min-sized-rust">How to minimize Rust binary size</a></h2>
+<p>Não que os binários de Rust sejam grandes -- pelo menos, em release -- mas
+sempre tem alguém que reclama, principalmente quando comparados com binários
+criados em outras linguagens cujos binários não são estáticos.</p>
+<p>Mas sempre é bom ter um conjunto de dicas de como reduzir, &quot;just in case&quot;.</p>
+<h2 id="announcing-our-rust-driver-version-1-0"><a href="https://www.mongodb.com/blog/post/announcing-rust-driver-version-1">Announcing our Rust Driver: Version 1.0</a></h2>
+<p>Ainda em notícias de Rust, MongoDB, a empresa, disponibilizou o driver oficial
+do MongoDB, o banco de dados, em Rust.</p>
+<p>Uma coisa que eu preciso dizer, lendo o anuncio, é como eles fizeram com que o
+driver se encaixasse bem no eco-sistema atual, com suporte aos principais
+frameworks async e a biblioteca de serialização. Um verdadeiro &quot;funciona bem
+com tudo&quot; pela descrição.</p>
+<h2 id="unfog-cli-a-simple-task-time-manager-written-in-haskell"><a href="https://github.com/unfog-io/unfog-cli">unfog-cli: A simple task &amp; time manager, written in Haskell.</a></h2>
+<p>Eu tenho um projeto pessoal a um bom tempo de fazer uma versão em linha de
+comando do <a href="https://toggl.com/">Toggl</a>, mas pelo visto alguém já teve a mesma
+ideia e fez o projeto antes.</p>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

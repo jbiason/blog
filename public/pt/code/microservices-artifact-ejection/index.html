@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microserviços: Expelindo Artefatos</h1>
+  <span class="post-date">
+	2019-12-30
+	
+            <a href="https://blog.juliobiason.me/pt/tags/microservicos/">#microserviços</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/artefatos/">#artefatos</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/conexoes/">#conexões</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/expelir/">#expelir</a>
+        
+  </span>
+  <p>Como eu estava comentando sobre <a href="https://blog.juliobiason.me/pt/code/microservices-artifact-input-state/">artefatos em
+microserviços</a>, eu acredito que esqueci
+de discutir um ponto importante: Como é que esses artefatos são &quot;expelidos&quot; do
+microserviço?</p>
+<span id="continue-reading"></span>
+<p>&quot;Expelido&quot;, nesse caso, significa &quot;passa para o próximo estágio necessário&quot;,
+que pode ser um bocado de coisas (algumas vezes, até mais de uma). E como eu
+precisava de um palavra capciosa para chamar a atenção, já que &quot;produz&quot; não
+tem nada de chamativo.</p>
+<p>Por exemplo, se um microserviço produz um dado intermediário -- digamos que
+ele conecta num serviço externo e busca uma informação, que é então processada
+por outros microserviços -- então você vai possivelmente utilizar um serviço
+de message broker (mensageria) para expelir o artefato. Usando um message
+broker irá permitir que outros serviços fiquem escutando a criação desses
+artefatos e que façam seu serviço -- produzindo novos artefatos.</p>
+<p>Outra possibilidade é que esse microserviço é o fim da linha de produção e,
+por isso, ele mantém o artefato consigo para ser consumido de uma forma
+não assíncrona. Por exemplo, o microserviço produz elementos que são pedidos
+depois uma requisição de um serviço web, e o que o microserviço precisa fazer
+é produzir o artefato e mantê-lo em si, respondendo requisições mais tarde.</p>
+<p>De novo, isso é semelhante a forma com que CQRS (command-query response
+segregation -- segregação de comandos e queries) funciona: Você tem um lado do
+seu microserviço que recebe dados e processa o artefato, e outro que permite a
+consulta dos artefatos gerados.</p>
+<p>Você pode até mesmo ter os dois: Quando o artefato é produzido, o microserviço
+expele o mesmo pelo message broker para ser processado por outros
+microserviços, e guarda o artefato localmente para ser pesquisado depois.</p>
+<p>Existe até mesmo a possibilidade da parte de pesquisa/query ser apenas outros
+microserviço: Ele recebe o artefato de outro microserviço e o armazena, sem
+qualquer processamento (desde que você não considere &quot;salva num armazenamento
+permanente&quot; uma forma de processamento). Isso é interessante porque a parte de
+pesquisa/query do microserviço é apenas um outro microserviço ao invés de ser
+uma espécie de microserviço especializado que produz, expele e armazena
+artefatos.</p>
+<p>Quando eu mencionando que nós salvamentos nossos artefatos no Firebase, nós
+estamos basicamente construindo esse microserviço separado: Enquanto nossos
+microserviços produzem artefatos, a parte de &quot;armazenamento e pesquisa&quot; fica a
+cargo do Firebase -- mas você pode considerar isso como qualquer outro
+microserviço.</p>
+<p>(Esse post é simplesmente para ter alguns ponteiros a mais para quando eu for
+discutir um pouco mais sobre o que eu penso sobre microserviços com auto-cura
+-- e o que eu quero dizer com isso.)</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

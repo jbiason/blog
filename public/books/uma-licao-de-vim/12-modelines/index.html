@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">12. Modelines</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você ignora seus arquivos de configuração.</p>
+<span id="continue-reading"></span>
+<p>Bom, agora você sabe como configurar seu VIM, mudar configurações baseadas no
+tipo de arquivo... Mas o que fazer se um arquivo tem uma configuração
+completamente diferente do resto?</p>
+<p>A solução são modelines. Modelines são linhas que você pode adicionar no seu
+arquivo e o VIM, quando carregar o arquivo, irá mudar suas configurações
+baseadas nesta linha.</p>
+<p>A sintaxe da linha é, simplesmente: <code>vim: set {configurações}:</code>.</p>
+<p>&quot;Mas é um código fonte e se eu colocar um 'vim' no meio, o compilador vai
+reclamar!&quot;, você deve estar pensando agora. Acontece que o VIM procura uma linha
+válida em qualquer lugar, desconsiderando a sintaxe atual. Se você colocar o
+modeline dentro de um comentário, o VIM ainda vai encontrar e ainda vai
+processar o modeline e ainda vai trocar as configurações do editor (apenas para
+aquele arquivo).</p>
+<p>Por exemplo, para garantir que meus templates Jinja fiquem com a sintaxe
+correta (usando a sintaxe de templates do Django), eu tenho colocado, como
+última linha do arquivo</p>
+<pre data-lang="vim" style="background-color:#2b303b;color:#c0c5ce;" class="language-vim "><code class="language-vim" data-lang="vim"><span>{# vim: </span><span style="color:#96b5b4;">set</span><span> ft=htmldjango: #}
+</span></code></pre>
+<p>&quot;ft&quot;, no caso, é o nome curto para &quot;filetype&quot;, que define o tipo de arquivo que
+está sendo usando e qual sintaxe será utilizada. E o par <code>{#</code> e <code>#}</code> são
+comentários do template e completamente ignorados no resultado final.</p>
+<p>Assim como vimos antes, várias configurações podem ser usadas no mesmo set.
+Usando o exemplo acima, se eu quisesse que meus templates usassem tabulações ao
+invés de espaços para identação mas fossem apenas 2 espaços por tabulação, eu
+poderia colocar, no final do arquivo:</p>
+<pre data-lang="vim" style="background-color:#2b303b;color:#c0c5ce;" class="language-vim "><code class="language-vim" data-lang="vim"><span>{# vim: </span><span style="color:#96b5b4;">set</span><span> ft=htmldjango noet ts=</span><span style="color:#d08770;">2</span><span> sts=</span><span style="color:#d08770;">2</span><span> sw=</span><span style="color:#d08770;">2</span><span>: #}
+</span></code></pre>
+<p>O VIM ainda aceita que as opções sejam separadas em vários comandos, com a
+adição de &quot;:&quot;:</p>
+<pre data-lang="vim" style="background-color:#2b303b;color:#c0c5ce;" class="language-vim "><code class="language-vim" data-lang="vim"><span>{# vim: </span><span style="color:#96b5b4;">set</span><span> ft=htmldjango</span><span style="color:#b48ead;">:</span><span style="color:#96b5b4;">set</span><span> noet</span><span style="color:#b48ead;">:</span><span style="color:#96b5b4;">set</span><span> ts=</span><span style="color:#d08770;">2</span><span style="color:#b48ead;">:</span><span style="color:#96b5b4;">set</span><span> sts=</span><span style="color:#d08770;">2</span><span style="color:#b48ead;">:</span><span style="color:#96b5b4;">set</span><span> sw=</span><span style="color:#d08770;">2</span><span>: #}
+</span></code></pre>
+<p>Mas realmente não faz sentido, faz?</p>
+<p>E apenas um aviso: Algumas distribuções Linux desligam modelines no arquivo
+global (adicionando <code>set nomodeline</code> no arquivo global) e, assim, modelines são
+completamente ignorados, sob a desculpa de &quot;segurança&quot;.  Tentando descobrir o
+porque descobri o seguinte: O único comando que pode ser usado em modelines é
+&quot;set&quot;, ou seja, não é possível colocar um modeline que abra outro arquivo, ou
+mude o diretório atual ou qualquer outra coisa; nem todas as configurações pode
+ser alteradas (infelizmente, o help do VIM não lista quais são e quais não são
+permitidas); e, aparentemente, a pior forma de &quot;ataque&quot; seria alguém colocar um
+&quot;textwidth&quot; e seu código ficar torto na primeira edição. Se você achar que
+modelines não estão sendo executados, você pode adicionar no seu vimrc <code>set modelines</code> para que modelines sejam processados (ou troque por uma distribuição
+que não tenha configurações que não fazem sentido).</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;11-02-gvimrc">Meu .gvimrc</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;13-tags">Tags</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Global Changes Must Be Discussed With The Whole Team First</h1>
+  <span class="post-date">
+	2019-07-31
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/team/">#team</a>
+        
+            <a href="https://blog.juliobiason.me/tags/changes/">#changes</a>
+        
+  </span>
+  <p>So you got tired of bad tests and decided it is a good idea to add some <a href="https://en.wikipedia.org/wiki/Fuzzing">fuzz
+testing</a> tool. Before you do add it in
+the main branch, you <em>have</em> to discuss it with your team.</p>
+<span id="continue-reading"></span>
+<p>It's mind-bogging that some people think something it's so good that they
+don't need to discuss with the whole team about it; they simply do. They don't
+seem to care that people have their workflows and changing something would
+break them. But hey, I've seen it so many times it is not even fun.</p>
+<p>And let me clear here: You need to discuss it with the <em>whole</em> team, not just
+some of it (excluding people on vacations, 'cause you don't want to call them
+just to tell them something will change). Worse: Don't discuss only with those
+that will agree with you; you may not have seen all the problems those changes
+will inflict on the other devs workflows but, by bringing that with those that
+may not agree with you, you may gain some more insights on what could go
+wrong.</p>
+<p>Also, focus on what would be the gains and the loses. &quot;We'll get better tests,
+but you'll have to take a bit more care on the way you write tests&quot; is a good
+explanation, specially if you show the changes people will have to do in
+future tests. Also also, notice that I said <em>future</em> tests: if you want to
+implement something new, you <em>must</em> be sure it won't require everyone getting
+out of their way to make your idea work -- don't make people rewrite tests
+'cause they will break; don't make the other devs reformat their code 'cause
+you decided, alone, to add a linter to your CI with your own rules; don't make
+people worry about unwritten tests 'cause you decided it would be a good idea
+to add a code formatting tool and that would make your coverage tool think
+they are changing some unrelated piece of code that wasn't untested before.</p>
+<p>Don't be a jerk thinking you know more than your whole team.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;hero-projects">Global Changes Must Be Discussed With The Whole Team First</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;specialists">Companies Look For Specialists But Keep Generalists Longer</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

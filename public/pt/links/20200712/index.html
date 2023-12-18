@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links Comentados de 2020-07-12</h1>
+  <span class="post-date">
+	2020-07-12
+	
+            <a href="https://blog.juliobiason.me/pt/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/erlang/">#erlang</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/acessibilidade/">#acessibilidade</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/stackoverflow/">#stackoverflow</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/testes/">#testes</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/flexbox/">#flexbox</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/c/">#c</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/http/">#http</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/servidor/">#servidor</a>
+        
+  </span>
+  <p>Erlang por Exemplos, Acessibilidade, Boas Respostas no StackOverflow, Testes,
+Flexbox, Servidor HTTP in C, Sorvete Afetando Carros.</p>
+<span id="continue-reading"></span><h2 id="erlang-otp-by-example"><a href="http://erlangbyexample.org/">Erlang/OTP by Example</a></h2>
+<p>Erlang esta na minha lista de linguagens que eu quero aprender e ter um &quot;Por
+Exemplos&quot; sempre ajuda -- pelo menos, me ajudou um monte com Rust.</p>
+<h2 id="the-6-most-common-accessibility-problems-and-how-to-fix-them"><a href="https://blog.scottlogic.com/2020/07/02/6-most-common-accessibility-problems.html">The 6 Most Common Accessibility Problems (and How to Fix Them)</a></h2>
+<p>Acessibilidade é sempre importante. E saber que tem algo parecido com o OWASP
+(que mantém uma lista de falhas de segurança de aplicações web) que tem uma
+lista de problemas comuns sempre ajuda. E, ainda por cima, tendo uma lista de
+problemas simples e fáceis de serem resolvidos é sempre melhor.</p>
+<h2 id="parsing-city-of-origin-destination-city-from-a-string"><a href="https://stackoverflow.com/questions/59956670/parsing-city-of-origin-destination-city-from-a-string">Parsing city of origin / destination city from a string</a></h2>
+<p>Embora a resposta seja bem longa e não um simples &quot;Use X&quot;, esse é o tipo de
+resposta que o StackOverflow deveria ter: Mesmo que a pergunta pareça absurda,
+tem uma longa explicação de como fazer, cada passo e cada problema com cada
+passo até o ponto de &quot;não é assim tão simples&quot;.</p>
+<h2 id="against-testing"><a href="https://flak.tedunangst.com/post/against-testing">against testing</a></h2>
+<p>Alguém levou o que eu falei sobre testes muuuito a sério.</p>
+<p>Ok, testar tudo parece errado, mas você pode ver que as coisas estão erradas
+quando alguém diz que &quot;Os testes são frágeis, quebrando devido a alterações
+completamente inócuas no código&quot;. Aqui é onde está o problema: Você é um
+idiota se isso acontece; você deveria estar testando <em>comportamentos</em>, não
+implementações. É óbvio que o teste vai ser frágil porque você está testando a
+coisa de forma errada.</p>
+<p>Isso é um dos pontos que eu realmente não gosto dos chamados &quot;testes de
+unitários&quot; -- no sentido de &quot;testar cada função&quot;. Comportamento não está
+contido em apenas uma função, mas surge quando as funções interagem. É por
+isso que testes de integração parecem mais &quot;corretos&quot; pra mim: Nós ignoramos
+como as coisas foram implementadas e focamos em como o sistema deve se
+comportar.</p>
+<p>Então sim, testar está errado e você não gosta disso, especialmente quando
+você está escrevendo os testes da forma errada pra inicio de conversa.</p>
+<h2 id="coping-with-flexbox"><a href="https://kgrz.io/coping-with-flexbox.html">Coping with flexbox</a></h2>
+<p>Flexbox é a nova coisa legal em desenvolvimento web atualmente, principalmente
+porque corrige o maldito problema de &quot;centralizar o conteúdo verticalmente e
+horizontalmente&quot;. E esse tipo de explicação, que começa no básico, sempre
+ajuda.</p>
+<h2 id="httpserver-h-single-header-library-for-writing-non-blocking-http-servers-in-c"><a href="https://github.com/jeremycw/httpserver.h">httpserver.h:  Single header library for writing non-blocking HTTP servers in C</a></h2>
+<p>Uma coisas coisas estranhas de C é que você pode fazer basicamente tudo,
+incluindo escrever um servidor HTTP não blocando em apenas um arquivo.</p>
+<h2 id="my-car-does-not-start-when-i-buy-vanilla-ice-cream-said-a-man-to-general-motors"><a href="https://www.digitalrepublik.com/digital-marketing-newsletter/2015/05/10/my-car-does-not-start-when-i-buy-vanilla-ice-cream-said-a-man-to-general-motors/">&quot;My Car does not start when I buy Vanilla Ice Cream&quot;, said a Man to General Motors.</a></h2>
+<p>Eu adoro esse tipo de história: Coisas que não funcionam porque algo
+completamente randômico e aparentemente não relacionado aconteceu.</p>
+<p>Me lembra da história de &quot;Minha senha não funciona quando eu fico em pé&quot;.</p>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

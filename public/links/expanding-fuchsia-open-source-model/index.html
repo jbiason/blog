@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented link: Expanding Fuchsia&#x27;s open source model</h1>
+  <span class="post-date">
+	2020-12-13
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/google/">#google</a>
+        
+            <a href="https://blog.juliobiason.me/tags/fuchsia/">#fuchsia</a>
+        
+            <a href="https://blog.juliobiason.me/tags/open-source/">#open source</a>
+        
+  </span>
+  <p>Google recently announced they they are <a href="https://opensource.googleblog.com/2020/12/expanding-fuchsias-open-source-model.html">changing the open source
+model</a>
+of their new open source OS called Fuchsia. But there are so many red flags one
+has to wonder what the announcement actually is.</p>
+<span id="continue-reading"></span>
+<p>For example: &quot;We have been developing Fuchsia in the open, in our git
+repository for the last four years.&quot; Thing is, nobody had access to the
+repository for <em>writing</em>, only Google. And, although it was &quot;open&quot; you couldn't
+suggest changes or anything, even if you were following the development since
+its inception. The model is as &quot;open&quot; as Android is, where only way to
+contribute to the mainline code is being at Google; you can clone the Android
+code as much as you can clone Fuchsia code, but good luck trying to make it run
+without voiding your device warranty.</p>
+<p>&quot;Starting today, we are expanding Fuchsia's open source model to make it easier
+for the public to engage with the project.&quot; This point is important for the
+next points, but you have to ask yourself: What is actually changing in the
+model? Are they changing the license, to allow people to continuous contribute
+as an open source project? Are they opening the lines for accepting external
+pull requests? No, they are just creating a maillist and writing down how one
+can get permission to submit patches or become a committer. How open is a
+project that you need to have badge to be able to be part of the project?</p>
+<p>Let me try to explain this by using an analogy: Imagine a house with a
+huge, sound-proof window. Sure you can look inside the house, but
+there is no way you can tell people that the sofa looks better if
+facing the other wall, that a vase is about to fall down and break or
+even get in and help them move the sofa to the other side of the
+room. You wouldn't call that an &quot;open&quot; house, would you? Well, that's
+the current model for Google projects: Look, but we won't listen to
+you and we won't let you get in to move the sofa the way we actually
+want.</p>
+<p>&quot;In addition, we are also publishing a technical roadmap for Fuchsia to provide
+better insights for project direction and priorities.&quot; Remember the first point
+about making easier to the public to contribute? Well, how can it be a
+contribution from the public if the direction is already set? What if the
+public decides that the direction should be another one? Either is a waste of
+time of the current developers or the &quot;easier to contribute&quot; is simply for free
+labor and not for building an open source project, in the end.</p>
+<p>&quot;Fuchsia is an open source project that is inclusive by design, from the
+architecture of the platform itself, to the open source community that we’re
+building.&quot; This point was raised from another user on Mastodon (hello
+<a href="https://bitcoinhackers.org/@berkes">Berkes</a>): One does not &quot;build&quot; an open
+source community; you make an inclusive, open to everyone project, where people
+can contribute to code, documentation, ideas, improvements and even direction
+and the community will build itself -- Rust is a great example of that (and I'm
+bringing this for later).</p>
+<p>But even with all that, let's take a step back: Why would Google change the
+&quot;model&quot; of such OS? Couldn't they develop it themselves, in the close? Sure
+they could. The fact that they are &quot;open sourcing&quot; it probably means the
+project lost importance inside Google and nobody actually cares to continue
+development of it. The roadmap probably is just the original authors
+&quot;wishlist&quot; for the OS and nothing more.</p>
+<p>Also, there is the question of &quot;Why Fuchsia?&quot;; why would Google invest in
+producing another OS when Linux seems to fit most of their needs (after all, it
+fits their ChromeOS and Android systems)? While being developed with Rust, a
+language the provides memory protection and should, in theory, provide a better
+experience for users, it doesn't mean that other languages can't provide the
+same protections -- Rust just means the compiler will do a better job at
+pointing out problems than other languages. But when you have an operating
+system like Linux, which is reviewed by thousands of developers around the
+world, highly modular and with groups focused on different subsystems, the
+protection comes from the <em>community</em>. Google could, pretty much, rewrite some
+critical subsystems in Rust and get over it, but they decided to go with a
+completely different OS. And the rumors say that it was simply 'cause Linux is
+licensed under GPL, a license the allows anyone to contribute -- with later
+versions of the license even requesting companies to provide the encryption
+keys for devices that require it -- and that Google simply abhors.</p>
+<p>So, an OS created (probably) out of petty spite for rules that actually <em>build</em>
+open source communities now is trying to create an open source community. If
+this isn't poetic justice, I don't know what it is.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

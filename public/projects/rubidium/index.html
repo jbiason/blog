@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Thrifty Rubidium</h1>
+  <span class="post-date">
+	2022-06-14
+	
+            <a href="https://blog.juliobiason.me/tags/projects/">#projects</a>
+        
+            <a href="https://blog.juliobiason.me/tags/personal/">#personal</a>
+        
+            <a href="https://blog.juliobiason.me/tags/make/">#make</a>
+        
+            <a href="https://blog.juliobiason.me/tags/runner/">#runner</a>
+        
+  </span>
+  <p>Task Runner.</p>
+<p>The basic idea is to have a bunch of tasks, and each task have a step. Based on
+the parallelism available (number of cores, for example), the system would
+launch each step on each task as long as there is available processing power.</p>
+<p>Let's start with the definition of task: A task could be, very simply, a
+directory with a runner configuration file, where the steps are defined. For
+example:</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>	&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">ExampleTask</span><span>&quot;,
+</span><span>	&quot;</span><span style="color:#a3be8c;">steps</span><span>&quot;: [
+</span><span>		{
+</span><span>			&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Get List</span><span>&quot;,
+</span><span>			&quot;</span><span style="color:#a3be8c;">command</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">ls &gt; file.ls</span><span>&quot;
+</span><span>		},
+</span><span>		{
+</span><span>			&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Find file</span><span>&quot;,
+</span><span>			&quot;</span><span style="color:#a3be8c;">command</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">grep somename file.ls</span><span>&quot;
+</span><span>		},
+</span><span>		{
+</span><span>			&quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Remove file</span><span>&quot;,
+</span><span>			&quot;</span><span style="color:#a3be8c;">command</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">rm file.ls</span><span>&quot;
+</span><span>		}
+</span><span>	]
+</span><span>}
+</span></code></pre>
+<p>If one of the steps fails, the whole task stops. For example, if grep returns
+an error code, &quot;Rmeove file&quot; would not be run.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p><strong>Thought</strong>: Maybe we could add a flag on each step to point that the steps
+should keep going even in case of error.</p>
+
+</div>
+<p>The first step is to walk all directories, trying to find out which ones
+contain the task configuration file. Once found, it will be added to the list
+of running tasks, and the steps will start running.</p>
+<p>One multiple tasks we could have something like this
+(<a href="https://github.com/fdehau/tui-rs">TUI</a> idea, also):</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>Task         Step 1        Step 2         Step 3           Step 4
+</span><span>ExampleTask  Get list (R)  Find file (W)  Remove file (W)
+</span><span>Task2        Step21 (D)    Step 22 (R)    Step 23 (W)      Step 24 (W)
+</span><span>Task3        Step31 (R)    Step 32 (W)    Step 33 (W)
+</span><span>Task4        Step41 (D)    Step 42 (R)
+</span><span>Task5        Step51 (E)    Step 52 (S)    Step 53 (S)
+</span></code></pre>
+<p>In this example, there are 4 available cores, so only 4 steps can run at the
+same time; those are marked as <code>(R)</code> for Running. Once the step is Done, marked
+as <code>(D)</code>, task can move to the next step. Steps marked with <code>(W)</code> are Waiting
+for their time to be run, which requires the previous step to be marked as Done
+and having enough cores available. If a step errors, <code>(E)</code>, the task stops
+running and the next steps are marked as Skipped, <code>(S)</code>.</p>
+<p>The structures to load the tasks is pretty simple:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub struct </span><span>Case {
+</span><span>	</span><span style="color:#bf616a;">name</span><span>: String,
+</span><span>	</span><span style="color:#bf616a;">steps</span><span>: Vec&lt;Step&gt;
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">pub struct </span><span>Step {
+</span><span>	</span><span style="color:#bf616a;">name</span><span>: String,
+</span><span>	</span><span style="color:#bf616a;">command</span><span>: Command,
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">pub struct </span><span>Command {
+</span><span>	</span><span style="color:#bf616a;">command</span><span>: String,
+</span><span>	</span><span style="color:#bf616a;">name</span><span>: String,
+</span><span>}
+</span></code></pre>
+<p>After reading the data from the disk, the code could check if the step is &quot;valid&quot;, 
+like checking if the command exists and can be called. The <code>Command</code> doesn't
+exist in the configuration file, but it is generated while being loaded; the
+command itself it is the command specificed in the runner configuration file,
+but its main component is extracted and put in the name, to make it easier to
+display to the user; for example <code>/usr/bin/ls -lha</code> in the configuration file
+would have the same value in the <code>command</code> field, but the <code>name</code> would be
+simply &quot;ls&quot;.</p>
+<p>For every structure, they is a &quot;sister&quot; structure &quot;Run&quot;, with the results of
+the execution:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub struct </span><span>CaseRun {
+</span><span>	</span><span style="color:#bf616a;">case</span><span>: &amp;Case,
+</span><span>	</span><span style="color:#bf616a;">status</span><span>: CaseRunStatus,
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">pub enum </span><span>CaseRunStatus {
+</span><span>	PendingSteps,		</span><span style="color:#65737e;">// there are still steps to be run in this case
+</span><span>	Completed,		</span><span style="color:#65737e;">// no more steps available
+</span><span>	Error,			</span><span style="color:#65737e;">// one step failed and it shouldn&#39;t run anymore
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">pub struct </span><span>StepRun {
+</span><span>	</span><span style="color:#bf616a;">step</span><span>: &amp;Step,
+</span><span>	</span><span style="color:#bf616a;">status</span><span>: StepRunStatus,
+</span><span>	</span><span style="color:#bf616a;">output</span><span>: String,
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">pub enum </span><span>StepRunStatus {
+</span><span>	Waiting,
+</span><span>	Running,
+</span><span>	Done,
+</span><span>	Error,
+</span><span>	Skipped,
+</span><span>}
+</span></code></pre>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

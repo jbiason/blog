@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Timeout With Command in Tokio</h1>
+  <span class="post-date">
+	2023-08-31
+	
+            <a href="https://blog.juliobiason.me/tags/random/">#random</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/tokio/">#tokio</a>
+        
+            <a href="https://blog.juliobiason.me/tags/spawn/">#spawn</a>
+        
+            <a href="https://blog.juliobiason.me/tags/process/">#process</a>
+        
+            <a href="https://blog.juliobiason.me/tags/command/">#command</a>
+        
+            <a href="https://blog.juliobiason.me/tags/timeout/">#timeout</a>
+        
+  </span>
+  <p>How to spawn an external command and give it a timeout in Rust, with Tokio</p>
+<span id="continue-reading"></span>
+<p>The entry point for running external applications in Rust is the
+<a href="https://doc.rust-lang.org/std/process/struct.Command.html">Command</a> structure,
+in the process module. This whole structure is duplicated <a href="https://docs.rs/tokio/latest/tokio/process/struct.Command.html">on Tokio, with
+async</a>.</p>
+<p>But there is one thing that exist in other languages (like Python) that Rust
+doesn't have: Having a timeout for the command (and killing it if it runs over
+the timeout). The usual solution is to run the command on a specialized thread
+and, with another thread, make sure to kill the first if the second finishes
+first.</p>
+<p>But Tokio have a funcionality that saves a lot of code when dealing with this:
+<a href="https://docs.rs/tokio/latest/tokio/time/fn.timeout.html">timeout</a>. While it
+doesn't apply to the Command itself, it applies to Futures, and waiting for a
+command is an async function, which means it is wrapped around a Future, and we
+can leverage this.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>std::time::Duration;
+</span><span>
+</span><span style="color:#b48ead;">use </span><span>tokio::process::Command;
+</span><span style="color:#b48ead;">use </span><span>tokio::time::timeout;
+</span><span>
+</span><span>#[</span><span style="color:#bf616a;">tokio</span><span>::</span><span style="color:#bf616a;">main</span><span>(flavor = &quot;</span><span style="color:#a3be8c;">current_thread</span><span>&quot;)]
+</span><span>async </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> sleep = &quot;</span><span style="color:#a3be8c;">sleep</span><span>&quot;;
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Run 3 secs</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> cmd = Command::new(&amp;sleep).</span><span style="color:#96b5b4;">arg</span><span>(&quot;</span><span style="color:#a3be8c;">3s</span><span>&quot;).</span><span style="color:#96b5b4;">spawn</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    </span><span style="color:#b48ead;">if let </span><span>Err(_) = </span><span style="color:#96b5b4;">timeout</span><span>(Duration::from_secs(</span><span style="color:#d08770;">4</span><span>), cmd.</span><span style="color:#96b5b4;">wait</span><span>()).await {
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Got timeout!</span><span>&quot;);
+</span><span>        cmd.</span><span style="color:#96b5b4;">kill</span><span>().await.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">No timeout</span><span>&quot;);
+</span><span>    }
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Run 25 secs</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> cmd = Command::new(&amp;sleep).</span><span style="color:#96b5b4;">arg</span><span>(&quot;</span><span style="color:#a3be8c;">25s</span><span>&quot;).</span><span style="color:#96b5b4;">spawn</span><span>().</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    </span><span style="color:#b48ead;">if let </span><span>Err(_) = </span><span style="color:#96b5b4;">timeout</span><span>(Duration::from_secs(</span><span style="color:#d08770;">4</span><span>), cmd.</span><span style="color:#96b5b4;">wait</span><span>()).await {
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">Got timeout</span><span>&quot;);
+</span><span>        cmd.</span><span style="color:#96b5b4;">kill</span><span>().await.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        println!(&quot;</span><span style="color:#a3be8c;">No timeout</span><span>&quot;);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>The thing here is <code>.wait()</code>. That's when Tokio wraps the command call into a
+Future. But, because the task is dead, it doesn't actually kill the command,
+and that's why we need to call <code>.kill()</code> in case of timeout -- otherwise the
+command will still run (you can check this by removing the <code>.kill()</code> call on
+the 25s block, and calling <code>ps</code> after the application finishes).</p>
+<p>Just note that the <code>if let Err(_)</code> is for timeout; <code>.wait()</code> also returns a
+<code>Result</code>, and that's the one that needs to be checked for the actual success of
+the execution.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">01.05. Mudando de Modos – Modo de Comando</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte onde você vai aprender a fazer as coisas que precisavam de um
+menu para serem feitas.</p>
+<span id="continue-reading"></span>
+<p>Existem três &quot;iniciadores&quot; de comandos no modo de... erm... comando:</p>
+<ul>
+<li><code>:</code>: Inicia um comando de edição.</li>
+<li><code>/</code>: Comando de pesquisa.</li>
+<li><code>!</code>: Comando de filtro externo.</li>
+</ul>
+<h2 id="comandos-de-edicao">Comandos de Edição</h2>
+<p>Assim como os comandos do modo normal, a quantidade de comandos de edição é
+grande demais para cobrir de uma vez só. Então vamos dar uma olhada nos mais
+utilizados:</p>
+<h2 id="q">:q</h2>
+<p>Sai do VIM. Esse deve ser o comando mais infame da história do editor -- pelo
+menos, para os não iniciados. E ele ainda aparece na tela inicial do VIM, se
+você prestar atenção.</p>
+<h2 id="w">:w</h2>
+<p>Salva o arquivo atual em disco. Você pode passar o nome do arquivo a ser salvo
+neste ponto. <code>:w</code>, por exemplo, irá salvar o conteúdo com o nome atual; <code>:w outro-nome</code> irá salvar o conteúdo no arquivo &quot;outro-nome&quot;.</p>
+<h2 id="wall">:wall</h2>
+<p>Salva todos os arquivos arquivos. Mais adiante veremos como ter vários arquivos
+abertos ao mesmo tempo.</p>
+<h2 id="wq">:wq</h2>
+<p>Salva o arquivo atual e o fecha.</p>
+<h2 id="help">:help</h2>
+<p>Abre o help do VIM no tópico indicado. Por exemplo, <code>:help :w</code> irá apresentar as
+opções existentes para o comando <code>:w</code>; <code>:help c</code> irá mostrar as opções do comando <code>c</code>
+do modo normal e assim por diante.</p>
+<h2 id="set">:set</h2>
+<p>Configura (ou apresenta) alguma configuração do VIM. Mais a frente veremos como
+configurar o VIM e veremos as opções este comando.</p>
+<h2 id="r">:r</h2>
+<p>(Ou :read) Não é muito comum, mas permite carregar o conteúdo de outro arquivo
+para dentro do arquivo atual. sem precisar fazer todo o processo de
+copiar-e-colar (que veremos mais adiante). Um fato interessante de <code>:r</code> é que se
+o nome do arquivo a ser carregado começar com &quot;!&quot;, o VIM irá tentar executar o
+comando ao invés de carregar o conteúdo. Por exemplo, <code>:r date</code> irá carregar o
+conteúdo do arquivo <code>date</code> para dentro do arquivo atual enquanto que <code>:r !date</code> irá
+executar o comando <code>date</code> e &quot;colar&quot; o resultado para dentro do arquivo atual.</p>
+<h2 id="noh">:noh</h2>
+<p>(Ou :nohighlight) Desliga a marcação sobre elementos de pesquisa. A seguir nós
+vamos ver sobre o comando de pesquisa; ao fazer uma, o VIM irá colocar um
+&quot;realce&quot; (ou &quot;highlight&quot;) sobre as palavras encontradas. Para desligar esses
+realces no texto, você pode usar <code>:noh</code>. </p>
+<p>Aqui eu preciso abrir três parenteses:</p>
+<ul>
+<li>
+<p>Quando o vim se recusar a executar um comando, você pode forçá-lo a executar
+o mesmo de qualquer forma adicionando uma exclamação <code>!</code> no final do comando.
+Por exemplo, se o VIM se recusar a sair porque você tem alterações em um
+arquivo não salvo, <code>:q!</code> irá forçar o editor fechar, perdendo as alterações
+feitas; se o arquivo não tiver permissão de escrita, <code>:w!</code> irá fazer com que o
+VIM altere as permissão do arquivo para poder escrever (e, no final, esta
+alteração das permissões é revertida)<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+</li>
+<li>
+<p>Uma coisa que você vai encontrar frequentemente são referências a &quot;buffer&quot; e
+&quot;arquivo&quot;. Entenda assim: buffer é a representação do arquivo na memória
+enquanto que o arquivo é a representação do conteúdo no disco. Ao abrir um
+arquivo, o VIM cria um buffer com o conteúdo do arquivo e o mantém em
+memória; se o arquivo sumir, o buffer ainda existirá e poderá ser salvo
+ainda; vários comandos internos do VIM -- se você se aventurar a escrever um
+plugin, por exemplo -- fazem referência ao buffer e não ao arquivo, mas
+existem funções que retornam o buffer de um arquivo com o nome indicado. Em
+todo esse tempo usando VIM, a distinção entre ambos nunca me pareceu
+importante e considerar, simplesmente, que &quot;buffer&quot; é o arquivo em memória é
+o suficiente.</p>
+</li>
+<li>
+<p>Todos os comandos internos do VIM iniciam com uma letra minuscula e plugins,
+quando adicionam comandos a mais, adicionam com letras maiúsculas<sup class="footnote-reference"><a href="#2">2</a></sup>. Ainda,
+boa parte dos comandos não precisa ser digitada completa; quando não há mais
+redundâncias, o comando é aceito. Por exemplo, se houverem os comandos
+&quot;:Gblame&quot; e &quot;:Gbork&quot;, &quot;:Gb&quot; não será aceito, mas &quot;:Gba” será porque não há
+mais nenhum outro comando que comece com &quot;:Gba&quot; (por isso que &quot;:noh&quot; funciona
+como atalho para &quot;:nohighlight&quot;: porque não há nenhum outro comando que
+inicie com &quot;noh&quot;).</p>
+</li>
+</ul>
+<h2 id="comando-de-pesquisa">Comando de Pesquisa</h2>
+<p>O comando de pesquisa é, simplesmente, <code>/</code>. Uma vez pressionado, você verá o
+cursor indo para a última linha da tela esperando a pesquisa. Uma coisa a ter
+em mente é que o VIM utiliza expressões regulares -- então algumas coisas que
+você procurar não irão funcionar exatamente como você está esperando. &quot;.&quot;, por
+exemplo. Eu não vou entrar em detalhes sobre expressões regulares porque há
+pilhas de informações sobre elas na internet -- e há praticamente mais sobre
+elas do que essa série tem (e terá) sobre VIM.</p>
+<p>Dois comandos do modo normal que eu não mencionei antes por estarem ligados ao
+comando de pesquisa são <code>n</code> e <code>N</code>. <code>n</code> irá mover o cursor para a próxima
+ocorrência da pesquisa, enquanto que <code>N</code> move o cursor para a anterior. Note
+que eu falei &quot;move o cursor&quot;; isso quer dizer que <code>n</code> e <code>N</code> são comandos de
+movimentação e, portanto, podem ser usados com outros comandos do modo normal
+que utilizam movimentação. Por exemplo, procurar por &quot;olá&quot; e, em modo normal,
+executar <code>cn</code> irá remover tudo da posição do cursor até a próxima ocorrência de
+&quot;olá&quot; (e entrará em modo de edição).</p>
+<h2 id="comando-de-filtro">Comando de Filtro</h2>
+<p>O comando de filtro pega o conteúdo no editor e passa para outro programa. Por
+exemplo, se você tiver o aplicativo &quot;rot13&quot;, ao executar <code>!rot13</code>, todo o
+conteúdo do arquivo será convertido para ROT13. Se você digitar <code>!!rot13</code>, no
+entanto, o conteúdo ainda será passado para o filtro e o resultado irá
+substituir o conteúdo do buffer atual.</p>
+<p>Não parece ser interessante, mas um dos aplicativos que normalmente vem com o
+VIM é &quot;xxd&quot;, que converte o conteúdo para sua representação hexadecimal. Ao
+executar &quot;!xxd&quot;, você verá todo o conteúdo do seu arquivo com os valores
+hexadecimais de cada caracter.</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> Não confunda &quot;Não ter permissão de escrita&quot; com &quot;O arquivo pertence ao
+root&quot;. No primeiro caso, o usuário tem permissão de ler o arquivo e trocar
+as permissões enquanto que no segundo o editor teria que ter permissões
+especiais de execução para poder trocar as permissões. O VIM só consegue
+responder ao <code>:w!</code>  se ele próprio -- e, no caso, o próprio usuário -- tiver
+permissões suficientes sem requisitar outro aplicativo.</p>
+<p><sup class="footnote-reference"><a href="#2">2</a></sup> Na verdade, o VIM vem sim com comandos que inicial com letra maíuscula: São
+os comandos de exploração de diretório <code>:Explore</code>, <code>:Rexplore</code>, <code>:Vexplore</code> e o
+famigerado <code>:Sexplore</code>, que o pessoal costuma encurtar para <code>:Sex</code>.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;01-04-modo-visual">Modo Visual</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;01-05-modo-de-comando">Modo de Comando</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

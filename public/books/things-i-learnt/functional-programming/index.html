@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Learn The Basics of Functional Programming</h1>
+  <span class="post-date">
+	2019-06-26
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/functional-programming/">#functional programming</a>
+        
+  </span>
+  <p>At this point, you should at least have heard about how cool functional
+programming is. There are a lot of concepts here, but at least the very basic
+ones you should keep in mind.</p>
+<span id="continue-reading"></span>
+<p>A lot of talks about functional programming come with weird words like
+&quot;functors&quot; and &quot;monads&quot;. It doesn't hurt to know what they really mean
+(disclaimer: I still don't). But some other stuff coming from functional
+programming is actually easy to understand and grasp.</p>
+<p>For example, immutability. This means that all your data can't change once
+it's created. Do you have a record with user information and the user changed
+their password? No, do not change the password field, create a new user record
+with the updated password and discard the old one. Sure, it does a lot of
+&quot;create and destroy&quot; sequences which makes absolutely no sense (why would you
+allocate memory for a new user, copy everything from the old one to the new
+one, update one field, and &quot;deallocate&quot; the memory from the old one? It makes
+no sense!) but, in the long run, it would prevent weird results, specially
+when you understand and start use threads.</p>
+<p>(Basically, you're avoiding a shared state -- the memory -- between parts of
+your code.)</p>
+<p>Another useful concept is pure functions. Pure functions are functions that,
+called with the same parameters, always return the same result, no matter how
+many times you call them. One example of a <em>non</em> pure function is <code>random()</code>:
+each time you call <code>random()</code>, you get a different number<sup class="footnote-reference"><a href="#1">1</a></sup>. An example of a
+pure function would be something like this in Python:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">mult</span><span>(</span><span style="color:#bf616a;">x</span><span>):
+</span><span>   </span><span style="color:#b48ead;">return </span><span>x * </span><span style="color:#d08770;">4
+</span></code></pre>
+<p>No matter how many times you call <code>mult(2)</code>, it will always return 8. Another
+example could be our immutable password change above: You could easily write a
+function that receives a user record and returns a new user record with the
+password changed. You could call with the same record over and over again and
+it will always return the same resulting record.</p>
+<p>Pure functions are useful 'cause they are, first most, easy to test.</p>
+<p>Second, they are easy to chain, specially in a <a href="/books/things-i-learnt/data-flow">data
+flow</a> design: Because they don't have an
+internal state (which is the real reason they are called pure functions), you
+can easily call one after the other and no matter how many times you pass
+things around, they still produce the same result. And because each function,
+given the same input, produce the same result, chaining them all <em>also</em>
+produces the same result given the same inputs.</p>
+<p>Just those two concepts can make code longer (again, you're creating a new
+user record instead of simply changing one field), but the final result is a
+more robust code.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Except in Haskell, but it does require sending the seed every time, so
+you end up with random values based on the seed, so even there it is a pure
+function.</p>
+</div>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;cognitive-cost">Cognitive Cost Is The Readability Killer</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;understand-shortcuts">Shortcuts Are Nice, But Only In The Short Run</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

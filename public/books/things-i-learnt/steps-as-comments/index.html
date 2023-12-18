@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Write Steps as Comments</h1>
+  <span class="post-date">
+	2019-06-18
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/steps/">#steps</a>
+        
+            <a href="https://blog.juliobiason.me/tags/comments/">#comments</a>
+        
+            <a href="https://blog.juliobiason.me/tags/code/">#code</a>
+        
+  </span>
+  <p>Don't know how to solve your problem? Write the steps as comments in your
+code.</p>
+<span id="continue-reading"></span>
+<p>There you are, looking at the blank file wondering how you're going to solve
+that problem. Here is a tip:</p>
+<p>Take the spec you (or someone else) wrote. Break each point into a series of
+steps to reach the expected behaviour. You can even write on your natural
+language, if you don't speak English.</p>
+<p>Then fill the spaces between the comments with code.</p>
+<p>For example, if you have a spec of &quot;connect to server X and retrieve
+everything there. Save the content in the database. Remember that server X API
+allow you can pass an ID (the last ID seen) and you can use it to not retrieve
+the same content again.&quot; Pretty simple, right?</p>
+<p>Writing this as comments, pointing the steps you need to make, you may end up
+with something like this:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>// connect to server X
+</span><span>// retrieve posts
+</span><span>// send posts to the database
+</span></code></pre>
+<p>Ah, you forgot the part about the ID. No problem, you just have to add it in
+the proper places -- for example, it doesn't make sense to connect to the
+server before you have the last seen ID:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>// open configuration file
+</span><span>// get value of the last seen ID; if it doesn&#39;t exist, it&#39;s empty.
+</span><span>// connect to server X
+</span><span>// retrieve posts starting at the last seen ID
+</span><span>// send posts to the database
+</span><span>// save the last seen ID in the configuration file
+</span></code></pre>
+<p>Now it is &quot;easy&quot;<sup class="footnote-reference"><a href="#1">1</a></sup>: You just add the code after each comment.</p>
+<p>A better option is to change the comments into functions and, instead of
+writing the code between the comments, you write the functionality in the
+function themselves and keep a clean view of what your application does in the
+main code.</p>
+<p>In <a href="https://blog.pragmaticengineer.com/a-comment-is-an-invitation-for-refactoring/">A Comment Is An Invitation For
+Refactoring</a>,
+Gergely Orosz points that comments in the code could be converted to function
+calls, including things like grouping common things, or bugfixes. This is,
+basically, the same thing, except in different points of development: One when
+the code is about to be written and one when the code is already there.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Yes, that was sarcastic.</p>
+</div>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;spec-first">Specs First, Then Code</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;gherkin">Gherkin Is Your Friend to Understand Expectations</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-04-23</h1>
+  <span class="post-date">
+	2020-04-23
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/google/">#google</a>
+        
+            <a href="https://blog.juliobiason.me/tags/privacy/">#privacy</a>
+        
+            <a href="https://blog.juliobiason.me/tags/commits/">#commits</a>
+        
+            <a href="https://blog.juliobiason.me/tags/messages/">#messages</a>
+        
+            <a href="https://blog.juliobiason.me/tags/microservices/">#microservices</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/memory/">#memory</a>
+        
+            <a href="https://blog.juliobiason.me/tags/testing/">#testing</a>
+        
+            <a href="https://blog.juliobiason.me/tags/tests/">#tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/asciiflow/">#asciiflow</a>
+        
+            <a href="https://blog.juliobiason.me/tags/vscode/">#vscode</a>
+        
+            <a href="https://blog.juliobiason.me/tags/linux/">#linux</a>
+        
+            <a href="https://blog.juliobiason.me/tags/laptop/">#laptop</a>
+        
+  </span>
+  <p>Google, Commit Messages, Microservices, How Rust Sees Memory, More About
+Tests, Asciiflow in VS Code, Does Rust Change Too Much?, Linux Laptop.</p>
+<span id="continue-reading"></span><h1 id="google-says-it-doesn-t-sell-your-data-here-s-how-the-company-shares-monetizes-and-exploits-it"><a href="https://www.eff.org/deeplinks/2020/03/google-says-it-doesnt-sell-your-data-heres-how-company-shares-monetizes-and">Google Says It Doesn’t 'Sell' Your Data. Here’s How the Company Shares, Monetizes, and Exploits It.</a></h1>
+<p>Alright, let's start by picking on who we like to pick the most: Google.</p>
+<p>While the EFF article sounds a bit too scary and demonizes the company a bit
+too much, it brings a good point: Google is trying to escape regulations by
+using wording instead of actually fixing it.</p>
+<h1 id="why-my-commit-messages-for-configuration-files-describe-my-changes"><a href="https://utcc.utoronto.ca/~cks/space/blog/sysadmin/SysadminCommitMsgWhat">Why my commit messages for configuration files describe my changes</a></h1>
+<p>While I don't fully agree with this idea of &quot;describing the changes in the
+commit message even when the change is there&quot;, even with the reason pointed in
+the article, I think it still misses something:</p>
+<p><em>Why</em> you did the change.</p>
+<p>Sure, you can describe the changes, duplicating the already-there description
+by its changes, but you need to explain <em>why</em> you did so. Bob got into group
+'fred'? Ok, but why? </p>
+<p>This isn't just so people, in the future, when asking themselves &quot;Why does Bob
+is a member of fred?&quot; but also forces you to go after the reason for doing it.
+We are not machines that receive requests to, say, add Bob to the fred group,
+and do so without any questions. There must be a reason for this kind of
+stuff.</p>
+<h1 id="untangling-microservices-or-balancing-complexity-in-distributed-systems"><a href="https://vladikk.com/2020/04/09/untangling-microservices/">Untangling Microservices, or Balancing Complexity in Distributed Systems</a></h1>
+<p>There is a movement on <em>killing</em> microservices raising recently. The article
+points one of the reasons: It's hard to find boundaries and where to split
+services.</p>
+<p>Did we jump into the &quot;microservices&quot; bandwagon too early? What are we missing
+for people to get those boundaries in a simple and understandable way? Are
+boundaries really that necessary for microservices? Can't we use some other
+metric to split the services?</p>
+<p>Honestly, I have no idea. There are some good points about microservices --
+like each having its own database and no shared state between services. But
+maybe we should look into <a href="https://blog.juliobiason.me/code/microservices-artifact-input-state/">what the service should
+produce</a>
+instead of focusing on &quot;boundaries&quot;.</p>
+<h1 id="visualizing-memory-management-in-rust"><a href="https://deepu.tech/memory-management-in-rust/">Visualizing memory management in Rust</a></h1>
+<p>While the article focuses on the Rust memory management, the same works for
+every language that doesn't have a runtime, AFAIK. So, if you're trying to get
+out of a language with runtime and switch to a language that has to deal with
+memory directly, there is some good information here.</p>
+<h1 id="how-we-test-vector"><a href="https://vector.dev/blog/how-we-test-vector/">How We Test Vector</a></h1>
+<p>A lot of discussion about testing on Vector, a transformation pipeline.</p>
+<p>One of the aspects that I liked on this is that they mention unit tests as &quot;in
+isolation&quot; (which I agree) and that they used for one single component, the
+transformations. And while they don't talk anything about using the classical
+&quot;on test per function&quot;, it seems they actually used this way but only for a
+subset of everything.</p>
+<h1 id="asciiflow-in-vs-code"><a href="https://github.com/zenghongtu/vscode-asciiflow2">Asciiflow in VS Code</a></h1>
+<p>While I'm not a user of either Asciiflow or VS Code, it looks really
+interesting the fact that the whole design thing is in ASCII, WYSIWYG and
+mouse-oriented.</p>
+<h1 id="the-oauth-bible"><a href="https://github.com/Kong/mashape-oauth/blob/master/FLOWS.md">The OAuth Bible</a></h1>
+<p>I'm not a fan of OAuth, basically 'cause I tried to implement it myself
+(instead of using an already existing library) and it was too much work
+without seeing any real protection.</p>
+<p>On the other hand, since a lot of services use OAuth, it may be a good idea to
+fully understand the protocol. And that's what is here.</p>
+<h1 id="how-often-does-rust-change"><a href="https://words.steveklabnik.com/how-often-does-rust-change">How often does Rust change?</a></h1>
+<p>Rust has a release cadence of 6 weeks. There was another post about <a href="https://timidger.github.io/posts/i-cant-keep-up-with-idiomatic-rust/">keeping up with idiomatic
+Rust</a>.
+But does Rust change that much?</p>
+<p>Although Klabnik points that yes, I personally don't think that much. The
+language is still pretty usable since the 2018 edition.</p>
+<p>On the other hand, some things must be taking in the big picture. There is a
+huge run towards async in the ecosystem -- and not by Rust itself -- that
+seems a bit... disorientating. One example I can point is
+<a href="https://github.com/seanmonstar/reqwest">reqwest</a>. I'm using it for a lot of
+stuff and, suddenly, the API changed to use async, something I don't need
+right now. While there is a <code>blocking</code> module for using the old, non-async
+calls... it is still confusing that I can't use the main module 'cause I don't
+want/need async yet.</p>
+<h1 id="system76-launches-lemur-pro-linux-laptop-with-open-source-firmware"><a href="https://9to5linux.com/system76-launches-lemur-pro-linux-laptop-with-open-source-firmware">System76 Launches Lemur Pro Linux Laptop with Open Source Firmware</a></h1>
+<p>While I'm quite happy with the XPS and an open source firmware may not be that
+much of a fuss (actually, it kinda is, but still...), you can't deny that's
+one hell of a pretty laptop.</p>
+<p>The fact that it comes with Linux installed probably means all its hardware is
+compatible and you won't find any troubles with drivers and such.</p>
+<p>Did I mention it was one hell of a pretty laptop?</p>
+<hr />
+<p>This post was built with the help of</p>
+<ul>
+<li><a href="https://floss.social/@9to5linux">9to5linux</a></li>
+<li><a href="https://mastodon.social/@hntooter">HN Tooter</a></li>
+<li><a href="https://mastodon.social/@newsbot">newsbot</a></li>
+<li><a href="https://mastodon.xyz/@nextcloud">Nextcloud 📱☁️💻</a></li>
+<li><a href="https://botsin.space/@readrust">Read Rust</a></li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

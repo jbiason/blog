@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Multiple Distros with Toolbx</h1>
+  <span class="post-date">
+	2022-06-24
+	
+            <a href="https://blog.juliobiason.me/tags/linux/">#linux</a>
+        
+            <a href="https://blog.juliobiason.me/tags/podman/">#podman</a>
+        
+            <a href="https://blog.juliobiason.me/tags/containers/">#containers</a>
+        
+            <a href="https://blog.juliobiason.me/tags/toolbox/">#toolbox</a>
+        
+            <a href="https://blog.juliobiason.me/tags/toolbx/">#toolbx</a>
+        
+  </span>
+  <p>When I switched from Fedora to
+<a href="https://silverblue.fedoraproject.org/">Silverblue</a>, I got used to use
+<code>toolbox</code> to check for packages and whatnot. But when I needed to test a
+project in multiple distributions, I decided it was time to explore Toolbx a
+little deeper.</p>
+<span id="continue-reading"></span><h2 id="what-s-it">What's it?</h2>
+<p>First of what, Toolbx (or <code>toolbox</code>) is a tool created to make it easier to
+play with <a href="https://podman.io/">Podman</a> images. You know when you use Docker to
+create an image that you can work along your normal install, so you can break
+as much as you want without damaging the external system, and still have access
+to your data? Well, that's Toolbx.</p>
+<p>By default, on Silverblue, there is basically just one image: fedora-toolbox.
+It is the default Fedora Workstation install, but you can pick any version you
+want. You can do </p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>toolbox create
+</span></code></pre>
+<p>... to create an environment with a Fedora install in the same version of the
+current Silverblue install and then </p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span>toolbox enter
+</span></code></pre>
+<p>... to get into the image. So now you can install whatever you want without
+burdening your system.</p>
+<p><code>toolbox create</code> have an option to select an image, and that's when I got the
+idea of using it to have different distributions in my system, each in their
+own container, with their own tools, so I could break them as much as I wanted
+without breaking my base system.</p>
+<h2 id="getting-other-images">Getting Other Images</h2>
+<p>To use a different image for your Toolbx, you can simply download them with
+<code>podman pull</code> and an image name. Unfortunately, not every image is ready to be
+used, 'cause there are some requirements that Toolbx needs to interact with the
+image.</p>
+<h2 id="requirements">Requirements</h2>
+<p>First, you'll need <code>capsh</code> to be available inside the image. The name of the
+package depends on the distribuition, but in the images I tried, none had it
+installed by default.</p>
+<p>Second, you'll probably need &quot;sudo&quot; so you can install packages on the
+container and, again, it doesn't seeem to be part of the base images.</p>
+<p>Third, because &quot;sudo&quot; is not available, there will be no <code>sudoers</code> file,
+requiring that you create one.</p>
+<p>Fourth, the sudo group can change from distribuition to distribution; some call
+it &quot;sudo&quot;, others call it &quot;wheel&quot;. But the group must exist.</p>
+<p>And fifth, Toolbx will mess with the entrypoint of the container, so you must
+be sure that there is no command in the entrypoint. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>There is a line that basically removes the entrypoint no matter what the base
+image uses, and I added it in all examples, just to be in the safe side.</p>
+
+</div>
+<h2 id="an-opensuse-image">An OpenSuse Image</h2>
+<p>Let me start with an OpenSuse image: Suse doesn't have a sudo group, doesn't
+come with <code>capsh</code> installed not <code>sudo</code>. So I had to create my own image.
+This can be done with a <code>Containerfile</code> file or, if you prefer, you can create
+it with the name <code>Dockerfile</code>, which Podman is pretty chill in using without
+issues.</p>
+<p>So I have this <code>Containerfile</code>:</p>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#b48ead;">FROM</span><span> opensuse/leap:15.1
+</span><span>
+</span><span style="color:#b48ead;">LABEL </span><span>com.github.containers.toolbox=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot; \
+</span><span>      com.github.debarshiray.toolbox=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">RUN </span><span>groupadd wheel
+</span><span style="color:#b48ead;">RUN </span><span>zypper install -y libcap-progs sudo
+</span><span style="color:#b48ead;">COPY</span><span> sudoers /etc/sudoers
+</span><span>
+</span><span>ENTRYPOINT []
+</span></code></pre>
+<p>The labels are just to inform Toolbx that the image is a Toolbx image. Because
+there is no sudo group, I had to need to create a <code>wheel</code> group; libcap-progs
+is the source for the <code>capsh</code> app; a <code>sudoers</code> file that was added to allow
+using <code>sudo</code> without a password.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>If you're curious, the whole <code>sudoers</code> I use have just one line:</p>
+<pre data-lang="sudo" style="background-color:#2b303b;color:#c0c5ce;" class="language-sudo "><code class="language-sudo" data-lang="sudo"><span>%wheel        ALL=(ALL)       NOPASSWD: ALL
+</span></code></pre>
+
+</div>
+<p>With that in place, the image can be created with <code>podman create . -t suse51</code>,
+where &quot;suse51&quot; will be the image name.</p>
+<p>Image created, the Toolbx environment can created with <code>toolbox create -i &lt;hash&gt; suse</code>; the <code>&lt;hash&gt;</code> part is the image ID and <code>suse</code> is the toolbox name.
+Dunno why, but sometimes referring to the image by its name (the one used in
+the <code>build</code> part) doesn't seem to work, but the hash always do.</p>
+<p>And then, to use the environment, simply do <code>toolbox enter suse</code>.</p>
+<p>Other distributions I build images:</p>
+<h2 id="ubuntu-image">Ubuntu Image</h2>
+<p>Similar to OpenSuse, Ubuntu default image also doesn't come with <code>capsh</code> and
+<code>sudo</code>, but this can fixed with this <code>Containerfile</code>:</p>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#b48ead;">FROM</span><span> ubuntu:18.04
+</span><span>
+</span><span style="color:#b48ead;">LABEL </span><span>com.github.containers.toolbox=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot; \
+</span><span>      com.github.debarshiray.toolbox=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">RUN </span><span>apt update &amp;&amp; apt upgrade -y
+</span><span style="color:#b48ead;">RUN </span><span>apt install -y libcap2-bin sudo
+</span><span style="color:#b48ead;">COPY</span><span> sudoers /etc/sudoers
+</span><span>
+</span><span>ENTRYPOINT []
+</span></code></pre>
+<p>Also, the <code>sudo</code> group is &quot;sudo&quot;, so the <code>sudoers</code> file had to reflect this.</p>
+<h2 id="centos-7-image">Centos 7 Image</h2>
+<p>Centos 7 comes with <code>capsh</code>, but not <code>sudo</code>. So another custom image needs to
+be used:</p>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span style="color:#b48ead;">FROM</span><span> centos:7.3.1611
+</span><span>
+</span><span style="color:#b48ead;">LABEL </span><span>com.github.containers.toolbox=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot; \
+</span><span>      com.github.debarshiray.toolbox=&quot;</span><span style="color:#a3be8c;">true</span><span>&quot;
+</span><span>
+</span><span style="color:#b48ead;">RUN </span><span>yum -y update yum-skip-broken
+</span><span style="color:#b48ead;">RUN </span><span>yum install -y sudo
+</span><span style="color:#b48ead;">COPY</span><span> sudoers /etc/sudoers
+</span><span>
+</span><span>ENTRYPOINT []
+</span></code></pre>
+<p><code>sudo</code> group is &quot;wheel&quot;, so <code>sudoers</code> had to be adjusted.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>That's basically it. I had to mess a bit with the images, check the logs trying
+to create the environment with <code>toolbox create -i &lt;image&gt; &lt;somename&gt; --log-level DEBUG</code> to see any complains, figure out how to fix those but once
+the first image (the Suse one) was created, figuring out what was needed was
+pretty easy.</p>
+<p>And now I don't need to do distro hopping to figure out if our project work on
+them.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

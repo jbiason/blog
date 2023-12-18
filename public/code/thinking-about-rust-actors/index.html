@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Thinking About Rust Actors</h1>
+  <span class="post-date">
+	2023-08-11
+	
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/actor-model/">#actor model</a>
+        
+  </span>
+  <p>I recently wrote an application for work (so, sorry, can't show you the code)
+that, 'cause it was heavily I/O based, I decided to write it using
+<a href="https://tokio.rs/">Tokio</a> and the idea of <a href="https://ryhl.io/blog/actors-with-tokio/">Actor Model with
+it</a>.</p>
+<p>... which gave me some things to think about.</p>
+<span id="continue-reading"></span>
+<p>Before anything, actors in Rust are very different from the actors in languages
+with the actual Actor Model. In summary, you have your actors, which running
+independently, each actor have an Inbox for things to be processed and an
+&quot;outbox&quot; -- in quotes, 'cause that's not really it. An actor can receive a
+message, process it and then it can just be done with it or it can produce
+something that it is send to another actor -- that's its outbox, which usually
+differs from the Inbox 'cause the Inbox need to have a queue of sorts, but the
+Outbox doesn't (and that's why I've been using &quot;outbox&quot; with quotes before).</p>
+<p>All the messages are delivered by a &quot;post office&quot; of sorts, that connects all
+Actors:</p>
+<p><img src="https://blog.juliobiason.me/code/thinking-about-rust-actors/actors.png" alt="" title="A silly representation of the actor model" /></p>
+<p>On my implementation, the actor is actually a module with a <code>run()</code> function;
+this function exposes the <code>Sender</code> part of a MPSC
+(Multiple-Producer-Single-Consumer) channel which acts as the Inbox of it and
+the task PID, so the can <code>.await</code> the actor processing loop to avoid the main
+application from finishing with the actor still running. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>For now, I'm ignoring Tokio and async for next examples.</p>
+
+</div>
+<p>And because there is no &quot;Post Office&quot; kind of solver in Rust, I short-circuited
+the actors by giving the <code>Sender</code> channel of an actor as parameter to a second,
+so it knows where to send its messages. Something like:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> channel3 = actor3::run(...);
+</span><span style="color:#b48ead;">let</span><span> channel2 = actor2::run(channel3);
+</span><span>actor1::run(channel2);
+</span></code></pre>
+<p>In this short sample, whatever &quot;actor1&quot; produces, it sends directly to &quot;actor2&quot;
+though the channel the latter created; &quot;actor2&quot;, on its part, produces
+something that is received by &quot;actor3&quot;. And, with more actors, things just keep
+chaining.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>I am intentionally ignoring the internals of each actor and their <code>run()</code>
+function, but they are some variations of:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">run</span><span>(..) -&gt; (task::JoinHandle&lt;()&gt;, mpsc::Sender&lt;TheKindOfMessageTheActorAccepts&gt;) {
+</span><span>    </span><span style="color:#b48ead;">let </span><span>(tx, </span><span style="color:#b48ead;">mut</span><span> rx) = mpsc::channel::&lt;TheKindOfMessageTheActorAccepts&gt;(</span><span style="color:#d08770;">SOME_SIZE</span><span>);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> task = tokio::spawn(async </span><span style="color:#b48ead;">move </span><span>{
+</span><span>        </span><span style="color:#b48ead;">while let </span><span>Some(incoming) = rx.</span><span style="color:#96b5b4;">recv</span><span>().await {
+</span><span>            </span><span style="color:#b48ead;">let</span><span> conversion = </span><span style="color:#96b5b4;">actor_process</span><span>(incoming);
+</span><span>            </span><span style="color:#65737e;">// maybe send the conversion to the next actor?
+</span><span>        }
+</span><span>    });
+</span><span>    (task, tx)
+</span><span>}
+</span></code></pre>
+
+</div>
+<p>But... 'cause the actors have (very similar) interfaces, that looks like a
+trait!</p>
+<p>So, what should be the Actor trait?</p>
+<p>First thing, its <code>run()</code> or similar function should expose its PID and its
+receiving channel. Something like:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub trait </span><span>Actor {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">run</span><span>() -&gt; (task::JoinHandle&lt;()&gt;, Sender&lt;TheKindOfMessageTheActorAccepts&gt;);
+</span><span>}
+</span></code></pre>
+<p>Why <code>TheKindOfMessageTheActorAccepts</code>? That's because each actor may have a
+different input message. If we take our short sample above, &quot;actor2&quot; may be
+receiving <code>usize</code>s and sending them as <code>String</code>s to &quot;actor3&quot;.</p>
+<p>Because that type may change from actor to actor, it should be an associated
+type:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">pub trait </span><span>Actor {
+</span><span>    </span><span style="color:#b48ead;">type </span><span>Input;
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">run</span><span>() -&gt; (task::JoinHandle&lt;()&gt;, Sender&lt;</span><span style="color:#b48ead;">Self::</span><span>Input&gt;);
+</span><span>}
+</span></code></pre>
+<p>So the basic idea is that, once the trait is implemented in a struct, we could
+managed it like:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> actor3 = Actor3::new(..);
+</span><span style="color:#b48ead;">let </span><span>(actor3_pid, actor3_channel) = actor3::run();
+</span></code></pre>
+<p>Wait, what about the chaining? We could do something simple like:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> actor3 = Actor3::new(..);
+</span><span style="color:#b48ead;">let </span><span>(actor3_pid, actor3_channel) = actor3::run();
+</span><span style="color:#b48ead;">let</span><span> actor2 = Actor2::new(actor3_channel);
+</span><span style="color:#b48ead;">let </span><span>(actor2_pid, actor2_channel) = actor2::run();
+</span></code></pre>
+<p>... which is kinda verbose, but does work.</p>
+<p>I have some ideas to make this part more fluent, but I need to do some more
+exploration about the topic (specially since I think we can leverage the type
+system to not allow connecting actors whose input type is not the same as the
+output type of the previous actor). Once I get those hammered down, I'll get a
+follow up post.</p>
+<!-- 
+vim:spell:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented Link:  Mitigating Memory Safety Issues in Open Source Software</h1>
+  <span class="post-date">
+	2021-02-18
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/google/">#google</a>
+        
+            <a href="https://blog.juliobiason.me/tags/safety/">#safety</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+  </span>
+  <p>Initially announced on HackerNews as &quot;Google to Pay Developers to Port Their Code
+to Rust&quot; <a href="https://security.googleblog.com/2021/02/mitigating-memory-safety-issues-in-open.html">on this
+post</a>,
+what is actually going on is not quite what it seems.</p>
+<p>And it seems this time HackerNews comments <a href="https://news.ycombinator.com/item?id=26179032">actually got what it actually
+means</a>.</p>
+<span id="continue-reading"></span>
+<p>But let me surmise this.</p>
+<p>First of all, the funding is not going to open source developers so they can
+secure their applications, or look for alternatives that seem more
+secure. Google will fund another company -- ISRG -- for them to write new
+versions of some code. So, even if the idea is pretty good, it won't translate
+into offering help to the authors so they could still work on their project; the
+money will all go to someone else, to provide patches.</p>
+<p>This &quot;someone will provide patches&quot; always remind me of a talk by Brett Cannon
+on a DjangoCon. &quot;You see this little puppy, so cute, but what I see is 10 years
+of walks, giving food and picking its crap.&quot;<sup class="footnote-reference"><a href="#1">1</a></sup> So, while ISRG will provide
+patches for improving open source projects using memory safe languages, there is
+no word about &quot;and continue to make things work&quot;. Sure it is nice to have a
+safety patch in some other language landing in your project, but who will take
+care of it in the next version? And the next one? ISRG or the original author --
+whose, again, got absolutely nothing in the first place?</p>
+<p>Second, there is this line:</p>
+<blockquote>
+<p>The ISRG's approach of working directly with maintainers to support rewriting
+tools and libraries incrementally falls directly in line with our perspective
+here at Google.</p>
+</blockquote>
+<p>What feels strange about it is that we know, for a long time, that Google does
+not work for the common good; it works for itself (and that's ok for the
+company). But what if the secure way of some project does not fall in the exact
+&quot;perspective&quot; of Google? Will they fork it? Accept that their perspective isn't
+the right way?</p>
+<p>For example, recently Cryptography replaced a core element to use Rust -- which
+totally makes sense in a secure project. The problem is that some people, using
+some non-mainstream architectures, <a href="https://github.com/pyca/cryptography/issues/5771">saw their builds
+failing</a>. Now, again, it makes
+sense for something that enforces security to use a memory safe language, but
+what that was the proposed solution by ISRG -- which, again, aligns with the
+perspective of Google -- and the author decided that portability is more
+important?</p>
+<p>In the end, it feels like Goog is trying another way to take hold on open source
+projects for their own purposes and not actually caring about helping end users
+to have a better internet experience.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Paraphrased, I can't really recall the actual quote.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

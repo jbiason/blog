@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">08. Localizar e Substituir</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você vai precisar aprender expressões regulares — mais
+uma vez.</p>
+<span id="continue-reading"></span>
+<p>Uma coisa relativamente comum quando se está programando é substituir todas as
+ocorrências de uma palavra por outra<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>Para fazer &quot;localizar e substituir&quot; (&quot;search and replace&quot;) existe o comando
+<code>:substitute</code> em modo de comando (ou simplesmente <code>:s</code>).</p>
+<p>Até aí sem problemas, mas existe uma pequena pegadinha (na verdade, duas, mas
+uma de cada vez): <code>:s</code> é, na verdade, <code>:{range}s</code>, onde &quot;{range}&quot; é a parte do
+texto que o comando <code>:s</code> deve ser executado -- e sim, eu sei que não falei
+sobre este tipo de comando antes, mas essa era a melhor oportunidade.</p>
+<p>Então, {range}. {range} é opcional e, se não for passado, o comando será
+executado da linha atual. Isto, obviamente, não é muito útil. {range} é formado
+por um par<sup class="footnote-reference"><a href="#2">2</a></sup>, separado por vírgulas, indicando o início e o fim da execução do
+comando.</p>
+<p>O uso básico de {range} é &quot;linha inicial,linha final&quot;. Por exemplo, <code>:1,5s</code> irá
+executar o comando <code>:s</code> entre as linhas 1 (a primeira, não existe linha 0 no
+VIM) e 5.</p>
+<p>E, mais uma vez, existem indicadores especiais, inclusive para {range}.</p>
+<p>Um número indica o número da linha, como já comentei. &quot;$&quot; é a última linha do
+arquivo (assim, <code>:1,$s</code> irá executar <code>:s</code> em todo o arquivo); &quot;%&quot; é um alias
+para &quot;1,$&quot; (ou seja, todo o arquivo); <code>'{marcador}</code> irá, obviamente, utilizar
+os marcadores (ou seja, <code>:'a,'bs</code> irá executar <code>:s</code> entre o marcador &quot;a&quot; e o
+marcador &quot;b&quot; -- E marcadores entre arquivos [em maiúsculas] não são
+permitidos).</p>
+<p>(E existe outros dois marcadores especiais que eu não comentei antes por achar
+que não há uso fora do <code>:s</code> que são <code>'&lt;</code> e <code>'&gt;</code> que indicam, respectivamente, o
+início e o fim da região visual -- mas o VIM vai adicionar estes dois
+marcadores automaticamente se você tiver uma região visual selecionada e
+pressionar <code>:</code> e por isso ficaram pra trás. Então não se assuste se o VIM
+começar a colocar coisas na linha de comando sem que você tenha digitado.)</p>
+<p>Daqui pra frente, eu vou colocar o comando como <code>:%s</code>, já que esta é a execução
+mais comum do comando. Mas lembre-se que <code>%</code> = <code>1,$</code> = do começo ao fim.</p>
+<p><code>:%s</code> funciona, assim como a pesquisa, com expressões regulares, só que ao invés
+de termos uma expressão, teremos duas: a de pesquisa e a de substituição. Em
+casos mais simples, onde você quer substituir &quot;palavra 1&quot; por &quot;palavra 2&quot;, o
+comando será <code>:%s/palavra 1/palavra 2</code>. Mais uma vez, conhecer expressões
+regulares vai ajudar aqui -- e fica a dica para olhar sobre &quot;grupos&quot;.</p>
+<p>A segunda pegadinha é que <code>:%s</code> executa o comando em cada linha do range e, como
+padrão, somente a primeira ocorrência é substituída. Assim, se &quot;palavra 1&quot;
+existir mais de uma vez em uma linha, somente a primeira será alterada.</p>
+<p>Para resolver isso, você deve usar o terceiro parâmetro de <code>:%s</code>, {flags}. As
+flags mais comuns são:</p>
+<dl>
+	<dt>g</dt>
+	<dd>Substitui todas as ocorrências da expressão de procura na linha, não apenas
+		a primeira.</dd>
+	<dt>i</dt>
+    <dd>Ignora maiúsculas e minúsculas ("ignore case")</dd>
+	<dt>c</dt>
+    <dd>Pede confirmação em cada alteração.</dd>
+</dl>
+<p>Concluindo: para substituir &quot;void&quot; por &quot;int*&quot; em todo o arquivo mas apenas no
+começo da linha, ignorando se está em maiúsculas ou minúsculas (porque o
+estagiário pensou que estava digitando uma monografia), mas confirmando cada
+mudança, você faria <code>:%s/^void/int*/ic</code> (como é apenas no começo da linha e nós
+forçamos isso na expressão regular -- o <code>^</code> ali -- não precisamos usar a flag &quot;g&quot;,
+já que não teria efeito nenhum).</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> E, mas pra frente, veremos que existem plugins que deixam esta parte mais
+fácil.</p>
+<p><sup class="footnote-reference"><a href="#2">2</a></sup> Na verdade, não e um par mas, de novo, fazer substituição em apenas uma
+linha não é muito útil, principalmente considerando os comandos que o VIM
+tem para movimentação do cursor.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;07-procurar-varios-arquivos">Macros de Teclado</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;09-splits">Splits</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">When I Used PEP8 To Fuck Up Code</h1>
+  <span class="post-date">
+	2016-07-19
+	
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/pep8/">#pep8</a>
+        
+            <a href="https://blog.juliobiason.me/tags/readability/">#readability</a>
+        
+  </span>
+  <p>We &quot;inherited&quot; some Python code recently. Although another team was working on
+it, we now should support it and keep it going. The previous team at least
+tried to use Pylint and follow PEP8. And I say &quot;tried&quot; because their
+<code>pylintrc</code> has a couple of exceptions and their PEP8 extended the
+maximum column to 100.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Pylint exceptions are almost common case these days, specially in
+a Django project. But plain, pure <code>pylintrc</code> exclusion without giving any
+pointers on <em>why</em> you're adding that exception are dumb, IMHO. I had a
+project were we decided to add pylint exceptions inside the code, but for
+every exception there should be a comment preceeding it explaining the
+reason for the exception (&quot;the framework doesn't expose this directly&quot;,
+&quot;pylint can't see this variable, but it is there&quot;, &quot;It's the common place
+to name the variable this way&quot; and so on).</p>
+
+</div>
+<p>Quick pause here 'cause I know a bunch of people will complain with a &quot;But
+monitors these days are very large and you don't need to focus on column 80;
+we don't use CGA anymore, old person!&quot;. The thing about the maximum column at
+80 is <em>not</em> about &quot;being visible on every CGA&quot; but actually a measure of
+readability: If you speak shorter, concise sentences, people will get the idea
+quickly; if you keep an stream of words non-stop without reaching a conclusion
+and without any punctuation to keep the ideas flowing, you will end up with
+something that it is easier to forget and which the central idea will be lost
+(and I freaking hope you got what I just did). It's tiring to read a very long
+sentence; it's easy to keep the context on a short sentence.</p>
+<p>In the spirit of &quot;proper&quot; PEP8, I reformatted one of the failing tests
+to follow the 80 column limit. And now the code looks like crap. And
+I'll commit like that. It's not because I hate my coworkers, but to point out
+that, because it's a pain to read, it means the structured of the code is too
+complex. If someone comes and say &quot;damn, this test is hard to read&quot;, I'll be
+able to point that it is not the test that it is hard to read, but the code
+that reached the point where its complexity is leaking to the test code; it is
+now a good time to refactor this to simplify things and make them easier to
+read.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Actually, the reason for it to fail is too damn fun and worth a proper blog
+post about it. Stay tunned!</p>
+
+</div>
+<p>Not that we can simply stop working and fix the damn architecture of it, but we
+can at least keep this beast around till everybody gets pissed and realize it
+<em>desperately needs</em> a refactor.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Weird thing, people usually assume some countries are the center of bad code;
+this baseline is coming from a &quot;first world country&quot; and, heck, it has one of
+the worst designs I ever saw. I'll not name names here to protected the (maybe)
+innocent. But in the second week of training, I realized this whole project
+has, at least, 6 months of technical debt already.</p>
+
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

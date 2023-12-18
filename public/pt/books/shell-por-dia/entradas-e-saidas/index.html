@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Um Shell Por Dia: Entradas e Saídas</h1>
+  <span class="post-date">
+	2021-09-13
+	
+            <a href="https://blog.juliobiason.me/pt/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/por-dia/">#por dia</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/shell/">#shell</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/entradas/">#entradas</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/saidas/">#saídas</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/stdin/">#stdin</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/stdout/">#stdout</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/stderr/">#stderr</a>
+        
+  </span>
+  <p>Antes de sairmos vendo comandos e coisas do tipo, vamos começar com um conceito
+básico: entradas e saídas.</p>
+<p>Para entradas e saídas em sistemas POSIX (incluindo os Unixes e Linux), existem
+três &quot;descritores&quot; que estão presentes para todas as aplicações:</p>
+<ul>
+<li><code>stdin</code>, que é descritor de entrada de dados (com o identificador &quot;0&quot;);</li>
+<li><code>stdout</code>, que é o descritor de saída padrão (com o identificador &quot;1&quot;); e</li>
+<li><code>stderr</code>, que é o descritor de saída para erros (com o identificador &quot;2&quot;).</li>
+</ul>
+<p>Por exemplo, quando uma aplicação começa a jogar informações para o usuário,
+ela está escrevendo no <code>stdout</code>; quando a aplicação fica esperando que o
+usuário digite alguma coisa, ela fica tentando ler de <code>stdin</code>.</p>
+<p>A importância desta informação ficará mais clara mais pra frente, quando
+começarmos a ver redicionamentos e pipes.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

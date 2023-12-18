@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">05. Marcadores</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você não vai mais precisar se lembrar da última linha
+que estava editando.</p>
+<span id="continue-reading"></span>
+<p>Algumas vezes você precisa ficar pulando entre partes diferentes do seu
+arquivo. Alguns editores oferecem a funcionalidade de &quot;bookmark&quot; para linhas
+específicas e ficam &quot;pulando&quot; entre estes bookmarks. O VIM tem uma
+funcionalidade semelhante, chamada &quot;Marcadores&quot;. A diferença é que enquanto os
+demais editores só tem um estado para marcadores (ativo ou não), o VIM permite
+que você tenha até 26 marcadores únicos -- e que podem ser acessados
+diretamente.</p>
+<p>Para marcar uma linha, você deve usar <code>m{nome do marcador}</code> em modo normal, onde
+<code>{nome do marcador}</code> é uma letra de &quot;a&quot; a &quot;z&quot;. Para ir diretamente para um
+marcador, é só usar <code>'{nome do marcador}</code> para simplesmente mover o cursor para o
+primeiro caractere não branco na linha do marcador ou <code>\</code>{nome do marcador}` para
+mover o cursor exatamente para a posição do marcador (ambos também em modo
+normal).</p>
+<p>Como tudo no VIM, maiúsculas e minúsculas fazem diferença.</p>
+<p>Criar um marcador com um nome em minúsculas signifca que o marcador é valido
+somente dentro do arquivo. O marcador &quot;a&quot; do arquivo &quot;arquivo1&quot; não é o mesmo
+marcador &quot;a&quot; do arquivo &quot;arquivo2&quot;. Quando um marcador é criado em maiúsculas,
+ele se torna global: Se você fizer <code>mA</code> no arquivo &quot;arquivo1&quot; e abrir o arquivo
+&quot;arquivo2&quot;, <code>\</code>A` irá voltar para o arquivo &quot;arquivo1&quot; (na posição do marcador,
+obviamente).</p>
+<p>E como tudo no VIM, sempre existem os comandos mágicos.</p>
+<h2 id="ou">`` ou ''</h2>
+<p>Retorna para a última posição onde foi feito um &quot;pulo&quot;. Por exemplo, se você
+está na linha 100 do arquivo atual, e fizer um pulo para o marcador &quot;a&quot; (com <code>\</code>a<code>, por exemplo), ``\</code>`<code> irá retorna para a linha 100. Note que isso não gera um marcador per se, já que fazer ``\</code>`` de novo irá retornar para a posição do
+marcador &quot;a&quot; (pois foi lá que aconteceu o último pulo).</p>
+<h2 id="ou-1">`. ou '.</h2>
+<p>Retorna para a última posição onde houve alteração de texto. O exemplo que eu
+posso pensar neste caso é quando você está digitando um comando e não se lembra
+se fez o #include ou import necessário. Neste caso, você simplesmente termina
+de digitar o comando, usa <code>gg</code> para ir para o começo do arquivo para verificar se
+o include/import está lá e, se tiver, usa <code>\</code>.` para retornar para a posição
+original.</p>
+<h2 id="ou-e-ou">`[ ou '[ e `] ou ']</h2>
+<p>Retorna para a posição onde o texto foi copiado (&quot;yanked&quot;) para a área de
+transferência (qualquer área de transferência). <code>[</code> irá mover para o primeiro
+caractere copiado e <code>]</code> para o último.</p>
+<h2 id="ou-2">`&quot; ou '&quot;</h2>
+<p>Move para a última posição do arquivo quando o arquivo foi fechado. Isto
+normalmente é controlado pelo arquivo de inicialização, que veremos mais a
+frente.</p>
+<p>E, para ver onde estão as marcas atuais, você só precisa usar <code>:marks</code> no modo de
+comando.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;04-registradores">Registradores</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;06-macros-de-teclado">Macros de Teclado</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

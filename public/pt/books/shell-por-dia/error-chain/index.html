@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Um Shell por Dia: Error Chain</h1>
+  <span class="post-date">
+	2021-09-22
+	
+            <a href="https://blog.juliobiason.me/pt/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/por-dia/">#por dia</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/shell/">#shell</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/erros/">#erros</a>
+        
+  </span>
+  <p>Quando um comando é executado, ele &quot;emite&quot; um código para o shell indicando o
+resultado de sua execução. Por exemplo, se você rodar <code>ls</code> e estiver no Bash,
+você pode ver o resultado do comando com <code>echo $?</code> -- que será 0, já que o ls
+conseguiu executar (a não ser que você esteja num diretório que não tem
+permissão de listar o conteúdo, mas enfim).</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Para quem programa/programou em C, deve lembrar das constantes <code>EXIT_SUCCESS</code> e
+<code>EXIT_FAILURE</code>, que ficavam no final do <code>main()</code>. Bom, SUCCESS tem definido o
+valor 0 e FAILURE 1, e se você quiser, pode brincar de criar uma aplicação que
+retorne os dois valores e verificar o resultado com o <code>echo $?</code>.</p>
+
+</div>
+<p>Algumas aplicações utilizam vários códigos diferentes para indicar que a
+execução foi terminada por um erro específico.</p>
+<p>Mas para encadeamento de erros, só precisamos saber que 0 é &quot;tudo terminou
+certo&quot; e qualquer coisa diferente disso é &quot;deu erro&quot;.</p>
+<p>Para encadear comandos, podemos usar <code>&amp;&amp;</code> e <code>||</code>.</p>
+<p><code>&amp;&amp;</code> indica &quot;se o comando anterior terminar em sucesso, execute o próximo
+comando&quot;. Por exemplo <code>ls &amp;&amp; cp arq1 arq2</code> indica que, se o <code>ls</code> terminar com
+sucesso, então o comando <code>cp</code> (que copia arquivos) será executado; se, por algum
+motivo, o <code>ls</code> falhasse, o comando <code>cp</code> não seria executado.</p>
+<p><code>||</code> indica &quot;se o comando anterior falhar, execute o próximo comando&quot;. Assim,
+<code>ls || cp arq1 arq2</code> faria com que o <code>cp</code> somente fosse executado se o <code>ls</code>
+falhasse.</p>
+<p>E vários comandos podem ser encadeados dessa forma:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>ls &amp;&amp; cp arq1 dir/arq2 || mkdir dir
+</span></code></pre>
+<p>Irá fazer o <code>ls</code>; se ele não falhar, executa o <code>cp</code>; se o <code>cp</code> falhar, cria o
+diretório.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Why Rust and not Go</h1>
+  <span class="post-date">
+	2019-09-16
+	
+            <a href="https://blog.juliobiason.me/tags/go/">#go</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/programming-languages/">#programming languages</a>
+        
+            <a href="https://blog.juliobiason.me/tags/nitpick/">#nitpick</a>
+        
+  </span>
+  <div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>This is a rebuttal to <a href="https://kristoff.it/blog/why-go-and-not-rust/">Why Go and not
+Rust?</a>.</p>
+
+</div>
+<h1 id="huge-disclaimer">HUGE DISCLAIMER</h1>
+<p>Before jumping into the discussion, let me put this first: I do write code in
+Rust (not professionally), I've not written something in Go yet but I keep
+reading about the language and its ecosystem. I also follow the Rust as a
+language and its ecosystem.</p>
+<p>Second, another thing you must know about me: I've been a developer
+professionally for about 30 years (its no hyperbole here: I did start
+professionally writing code when I was 12 and didn't leave the field yet).
+I've written code that run in about 15 different languages, so I have strong
+opinions about coding after suffering with those languages.</p>
+<p>Third, I do believe languages do not exist in a vacuum: Besides the language,
+you have libraries and frameworks; besides the languages and the frameworks,
+there is dependency control; besides dependency control, there is a community.</p>
+<p>Fourth, if that's not really clear so far, all this is a matter of opinion --
+even the original post is, although it doesn't say so.</p>
+<p>Fifth, yes, I did take things out of order, mostly 'cause I thought some
+points are scattered around the original text that are complementary.</p>
+<p>That being said...</p>
+<h2 id="the-nitpicking">The Nitpicking</h2>
+<p>(Those are points that just brushed me in the wrong way, but they are not
+major points and you can really skip this if you don't want to read a bunch of
+complains.)</p>
+<blockquote>
+<p>Go is fast, but Rust is faster.</p>
+</blockquote>
+<p>C is even faster. So what?</p>
+<blockquote>
+<p>Go has an efficient garbage collector, but Rust has static memory management.</p>
+</blockquote>
+<p>And so does C and C++. So what?</p>
+<blockquote>
+<p>Go has interfaces, but Rust has traits and other zero-cost abstractions</p>
+</blockquote>
+<p>Well, Go doesn't have interfaces <em>per-se</em>. Their interface is akin to Python
+&quot;if it has an <code>open()</code>, <code>read()</code> and <code>fseek()</code>, then it's a File-like object&quot;,
+as far as I know. Python even changed that from the &quot;it looks like a
+file-like&quot; to using the double-dunder functions to fit the interface (&quot;if it
+has a <code>__len__()</code> method, it is an object with a size&quot;).</p>
+<blockquote>
+<p>Go has great support for HTTP and related protocols and it doesn't take long
+to write a satisfactory web service.</p>
+</blockquote>
+<p>More satisfactory than <a href="https://palletsprojects.com/p/flask/">Flask</a>, in which
+you can create a service (a very dumb one, in that) with only 5 lines of code?
+Does it? Or is it a <em>personal opinion</em>?</p>
+<p>Honestly, I haven't seen -- even with Rust -- something as dead simple as
+Flask, so there we have it. If you need performance, one could use
+<a href="https://github.com/huge-success/sanic">Sanic</a>, which is a uvloop powered
+server with a syntax that is pretty close to Flask.</p>
+<p>So, when you say &quot;great support&quot; and &quot;satisfactory&quot; is that a <em>fact</em> or an
+<em>opinion</em>?</p>
+<p>Obviously it is an opinion, as much as me saying Flask/Sanic can beat anything
+Go has, and neither of those are valid for anything. Beauty is in the eye of
+the beholder.</p>
+<p>(But if I'm nitpicking, I can throw whatever language I want here.)</p>
+<blockquote>
+<p>The creators of Go like to call it a “boring” language.</p>
+</blockquote>
+<p>Weirdly enough, I heard the same thing about Rust. So which one is the
+&quot;boriest&quot; of them all?</p>
+<p>This kind of call is akin to the PyPy devs saying that &quot;PyPy is 300% faster
+than CPython -- for tests written specifically to prove that PyPy is 300% faster
+than CPython&quot;. The same thing can be said here: Go/Rust devs call their
+language boring 'cause they want to prove their language is boring. Neither is
+true -- and, weirdly enough, <em>both</em> are true.</p>
+<p>One could even claim that Python is more boring that Go. <sup class="footnote-reference"><a href="#1">1</a></sup> And Rust, by the
+way.</p>
+<blockquote>
+<p>do more with less” has proven to be very successful.</p>
+</blockquote>
+<p>Wait, are you <em>really</em> quoting Dennis Ritchie, in which he was defending C? C
+has less than Go or Rust, so maybe we should jump back to C? Is that what you
+mean?</p>
+<blockquote>
+<p>In truth, none of these things alone is particularly impressive, but they do
+describe the mindset that Go wants to impose. Many don’t like it but, in my
+opinion, it’s a killer feature for some types of development, like
+enterprise software.</p>
+</blockquote>
+<p>If we point that Rust does exactly what you're saying and <em>better</em> (&quot;enforce&quot;
+vs &quot;you need to run something, otherwise nothing changes&quot;, which I <em>will</em>
+discuss later in this post<sup class="footnote-reference"><a href="#2">2</a></sup>), then Rust kills Go in enterprise software, right?</p>
+<blockquote>
+<p>Enterprise software always has a big scope.</p>
+</blockquote>
+<p>Yes, and that's why we break this scope -- and some domains and everything
+else -- into smaller parts that connect to each other. Those are called
+&quot;microservices&quot; and one thing is that you can write them in whatever, but the
+scope is always a small one (for different scales of &quot;small&quot;) but it won't
+be something ginourmous like a monolith, in which all the scopes exist in the
+same place.</p>
+<p>(I'll make this point again later, but it is weird how the author says one can
+spin a Go app really fast, but then comes with the sort of points like this
+that make sense only for monoliths, and I'm not sure which is the real point
+being pointed in these cases.)</p>
+<blockquote>
+<p>To unravel complex domains you need a well-structured process.</p>
+</blockquote>
+<p>(And then he jumps into discussing about domains and expects and stakeholders)
+You know what you're talking about? A DSL. You want a DSL to is close to the
+experts about their domain, you want a DSL so stakeholders can understand
+what's going on above the code.</p>
+<p>You want Racket. I've seen things close to this in Rust using macros (which is
+witchcraft to me) but I'll refrain from saying &quot;Rust has it, and better&quot;.</p>
+<h2 id="the-freaking-cargo-cult">The Freaking Cargo Cult</h2>
+<blockquote>
+<p>Go was created at Google to solve Google problems</p>
+</blockquote>
+<p>This is something that we, developers, who love and hate <em>any</em> language need
+to discuss. And it comes in this other point:</p>
+<blockquote>
+<p>As I already mentioned, Go was created to solve Google problems, and Google
+problems are definitely enterprise-scale problems.</p>
+</blockquote>
+<p>You know who has Google problems? GOOGLE! You know who else has Google
+problems? NO ONE!</p>
+<p>No one is a huge search engine that lives capturing peoples data to provide
+relevant ads (and, sometimes, search results, and shopping lists and
+whatever).</p>
+<p>It's the same bullshit people claiming &quot;Netflix has 600+ microservices using
+Spring, so we should use Spring for our microservices&quot;, 'cause you won't have
+600+ microservices, and most probably none of them are related to providing
+video streaming.</p>
+<p>It's the same bullshit people claiming &quot;Amazon deploys a microservice every 11
+seconds, so we must use microservices too!&quot; 'cause, again, you're not a huge
+cloud provider with two or three different versions of the same solution.</p>
+<p>This &quot;Cargo Cult&quot;: The idea that if we do the same thing someone else did and
+it worked, it will work for us too. Enterprises everywhere run Java, for huge
+scales -- AWS is the first that comes to mind -- but you're not claiming Java
+can solve &quot;enterprise-scale&quot; problems, are you? The point that you're trying
+to make here is &quot;worked for Google, will work for you&quot;, which is plain wrong.</p>
+<p>And it doesn't even involve Go or Rust. You're trying to make a point by
+saying &quot;They use&quot; and that's not a point. <em>At all</em>.</p>
+<h2 id="the-plain-wrong">The Plain Wrong</h2>
+<blockquote>
+<p>Go is also strict about things that other languages are usually more lax about.</p>
+</blockquote>
+<p>Guess you never saw the borrow checker. Or the fact that Rust doesn't allow
+passing an u32 (unsigned int of 32 bits) as a parameter that requires an u64,
+even if the later is larger than the former. There is no implicit conversion
+in Rust and a Rust dev must explicit convert from one type to the other.
+That's very strict in my opinion, even if you believe this is just an
+annoyance.</p>
+<p>You can't have strictness with flexibility. The are opposite points: Either
+the language is flexible (allowing you to use an u32 in a u64 parameter and
+doing the conversion to you, for example) or it's very strict (like Rust
+does).</p>
+<p>Also, since you're talking about &quot;strictness&quot;, let me ask you this: Have the
+Go core devs fixed this?</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>result, err := some_function()
+</span><span>return result
+</span></code></pre>
+<p>What is there to fix? No, it's not the &quot;it should complain that err is never
+used&quot; (I could replace <code>err</code> with <code>_</code> and the error would still be there). It
+is <strong>the freaking error treatment</strong>! You can't call a language strict if, in
+2019, it let this kind of stuff slip by. We learnt, in those last years, that
+the &quot;not-happy&quot; path happens more often than the happy path. And ignoring such
+errors is the major cause of headaches we get, and that's why we have those
+stupid &quot;restart job at midnight&quot; cronjobs or watchdogs that keep checking if
+the process is running and start it again if it crashes. </p>
+<p>I can also bring the borrow checker back into this: You see, we don't talk
+about processor speed anymore these days, we talk about cores. The future (and
+the present) are multi-thread. I won't deny that launching a concurrent,
+multi-threaded service in Go is a lot simpler than Rust, but Go doesn't have
+any validation about the memory usage; it won't prevent you from doing
+something like sending a structure over a channel and changing that structure
+<em>in the same thread</em>. So, while Go makes it easier, Rust makes sure you're not
+shooting yourself in the foot in the long run -- which would require the
+cronjobs or watchdogs.</p>
+<blockquote>
+<p>Go doesn’t want unused variables or imports</p>
+</blockquote>
+<p>Neither does Rust -- it throws a large, explicative warning right in the
+middle of your screen -- , so what's the point of this here?</p>
+<blockquote>
+<p>files belonging to different packages in the same directory</p>
+</blockquote>
+<p>Hey, do you know that, in Rust, directories <em>are</em> packages, and so you <em>can't</em>
+put files of different packages in the different directories? In this case,
+Rust seem more strict than Go, doesn't it?</p>
+<blockquote>
+<p>Go also doesn’t want any “fingerprints” in the code, so it enforces a
+single, universal style via <code>go fmt</code>.</p>
+</blockquote>
+<p>It doesn't <em>enforce</em> if you have to run this. Rust also have a <code>rustfmt</code>, if
+that's your point but, besides that, the Rust compiler will complain about
+things that are not following the coding style. Try to name a variable in
+camelCase and see what the rust compiler will say.</p>
+<p>Besides <code>rustfmt</code>, Python has Black (which I hate, but still); before Black,
+Python have flake8 and pylint, both which would &quot;enforce&quot; the Python style. So
+this is, again, a moot point.</p>
+<blockquote>
+<p>The toolchain is very often lousy and/or dated.</p>
+</blockquote>
+<p>You mean, projects don't have <a href="https://rustup.rs/">rustup</a>, the way Rust has?
+Crazy!</p>
+<p>Or even the backwards compatibility, like when Rust changed from the 2015
+edition to 2018, but you could select which edition (compiler version, AST,
+and so on) your project would use?</p>
+<blockquote>
+<p>The Go compiler is fast.</p>
+</blockquote>
+<p>Ah crap, not that shit again.</p>
+<p>The whole point is &quot;compiler is fast, tests run faster&quot;. Well, what if I said
+the compiler would catch bugs <em>before</em> the tests? That would be even faster,
+'cause then you can focus your tests on system behaviour, which is way more
+important than function behaviour or class/structure/module behaviour.</p>
+<p>We are, once again, discussing <a href="https://www.youtube.com/watch?v=RAxiiRPHS9k">Fast Test, Slow
+Test</a>, aren't we? Let me write a
+test for every single function, every single class and oh, look how fast they
+run, 'cause the compiler is fast! Then we put the &quot;integration tests&quot; in the
+CI and everybody is happy.</p>
+<p>Except you wrote tests twice when the only tests that matter are the ones that
+check the system behaviours.</p>
+<blockquote>
+<p>With Go, it’s easier as a junior developer to be more productive</p>
+</blockquote>
+<p>[Citation needed]. I know this is pretty close a nitpick and I can understand
+where this is going, but my guess is that, in the long run, when juniors
+understand why certain snippets don't compile, they can be more productive
+'cause errors in their code will be caught way earlier in compilation (see
+point below about types and above about compiler strictness).</p>
+<p>Also, feel free to call [Citation needed] about my point here too, 'cause we
+both know we are both pulling data out of our asses.</p>
+<h2 id="the-somewhat-right">The Somewhat Right</h2>
+<blockquote>
+<p>There are a lot of junior developers</p>
+</blockquote>
+<p>Yes, there are. Also, they are, sadly, not getting that many jobs, 'cause as
+this point, nobody is hiring juniors. We can go back to the point of &quot;juniors
+being more productive&quot; and say &quot;Hey, junior dev, if you learn programming
+language X, you'd get a job, 'cause it's really an easy language&quot; and I'd
+throw Python here and break your engine.</p>
+<p>Sure, there <em>may</em> be that Go is simpler than Rust (and I'll outright say that
+Python <em>is</em> easier than Rust), but we can't say Go is easier than Rust.</p>
+<p>If I can go into anecdote mode, I could say that I personally find Go code
+harder to understand than Rust, and no, it's not because I've wrote some Rust
+code an no code in Go; Go syntax simply does look weird to me, and one can say
+that is because the order of the languages I learnt. So, for me, it's harder
+to learn Go due its syntax than it is to learn Rust. <sup class="footnote-reference"><a href="#3">3</a></sup> Does the same apply
+to junior devs? I'm not sure, but languages are not hard per-se, they may have
+some weird stuff, but if you describe the building blocks in order, then <em>any</em>
+language is easy to learn.</p>
+<p><sup class="footnote-reference"><a href="#4">4</a></sup> Also, let me point out that Rust have an &quot;Ergonomics Working Group&quot; (now
+simply called <a href="https://github.com/rust-lang/rfcs">&quot;Language Changes RFCs&quot;</a>,
+which discuss ways to make the language easier to use and there is a whole
+<a href="https://github.com/rust-lang/rust/labels/WG-compiler-errors">&quot;Compiler Errors Working
+Group&quot;</a> which
+discuss how to make the error messages in the compiler easier to understand.
+With all that, if you junior devs are having issues with the language, they
+are invited to go there and show the problems they are having with the
+language -- and the Rust community is really focused on that, and all they
+need is a Github account, instead of being part of the cabal that decides the
+changes. Do Go devs have an open, transparent discussion like that?</p>
+<blockquote>
+<p>This pushes further down technological concerns such as efficiency, and even
+correctness. Don’t get me wrong, the business does care about correctness,
+but they have a different definition for it. When you’re thinking about
+algorithmic correctness, they are thinking about a reconciliation
+back-office for the operations team they keep in a country where labor is
+cheap.</p>
+</blockquote>
+<p>Wait, so it is technological but it is not technological? I know, this should
+be in the nitpick section, but there is another important point here.</p>
+<p>Thing is, business people do not care about reconciliation; they worry about
+deliveries and cheap labor <em>and that is</em>. Are they delivering? Are they cheap?
+Good, case closed. We don't care if there is a problem that will appear in 10
+months or if they connection is slow between services; it works right now and we
+saved money right now, so the math is solid.</p>
+<p>On the other hand, if we are talking about &quot;technological efficiency&quot;, you've
+already said Rust is faster than Go, so it's more efficient (for the level of
+efficient I want to use to prove that Rust is better than Go -- and I'm being
+sarcastic here); if we are talking about &quot;technological correctness&quot;, we can
+go down the rabbit hole of Rust types and that, although not close to Haskell
+types, it forces a good bunch of correctness in your processes. And nothing
+about Go types (and their correctness) is ever mentioned; wanna guess why?</p>
+<blockquote>
+<p>Software projects quickly become huge and complex for all the wrong reasons.</p>
+</blockquote>
+<p>I have to agree with this. Yes, software grows beyond maintainability and
+domains change.</p>
+<p>On the other hand, we keep pushing microservices in those larger contexts,
+specially to avoid being stuck in certain domains, 'cause you can just
+rewrite services (yes, you can) or you break code into different services so
+they don't go being the maintainability barrier.</p>
+<p>(This point is also annoying the heck out of me, with the comparison of Go
+being easy to spin something and then calling monolith problems. Either it is
+a language consistent to huge deployments, like Java, or it is a language with
+prospects towards simpler things, like Python. There are drawbacks in both and
+one can't push towards the to points without breaking everything.)</p>
+<blockquote>
+<p>Go is much easier to learn than Java or C#.</p>
+</blockquote>
+<p>Says who? I mean, I don't want to bring the &quot;That's, like, your opinion, man&quot;
+card again, but I guess one could find a lot more resources about Java or C#
+than Go.</p>
+<p>What about Rust? I give that the language is not that easy to pick, but every
+working group on the Rust community writes their own book, so one could bring
+those juniors devs into reading the books they will need to use and be done
+with that.</p>
+<blockquote>
+<p>The Go community regards as anti-patterns many abstractions regularly
+employed by Java / C#</p>
+</blockquote>
+<p>And I guess Java and C# regards Go abstraction as anti-patterns too, so what's
+the point? Any language that has different ways to express abstractions
+compared to other languages, and they will call the other language
+abstractions &quot;anti-patterns&quot;.</p>
+<p>Rust will call some Java patterns anti-patterns too and I have to, once again,
+ask &quot;So what?&quot; Does this makes Rust better than Java if it does? Does it make
+better than Go if it calls the same Java abstractions &quot;anti-patterns&quot;, but has
+better performance than Go and is more strict than Go?</p>
+<blockquote>
+<p>Go is faster than Java</p>
+</blockquote>
+<p><a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/fastest/go.html">For a very small
+margin</a>.</p>
+<p>But I have to pull the <a href="https://en.wikipedia.org/wiki/Moving_the_goalposts">&quot;moving
+goalpost&quot;</a> card in the
+blog post here: &quot;Go is simple so that all of this can hold true when
+confronting the average Go program with the average Java / C# program.&quot; So now
+we are comparing the &quot;average&quot; Go vs the &quot;average&quot; Java/C# (which,
+surprisingly, are nothing like the &quot;average&quot; Rust program). Except whatever is
+an &quot;average&quot; Go/Java/C# program is never defined, so we can keep pulling data
+from our asses and keep saying that the benchmark game isn't valid 'cause the
+examples are not &quot;average&quot;.</p>
+<p>And whatever I can point as &quot;average&quot;, you will point that is not &quot;average&quot;,
+right? That's what a &quot;moving goalpost&quot; means.</p>
+<p>Oh, you mean, &quot;on all the things, Go is faster&quot;. As in &quot;it compiles faster&quot;,
+which we know means nothing, if it doesn't bring the strictness and
+correctness factors into it (let me write a very fast compiler in Bash that
+produces code that never runs, but it is <em>fast</em>!); as in &quot;We can fix things
+faster&quot;, in which I can call that Rust is pretty close to Elm, in which &quot;if it
+compiles, it will run without runtime exceptions&quot;, so in actuality, there are
+less bugs (personal observation, it actually does!).</p>
+<p>As &quot;average&quot; as in what, actually? As in &quot;whatever point I want to make about
+Go being better than Java/C#&quot;, for absolutely no reason?</p>
+<h2 id="dropping-all-euphemisms"><sup class="footnote-reference"><a href="#5">5</a></sup> Dropping All Euphemisms</h2>
+<p>There one point that, if you take the birds-eye view of both posts, is truly
+being discussed here: TTSIW (Time To See It Working).</p>
+<p>I'll give it that TTSIW for Go is smaller than Rust, and that seeing something
+&quot;working&quot; is a huge step in producing serotonin in your system.</p>
+<p>Rust, with all its checkers and rules and strictness have a larger TTSIW,
+which may cause the release of glucocorticoid -- the stress hormone.</p>
+<p>So, the whole point the original post tries to make is &quot;Go gives me
+serotonin&quot;.</p>
+<p>But after you are in the field for some time, when you have to go back to the
+office 'cause some service is not working, when you have to stop your leisure
+time to find out why something is breaking... That's a glucocorticoid release
+larger than fighting your compiler for 2 hours. In other words: Having to deal
+with stupid mistakes you left behind 'cause your compiler didn't warn you
+about them is more stressful than the ones it warned you about, 'cause it is
+<em>right</em> <em>there</em>, in front of you, when you're building the system.</p>
+<p>I had a talk with an embedded developer about a month ago. His company was
+replacing Go applications with Rust, simply because the thing would run for
+awhile and then crash because there was some lock he should've used and the
+compiler never told him about it. Replacing with Rust was trading the long
+term glucocorticoid with a short term glucocorticoid and long term serotonin.</p>
+<p>And <em>that's</em> what we are talking in those two articles: Do you want a short
+term pleasure and a long term stress or a short term stress and long term
+pleasure?</p>
+<h2 id="the-things-we-don-t-talk-about">The Things We Don't Talk About</h2>
+<p>There is one important piece that is never discussed: Ecosystem.</p>
+<p>And no, ecosystem is not simply the number of libraries and packages in the
+package manager; it is way beyond that: It's about its community and the way
+the management deals with it.</p>
+<p>And we have to talk about <code>go dep</code>.</p>
+<p><code>go dep</code>, the Go dependency tool, is a replacement of the dependency tool
+created by the community, <code>godep</code>, after a whole year with said community
+asking for a decent dependency tool, specially compared to the <code>vendor</code>
+solution. So, without every inquiring the community, the Go core devs decided
+they know better, made a tool and gave a big &quot;screw you&quot; to the community.</p>
+<p>Not only that, but just recently the same tool decided to <a href="https://codeengineered.com/blog/2019/go-mod-proxy-psa/">call
+home</a> by adding a
+proxy on the call of every package, <em>including your private ones</em>. Why? No
+real explanation. It simply does. It's not for CDN, 'cause it is just a proxy.
+It's not for CDN, 'cause other it would require coordination between the
+package repository and the CDN and none of this is included in this change.
+Simply, every single install of a package will be captured by Google. For. No.
+Good. Reason.</p>
+<p>Not only the situation of the core Go devs going against the wishes of the
+community, there was even some whisper about forking Go into a community
+version, so it could run with a core group that would actually <em>listen</em> to the
+community.</p>
+<p>And Go is just one year older than Rust. And nobody is saying &quot;Let's fork
+Rust&quot; -- even if you count <a href="https://twitter.com/withoutboats/">without boats</a>
+comments about a simpler version of Rust, in which he was talking about
+<em>another language</em> that would borrow some stuff from Rust, the same way Rust
+borrowed some stuff from OCaml and other ML languages.</p>
+<p><a href="https://doc.rust-lang.org/cargo/">Cargo</a> is the Rust counterpart of <code>go dep</code>.
+Cargo was born in the Rust infancy and it is evolving along the Rust compiler.
+All discussions about it <a href="https://github.com/rust-lang/cargo/issues/">are done in the
+open</a> with the community input.
+Rust itself goes <a href="https://github.com/rust-lang/rust/issues">through the same
+motions</a> -- and that could be the
+reason async/await is almost a whole year in the cooking, with discussions
+about its syntax going through iterations over the issue list.</p>
+<h1 id="you-have-to-have-a-posture">You Have To Have a Posture</h1>
+<p>You, the reader, may now be wondering why I brought the <code>go dep</code> discussion
+into this. You may believe that discussions in the open (and taking longer
+than they needed) is a big turn off for you 'cause it makes things move
+slower.</p>
+<p>But let me ask you this: Which one of those models follow an open source
+development model? Let's take Mike Hoye, from Mozilla, definition of open
+source: &quot;I think that openness as a practice – not just code you can fork but
+the transparency and accessibility of the development process.&quot; </p>
+<p>With that, take a step back and re-read the last point again. Which one of
+those are really an open project? Is the Go development transparent and
+accessible?</p>
+<h1 id="in-closing">In Closing</h1>
+<p>I have to call the original post completely baloney, mostly 'cause I want this
+post to end in a lighter mood. I mean, there is a huge confusion of saying &quot;Go
+is better than Java/C#&quot; while what we are talking about is &quot;Go vs Rust&quot;. The
+whole &quot;Let me take a huge turn here, saying Go is better than Java/C# only to,
+in the end, say that Go is for Java and Rust is for C++, but I'll never
+compare Java vs C++ to actually make a point about Go vs Rust with their
+comparative other languages&quot;.</p>
+<p>And then, when we pick the points in which the author goes straight for the
+&quot;Go vs Rust&quot; discussion, all the points are wrong or seemed more about opinion
+than actual facts.</p>
+<p>So what is actually the point? That Go is better than Java and Rust is better
+than C++ and, thus, Go is better than Rust? 'Cause I can totally buy in the
+first part, but the second is bullshit.</p>
+<p>I won't say Go is a bad language, but Go is in no way a better language than
+Rust, specially if we consider the future, in which more cores will be
+available (considering the current trends) and more threaded applications will
+be more common. I'll say that Rust design decisions give an edge over Go, so
+Go should seriously go back to the basics of error control and memory
+protection if it wants to be a language for the future. But being bad managed
+probably means it would never happen.</p>
+<p>And those points make Go a bad option for anyone writing something serious. </p>
+<p>But what do I meant by &quot;badly managed&quot;? Well, as you can see, the core devs
+don't seem to listen the community on the big issues (one could bring the
+discussion about a <code>Try</code> operator, which would be a minor change, compared to
+the dependency control, which the community said no and the core devs agreed
+but, again, that's a minor thing compared to dependency control tool). The <code>go dep</code> was a complete &quot;ignore whatever the community built, 'cause we know
+better&quot; and the Google proxy was simple a PSA, not a &quot;let's ask the community
+what they think about it before doing it so&quot; are two signs that they don't
+care about what the community wants and that means they can pivot the language
+in a way that the community <em>doesn't</em> want and there would be nothing one
+could do.</p>
+<p>&quot;It's just one tool, not the whole thing!&quot;, you're screaming at me. But it is
+a tool the community seriously wanted (the Go Evangelist inside Microsoft came
+to her twitter account to loudly say &quot;Go core, fix this or I will stop
+promoting go inside Microsoft, 'cause it's bad right now&quot;) and they were first
+ignored and then pushed aside.</p>
+<p>That's not how open source projects should move about.</p>
+<p>You may not care about this &quot;open source&quot; thingy, and that's ok. You may
+believe that the core team knows better how Go should move forward than the
+people actually writing code in Go, and that's ok. But if you're an open
+source proponent, evangelist or admirer, there is absolutely no reason to
+defend Go on <em>any</em> accounts.</p>
+<p>Want to bash me? Agree with any of the points? Disagree? Come talk to me <a href="https://functional.cafe/@juliobiason/102804921786785051">on
+Functional Cafe</a>.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Added in 2019.09.17.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Update in 2019.09.17, pointing that the discussion about this will come
+later in the post.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Added in 2019.09.17, to point that senior devs discussing which language
+is easier or harder to teach to juniors is a moot point.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>Added in 2019.09.17, pointing that even if senior devs discussing if a
+language is harder or easier for juniors to understand, Rust have an open
+door policy for this kind of stuff.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>Added in 2019.09.17, when I realized what we were really talking about.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-03-05</h1>
+  <span class="post-date">
+	2020-03-05
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/kubernetes/">#kubernetes</a>
+        
+            <a href="https://blog.juliobiason.me/tags/k8s/">#k8s</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git/">#git</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git-flow/">#git flow</a>
+        
+            <a href="https://blog.juliobiason.me/tags/mastodon/">#mastodon</a>
+        
+  </span>
+  <p>Interesting links for 2020-03-05.</p>
+<span id="continue-reading"></span><h1 id="let-s-use-kubernetes-now-you-have-8-problems"><a href="https://pythonspeed.com/articles/dont-need-kubernetes/">“Let’s use Kubernetes!” Now you have 8 problems</a></h1>
+<p>Not only explaining the problems of running K8s<sup class="footnote-reference"><a href="#1">1</a></sup>, but also K8s codebase
+itself (summary: it looks like a mess) and if you really should use K8s
+(summary: only if you scale a lot, and you can scape from the scaling problem
+altogether).</p>
+<h1 id="please-stop-recommending-git-flow"><a href="https://georgestocker.com/2020/03/04/please-stop-recommending-git-flow/">Please stop recommending Git Flow!</a></h1>
+<p>I'm putting this here just because I wholeheartedly disagree with it. While
+some points are real (the short-lived branch rule, for example), some are
+(sorry, not sorry to say it) plain stupid.</p>
+<p>Also, I do not believe in monorepos, 'cause monorepos bring the worst of
+software development -- instead of focusing on separating things into
+libraries and making proper releases, you just put everything globed together
+and hope for the best. So yeah, it's not that Gitflow makes it impossible to
+use monorepos, is that you shouldn't be using a monorepo in the first place!</p>
+<h1 id="bye-bye-mastodon-our-account-on-fosstodon-org-was-deleted-yesterday"><a href="https://olimex.wordpress.com/2020/03/05/bye-bye-mastodon-our-account-on-fosstodon-org-was-deleted-yesterday/">Bye-Bye Mastodon, our account on Fosstodon.org was deleted yesterday</a></h1>
+<p>How a group of people working on open source projects but posted product
+updates in one of the Mastodon servers and got kicked for advertising.</p>
+<p>This is one thing that can happen on every project that you can't manage --
+and that includes every other social network mentioned in the post, not only
+Mastodon. What would you do if Twitter saw your advertising and decided you
+should buy &quot;Enterprise Twitter Pro&quot; to be able to post such content?</p>
+<p>Mastodon -- and the Fediverse, for that matter -- is formed by lots of
+servers. Fosstodon is only one of them (I do have an account on <a href="https://functional.cafe/@juliobiason">Functional
+Cafe</a>, for example. If the server policy
+changed to something I was not in accord, I could just take my data (and yes,
+you can take <em>all</em> your data) and upload to another server, with different
+policies. And if I don't agree with any server policy, I can run <em>my own
+server</em> and still connect with everyone.</p>
+<p>So... Yeah, it's not that Mastodon is hard to use, or have a small community,
+but you can <em>still</em> be part of the Fediverse, if you want. Bonus: You can make
+your <em>own</em> policies for what is right or not.</p>
+<h1 id="genact-a-nonsense-activity-generator"><a href="https://github.com/svenstaro/genact">genact - a nonsense activity generator</a></h1>
+<p>A very stupid CLI application with different modules to emulate some other
+long-running CLI application, so you can let it run and seem you're waiting
+for something.</p>
+<h1 id="caniuse-rs"><a href="https://caniuse.rs/">caniuse.rs</a></h1>
+<p>I never thought we would get to this point: A &quot;Can I Use&quot; for Rust versions.
+Can you use <code>iter::once_with</code>? Only on Rust 1.43 and up.</p>
+<p>Sure, a language that is not standing still but keeps progressing, specially
+since they are new, is a good thing, but it seems more and more features are
+being pumped in every version. Also, as it is simple to update Rust (just run
+<code>rustup update</code>) but it seems things are getting a bit out of hand.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>&quot;K8s&quot; is the short-form of &quot;Kubernetes&quot;, and hence the title of &quot;8
+problems&quot;.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

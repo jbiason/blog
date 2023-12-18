@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented Links for 2020-07-19</h1>
+  <span class="post-date">
+	2020-07-19
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/unix/">#unix</a>
+        
+            <a href="https://blog.juliobiason.me/tags/build/">#build</a>
+        
+            <a href="https://blog.juliobiason.me/tags/c/">#c</a>
+        
+            <a href="https://blog.juliobiason.me/tags/data-structures/">#data structures</a>
+        
+            <a href="https://blog.juliobiason.me/tags/algorithms/">#algorithms</a>
+        
+            <a href="https://blog.juliobiason.me/tags/zig/">#zig</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/linux/">#linux</a>
+        
+            <a href="https://blog.juliobiason.me/tags/kernel/">#kernel</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ai/">#ai</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git/">#git</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git-ignore/">#git ignore</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ci/">#ci</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cd/">#cd</a>
+        
+  </span>
+  <p>Building Executables Unix Way, Really Used Data Structures and Algorithms, Zig
+Foundation, Rust on Linux, Bad AI, Git Ignore, What is CI and CD.</p>
+<span id="continue-reading"></span><h2 id="traditional-unix-toolchains"><a href="https://bsdimp.blogspot.com/2020/07/traditional-unix-toolchains.html?m=1">Traditional Unix Toolchains</a></h2>
+<p>While the title may give some impression that it will talk about common unix
+tools (and pipes, and <code>&amp;&amp;</code> and <code>||</code>), it actually talks about the process the
+unix compilers take on converting your C code into an executable.</p>
+<p>It is a bit succinct, but succinct in the right places. It gives a good
+explanation on the whole process, the involved tools and their jobs in the
+process.</p>
+<h2 id="data-structures-algorithms-i-actually-used-working-at-tech-companies"><a href="https://blog.pragmaticengineer.com/data-structures-and-algorithms-i-actually-used-day-to-day/">Data Structures &amp; Algorithms I Actually Used Working at Tech Companies</a></h2>
+<p>When doing job interviews, we get asked about a lot of stuff. But what do we
+<em>actually</em> use? Kinda reminds of that joke about the job interview asking to
+invert a binary tree and the job is just to move a button 2 pixels to the
+left.</p>
+<p>But it is good to know what is actually useful, in real life applications. And
+not just some CRUD or whatever, but what goes into Skype and Uber.</p>
+<h2 id="announcing-the-zig-software-foundation"><a href="https://ziglang.org/news/announcing-zig-software-foundation.html">Announcing the Zig Software Foundation</a></h2>
+<p>Zig is a small language aimed to fix the problems with C.</p>
+<p>What impressed me here is that the Rust community had talks about making a
+foundation, so the language would be open to everyone, but still didn't manage
+to make it.</p>
+<p>So, kuds to Zig developers for creating their foundation!</p>
+<h2 id="linux-kernel-in-tree-rust-support"><a href="https://lkml.org/lkml/2020/7/10/1261">Linux kernel in-tree Rust support</a></h2>
+<p>Alright, so it seems the Linux developers finally opened to doors to new
+languages in their tree.</p>
+<p>What feels &quot;wrong&quot; here is that Linus is saying that &quot;Rust support&quot; should
+always be up, so if something breaks, they can point that it was broken
+anyway. The &quot;wrong&quot; part is that this, obviously, puts visibility on things
+that <em>don't</em> work instead of focusing on the things that <em>do</em> work. What if
+there are a couple of modules working fine, but only one fails? Obviously
+everybody will point out that the support <em>doesn't</em> work and people should
+stick with what still works.</p>
+<p>But Linus, you know...</p>
+<h2 id="awful-ai"><a href="https://github.com/daviddao/awful-ai">Awful AI</a></h2>
+<p>Not every AI is good. Not every AI will help you find an open spot for that
+meeting with everyone. Not every AI will tag your photos with locations and
+loved one -- but they would tag any black people as &quot;gorillas&quot;. Or maybe say
+who may be gay or not (and think how those people would be affected on
+countries that see homosexuality as a crime). The list goes on and on.</p>
+<h2 id="gitignore-io"><a href="https://www.toptal.com/developers/gitignore">gitignore.io</a></h2>
+<p>Create a comprehensive <code>.gitignore</code> for your project, based on your language
+and tools.</p>
+<h2 id="the-real-difference-between-ci-and-cd"><a href="https://fire.ci/blog/the-difference-between-ci-and-cd/">The real difference between CI and CD</a></h2>
+<p>What does CI and CD do? What they are there for?</p>
+<p>I've been thinking about doing a presentation for people starting with in
+development about each of those -- 'cause, you know, there are a bunch of
+people still thinking <code>git push</code> on your computer and <code>git pull</code> on the
+production server is a good decision...</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

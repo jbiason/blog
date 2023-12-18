@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">11.02. Meu .gvimrc</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que veremos mais do mesmo.</p>
+<span id="continue-reading"></span>
+<p>Na parte de configurações, eu falei de dois arquivos, &quot;vimrc&quot; e &quot;gvimrc&quot;. Vocês já
+viram o que eu fiz com meu vimrc, então acho justo que vejam também o que eu
+fiz com o meu gvimrc.</p>
+<p>Para que fique claro, vimrc sempre é lido, não importa qual executável do VIM
+você está usando. gvimrc é lido depois do vimrc somente quando você iniciar um
+VIM gráfico.</p>
+<p>Como o arquivo é bem menor (já que o grosso da configuração fica no vimrc),
+este é o arquivo inteiro que eu estou usando:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#96b5b4;">set</span><span> guioptions=aegit    </span><span style="color:#65737e;">&quot; basically, all options, except the scrollbar, menu and toolbar
+</span><span style="color:#96b5b4;">set</span><span> columns=</span><span style="color:#d08770;">116         </span><span style="color:#65737e;">&quot; number of columns (uses most of my screen, in this case)
+</span><span style="color:#96b5b4;">set</span><span> cursorline          </span><span style="color:#65737e;">&quot; highlight the line with the cursor
+</span><span style="color:#96b5b4;">set</span><span> colorcolumn=+</span><span style="color:#d08770;">2      </span><span style="color:#65737e;">&quot; put a marker at textwidth + 2
+</span><span style="color:#96b5b4;">set</span><span> linespace=</span><span style="color:#d08770;">1         </span><span style="color:#65737e;">&quot; spread the lines a bit, adding a 1px line above all
+</span><span>
+</span><span style="color:#b48ead;">if </span><span style="color:#8fa1b3;">has</span><span>(</span><span style="color:#a3be8c;">&#39;mac&#39;</span><span>)
+</span><span>    </span><span style="color:#96b5b4;">set</span><span> gfn=monofur</span><span style="color:#b48ead;">:</span><span>h</span><span style="color:#d08770;">15     </span><span style="color:#65737e;">&quot; My screen size sucks, mkay?
+</span><span>    </span><span style="color:#96b5b4;">set</span><span> lines=</span><span style="color:#d08770;">63            </span><span style="color:#65737e;">&quot; number of lines, based on my screen size and font
+</span><span style="color:#b48ead;">else
+</span><span>    </span><span style="color:#96b5b4;">set</span><span> gfn=monofur</span><span style="color:#b48ead;">\ for\</span><span> Powerline</span><span style="color:#b48ead;">\ </span><span style="color:#d08770;">12
+</span><span>    </span><span style="color:#96b5b4;">set</span><span> lines=</span><span style="color:#d08770;">54
+</span><span style="color:#b48ead;">endif
+</span></code></pre>
+<p>E explicando:</p>
+<ul>
+<li>
+<p><code>set guioptions=aegit</code>: Define a aparência do editor em modo gráfico. Eu
+prefiro um editor limpo, sem menus, toolbars ou (e isso talvez soe estranho
+para alguns), sem barra de rolagem. Em ordem, as opções ativas são:</p>
+<p><code>a</code>: Quando estiver fazendo a seleção com o modo visual, já copia o selecionado
+para a área de transferência. No caso de sistemas Unix, isso significa que
+selecionar algo com o modo visual é o mesmo que selecionar com o botão da
+esquerda (e que pode ser colado diretamente usando o botão do meio).</p>
+<p><code>e</code>: Mostra abas (se estiver configurado para mostrar abas com “showtabline” --
+que eu configurei para mostrar sempre no meu vimrc).</p>
+<p><code>g</code>: Mostra opções do menu desabilitadas. O normal é que opções desabilitadas
+sequer apareçam. Esta opção só faz sentido se o menu estiver presente (com a
+opção m no &quot;guioptions&quot;) que, como você pode perceber, eu não estou usando.
+Em alguns sistemas (por exemplo, OS X) o controle do menu não faz sentido
+porque o sistema operacional sempre tem um menu ativo. Assim, quando não há
+necessidade de menu, esta opção é desnecessária; quando não há escapatória do
+menu, pelo menos todas as opções serão visíveis.</p>
+<p><code>i</code>: VIM tem um ícone (sim você pode configurar para o que o VIM não mostre um
+ícone em lugar algum). De novo, dependendo do sistema operacional, esta opção
+não tem efeito algum porque o próprio sistema adiciona o ícone do launcher.</p>
+<p><code>t</code>: Menus podem ser arrancados (quando possível). Esta é uma funcionalidade
+que o GTK+ até a versão 2 tinha, que permitia que os menus fosse
+&quot;desconectados&quot; da área de menu, o que facilita bastante na hora de
+selecionar colorschemes (e como você pode adicionar um menu a qualquer hora
+com <code>:set guioptions+=m</code>, o que eu normalmente faço -- ou melhor, fazia -- era
+adicionar um grupo de novos colorschemes, ativar o menu, &quot;arrancar&quot; o menu de
+colorschemes e sair selecionando opções até achar um colorscheme
+interessante).</p>
+</li>
+<li>
+<p><code>set columns=116</code>: Número de colunas da janela do editor. Se a sua tela não
+tiver como apresentar 116 colunas (pelo tamanho da fonte e da tela, ou por
+alguma restrição do gerenciador de janelas), o VIM irá reduzir a quantidade
+de colunas até que a janela caiba completamente.</p>
+</li>
+<li>
+<p><code>set cursorline</code>: A linha onde o cursor se encontra tem highlight. E, caso
+você esteja se perguntando, existe um <code>set cursorcolumn</code> que mostra a coluna do
+cursor. Tanto &quot;cursorline&quot; quanto &quot;cursorcolumn&quot; funcionam em console, mas a
+forma como a linha é apresentada no meu colorscheme é... estranha.<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+</li>
+<li>
+<p><code>set colorcolumn=+2</code>: Define uma coluna para ser marcada com uma cor
+diferente. Se for usado uma opção relacional (não um valor absoluto, mas algo
+começando com &quot;+&quot; ou &quot;-&quot;), então cursorline vai usar o &quot;textwidth&quot; atual.</p>
+</li>
+<li>
+<p><code>set linespace=1</code>: Define um espaçamento entre linhas, em pixeis. No caso,
+&quot;1&quot; significa que as linhas terão a altura requisitada pela fonte mais um
+pixel.</p>
+</li>
+<li>
+<p><code>set lines=???:</code> Define a quantidade de linhas do editor. Segue todas as
+considerações feitas em “columns”. Ainda, aqui eu estou usando de novo a
+checagem de funcionalidade (<code>has()</code>) para ter configurações diferenciadas no OS
+X e em outros sistemas operacionais.</p>
+</li>
+<li>
+<p><code>set gfn=???</code>: Define a fonte a ser usada (&quot;gfn&quot; é a forma curta de &quot;guifont&quot;).
+Note que fontes que tem espaço no meio tem que ter os espaços &quot;escapados&quot;
+(com <code>\</code> antes do espaço) ou como strings. Se você quiser selecionar alguma
+fonte mas não faz idéia do nome da fonte, use <code>:set gfn=*</code> para que o VIM
+mostre o seletor de fontes do sistema; depois que escolher uma fonte, se
+quiser que o VIM descreva como usar, use <code>:set gfn</code> e cole o resultado no seu
+arquivo de configuração.</p>
+</li>
+</ul>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> E, lembrando mais uma vez: Para desligar opções deste tipo, coloque &quot;no&quot; na
+frente. Para desligar o highlight da linha atual do cursor, use <code>:set nocursorline</code>; para desligar o highlight da coluna atual do cursor, use
+<code>:set nocursorcolumn</code>.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;11-01-vimrc">Meu .vimrc</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;12-modelines">Modelines</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

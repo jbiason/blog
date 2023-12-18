@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Types Say What You Data Is</h1>
+  <span class="post-date">
+	2019-06-24
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/types/">#types</a>
+        
+  </span>
+  <p>Memory is just a sequence of bytes; bytes are just numbers from 0 to 255; what
+those numbers mean is described on the language type system.</p>
+<span id="continue-reading"></span>
+<p>For example, in C, a <code>char</code> type of value 65 is most probably the letter &quot;A&quot;,
+which an <code>int</code> of value is 65 is the number 65.</p>
+<p>Remember this when dealing with your data.</p>
+<p>And it doesn't matter of your language of choice uses dynamic typing or static
+typing. The same still applies.</p>
+<p>One classic example of misusing types is adding booleans. Booleans are either
+<code>true</code> or <code>false</code>, but because most languages follow C, which doesn't have a
+boolean type and uses compiler pre-processors to define <code>TRUE</code> as an integer
+with the value <code>1</code> and <code>FALSE</code> with another integer with the value <code>0</code>. Newer
+languages were build on top of what older developers knew, and so, a bunch of
+those languages also assumed using an integer under booleans was a good idea.
+And even today, with modern languages, people rely on those old methods.</p>
+<p>Let me repeat that: You're adding booleans and expecting a number -- only
+because in the old times there wasn't boolean types.</p>
+<p>No, you're counting the number of elements in the list 'cause that would see
+the whole list. You're not even filtering the false values over and counting
+the resulting list size. You're jumping the underlying type to get a bit of
+performance out.</p>
+<p>Fortunately, some new languages are using booleans as a complete different
+type and wouldn't allow this kind of stuff.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;handle-it">If You Know How To Handle It, Handle It</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;use-structures">If Your Data Has a Schema, Use a Structure</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

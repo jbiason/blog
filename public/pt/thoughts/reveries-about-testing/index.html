@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Devaneios Sobre Testes</h1>
+  <span class="post-date">
+	2020-01-13
+	
+            <a href="https://blog.juliobiason.me/pt/tags/testes/">#testes</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/testes-de-integracao/">#testes de integração</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/testes-unitarios/">#testes unitários</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/companion-post/">#companion post</a>
+        
+  </span>
+  <p>Hoje em dia, boa parte dos desenvolvedores utiliza alguma metodologia de
+testes. Mas o que são os testes? Para que servem? Qual o objetivo de se
+testar? Estamos testando as coisas certas?</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Esse post acompanha a minha apresentação de <a href="https://presentations.juliobiason.me/filosofando-testes.html">Filosofando Sobre
+Testes</a>.</p>
+
+</div>
+<p>Antes de começar, alguns avisos:</p>
+<ol>
+<li>
+<p><strong>Eu sou não ortodoxo com relação a testes</strong>. Com isso eu quero dizer que
+muitas das coisas que eu vou comentar aqui são exatamente contrárias do que
+todo mundo fala e da forma como muitos trabalham com testes.</p>
+</li>
+<li>
+<p>De forma alguma, considere esse conteúdo como regras. O que eu quero é que
+as pessoas parem de sair criando testes sem saber porque estão fazendo
+esses testes.</p>
+</li>
+<li>
+<p>Ainda, de forma alguma você precisa concordar com alguma coisa aqui. De
+novo, a ideia é parar para pensar no que está sendo testado antes de sair
+testando.</p>
+</li>
+</ol>
+<p>Agenda de coisas que eu vou comentar:</p>
+<ol>
+<li>TDD no estilo Kent Beck;</li>
+<li>&quot;Fast Tests, Slow Tests&quot;;</li>
+<li>Explosão de Testes Lentos;</li>
+<li>Coverage;</li>
+<li>Mocking.</li>
+</ol>
+<h2 id="tdd-no-estilo-kent-beck">TDD no Estilo Kent Beck</h2>
+<p>O que me levou a repensar a forma como eu escrevia testes foi um vídeo do Ian
+Cooper chamado <a href="https://vimeo.com/68375232">&quot;TDD, where it all go wrong&quot;</a>
+(&quot;TDD, aonde é que a coisa deu errado&quot;). No vídeo, Cooper coloca que o livro que
+Beck escreveu (que deu origem a toda a revolução do TDD) diz duas coisas:</p>
+<ol>
+<li>Testes devem ser executados de forma isolada, nada mais, nada menos.</li>
+<li>Evite testar detalhes de implementação, teste comportamentos.</li>
+</ol>
+<p>O primeiro ponto é o que fala sobre &quot;unit tests&quot;, significando &quot;rodam de forma
+isolada&quot;, no sentido em que um teste não depende de outro. Dessa forma, &quot;unit
+tests&quot; seriam traduzidos como &quot;testes unitários&quot;, não &quot;testes de unidade&quot; --
+não há &quot;unidade&quot;, o teste em si é uma unidade única que não depende de outras
+coisas.</p>
+<p>O segundo ponto é que deve ser testado o comportamento, não a implementação.
+Esse é um ponto que eu vejo falhar um bocado quando pensamos em testar todo e
+qualquer classe e/ou função: E se o comportamento esperado é a combinação de
+duas classes? Vale a pena escrever testes para as duas, sendo que a questão de
+separar em duas classes diferentes (ou duas funções diferentes) é apenas uma
+questão de implementação/simplicidade de código?</p>
+<p>Ainda, outro questionamento sobre testar todas as funções e todas as classes:
+o que sabemos de uma aplicação são os canais de entrada -- que pode ser por um
+botão em uma interface gráfica, um texto digitado na linha de comando ou uma
+requisição web -- e os canais de saída; assim, o <em>comportamento</em> esperado é
+&quot;dado essa entrada pelo canal de entrada, quero ter essa saída&quot;, e qualquer
+coisa no meio é implementação. E para fazer a transformação de uma
+entrada para uma saída específica, eu posso precisar de mais de uma função
+e/ou classe; se eu estiver testando cada uma das funções, eu estou realmente
+testando o comportamento ou a implementação?</p>
+<p>&quot;Mas isso é muito parecido com BDD!&quot;, você deve estar pensando. Cooper coloca
+isso no vídeo acima: Como a ideia de &quot;testar cada função/classe&quot; se tornou a
+norma do TDD, a questão do comportamento teve que ser colocado em outro
+formato, o que deu origem ao ATDD (Acceptance-Test Driven Development,
+Desenvolvimento Guiado por Testes de Aceitação) e BDD (Behaviour Driven
+Development, Desenvolvimento Guiado por Comportamentos).</p>
+<p>Um exemplo de testes de comportamento: No Subreddit do Django, foi criada
+uma pergunta: <a href="https://www.reddit.com/r/django/comments/5bearg/should_i_write_unit_tests_for_djangos_built_in/">Devo Escrever Testes Para os Tipos Built-In do
+Django?</a> 
+A questão se resume ao seguinte: Sabendo que no Django eu tenho tipos
+definidos para meus dados no banco, e a partir dessas definições eu posso
+criar formulários para colocar nos meus templates e esses formulários também
+servem para validar os dados de entrada; assim, se eu defini que há um campo
+no meu banco chamado &quot;Ano de nascimento&quot; -- que só pode receber números
+inteiros -- e eu crio o formulário a partir do banco, coloco no meu template,
+recebo os dados de volta e o próprio Django vai garantir, pelo tipo do dado no
+banco, que o valor do campo é um número inteiro. Eu ainda preciso escrever um
+teste para isso?</p>
+<p>A resposta, no entanto, está em dar um passo atrás e fazer a seguinte
+pergunta: <em>Por que</em> o ano é um inteiro? Obviamente, porque anos são definidos
+como números<sup class="footnote-reference"><a href="#1">1</a></sup> e, portanto, o comportamento do campo foi definido bem antes do
+campo ser adicionado na tabela. Ainda, imagine que, por algum acidente do
+destino, eu precise guardar o ano como uma string<sup class="footnote-reference"><a href="#2">2</a></sup>; se o tipo foi alterado,
+o <em>comportamento</em> vai ser alterado também? Provavelmente não.</p>
+<p>Quando eu ignorei que ano deve ser um número porque &quot;o framework cuida disso
+pra mim&quot;, eu ignorei o comportamento esperado por culpa da implementação.</p>
+<p>E &quot;teste comportamentos, não implementação&quot;.</p>
+<p>Embora não factual, uma anedota: Num projeto, tínhamos um &quot;gerenciador de
+alarmes&quot; onde, a partir de um evento, poderia ser gerado simplesmente um log,
+ser gerado um log e enviado um sinal SNMP ou, dependendo da configuração do
+usuário, log, SNMP e ativação de um LED no painel frontal do equipamento.
+Assim, criamos um módulo com a geração do log, um módulo com o envio do SNMP e
+um módulo com a ativação/desativação do LED. Embora tudo tivesse testes, nós
+ainda não nos sentíamos tranquilos com aquilo. Foi quando sugeri que
+escrevêssemos um teste que levantasse o serviço e enviasse os eventos e ver o
+que acontecia. E, finalmente, os testes fizeram sentido. (Eu ainda vou fazer
+referências a esses testes na parte de cobertura.)</p>
+<h2 id="fast-tests-slow-tests">Fast Tests, Slow Tests</h2>
+<p>O contraponto do que eu comentei acima pode ser algo parecido com <a href="https://www.youtube.com/watch?v=RAxiiRPHS9k">Fast Tests,
+Slow Tests</a>, do Gary Bernhardt.
+Em resumo, nessa apresentação, Bernhardt comenta que mudaram os testes e que
+agora era possível executar centenas de testes em menos de 1 segundo (um
+exemplo mostra aproximadamente 600 testes em 1.5 segundos).</p>
+<p>O que o Bernhardt sugere é escrever testes apenas para os models, sem conexão
+com o banco ou controllers; testes de controllers sem conexão com os models ou
+views; e testes de views sem controllers.</p>
+<p>Soa familiar (principalmente em frameworks MVC que separam cada um destes em
+classes separadas)?</p>
+<p>Ainda sobre esses testes, Bernhardt aponta que essas &quot;execuções rápidas&quot;
+ajudam os desenvolvedores a testar suas alterações rapidamente (ainda soa
+familiar?) mas que esses testes não substituem os testes de integração.</p>
+<p>Nesse ponto é preciso se perguntar: se são escritos testes que verificam a
+execução de um controller de forma isolada do resto do sistema, mas ainda é
+necessário escrever os (chamados) testes de integração para garantir que o
+projeto está entregando o que foi prometido entregar, o que é que está
+realmente sendo testado? A impressão que deixa é que o estilo de teste pregado
+por Bernhardt está mais para <em>aderência à arquitetura</em> do que um teste de
+qualidade do sistema: Esse controller segue a estrutura de não ter conexões de
+banco em si?  Esse model tem apenas as funções relacionadas com o
+armazenamento e recuperação dos dados, sem qualquer lógica? Se é isso, qual o
+valor para meu usuário se o controller não faz nenhuma gravação no banco de
+dados?</p>
+<p>Não que eu acredite que testes desse tipo sejam desnecessários, mas eles
+deixam a impressão que, a longo prazo, eles tendem a se parecerem,
+estruturalmente, muito parecidos, enquanto que (assim chamados) testes de
+integração tendem a dar mais retorno a longo prazo para a qualidade do
+projeto: Testes que definem uma entrada e um resultado esperado tendem a
+garantir que, a longo prazo, o funcionamento do sistema continuará sendo igual.</p>
+<h2 id="explosao-de-testes-lentos">Explosão de Testes Lentos</h2>
+<p>A primeira consideração que surge numa declaração como a de cima é que &quot;testes
+de integração são lentos e isso vai tornar os testes lentos e reduzir a
+produtividade dos desenvolvedores.&quot;</p>
+<p>Sim, testes de integração são lentos, principalmente porque há um bom trabalho
+em criar o estado inicial esperado, todas as entradas conforme esperado pelo sistema
+de I/O (de novo, interface gráfica, linha de comando, web), percorrer todo o
+percurso do processamento e verificar a saída. E sim, esperar esse tempo de
+execução pode acabar distraindo o desenvolvedor.</p>
+<p>Entretanto, quando um desenvolvedor está trabalhando num tratamento de algum
+dado, se for uma nova funcionalidade/comportamento esperado, obviamente um
+teste desse comportamento deve ser criado; se é uma alteração de
+comportamento, deve haver um teste do comportamento esperado e esse deve ser
+corrigido. Executar <em>apenas</em> esse teste é o suficiente? Não, mas já dá boas
+indicações de que a funcionalidade está funcionando como prevista. Depois de
+garantir que a funcionalidade está correta, o desenvolvedor pode executar a
+suite de testes do elemento sendo alterado e deixar o resto para o CI. </p>
+<p>Por exemplo, se eu estiver trabalhando numa funcionalidade nova de mostrar uma
+mensagem de erro caso seja feito um pedido quando o produto pedido não exista
+no estoque, eu tenho que escrever um novo teste que crie um produto, deixe-o
+com uma quantidade 0 em estoque, faça o pedido de compra e verifique que houve
+erro. Uma vez que esse teste confirme a funcionalidade, eu posso rodar os
+demais testes de pedidos, e depois disso deixar o CI validar que eu não
+quebrei nada no gerenciamento de estoque ou cadastro de clientes (por algum
+motivo).</p>
+<p>E note que provavelmente para fazer todas essas validações, eu ainda vou
+precisar de várias funções/classes e testar cada uma em separado não garante a
+funcionalidade, mas eu vou voltar a esse tópico quando tiver falando de
+cobertura.</p>
+<p>Isso me parece o mais complicado pois parece haver, ao mesmo tempo, uma
+interface muito ruim das ferramentas de testes para executar suites de testes
+(somente os testes de pedidos, no exemplo anterior) e preguiça em executar
+apenas os testes da suite (é mais fácil chamar o comando que roda todos os
+testes que lembrar do caminho específico da suite -- sem contar organização de
+suites para isso).</p>
+<h2 id="coverage">Coverage</h2>
+<p>Ao contrário de que muitos comentam por aí, eu realmente acredito que seja bem
+viável chegar a 100% de cobertura de testes: Basta apagar código.</p>
+<p>A ideia é bem simples, na verdade: Se meus testes testam o comportamento do
+sistema, e eu estou garantindo que esses testes passam, qualquer coisa que não
+tenha cobertura indica que o código não é necessário e que, portanto, pode ser
+removido.</p>
+<p>Entretanto, não é qualquer código que possa ser apagado. No exemplo do
+gerenciador de alarmes, apesar dos &quot;testes unitários&quot; cobrirem todas as
+funcionalidades, aconteceu que no &quot;teste de integração&quot; surgiu um bloco de
+código que nunca era executado. Esse bloco era responsável por validar a
+entrada de um dos módulos (garantindo que não seria possível enviar um SNMP
+sem mensagem, por exemplo). Entretanto, ao examinar o código durante a
+execução, nós percebemos que o módulo base já estava fazendo essa validação e
+que o código de proteção do módulo jamais seria chamado. Obviamente, essa é
+uma questão sobre qual dos dois testes deveria ser eliminado. Mas nós tínhamos
+&quot;código morto&quot;, considerado &quot;vivo&quot; porque um &quot;teste unitário&quot; estava passando
+pelas duas validações.</p>
+<p>Um exemplo mais prático. Imagine uma classe que guarde dados de clientes de
+um serviço web de compras<sup class="footnote-reference"><a href="#3">3</a></sup>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Client</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = name
+</span></code></pre>
+<p>Depois de um tempo, surge um novo requisito: Um tal de &quot;Zézinho&quot;
+está criando usuários sem parar, sem fazer compras, só pra sujar o banco;
+devemos bloquear todos os cadastros que tenham como nome do usuário apenas um
+nome.</p>
+<p>Aí, pensando em SOLID<sup class="footnote-reference"><a href="#4">4</a></sup>, o desenvolvedor altera o código para o seguinte:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_multiple_names</span><span>(</span><span style="color:#bf616a;">name</span><span>):
+</span><span>    split_names = name.</span><span style="color:#bf616a;">split</span><span>(&#39; &#39;)
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#96b5b4;">len</span><span>(split_names) &gt; </span><span style="color:#d08770;">1
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_validate_name</span><span>(</span><span style="color:#bf616a;">name</span><span>):
+</span><span>    </span><span style="color:#b48ead;">if </span><span>not </span><span style="color:#bf616a;">_multiple_names</span><span>(name):
+</span><span>        </span><span style="color:#b48ead;">raise </span><span style="color:#bf616a;">Exception</span><span>(&quot;</span><span style="color:#a3be8c;">Invalid name</span><span>&quot;)
+</span><span>    </span><span style="color:#b48ead;">return </span><span>name
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Client</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = </span><span style="color:#bf616a;">_validate_name</span><span>(name)
+</span></code></pre>
+<p>Agora o que acontece é que quando um cliente é criado, são passadas as
+validações sobre o nome, e uma dessas é que o nome deve ter múltiplos
+nomes<sup class="footnote-reference"><a href="#5">5</a></sup>.</p>
+<p>Nova funcionalidade, precisamos de novos testes, certo?</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>pytest
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_single_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Cher&#39; não tem multiplos nomes.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">assert </span><span>not </span><span style="color:#bf616a;">_multiple_names</span><span>(&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_multiple_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Julio Biason&#39; tem múltiplos nomes.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">assert </span><span style="color:#bf616a;">_multiple_names</span><span>(&#39;</span><span style="color:#a3be8c;">Julio Biason</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_valid_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Julio Biason&#39; é um nome válido.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#bf616a;">_validate_name</span><span>(&#39;</span><span style="color:#a3be8c;">Julio Biason</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_invalid_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Cher&#39; não é um nome válido e por isso levanta uma exceção.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">with </span><span>pytest.</span><span style="color:#bf616a;">raises</span><span>(Exception):
+</span><span>        </span><span style="color:#bf616a;">_validate_name</span><span>(&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_client_error</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;Se tentar criar uma conta com &#39;Cher&#39;, deve dar erro.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">with </span><span>pytest.</span><span style="color:#bf616a;">raises</span><span>(Exception):
+</span><span>        </span><span style="color:#bf616a;">Client</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_client</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;Uma conta com nome &#39;Julio Biason&#39; deve funcionar.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#bf616a;">Client</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Julio Biason</span><span>&#39;)
+</span></code></pre>
+<p>E ao rodar os testes:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ pytest --cov=client client.py
+</span><span>==== test session starts ====
+</span><span>plugins: cov-2.4.0
+</span><span>collected 6 items
+</span><span>
+</span><span>client.py ......
+</span><span>
+</span><span>---- coverage: platform linux, python 3.4.3-final-0 ----
+</span><span>Name        Stmts   Miss  Cover
+</span><span>-------------------------------
+</span><span>client.py      25      0   100%
+</span><span>
+</span><span>==== 6 passed in 0.11 seconds ====
+</span></code></pre>
+<p>100% de cobertura e funcionalidade implantada! O desenvolvedor se dá uns
+tapinhas nas costas e vai pra casa.</p>
+<p>Entretanto, durante a noite, acontece de um dos gerentes ser amigo da Xuxa,
+que tentou fazer uma compra e não conseguiu. O desenvolvedor chega de manhã e
+vê o email do gerente e sai a corrigir o código:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Client</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = name
+</span></code></pre>
+<p>Pronto, não tem mais validação<sup class="footnote-reference"><a href="#6">6</a></sup> e agora a Xuxa pode comprar. Mas ao rodar
+os testes:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>==== FAILURES ====
+</span><span>____ test_client_error ____
+</span><span>
+</span><span>    def test_client_error():
+</span><span>        with pytest.raises(Exception):
+</span><span>&gt;           Client(name=&#39;Cher&#39;)
+</span><span>E           Failed: DID NOT RAISE &lt;class &#39;Exception&#39;&gt;
+</span><span>
+</span><span>client.py:37: Failed
+</span><span>==== 1 failed, 5 passed in 0.63 seconds ====
+</span></code></pre>
+<p>A, é claro! Agora Cher é um nome válido e o comportamento testado é invalido.
+Vamos mudar o teste para o comportamento esperado para a Cher:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_client_error</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;Se tentar criar uma conta com &#39;Cher&#39;, deve funcionar.&quot;&quot;&quot;
+</span><span>	</span><span style="color:#bf616a;">Client</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span></code></pre>
+<p>E rodando os testes de novo:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ pytest --cov=client  client.py
+</span><span>==== test session starts ====
+</span><span>rootdir: /home/jbiason/unitt, inifile:
+</span><span>plugins: cov-2.4.0
+</span><span>collected 6 items
+</span><span>
+</span><span>client.py ......
+</span><span>
+</span><span>---- coverage: platform linux, python 3.4.3-final-0 ----
+</span><span>Name        Stmts   Miss  Cover
+</span><span>-------------------------------
+</span><span>client.py      24      0   100%
+</span><span>
+</span><span>==== 6 passed in 0.12 seconds ====
+</span></code></pre>
+<p>Maravilhoso, tudo está funcionando com o comportamento esperado e ainda temos
+100% de cobertura.</p>
+<p>Mas você consegue ver onde está o problema desse código?</p>
+<p>O problema é que <code>_multiple_names</code> não é mais usado em lugar algum, mas o
+mesmo se mostra &quot;vivo&quot; porque um teste perdido continua indicando que o código
+está vivo. Se tivéssemos começado com os testes de comportamento desde o
+começo -- considerando entradas e saídas -- de cara veríamos que a função não
+é mais necessária -- e se, num futuro, ela for... bom, é pra isso que sistemas
+de controle de versão existem.</p>
+<p>Embora esse possa parecer um exemplo bobo, existem outros casos em que o fluxo
+de processamento dos dados pode ser alterado pelo próprio ambiente. Por
+exemplo, no Django, é possível ter classes &quot;middleware&quot;, que são capazes de
+interceptar Requisições ou Respostas e alterar o resultado o mesmo. O exemplo
+mais comum é o middleware de Autenticação, que adiciona informações do usuário
+logado na Requisição; mas essas alterações podem ser mais profundas, como
+alterar os dados do formulário. Nesses casos, a entrada (ou a
+saída, ou ambos) é afetada e, portanto, escrever testes que ignorem os
+middlewares não vão representar a entrada (ou saída, ou ambos) do sistema
+corretamente. E aí podemos perguntar se o teste é válido por usar estados que
+não existem naturalmente no sistema.</p>
+<h2 id="mocks">Mocks</h2>
+<p>Há um tempo, eu indicava que &quot;mocks&quot; deveriam ser usados para coisas externas
+ao sistema. Entretanto, eu percebi que essa definição não é bem precisa --
+existem coisas externas que não devem ser mockadas -- e que uma definição
+melhor para o que deve ser mockado é &quot;qualquer coisa que esteja fora do seu
+controle&quot;.</p>
+<p>Por exemplo, se você está escrevendo um sistema que faz geolocalização de IPs
+através de um serviço externo, você provavelmente irá mockar a chamada para o
+serviço, já que ele está fora do seu controle. Mas uma chamada para o banco de
+dados, quando você já utiliza um sistema/framework de abstrai toda a parte de
+banco de dados (por exemplo, Django), então o banco, apesar de ser uma entidade
+externa, ainda está sob seu controle e, portanto, não deveria ser mockada --
+mas como o sistema/framework oferece uma abstração do banco, então usar
+qualquer banco não deve afetar o resultado.</p>
+<p>Outro exemplo são microserviços. Mesmo microserviços dentro da mesma empresa
+ou mesmo grupo são externos e fora do controle do projeto e, portanto,
+mockados. &quot;Mas são da mesma equipe!&quot; Sim, mas não são do mesmo projeto, já que
+a) a ideia de microserviços é justamente desacoplar esses serviços e/ou b)
+estão em árvores de diretórios separados. Uma das vantagens de microserviços
+da mesma equipe é que o contrato esperado por um é conhecido pela equipe e
+isso pode ser mockado de forma fácil (a equipe sabe que, chamando um serviço
+com dados X, haverá a resposta Y -- ou erro).</p>
+<h1 id="conclusao">Conclusão</h1>
+<p>De novo, a ideia não é reescrever todos os testes que você tem porque
+&quot;o jeito certo, que é o meu jeito&quot;. Entretanto, eu realmente vejo muitos
+testes sendo escritos &quot;a revelia&quot;, considerando a simples métrica de &quot;um teste
+por função/classe&quot; e, em muitos casos, isso não faz sentido e que precisariam
+ser repensados. Expondo esses &quot;pensamentos impuros&quot; sobre testes, minha ideia
+era realmente fazer com que as pessoas repensassem a forma como os testes
+estão sendo criados.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>A não ser que você use anos com números romanos.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>O porque vai ser uma string pode ser variado: por causa de um plugin de
+segurança, porque é feito um armazenamento num banco que não trabalha bem
+com inteiros, por causa de uma integração com sistema legado...</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>Uma classe de entidades de clientes deveria ser bem mais completa que
+essa, mas vamos deixar ela simples assim para fins de exemplo.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>E não, isso também não é SOLID de verdade, mas vamos deixar assim de
+novo para fins de exemplo.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>E alguém vai me passar o link do &quot;Falácias que Desenvolvedores Acreditam
+Sobre Nomes de Usuários&quot; por causa disso.</p>
+</div>
+<div class="footnote-definition" id="6"><sup class="footnote-definition-label">6</sup>
+<p>E sim, deveria alterar só o <code>_validate_name</code>, mas assim fica mais claro
+onde está o problema.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

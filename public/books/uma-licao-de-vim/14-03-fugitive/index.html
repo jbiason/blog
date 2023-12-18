@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.03. Plugins - Fugitive</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte que só faz sentido se você usa Git.</p>
+<span id="continue-reading"></span>
+<p>O terceiro plugin que eu vou comentar é
+<a href="https://github.com/tpope/vim-fugitive">Fugitive</a>, que adiciona comandos para
+gerenciar seu repositório Git dentro do VIM.</p>
+<p>Para instalar, ou você baixa a versão do Github (no link acima) ou usa o Vundle:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;tpope/vim-fugitive&quot;
+</span></code></pre>
+<p>(E, de novo: depois de adicionar essa linha no seu vimrc, você deve sair do VIM
+-- ou, se não quiser fazer tudo isso, basta usar o comando acima em modo de
+comando -- e usar <code>:PluginInstall</code> para instalar o plugin.)</p>
+<p>A princípio, nada de diferente deve aparecer. Mas você agora pode usar qualquer
+comando do Git com <code>:Git {comando}</code>, como faria no shell.</p>
+<p>Mas só adicionar um comando não é o que o Fugitive faz. Ele também adiciona
+outros comandos:</p>
+<ul>
+<li><code>:Gwrite</code> (ou <code>:Gw</code>): salva o arquivo atual e já adiciona no index para o
+próximo commit.</li>
+<li><code>:Gblame</code>: Faz um split da tela, mostrando do lado direito o fonte que já
+estava aberto e do lado esquerdo, o último commit (SHA1) e o autor do commit.</li>
+<li><code>:Gread</code>: Descarta as alterações locais e recupera o arquivo atual na sua
+última revisão dentro do repositório do Git (ou seja, revert).</li>
+<li><code>:Gdiff</code>: Mostra um diff da versão atual com a versão no repositório, com
+splits.</li>
+<li><code>:Gcommit</code>: Faz o commit dos arquivos que estão no index.</li>
+<li><code>:Gstatus</code>: Faz um &quot;git status&quot;, mas deixa que você altere os arquivos no
+index (usando &quot;-&quot; para adicionar ou remover o arquivo -- leia o texto com
+atenção) e faça commit dos selecionados (usando &quot;cc&quot;) [Note que ambos os
+comandos devem ser usados em modo normal dentro do split aberto por
+<code>:Gstatus</code>.]</li>
+</ul>
+<p>Existem outros, mas você vai usar principalmente estes. E cuide para que você
+esteja dentro de um repositório Git antes de tentar usar os comandos; se o VIM
+não estiver num diretório com um repositório válido, nenhum dos comandos do
+Fugitive ficarão disponíveis<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>E, como última dica: Se você estiver usando o Airline (comentado no capítulo
+anterior), adicione</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#96b5b4;">let </span><span style="color:#bf616a;">g:airline_enable_branch</span><span> = </span><span style="color:#d08770;">1
+</span></code></pre>
+<p>... no seu vimrc e o branch atual será apresentando dentro do status do
+Airline, logo após o indicador de modo.</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> Eu só preciso adimitir que não testei para ver o que acontece se você
+abrir o VIM fora de um repositório e depois usar <code>:cd</code> para mudar para um
+diretório que tem um repositório ou tentar abrir um arquivo que está
+dentro de um repositório para verificar se os comandos se tornam
+disponíveis.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-02-airline">Plugins - Airline</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-04-commentary">Plugins - Commentary</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

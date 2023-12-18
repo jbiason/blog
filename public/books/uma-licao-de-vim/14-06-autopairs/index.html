@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.06. Plugins - Auto-Pairs</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que o VIM fecha as coisas pra você.</p>
+<span id="continue-reading"></span>
+<p>O sexto plugin da lista de plugins que eu vou falar é
+<a href="https://github.com/jiangmiao/auto-pairs">Auto-Pairs</a>. Como de costume, para
+instalar o plugin pelo Vundle:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;jiangmiao/auto-pairs&quot;
+</span></code></pre>
+<p>Uma vez instalado o plugin, você verá que cada <code>'</code>, <code>&quot;</code>, <code>(</code>, <code>[</code> e <code>{</code> irá,
+automagicamente, gerar o seu respectivo <code>'</code>, <code>&quot;</code>, <code>)</code>, <code>]</code> e <code>}</code>. Simples assim.</p>
+<p>Entretanto, Auto-Pairs não funciona bem com o modo visual (se você já usou
+TextMate ou Sublime Text, deve ter percebido que se você usar uma das
+combinações acima com uma área selecionada, o editor vai &quot;circular&quot; a área
+selecionada com o par indicado). O que existe é <code>[Alt]e</code> em modo de inserção que
+faz a troca rápida entre o caractere de fechamento de pair com a próxima
+palavra.</p>
+<p>Por exemplo, se você tiver</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&#39;&#39;auto
+</span></code></pre>
+<p>... com o cursor posicionado entre as duas aspas e usar <code>[Alt]e</code>, você irá ficar com</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>&#39;auto&#39;
+</span></code></pre>
+<p>Ainda, o Auto-pairs tem um controle para &quot;pular&quot; sobre os caracteres de
+fechamento já existentes. Se ele adicionar um &quot;)&quot; (que deve ficar antes do
+cursor), quando você pressionar &quot;)&quot; no seu teclado, ao invés de adicionar mais
+um &quot;)&quot;, o cursor irá pular o &quot;)&quot; existente.</p>
+<p>Embora isso pareça bom, em certos casos pode ser um problema. Por exemplo, caso
+você tenha o seguinte trecho de código:</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#b48ead;">function </span><span>() {
+</span><span>  </span><span style="color:#8fa1b3;">$</span><span>(&#39;</span><span style="color:#a3be8c;">#button</span><span>&#39;).</span><span style="color:#8fa1b3;">on</span><span>(&#39;</span><span style="color:#a3be8c;">click</span><span>&#39;, </span><span style="color:#b48ead;">function </span><span>() {
+</span><span>
+</span><span>})
+</span></code></pre>
+<p>Se você tentar fechar a função interna, o Auto-Pairs irá, na verdade, saltar
+para o fechamento da função externa, efetivamente &quot;proibindo&quot; que você feche as
+funções corretamente. Soluções são:</p>
+<ul>
+<li>
+<p>Fechar a função externa de novo, forçando o que era para encerrar a função
+externa em encerramento da função interna (depois você pode alinhar as duas
+novamente usando o modo visual e <code>=</code> em modo normal);</p>
+</li>
+<li>
+<p>Copiar e colar o fechamento da função externa;</p>
+</li>
+<li>
+<p>Desligar o &quot;salto&quot; de elementos de fechamento com <code>:let g:AutoPairsFlyMode = 0</code>
+(e, se você realmente preferir que o salto nunca seja feito, pode adicionar
+esta linha no seu vimrc);</p>
+</li>
+<li>
+<p>Desligar temporariamente o Auto-Pairs com <code>[Alt]p</code> em modo de inserção (usar
+<code>[Alt]p</code> novamente irá reativar o Auto-Pairs).</p>
+</li>
+</ul>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-05-tabular">Plugins - Tabular</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-07-syntastic">Plugins - Syntastic</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

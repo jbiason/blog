@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Functional Reactive Programming -  Stephen Blackheath, Anthony Jones</h1>
+  <span class="post-date">
+	2020-03-04
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reviews/">#reviews</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stephen-blackheath/">#stephen blackheath</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/anthony-jones/">#anthony jones</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-0/">#stars:0</a>
+        
+            <a href="https://blog.juliobiason.me/tags/books-2020/">#books:2020</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2015/">#published:2015</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/24671986-functional-reactive-programming">GoodReads Summary</a>
+Functional Reactive Programming teaches the concepts and applications of FRP.
+It begins with a careful walk-through of the FRP core operations and
+introduces the concepts and techniques you'll need to use FRP in any language.
+Following easy-to-understand examples, you'll learn both how to use FRP in
+greenfield applications and how to refactor existing applications. Along the
+way, the book introduces the basics of functional programming in a
+just-in-time style, so you never learn anything before you need to use it.
+When you're finished, you'll be able to use FRP to spend more time adding
+features and less time fixing problems.</p>
+<span id="continue-reading"></span><div>
+	☆☆☆☆☆
+</div>
+<ul>
+<li>(-) Some phrases are a bit hard to read. Maybe it's because I'm
+not a native English speaker<sup class="footnote-reference"><a href="#1">1</a></sup>, but some are akin to &quot;my beautiful
+nature photos&quot;, which you can read in different ways (&quot;my beautiful photos
+of nature&quot;, &quot;my photos of beautiful nature&quot;) and I had to backtrack and
+read the whole thing again.</li>
+<li>(-) Code listings are a mess: long and with no separation of concerns. It is
+ok if you use lambdas for simpler functions, but when you keep piling
+lambdas over lambdas, things get a bit out of hand. Trying to explain some
+functionality in a 200 line function is not actually helpful.</li>
+<li>(-) The ePub version seriously need another check. Some code listings are
+pure text, following the font size the user set in their reader; other are
+screenshots/images of code, which get way out of hand, as some of those
+had a font 1/5 of the size I set up (yes, I use a large font, I'm reading
+at night without my glasses, but the point remains).</li>
+<li>(--) There is very little explanation on what FRP really is, but a lot about
+how to do things with Sodium, the authors' library. Instead of focusing on
+how to build your own FRP system, using Sodium as reference, the book
+focuses <em>a lot</em> in using Sodium and its relationship with FRP instead
+of explaining the concept behind the FRP functionality itself.</li>
+<li>(--) The authors show some weird prejudices against TDD. For example, they
+say that FRP doesn't require TDD and that using TDD is actually <em>harmful</em>
+for FRP (!!<sup class="footnote-reference"><a href="#2">2</a></sup>), &quot;unless you test logic&quot; (???<sup class="footnote-reference"><a href="#3">3</a></sup>). I have to ask: Seriously?
+What do you think TDD is about? Lines of code? TDD says that &quot;tests should
+validate behaviors, not implementation&quot; and I'm wondering why the authors
+are so reticent against TDD when their concept of TDD seems completely out
+of place.</li>
+<li>(---) There is a strong gatekeeping in the book. While talking about other
+frameworks, the authors decided to focus more on &quot;why this framework
+is not pure FRP, while Sodium is&quot; instead of, again, focusing on the
+concepts of FRP itself. &quot;FRP says so and so, you can build this with
+framework X using that and that&quot; is a good way to do it; &quot;FRP says so and
+so, framework X do this which is not what the FRP says, so framework X is
+not FRP, but Sodium is!&quot; is a dickish way to downplay other frameworks.
+Not only that, but every time Sodium break some FRP rule (rules that
+the authors themselves keep listing), they put a long explanation on why
+it's ok for you to break the rule there when using Sodium, but Sodium,
+although requiring you to break some FRP rule, is actually a pure-FRP
+framework, and not those pesky other frameworks that are not pure-FRP
+frameworks.</li>
+</ul>
+<p>Honestly, I read the book and I still don't understand FRP; all I got was some
+concepts for a Sodium framework.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>... which may appear as no surprise, with the amount of grammar mistakes
+in this post. :p
+<sup class="footnote-reference"><a href="#2">2</a></sup>: That's surprise.
+<sup class="footnote-reference"><a href="#3">3</a></sup>: That's confusion.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

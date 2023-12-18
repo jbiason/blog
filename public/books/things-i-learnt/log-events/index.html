@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Logs Are For Events, Not User Interface</h1>
+  <span class="post-date">
+	2019-07-01
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/logs/">#logs</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ui/">#ui</a>
+        
+  </span>
+  <p>Two things in one: First of all, when using logging, use it to log events, not
+for user interfaces; second, log <em>events</em> in a machine readable way, not
+necessarily an human readable format.</p>
+<span id="continue-reading"></span>
+<p>For a long time, I used logs to show to the user what was happening. To me, it
+was logical to use something where I could mark errors as errors, general
+information as information and, if the user requested more information, print
+more information on what was going on. So I just added logging, defined normal
+messages as <code>info</code>, errors as <code>errors</code>, information that may help me find
+errors as <code>debug</code> and use <em>only</em> the logging system for all output of the
+application.</p>
+<p>But that's not what logs are targeted for -- and now I'm having to rethink
+most of the stuff I already wrote.</p>
+<p>Use the standard output to inform the user what's going on, in a human
+readable format; use the standard error output to inform the user when things
+go wrong; but use the logs to capture something that you'll have to process
+later, so you should probably use a format that it is easier to parse, even if
+it is not so friendly.</p>
+<p>As an example, let's say you're connecting to a server. You could use the
+standard output to say &quot;Connecting to server&quot;, to give the user a feedback
+about what's going on; at the same time, you could log &quot;CONNECTION
+[SERVER]&quot;, with the IP/Name of the server you're connecting. Surely, the
+&quot;CONNECTION&quot; word is not that friendly to the user, but if you had to parse
+the line, it would be really easy, wouldn't it?</p>
+<p>Another example: If your application is adding a record to the database, there
+is nothing wrong logging &quot;ADDING_RECORD: field=value; field=value;
+field=value&quot; 'cause, in case something goes wrong while saving the record, you
+could have the values to try to figure out why it failed -- surely, logging
+why it failed also helps, but you know what I mean. This is an example of
+something that makes complete sense in logs, but not in user interfaces.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;app-composition-stupid">Even for Application Composition, Start Stupid</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;transparent">Be Transparent With The User</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">One Week with Tiler</h1>
+  <span class="post-date">
+	2019-01-19
+	
+            <a href="https://blog.juliobiason.me/tags/vim/">#vim</a>
+        
+            <a href="https://blog.juliobiason.me/tags/plugins/">#plugins</a>
+        
+            <a href="https://blog.juliobiason.me/tags/tiler/">#tiler</a>
+        
+            <a href="https://blog.juliobiason.me/tags/tiling/">#tiling</a>
+        
+  </span>
+  <p>Tiler is a tiling split manager for VIM. Here is my experience with it
+installed for one week.</p>
+<span id="continue-reading"></span>
+<p>Recently I had to work with Java (instead of Python) and one thing that happens
+when you're working with Java is that you have a bunch of files open at the
+same time. Also, I do prefer to keep things in splits 'cause there is always
+some information you need to keep visible for reference. But a lot of splits
+make visibly finding stuff very <em>very</em> hard.</p>
+<p>Then suddenly, it hit me: I could use a tiling window manager and it wouldn't
+be such a mess; on the other hand, using different windows for each VIM (with
+each file) would make copying'n'pasting a hell. So if I could actually find a
+tiling <em>plugin</em>, that would give me the best of both worlds.</p>
+<p>And that's where <a href="https://github.com/zhamlin/tiler.vim">Tiler</a> gets in.</p>
+<p>Tiler is a tiling plugin for VIM. But it doesn't do anything by itself,
+meaning, it won't intercept every call to a split to do the tiling. But itadds
+new commands to manage the tiling.</p>
+<p>For example, to open a new split using the tiling, you need to use
+<code>:TilerOpen</code>. Again, Tiler won't capture every split, so you can still open
+splits with <code>:split</code> and <code>:vsplit</code>, which would break the tiling arrangements,
+so you can put everyhing back in order with <code>:TilerReorder</code>.</p>
+<p>Tiler has a layout (well, layouts, but they follow the same principle) of one
+large split for the main content and small ones for everything else. To bring
+one split to the main area, you can use <code>:TilerFocus</code>.</p>
+<p>And that's basically it.</p>
+<p>What I did was to add shortcuts to <code>:TilerReorder</code> and <code>:TilerFocus</code>. So I
+open splits like everyone else</p>
+<p><img src="https://blog.juliobiason.me/thoughts/one-week-with-tiler/tiler-no-tiling.png" alt="" /></p>
+<p>... and then using <code>&lt;leader&gt;&lt;space&gt;</code> (the configurable leader key followed by
+space) to call <code>:TilerReorder</code> and I get a nice, tidy workspace:</p>
+<p><img src="https://blog.juliobiason.me/thoughts/one-week-with-tiler/tiler-tiling.png" alt="" /></p>
+<p>Although it may look cumbersome, my <code>leader</code> is defined to <code>space</code>, so to tidy
+up everything, all I have to do is press space twice in normal mode.</p>
+<p>Also, to help with the &quot;focus on one thing&quot; part, I also put a shortcut to the
+<code>:TilerFocus</code> command, with <code>&lt;leader&gt;f</code>.</p>
+<p>And here are my bindings:</p>
+<pre data-lang="vim" style="background-color:#2b303b;color:#c0c5ce;" class="language-vim "><code class="language-vim" data-lang="vim"><span style="color:#96b5b4;">nmap </span><span>&lt;Leader&gt;f :TilerFocus&lt;CR&gt;
+</span><span style="color:#96b5b4;">nmap </span><span>&lt;Leader&gt;&lt;space&gt; :TilerReorder&lt;CR&gt;
+</span></code></pre>
+<p>One last thing: The size of the main area is configurable, which is good,
+since I found it a bit too large. To adjust it, you can use
+<code>g:tiler#master#size</code>, which is the size of main split. I found 55% to be a
+good size, so I put</p>
+<pre data-lang="vim" style="background-color:#2b303b;color:#c0c5ce;" class="language-vim "><code class="language-vim" data-lang="vim"><span style="color:#96b5b4;">let </span><span style="color:#bf616a;">g:tiler</span><span>#master#size = </span><span style="color:#d08770;">55
+</span></code></pre>
+<p>And that's it. As usual, it takes some time to put the keybinds in &quot;auto mode&quot;
+(you know, day-to-day use), but I feel it helps a lot on actually put focus on
+some task without the cluttering of splits.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

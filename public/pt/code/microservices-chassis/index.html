@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microserviços: Chassi</h1>
+  <span class="post-date">
+	2020-04-17
+	
+            <a href="https://blog.juliobiason.me/pt/tags/microservicos/">#microserviços</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/chassi/">#chassi</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/framework/">#framework</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/linguagens/">#linguagens</a>
+        
+  </span>
+  <p>O chassi de um fleet de microserviços é definido como as bibliotecas e
+frameworks que alguém deve usar quando está criando um novo microserviço.</p>
+<span id="continue-reading"></span>
+<p>O &quot;chassi&quot; é um <a href="https://microservices.io/patterns/microservice-chassis.html">design
+pattern</a>
+conhecido, mas a literatura fala sobre a escolha de bibliotecas e frameworks
+que devem ser usados quando se está criando um microserviço.</p>
+<p>Por exemplo, se você está trabalhando com Java, você provavelmente teria algo
+como Spring Boot como chassi para os seus microserviços, de forma que qualquer
+um que comece um microserviço já tenha uma biblioteca (e conhecimento local)
+de como construir.</p>
+<p>E, para cada linguagem, você precisa escolher um chassi diferente -- você não
+pode usar Spring Boot com Python, por exemplo.</p>
+<p>Você deve ter notado que eu coloquei um &quot;mas&quot; no segundo parágrafo.
+Pessoalmente, eu acho que a escolha do chassi vai bem além da criação de
+microserviços.</p>
+<h2 id="conhecimento-compartilhado">Conhecimento Compartilhado</h2>
+<p>Um dos maiores fatores de se usar um chassi para o seu microserviço é o
+conhecimento compartilhado entre os times.  Times que utilizam o mesmo chassi
+podem trocar informações em como solucionar alguns problemas, como fazer o
+processamento ficar mais rápido, informações sobre releases novas e assim por
+diante.</p>
+<p>Mesmo que os times nunca mexam nos códigos dos outros, o simples fato que eles
+podem compartilhar essas informações entre eles é um grande avanço.</p>
+<p>E mesmo para times que utilizam linguagens diferentes isso é um grande ponto:
+Um time pode descrever como o framework que eles utilizam permite fazer alguma
+coisa de forma mais simples, de forma que outro time possa pesquisar se o seu
+chassi permite fazer algo da mesma forma.</p>
+<h2 id="aplicando-uma-visao-comum">Aplicando uma Visão Comum</h2>
+<p>Enquanto o pattern descreve apenas frameworks e bibliotecas, as escolhas dos
+serviços ao redor do serviço também faz parte do chassi, na minha opinião.</p>
+<p>Por exemplo, um time decide usar Kafka como mensageria<sup class="footnote-reference"><a href="#1">1</a></sup> entre serviços -- o
+que permite que qualquer outro time, usando qualquer outro framework, em
+qualquer outra linguagem, a usar o mesmo serviço para troca de mensagens --
+permitindo que qualquer time que precise usar um serviço de troca de mensagens
+possa usar a mesma instalação (mas usando tópicos diferentes), reduzindo
+custos de manutenção. Mas o que acontece quando um time decide usar Kafka como
+banco de dados e define o tempo de retenção para &quot;sempre&quot;? Isso iria confundir
+completamente todos os outros. &quot;Por que esse tópico está sempre crescendo?&quot;
+Pior, sem uma documentação de DevOps bem descrita, alguém pode ver o tópico
+crescendo, verificar, ver que a política de retenção está diferente do resto e
+adicionar um baseada em outros projetos.</p>
+<p>Outro exemplo: Para dados relacionados, há uma instalação do PostgreSQL para
+todo mundo. Cada time tem o seu próprio database e usuários. Mas um time, que
+acabou ficando responsável por dois microserviços, tem um serviço com dados
+que são relacionais e outro que basicamente necessita de um armazenamento de
+chave-valor. Ao invés de pedir por um banco de dados chave-valor, o time
+decide criar um database com apenas uma tabela, com um campo para a chave e um
+campo de texto para guardar JSONs. Isso, novamente, quebra a definição do
+chassi, pois seria esperado que o PostgreSQL fosse usado como banco
+relacional e não como um banco chave-valor.</p>
+<h2 id="conclusao">Conclusão</h2>
+<p>Chassis são bons para o desenvolvimento de microserviços por permitir um
+início de desenvolvimento rápido e com compartilhamento de conhecimento, mas
+eles vão além de apenas frameworks e bibliotecas: eles relacionado tudo ao
+redor dos serviços e como esses são vistos por cada microserviço.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>&quot;Message broker&quot;.</p>
+</div>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

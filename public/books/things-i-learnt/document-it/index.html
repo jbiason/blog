@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Documentation Is a Love Letter To Your Future Self</h1>
+  <span class="post-date">
+	2019-06-21
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/documentation/">#documentation</a>
+        
+  </span>
+  <p>We all know writing the damn docs for functions and classes and modules is a
+pain in the backside. But realizing what you were thinking when you wrote the
+function will save your butt in the future.</p>
+<span id="continue-reading"></span>
+<p>When I say that it will save your butt, I don't mean the documentation will
+tell you something like &quot;Here are the lotto numbers in 2027&quot;<sup class="footnote-reference"><a href="#1">1</a></sup> or &quot;If John
+complains about your future code review, here is some shit he did in the
+past&quot;.</p>
+<p>I mean, it will explain how the <em>flow</em> of your code is expected to do. Imaging
+this: pick your code and replace every function call to its documentation. Can
+you understand what it is expected by reading that? If you can,
+congratulations, you won't have a problem in the future; if you can't... well,
+I have some bad news for you...</p>
+<p>One point that may come here is &quot;Code is its own documentation&quot; or
+&quot;self-documenting code&quot;. I do understand, and yes, simpler functions may make
+the documentation redundant (for example, if you notice that you need a
+function that multiplies two numbers -- and only do that -- giving it a
+description of &quot;Multiples two numbers&quot; may look redundant), but you have to
+ask yourself <em>why</em> you needed such simple function. <em>Why</em> it exists? <em>Where</em>
+it sits in the general data flow?</p>
+<p>Another thing you can document: rarely used functions. One example is Java
+Collectors: In Java, you can create a stream of data, which you can apply
+transformations and such and, in the end, you may put the resulting collection
+of data into another structure -- a list, for example. The thing is,
+collecting to a list is pretty common, but collecting into a map, with a
+function as key and another value as value, splitting the result into two
+different data blocks, is not that common. Because it is uncommon to see such
+collector, it is a good idea to add tips on what each option is.</p>
+<p>That's the things you need to document.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Please, don't make me revise this in 2027... :(</p>
+</div>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;languages-tests">Good Languages Come With Tests</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;document-is-contract">The Function Documentation Is Its Contract</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

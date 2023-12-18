@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Always Use Timezones With Your Dates</h1>
+  <span class="post-date">
+	2019-07-01
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/dates/">#dates</a>
+        
+            <a href="https://blog.juliobiason.me/tags/timezones/">#timezones</a>
+        
+  </span>
+  <p>No matter if the date you're receiving is in your local timezone and you'll
+display it in your timezone, sooner or later, the fact that you ignored there
+was a timezone behind that date will hurt you.</p>
+<span id="continue-reading"></span>
+<p>(Note: Most of this post when I say &quot;date&quot; you can think of &quot;date and time&quot;,
+although the date should also be &quot;timezone aware&quot;.)</p>
+<p>At some point of my professional life, ignoring timezones was easy: You just
+pick the date, throw in the database, then read it back and everybody was
+happy.</p>
+<p>But things are not like this anymore. People will access your site from far
+away locations, the source of the date may not be in the same timezone of your
+system, your system may be running in a completely different timezone of your
+dev machine (it's pretty common to run things in our machines in the local
+timezone but the production system will run in UTC), the display may be a
+complete different timezone than your production and dev machine and so on.</p>
+<p>So always carry the timezone with the data. Find modules/classes that support
+dates with timezones (a.k.a. make things <em>timezone aware</em>), capture the
+timezone as soon as possible and carry it around in all operations.
+Modules/classes that don't support timezones for dates/times should, as soon
+as possible, removed from the system.</p>
+<p>Any developers a bit more seasoned -- and by &quot;seasoned&quot; I meant &quot;Had to deal
+with times before&quot; -- will probably claim &quot;Hey, this is <em>obvious</em>!&quot; And I'd
+have to agree. But it's annoying how many times I got bitten by some stupid
+bug 'cause we decided that &quot;well, everything is in the same timezone, so it's
+all good&quot;.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;start-stupid">Start Stupid</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;use-utf8">Always Use UTF-8 For Your Strings</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

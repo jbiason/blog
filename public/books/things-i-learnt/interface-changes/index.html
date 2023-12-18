@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Beware of Interface Changes</h1>
+  <span class="post-date">
+	2019-06-23
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/interfaces/">#interfaces</a>
+        
+            <a href="https://blog.juliobiason.me/tags/apis/">#apis</a>
+        
+  </span>
+  <p>Interfaces and APIs is what you give away to others. If you keep changing them,
+you'll make everyone's life sad.</p>
+<span id="continue-reading"></span>
+<p>When talking about <a href="/books/things-i-learnt/boolean-parameters">boolean
+parameters</a>, I mentioned about
+renaming the function. If you control the whole source where the function is
+used, that's not issue, it's just a matter of search and replace.</p>
+<p>But if that function was actually exposed in a library, you shouldn't change
+function names in a whim. That will break a lot of other applications beyond
+your control and make a lot of other people unhappy.</p>
+<p>Remember, when you write <a href="/books/things-i-learnt/tests-apis">tests for APIs</a>,
+you can see these kind of changes happening and you can see the kind of
+changes you're doing on how they reflect externally.</p>
+<p>You can create the new functions and mark the current one as deprecated,
+either by documentation or by some code feature. Then, after a few releases,
+you can finally kill the original function.</p>
+<p>(A dickish move you can do is to create the new functions, mark the current
+function as deprecated and <em>add a sleep at the start of the function</em>, in a
+way that people using the old function are forced to update.)</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;boolean-parameters">Don&#x27;t Use Booleans As Parameters</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;crash-it">It&#x27;s Better To Let The Application Crash Than Do Nothing</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

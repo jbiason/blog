@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">04. Registradores</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte que o VIM fica melhor que os outros editores.</p>
+<span id="continue-reading"></span>
+<p>No capítulo anterior eu mencionei que o VIM tem uma área de transferência
+própria e que ela não se comunica diretamente com a área de transferência do
+sistema operacional, apenas através de registradores.</p>
+<p>A forma mais simples de pensar em registradores é: são marcadores para áreas de
+transferência com nomes<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>Para acessar os registradores, você deve usar <code>&quot;{nome do registrador}</code>, onde
+{nome do registrador} é uma letra apenas. Assim, para copiar texto para um
+registrador, é utilizado <code>&quot;{registrador}y{movimento}</code>; para retirar depois este
+texto do registrador, é utilizado <code>&quot;{registrador}p</code>.</p>
+<p>Enquanto você estava vendo yank'n'paste do VIM, o VIM estava guardando o texto
+numa área de transferência apontanda pelo &quot;registrador sem nome&quot;. E eu não
+estou brincando aqui: O próprio help do VIM chama este registrador de
+&quot;registrador sem nome&quot;. A letra do registrador sem nome é <code>&quot;</code> (ou seja, <code>&quot;&quot;yy</code> e
+<code>yy</code> ambos irão copiar a linha atual para o registrador sem nome).</p>
+<p>Números são registradores especiais. 0 contém o último texto copiado para área
+de transferência; de 1 a 9 ficam os textos excluídos, em forma de pilha (o mais
+recente no registrador 1, o anterior a este no 2 e assim por diante; e quando
+mais texto é excluído, o conteúdo vai para o registrador 1, o conteúdo do
+registrador 1 vai para o registrador 2 e assim por diante).</p>
+<p><code>-</code> é um registrador que guarda qualquer coisa excluída que for menor que uma
+linha inteira.</p>
+<p>Registradores com letras de &quot;a&quot; a &quot;z&quot; funcionam exatamente como esperado: <code>&quot;ayy</code> irá
+copiar a linha atual para o registrador &quot;a&quot; enquanto que <code>&quot;bp</code> irá colar o conteúdo
+do registrador b.</p>
+<p>Note que até agora eu chamei os registradores normais com minúsculas. O motivo
+é que, ao copiar algo para um registrador, o conteúdo anterior é removido, a
+não ser que você passe o nome do registrado em maiúsculas. Neste caso, o
+conteúdo movido para a área de transferência do registrador é adicionado ao
+conteúdo já existente. Assim, você pode copiar linhas não-contíguas usando <code>&quot;ayy</code>
+para a primeira linha, <code>&quot;Ayy</code> para as demais e depois colar com <code>&quot;ap</code> (para o paste
+não há diferença entre maiúsculas e minúsculas).</p>
+<p>Outros registradores especiais são:</p>
+<h2 id="">=</h2>
+<p>Registrador de expressões. Você pode entrar fórmulas e depois colar o resultado
+no conteúdo com <code>p</code>. Uma coisa a cuidar aqui é que não é possível fazer <code>&quot;=p</code>; o
+VIM irá imediatamente abrir espaço para entrar a fórmula ao digitar <code>&quot;=</code>; ainda,
+o conteúdo é perdido se depois de digitar a fórmula você utilizar qualquer
+comando que não seja <code>p</code> (incluindo os comandos de movimentação).</p>
+<h2 id="-1">_</h2>
+<p>Registrador &quot;buraco negro&quot; (de novo, eu não estou brincando, o help do VIM
+chama esse registrador de &quot;buraco negro&quot;). Qualquer coisa enviada para este
+registrador é perdida; paste deste registrador retorna nada. Útil quando você
+quer excluir algum texto sem mexer no registrador sem nome.</p>
+<h2 id="-2">+</h2>
+<p>Registrador da área de transferência do sistema operacional. Somente disponível
+para aplicações GUI, já que estas tem acesso direto ao sistema (no caso do VIM
+console em Linux, o &quot;sistema operacional&quot; seria o próprio shell, que não tem
+uma área de transferência -- se você pensar nas bibliotecas envolvidas, a coisa
+faz sentido).</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> Registradores também são usados para outras coisas, mas veremos isso mais pra frente.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;03-recortar-copiar-colar">Recortar, Copiar e Colar</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;05-marcadores">Marcadores</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

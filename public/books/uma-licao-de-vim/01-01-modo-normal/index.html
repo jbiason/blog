@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">01.01. Modo Normal</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Esta é a parte em que você ainda vai precisar de um arquivo pronto para ver
+as coisas funcionando.</p>
+<span id="continue-reading"></span>
+<p>A apresentação mais clássica do modo normal são todas as demais explicações que
+você vai achar por aí que dizem que é preciso usar <code>h</code>, <code>j</code>, <code>k</code> e <code>l</code> para
+mover o cursor na tela. Tirando o fato que isso é uma balela sem tamanho e que
+o VIM suporta movimentação com as teclas direcionais e que você não precisa
+ficar pensando em mnemônicos como &quot;j tem uma perna pra baixo, k tem uma perna
+pra cima&quot; e outras absurdices, estes são comandos normais válidos: ao
+pressionar <code>k</code>, o cursor irá mover para a linha de cima, <code>j</code> moverá o cursor
+para a linha de baixo e assim por diante.</p>
+<p>Nem todos os comandos são acionados com apenas uma tecla. Alguns iniciam um
+comando, mas ficam esperando mais informações para saber o que fazer ou onde
+fazer. Assim, temos comandos que são de movimentação e outros de ação.</p>
+<h2 id="comandos-de-movimentacao">Comandos de Movimentação</h2>
+<p>Comandos de movimentação são comandos que movem o cursor no texto. Como já
+vimos, <code>h</code>, <code>j</code>, <code>k</code> e <code>l</code> são comandos de movimentação. Além destes temos<sup class="footnote-reference"><a href="#1">1</a></sup>:</p>
+<h3 id="f-letra">f[letra]</h3>
+<p>Posiciona o cursor na próxima <code>[letra]</code> na linha. Se <code>[letra]</code> não existir, não
+move o cursor. Por exemplo, <code>fa</code> irá mover o cursor para o próximo &quot;a&quot; na
+linha.</p>
+<h3 id="f-letra-1">F[letra]</h3>
+<p>O mesmo que <code>f[letra]</code>, mas voltando na linha ao invés de ir pra frente.</p>
+<h3 id="t-letra">t[letra]</h3>
+<p>Posiciona o cursor uma posição antes de <code>[letra]</code> na linha. Praticamente o mesmo
+que <code>f[letra]</code>, mas uma posição antes.</p>
+<h3 id="t-letra-1">T[letra]</h3>
+<p>Assim como &quot;F&quot; faz o mesmo que &quot;t&quot;, mas voltando na linha.</p>
+<h3 id="0">0</h3>
+<p>Move o cursor para a coluna 0.</p>
+<h3 id="">_</h3>
+<p>Move o cursor para a primeira letra que não seja espaço ou tabulação na linha.</p>
+<h3 id="-1">$</h3>
+<p>Move o cursor para o final da linha.</p>
+<h3 id="-2">%</h3>
+<p>Move o cursor para o outro elemento do par (por exemplo, % quando cursor
+estiver sobre um &quot;(&quot; irá mover o cursor para o &quot;)&quot; correspondente).</p>
+<p>Até aqui eu acredito que você esteja pensando &quot;nada que mude minha vida&quot;. Bom,
+então aqui vem a primeira grande dica:</p>
+<blockquote>
+<p>Se você digitar um número antes de fazer um comando, VIM irá repetir o
+comando quantas vezes o número indicar.</p>
+</blockquote>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/01-01-modo-normal/Mind-Blown.jpg" alt="" /></p>
+<p>Ok, talvez não tenha sido a revelação do século, mas isso quer dizer que se
+você digitar <code>3f.</code>, VIM irá mover o cursor para o terceiro ponto na linha atual.
+E isso também pode não parecer importante, mas daqui pra frente isso vai fazer
+sentido.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Todas as imagens são copyright (C) seus respectivos donos.</p>
+
+</div>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> De forma alguma, esta é uma lista completa de todos os comandos de
+movimentação existentes, apenas os mais interessantes.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;01-modos">Modos</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;01-02-entendendo-o-cursor">Entendendo o Cursor</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

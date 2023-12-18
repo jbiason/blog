@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - If It Doesn&#x27;t Run On Your Computer, You Have A Problem</h1>
+  <span class="post-date">
+	2019-07-18
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/local-run/">#local run</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cloud/">#cloud</a>
+        
+  </span>
+  <p>I've seen a lot of systems that would never run on a isolated computer, like
+the developer tool, 'cause the system requires running on a specialized
+environment. Those things are wrong.</p>
+<span id="continue-reading"></span>
+<p>Requiring a specialized environment absolutely kills productivity.</p>
+<p>If your system will run on a specialized environment -- and I'm including &quot;the
+cloud&quot; here -- look for something that can abstract whatever you're using. For
+example, if you're using AWS SQS, which is a queue, look for a library that
+can abstract the way a queue works so you can also run with RabbitMQ, which
+can be easily run on your own computer.</p>
+<p>If you're using a very specialized thing, you may have to write the
+abstraction yourself, isolating it from the main system, so you can develop
+the main product in peace.</p>
+<p>One of the most productivity killer environment I worked require running the
+project on a customized Apache installation, running the client specialized
+framework. The whole problem is that the client refused to allow us to not use
+it or install on our local machines (mostly 'cause the install of said
+framework was really complex). In other for us to work and see things working,
+we had to use a VPN to the client computers, develop things there and manually
+forcing things to reload. No only we had absolutely nothing to do when the VPN
+was down ('cause it require out company infrastructure working hand-in-hand
+with the client infrastructure and the internet provider infrastructure, which
+is absolutely impossible), the flow was really cumbersome.</p>
+<p>If we had the chance to not use it and run all the development and tests on
+our own computers, I have the feeling we could deliver the product 2-3 months
+earlier.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;units">Units Makes Things Clear</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;permanent-solution">Nothing More Permanent Than A Temporary Solution</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

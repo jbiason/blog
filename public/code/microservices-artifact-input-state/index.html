@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microservices: Artifact = Input + State</h1>
+  <span class="post-date">
+	2019-12-26
+	
+            <a href="https://blog.juliobiason.me/tags/microservices/">#microservices</a>
+        
+            <a href="https://blog.juliobiason.me/tags/artifacts/">#artifacts</a>
+        
+            <a href="https://blog.juliobiason.me/tags/state/">#state</a>
+        
+  </span>
+  <p>Designing microservices is a bit complicated because you have to think about
+different things when deciding which &quot;domain&quot; it will occupy. A recent
+discussion with coworkers about our current microservices design led me to
+rethink how to think about microservices.</p>
+<span id="continue-reading"></span>
+<p>This may sound a bit weird for those already working with microservices -- or
+that managed to build a good view of the building of microservices -- but when
+the word &quot;artifact&quot; popped up in a discussion, it &quot;clicked&quot; with a bunch of
+other stuff I had in mind about the topic.</p>
+<p>One fact that kept confusing me was that a lot of literature about
+microservices talk about &quot;domain separation&quot; and how to figure out each
+domain. Now, although there are a few tricks -- like &quot;if it is a noun, it is a
+domain&quot; -- not everything is clear cut. Some domains are actually subdomains
+of a larger domain, so you keep wondering if you should split those or keep
+them into a single microservice, since splitting them would, invariably,
+making the microservices coupled (something you want to avoid when building
+microservices).</p>
+<p>And that's where &quot;artifact&quot; felt into place. For a while, I had the impression
+that microservices had to be built &quot;backwards&quot;, in the sense that first you
+have to think in what you <em>need</em> and then check what you <em>have</em> -- in other
+words, you have to think on your outputs before checking your inputs. And an
+&quot;artifact&quot; is, in the end, just the output of the microservice.</p>
+<p>In our case, we are dealing with games. Each game has a narration, it has an
+score, it has statistics and it has a roster. Even if it falls into the &quot;it's
+a noun!&quot; rule, it actually resembles the required output of our system: we
+have a request that gets the current narration of a game (which can be polled
+from time to time or -- as we are currently working on -- pushed towards
+clients); one request returns the match score (which, again, can be polled or
+pushed); one request retrieves the match statistics, which is not frequently
+updated or displayed, so it doesn't need constant updates; and so on. Each one
+of those is a different microservice, because each one of those is a different
+artifact.</p>
+<p>Just to be clear: our artifacts are kept in a Firestore database, which our
+clients query directly, most of the time receiving the real time notifications
+for changes. But another way to keep those artifacts is to have separate
+services, which the clients would query -- which is really akin to what CQRS
+describes (well, that is, if your microservice receive commands to change the
+data, that is; I won't claim them to be CQRS if your microservices are dealing
+with events directly.)</p>
+<p>Alright, if those are artifacts, where does &quot;state&quot; gets into this? The state
+is the amount of information a microservice has to keep in order to build the
+artifact. For example, in the narration, each time a new narration comes in,
+it has to be added to a game list of narrations in order to produce the
+narration of the whole match. The state can also help this microservice into
+dropping duplicate narrations.</p>
+<p>One &quot;nice&quot; effect of the state is that you can, in theory at least, be able to
+recognize that even with an input, if there was no change in the state, there
+should be no change in the artifact and, thus, no output is necessary.</p>
+<p>Another thing to keep in mind about the state is that you don't need to keep
+it in memory; you can use any kind of storage: keep the narrations in a
+database, keep it on a disk, keep in memory as a cache, or all the above. You
+pick whatever it is <em>easier</em> to manipulate said state to produce the artifact.
+The thing to keep in mind is &quot;If this microservice crashes, will it be able to
+rebuild its previous state when it restarts?&quot;</p>
+<p>And, finally, the inputs. Those may sound a bit obvious at first (is your
+microservice generating data out of thin air?), but keep in mind is that one
+input can be be the source of more than one microservice. For example, a
+narration may be consumed by the narration microservice to produce the whole
+game narration, but it may also be consumed by the score microservice,
+listening to goal narrations to update its state (if the narration is not a
+goal, there is no change in score, there is no change in the state and there
+is no artifact generation).</p>
+<p>Returning to artifacts, do not worry if more than one microservice doing
+almost the same thing, but generating a complete different artifact. As an
+example, imagine that you want to use push notifications to report new goals.
+Although this is very close to the score microservice, it produces a different
+artifact (the push notification vs the update score request) and, by this,
+should be a complete different microservice. It may even sound wasteful (doing
+the same thing twice), but it would decouple things if you need some other
+information in the score (say, adding the name of the players who did the
+goals) or if you change the artifact consumer (say, you change from an in-hour
+implementation of pushing to Apple and Google to using a service for this,
+like Azure).</p>
+<p>This change in the my way of thinking about microservices design help me
+rethink the way we are building our microservices at work, and it is also
+helping me rethink some things on a personal project (which I hope to finish
+and show it next year).</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

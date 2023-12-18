@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - If A Function Description Includes An &quot;And&quot;, It&#x27;s Wrong</h1>
+  <span class="post-date">
+	2019-06-23
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/documentation/">#documentation</a>
+        
+            <a href="https://blog.juliobiason.me/tags/single-responsibility/">#single responsibility</a>
+        
+  </span>
+  <p>Functions should do one thing and one thing only. I clear indication that
+you're breaking this principle is the need to add an &quot;and&quot; in its
+documentation.</p>
+<span id="continue-reading"></span>
+<p>This is kind like &quot;sometimes rule&quot;, but most of the time, when you feel you
+need to add an &quot;and&quot; to the function documentation (its
+<a href="/books/things-i-learnt/document-is-contract">contract</a>), then you're telling
+that that function is doing two (or more) things.</p>
+<p>One of guiding principles of good code is the <a href="https://en.wikipedia.org/wiki/Single_responsibility_principle">Single responsibility
+principle</a>, in
+which each module/class/function should do one thing and one thing only. And,
+again, if you're saying that a function is doing &quot;this&quot; <em>and</em> &quot;that&quot;, you can
+be sure it's not doing just <em>one</em> thing.</p>
+<p>Ok, but what now? Well, you have two functions, with two distinct contracts.
+Ok, but you <em>had</em> those two being called, what happens now? Well, where you
+called one, you now will need to call two. If your preferred language have
+support for function composition, you can use that to group both functions
+again. This is the kind of stuff that you'll get when you <a href="/books/things-i-learnt/functional-programming">learn to use
+functional programming</a>.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;document-is-contract">The Function Documentation Is Its Contract</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;languages-docs">Good Languages Come With Integrated Documentation</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

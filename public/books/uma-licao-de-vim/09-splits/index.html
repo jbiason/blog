@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">09. Splits</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você vai passar uma hora dividindo a tela em pedacinhos
+cada vez mais pequenos.</p>
+<span id="continue-reading"></span>
+<p>Até agora, enquanto falávamos de editar textos no VIM, vimos apenas como editar
+um arquivo por vez. Existem formas de editar mais de um arquivo (usando <code>:e</code> e
+<code>:e#{número}</code>) mas estas estão longe de serem fáceis de serem utilizadas.</p>
+<p>Existem duas formas de manter dois (ou mais) arquivos abertos ao mesmo tempo.
+Uma delas são &quot;splits&quot;. Basicamente, splits permitem que você &quot;reparta&quot; a tela
+em pedaços, podendo mostrar outros arquivos (ou até mesmo outra vez o mesmo
+arquivo).</p>
+<p>Para criar splits, existem dois comandos que devem ser usados em modo de
+comando: <code>:sp</code> e <code>:vsp</code>. Ambos comandos aceitam o nome do arquivo a ser aberto no
+novo split; se não for passado o nome de um arquivo, o arquivo que já está
+aberto será carregado.</p>
+<p>A diferença entre eles é que <code>:sp</code> irá criar um split horizontal...</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/09-splits/horizontal-split.png" alt="" /></p>
+<p>... enquanto que <code>:vsp</code> irá criar um split vertical.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/09-splits/vertical-split.png" alt="" /></p>
+<p>Dentro de cada split, comandos executados irão afetar apenas o buffer atual: <code>:w</code>
+irá salvar apenas o arquivo apresentar no split atual, <code>:e</code> irá abrir um arquivo
+no split atual e assim por diante.</p>
+<p>Note que eu falei &quot;buffer atual&quot;. Como falei antes, &quot;buffer&quot; é o nome dado para
+a representação do arquivo em memória e que tanto <code>:sp</code> quanto <code>:vsp</code> sem
+parâmetros irão abrir um split com o arquivo atual -- que, na verdade, é o
+buffer atual. Se você fizer isso e começar a editar o texto em um dos splits, o
+conteúdo do outro também irá mudar, já que ambos estão apresentando o mesmo
+buffer.</p>
+<p>Para fechar um split, basta fechar o arquivo, tanto com <code>:q</code> quanto <code>:wq</code> ou
+qualquer outro comando que feche um arquivo. O split será removido e o cursor
+irá para o próximo split. Se não houverem mais splits, o VIM irá fechar, como
+já vinhamos vendo desde o começo.</p>
+<p>E sim, você pode fazer quantos splits e de formas diversas quantas vezes quiser
+(até que não sobre mais espaço na tela, quer dizer).</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/09-splits/all.png" alt="" /></p>
+<p>Para &quot;manusear&quot; splits, você irá utilizar comandos que começam com, em modo
+normal, <code>[Ctrl]w</code>. <code>[Ctrl]w</code>, por si só, não faz nada (a não ser que você
+repita o comando, mas isso é outra coisa) e requer uma ação a ser executada no
+split (assim como alguns comandos requerem uma movimentação).</p>
+<h2 id="ctrl-wj-ou-ctrl-w-direcional-para-baixo">[Ctrl]wj ou [Ctrl]w[direcional para baixo]</h2>
+<p>Move o cursor para o split abaixo do atual. Se não houverem outros splits
+abaixo do atual, permanece no mesmo. Aceita um número de repetiçoes, ou seja,
+<code>3[Ctrl]wj</code> irá imediatamente pular para o 3o. split abaixo do atual.</p>
+<h2 id="ctrl-wh-ou-ctrl-w-direcional-para-a-esquerda-e-ctrl-wk-ou-ctrl-w-direcional-para-cima-e-ctrl-wl-ou-ctrl-w-direcional-para-a-direita">[Ctrl]wh ou [Ctrl]w[direcional para a esquerda] e [Ctrl]wk ou [Ctrl]w[direcional para cima] e [Ctrl]wl ou [Ctrl]w[direcional para a direita]</h2>
+<p>O mesmo que [Ctrl]wj, mas indo para o split da esquerda, acima ou direita,
+respectivamente.</p>
+<h2 id="ctrl-w-e-cltr-w">[Ctrl]w+ e [Cltr]w-</h2>
+<p>Aumenta ou diminui o tamanho do split em uma linha. Se for passado um número
+antes do comando -- por exemplo <code>3[Ctrl]w+</code> -- o número de linhas afetas será o
+número indicado.</p>
+<h2 id="ctrl-w-e-ctrl-w">[Ctrl]w&gt; e [Ctrl]w&lt;</h2>
+<p>O mesmo que <code>[Ctrl]w+</code> e <code>[Ctrl]w-</code>, mas altera o número de colunas ao invés do número de linhas.</p>
+<h2 id="ctrl-w-e-ctrl-w-1">[Ctrl]w_ e [Ctrl]w|</h2>
+<p>Deixa o split com o maior altura possível (ou seja, coloca o máximo de linhas
+possíveis para o split) ou com a maior largura possível (ou seja, coloca o
+máximo de colunas possíveis para o split).</p>
+<h2 id="ctrl-w">[Ctrl]w=</h2>
+<p>Altera o tamanho dos splits para que estes fiquem o mais equilibrados
+possíveis.</p>
+<h2 id="ctrl-wh-ctrl-wj-ctrl-wk-tt-e-ctrl-wl">[Ctrl]wH, [Ctrl]wJ, [Ctrl]wK,/tt&gt; e [Ctrl]wL</h2>
+<p>Move o split atual para o canto mais a esquerda, abaixo, acima ou direita,
+respectivamente (note que a letra de movimentação está em maiúsculas).</p>
+<h2 id="ctrl-ww">[Ctrl]ww</h2>
+<p>Move o cursor para o split anterior. Se você está em um split qualquer e fizer
+<code>3[Ctrl]wj</code> para ir para o 3<sup>o</sup> split abaixo do atual, <code>[Ctrl]ww</code> irá
+mover o cursor de volta para o split original (e <code>[Ctrl]ww</code> irá mover o cursor
+de volta para o 3<sup>o</sup> split abaixo do atual).</p>
+<h2 id="ctrl-wf">[Ctrl]wf</h2>
+<p>Abre o arquivo com o nome sob o cursor em um novo split.</p>
+<p>Quando falei do grep, eu comentei que existe o comando <code>:cope</code> para abrir a
+janela do Quickfix. Bom, se você quiser ficar pulando entre a janela do
+Quickfix e o texto, os comandos <code>[Ctrl]w</code> acima irão ajudar.</p>
+<p>Existem ainda alguns outros comandos para splits, mas veremos estes mais a
+frente.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;08-localizar-substituir">Localizar e Substituir</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;10-abas">Abas</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

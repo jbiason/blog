@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links Comentados de 2020-06-20</h1>
+  <span class="post-date">
+	2020-06-20
+	
+            <a href="https://blog.juliobiason.me/pt/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/sigsegv/">#sigsegv</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/segmentation-fault/">#segmentation fault</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/activitypub/">#activitypub</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/conferencia/">#conferência</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/git/">#git</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/branches/">#branches</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/nomes/">#nomes</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/eco-sistema/">#eco-sistema</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/linha-de-comando/">#linha de comando</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/design/">#design</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/scp/">#scp</a>
+        
+  </span>
+  <p>SIGSEGV, Conferência de ActivityPub, Nomes de Branches no Git, O Eco-Sistema
+do Rust, Apredendo Rust com Linha de Comando, Problemas de Design, SCP.</p>
+<span id="continue-reading"></span><h2 id="why-is-there-a-v-in-sigsegv-segmentation-fault"><a href="https://blog.cloudflare.com/why-is-there-a-v-in-sigsegv-segmentation-fault/">Why is there a &quot;V&quot; in SIGSEGV Segmentation Fault?</a></h2>
+<p>Um pouco de história dos sistemas operacionais baseados em UNIX/POSIX -- e
+algo que eu nunca me preocupei realmente, principalmente considerando os nomes
+das outras interrupções e alguns comandos do sistema (<code>creat</code>, por exemplo).</p>
+<h2 id="activitypub-conference-2020"><a href="https://conf.activitypub.rocks/#home">ActivityPub Conference 2020</a></h2>
+<p>Eu sei que ainda é cedo para conversar sobre isso -- o &quot;call for papers&quot;
+acabou de abrir -- mas como fã do que o ActivityPub se propõe a solucionar, eu
+tenho que compartilhar: Uma conferência baseada na discussão do protocolo e as
+ferramentas (bom, eu <em>acho</em> que é sobre isso, de qualquer forma).</p>
+<p>Fiquem ligados para a lista de talks no futuro.</p>
+<h2 id="on-git-branch-naming"><a href="http://meta.ath0.com/2020/06/git-branch-naming/">On Git branch naming</a></h2>
+<p>A troca do nome do branch principal do Git para algo que não seja &quot;master&quot; tem
+dado alguma discussão por aí, mesmo com grandes representantes de Git (Github,
+por exemplo) já terem anunciado que o nome vai mudar em novos repositórios.</p>
+<p>Existe sim uma questão sobre o significado do nome e o que ele representa para
+um grupo significativo da população do mundo, mas o que o post mostra é que
+mesmo ignorando isso, o nome &quot;master&quot; faz sentido na arquitetura do Git; 
+ele é baseado no nome utilizado pelo BitKeeper, que tinha uma arquitetura
+mestre/servidor, que o Git <em>não</em> copiou.</p>
+<p>E sim, eu concordo com todas as repostas apresentadas. E mais: Se é uma
+mudança simples, não vai quebrar nada, e vai fazer com que grupos oprimidos
+(no passado ou presente) não se sintam ofendidos, por que não?</p>
+<p>Mas tem mais um ponto: Git é distribuído, certo? Com isso, eu quero dizer que
+não existe um servidor principal; toda instalação do Git é o principal de si
+mesmo. O mesmo acontece com os branches: Todo branch é uma cópia auto contida
+e você <em>não precisa</em> colocar todas elas no mesmo balaio em algum ponto, por
+exemplo, fazendo merge para o branch principal, porque <em>não existe</em> um branch
+principal. É só um nome e ele não tem nenhuma funcionalidade especial
+comparado com outros branches.</p>
+<h2 id="understanding-the-rust-ecosystem"><a href="https://joeprevite.com/rust-lang-ecosystem">Understanding the Rust Ecosystem</a></h2>
+<p>Eu tenho falado que &quot;linguagens não existem em um vácuo&quot;, e com isso eu quero
+dizer que você não pode focar somente na linguagem ou numa parte relacionada a
+ela, mas no todo; como é o eco-sistema dessa coisa?</p>
+<p>E Rust sempre me pareceu um sistema vibrante, com todas as suas esquisitices e
+legalzices. E esse post mostra boa parte do que existe no sistema, de
+plataformas, passando por forums, meetups, empresas que usam a linguagem e
+indo até as ferramentas mais famosas.</p>
+<h2 id="diving-into-rust-with-a-cli"><a href="https://kbknapp.dev/rust-cli/">Diving into Rust with a CLI</a></h2>
+<p>Falando em Rust, Kevin K escreveu esse post sobre criar uma ferramenta de
+linha de comando para baixar as tirinhas do XKCD. Mas ao invés de fazer isso
+da forma mais simples possível para mostrar a linguagem, ele usou as
+bibliotecas mais conhecidas para pontos específicos (explicando porque usou as
+mesmas) e mostrando uma aplicação final completa.</p>
+<p>Eu estou escrevendo uma outra ferramenta de linha de comando para aprender
+mais sobre Rust e não chega nem de perto com o resultado apresentado aqui.</p>
+<h2 id="stop-blaming-people-it-s-a-design-problem"><a href="https://quinnkeast.com/writing/stop-blaming-people-its-a-design-problem/">Stop Blaming People: It’s a Design Problem</a></h2>
+<p>Programadores são famosos por não conseguir desenhar um botão de forma correta
+ou fazer com que seja extremamente complicado usar o maldito botão -- ou, em
+piores casos, construindo uma interface com tantas opções que é praticamente
+impossível usar a aplicação.</p>
+<p>Mas não é só no mundo do software que essas coisas acontecem: O incêndio da
+Catedral de Notre Dame poderia ter sido evitado se a interface não tivesse um
+design indireto; o alarme de míssil balístico no Havaí não teria acontecido se
+a interface para o alarme não fosse simplório. E assim por diante.</p>
+<p>Algumas vezes é preciso pensar um pouco mais sobre como o serviço vai ser
+usado ao invés de deixar as coisas complexas (ou muito simplórias).</p>
+<h2 id="scp-familiar-simple-insecure-and-slow"><a href="https://gravitational.com/blog/scp-familiar-simple-insecure-slow/">SCP - Familiar, Simple, Insecure, and Slow</a></h2>
+<p>Que o SCP era lento eu já sabia, mas não sabia o quanto. O que me impressionou
+do post foi essa linha aqui:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>tar cf - /tmp/big_folder | ssh server &#39;tar xC /tmp/ -f -&#39;
+</span></code></pre>
+<p>Basicamente, usando o <code>tar</code> para pegar o conteúdo de vários arquivos e
+transformar numa sequência de bytes, enviar pelo stdout para o ssh e, de lá,
+rodar o <code>tar</code> para desfazer a sequencia de bytes (transformando de volta em
+arquivos separados). Curioso, e potencialmente 4x mais rápido que copiar os
+arquivos diretamente por <code>scp</code>.</p>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

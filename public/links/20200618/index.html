@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented Links for 2020-06-18</h1>
+  <span class="post-date">
+	2020-06-18
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git/">#git</a>
+        
+            <a href="https://blog.juliobiason.me/tags/commit/">#commit</a>
+        
+            <a href="https://blog.juliobiason.me/tags/messages/">#messages</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ansible/">#ansible</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cli/">#cli</a>
+        
+            <a href="https://blog.juliobiason.me/tags/feature-flags/">#feature flags</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/size/">#size</a>
+        
+            <a href="https://blog.juliobiason.me/tags/task-manager/">#task manager</a>
+        
+  </span>
+  <p>Commit Messages (again), Ansible, CLI Names, Feature Flags, Rust Binary Sizes,
+Mongo with Rust, Command Line Task Manager.</p>
+<span id="continue-reading"></span><h2 id="how-to-write-good-git-commit-messages"><a href="https://altcampus.io/blog/how-to-write-good-git-commit-message">How to write good Git commit messages</a></h2>
+<p>About a month ago, I shared a link describing how to make proper commit
+messages, and this post talks a bit further about -- and it also cites some of
+stuff I usually miss when I need to do some code review.</p>
+<h2 id="ansible-tasks-vs-roles-vs-handlers"><a href="https://roelofjanelsinga.com/articles/ansible-difference-between-tasks-and-roles">Ansible: Tasks vs Roles vs Handlers</a></h2>
+<p>Another &quot;I shared something like that before&quot; link, this one focuses on
+Ansible itself instead of some other configuration tool. Although not deep, it
+explain most of Ansible &quot;surface&quot; content.</p>
+<h2 id="the-poetics-of-cli-command-names"><a href="https://smallstep.com/blog/the-poetics-of-cli-command-names/">The Poetics of CLI Command Names</a></h2>
+<p>So you decided to create your own command line application to learn a new
+language. Congratulations. But the success of your tool depends (partially) on
+the name of it and how you consider the &quot;mystic&quot; behind it.</p>
+<p>I don't fully agree with some points, though. For example, claiming <code>cfdisk</code>
+was a bad choice for a curses <code>fdisk</code>; <code>fdisk</code> is well known, and using the
+same name as a part of the new name shows that shows that it is a different
+version and also gives information to whoever knows <code>fdisk</code> what this
+application does. Same case: <code>top</code> and <code>htop</code>.</p>
+<h2 id="what-are-feature-flags"><a href="https://launchdarkly.com/blog/what-are-feature-flags/">What Are Feature Flags?</a></h2>
+<p>Before I changed projects, we had a discussion about the way the projects were
+using feature flags. </p>
+<p>Although not discussed here, I do believe that feature flags should, at some
+point, be removed, either by the team when a feature goes into full
+availability or moved to a user configuration. But it <em>needs</em> to get out of
+hands of the developers at some point and not live forever as a flag.</p>
+<h2 id="how-to-minimize-rust-binary-size"><a href="https://github.com/johnthagen/min-sized-rust">How to minimize Rust binary size</a></h2>
+<p>Not that Rust binaries are big -- at least, in release -- but there is always
+someone complaining, specially when compared to binaries created in other
+languages whose binaries are not static.</p>
+<p>But it is always good to have a set of tips on how to reduce them, just in
+case.</p>
+<h2 id="announcing-our-rust-driver-version-1-0"><a href="https://www.mongodb.com/blog/post/announcing-rust-driver-version-1">Announcing our Rust Driver: Version 1.0</a></h2>
+<p>Still on Rust news, MongoDB, the company, released their official driver for
+MonogDB, the database, in Rust.</p>
+<p>One thing that I must say, reading the announcement, is how nice it plays with
+the existing ecosystem, supporting the top async frameworks and the
+serialization framework. A truly &quot;play nice with everything&quot; by the
+description.</p>
+<h2 id="unfog-cli-a-simple-task-time-manager-written-in-haskell"><a href="https://github.com/unfog-io/unfog-cli">unfog-cli: A simple task &amp; time manager, written in Haskell.</a></h2>
+<p>I have a personal project for a long time to create a command line version of
+<a href="https://toggl.com/">Toggl</a>, but it seems someone had the same idea and did
+the project already.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

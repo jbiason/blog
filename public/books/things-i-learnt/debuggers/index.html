@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Debuggers Are Overrated</h1>
+  <span class="post-date">
+	2019-07-08
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/debuggers/">#debuggers</a>
+        
+            <a href="https://blog.juliobiason.me/tags/debugging/">#debugging</a>
+        
+  </span>
+  <p>I heard a lot of people complaining that code editors are bad 'cause it's hard
+to attach a debugger. I'd claim that this vision is wrong.</p>
+<span id="continue-reading"></span>
+<p>But let's take a thing out of the way beforehand: I'm not saying debuggers are
+<em>bad</em> you should never use them. Debuggers have their use, but every time I
+had to use one, it was because there was something missing.</p>
+<p>Most recently, using a framework in Java, I had problems with my code. I'd
+expect it <a href="/books/things-i-learnt/crash-it">to crash</a> 'cause I didn't handle
+things. What actually happened is that the framework silently hid the error
+and restarted the processing. To find out what was happening, I had to attach
+a debugger and see what was wrong with the data; otherwise, I'd have no idea
+about what's wrong.</p>
+<p>Was a debugger necessary there? I don't think so. If the framework actually
+displayed the error (crashed, put a wall of text on the logs, whatever), I
+wouldn't need to use a debugger. But, because something was missing, I did,
+in fact, was <em>forced</em> to use a debugger.</p>
+<p>Besides this, in the long run, you'd end up with problems in locations that
+you can't attach a debugger -- for example, your production environment. You
+<em>could</em> but you <em>shouldn't</em> do this. On the other hand, if you <a href="/books/things-i-learnt/log-events">log
+events</a>, then you can see what was going
+on, without a debugger.</p>
+<p>Again, I'm not taking the merits of debuggers, but in the long run, they are
+mostly useless and actually point missing surrounding support to actually
+understand what's going on.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;understand-shortcuts">Shortcuts Are Nice, But Only In The Short Run</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;users">Think About The Users</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

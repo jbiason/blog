@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Tests Make Better APIs</h1>
+  <span class="post-date">
+	2019-06-19
+	
+            <a href="https://blog.juliobiason.me/tags/book/">#book</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/layers/">#layers</a>
+        
+            <a href="https://blog.juliobiason.me/tags/apis/">#apis</a>
+        
+  </span>
+  <p>Testing things in isolation may give a better view of your APIs.</p>
+<span id="continue-reading"></span>
+<p>After reading the <a href="/books/things-i-learnt/integration-tests">integration tests</a>
+chapter, you may end up with the impression that I don't like unit tests<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>Actually, I think they provide some good intrinsic values.</p>
+<p>For example, as mentioned before, they can provide a better look at the
+adherence to the design.</p>
+<p>But, at the same time, they give a better view of your internal -- and even
+external -- APIs.</p>
+<p>For example, you're writing the tests for the view layer -- 'cause, you know,
+we write everything in layers; layers on top of layers<sup class="footnote-reference"><a href="#2">2</a></sup> -- and you're noticing
+that you have to keep a lot of data (state) around to be able to make the
+calls to the controller. Or that you have similar calls, but the parameters
+are sometimes switched (say, one function gets a token and a user ID, and
+another function gets a user ID and a token -- why?) That's a sign that you
+may have to take a better look at the controller API.</p>
+<p>Not only that, but take, for example, the fact that you're working on a
+library -- which will be called by someone else -- and you're writing tests
+for the most external layer, the layer that will be exposed by that library.
+And, again, you're noticing that you have to keep a lot of context around,
+lots of variables, variables coming from different places and similar calls
+using parameters in different ways. Your tests will look like a mess, don't
+they? That's because the API <em>is</em> a mess.</p>
+<p>Unit testing your layers makes you the <em>user</em> of that layer API, and then you
+can see how much one would suffer -- or, hopefully, enjoy -- using that.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Again, let's ignore for a second that there are no &quot;unit&quot; in &quot;unit
+tests&quot;...
+<sup class="footnote-reference"><a href="#2">2</a></sup>: And layers all the way down, <a href="https://en.wikipedia.org/wiki/Turtles_all_the_way_down">like
+turtles</a>.</p>
+</div>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;integration-tests">Unit Tests Are Good, Integration Tests Are Gooder</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;tests-in-the-command-line">Make Tests That You Know How To Run on the Command line</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

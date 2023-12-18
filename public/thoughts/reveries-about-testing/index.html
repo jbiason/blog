@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Reveries About Testing</h1>
+  <span class="post-date">
+	2020-01-13
+	
+            <a href="https://blog.juliobiason.me/tags/tests/">#tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/testing/">#testing</a>
+        
+            <a href="https://blog.juliobiason.me/tags/integration-tests/">#integration tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+  </span>
+  <p>Today, a large number of developers use some testing methodology. But what are
+tests? What are they for? What is the purpose of writing testes, anyway? Are
+we testing the right things?</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>This is a companion post for one my presentations, <a href="https://presentations.juliobiason.me/filosofando-testes.html">Filosofando Sobre
+Testes</a>, which
+is in Portuguese.</p>
+
+</div>
+<p>Before we start, let me give you some disclaimers:</p>
+<ol>
+<li>
+<p><strong>I'm non-orthodox about tests</strong>. What I mean by that is that some of stuff
+I'll mention here are exactly the opposite of what everyone says and the
+opposite of the way people work with tests.</p>
+</li>
+<li>
+<p>In no way, consider this a set of rules. What I really want is to stop
+people from writing tests without knowing why they are writing those tests.</p>
+</li>
+<li>
+<p>You don't need to agree with anything here. Again, the idea is to sotp and
+think what is being tested before writing tests.</p>
+</li>
+</ol>
+<p>What I want to discuss:</p>
+<ol>
+<li>TDD, Kent Beck Style;</li>
+<li>&quot;Fast Tests, Slow Tests&quot;;</li>
+<li>The Explosion of Slow Tests;</li>
+<li>Coverage;</li>
+<li>Mocks.</li>
+</ol>
+<h2 id="tdd-kent-beck-style">TDD, Kent Beck Style</h2>
+<p>What made me rethink the way I wrote tests was a video by Ian Cooper, called
+<a href="https://vimeo.com/68375232">&quot;TDD, where it all go wrong&quot;</a>. In this video,
+Cooper points out that the Beck's book (which brought the whole TDD
+revolution) says two things:</p>
+<ol>
+<li>Tests should run in an isolated way, nothing more, nothing less;</li>
+<li>Avoid testing implementation details, test behaviors.</li>
+</ol>
+<p>The first point is what it means for a &quot;unit test&quot;, meaning &quot;run in
+isolation&quot;, in the sense that the test does not depend on others. This way,
+&quot;unit tests&quot; should be seen as &quot;the test is a unit&quot;, not &quot;testing units&quot; --
+there are no &quot;units&quot;, the test itself is a unit that doesn't depend on
+anything else.</p>
+<p>The second point is that one should test behaviors, not the implementation.
+This is a point that I see we fail a lot when we talk about testing every
+class/function: What if the expected behavior is the combination of two
+classes? Is it worth writing tests for both, if splitting the classes (or
+functions) is just a matter of implementation/way to simplify the code?</p>
+<p>Also, another question for writing tests for every function and every class:
+What we have know an application are their input channels -- which could be a
+button in a graphical interface, an option passed in the command line or a web
+request -- and the output channels; that way, the behavior is &quot;given that
+input in the input channel, I want this in the output channel&quot;, and everything
+in the middle is implementation. And, for that transformation of something in
+the input channel to the output channel, I may need a combination of
+classes/functions; if I test every class/function, am I really testing the
+expected behavior or the implementation?</p>
+<p>&quot;But this looks like BDD!&quot;, you must be thinking. Cooper says this in the
+video above: the idea of &quot;test every class/function&quot; became the norm, the
+point of checking behavior had to be used somewhere else, what gave us ATDD
+(Acceptance-Test Driven Development) and BDD (Behavior Driven Development).</p>
+<p>An example of testing behaviors: In the Django subreddit, there was a
+question: <a href="https://www.reddit.com/r/django/comments/5bearg/should_i_write_unit_tests_for_djangos_built_in/">Should I write unit tests for Django's built in types?</a> 
+The question is basically this: Django allows defining the database model, and
+from that model create a form that I can put on my templates and validate the
+incoming data; that way, if I defined that there is a field in my model called
+&quot;Year of Birth&quot; -- which can only receive numbers -- and I create a form based
+on the model, put it on my template, send the data back and Django will make
+sure, from the type in the model, that the incoming request will have a number
+in that field. Should I still write a test for that?</p>
+<p>The answer, though, is in take a step back and do the following question: Why
+the year is a number? Obviously, 'cause years are defined as numbers<sup class="footnote-reference"><a href="#1">1</a></sup> and
+the behavior of the field was defined way before we added the field in the
+model. Also, supposed that for some reason, I need to store the field as a
+string<sup class="footnote-reference"><a href="#2">2</a></sup>; if the type changes, the behavior should also change? Probably
+not.</p>
+<p>When I ignored that the year should be a number 'cause &quot;the framework will
+take care of it&quot;, I ignored the expected behavior due the implemtantation.</p>
+<p>And &quot;test behaviors, not the implementation&quot;.</p>
+<p>Non-factual, but an anecdote: In a project, we had an &quot;alarm manager&quot; where,
+from an event, it should generate only a log entry, generate a log entry and
+send a SNMP signal or, if the user set it, generate a log, send a SNMP signal
+and turn on a LED in the front of the device. With that, we created a module
+for the log, a module for sending SNMP signals and a module to turn on/off the
+LEDs. Every module had tests, but we didn't feel comfortable with it yet.
+That's when I suggested we write a test that would bring the service up and
+send events to it, just like any other application in the system, and check
+what would happen. That's when the tests finally made sense. (I'll still talk
+about these tests in the coverage part of this post.)</p>
+<h2 id="fast-tests-slow-tests">Fast Tests, Slow Tests</h2>
+<p>The counterpoint of the points above can be something similar to what Gary
+Bernhardt says in his presentation <a href="https://www.youtube.com/watch?v=RAxiiRPHS9k">Fast Test, Slow
+Test</a>. In it, Bernhardt mentions
+that they changed the way the tests work, and that now they could run
+hundreds of tests in less than a second (an example shows around 600 tests
+being run in 1.5 seconds).</p>
+<p>What Bernhardt suggest is to write tests that checks online the models, with
+no connection to the database or the views; tests for controllers with no
+connection to the models or views; and tests for the views without the
+controllers.</p>
+<p>Does that sound familiar (specially if you use a MVC framework, which puts
+each of those layers in different classes)?</p>
+<p>Still about those tests, Bernhardt points that those &quot;quick runs&quot; help the
+developers to test their to test their changes quickly (does that still sound
+familiar?) but those tests do not replace the &quot;integration tests&quot;.</p>
+<p>In that point, I have to ask: If the tests are written to check if a
+controller can be run without being connected to the rest of the system, but
+one still have to write the (so called) integration tests to verify that the
+project is delivering whatever was promised it would deliver, what is really
+being tested here? The impression I have from the type of test Bernhardt
+proposes is more to check <em>architectural adherence</em> than a quality test: Does
+this controller follow the structure of not having any connections to the
+database itself? Does this model has only functions related to the storage and
+retrieval of data, without any logic? If that's it, what is the value for my
+user if a controller doesn't access the database directly?</p>
+<p>It's not that I don't believe those tests have no value, but they give the
+impression that, in the long run, they tend to become structurally very
+similar while the (so called) integration tests tend to give more returns to
+the quality of the project: Tests that defined an input and an expected result
+tend to make sure that, in the long run, the functionality of the project will
+still be the same.</p>
+<h2 id="the-explosion-of-slow-tests">The Explosion of Slow Tests</h2>
+<p>The first thing that may pop up with a point like the above is that
+&quot;integration tests are slow and that will make the tests slow and make
+developers less productive.&quot;</p>
+<p>Yes, integration tests are slow, specially 'cause there is a good leg of work
+in creating the expected initial state, all the inputs as expected by the
+I/O system (again, graphical interface, command line, web), run the whole
+processing stack and verify the result. And yes, waiting all this time may end
+up breaking the developer's flow.</p>
+<p>On the other hand, when a developer is working with some input, if it is a new
+functionality/expected behavior, then there should be a test for this
+behavior; if there is a change in the expected behavior, there should be a
+test for the old behavior that needs to be changed. Running <em>just</em> this test is
+enough? No, but it should give a very good indication if the functionality is
+working as expected. After making sure the behavior is correct, the developer
+may execute the suite of tests for the thing being changed and let everything
+else to the CI.</p>
+<p>For example, if I'm working in a new functionality to show an error message
+when there is an invoice when the product is not in stock, I have to write a
+test that creates the product, let it with no pieces in stock, make an invoice
+and check for the error message. Once this test checks the behavior is
+correct, I can run all the other invoice tests, and then let the CI validate
+that I didn't break anything else else in the stock management module or even
+the customer module (for some reason).</p>
+<p>And plugging with the first point, in order to do all the checks, I'd probably
+need lots of functions/classes and test every single one of them will not make
+sure the expected behavior is correct, but I'll get back to this later in the
+coverage part.</p>
+<p>I have the impression that we don't use this kind of stuff due two different
+problems: the first is that testing tools have a very bad interface for
+running suite of tests (for example, running all the invoice tests and <em>only</em>
+the invoice tests); the second is that developers are lazy, and it's a lot
+easier to run all tests than picking a single suite (not to mention organizing
+said tests in suites to be run that way).</p>
+<h2 id="coverage">Coverage</h2>
+<p>Against what most people claim, I do believe that you can reach 100% coverage
+pretty easily: You just need to delete code.</p>
+<p>The idea is quite simple, actually: If your tests check the system behavior,
+and I'm proving that all tests pass, everything that doesn't have coverage
+point to code that isn't necessary and, thus, can be deleted.</p>
+<p>It is not every code that can be removed. In the alarm manager example, even
+when our &quot;unit tests&quot; cover all functionalities of each module, we got a block
+in the &quot;integration tests&quot; that didn't have any coverage. This block was
+responsible for checking the input of a module (for example, it won't allow
+sending a SNMP message without a text). But, when we checked the code, we
+realized that the base module (the one calling the others) was already doing
+that validation and that this check was unnecessary. This lead into the
+discussion of which test (and code block) should be removed. But we did have a
+piece of &quot;dead code&quot; that was being marked as &quot;alive&quot; because we had unit
+tests for both blocks.</p>
+<p>A more practical example. Imagine there is a class that keeps customer data in
+a web shop<sup class="footnote-reference"><a href="#3">3</a></sup>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Client</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = name
+</span></code></pre>
+<p>After awhile, comes a new requirement: A certain &quot;Dewey&quot; keeps creating
+accounts non-stop, without doing any purchases, just to put trash in the
+database; we need to block any new customers that make their name as just one
+name.</p>
+<p>Then, thinking about SOLID<sup class="footnote-reference"><a href="#4">4</a></sup>, the developer changes teh code to this:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_multiple_names</span><span>(</span><span style="color:#bf616a;">name</span><span>):
+</span><span>    split_names = name.</span><span style="color:#bf616a;">split</span><span>(&#39; &#39;)
+</span><span>    </span><span style="color:#b48ead;">return </span><span style="color:#96b5b4;">len</span><span>(split_names) &gt; </span><span style="color:#d08770;">1
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">_validate_name</span><span>(</span><span style="color:#bf616a;">name</span><span>):
+</span><span>    </span><span style="color:#b48ead;">if </span><span>not </span><span style="color:#bf616a;">_multiple_names</span><span>(name):
+</span><span>        </span><span style="color:#b48ead;">raise </span><span style="color:#bf616a;">Exception</span><span>(&quot;</span><span style="color:#a3be8c;">Invalid name</span><span>&quot;)
+</span><span>    </span><span style="color:#b48ead;">return </span><span>name
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Client</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = </span><span style="color:#bf616a;">_validate_name</span><span>(name)
+</span></code></pre>
+<p>Now, when there is any service trying to create a new customer, the name is
+validated against a certain rules and one of those is that the name must have
+multiple names<sup class="footnote-reference"><a href="#5">5</a></sup>.</p>
+<p>New funcionality, new tests, right?</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>pytest
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_single_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Cher&#39; não tem multiplos nomes.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">assert </span><span>not </span><span style="color:#bf616a;">_multiple_names</span><span>(&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_multiple_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Julio Biason&#39; tem múltiplos nomes.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">assert </span><span style="color:#bf616a;">_multiple_names</span><span>(&#39;</span><span style="color:#a3be8c;">Julio Biason</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_valid_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Julio Biason&#39; é um nome válido.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#bf616a;">_validate_name</span><span>(&#39;</span><span style="color:#a3be8c;">Julio Biason</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_invalid_name</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;&#39;Cher&#39; não é um nome válido e por isso levanta uma exceção.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">with </span><span>pytest.</span><span style="color:#bf616a;">raises</span><span>(Exception):
+</span><span>        </span><span style="color:#bf616a;">_validate_name</span><span>(&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_client_error</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;Se tentar criar uma conta com &#39;Cher&#39;, deve dar erro.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#b48ead;">with </span><span>pytest.</span><span style="color:#bf616a;">raises</span><span>(Exception):
+</span><span>        </span><span style="color:#bf616a;">Client</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_client</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;Uma conta com nome &#39;Julio Biason&#39; deve funcionar.&quot;&quot;&quot;
+</span><span>    </span><span style="color:#bf616a;">Client</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Julio Biason</span><span>&#39;)
+</span></code></pre>
+<p>Running the tests:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ pytest --cov=client client.py
+</span><span>==== test session starts ====
+</span><span>plugins: cov-2.4.0
+</span><span>collected 6 items
+</span><span>
+</span><span>client.py ......
+</span><span>
+</span><span>---- coverage: platform linux, python 3.4.3-final-0 ----
+</span><span>Name        Stmts   Miss  Cover
+</span><span>-------------------------------
+</span><span>client.py      25      0   100%
+</span><span>
+</span><span>==== 6 passed in 0.11 seconds ====
+</span></code></pre>
+<p>100% coverage and new functionality done! The developer give themselves some
+pats in the back and go home.</p>
+<p>But, in the middle of the night, one of the managers who is also a friend of
+Björk, gets a call from her telling that she tried to buy something and just
+got an error message. The developer gets in the office next morning, sees the
+manager email complaining about their famous friend being blocked and goes
+into fixing the code:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Client</span><span style="color:#eff1f5;">:
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">name</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.name = name
+</span></code></pre>
+<p>There, no more validation<sup class="footnote-reference"><a href="#6">6</a></sup> e now Björk can buy whatever she wants. But
+running the tests:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>==== FAILURES ====
+</span><span>____ test_client_error ____
+</span><span>
+</span><span>    def test_client_error():
+</span><span>        with pytest.raises(Exception):
+</span><span>&gt;           Client(name=&#39;Cher&#39;)
+</span><span>E           Failed: DID NOT RAISE &lt;class &#39;Exception&#39;&gt;
+</span><span>
+</span><span>client.py:37: Failed
+</span><span>==== 1 failed, 5 passed in 0.63 seconds ====
+</span></code></pre>
+<p>Oh, sure! Cher is now a valid name and that behavior being tested is invalid.
+We need to change the test to accept Cher:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_client_error</span><span>():
+</span><span>	</span><span style="color:#65737e;">&quot;&quot;&quot;Se tentar criar uma conta com &#39;Cher&#39;, deve funcionar.&quot;&quot;&quot;
+</span><span>	</span><span style="color:#bf616a;">Client</span><span>(</span><span style="color:#bf616a;">name</span><span>=&#39;</span><span style="color:#a3be8c;">Cher</span><span>&#39;)
+</span></code></pre>
+<p>And running the tests once again:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ pytest --cov=client  client.py
+</span><span>==== test session starts ====
+</span><span>rootdir: /home/jbiason/unitt, inifile:
+</span><span>plugins: cov-2.4.0
+</span><span>collected 6 items
+</span><span>
+</span><span>client.py ......
+</span><span>
+</span><span>---- coverage: platform linux, python 3.4.3-final-0 ----
+</span><span>Name        Stmts   Miss  Cover
+</span><span>-------------------------------
+</span><span>client.py      24      0   100%
+</span><span>
+</span><span>==== 6 passed in 0.12 seconds ====
+</span></code></pre>
+<p>Wonderful! Everything is working with the expected behaviors and we still have
+100% coverage.</p>
+<p>But can you spot the problem in the code?</p>
+<p>The problem is now that <code>_multiple_names</code> is not being used anywhere, but it
+is shown as &quot;alive&quot; 'cause there is a lost test that keeps saying that the
+code is being used. If we had started with just the behavior tests --
+using just the system inputs and outputs -- right out of the bat we would see
+that the function is not used anymore -- and if we need it in the future...
+well, that's what version control systems are for.</p>
+<p>Although this looks like a silly example, there are some cases in which the
+processing flow can be changed by the environment itself. For example, in
+Django, you can add &quot;middleware&quot; classes, which are capable of intercepting
+Requests or Responses and change their result. The most common example of
+middleware is the Authentication, which adds the logged user information in
+the Request; but those changes can be more deep, like changing some form
+information. In those cases, the input (or the output, or both) is changed
+and writing tests that ignore the middleware will not be a correct
+representation of the input (or output, or both) of the system. And there we
+can ask if the test is valid 'cause it is using a state that should not exist
+in the normal use of the system.</p>
+<h2 id="mocks">Mocks</h2>
+<p>Some time ago, I used to say that mocks should be used for things external to
+the system. But I realized that definition is not quite correct -- there are
+external things that shouldn't be mocked -- and that a better definition for
+what should be mocked is &quot;anything that you have no control&quot;.</p>
+<p>For example, if you're writing a system that uses IP geolocation using an
+external service, you probably will mock the call for that service, as it is
+out of your control. But a call to a database, when you're using a
+system/framework that abstracts all the calls for the database (like Django
+does), then the database, even being an external resource, is still under your
+control and, thus, shouldn't be mocked -- but since the system/framework
+offers a database abstraction, using any database shouldn't affect the
+results.</p>
+<p>Another example are microservices. Even microservices inside the same company
+or steam are external and out of control of the project and, thus, should be
+mocked. &quot;But they are from the same team!&quot; Yes, but they are not part of the
+same project and a) the idea behind microservices is to uncouple those
+services and/or b) are in different directory trees. One of the advantages of
+microservices from the same team is that the expected contract from one is
+know by the team and that could be easily mocked (the team knows that, calling
+a service with X inputs, it should receive an Y response -- or error).</p>
+<h1 id="conclusion">Conclusion</h1>
+<p>Again, the idea is not to rewrite every test that you have 'cause &quot;the right
+way is my way&quot;. On the other hand, I see a lot of tests being written in any
+way, just using the context of &quot;one test for each function/class&quot; and, in some
+cases, that doesn't make any sense and should get a little more thinking. By
+exposing those &quot;impure thoughts&quot; about tests, I hope that would make people
+rethink the way they are writing their tests</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Unless you want to use roman numerals, but anyway...</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>The reason for being changed to a string can be anything: due some
+security plugin, 'cause we are using a database that doesn't work properly
+with integers, 'cause we are plugging this system with a legacy one...</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>A class that keeps customer information should be way more complex that
+this, but let's keep it simple just for this example.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>No, that's not really SOLID, but that's keep it simple again for this
+example.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">5</sup>
+<p>Someone will send me the &quot;Fallacies Developers Believe About User Names&quot;
+links for this, right?</p>
+</div>
+<div class="footnote-definition" id="6"><sup class="footnote-definition-label">6</sup>
+<p>Sure, I should change just <code>_validate_name</code>, but this way it makes it
+even more clear what the problem is.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

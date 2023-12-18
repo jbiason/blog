@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Three Weeks With Silverblue</h1>
+  <span class="post-date">
+	2021-07-23
+	
+            <a href="https://blog.juliobiason.me/tags/fedora/">#fedora</a>
+        
+            <a href="https://blog.juliobiason.me/tags/silverblue/">#silverblue</a>
+        
+            <a href="https://blog.juliobiason.me/tags/immutable/">#immutable</a>
+        
+            <a href="https://blog.juliobiason.me/tags/docker/">#docker</a>
+        
+  </span>
+  <p>A few weeks ago (four weeks ago, to be exact, based on this post date), my
+Fedora Workstation crashed hard, in some freak accident that, I believe, killed
+my <code>/boot</code> partition. At first I reinstalled Workstation, but then decided to
+give a change to <a href="https://silverblue.fedoraproject.org/">Silverblue</a>.</p>
+<span id="continue-reading"></span><h2 id="what-s-a-silverblue">What's a Silverblue?</h2>
+<p>Silverblue is a distribution that is pretty close to what containers do: The
+base system sits on a immutable file system, giving the impression that the
+system is just a kernel and Docker (it uses Podman actually, but it is
+basically the same thing, when we look at the functionality) and a volume with
+all the applications.</p>
+<h2 id="how-does-it-feel">How Does It Feel?</h2>
+<p>Honestly, it doesn't have any difference from the Workstation, in a day-to-day
+perspective. I still use the same editors, the same browser, the same terminal
+and, with a few caveats, everything feels exactly the same.</p>
+<h2 id="what-s-different-though">What's Different, though?</h2>
+<h3 id="install">Install</h3>
+<p>To install packages, you need to use <code>rpm-ostree</code> instead of <code>dnf</code>. The weird
+part is that by installing a package, it doesn't make things available
+immediately -- because it generates a new layer on the top of the current
+volume and you're still using the current (not yet updated) volume. If you were
+using a container system, you would shutdown your container and restart it, so
+the new layer would assume. Since the whole system is (basically) a container,
+you need to restart the whole thing... Which isn't something that weird if
+you use Workstation, 'cause that's the way Workstation works, most of the time
+(which you can completely ignore on Workstation but not here).</p>
+<p>Once a package is installed with <code>rpm-ostree install &lt;package&gt;</code>, you can
+restart the whole thing with <code>systemctl reboot</code> (yes, no <code>sudo</code> required). But
+once it reboots, there is no need to run the scriptlets in the packages: Reboot
+loads the new volume and things appear. You can also run multiple installs to
+buy just a single layer on top of the original.</p>
+<p>(So far, I haven't seen anything like &quot;this volume is getting too many layers
+and now it is taking forever; but, then again, three weeks only.)</p>
+<h3 id="firefox">Firefox</h3>
+<p>Firefox bundled in the base file system (the immutable part) comes without any
+codecs, so basically no video on the internet works. You can install the
+Flatpak version -- which is also something you can use for most things -- but
+then you end with two Firefox installs.</p>
+<p>And before Firefox is part of the base, immutable file system, you can uninstall
+it. But you can override the install by putting a new layer which removes
+Firefox from the base install. For that, you use</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rpm-ostree override remove firefox
+</span></code></pre>
+<p>... instead of the expected...</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>rpm-ostree uninstall firefox
+</span></code></pre>
+<h3 id="extra-repositories">Extra Repositories</h3>
+<p>Silverblue doesn't allow adding extra repositories the way you normally do with
+Workstation -- creating a simple file in <code>/etc/yum.repos.d/</code>. Now you need to
+use <code>ostree remote add &lt;name&gt; &lt;url&gt;</code> -- Yup, that's pretty close the way you
+add a Git remote or something.</p>
+<p>After that, installing packages takes the normal <code>rpm-ostree install</code>.</p>
+<h3 id="speed">Speed</h3>
+<p>No, sorry. I didn't notice any speed improvements, although it feels like it
+boots a bit faster than Workstation.</p>
+<p>Kinda related, since I'm running on a laptop, it seems the battery life
+improved under Silverblue, for some reason. I may take a leap here and say that
+maybe the base image is smaller -- since it is immutable and you can uninstall,
+I feel they put the bare minimum to boot a desktop system instead of everything
+that may be useful.</p>
+<h3 id="podman">Podman</h3>
+<p>Not that you can't use Docker on Silverblue, but Silverblue uses Podman by
+default for almost everything -- there is even a tool to create your own small
+containers for running things in isolation, called <code>toolbox</code>. It takes a bit of
+time to understand how it works, specially since, so far, I couldn't find a
+group I can add my user to it so I can run commands without <code>sudo</code>, but
+whatever.</p>
+<p>Besides the <code>sudo</code> thing, you may want to enable the <code>podman.socket</code> service,
+which makes Podman create a socket the same way Docker does, so you can use
+<code>docker-compose</code> like you were using Docker.</p>
+<p>Honestly, I feel I should take a bit more time to properly understand Podman
+instead of using it as Docker, but since I had a docker-compose file already and
+I needed to quickly jump back into work, I postponed this learning so far.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>So far, I'm pretty happy with Silverblue as a main drive. It works, it seems --
+emphasis on &quot;seems&quot; -- to be more lightweight than Workstation and I still have
+everything I need.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

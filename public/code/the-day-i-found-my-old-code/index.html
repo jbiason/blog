@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">The Day I Found My Old Code</h1>
+  <span class="post-date">
+	2015-12-18
+	
+            <a href="https://blog.juliobiason.me/tags/code/">#code</a>
+        
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/pep8/">#pep8</a>
+        
+            <a href="https://blog.juliobiason.me/tags/pylint/">#pylint</a>
+        
+  </span>
+  <p>Found a piece of code I wrote 2 years ago, following a lot of linters. I'm
+amazed how readable the code still is.</p>
+<span id="continue-reading"></span>
+<p>Today, walking across a client repository, I found a module I wrote two years
+ago in Python. At the time, we lacked the knowledge to write proper tests, but
+we used a lot of other tools: PEP8 and Pylint, mostly.</p>
+<p>Today-me is pissed with two-years-ago-me for the lack of tests, but where my
+memory forgot the nuances of the project, the huge amount of comments and
+proper documentation makes it for.</p>
+<p>For example, every pylint disable have an explanation about why it was
+disabled:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;"># flask has a weird way to deal with extensions, which work fine but confuses
+</span><span style="color:#65737e;"># the hell out of PyLint.
+</span></code></pre>
+<p>Related modules are loaded in sequence, with line breaks between different
+sources: </p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>flask.ext.babel </span><span style="color:#b48ead;">import </span><span>Babel
+</span><span style="color:#b48ead;">from </span><span>flask.ext.babel </span><span style="color:#b48ead;">import </span><span>refresh
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>flask.ext.gravatar </span><span style="color:#b48ead;">import </span><span>Gravatar
+</span><span>
+</span><span style="color:#b48ead;">from </span><span>werkzeug.routing </span><span style="color:#b48ead;">import </span><span>NotFound
+</span><span style="color:#b48ead;">from </span><span>werkzeug.routing </span><span style="color:#b48ead;">import </span><span>RequestRedirect
+</span></code></pre>
+<p>Every variable, every function, is documented in proper Sphinx format, which
+contributes to understanding what the variable/function do:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;">#: Session duration time
+</span><span style="color:#65737e;">#: The time is given as number and a time interval (&quot;m&quot; for minutes, &quot;h&quot; for
+</span><span style="color:#65737e;">#: hours, &quot;d&quot; for days and &quot;w&quot; for weeks), e.g., &quot;3d&quot;. A value of &quot;None&quot; will
+</span><span style="color:#65737e;">#: make the session last till the user closes the browser.
+</span><span style="color:#bf616a;">SESSION_EXPIRATION </span><span>= &quot;</span><span style="color:#a3be8c;">1d</span><span>&quot;
+</span></code></pre>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">reroute</span><span>(</span><span style="color:#bf616a;">route</span><span>):
+</span><span>    </span><span style="color:#65737e;">&quot;&quot;&quot;Route control. The route must exist in the known routes list to return
+</span><span style="color:#65737e;">    a valid result; unknown routes will be redirected to the 404 page; if the
+</span><span style="color:#65737e;">    route exists but it&#39;s marked as &quot;maintenance&quot;, the request will be
+</span><span style="color:#65737e;">    redirected to the 503 page.&quot;&quot;&quot;
+</span></code></pre>
+<p>Also, I found a class with a docstring of about 20 lines. It explains every
+single parameter in its <code>__init__</code> function, which makes perfect sense when
+you generate the documentation.</p>
+<p>Where the functions lacked a good name (due having a good name inside their
+own objects/modules), a comment was added to explain what the function was
+actually doing:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#bf616a;">inject</span><span>(current_app)         </span><span style="color:#65737e;"># inject values if run stand-alone modules
+</span><span style="color:#bf616a;">load_routes</span><span>(current_app)    </span><span style="color:#65737e;"># load the routing information
+</span><span style="color:#bf616a;">register_filters</span><span>()          </span><span style="color:#65737e;"># register jinja filters
+</span><span style="color:#bf616a;">register_functions</span><span>()        </span><span style="color:#65737e;"># register jinja functions
+</span><span style="color:#bf616a;">register_tests</span><span>()            </span><span style="color:#65737e;"># register jinja tests
+</span><span style="color:#bf616a;">set_session_time</span><span>()          </span><span style="color:#65737e;"># define the cookie time
+</span></code></pre>
+<p>Also, I had the slight habit of putting large comments in the code when
+something was kinda hacky:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#65737e;"># Now you&#39;re asking yourself: &quot;Why heuristic find?&quot; The reason is
+</span><span style="color:#65737e;"># simple: in _function() , we add a new endpoint on top of one
+</span><span style="color:#65737e;"># existing endpoint; because we do that on top of anything, we don&#39;t
+</span><span style="color:#65737e;"># know, for sure, which one of the parameters the user (the other
+</span><span style="color:#65737e;"># programmer, in this case) used in their URLs. So we need to through
+</span><span style="color:#65737e;"># all parameters they expect to receive in their detail function in
+</span><span style="color:#65737e;"># the hopes of finding something that actually matches a &quot;pk&quot;.
+</span></code></pre>
+<p>It doesn't make much sense here, but believe me, it works. I was just reading
+the code with a function called <code>heuristic_find</code> and I was &quot;Man, which drugs I
+took to call it 'heuristic_find'?&quot; And BOOM, there it was why it was called
+like that.</p>
+<p>Ok, honesty time: I wasn't the only one writing this code. But thanks to the
+client input, I started and enforced all those rules (and wrote a huge part of
+the base code), the code is still readable two years later.</p>
+<p>Yeah, I'm proud of it. </p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

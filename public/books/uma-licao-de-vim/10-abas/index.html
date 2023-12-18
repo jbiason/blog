@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">10. Abas</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte me que você acha coisas que já fazia antes.</p>
+<span id="continue-reading"></span>
+<p>Além dos splits, que vimos no capítulo anterior, VIM também tem suporte à abas.
+O mais interessante é que você pode usar abas tanto no VIM gráfico (também
+chamado de GVim) quanto no console.</p>
+<p>Para abrir um arquivo no VIM, sabemos que temos que usar o comando <code>:e</code>; para
+abrir o arquivo em uma aba, o comando é <code>:tabe</code>.</p>
+<p>Ao contrário de splits, criar uma nova aba sem passar um arquivo não cria uma
+nova aba com o buffer atual; <code>:tabe</code> sem um nome de arquivo irá criar uma nova
+aba com um buffer em branco. E sim, você pode abrir o mesmo arquivo em mais de
+uma aba e as alterações feitas em uma irão refletir na outra.</p>
+<p>Para pular entre abas, você poder usar o comando <code>gt</code> em modo normal ou <code>:tabn</code> em
+modo de comando. Se você usar um número de repetições (p.ex. <code>3gt</code> ou <code>:tabn 3</code>) o
+VIM irá pular diretamente para aquela aba (no caso, para a terceira), não
+importando a aba atual. <code>gT</code> em modo normal ou <code>:tabp</code> move o cursor para a aba
+anterior.</p>
+<p>Se quiser mover abas de posição, você deve usar <code>:tabm</code>. <code>:tabm</code> irá mover a aba
+atual para ficar depois da aba indicada (p.ex., <code>:tabm 3</code> irá mover a aba atual
+para depois da terceira aba). <code>:tabm</code> também aceita parâmetros considerando a aba
+atual: <code>:tabm +2</code> irá mover a aba atual duas abas pra frente (para a direita) e
+<code>:tabm -2</code> irá mover a aba duas abas pra trás (para a esquerda).</p>
+<p>Atalhos padrão para mover para a próxima aba do sistema operacional também são
+aceitos por padrão. <code>[Ctrl][PageDn]</code> e <code>[Ctrl][PageUp]</code> no Linux e
+<code>[Command][Shift]]</code> e <code>[Command][Shift][</code> no OS X, por exemplo. Como não existe
+nenhum padrão para consoles, não há nenhum atalho padrão e devem ser usados os
+comandos de seleção de abas que vimos antes.</p>
+<p>Mais pra frente, quando estivermos falando do arquivo de configuração, eu vou
+explicar um &quot;truque&quot; para pular diretamente para a aba desejada, assim como
+funciona no Firefox e no Chrome.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;09-splits">Splits</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;11-config">Arquivos de Configuração</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

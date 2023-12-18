@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.08. Plugins - Snipmate</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte que automatizamos a digitação de coisas repetidas.</p>
+<span id="continue-reading"></span>
+<p>Para o oitavo plugin, iremos falar sobre <a href="https://github.com/msanders/snipmate.vim">SnipMate</a>.</p>
+<p>Como de costume, instalando pelo Vundle:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;msanders/snipmate.vim&quot;
+</span></code></pre>
+<p>SnipMate adiciona a funcionalidade de snippets dentro do VIM. Para quem não
+sabe, snippets são trechos de código que são adicionados automaticamente (ou
+com a ação de alguma combinação de teclas) a partir de uma simples palavra.</p>
+<p>Por exemplo, um dos snippets que já estão inclusos no pacote do SnipMate, você
+pode, num arquivo JavaScript, simplesmente digitar:</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#bf616a;">fun
+</span></code></pre>
+<p>... e, ao pressionar [Tab], o SnipMate irá adicionar, automaticamente</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">function </span><span style="color:#8fa1b3;">function_name </span><span>(</span><span style="color:#bf616a;">argument</span><span>) {
+</span><span>  </span><span style="color:#65737e;">// body...
+</span><span>}
+</span></code></pre>
+<p>... posicionando o cursor diretamente sobre &quot;function_name&quot; para que você coloque
+o nome da função; pressionando [Tab] irá posicionar o cursor sobre &quot;argument&quot; e
+pressionando [Tab] de novo, o cursor ficará sobre &quot;// body...&quot; (depois disso,
+[Tab] irá funcionar como tabulação, como normalmente é).</p>
+<p>Para criar seus próprios snippets, você tem duas opções e ambas devem ficar no
+diretório $HOME/.vim/snippets:</p>
+<p>A primeira forma é através de um único arquivo, com o nome do tipo de arquivo
+em que os snippets serão válidos (que você pode ver usando <code>:set ft</code>) com a
+extensão snippets (por exemplo, para snippets para arquivos Python, você teria
+um arquivo &quot;$HOME/.vim/snippets/python.snippets&quot;). Neste arquivo você deve
+iniciar os snippets com a palavra snippet, seguida da palavra que será
+utilizada para identificar o snippet, seguido pelo snippet em si, com uma
+tabulação na frente (quando não houver tabulação, SnipMate considera que o
+snippet terminou). Os pontos onde você quer que o cursor pare devem ser
+identificados por &quot;${{número}:{texto}}&quot; e, se ficou confuso, é porque eu estou
+usando &quot;coisas que você substituir&quot; com {} e o próprio SnipMate usa {} para
+blocos, mas deve ficar mais claro com este exemplo:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>snippet </span><span style="color:#b48ead;">for
+</span><span>    {</span><span style="color:#b48ead;">% for</span><span> ${</span><span style="color:#d08770;">1</span><span style="color:#b48ead;">:</span><span>record} </span><span style="color:#b48ead;">in</span><span> ${</span><span style="color:#d08770;">2</span><span style="color:#b48ead;">:</span><span>list} </span><span style="color:#b48ead;">%</span><span>}
+</span><span>        ${</span><span style="color:#d08770;">3</span><span style="color:#b48ead;">:</span><span>content}
+</span><span>    {</span><span style="color:#b48ead;">% endfor %</span><span>}
+</span></code></pre>
+<p>Este snippet, para Django e Jinja, faz um loop &quot;for&quot;. Ao digitar &quot;for&quot; e
+pressionar [Tab], o conteúdo será adicionado, o cursor será posicionando onde
+<code>${1:record}</code> está permitindo a alteração do mesmo, pressionando [Tab] de novo
+irá posicionar em <code>${2:list}</code> e assim por diante.</p>
+<p>E, caso você esteja se perguntando &quot;E o que acontece se eu colocar o mesmo
+número em dois lugares diferentes?&quot;, a resposta é: lugares com o mesmo número
+são alterados ao mesmo tempo. Por exemplo, o snippet:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>snippet block
+</span><span>    {</span><span style="color:#b48ead;">%</span><span> block ${</span><span style="color:#d08770;">1</span><span style="color:#b48ead;">:</span><span>blockname} </span><span style="color:#b48ead;">%</span><span>}
+</span><span>        ${</span><span style="color:#d08770;">2</span><span>:{</span><span style="color:#b48ead;">%</span><span> content </span><span style="color:#b48ead;">%</span><span>}}
+</span><span>    {</span><span style="color:#b48ead;">%</span><span> endblock $</span><span style="color:#d08770;">1 </span><span style="color:#b48ead;">%</span><span>}
+</span></code></pre>
+<p>... tem o número &quot;1&quot; duas vezes (uma depois de &quot;block&quot; e outra depois de
+&quot;endblock&quot;). Quando você colocar o nome do bloco no primeiro (do lado de
+&quot;block&quot;), o outro (depois de &quot;endblock&quot;) será preenchido automaticamente.</p>
+<p>A segunda forma de adicionar snippets é através de arquivos individuais. Ao
+invés de ter um arquivo com o tipo de arquivo com todos os snippets dentro,
+você irá criar um diretório com o tipo de arquivo e cada arquivo dentro deste
+diretório deve ser &quot;{palavra}.snippet&quot;. Assim, como no exemplo anterior tínhamos
+um arquivo &quot;$HOME/.vim/snippets/htmldjango.snippets&quot;, poderíamos ter, na verdade,
+um diretório &quot;$HOME/.vim/snippets/htmldjango/&quot; e, dentro deste diretório, um
+arquivo chamando &quot;block.snippet&quot; com o conteúdo do snippet, sem as tabulações (já
+que agora o SnipMate sabe exatamente onde termina o snippet: no final do
+arquivo).</p>
+<p>E quando usar um ou outro? Você deve usar arquivos individuais se o SnipMate já
+tiver um arquivo de snippets para o tipo de arquivo especificado. Assim, se
+você quiser adicionar novos snippets para Python, que já tem uma série de
+snippets prontos incluídos no pacote do próprio SnipMate, você deve usar a
+segunda forma. Caso contrário, fica por preferência pessoal.</p>
+<p>E, para concluir: Ao escrever este post, descobri que existe um fork da versão
+apresentada aqui. A versão do &quot;msanders&quot; não é atualizada a 4 anos -- mas
+funciona perfeitamente e tenho usado sem problemas a bastante tempo. Se você
+quiser algo mais recente (por algum motivo), o fork está em
+github.com/garbas/vim-snipmate (e requer mais dependências que a versão
+original).</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-07-syntastic">Plugins - Syntastic</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-09-ctrlp">Plugins - CtrlP e CtrlPFunky</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

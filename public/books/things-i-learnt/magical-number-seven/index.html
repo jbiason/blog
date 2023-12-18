@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - The Magical Number Seven, Plus Or Minus Two</h1>
+  <span class="post-date">
+	2019-06-26
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/complexity/">#complexity</a>
+        
+  </span>
+  <p>&quot;<a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two">The magical number</a>&quot; 
+is a psychology article about the number of things one can keep in their mind
+at the same time.</p>
+<span id="continue-reading"></span>
+<p>I've seen twice this weird construction on where a function would do some
+processing, but its return value was the return of this processing, plus the
+result of a second function and some bit of processing. Nothing major. But the
+second function would also do some processing and call a third function. And
+the third function would call a fourth. And the fourth a fifth. And the fifth,
+a sixth function.</p>
+<p>And the &quot;processing&quot; was not something small, like &quot;add two&quot; or &quot;multiply by
+itself or a configurable value&quot;.</p>
+<p>Something like this</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>func_1
+</span><span> +-- func_2
+</span><span>     +-- func_3
+</span><span>	     +-- func_4
+</span><span>		     +-- func_5
+</span><span>			     +-- func6
+</span></code></pre>
+<p>(If you need the <em>real</em> processing I saw, it was a class that had a function
+with some processing and then it would call a function in an injected
+dependency -- which is pretty nice and dandy. But the injected dependency had
+an injected dependency, and the third injected dependency <em>also</em> had an
+injected dependency, and so forth).</p>
+<p>Now, when you're trying to understand this kind of code to find a problem,
+you'll have to keep in mind what the first, second, third, fourth, fifth and
+sixth functions do, 'cause they are all calling each other (inside them).</p>
+<p>This causes some serious mental overflow that shouldn't be necessary.</p>
+<p>Not only that, but imagine that you put a log before and after <code>func_1</code>: The
+log before points the data that's being send to <code>func_1</code>, and the log after
+its result.</p>
+<p>So you'd end up with the impression that <code>func_1</code> does a lot of stuff, when it
+actually is passing the transformation along.</p>
+<p>(I got a weird experience with a function called <code>expand</code>, which logging
+before the call would show some raw, compressed data, but the after was not
+the expanded data, but actually a list of already processed data from the
+compressed data.)</p>
+<p>What would be a better solution, you may ask?</p>
+<p>Well, if instead of making <code>func_1</code> call <code>func_2</code>, you can make it return the
+result (which may not be the final result, anyway) and <em>then</em> call <code>func_2</code>
+with that result.</p>
+<p>Something like:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>result1 = func_1
+</span><span>result2 = func_2(result1)
+</span><span>result3 = func_3(result2)
+</span><span>result4 = func_4(result3)
+</span><span>result5 = func_5(result4)
+</span><span>result6 = func_6(result5)
+</span><span>result7 = func_7(result6)
+</span></code></pre>
+<p>(If we go back to the dependency injection chain, you may think that instead
+of making DI7 receive DI6 as dependency [which would receive DI5 as
+dependency, which would receive DI4 as dependency, which would receive DI3 as
+dependency and so forth] you would actually create all the DI (dependency
+injections) in one single pass and then the starting function would call the
+dependencies in a single shot, not chaining them.)</p>
+<p>Now you can see <em>exactly</em> how the data is being transformed -- and, obviously,
+the functions would have better names, like <code>expand</code>, <code>break_lines</code>,
+<code>name_fields</code> and so on, so you can see that that compressed data I mentioned
+before is actually being decompressed, the content is being broke line by
+line, the lines are getting names in its fields and so on (and one could even
+claim that it would make things clear if there was a function after
+<code>break_lines</code> which would just <code>break_fields</code>, which would make <code>name_fields</code>
+more obvious -- and in a construction like this it would be almost trivial to
+add this additional step).</p>
+<p>&quot;But that isn't performant!&quot; someone may cry. Well, maybe it's just a bit less
+performant than the original chained-calls ('cause it wouldn't create and
+destroy frames in the stack, it would just pile them up and then &quot;unstack&quot; them
+all in the end), but heck, optimization is for compilers, not people. Your job
+is to make the code <em>readable</em> and <em>understandable</em>. If you need performance,
+you can think of a better sequence of steps, not some &quot;let's make this a mess
+to read&quot; solution.</p>
+<p>Just a quick note: Although the famous paper mentions that the number is
+around 7, new research is actually pointing that the number is way lower than
+that, at 4. So simply making <code>func_1</code> call <code>func_2</code>, which would call
+<code>func_3</code>, which would call <code>func_4</code> may be enough to overload someone and make
+them lose the track of what the code does.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;data-flow">The Magic Number Seven, Plus Or Minus Two</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;cognitive-cost">Cognitive Cost Is The Readability Killer</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

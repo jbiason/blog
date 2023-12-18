@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.07. Plugins - Syntastic</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte que o VIM ajuda você a achar o que tem de errado no seu
+código.</p>
+<span id="continue-reading"></span>
+<p>O sétimo plugin discutido é o <a href="https://github.com/scrooloose/syntastic">Syntastic</a>.
+Para instalar com Vundle:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;scrooloose/syntastic&quot;
+</span></code></pre>
+<p>Inicialmente, Syntastic não faz nada. O que ele faz é, depois de salvar o
+arquivo em disco, chama a função de lint para o tipo de arquivo atual e mostra
+os problemas encontrados no canto esquerdo do código; ao passar pela linha com
+problema, o erro encontrado é reportado na linha de comando.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/14-07-syntastic/syntastic.png" alt="" /></p>
+<p>Para ver quais são todos os erros encontrados pelo aplicativo de lint, use
+<code>:Errors</code>, que irá abrir uma janela de quickfix com a lista de erros encontrados.
+Ações de janelas e de quickfix, que já vinhamos vendo, continuam valendo. É só
+o comando para abrir o quickfix que é diferente neste caso.</p>
+<p>Você pode selecionar quais lints serão usados adicionado com <code>let g:syntastic_{linguagem}_checkers=['']</code> (por exemplo, para verificar arquivos Python apenas
+com PyLint, você deve usar <code>let g:syntastic_python_checkers=['pylint']</code> mas nunca
+tive problemas com os lints atuais).</p>
+<p>Uma coisa que deve ser cuidada é que o lint deve estar disponível no momento
+que o VIM abriu o arquivo, senão ele não será usado. Por exemplo, se você tiver
+pylint disponível apenas dentro de um virtualenv, chamar o VIM antes de estar
+no virtualenv fará com que Syntastic não encontre o pylint e, com isso, nenhum
+erro será reportado.</p>
+<p>Ainda, assim como aconteceu com Commentary, Syntastic usa o tipo de arquivo
+atual, não o do bloco. Por exemplo, ao editar um arquivo de template de Django,
+que tem partes na linguagem de template do Django, HTML, CSS e JavaScript,
+mesmo que você tenha os lints para HTML, CSS e JavaScript instalados, estes não
+serão executados -- porque o VIM considera o arquivo um tipo inteiro, não um
+conjunto de pequenos blocos de tipos diferentes.</p>
+<p>E, por último, Airline tem suporte para mostrar os erros encontrados pelo
+Syntastic na barra de status. Se você adicionar</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span style="color:#96b5b4;">let </span><span style="color:#bf616a;">g:airline_enable_syntastic</span><span> = </span><span style="color:#d08770;">1
+</span></code></pre>
+<p>... no seu vimrc, o canto direito da barra de status irá mostrar a primeira
+linha com erro e a quantidade de erros encontrados.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/14-07-syntastic/syntastic-airline.png" alt="" /></p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-06-autopairs">Plugins - Auto-Pairs</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-08-snipmate">Plugins - SnipMate</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

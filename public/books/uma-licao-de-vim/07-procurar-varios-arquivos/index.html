@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">07. Procurar em Vários Arquivos</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que mais uma vez você vai ter que pesquisar sobre
+expressões regulares.</p>
+<span id="continue-reading"></span>
+<p>Já vimos o comando de pesquisa, que tem um modo inteiro só pra si<sup class="footnote-reference"><a href="#1">1</a></sup>.</p>
+<p>Mas como fazer para encontrar ocorrências de uma palavra em mais de um arquivo?
+Para isto, existe o comando <code>:grep</code>.</p>
+<p>O grep é uma ferramente comum em Unixes (e Linux) em geral, mas o VIM tem
+scripts que fazem a mesma coisa em outros sistemas operacionais (por exemplo,
+Windows). Assim, o mesmo comando vai funcionar da mesma forma não importando
+qual sistema você esteja utilizando.</p>
+<p>Como o <code>:grep</code> usa outras funcionalidades existentes no VIM, iremos ver um pouco
+mais do que simplesmente &quot;Procurar&quot;, mas isso é necessário.</p>
+<p>Como o modo de pesquisa, <code>:grep</code> precisa de uma expressão regular. Ao contrário
+do modo de pesquisa, o <code>:grep</code> também precisa de uma lista de arquivos a serem
+pesquisados. Por baixo dos panos, o que o VIM faz é chamar o comando &quot;grep&quot; (do
+Unix), verifica o resultado e permite pular facilmente entre os elementos
+encontrados (então todas as opções disponíveis para o grep podem ser passadas
+diretamente de dentro do VIM).</p>
+<p>Por exemplo, para pesquisar por arquivos que contém a palavra &quot;void&quot;, você só
+precisa executar o comando <code>:grep void *</code> (onde <code>:grep</code> é o comando, <code>void</code> é a
+expressão a ser pesquisada e <code>*</code> é a lista de arquivos a serem pesquisados). Como
+o grep (o aplicativo do Unix) somente pesquisa arquivos no diretório
+especificado (no nosso caso anterior, como não foi passado diretório algum,
+será considerado o diretório atual), o <code>:grep</code> (o comando do VIM) também não vai
+entrar em nenhum subdiretório (de novo, porque o VIM simplesmente chama o grep
+[aplicativo do Unix] e facilita pular entre os elementos encontrados). Para
+fazer uma procura que encontre a expressão além do diretório atual, basta
+adicionar a opção &quot;-r&quot; para o grep (<code>:grep void -r *</code>).</p>
+<p>Ok, agora que você sabe usar o <code>:grep</code>... Como é que você vê os resultados?</p>
+<p>Primeira informação periférica: O VIM tem um tipo de &quot;janela&quot; especial, chamada
+&quot;Quickfix&quot;. Essa &quot;janela&quot; é, na verdade, um &quot;split&quot; da tela (e mais a frente
+veremos como trabalhar com &quot;splits&quot; e abas). Para exibir o Quickfix, é usado o
+comando <code>:copen</code>; para fechar o Quickfix, basta usar <code>:copen</code> de novo. Para
+passar para o próximo elemento existente no Quickfix, use <code>:cnext</code> (ou
+simplesmente <code>:cn</code>); para passar para o elemento anterior, use <code>:cprevious</code> (ou
+simplesmente <code>:cp</code>); para mover o cursor para a posição do elemento atual do
+Quickfix, use <code>:cc</code> (que é simplesmente <code>:cc</code> mesmo).</p>
+<p>A segunda informação periférica: Como eu falei, usar <code>:grep {expressão} *</code> irá
+procurar &quot;{expressão}&quot; a partir do diretório atual. Para descobrir qual é o
+&quot;diretório atual&quot; para o VIM, use <code>:pwd</code> (de &quot;print working directory&quot;, que
+também é um comando Unix); para mudar para outro diretório, utilize o comando
+<code>:cd {diretório}</code>, como você faria num shell normal.</p>
+<p>(E antes que alguém pergunte: Sim, você pode fazer um grep fora do diretório
+atual passando o diretório em questão no próprio comando do grep: <code>:grep void /tmp -r</code> irá procurar por &quot;void&quot; em todos os arquivos existentes no diretório
+/tmp.)</p>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> Apenas para lembrar, <code>/</code> entra no modo de pesquisa, onde só é preciso entrar
+a expressão regular a ser encontrada; para passar para a próxima
+ocorrência, use <code>n</code> em modo normal; para passar para a ocorrência anterior,
+use <code>N</code> também em modo normal; para remover o realce das palavras
+encontradas, use <code>:noh</code> em modo de comando.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;06-macros-de-teclado">Macros de Teclado</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;08-localizar-substituir">Localizar e Substituir</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

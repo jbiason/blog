@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title"> Learn you some Erlang for great good! - Fred Hebert</h1>
+  <span class="post-date">
+	2020-10-25
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reviews/">#reviews</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/erlang/">#erlang</a>
+        
+            <a href="https://blog.juliobiason.me/tags/fred-hebert/">#fred hebert</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-4/">#stars:4</a>
+        
+            <a href="https://blog.juliobiason.me/tags/books-2020/">#books:2020</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2012/">#published:2012</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/6718693-learn-you-some-erlang-for-great-good">GoodReads Summary</a>:
+(No Summary)</p>
+<span id="continue-reading"></span><div>
+	★★★★☆
+</div>
+<p>Another Erlang book for my collection.</p>
+<p>This one takes its time to explain every point. So if you like to go fast and
+furious, that's not it. Also, because I read some other books (ok, &quot;book&quot;)
+about Erlang, some topics felt a little bit boring, 'cause I did get the point
+already.</p>
+<p>Also, it seems this books also suffer from the &quot;let me use the shell to explain
+this point&quot;. It's not that bad when you want to show a point in the very
+beginning and then just drop it ('cause, you know, you won't use the shell as
+part of your application -- you may use as a helper to figure out when things
+go haywire, but not as a default tool) but not when you're near the middle of
+the book explaining some important topic, like supervisors.</p>
+<p>But, at the same time, some topics that the other books (ok, &quot;book&quot;) completely
+ignored, like &quot;how do you build, package and deploy an Erlang application&quot;.</p>
+<p>But yeah, the &quot;using shell for important stuff&quot; <em>really</em> annoyed me.</p>
+<h2 id="highlights">Highlights</h2>
+<blockquote>
+<p>The correct ordering of each element in a comparison is the following:
+number &lt; atom &lt; reference &lt; fun &lt; port &lt; pid &lt; tuple &lt; list &lt; bit string.</p>
+</blockquote>
+<blockquote>
+<p>A tuple that contains an atom with one element following it is called a
+tagged tuple.</p>
+</blockquote>
+<p><em>Note</em>: Example: <code>(tag, value, value)</code>, <code>(other_tag, value, value)</code>.</p>
+<blockquote>
+<p>port Erlang to the JVM, giving the Erjang.</p>
+</blockquote>
+<blockquote>
+<p>To compile to native code, you need to use the hipe module and call it the
+following way: hipe:c(Module,OptionsList). You could also use
+c(Module,[native]) </p>
+</blockquote>
+<blockquote>
+<p>There are also a few predefined macros, such as the following: </p>
+<ul>
+<li>?MODULE, which is replaced by the current module name as an atom </li>
+<li>?FILE, which is replaced by the filename as a string </li>
+<li>?LINE, which returns the line number of wherever the macro is placed </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>-ifdef(DEBUGMODE).<br>
+-define(DEBUG(S), io:format(&quot;dbg: &quot;++S)).<br>
+-else.<br>
+-define(DEBUG(S), ok).<br>
+-endif.</p>
+</blockquote>
+<p><em>Note</em>: This is how you define a function that exists only if the atom is
+defined.</p>
+<blockquote>
+<p>right_age(X) when X &gt;= 16, X =&lt; 104 -&gt; true;
+right_age(_) -&gt; false. </p>
+</blockquote>
+<p><em>Note</em>: The function for <code>right_age</code> returns true only when the guardian
+matches. Basically, we don't need <code>if</code>s in this kind of function.</p>
+<blockquote>
+<p>wrong_age(X) when X &lt; 16; X &gt; 104 -&gt; true;<br>
+wrong_age(_) -&gt; false </p>
+</blockquote>
+<p><em>Note</em>: Same thing.</p>
+<blockquote>
+<p>1&gt; {ok, Binary} = file:read_file(&quot;road.txt&quot;).<br>
+{ok,&lt;&lt;&quot;50\r\n10\r\n30\r\n5\r\n90\r\n20\r\n40\r\n2\r\n25\r\n10\r\n8\r\n0\r\n&quot;&gt;&gt;} <br>
+2&gt; S = string:tokens(binary_to_list(Binary), &quot;\r\n\t &quot;).<br>
+[&quot;50&quot;,&quot;10&quot;,&quot;30&quot;,&quot;5&quot;,&quot;90&quot;,&quot;20&quot;,&quot;40&quot;,&quot;2&quot;,&quot;25&quot;,&quot;10&quot;,&quot;8&quot;,&quot;0&quot;] </p>
+</blockquote>
+<p><em>Note</em>: the <code>&lt;&lt;&gt;&gt;</code> format denotes binary content (like bytes in Python, maybe?).</p>
+<blockquote>
+<p>main([FileName]) -&gt; <br>
+{ok, Bin} = file:read_file(FileName),<br>
+Map = parse_map(Bin),<br>
+io:format(&quot;˜p˜n&quot;,[optimal_path(Map)]),<br>
+erlang:halt().</p>
+<p>The main function now has an arity of 1, needed to receive parameters from
+the command line. We’ve also added the function erlang:halt/0, which will
+shut down the Erlang VM after being called </p>
+</blockquote>
+<blockquote>
+<p>erlc road.erl <br>
+$ erl -noshell -run road main road.txt </p>
+</blockquote>
+<p><em>Note</em>: <code>erlc</code>, the Erlang Compiler. Still needs <code>erl</code> to run the thing,
+though.</p>
+<blockquote>
+<p>The Erlang escript command provides a simple way to run Erlang programs
+without starting the erl application directly.</p>
+</blockquote>
+<blockquote>
+<p>% This is a .hrl (header) file.<br>
+-record(included, {some_field, some_default = &quot;yeah!&quot;, unimaginative_name}).</p>
+</blockquote>
+<p><em>Note</em>: Records are just tuples with added syntactic sugar.</p>
+<blockquote>
+<p>Because a single list doesn't allow efficiently adding and removing elements
+from both ends at once (it's only fast to add and remove the head), the idea
+behind the queue module is that if you have two lists, then you can use one
+to add elements and one to remove elements. One of the lists then behaves as
+one end of the queue, where you push values, and the other list acts as the
+other end, where you pop them. When the latter is empty, you take the former
+and reverse it </p>
+</blockquote>
+<blockquote>
+<p>Erlang directory structure, which looks like this:</p>
+<ul>
+<li>ebin/ </li>
+<li>include/ </li>
+<li>priv/ </li>
+<li>src/ </li>
+</ul>
+</blockquote>
+<blockquote>
+<p>Open a file named Emakefile.</p>
+</blockquote>
+<p><em>Note</em>: <code>Emakefile</code>s make file file.</p>
+<blockquote>
+<p>{'src/*', [debug_info, {i, &quot;src&quot;}, {i, &quot;include&quot;}, {outdir, &quot;ebin&quot;}]}. </p>
+</blockquote>
+<p><em>Note</em>: format of said Emakefile.</p>
+<blockquote>
+<p>erl -make </p>
+</blockquote>
+<p><em>Note</em>: How to build a project using the Emakefile.</p>
+<blockquote>
+<p>Start a shell to be a TCP server: </p>
+</blockquote>
+<p><em>Note</em>: This is the kind of stuff that drove me crazy: Why would I turn my
+shell into a TCP server? It makes no sense! Sure, it is simpler, but who the
+heck would do that in a normal way?</p>
+<blockquote>
+<p>Promises and futures are a bit like remote procedure calls </p>
+</blockquote>
+<p><em>Note</em>: WHAAAATTTTT?!?!?</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

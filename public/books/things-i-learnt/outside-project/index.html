@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Don&#x27;t Mess With Things Outside Your Project</h1>
+  <span class="post-date">
+	2019-06-25
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/frameworks/">#frameworks</a>
+        
+  </span>
+  <p>Simple rule: Is the code yours or from your team? Good, you can make any
+changes you want. Does it come from outside? DON'T. TOUCH. IT.</p>
+<span id="continue-reading"></span>
+<p>Sometimes people are tempted to, instead of using the proper extension tools,
+change external libraries/frameworks -- for example, making changes directly
+into WordPress or Django. Believe me, I've seen my fair share of this kind of
+stuff going around.</p>
+<p>This is an easy way to make the project -- the team project, that is --
+a huge security problem.  As soon as a new version is released, you'll -- or,
+better yet, someone who was not the person who decided to mess with outside
+code -- have to keep up your changes in sync with the main project and, pretty
+soon, you'll find that the changes don't apply anymore and you'll leave the
+external project in an old version, full of security bugs.</p>
+<p>Not only you'd end up with something that may very soon put at risk your whole
+infrastructure, you won't take any benefits from things in the new versions,
+'cause hey, you're stuck in the broken version!</p>
+<p>Sometimes doing it so is faster and cheaper, and if you would do the same
+thing using extensions or actually coding around the problem, even duplicating
+the framework functions, would probably take longer and make you write more
+code, but in the long run, it's worth the time.</p>
+<p>Sometimes the change you need is impossible 'cause the framework you're using
+doesn't have any support for extensions. This is the time you'll need to build
+a new layer <em>on top</em> of the framework. Again, this may seem painful and
+changing the framework directly is a lot easier, but you'll have to keep
+updating your patch for newer versions, which may not be that easy. Building
+on top of the framework will at least give you some assurance 'cause the
+exposed API must be way more stable than the internal code.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;use-structures">If Your Data Has a Schema, Use a Structure</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;resist-easy">Resist The Temptation Of Easy</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

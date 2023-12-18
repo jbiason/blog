@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">On Unit Tests and Layers</h1>
+  <span class="post-date">
+	2017-09-11
+	
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/testing/">#testing</a>
+        
+            <a href="https://blog.juliobiason.me/tags/layers/">#layers</a>
+        
+  </span>
+  <p>On a recent discussion about testing, I think I came up with a
+reason why some people really think we need to test everything: they
+are thinking in layers, without even realizing it.</p>
+<span id="continue-reading"></span>
+<p>This weekend I had an idea on why some people insist on writing tests for
+every single function and object, but first you must know that 3 things
+happened:</p>
+<p>First, I told someone a programmer-joke like this: &quot;You can't teach top-down
+development to newcomers 'cause they don't know which side is up.&quot; (Actually, I
+heard from someone else; I'm not that smart to come with a line like this).
+Yes, it is a joke; yes, it is somewhat fun, but at the same time, it is a
+reality: we should let newcomers get wet before telling them how to properly
+design their project.</p>
+<p>The second is that I got &quot;drafted&quot; to do a tutorial on DjangoRestFramework and,
+because I was expecting someone to ask how to manage validation on forms and
+serializers and decided to learn a bit more about &quot;fat models&quot;, which basically
+says you should put all your business rules on the model layer. And here is the
+part that stuck with me: the model is not an <em>object</em>, but a <em>layer</em>.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>&quot;forms&quot; are responsible for validating incoming HTML form content;
+&quot;serializers&quot; are responsible for validating incoming data from the API --
+although &quot;serializers&quot; are also responsible for serializing the output data
+back to the client.</p>
+
+</div>
+<p>The third is that I was summoned to explain to a group to explain what should
+be tested. Thing is, they did a &quot;fizzbuzz&quot; code in which they had
+<code>multiple_of_3</code>, <code>multiple_of_5</code>, <code>multiple_of_15</code> and someone mentioned
+that we <em>should</em> test them too.</p>
+<p>And that's what got me thinking: Should we test it? My response for this
+question is always &quot;no, think your project is a black box in which you press a
+button and some light goes on; you don't need to know if there is a nerve
+somewhere in your knee that you hit it and your leg does some kicking or if
+the signal is sent all the way to your brain and it sends a response back to
+the muscle to make it kick, all you need to know -- and test -- is that when
+you hit someone in the knee, they kick and <em>that's</em> your requirement and
+<em>that's</em> what you should test.&quot; But what if it is not that simple?</p>
+<p>The model <em>layer</em> has a responsability and has its own requirements: It should
+receive the data and store it somewhere; it can expose some business rules (as
+validation of said data) but shouldn't run those rules. The controller <em>layer</em>
+also has its own responsabilities and its own requireements: it gets the data
+from somewhere, do the checks, validate the business rules and then sends it
+to the model layer to be store. The view <em>layer</em>, again, has its own
+responsabilities and its own requirements: exposes the data to the user and
+receives data from the user and passes it to the controller layer, exposing
+the errors back to the user.</p>
+<p>In a way, all those layers could be separate projects: because they have a
+defined API, one could replace each layer independently -- I could have a
+model layer that stores all that in JSON and then replace it to one that
+stores in a Stream Processing Database and the controller and view layers will
+never know about. All those layers could be separate <em>libraries</em> -- a lost art
+of getting code with a single functionality and giving it its own space, with
+its own build tools and a well defined interface and which is its used by other
+projects as a black box: they know the interface, but they don't know how,
+internally, the library does whatever it does.</p>
+<p>And, because each library has its own code, it will have its own tests.</p>
+<p>And that's what people were seeing: They were seeing, unconciously,  &quot;this is
+another <em>layer</em> in the project, this layer should be tested because it can be
+replaced any time&quot;. Each <code>multilple_of</code> function was an <em>API</em> exposed from
+the model layer and, thus, should be tested. Even if the design doesn't seem
+to be layered and appear all around the code.</p>
+<p>Thing is, each layer is nothing by itself: There is no use for exposing
+business/validation rules without a controller to send the data; there is no
+use for something to validate incoming data and apply business rules if there
+is noone sending the data and noone to store it; there is no use for something
+responsibile for calling business rules check if there isn't business rules.
+All three layers are required to do the word -- and that's probably why I
+believe you should test them all as a single unity.</p>
+<p>But, in the very end, it seems that going full force into unit tests and what
+should be tested can actually help people see they layers of their projects.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

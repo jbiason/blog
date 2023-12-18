@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Um Shell por Dia: Comandos Obscuros</h1>
+  <span class="post-date">
+	2021-09-23
+	
+            <a href="https://blog.juliobiason.me/pt/tags/book/">#book</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/por-dia/">#por dia</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/shell/">#shell</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/comandos/">#comandos</a>
+        
+  </span>
+  <p>Existem alguns comandos que quase não são usados e por isso são pouco
+comentados, mas se algum dia precisar, eles estão lá.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Todos os comandos listados aqui são parte do &quot;GNU CoreUtils&quot; e
+estão presentes na maior parte das distribuições Linux. Se você estiver usando
+uma distribuição de BSD, possivelmente vai precisar instalar o pacote do
+CoreUtils antes de poder usar.</p>
+
+</div>
+<p>Em nenhuma ordem em particular:</p>
+<ul>
+<li><code>tac</code>: imprime o arquivo na ordem inversa, mostrando primeiro a última linha e
+indo até a primeira; é o inverso do <code>cat</code>.</li>
+<li><code>head</code>: imprime as primeiras linhas de um arquivo; é o inverso do <code>tail</code> (e,
+infelizmente, não tem a opção <code>-f</code> para ver se surge alguma coisa no começo do
+arquivo).</li>
+<li><code>nl</code>: imprime cada uma das linhas do arquivo, colocando o número da mesma na
+frente.</li>
+<li><code>shuf</code>: embaralha o conteúdo de entrada; é o inverso do <code>sort</code>.</li>
+<li><code>paste</code>: junta conteúdo do arquivo; é o inverso do <code>cut</code>.</li>
+<li><code>expand</code>: Converte tabulações por espaços; é o inverso do <code>unexpand</code>.</li>
+<li><code>unexpand</code>: Converte espaços por tabulações; é o unverso do <code>expand</code>.</li>
+<li><code>shred</code>: apaga arquivos, mas antes de apagar, sobreescreve todo o conteúdo do
+mesmo no disco, para previnir que o mesmo não possa ser recuperado.</li>
+<li><code>tee</code>: recebe o conteúdo e, ao mesmo tempo em que escreve o mesmo no &quot;stdout&quot;,
+envia para um arquivo. Pode ser usado quando se queira salvar o conteúdo
+intermediário no meio de uma operação com pipes; por exemplo <code>cat | cut | tee temp | sort</code> fará com que o conteúdo do arquivo seja cortado, gravado no
+arquivo &quot;temp&quot; e passado ao <code>sort</code> ao mesmo tempo, podendo comparar o
+resultado antes e depois do sort.</li>
+<li><code>cal</code>: mostra um calendário. Por padrão, mostra o mês atual, mas é possível
+usar, por exemplo <code>cal 2021</code> e ver o calendário do ano inteiro (infelizmente,
+só mostra o calendário, não é possível adicionar eventos).</li>
+<li><code>nohup</code>: captura a execução de uma aplicação, permitindo que a mesma continue
+executando mesmo depois de perder o terminal. Explicando: Quando o terminal
+perde sua conexão (podendo ser porque o terminal foi encerrado, porque o
+emulador de terminal foi fechado ou porque a conexão foi encerrada), o sistema
+envia um sinal de &quot;Hang UP&quot; (HUP); o <code>nohup</code> captura este sinal e, como o
+processo executado é filho dele, ele pede para que o init/systemd assuma a
+paternidade do processo e deixe ele executando. Assim, caso você feche o
+terminal ou sua conexão ssh seja terminada, mesmo assim o comando vai
+continuar executando. Deve ser usado como <code>nohup comando</code>.</li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

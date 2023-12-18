@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented Links for 2020-06-20</h1>
+  <span class="post-date">
+	2020-06-20
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/sigsegv/">#sigsegv</a>
+        
+            <a href="https://blog.juliobiason.me/tags/segmentation-fault/">#segmentation fault</a>
+        
+            <a href="https://blog.juliobiason.me/tags/activitypub/">#activitypub</a>
+        
+            <a href="https://blog.juliobiason.me/tags/conference/">#conference</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git/">#git</a>
+        
+            <a href="https://blog.juliobiason.me/tags/names/">#names</a>
+        
+            <a href="https://blog.juliobiason.me/tags/branches/">#branches</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ecosystem/">#ecosystem</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cli/">#cli</a>
+        
+            <a href="https://blog.juliobiason.me/tags/design/">#design</a>
+        
+            <a href="https://blog.juliobiason.me/tags/scp/">#scp</a>
+        
+  </span>
+  <p>SIGSEGV, ActivityPub Conf, Git Branch Names, Rust Ecosystem, Learning Rust
+with CLI, Design Problems, SCP.</p>
+<span id="continue-reading"></span><h2 id="why-is-there-a-v-in-sigsegv-segmentation-fault"><a href="https://blog.cloudflare.com/why-is-there-a-v-in-sigsegv-segmentation-fault/">Why is there a &quot;V&quot; in SIGSEGV Segmentation Fault?</a></h2>
+<p>A little bit of UNIX/POSIX based-operating systemas -- and something that
+never actually made me wonder what it meant, specially considering the names
+of the other interruptions and some internal commands (<code>creat</code>, for example).</p>
+<h2 id="activitypub-conference-2020"><a href="https://conf.activitypub.rocks/#home">ActivityPub Conference 2020</a></h2>
+<p>Ok, it is a bit early for this -- the CFP just opened -- but as a fan of what
+ActivityPub proposes to solve, I must share this: A conference related to the
+discussion of the protocol and its tools (well, I <em>guess</em> that the topic,
+anyway).</p>
+<p>Stay tuned for the selected talks in the future.</p>
+<h2 id="on-git-branch-naming"><a href="http://meta.ath0.com/2020/06/git-branch-naming/">On Git branch naming</a></h2>
+<p>The change of Git main branch name to something that is not &quot;master&quot; generated
+some discussion online, even with the major Git services (Github, for example)
+already announced that new repositories will get new names.</p>
+<p>There is a problem with the meaning of the name and what it represents to a
+significant part of the world population, but what the post shows is that even
+if you ignore that, the name &quot;master&quot; makes no sense in the Git architecture;
+it is based on the name used by BitKeeper, which had the master/slave
+architecture, which Git <em>does not</em> have.</p>
+<p>And yes, I do agree with all the answers there. And: If it is a simple change,
+won't break anything, and oppressed groups (in the past or present) don't get
+offended, why not?</p>
+<p>There is another point thought: Git is distributed, right? This means it has
+not a central server; every installation is the central of itself. The same
+goes for its branches, though: Every branch is a copy in itself and you don't
+<em>have</em> to put them all in the same basket at some point, e.g., merging back to
+the main branch, because there is no <em>main</em> branch. It is just a name and
+doesn't hold any special functionality compared to other branches.</p>
+<h2 id="understanding-the-rust-ecosystem"><a href="https://joeprevite.com/rust-lang-ecosystem">Understanding the Rust Ecosystem</a></h2>
+<p>I tend to mention that &quot;languages do not exist in a vacuum&quot;, and by that I
+mean that you must not look only at some programming language or just a small
+piece of it, but the whole; how is the ecosystem for this thing?</p>
+<p>And, for Rust, it felt always a vibrant system, with all its weirdness and
+coolness. And this post goes one step further showing most of the things going
+around, from platforms, to forums, to meetups, to companies using the
+language, to famous tools.</p>
+<h2 id="diving-into-rust-with-a-cli"><a href="https://kbknapp.dev/rust-cli/">Diving into Rust with a CLI</a></h2>
+<p>Speaking of Rust, Kevin K wrote this post about a command line tool to
+download the XKCD comics. But instead of building the most simple solution for
+it, he used the most known libraries for specific points (explaining why he
+picked some) and showing a complete final solution.</p>
+<p>I'm writing some other command line tool in Rust to explore more the language, and the current result is not even near the niceness of what is shown here.</p>
+<h2 id="stop-blaming-people-it-s-a-design-problem"><a href="https://quinnkeast.com/writing/stop-blaming-people-its-a-design-problem/">Stop Blaming People: It’s a Design Problem</a></h2>
+<p>Developers are famous for not being able to design a button in the right way
+or making it too damn hard to use the damn button -- or, in worse cases,
+building an interface so cluttered with options that it is basically
+impossible to use the application.</p>
+<p>But it is not just the software world that suffers from that: the fire in the
+Notre Dame Cathedral could be prevented if the interface didn't use some
+indirect information; the ballistic missile warning in Hawaii wouldn't have
+happened if the interface for the alarm wasn't so simplistic. And so on.</p>
+<p>Sometimes it is necessary to think a bit more about how the service will be
+used instead of making things complex (or too simplistic).</p>
+<h2 id="scp-familiar-simple-insecure-and-slow"><a href="https://gravitational.com/blog/scp-familiar-simple-insecure-slow/">SCP - Familiar, Simple, Insecure, and Slow</a></h2>
+<p>I already knew SCp was slow, but I wasn't sure how slow. What impressed me
+most in the post is this line here:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>tar cf - /tmp/big_folder | ssh server &#39;tar xC /tmp/ -f -&#39;
+</span></code></pre>
+<p>Basically, using <code>tar</code> to get the content of several files and turn it in a
+single sequence of bytes, send it through stdout to ssh and, there, run <code>tar</code>
+to undo the sequence (making them back into files). Curious, and potentially
+4x faster than copying files directly through <code>scp</code>.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

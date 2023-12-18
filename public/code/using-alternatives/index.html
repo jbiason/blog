@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Using `alternatives`</h1>
+  <span class="post-date">
+	2021-06-21
+	
+            <a href="https://blog.juliobiason.me/tags/linux/">#linux</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cli/">#cli</a>
+        
+            <a href="https://blog.juliobiason.me/tags/vim/">#vim</a>
+        
+            <a href="https://blog.juliobiason.me/tags/alternatives/">#alternatives</a>
+        
+  </span>
+  <p><code>alternatives</code> allows one to select a different executable for a normal command
+line program, but how does it work?</p>
+<span id="continue-reading"></span>
+<p>I'll give an example: I enjoy using NeoVim instead of Vim for different
+reasons. But there is a nag that I keep hitting: NeoVim executable is called
+<code>nvim</code> instead of the <code>vim</code> for... Vim.</p>
+<p>I could change two different environment variables, <code>VISUAL</code> and <code>EDITOR</code> to
+<code>nvim</code>, so any application that wants to open an external editor would call
+NeoVim instead. But, unfortunately, my muscle memory doesn't work with
+environment variables, so either I keep correcting myself to type <code>nvim</code>
+instead of <code>vim</code> or I find a way to, when I call <code>vim</code>, it should actually call
+<code>nvim</code>.</p>
+<p>The initial solution is to use aliases, so <code>alias vim nvim</code> (in Fish) would
+make <code>vim</code> actually run <code>nvim</code>... except when I use <code>sudo</code>, which doesn't
+expand the alias before its call. The actual solution would be something
+global, that takes care of this.</p>
+<p>And that's what <code>alternatives</code> do.</p>
+<p>In my case, what I actually need to do is run the follow command:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>sudo alternatives --install /usr/bin/nvim vim /usr/bin/vim 1
+</span></code></pre>
+<p>What does it do:</p>
+<ul>
+<li>Say I want to use <code>/usr/bin/nvim</code></li>
+<li>... which I'll call &quot;vim&quot; (which is the name <code>alternatives</code> uses in its
+configuration)</li>
+<li>... making a symlink into <code>/usr/bin/vim</code></li>
+<li>... with priority 1.</li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

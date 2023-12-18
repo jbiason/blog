@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Unit Tests Are Good, Integration Tests Are Gooder</h1>
+  <span class="post-date">
+	2019-06-19
+	
+            <a href="https://blog.juliobiason.me/tags/book/">#book</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/integration-tests/">#integration tests</a>
+        
+  </span>
+  <p>The view of the whole is greater than the sum of its parts. And that includes
+tests for the whole compared to tests of single things.</p>
+<span id="continue-reading"></span>
+<p>First, I just don't want to into a discussion about what's the &quot;unit in a unit
+test&quot;<sup class="footnote-reference"><a href="#1">1</a></sup>, so let's take the point that a unit test is a test that tests a
+class/function, not the whole system from end to end, which would require data
+flowing through several classes/functions.</p>
+<p>There are several libraries/frameworks that actually split this in a way that
+you can't test the whole.
+<a href="https://spring.io/">Spring</a>+<a href="https://site.mockito.org/">Mockito</a> is one of
+those combinations -- and one that I worked with. Due the bean container of
+Java, the extensive use of Beans by Spring and the way Mockito interacts with
+the container, it's pretty easy to write tests that involve only one class:
+You can ask Mockito to mock every dependency injection (so it injects mocked
+beans instead of the real ones) in one class and mock every injected class,
+simply using annotations.</p>
+<p>And this is cool and all and makes tests simple and fast. But the fact that we
+are making sure each class does what it should do, it doesn't give a proper
+view of the whole; you can't see if that collection of perfectly tested
+classes actually solve the problem the system is responsible for solving.</p>
+<p>Once, in C++, I wrote an alarm system
+<a href="https://en.wikipedia.org/wiki/Daemon_(computing)">daemon</a> for switches. There
+were three different levels of things the alarm system should do, depending on
+the incoming message from a service: It could only log the message of the
+incoming error, it could log the error and send a SNMP message, or it could
+log the error, send a SNMP message and turn a LED in the front panel on.
+Because each piece had a well defined functionality, we broke the system in
+three different parts: One for the log, one for the SNMP and one for the LED.
+All tested, all pretty. But I still had a nagging feeling that something was
+missing. That's when I wrote a test that would bring the daemon up, send some
+alarms and see the results.</p>
+<p>And, although each module was well tested, we still got one things we were
+doing it wrong. If we never wrote an integration test, we would never catch
+those.</p>
+<p>Not only that, but because we wrote a test that interacted with the daemon, we
+could get a better picture of its functionality and the test actually <em>made
+sense</em> -- as in, if you read the unit tests, they seemed disconnected from
+what the daemon was expected to do, but the integration tests actually read
+like &quot;Here, let me show that we actually did what you asked&quot;. And yes, this
+was akin to <a href="/books/things-i-learnt/gherkin">Gherkin</a> tests, although I didn't
+know Gherkin at the time -- and, better yet, we had tests that proved that we
+were following the <a href="/books/things-i-learnt/spec-first">spec</a>.</p>
+<p>Personally, I think over time integration tests become more important than
+unit tests. The reason is that I personally have the feeling<sup class="footnote-reference"><a href="#2">2</a></sup> that unit
+tests check if the classes/functions have <em>adherence</em> to the underlying
+<em>design</em> -- Does your view can actually work without the controller? Is the
+controller using something from the model or using things that should be in
+the view? -- but adherence to the design gets better over time -- developers
+start using the layout from previous examples, so they capture the design by
+osmosis, while the big picture starts to get more and more complex, with lots
+of moving parts.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>There is no &quot;unit&quot; in &quot;unit tests&quot;. &quot;Unit test&quot; means the test <em>is</em> a
+unit, indivisible and dependent only on itself.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Again, it's pure feeling from my experience. I have no data to back that
+affirmation up, so take it with a grain of salt.</p>
+</div>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;users">Think About The Users</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;tests-dead-code">Testing Every Function Creates Dead Code</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

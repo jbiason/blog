@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Organize Your Code by Data&#x2F;Type, Not Functionality</h1>
+  <span class="post-date">
+	2019-07-15
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/project/">#project</a>
+        
+            <a href="https://blog.juliobiason.me/tags/project-organization/">#project organization</a>
+        
+  </span>
+  <p>A lot of projects assume that you'll put things with the same functionality in
+the same place, no matter what data they deal with. This makes things harder
+to break apart later.</p>
+<span id="continue-reading"></span>
+<p>Most projects keep organized by the functionality each component do. For
+example, all the models are in the same place, all the functions that convert
+one model into an internal structure/DTO are kept together, and so on.
+Something like this:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>.
+</span><span>+-- IncomingModels
+</span><span>|   +-- DataTypeInterface
+</span><span>|   +-- DataType1
+</span><span>|   +-- DataType2
+</span><span>|   +-- DataType3
+</span><span>+-- Filters
+</span><span>|   +-- FilterInterface
+</span><span>|   +-- FilterValidDataType2
+</span><span>+-- Processors
+</span><span>|   +-- ProcessorInterface
+</span><span>|   +-- ConvertDataType1ToDto1
+</span><span>|   +-- ConvertDataType2ToDto2
+</span><span>+-- OutgoingModels
+</span><span>    +-- DtoInterface
+</span><span>    +-- Dto1
+</span><span>	+-- Dto2
+</span></code></pre>
+<p>This is fine and works. But when you organize by data, it'll make a lot easier
+to split your project in smaller projects -- 'cause, at some point, you may
+want to do almost the same thing as you're doing right now, but with small
+differences.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>.
+</span><span>+-- Base
+</span><span>|   +-- IncomingModels
+</span><span>|   |   +-- DataTypeInterface
+</span><span>|   +-- Filters
+</span><span>|   |   +-- FilterInterface
+</span><span>|   +-- Processors
+</span><span>|   |   +-- ProcessorInterface
+</span><span>|   +-- OutgoingModels
+</span><span>|       +-- DtoInterface
+</span><span>+-- Data1
+</span><span>|   +-- IncomingModels
+</span><span>|   |   +-- DataType1
+</span><span>|   +-- Processors
+</span><span>|   |   +-- ConvertDataType1ToDto1
+</span><span>|   +-- OutgoingModels
+</span><span>|       +-- Dto1
+</span><span>...
+</span></code></pre>
+<p>Now you can make a module that deals <em>only</em> with Data1, another that works
+only with Data2 and so on. And then you can break them into isolated modules.</p>
+<p>And then when you have another project that also have Data1 but also deals
+with Data3, you can reuse most of the stuff in the Data1 module.</p>
+<p>And I do understand that this creates an explosion of directories/packages,
+which may seem a bit unnecessary.</p>
+<p>Believe me, I also thought the idea of keeping things by functionality made
+more sense. But in one project, I got a requirement to do almost the same
+thing as I was doing before, but with a small change, which would require one
+less step/transformation (in our example, you can think as the new requirement
+as doing exactly what the Data1, Data2 and Data3 did, with their
+transformations and such, but without the Data3 part). By breaking by their
+types, I managed to create small modules for each one and the new project
+would simply reference Data1 and Data2, but not Data3.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;git-flow">Git-Flow Is The Way To Go</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;libraries">Create Libraries</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

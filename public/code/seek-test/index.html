@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Seek Test</h1>
+  <span class="post-date">
+	2023-08-07
+	
+            <a href="https://blog.juliobiason.me/tags/random/">#random</a>
+        
+            <a href="https://blog.juliobiason.me/tags/example/">#example</a>
+        
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/seek/">#seek</a>
+        
+  </span>
+  <p>How to use <code>.seek()</code> in Tokio <code>BufReader</code>s.</p>
+<span id="continue-reading"></span>
+<p>What was the issue:</p>
+<p>I needed to read a file that have a header, marked with <code>#</code> and then followed
+by the data itself; all the data is TSV (tab-separated-values). Note that there
+is just one header and one data; it is not expected to find more headers/header
+information after you start reading the data.</p>
+<p>The easy solution could be:</p>
+<ol>
+<li>Open file;</li>
+<li>Read all the lines till there is one that <strong>doesn't</strong> start with <code>#</code>;</li>
+<li>Close file;</li>
+<li>Open the file again;</li>
+<li>Skip all lines that start with <code>#</code>;</li>
+<li>Process the result.</li>
+</ol>
+<p>Because I didn't want to read part of the file again, I wanted to rewind the
+cursor and have only one open. The general idea would be:</p>
+<ol>
+<li>Open file.</li>
+<li>Read all the lines till there is one that <strong>doesn't</strong> start with <code>#</code>;</li>
+<li>Rewind the file reader the number of bytes of this line, thus returning to
+the very start of it;</li>
+<li>Consider the header read; the next reads would always produce the data.</li>
+</ol>
+<p>Example souce file:</p>
+<pre data-lang="csv" style="background-color:#2b303b;color:#c0c5ce;" class="language-csv "><code class="language-csv" data-lang="csv"><span style="color:#b48ead;"># This is a header
+</span><span style="color:#b48ead;"># Each field is tab-separated.
+</span><span style="color:#b48ead;"># But so is the data</span><span>, </span><span style="color:#b48ead;">so it is all good.
+</span><span style="color:#b48ead;"># field1	field2	field3	field4
+</span><span style="color:#d08770;">0	1	2	3
+</span><span style="color:#d08770;">1	2	3	4	
+</span><span style="color:#d08770;">2	3	4	5
+</span><span style="color:#d08770;">3	4	5	6
+</span></code></pre>
+<p>And the file that actually reads it:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">use </span><span>std::io::SeekFrom;
+</span><span style="color:#b48ead;">use </span><span>std::path::PathBuf;
+</span><span>
+</span><span style="color:#b48ead;">use </span><span>tokio::fs::File;
+</span><span style="color:#b48ead;">use </span><span>tokio::io::AsyncBufReadExt;
+</span><span style="color:#b48ead;">use </span><span>tokio::io::AsyncSeekExt;
+</span><span style="color:#b48ead;">use </span><span>tokio::io::BufReader;
+</span><span>
+</span><span>#[</span><span style="color:#bf616a;">tokio</span><span>::</span><span style="color:#bf616a;">main</span><span>(flavor = &quot;</span><span style="color:#a3be8c;">current_thread</span><span>&quot;)]
+</span><span>async </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> file_name = PathBuf::from(env!(&quot;</span><span style="color:#a3be8c;">CARGO_MANIFEST_DIR</span><span>&quot;))
+</span><span>        .</span><span style="color:#96b5b4;">join</span><span>(&quot;</span><span style="color:#a3be8c;">resources</span><span>&quot;)
+</span><span>        .</span><span style="color:#96b5b4;">join</span><span>(&quot;</span><span style="color:#a3be8c;">the_file.tsv</span><span>&quot;);
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">let</span><span> file = File::open(&amp;file_name).await.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>    </span><span style="color:#b48ead;">let</span><span> reader = BufReader::new(file);
+</span><span>    </span><span style="color:#65737e;">// Here is why we need to the the `.into_inner()` later:
+</span><span>    </span><span style="color:#65737e;">// `.lines()` takes `self` and not `&amp;self`.
+</span><span>    </span><span style="color:#b48ead;">let mut</span><span> lines = reader.</span><span style="color:#96b5b4;">lines</span><span>();
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Finding headers...</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">while let </span><span>Some(line) = lines.</span><span style="color:#96b5b4;">next_line</span><span>().await.</span><span style="color:#96b5b4;">unwrap</span><span>() {
+</span><span>        println!(&quot;</span><span style="color:#96b5b4;">\t</span><span style="color:#a3be8c;">Got line: </span><span style="color:#d08770;">{}</span><span>&quot;, line);
+</span><span>        </span><span style="color:#b48ead;">if </span><span>!line.</span><span style="color:#96b5b4;">starts_with</span><span>(&#39;</span><span style="color:#a3be8c;">#</span><span>&#39;) {
+</span><span>            println!(&quot;</span><span style="color:#96b5b4;">\t\t</span><span style="color:#a3be8c;">Oops, headers are done!</span><span>&quot;);
+</span><span>            </span><span style="color:#65737e;">// XXX issue here:
+</span><span>            </span><span style="color:#65737e;">// We are assuming &quot;+1&quot; &#39;cause that the `\n` character that `.lines()` &quot;eat&quot; on every
+</span><span>            </span><span style="color:#65737e;">// read. But, on DOS files, it would be `\r\n`, or 2 bytes.
+</span><span>            </span><span style="color:#65737e;">// Need to find out a way to figure the line ending before doing &quot;1+&quot; or &quot;2+&quot; here.
+</span><span>            </span><span style="color:#b48ead;">let</span><span> bytes = (</span><span style="color:#d08770;">1 </span><span>+ line.</span><span style="color:#96b5b4;">bytes</span><span>().</span><span style="color:#96b5b4;">len</span><span>() as </span><span style="color:#b48ead;">i64</span><span>) * -</span><span style="color:#d08770;">1</span><span>;
+</span><span>            println!(&quot;</span><span style="color:#96b5b4;">\t\t</span><span style="color:#a3be8c;">Must rewind </span><span style="color:#d08770;">{bytes}</span><span style="color:#a3be8c;"> positions...</span><span>&quot;);
+</span><span>
+</span><span>            </span><span style="color:#b48ead;">let mut</span><span> inner = lines.</span><span style="color:#96b5b4;">into_inner</span><span>(); </span><span style="color:#65737e;">// get back our BufReader
+</span><span>            inner.</span><span style="color:#96b5b4;">seek</span><span>(SeekFrom::Current(bytes)).await.</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>
+</span><span>            lines = inner.</span><span style="color:#96b5b4;">lines</span><span>(); </span><span style="color:#65737e;">// build a line reader from the rewinded Reader
+</span><span>            </span><span style="color:#b48ead;">break</span><span>;
+</span><span>        }
+</span><span>    }
+</span><span>
+</span><span>    println!(&quot;</span><span style="color:#a3be8c;">Now it should be data...</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">while let </span><span>Some(line) = lines.</span><span style="color:#96b5b4;">next_line</span><span>().await.</span><span style="color:#96b5b4;">unwrap</span><span>() {
+</span><span>        println!(&quot;</span><span style="color:#96b5b4;">\t</span><span style="color:#a3be8c;">Got line: </span><span style="color:#d08770;">{}</span><span>&quot;, line);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>The actual effect for using this is that I need to walk two of those files at
+the same time. By walking the first file, grabbing the headers and then
+returning to the actual data and doing the same with the second file, I could
+avoid an issue of files with different header sizes (e.g., the second file was
+updated with new comments before the actual header).</p>
+
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

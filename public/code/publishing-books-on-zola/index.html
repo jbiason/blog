@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Publishing Books on Zola</h1>
+  <span class="post-date">
+	2019-01-20
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/zola/">#zola</a>
+        
+  </span>
+  <p>A long time ago I wrote a couple of posts on a WordPress, then moved them to
+GitBook. Unfortunately, GitBook changed its layout to something a bit more
+confusing and now I'm bringing them back to this blog, which runs Zola.</p>
+<span id="continue-reading"></span>
+<p>Zola is a blog system; a static blog generator. It wasn't projected to be a
+publishing tool, but because it has support for publishing stuff without
+appearing in the main page, specialized templates for each page and
+shortcodes, I managed to come with a clever solution.</p>
+<p>But let's see how I did:</p>
+<h2 id="the-theme">The Theme</h2>
+<p>The first problem is tied to the current Zola themes: some of them lack
+support for tags, some for sections and some to both. For <a href="https://github.com/getzola/after-dark/">After
+Dark</a>, I
+had to add support for both, but renamed it to
+<a href="https://github.com/jbiason/nighttime">Nighttime</a>. This allows
+putting the books in their own sections, which helps the general organization
+of the content.</p>
+<h2 id="hiding-book-posts-from-main-site">Hiding Book Posts From Main Site</h2>
+<p>Each Zola section needs a <code>_index.md</code> file with the meta information for the
+section; for example, it's title.</p>
+<p>To make posts in a section not appear in the main site (you know, the site
+index), you need to set a property in its meta information: <code>transparent</code>.
+When a section is transparent, posts inside the section will not appear in the
+main index and, thus, will be contained only on the section.</p>
+<p>... unless you want to make some &quot;episodic&quot; chapters and allow them to appear
+in the main site. That's up for you.</p>
+<h2 id="post-order-in-the-section">Post Order in the Section</h2>
+<p>By default, posts in sections are ordered from the most recent to the oldest,
+based on their published date. You can change this by changing the <code>sort_by</code>
+property in the section to <code>weight</code>, which will show posts by weight, from the
+lightest to the heaviest.</p>
+<p>Why would you want to change the order of posts in the section? 'Cause the
+section content works pretty damn fine as a general index for your book, which
+each post as a chapter.</p>
+<p>All fine and dandy, but the fact is that posts titles, with their dates and
+summaries, is not a very good index. But Zola has a workaround for this: Each
+section data can also have a <code>template</code> option, which allows using a different
+template for that section alone. In my case, I created a template on
+&quot;Nighttime&quot; that have all the meta information but not the posts in it, called
+<code>section-contentless.html</code>. </p>
+<p>But what is good about a section/book with a title and an empty index? That's
+another thing Zola can do: If you add any content in the <code>_index.md</code>, it will
+be rendered normally. So you can write the index yourself (which is not
+optimal, but it works).</p>
+<p>As a side note, you can also create a template which shows only the post
+title, no summary or date, and use the weight solution.</p>
+<h2 id="navigation">Navigation</h2>
+<p>Although you can now display the book with its chapters, it still is a bit
+hard for readers to do a nice, continuous reading if they need to go back to
+the index after reading a chapter to get to the next.</p>
+<p>For that, you can use a shortcode to add the navigation at the bottom of each
+post. Something like this:</p>
+<pre data-lang="jinja" style="background-color:#2b303b;color:#c0c5ce;" class="language-jinja "><code class="language-jinja" data-lang="jinja"><span>&lt;div&gt;
+</span><span>	{% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">prev_chapter_link </span><span>%}
+</span><span>		&lt;div style=&quot;float:left&quot;&gt;
+</span><span>			&amp;lt;&amp;lt; &lt;a href=&quot;{{ </span><span style="color:#bf616a;">prev_chapter_link </span><span>}}&quot;&gt;{{ </span><span style="color:#bf616a;">prev_chapter_title </span><span>}}&lt;/a&gt;
+</span><span>		&lt;/div&gt;
+</span><span>	{% </span><span style="color:#b48ead;">endif </span><span>%}
+</span><span>
+</span><span>	&amp;nbsp;
+</span><span>
+</span><span>	{% </span><span style="color:#b48ead;">if </span><span style="color:#bf616a;">next_chapter_link </span><span>%}
+</span><span>		&lt;div style=&quot;float:right&quot;&gt;
+</span><span>			&lt;a href=&quot;{{ </span><span style="color:#bf616a;">next_chapter_link </span><span>}}&quot;&gt;{{ </span><span style="color:#bf616a;">next_chapter_title </span><span>}}&lt;/a&gt; &amp;gt;&amp;gt;
+</span><span>		&lt;/div&gt;
+</span><span>	{% </span><span style="color:#b48ead;">endif </span><span>%}
+</span><span>&lt;/div&gt;
+</span></code></pre>
+<p>And then, adding in the end of each post a 
+<code>{ { nav(prev_chapter_link=&quot;&lt;link&gt;&quot;, prev_chapter_title=&quot;Title&quot;, next_chapter_link=&quot;&lt;link&gt;&quot;, next_chapter_title=&quot;Title&quot;) }}</code> 
+and Zola will add the HTML (with the parameters) at the bottom of each post,
+making navigation easier.</p>
+<p>And that's basically it!</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

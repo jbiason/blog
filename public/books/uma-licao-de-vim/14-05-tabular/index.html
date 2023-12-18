@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.05. Plugins - Tabular</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que deixamos as coisas alinhadas.</p>
+<span id="continue-reading"></span>
+<p>O quinto plugin da lista de plugins é
+<a href="https://github.com/godlygeek/tabular">Tabular</a>, um plugin para alinhar
+elementos baseados em expressões regulares (calma, não é tão complicado quando
+parece.)</p>
+<p>Mais uma vez, para instalar pelo Vundle:</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;godlygeek/tabular&quot;
+</span></code></pre>
+<p>Assim como Fugitive e Commentary, Tabular não é um plugin visual, mas adiciona
+um novo comando <code>:{range}Tabularize {expressão regular}</code>.</p>
+<p>(Apenas lembrando de {range}: são dois indicadores separados por vírgula,
+números são linhas, &quot;$&quot; é a última linha do arquivo, &quot;%&quot; é igual à &quot;1,$&quot; (todo o
+arquivo), &quot;'{marcador1},'{marcador2}&quot; vai do marcador1 até o marcador2 e, se você
+selecionar uma região no modo visual, ao pressionar <code>:</code>, o prompt deve ficar &quot;'&lt;
+,'&gt;&quot; que são os marcadores especiais de início e fim, respectivamente, da área
+visual. Todos os exemplos que eu vou mostrar daqui pra frente vão usar o
+{range} de início e fim do bloco visual, porque faz mais sentido.)</p>
+<p>A forma mais simples de usar o Tabular é passar um único caractere, que indica
+qual o ponto onde os elementos serão alinhados. Por exemplo, com o seguinte
+trecho de código:</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">pos </span><span>= </span><span style="color:#d08770;">1</span><span>;
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">element </span><span>= </span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">this</span><span>);
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">i </span><span>= </span><span style="color:#d08770;">0</span><span>;
+</span></code></pre>
+<p>Se você selecionar o mesmo visualmente e fizer <code>:'&lt; ,'&gt;Tabularize /=</code>, o resultado será:</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#b48ead;">var </span><span style="color:#bf616a;">pos     </span><span>= </span><span style="color:#d08770;">1</span><span>;
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">element </span><span>= </span><span style="color:#8fa1b3;">$</span><span>(</span><span style="color:#bf616a;">this</span><span>);
+</span><span style="color:#b48ead;">var </span><span style="color:#bf616a;">i       </span><span>= </span><span style="color:#d08770;">0</span><span>;
+</span></code></pre>
+<p>Ao contrário da pesquisa (e da substituição), Tabularize aceita um segundo
+parâmetro que indica como os elementos devem ser alinhados e qual o espaçamento
+que deve existir entre os elementos. Este parâmetro pode ser até 3 pares, no
+formato {alinhamento}{espaços depois do elemento} que, apesar da minha péssima
+descrição, não é tão complicado assim.</p>
+<p>Por exemplo, imagine que eu tenho o seguinte pedaço de código em HTML:</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>&lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">class</span><span>=&#39;</span><span style="color:#a3be8c;">block-size disabled</span><span>&#39;
+</span><span>    </span><span style="color:#8fa1b3;">id</span><span>=&#39;</span><span style="color:#a3be8c;">input-box</span><span>&#39;
+</span><span>    </span><span style="color:#d08770;">name</span><span>=&#39;</span><span style="color:#a3be8c;">login</span><span>&#39;
+</span><span>    </span><span style="color:#d08770;">value</span><span>=&#39;&#39;
+</span><span>    </span><span style="color:#d08770;">placeholder</span><span>=&#39;</span><span style="color:#a3be8c;">Enter your login</span><span>&#39;&gt;
+</span></code></pre>
+<p>No caso, eu estou quebrando cada um dos elementos para diminuir o tamanho da
+linha, já que ainda não coloquei minhas opções de templating e cada uma destas
+linhas deve ficar bem maior. Mas, como exemplo, serve.</p>
+<p>O que eu quero é que os &quot;=&quot; fiquem alinhados (mais ou menos o que o Xcode faz
+com código Objective-C). Assim, eu posso fazer <code>:'&lt; ,'&gt;Tabularize /=/r0c0l0</code> para
+obter:</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>   &lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">class</span><span>=&#39;</span><span style="color:#a3be8c;">block-size disabled</span><span>&#39;
+</span><span>             </span><span style="color:#8fa1b3;">id</span><span>=&#39;</span><span style="color:#a3be8c;">input-box</span><span>&#39;
+</span><span>           </span><span style="color:#d08770;">name</span><span>=&#39;</span><span style="color:#a3be8c;">login</span><span>&#39;
+</span><span>          </span><span style="color:#d08770;">value</span><span>=&#39;&#39;
+</span><span>    </span><span style="color:#d08770;">placeholder</span><span>=&#39;</span><span style="color:#a3be8c;">Enter your login</span><span>&#39;&gt;
+</span></code></pre>
+<p>A explicação está no parámetro: o primeiro par, &quot;r0&quot; siginfica que o elemento
+antes do alinhamento deve ser alinhado à direita (&quot;r&quot;) com 0 espaços depois do
+elemento; &quot;c0&quot; significa que o elemento de alinhamento (no nosso caso, &quot;=&quot;)
+deve ser centralizado (&quot;c&quot;) também com 0 espaços depois; e finalmente &quot;l0&quot;
+significa que o elemento depois do alinhamento deve ficar à esquerda (&quot;l&quot;) e
+nenhum espaço deve ser adicionado.</p>
+<p>Se eu quisesse que o espaço não ficasse grudado tanto na esquerda quando na
+direita, eu teria que fazer <code>:'&lt; ,'&gt;Tabularize /=/r1c1l0</code> para obter:</p>
+<pre data-lang="html" style="background-color:#2b303b;color:#c0c5ce;" class="language-html "><code class="language-html" data-lang="html"><span>   &lt;</span><span style="color:#bf616a;">input </span><span style="color:#d08770;">class </span><span>= &#39;</span><span style="color:#a3be8c;">block-size disabled</span><span>&#39;
+</span><span>             </span><span style="color:#8fa1b3;">id </span><span>= &#39;</span><span style="color:#a3be8c;">input-box</span><span>&#39;
+</span><span>           </span><span style="color:#d08770;">name </span><span>= &#39;</span><span style="color:#a3be8c;">login</span><span>&#39;
+</span><span>          </span><span style="color:#d08770;">value </span><span>= &#39;&#39;
+</span><span>    </span><span style="color:#d08770;">placeholder </span><span>= &#39;</span><span style="color:#a3be8c;">Enter your login</span><span>&#39;&gt;
+</span></code></pre>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-04-commentary">Plugins - Commentary</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-06-autopairs">Plugins - Auto-pairs</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

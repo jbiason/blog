@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Mocking A Mock</h1>
+  <span class="post-date">
+	2016-07-21
+	
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/mock/">#mock</a>
+        
+            <a href="https://blog.juliobiason.me/tags/mongodb/">#mongodb</a>
+        
+            <a href="https://blog.juliobiason.me/tags/find/">#find</a>
+        
+            <a href="https://blog.juliobiason.me/tags/count/">#count</a>
+        
+  </span>
+  <p>Mocks are an important part of testing, but learn how to properly mock stuff.</p>
+<span id="continue-reading"></span>
+<p>A few weeks ago we had a test failing. Now, tests failing is not something
+worth a blog post, but the solution -- and the reason it was failing -- is.</p>
+<p>A few background information first: The test is part of our Django project;
+this project stores part of the information on MongoDB, because the data is
+schemaless -- it comes from different sources and each source has its own
+format. Because MongoDB is external to our project, it had to be mocked
+(sidenote: mocks are there exactly to do this: the avoid having to manage
+something external to your project).</p>
+<p>PyMongo, the MongoDB driver for Python, has a <code>find()</code> function, pretty much
+like the MongoDB API; this function returns a list (or iterator, I guess) with
+all the result records in the collection. Because it is a list (iterator,
+whatever), it has a <code>count()</code> function that returns the number of records. So
+you have something like this:</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#bf616a;">connector</span><span>.</span><span style="color:#bf616a;">collection</span><span>.</span><span style="color:#96b5b4;">find</span><span>({&#39;</span><span style="color:#a3be8c;">field</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">value</span><span>&#39;}).</span><span style="color:#8fa1b3;">count</span><span>()
+</span></code></pre>
+<p>(Find everything which has a field named &quot;field&quot; that has a value of &quot;value&quot;
+and count the results. Pretty simple, right?)</p>
+<p>The second hand of information you need is about the <code>mock</code> module. Python 3
+has a module for mocking external resources, which is also available to Python 2. 
+The interface is the same, so you can 
+<a href="https://docs.python.org/dev/library/unittest.mock.html">refer to the Python 3 documentation</a> 
+for both versions.</p>
+<p>An usage example would be something like this: If I had a function like:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">request</span><span>():
+</span><span>  </span><span style="color:#b48ead;">return </span><span>connector.collection.</span><span style="color:#bf616a;">find</span><span>({&#39;</span><span style="color:#a3be8c;">field</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">value</span><span>&#39;})
+</span></code></pre>
+<p>and I want to test it, I could this:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">TestRequest</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">unittest.TestCase</span><span style="color:#eff1f5;">):
+</span><span>   @</span><span style="color:#bf616a;">patch</span><span>(&quot;</span><span style="color:#a3be8c;">MyModule.connector.collection.find</span><span>&quot;)
+</span><span>   </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">test_request</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">mocked_find</span><span>):
+</span><span>      mocked_find.return_value = [{&#39;</span><span style="color:#a3be8c;">field</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">value</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">record</span><span>&#39;: </span><span style="color:#d08770;">1</span><span>},
+</span><span>                                  {&#39;</span><span style="color:#a3be8c;">field</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">value</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">record</span><span>&#39;: </span><span style="color:#d08770;">2</span><span>}]
+</span><span>      result = </span><span style="color:#bf616a;">request</span><span>()
+</span><span>      </span><span style="color:#bf616a;">self</span><span>.</span><span style="color:#bf616a;">assertDictEqual</span><span>(result, mocked_find.return_value)
+</span></code></pre>
+<p>Kinda sketchy for a test, but I just want to use to explain what is going on:
+the <code>@patch</code> decorator is creating a stub for any call for
+<code>MyModule.connector.collection.find</code>; inside the test itself, the stub is
+being converted to a mock by setting a <code>return_value</code>; when the test is run,
+the mock library will intercept a call to the <code>collection.find</code> inside
+<code>MyModule.connector</code> (because that module imported PyMongo driver to its
+namespace as <code>connector</code>) and return the <code>return_value</code> instead.</p>
+<p>Simple when someone explains like this, right? Well, at least I hope you got
+the basics of this mocked stuff.</p>
+<p>Now, what if you had to count the number of results? It's pretty damn easy to
+realize how to do so: just call <code>count()</code> on the resulting list, or make it
+return an object that has a <code>count()</code> property. </p>
+<p>The whole problem we had was that the result of <code>find()</code> was irrelevant and
+all we wanted was the count. Something like</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">has_values</span><span>():
+</span><span>   elements = connector.collection.</span><span style="color:#bf616a;">find</span><span>({&#39;</span><span style="color:#a3be8c;">field</span><span>&#39;: &#39;</span><span style="color:#a3be8c;">value</span><span>&#39;}).</span><span style="color:#bf616a;">count</span><span>()
+</span><span>   </span><span style="color:#b48ead;">return </span><span>elements &gt; </span><span style="color:#d08770;">1
+</span></code></pre>
+<p>First of all, you can't patch <code>MyModule.connector.collection.find.count</code>
+because you'll only stub the <code>count</code> call, not <code>find</code>, which will actually try
+to connect on MongoDB; so the original patch is required. And you can't patch
+both <code>find</code> and <code>count</code> because the first patch will return a new <code>MagicMock</code>
+object, which will not be patched (after all, it is <em>another</em> object). The
+original developer tried to fix it this way:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>mocked_find.count.return_value = </span><span style="color:#d08770;">0
+</span></code></pre>
+<p>... which, again, doesn't work because the call to <code>find()</code> will return a
+<code>MagicMock</code> that doesn't have its <code>count</code> patched. But the developer never
+realized that because <code>MagicMock</code> tries its best to <em>not</em> blow up your tests,
+including having return values to conversions like... int. And it will always
+return 1.</p>
+<p>Is your head spinning yet? Mine sure did when I realized the whole mess it was
+being made. And let me repeat this: The problem was <em>not</em> that MongoDB was
+being mocked, but that it was being <em>mocked in the wrong way</em>.</p>
+<p>The solution? As pointed above, make <code>find</code> return an object with a <code>count</code>
+method.</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>count_mock = </span><span style="color:#bf616a;">MagicMock</span><span>(</span><span style="color:#bf616a;">return_value</span><span>=</span><span style="color:#d08770;">0</span><span>)
+</span><span>mocked_find.return_value = </span><span style="color:#bf616a;">MagicMock</span><span>(
+</span><span>    **{&#39;</span><span style="color:#a3be8c;">count</span><span>&#39;: count_mock})
+</span></code></pre>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Thinking Data Flow Beats Patterns</h1>
+  <span class="post-date">
+	2019-06-26
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/data-flow/">#data flow</a>
+        
+            <a href="https://blog.juliobiason.me/tags/design-patterns/">#design patterns</a>
+        
+  </span>
+  <p>When you're trying to find a solution to your problem, think on the way the
+data will flow through your code.</p>
+<span id="continue-reading"></span>
+<p>Instead of focusing on design patterns, a better way is to think the way the
+data will flow -- and be transformed -- on your code.</p>
+<p>For example, the user will input a number. You'll get this number and find the
+respective record on the database. This is a transformation -- no, it's not
+&quot;I'll get the number and receive a complete different thing based upon it&quot;,
+you're actually transforming the number into a record, using the database as a
+transformation.</p>
+<p>(Yes, I know, it's not that clear at the first glance, but you have to think
+that they are the same data with different representations.)</p>
+<p>Most of the time I did that, I managed to come with more clear design for my
+applications. I didn't even think about how many functions/classes it would be
+needed to do these kind of transformations, that was something I came up
+<em>after</em> I could see the data flow.</p>
+<p>In a way, this way of thinking gets things more clear 'cause you have a list
+of steps of transformations you need to do, so you can write them one after
+another, which prevents a lot of bad code in the future.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;patterns-not-solutions">Design Patters Are Used to Name Solution, Not Find Them</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;magical-number-seven">The Magic Number Seven, Plus Or Minus Two</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

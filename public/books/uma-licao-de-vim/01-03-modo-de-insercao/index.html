@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">01.03. Mudando de Modos – Modo de Inserção</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Esta é a parte em que você vai finalmente começar a editar o texto.</p>
+<span id="continue-reading"></span>
+<p>Agora que você sabe que existe mais de um modo de edição e como o cursor
+funciona, podemos finalmente começar a ver como se passa de um modo para o
+outro -- e, no processo, entender como editar um texto no VIM.</p>
+<p>Primeiro, é preciso saber que o Modo Normal é o ponto central para todos os
+outros modos -- o jeito mais fácil de passar de um modo para o outro é através
+do Modo Normal. E, de qualquer modo<sup class="footnote-reference"><a href="#1">1</a></sup>, para ir para o modo normal basta
+pressionar <code>Esc</code>.</p>
+<p>Lembre-se: <code>Esc</code> irá sempre voltar para o modo normal para que você possa passar
+para os demais modos. <code>Esc</code> em modo normal irá continuar em modo normal<sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
+<p>Para passar do modo normal para o modo de inserção, você deve usar o seguinte:</p>
+<h2 id="i">i</h2>
+<p>Vai para o modo de inserção na posição do cursor (lembre-se do capítulo
+anterior: o cursor está no canto inferior esquerdo do cursor, logo qualquer
+coisa que você digitar vai aparecer antes da letra onde o cursor se encontrava
+antes de pressionar <code>i</code>).</p>
+<h2 id="i-1">I</h2>
+<p>Move o cursor para o primeiro caracter que não seja espaço ou tabulação na
+linha e entra em modo de inserção (semelhante à <code>_i</code>).</p>
+<h2 id="a">a</h2>
+<p>Move o cursor uma posição pra frente e entra em modo de inserção (ou o mesmo
+que <code>li</code>).</p>
+<h2 id="a-1">A</h2>
+<p>Move o cursor para o fim da linha e entra em modo de inserção (Seria quase um
+<code>$i</code>, só que <code>$</code> pára no último não branco da linha -- se considerarmos o caracter
+de quebra de linha um caracter &quot;branco&quot; -- e <code>i</code> ficará antes desse não-branco).</p>
+<h2 id="o">o</h2>
+<p>Insere uma linha em branco depois do cursor e entra em modo de inserção.</p>
+<h2 id="o-1">O</h2>
+<p>Insere uma linha em branco acima do cursor e entra em modo de inserção.</p>
+<h2 id="r">R</h2>
+<p>Entra em modo de inserção, mas substitui as letras atuais ao invés de adicionar
+mais. Sim, é um modo de substituição (&quot;replace&quot;), mas ainda é considerado um
+modo de inserção. </p>
+<p>Ok, pequena pausa para acertar os ponteiros agora: Uma coisa que eu comentei
+anteriormente foi que, no modo normal é possível definir o número de vezes que
+um comando será repetido. Por mais estranho que isso possa parecer, todos os
+comandos acima também aceitam um número de repetições. Por exemplo, <code>20A-[Esc]</code>
+irá repetir o comando <code>A-</code> 20 vezes, efetivamente colocando 20 &quot;-&quot; na linha
+atual; <code>20Oolá[Esc]</code> irá adicionar 20 linhas de <code>olá</code> no seu texto, a partir da
+posição do cursor.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/01-03-modo-de-insercao/iStock_000014784346Small.jpg" alt="Sua vida acabou de mudar." /></p>
+<p>Quem estava prestando atenção deve ter notado que eu pulei <code>r</code> como opção de
+modo de inserção e todos os demais comandos tem uma versão em minúsculas e
+maiúsculas. O motivo é que <code>r</code> tem um funcionamento, digamos, peculiar.</p>
+<p><code>r</code>, por si só, espera por uma tecla para substituir o caracter sob o cursor.
+Seria o equivalente a fazer <code>R</code>, pressionar uma tecla e, na sequência,
+pressionar <code>[Esc]</code> para sair do modo de inserção. O estranho, no entando, é
+quando é definido um número de vezes que <code>r</code> deve ser executado: Neste caso, o
+caracter sob o cursor é alterado para o caracter indicado, o cursor é movido
+para o próximo caracter e o processo se repete até o número de vezes indicado
+(ou seja alcançado o final da linha). <code>20r-[Esc]</code> irá, efetivametne, substituir
+os 20 próximos caracteres por &quot;-&quot; -- que não seria o mesmo que digitar,
+manualmente, <code>r-</code> 20 vezes.</p>
+<p>Existem ainda outros dois comandos para entrar em modo de inserção: <code>c</code> e <code>s</code>.
+Existem algumas diferenças configuráveis entre ambos, mas o funcionamento é o
+mesmo: Removem os caracteres indicados pela movimentação e passam para o modo
+de inserção.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/01-03-modo-de-insercao/enhanced-buzz-5697-1327086181-19.jpg" alt="Como assim &quot;movimentação&quot;?!?" /></p>
+<p>De novo, pausa para acertar os ponteiros: no capítulo #2.2, eu falei sobre
+comandos do modo normal que movimentam o cursor. Aqui, <code>c</code> e <code>s</code> não vão entrar em
+modo de inserção até que você adicione uma sequência de movimentação. Assim: <code>s$</code>
+irá remover tudo da posição de cursor até o final da linha e entrará em modo de
+inserção, <code>s%</code> irá remover tudo da posição do cursor até o próximo elemento que
+&quot;fecha&quot; o elemento atual (aspas, parênteses, colchetes, etc) e entrará em modo
+de inserção, <code>c2f.</code> irá remover tudo da posição do cursor até o segundo ponto na
+linha e entrará em modo de inserção e assim por diante.</p>
+<p><img src="https://blog.juliobiason.me/books/uma-licao-de-vim/01-03-modo-de-insercao/jaw-drop.jpg" alt="A ficha finalmetne caiu" /></p>
+<p>Embora <code>c</code> e <code>s</code> funcionem de forma semelhante, <code>C</code> e <code>S</code> não: <code>C</code> irá apagar
+tudo da posição do cursor até o final da linha enquanto que <code>S</code> irá remover
+todo o conteúdo da linha, não importando a posição do cursor. Logicamente,
+depois de fazerem isso, ambos entram em modo de inserção. Com um número de
+repetições, no entanto, ambos funcionam da mesma forma -- tanto <code>20S</code> quanto
+<code>20C</code> irão remover a linha atual e mais 19 e entrar em modo de edição.</p>
+<p>E, só pra lembrar: Pressionar <code>[Esc]</code> irá voltar para o modo normal.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Todas as imagens são copyright (C) seus respectivos donos.</p>
+
+</div>
+<p><sup class="footnote-reference"><a href="#1">1</a></sup> ... exceto o modo Ex, mas como eu falei antes, não é um modo muito útil
+hoje em dia e, portanto, eu estou ignorando ele daqui pra frente.</p>
+<p><sup class="footnote-reference"><a href="#2">2</a></sup> ... O que explica porque vários programadores experientes em VIM tem a
+mania de, algumas vezes, ficar pressionando <code>[Esc]</code> rapidamente quando
+algo sai errado.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;01-02-entendendo-o-cursor">Entendendo o Cursor</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;01-04-modo-visual">Modo Visual</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

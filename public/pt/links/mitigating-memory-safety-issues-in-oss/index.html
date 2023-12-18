@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Link Comentado: Mitigando Problemas de Segurança de Memória em Softwares Open Source</h1>
+  <span class="post-date">
+	2021-02-18
+	
+            <a href="https://blog.juliobiason.me/pt/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/google/">#google</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/seguranca/">#segurança</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/rust/">#rust</a>
+        
+  </span>
+  <p>Inicialmente anunciado no HackerNews como &quot;Google Vai Pagar Desenvolvedores
+Para Portarem Seu Código Para Rust&quot; <a href="https://security.googleblog.com/2021/02/mitigating-memory-safety-issues-in-open.html">nesse
+post</a>,
+mas o conteúdo não parece ser exatamente o que é dito.</p>
+<p>E parece que dessa vez os comentários do HackerNews <a href="https://news.ycombinator.com/item?id=26179032">entenderam o que o post
+realmente quer dizer</a>.</p>
+<span id="continue-reading"></span>
+<p>Mas me deixem fazer um resumo.</p>
+<p>Primeiro, o dinheiro não irá para os desenvolvedores dos projetos open source
+para que estes possam garantir a segurança dos seus projetos, ou olhar para
+alternativas que tornem os projetos mais seguros. Google irá dar o dinheiro para
+outra empresa -- ISRG -- para que eles escrevam novas versões de alguns
+códigos. Assim, embora a ideia pareça ser boa, isso não quer dizer que eles
+estarão oferecendo dinheiro para os autores trabalharem nos seus projetos; o
+dinheiro irá para outra pessoa, que irá prover os patches.</p>
+<p>Esse &quot;alguém vai prover os patches&quot; me lembra de uma talk do Brett Cannon em uma
+DjangoCon. &quot;Você vê esse cachorrinho, tão bonitinho, mas o que eu vejo são 10
+anos de caminhadas, dar comida e juntar coco.&quot;<sup class="footnote-reference"><a href="#1">1</a></sup> Assim, embora a ISRG mande
+patches para melhorar projetos open source usando linguagens com proteção de
+memória, não existe qualquer menção a &quot;e continuar a fazer funcionar&quot;. Claro que
+é legal ter um patch de segurança em outra linguagem no seu projeto, mas quem é
+que vai continuar cuidando dela pra próxima versão? E na próxima? ISRG ou o
+autor original -- que, de novo, não recebeu absolutamente nada para isso?</p>
+<p>Segundo, há essa linha<sup class="footnote-reference"><a href="#2">2</a></sup>:</p>
+<blockquote>
+<p>A forma que a ISRG trabalha diretamente com os mantenedores para suportar a
+reescrita de ferramentas e bibliotecas incrementalmente encaixa perfeitamente
+com a nossa perspectiva aqui na Google.</p>
+</blockquote>
+<p>O que parece estranho aqui é que nós sabemos, por um bom tempo, que Google não
+trabalha para o bem comum; ela trabalha pra si mesma (e é ok para uma
+empresa). Mas e se a forma segura de algum projeto não encaixar com a
+&quot;perspectiva&quot; esperada pelo Google? Eles vão fazer um fork? Aceitar que a
+perspectiva deles não é a forma correta?</p>
+<p>Por exemplo, recentemente a biblioteca Cryptography trocou um componente base
+para usar Rust -- o que faz todo o sentido num projeto de segurança. O problema
+é para algumas pessoas, usando arquiteturas não comuns, <a href="https://github.com/pyca/cryptography/issues/5771">viu seus builds
+quebrando</a>. De novo, faz
+sentido que algo que é usado para segurança use uma linguagem com proteção de
+memória, mas o que aconteceria se a solução proposta pela ISRG -- que, de novo,
+se encaixa na perspectiva do Google -- e o autor decidir que portabilidade é
+mais importante?</p>
+<p>No final, parece que o Goog está tentando mais uma vez tomar controle de
+projetos open source para seus propósitos e não realmente se preocupando para
+que usuários finais tenha uma melhor experiência na internet.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Parafraseando, eu não me lembro exatamente das palavras usadas.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Traduzido por mim, o texto original diz: &quot;The ISRG's approach of working
+directly with maintainers to support rewriting tools and libraries
+incrementally falls directly in line with our perspective here at Google.&quot;</p>
+</div>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

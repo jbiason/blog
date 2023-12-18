@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links for 2020-03-12</h1>
+  <span class="post-date">
+	2020-03-12
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+  </span>
+  <p>Netflix and the Hexagonal Architecture, logging, EOF, JS Frameworks, Emacs
+Charts, Rust init Pattern, Software Engineers vs Technicians, Cancelling
+Conferences How-To, A VIM Jump-to-Anything plugin.</p>
+<span id="continue-reading"></span><h1 id="ready-for-changes-with-hexagonal-architecture"><a href="https://netflixtechblog.com/ready-for-changes-with-hexagonal-architecture-b315ec967749">Ready for changes with Hexagonal Architecture</a></h1>
+<p>A Netflix Tech post about the hexagonal architecture for microservices.</p>
+<p>The interesting bit here is the fact that Netflix devs focused on &quot;swappable
+data sources&quot;, which is something I've been pushing where I work a lot<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>Even if I hate this posture a lot<sup class="footnote-reference"><a href="#2">2</a></sup>, now I can say &quot;Netflix does this, we
+can do it too!&quot;</p>
+<h1 id="do-not-log"><a href="https://sobolevn.me/2020/03/do-not-log">Do not log</a></h1>
+<p>I really don't agree with this. I do understand that, sometimes, logging is
+stupid and just adds noise, but we have see this problem in the same way we
+see comments: They need to explain the <em>why</em>. <em>Why</em> the request failed? </p>
+<p>Sometimes it can even be the <em>what</em>: <em>What</em> user input caused this process to
+fail?</p>
+<p>As the author argues, one could use Sentry for capturing failures, but what if
+this isn't an option (due to cost)? I once worked with the free version of
+Sentry and while it was okay, it didn't provide enough information to
+understand the <em>why</em> things failed -- you can add the message in the
+exception, but <em>only</em> if that's your code; what can you do if it is a library
+causing the exception? Cascade everything?</p>
+<p>Log. But think on <em>why</em> you're logging.</p>
+<h1 id="eof-is-not-a-character"><a href="https://ruslanspivak.com/eofnotchar/">EOF is not a character</a></h1>
+<p>My C life is build on top of lies!</p>
+<p>Honestly, I thought EOF was really the same value as <code>^D</code> (Ctrl-D, which ends
+the input) and you could put an EOF in the middle of the file and still have
+content. But it seems it was not that.</p>
+<h1 id="a-realworld-comparison-of-front-end-frameworks-2020"><a href="https://medium.com/dailyjs/a-realworld-comparison-of-front-end-frameworks-2020-4e50655fe4c1">A RealWorld Comparison of Front-End Frameworks 2020</a></h1>
+<p>Not too sure about the benchmarks used -- specially when someone says &quot;Svelte
+was skipped due to cloc not being able to process .svelte files.&quot; when you can
+surely use <code>wc</code>.</p>
+<p>But still, interesting, in some aspects.</p>
+<h1 id="actuallyusingwasm"><a href="https://wiki.alopex.li/ActuallyUsingWasm">ActuallyUsingWasm</a></h1>
+<p>Implementations, runtimes, execution times, code samples... A bit of
+everything about running Wasm.</p>
+<h1 id="exploring-emacs-chart-library"><a href="https://francismurillo.github.io/2017-04-15-Exploring-Emacs-chart-Library/">Exploring emacs chart library</a></h1>
+<p>No, I didn't drop VIM and start using Emacs, but it is really impressive that
+it has a built in charts library -- which, on the other hand, just adds to the
+&quot;Emacs is a good operating system, but lacks a good editor&quot; joke.</p>
+<h1 id="my-exploration-of-rust-and-net"><a href="https://ericsink.com/entries/dotnet_rust.html">My exploration of Rust and .NET</a></h1>
+<p>Converting LLVM bytecode from Rust to .NET assembly.</p>
+<h1 id="init-struct-pattern"><a href="https://xaeroxe.github.io/init-struct-pattern/">Init Struct Pattern</a></h1>
+<p>An initialization pattern for Rust structures. Honestly, I don't see that much
+difference than using <code>Default</code> directly, but it may be interesting if you
+should do some change in the input at construction.</p>
+<p>(Also, I have the slight impression that the pattern, in the end, forces you
+to build a complete object and then call <code>init()</code> to build a copy of said
+already complete object.)</p>
+<h1 id="the-fall-of-the-software-engineer-the-rise-of-the-programmer-technician"><a href="https://medium.com/@alexkatrompas/the-fall-of-the-software-engineer-the-rise-of-the-programmer-technician-451a572d28b0">The Fall of The Software Engineer, The Rise of The Programmer Technician</a></h1>
+<p>A discussion on the (natural) evolution of the software development market.</p>
+<h1 id="my-conference-has-a-sneeze-practical-help-in-winding-down-a-troubled-conference"><a href="https://paper.dropbox.com/doc/My-conference-has-a-sneeze-Practical-help-in-winding-down-a-troubled-conference-mZJJdhWXFjYLledMKxgyl">My conference has a sneeze - Practical help in winding down a troubled conference</a></h1>
+<p>This is mostly interesting to me 'cause I'm part of the organization of two
+conferences and we have this discussion about cancelling, postponing or going
+forward for both.</p>
+<h1 id="any-jump-vim-ide-madness-without-overhead-for-40-languages"><a href="https://github.com/pechorin/any-jump.vim">any-jump.vim — IDE madness without overhead for 40+ languages</a></h1>
+<p>A VIM plugin to jump to everywhere (except files, that is). But hell if it
+isn't cute.</p>
+<hr />
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Sadly, I'm not getting heard here.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>That's <a href="https://en.wikipedia.org/wiki/Cargo_cult_programming">cargo
+cult</a>, kids.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

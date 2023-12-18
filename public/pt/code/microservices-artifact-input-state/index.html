@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microserviços: Artefato = Entrada + Estado</h1>
+  <span class="post-date">
+	2019-12-26
+	
+            <a href="https://blog.juliobiason.me/pt/tags/microservicos/">#microserviços</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/artefatos/">#artefatos</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/estado/">#estado</a>
+        
+  </span>
+  <p>Projetar microserviços é um pouco complicado porque temos que pensar sobre
+as coisas que cada &quot;domínio&quot; vai ocupar. Uma discussão entre os
+desenvolvedores aqui sobre nossos projetos de microserviços me levou a
+repensar como pensar microserviços.</p>
+<span id="continue-reading"></span>
+<p>Isso pode soar um pouco estranho para aqueles que já estão trabalhando com
+microserviços -- ou que conseguiram ter uma boa visão da construção de
+microserviços -- mas quando foi citado &quot;artefato&quot; na discussão, &quot;caiu a ficha&quot;
+com outras coisas que eu estava pensando sobre o tópico.</p>
+<p>Um fato que continua me confundindo é que a literatura sobre microserviços
+começa a falar sobre &quot;separação de domínios&quot; e como definir cada domínio.
+Embora haja alguns truques -- como &quot;se é um substantivo, é um domínio&quot; -- nada
+é realmente tão óbvio. Alguns domínios são, na verdade, sub domínios de um
+domínio maior, e aí você fica se perguntando se deve separar esses domínios ou
+mantê-los num único microserviço, já que separá-los iria, invariavelmente,
+criar microserviços acoplados (algo que você quer evitar quando está usando
+microserviços).</p>
+<p>E é aí que &quot;artefato&quot; encaixou no resto das coisas. Por algum tempo, eu tive a
+impressão que microserviços tem que ser construídos &quot;de trás pra frente&quot;, no
+sentido de que primeiro você precisa pensar nas coisas que você <em>precisa</em> e
+depois verificar o que você <em>tem</em> -- em outras palavras, você pensa primeiro
+nas saídas do microserviço e depois olha o que tem de entrada. E um &quot;artefato&quot;
+é, no final, simplesmente a saída do microserviço.</p>
+<p>No nosso caso, nós estamos lidado com jogos. Cada jogo tem uma narração, tem
+um placar, tem estatística e tem uma escalação. Mesmo que essa explicação
+caia na regra do &quot;é um substantivo!&quot;, na verdade ela reflete a saída do nosso
+sistema: nos temos uma requisição que retorna a narração atual do jogo (que
+pode ser atualizada por polling ou -- como estamos trabalhando agora -- feito
+&quot;push&quot; diretamente para os clientes); uma requisição para retornar o placar
+(que, de novo, pode ser por &quot;polling&quot; ou &quot;push&quot;); uma requisição que retorna
+as estatísticas, que não são atualizadas ou exibidas de forma tão frequente,
+e por isso não precisam de atualizações visuais constantes; e assim por
+diante. Cada um desses é um microserviço diferente, porque cada um desses é um
+artefato diferente.</p>
+<p>Para clarificação: nossos artefatos são mantidos em um banco Firestore, que os
+clientes fazem as requisições diretamente, mas que na maior parte do tempo vão
+simplesmente receber as notificações de alteração dos dados. Mas outra forma
+de manter esses dados é ter serviços separados, que responde às requisições
+dos clientes -- que é bem próximo da forma que CQRS é descrito (bom, quer
+dizer, seria CQRS se o microserviço recebesse comandos; eu não vou dizer que
+são CQRS se o microserviço estão lidando com eventos diretamente).</p>
+<p>Bom, se esses são os artefatos, onde é que o &quot;estado&quot; entra nessa história? O
+estado é o conjunto de informações que o microserviço precisa ter para
+produzir o artefato. Por exemplo, na narração, cada vez que uma nova narração
+entra, ela precisa entrar na lista de narrações do jogo para que seja
+produzida a narração da partida inteira. O estado também pode ajudar o
+microserviço a remover narrações duplicadas.</p>
+<p>Um efeito &quot;legal&quot; do estado é que você pode, pelo menos na teoria, perceber
+que mesmo com uma nova entrada, se não houve alteração do estado, então não
+vai haver alteração do artefato e não é preciso ter nenhuma saída.</p>
+<p>Outra coisa a se ter em mente sobre o estado é que ele não precisa ser mantido
+em memória; você pode usar qualquer tipo de armazenamento: mantenha as
+narrações num banco de dados, no disco, na memória em cache ou todos os
+anteriores. Decida usar o que ficar mais <em>fácil</em> de ser manipulado para
+produzir o artefato. Uma coisa a se manter em mente sobre isso é &quot;Se esse
+microserviço morrer, ele vai conseguir voltar ao mesmo estado quando for
+reiniciado?&quot;</p>
+<p>E, finalmente, as entradas. Essas podem parecer meio óbvias a princípio (o seu
+microserviço está gerando dados do nada?), mas mantenha em mente que uma
+entrada pode ser a origem de dados de mais de um microserviço. Por exemplo,
+uma narração pode ser consumida pelo microserviço de narrações para produzir a
+narração inteira da partida, mas também ser consumida pelo microserviço de
+placar, que fica escutando narrações de gols para atualizar seu estado (se a
+narração não for de gol, não há alteração de placar, não há alteração de
+estado e não há geração do artefato).</p>
+<p>Voltando aos artefatos, não se preocupe se mais de um microserviço faz
+basicamente a mesma coisa que outra, mas gera um artefato completamente
+diferente. Como exemplo, imagine que você quer que sejam feitas notificações
+por push quando acontece um gol. Embora seja um serviço bem parecido com o
+microserviço de placar, ele produz um artefato diferente (a notificação por
+push vs a requisição de atualização de placar) e, por isso, deveria ser um
+microserviço completamente diferente. Até pode soar meio desnecessário (ter
+serviços fazendo a mesma coisa, duas vezes), mas isso desacopla as coisas se
+você precisar mais informações no placar (por exemplo, adicionando o nome de
+cada jogador que fizeram gols) ou mudar o consumidor do artefato (por exemplo,
+mudando a implementação do push para, ao invés de fazer as chamadas
+diretamente paras a APIs da Apple e Google, fazer chamadas para um serviço que
+já faça tudo isso, como o da Azure).</p>
+<p>Essa mudança na minha forma de pensar como construir microserviços me ajudou a
+pensar nos nossos microserviços no trabalho, e também está me ajudando a
+repensar algumas saídas em um projeto pessoal (que eu espero terminar e
+mostrar no ano que vêm).</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

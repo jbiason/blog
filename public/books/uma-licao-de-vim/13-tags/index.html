@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">13. Tags</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você vai entender Unix um pouco.</p>
+<span id="continue-reading"></span>
+<p>Eu expliquei antes que haviam dois comandos para utilizar tags, <code>[Ctrl]]</code> e
+<code>[Ctrl]t</code>. Existem duas coisas que eu não expliquei: O que são tags e de onde
+elas vem.</p>
+<p>Primeiro, tags são qualquer palavra que o editor encontre no arquivo de tags. E
+o arquivo de tags pode ser definido em <code>:set tags</code>. Por padrão, são verificados
+os arquivos <code>./tags</code> (&quot;tags&quot; no diretório atual do editor), <code>./TAGS</code>, <code>tags</code>
+(arquivo &quot;tags&quot; em algum diretório de pesquisa) e <code>TAGS</code>.</p>
+<p>Acontece que não é qualquer arquivo com este nome que o torna válido. Existem
+um formato específico em que as coisas devem estar declaradas para serem
+detectadas como tags. E o formato é</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>{tagname}{tagfile}{tagaddress}
+</span></code></pre>
+<p>(onde &quot;tagname&quot; é a tag em si, &quot;tagfile&quot; é o nome do arquivo onde a tag se
+encontra e &quot;tagaddress&quot; é uma expressão Ex para encontrar a tag -- por exemplo,
+&quot;89&quot; para ir para linha 89).</p>
+<p>Sim, só isso. E eu sei que manter um arquivo assim é chato horrores, e por isto
+existem ferramentas que já fazem isso. A mais completa de todas é &quot;Exuberant
+CTags&quot;&quot; e pode ser encontrada em praticamente todas as distribuições Linux
+atuais, gerenciadores de pacotes do OS X e ainda vem um pacote para Windows.</p>
+<p>A grande vantagem do Exuberant é a quantidade de linguagens suportadas. Assim,
+se você estiver num projeto em Python e depois passar para um projeto em C,
+você ainda pode usar o mesmo aplicativo.</p>
+<p>A sintaxe gerado do Exuberant é &quot;ctags {arquivos}&quot;, onde &quot;{arquivos}&quot; são os
+arquivos a serem processados (expressões como &quot;*.py&quot; são válidas) ou, da forma
+mais simples &quot;ctags -R&quot;, para que todos os arquivos do diretório atual e
+subdiretórios sejam processados.</p>
+<p>Uma vez que este arquivo tenha sido criado, dentro do editor você pode usar
+<code>[Ctrl]]</code> para tentar achar a definição da tag (que, com o uso do Exuberant
+significa definição de funções ou definições de variáveis) e <code>[Ctrl]t</code> para
+retornar para a localização anterior. Se houver mais de um arquivo com uma
+definição válida, o VIM irá mostrar uma lista das localizações e você poderá
+selecionar qual deve ser acessada.</p>
+<p>A única dica que sobra aqui é cuidar com arquivos minificados. Isso porque o
+Exuberant entende arquivos CSS. Não que arquivos CSS sejam um problema, mas o
+Exuberant coloca a expressão regular da linha onde a tag se encontra e, num
+arquivo minificado, a expressão acaba sendo uma linha gigantesca, que fica se
+repetindo em vários lugares do arquivo, deixando-o gigantesco. Se você tiver
+algo desse tipo, use a opção &quot;--exclude={expressão}&quot;, onde &quot;{expressão}&quot; é a
+expressão regular que define o nome dos arquivos que devem ser ignorados.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;12-modelines">Modelines</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;14-01-vundle">Plugins - Vundle</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

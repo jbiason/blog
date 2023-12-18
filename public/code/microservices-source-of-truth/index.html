@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microservices: Where Is the Source of Truth?</h1>
+  <span class="post-date">
+	2020-02-17
+	
+            <a href="https://blog.juliobiason.me/tags/microservices/">#microservices</a>
+        
+            <a href="https://blog.juliobiason.me/tags/state/">#state</a>
+        
+            <a href="https://blog.juliobiason.me/tags/source-of-truth/">#source of truth</a>
+        
+  </span>
+  <p>When we are talking about a system, there is one point that we need to discuss
+where the &quot;Source of Truth&quot; of it is. In Monoliths, the source of truth is the
+storage itself. But where does it sit in a system that is composed by multiple
+parts?</p>
+<span id="continue-reading"></span>
+<p>Just to be clear here: What I mean by &quot;source of truth&quot; is whatever you can
+use to check if the system is producing the correct values. For example, in a
+pipeline to count how much users transfer in a CDN, the source of truth could
+be the logs (you can read the logs and check if the service responsible for
+summing the results is correct); in an e-commerce site, we could assume the
+source of truth to be the items in every invoice for the total revenue (if you
+sum all the items quantities by their prices, you'll get the revenue back).</p>
+<p>One important factor of a source of truth is that not only you can use it to
+check if your services are correct, but you can also re-apply its content back
+to the system to rebuild artifacts.</p>
+<p>But here is a problem: If your system is distributed and <a href="https://blog.juliobiason.me/code/microservices-source-of-truth/@./microservices-artifact-input-state.md">each microservice is
+building a different artifact</a>, where
+is the source of truth?</p>
+<p>Previously, I mentioned that microservices could keep an state in order to
+produce the artifact. That could be the source of truth for that microservice,
+as long as it doesn't delete old data -- in which case, how would you rebuild
+old artifacts if you can't return the state to an old... state?</p>
+<p>Another solution is to make the insertion microservice (the one that captures
+data from an external source) to build this source of truth; in case of the
+need to rebuild the data, you can just add an API in that microservice for it
+to republish data related to a certain object, which will go down the pipeline
+and every microservice will rebuild their artifacts.</p>
+<p>And, finally, if you build an event source pipeline correctly, you can build a
+single service that will listed to <em>every</em> event and keep a global event
+source, which you can again expose an API to replay all events of an object.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>.. although I have a feeling that certain events should be changed; for example,
+if you make the event source replay everything related to an invoice -- in
+order to reproduce the complete invoice artifact -- you may have to replay a
+&quot;create user&quot; event, which won't make sense 'cause the object already exists,
+and it shouldn't create a new user with the same information.</p>
+<p>Either that, or you could make the invoice service request the costumer
+service the data if it doesn't have it already.</p>
+
+</div>
+<p>Anyway, one recommendation that I have is to always build something that can
+keep track of your data, in case you need to rebuild your artifacts and your
+state removes old data (which is perfectly normal, I must add).</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

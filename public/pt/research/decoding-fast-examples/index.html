@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Decodificando o Protocolo FAST: Exemplos</h1>
+  <span class="post-date">
+	2022-01-12
+	
+            <a href="https://blog.juliobiason.me/pt/tags/financas/">#finanças</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/binario/">#binário</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/protocolo/">#protocolo</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/fix/">#fix</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/fast/">#fast</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/exemplos/">#exemplos</a>
+        
+  </span>
+  <p>Depois de toda a explicação sobre a definição do protocolo FAST, eu notei que
+tinha uma coisa faltando: Exemplos, para que fique mais fácil de entender.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Mesmo aviso do post anterior: Como isso tudo é baseado na minha experiência
+pessoal, algumas coisas podem estar erradas. Eu tentei o meu melhor para deixar
+tudo correto, mas eu posso ter entendido alguma coisa errada, ou digitei errado
+aqui.</p>
+<p>Ainda, a medida que eu for encontrando casos que eu acredite sejam
+interessantes, novos exemplos serão adicionados.</p>
+
+</div>
+<h1 id="hello-world">Hello World</h1>
+<p>Este exemplo é basicamente o mesmo da
+<a href="https://jettekfix.com/education/fix-fast-tutorial/">JetTek</a> mas é realmente
+simples de explicar, então vamos nós:</p>
+<h2 id="template">Template</h2>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;?</span><span style="color:#bf616a;">xml </span><span style="color:#d08770;">version</span><span>=&quot;</span><span style="color:#a3be8c;">1.0</span><span>&quot; </span><span style="color:#d08770;">encoding</span><span>=&quot;</span><span style="color:#a3be8c;">UTF-8</span><span>&quot;?&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">templates </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">HelloWorld</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">String</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">templates</span><span>&gt;
+</span></code></pre>
+<h2 id="dados-de-entrada">Dados de Entrada</h2>
+<p>Bytes:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1110_0000   1000_0001   0100_1000   0110_0101
+</span><span>0110_1100   0110_1100   0100_1111   0101_0111
+</span><span>0110_1111   0111_0010   0110_1100   1110_0100
+</span></code></pre>
+<h2 id="processamento">Processamento</h2>
+<p>O primeiro byte é o Mapa de Presença. Removendo o bit de parada, temos
+<code>110_0000</code>. Esse Mapa de Presença tem um campo que não é descrito no template:
+O Template ID (ID de Template). Como o primeiro bit está ligado, nós sabemos
+que o ID está lá. Ainda, tenha em mente que o Template ID é o único campo que
+nós sabemos que existe até agora; não existe nenhuma outra informação sobre o
+que é aquele segundo bit no Mapa de Presença -- nós precisamos encontrar qual
+template vamos usar antes de mais nada.</p>
+<p>O próximo byte é lido: <code>1000_0001</code>. Como mencionado acima, isso é o Template
+ID. Sendo um inteiro sem sinal (e provavelmente mandatório, mas não me pergunte
+como isso funciona) e removendo o bit de parada, temos o inteiro &quot;1&quot;, que é
+exatamente o mesmo ID que temos no nosso template; agora nós sabemos quais
+campos devem ser processados.</p>
+<p>O primeiro campo do template é uma string com um valor default. Como o campo
+usa o operador Default, nós precisamos verificar se o valor está presente nos
+dados de entrada ou se devemos usar esse valor default. O bit no Mapa de
+Presença para este campo é <code>1</code>, o que indica que a string está presente nos
+dados de entrada e que nós devemos lê-la.</p>
+<p>O campo é uma string, então vamos ler todos os bytes até encontrarmos um com o
+bit de parada. Ainda, sendo string, nós não precisamos &quot;juntar&quot; os bits: cada
+byte é uma letra da tabela ASCIII. A sequência é <code>100_10000</code> (72), <code>110_0101</code>
+(101), <code>110_1100</code> (108), <code>110_1100</code> (108), <code>100_1111</code> (79), <code>101_0111</code> (87),
+<code>110_1111</code> (79), <code>111_0010</code> (114), <code>110_1100</code> (108) e <code>110_0100</code> (100). Observe
+que nós consumimos todos os bites e o último tinha o bit de parada, então
+terminamos o pacote com a string. Convertendo os bytes usando a tabela ASCII,
+temos &quot;HelloWorld&quot;.</p>
+<p>Assim, temos o resultado: Nós recebemos um registro do tipo &quot;HelloWorld&quot; cujo
+campo com ID &quot;1&quot; (chamado &quot;String&quot;) tem o valor &quot;HelloWorld&quot;.</p>
+<h1 id="sequencias">Sequências</h1>
+<p>Vamos expandir nosso exemplo adicionando uma sequência e alguns operadores:</p>
+<h2 id="template-1">Template</h2>
+<pre data-lang="xml" style="background-color:#2b303b;color:#c0c5ce;" class="language-xml "><code class="language-xml" data-lang="xml"><span>&lt;?</span><span style="color:#bf616a;">xml </span><span style="color:#d08770;">version</span><span>=&quot;</span><span style="color:#a3be8c;">1.0</span><span>&quot; </span><span style="color:#d08770;">encoding</span><span>=&quot;</span><span style="color:#a3be8c;">UTF-8</span><span>&quot;?&gt;
+</span><span>&lt;</span><span style="color:#bf616a;">templates </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot;&gt;
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">HelloWorld</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">String</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">1</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">default </span><span style="color:#d08770;">value</span><span>=&quot;&quot;/&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">string</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>
+</span><span>  &lt;</span><span style="color:#bf616a;">template </span><span style="color:#d08770;">xmlns</span><span>=&quot;</span><span style="color:#a3be8c;">http://www.fixprotocol.org/ns/fast/td/1.1</span><span>&quot; </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">SequenceOfSequences</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;&gt;
+</span><span>    &lt;</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">OuterSequence</span><span>&quot;&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">length </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NoOuterSequence</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">3</span><span>&quot;/&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">GroupID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">2</span><span>&quot;/&gt;
+</span><span>      &lt;</span><span style="color:#bf616a;">sequence </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">InnerSequence</span><span>&quot;&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">length </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">NoInnerSequence</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">25</span><span>&quot;/&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">string </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">Username</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">4</span><span>&quot;/&gt;
+</span><span>        &lt;</span><span style="color:#bf616a;">uInt32 </span><span style="color:#d08770;">name</span><span>=&quot;</span><span style="color:#a3be8c;">ID</span><span>&quot; </span><span style="color:#d08770;">id</span><span>=&quot;</span><span style="color:#a3be8c;">32</span><span>&quot; </span><span style="color:#d08770;">presence</span><span>=&quot;</span><span style="color:#a3be8c;">optional</span><span>&quot;&gt;
+</span><span>          &lt;</span><span style="color:#bf616a;">increment</span><span>/&gt;
+</span><span>        &lt;/</span><span style="color:#bf616a;">uInt32</span><span>&gt;
+</span><span>      &lt;/</span><span style="color:#bf616a;">sequence</span><span>&gt;
+</span><span>    &lt;/</span><span style="color:#bf616a;">sequence</span><span>&gt;
+</span><span>  &lt;/</span><span style="color:#bf616a;">template</span><span>&gt;
+</span><span>&lt;/</span><span style="color:#bf616a;">templates</span><span>&gt;
+</span></code></pre>
+<p>Apesar do FAST ser criado para trabalhar com FIX e o mercado financeiro, não
+existe nada que iniba o mesmo de ser usado para outras coisas. O novo template
+descreve um group de usuários, então nós temos uma lista de grupos e, para cada
+grupo, uma lista de usuários e seus IDs.</p>
+<h2 id="dados-de-entrada-1">Dados de Entrada</h2>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1100_0000   1000_0010   1000_0011   0000_0011
+</span><span>0010_0011   0001_1000   1110_0111   1000_0010
+</span><span>1100_0000   0101_0101   0111_0011   0110_0101
+</span><span>0111_0010   1011_0001   1000_0100   1000_0000
+</span><span>0101_0101   0111_0011   0110_0101   0111_0010   
+</span><span>1011_0010   1111_1111   1000_0001   1100_0000
+</span><span>0101_0101   1011_0001   1111_1111   0000_1000 
+</span><span>1000_0000   1000_0010   1100_0000   1100_1001
+</span><span>1011_0110   1000_0000   0100_1101   1110_0101
+</span></code></pre>
+<h2 id="processamento-1">Processamento</h2>
+<p>Como mencionado anteriormente, o primeiro byte, <code>1100_0000</code> é o Mapa de
+Presença do elemento raiz. Existe apenas um bit ligado, o que indica que o
+Template ID está presente.</p>
+<p>Como o Template ID está presente no Mapa de Presença, nós lemos o próximo byte
+<code>1000_0010</code>. Como este byte tem o bit de parada, nós paramos de ler. Removendo
+este bit, nós temos <code>000_0010</code>, que é &quot;2&quot;, e agora sabemos que estamos lidando
+com o template &quot;SequenceOfSequences&quot;.</p>
+<p>Agora que temos o template e conhecemos os campos, nós sabemos o que precisamos
+ler. O primeiro campo do nosso template é uma sequência. A primeira coisa que
+nós temos em uma sequência (e é a primeira coisa em <em>todas</em> as sequências) é o
+tamanho desta. Assim, nós lemos o próximo byte, <code>1000_0011</code>, que é o único byte
+que precisamos ler. Ele representa um inteiro sem sinal, que é 3, então esta
+sequência tem 3 registros -- e usando nossa descrição anterior, nós sabemos que
+temos 3 grupos de usuários.</p>
+<p>Um ponto ser visto aqui: Como todos os campos desta sequência não tem qualquer
+operador, o Mapa de Presença não é necessário e, assim, ele não existe (ou,
+melhor, nós não devemos tentar ler alguma coisa e assumir que é o Mapa de
+Presença). Para sequências, o começo de cada registro contém um Mapa de
+Presença apenas se pelo menos um dos campos na sequência precisa do Mapa. O que
+não é o caso aqui.</p>
+<p>Como não há Mapa de Presença para a sequência &quot;OuterSequence&quot;, os próximos
+bytes são o campo &quot;GroupID&quot;. Nós devemos ler os bytes até encontrar o bit de
+parada; assim, recebemos <code>0000_0011</code>, <code>0010_0011</code>, <code>0001_1000</code> e <code>1110_0111</code>.
+Para cada byte nós removemos o bit de mais alta ordem (o bit de parada) e
+juntamos tudo em uma única coisa, neste caso, <code>00_0011 010_0011 001_1000 110_0111</code> ou simplesmente <code>0000_0110_1000_1100_1100_0110_0110</code>. Este valor,
+sendo um inteiro sem sinal, é &quot;6868070&quot;. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Aqui é um bom ponto para lembrar que, como o campo é mandatório, isto significa
+que este é realmente o valor para &quot;GroupID&quot;; se o campo fosse opcional, o valor
+de verdade seria &quot;6868069&quot;.</p>
+
+</div>
+<p>Agora para o campo &quot;InnerSequence&quot;. O primeiro passo é recuperar o número de
+elementos (o &quot;length&quot; da sequência). Esse é o byte <code>1000_0010</code>, que é 2. Assim,
+há dois usuários neste grupo.</p>
+<p>Como o &quot;InnerSequence&quot; tem um campo que precisa do Mapa de Presença (&quot;ID&quot; usa o
+operador Increment, o que indica que ou iremos ler o o valor vindo dos dados de
+entrada ou iremos incrementar o valor anterior), o primeiro byte depois do
+tamanho é o Mapa de Presença para este registro. O byte <code>1100_0000</code> indica que
+o primeiro campo que precisa do Mapa de Presença está presente.</p>
+<p>Mas ainda não é o momento de usar o Mapa de Presença. O campo logo após o
+tamanho é &quot;Username&quot;, que é uma string mandatória. Strings mandatórias sem
+operadores estão sempre presentes e nós não precisamos olhar o Mapa de
+Presença. Assim como fizemos com &quot;String&quot; no exemplo anterior, nós lemos os
+bytes até encontrar um com o bit de parada, mas não juntamos os mesmos:
+<code>0101_0101</code> (85), <code>0111_0011</code> (115), <code>0110_0101</code> (101), <code>0111_0010</code> (114) e
+<code>1011_0001</code> (49, se removermos o bit de parada), que convertidos pela tabela
+ASCII nos dá o valor &quot;User1&quot;.</p>
+<p>Agora é o momento de usar o Mapa de Presença, já que estamos lendo o campo &quot;ID&quot;
+e ele tem um operador que usa o Mapa. O Mapa de Presença que lemos
+anteriormente foi <code>100_0000</code> (com o bit de parada removido), então sim, o &quot;ID&quot;
+está presente nos dados de entrada. Nós lemos o próximo byte, <code>1000_0100</code>, que
+é &quot;4&quot;. Mas tem uma pegadinha aqui: O campo é opcional. Então embora tenhamos
+lido &quot;4&quot;, o valor de verdade é &quot;3&quot; -- se o valor lido fosse &quot;0&quot;, significaria
+que o ID é Null.</p>
+<p>Beleza. Terminamos de ler o primeiro registro de &quot;InnerSequence&quot;: O usuário
+&quot;User1&quot; tem ID &quot;3&quot; e pertence ao grupo &quot;6868070&quot;. Agora vamos ler o segundo
+registro.</p>
+<p>Não precisamos ler o tamanho de novo, mas precisamos ler o Mapa de Presença
+deste registro. É o byte <code>1000_0000</code> um Mapa de Presença indicando que nenhum
+dos campos com operadores estão presentes. Mas, de novo, não é hora de usar o
+Mapa de Presença, porque nós temos que ler o &quot;Username&quot;. Os bytes do campo são
+<code>0101_0101</code> (85), <code>0111_0011</code> (115), <code>0110_0101</code> (101), <code>0111_0010</code> (114) e
+<code>1011_0001</code> (50), que gera o valor &quot;User2&quot;.</p>
+<p>O segundo registro tem um Mapa de Presença vazio (<code>1000_0000</code>) o que indica que
+o ID não está presente nos dados de entrada. Como o campo tem o operador
+Increment, nós precisamos pegar o valor anterior -- &quot;3&quot; -- e incrementar em 1&gt;
+Assim, &quot;User2&quot; tem o ID &quot;4&quot;.</p>
+<p>E assim termina o &quot;InnerSequence&quot; do primeiro regsitro do &quot;OuterSequence&quot;.
+Agora mais rápido:</p>
+<ul>
+<li><code>1111_1111</code>: O segundo &quot;GroupID&quot; (que usa apenas um byte por causa do bit de
+parada), que é &quot;127&quot;.</li>
+<li><code>1000_0001</code>: O tamanho do &quot;InnerSequence&quot;; apenas 1 elemento.</li>
+<li><code>1100_0000</code>: O Mapa de Presença do segundo registro de &quot;InnerSequence&quot;;
+significa que o &quot;ID&quot; está presente.</li>
+<li><code>0101_0101</code>, <code>1011_0001</code>: Username. &quot;U1&quot;.</li>
+<li><code>1111_1111</code>: O valor de &quot;ID&quot; para o usuário &quot;U1&quot; é 126 (é lido &quot;127&quot;, mas
+como o campo é opcional, o valor é decrementado em 1).</li>
+<li><code>0000_1000</code>, <code>1000_0000</code>: O terceiro &quot;GroupID&quot;. Removendo os bits de parada e
+juntando os bits restantes temos <code>0000_1000 0000_0000</code>, que é &quot;2048&quot;.</li>
+<li><code>1000_0010</code>: Tamanho da sequência &quot;InnerSequence&quot; do terceiro grupo; 2
+elementos.</li>
+<li><code>1100_0000</code>: Mapa de Presença do primeiro registro de &quot;InnerSequence&quot;; ID
+está presente.</li>
+<li><code>1100_1001</code>: Username. &quot;I&quot;.</li>
+<li><code>1011_0110</code>: &quot;ID&quot; para o usuário &quot;I&quot;. 53.</li>
+<li><code>1000_0000</code>: Mapa de presença do segundo registro de &quot;InnerSequence&quot;; ID não
+está presente.</li>
+<li><code>0100_1101</code>, <code>1110_0101</code>: Username. &quot;Me&quot;.</li>
+<li>Agora não precisamos ler nada, pois o Mapa de Presença aponta que o ID não
+está presente, mas como o valor lido anteriormente para este campo foi &quot;53&quot;,
+o ID para o usuário &quot;Me&quot; é &quot;54&quot;. E como este era o último elemento de
+&quot;InnerSequence&quot;, a sequência está completa; ainda, como este era o último
+elemento de &quot;OuterSequence&quot;, a leitura terminou.</li>
+</ul>
+<hr />
+<p>Changelog:</p>
+<ul>
+<li>2022-01-17: Versão inicial.</li>
+</ul>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

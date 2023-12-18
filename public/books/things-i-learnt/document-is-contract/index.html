@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - The Function Documentation Is Its Contract</h1>
+  <span class="post-date">
+	2019-06-21
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/documentation/">#documentation</a>
+        
+            <a href="https://blog.juliobiason.me/tags/contracts/">#contracts</a>
+        
+  </span>
+  <p>When you start the code by <a href="/books/things-i-learnt/steps-as-comments">writing the general flow as
+steps</a> and making each step a
+function, you're actually making a contract (probably with your future self):
+I'm saying this function does <em>this</em> and <em>this</em> is what it does.</p>
+<span id="continue-reading"></span>
+<p>Remember that the documentation must be a clear explanation of what your code
+<em>is</em> doing and <em>why</em> it exists; remember that good messages will make <a href="/books/things-i-learnt/document-id">reading
+the code only by the function documentation</a>
+should be clear.</p>
+<p>A function called <code>mult</code>, documented as &quot;Get the value and multiply by 2&quot; but,
+when you look at the code, it does multiply by 2, but also sends the result
+through the network or even just asks a remote service to multiply the
+incoming result by 2, is clearly breaking its contract. It's not just
+multiplying by 2, it's doing more than just that, or it's asking someone else
+to manipulate the value.</p>
+<p>Now, what happens when this kind of thing happens?</p>
+<p>The easy solution is to change the documentation. But do you know if people
+who called the function expecting it to be &quot;multiply value by 2&quot; will be happy
+for it to call an external service? There is a clear breach of &quot;contract&quot; --
+whatever you initially said your function would do -- so the correct solution
+would be to add a new function with a proper contract -- and probably a better
+name.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;document-it">Documentation Is a Love Letter To Your Future Self</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;document-and">If A Function Description Includes An And, It&#x27;s Wrong</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

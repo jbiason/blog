@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Python 2 + 3 = Six</h1>
+  <span class="post-date">
+	2016-11-21
+	
+            <a href="https://blog.juliobiason.me/pt/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/six/">#six</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/python-2/">#python 2</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/python-3/">#python 3</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/tchelinux/">#tchelinux</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/companion-post/">#companion post</a>
+        
+  </span>
+  <p>&quot;Six&quot; é uma pequena biblioteca Python que pode ajudar você a passar o seu
+código de Python 2 para Python 3.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>(Esse post é relacionado com a apresentação que eu fiz no dia 19 de novembro
+no TchêLinux. Os slides podem ser encontrados 
+<a href="http://presentations.juliobiason.net/python23six.html">na área de apresentações</a>.)</p>
+
+</div>
+<p>Antes de mais nada, uma coisa que precisamos responder é: Porque alguém usaria
+Python 3?</p>
+<ul>
+<li>Todas as strings são unicode por padrão; isso resolve a pilha de problemas
+macabros, chatos, malditos, desgraçádos do <code>UnicodeDecodeError</code>;</li>
+<li><code>Mock</code> é uma classe padrão do Python; ainda é possível instalar usando <code>pip</code> e
+a sintaxe é exatamente igual, mas é uma dependência a menos;</li>
+<li><code>Enum</code> é uma classe padrão do Python; Enum é um dos abusos mais
+interessantes de classes em Python e realmente útil;</li>
+<li>AsyncIO e toda a parte de lazy-evaluation que o Python 3 trouxe; muita coisa
+no Python 3 deixou de ser &quot;gerar uma lista&quot; para ser um retorno de um
+iterador ou um generator; com AsyncIO, tem-se um passo a frente nessa idéia
+de geração lazy das coisas e, segundo pessoas mais inteligentes que eu, com
+PyUV, o Python consegue ser tão ou mais rápido que o Node;</li>
+<li>E, principalmente, <strong>o suporte ao Python 2 termina em 2020!</strong></li>
+</ul>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Existe ainda a interpolação de strings com o novo identificador <code>f</code>; a
+funcionalidade é semelhante à chamada <code>str.format</code> usando <code>locals()</code>, por
+exemplo, <code>f'{element} {count}</code> é equivalmente à <code>'{element} {count}'.format(locals())</code> (desde que você tenha <code>element</code> e <code>count</code> como
+variáveis locais da sua função).</p>
+
+</div>
+<p>O último ponto é o mais importante. Você pode pensar &quot;mas ainda tem três anos
+até lá&quot;, mas natal está chegando, daqui a pouco é carnaval e, quando menos se
+espera, é 2020.</p>
+<h2 id="o-caminho-para-python-3">O caminho para Python 3</h2>
+<p>Quem quiser já começar a portar seus aplicativos para Python 3, existem duas
+formas:</p>
+<p>A primeira é executar seus aplicativos com <code>python -3 [script]</code>; isso irá fazer
+com que o interpretador Python avise quando qualquer instrução de código que
+ele não consiga converter corretamente seja alertado. Eu executei um script
+pessoal <a href="https://bitbucket.org/juliobiason/pyttracker">com data de 2003</a> e o 
+Python não apresentou nada. </p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Apenas para fins de melhor elucidação: o código que eu estava gerando já estava
+mais correto e seguindo os padrões mais pythônicos; em 2014 eu ainda estava
+vendo casos em que código rodando em Python 2.6 ainda usava <code>has_keys()</code>, que
+foi deprecado no Python 2.3.</p>
+
+</div>
+<p>Existem vários motivos pra isso:</p>
+<ol>
+<li>As pessoas se acostumaram a escrever código &quot;Pythonico&quot;; a linguagem em si
+não sofreu grandes alterações.</li>
+<li>Apesar da linguagem Python ter algumas coisas removidas, essas foram
+lentamente reintroduzidas na linguagem; um exemplo é o operador de
+interpolação de strings (<code>%</code>) que havia sido removido em favor do
+<code>str.format</code> mas acabou voltando.</li>
+</ol>
+<p>A segunda forma para portar seu código para Python 3 é usar a ferramenta
+<code>2to3</code>. Ela irá verificar as alterações conhecidas para Python 3 (por exemplo,
+a transformação de <code>print</code> para função, a alteração de alguns pacotes da STL)
+e ira apresentar um patch para ser aplicado depois.</p>
+<p>Entre as conversões que o <code>2to3</code> irá fazer, está a troca de chamadas de
+<code>iter</code>-alguma-coisa para a versão sem o prefixo (por exemplo,
+<code>iteritems()</code> irá se tornar simplesmente <code>items()</code>); <code>print</code> será
+convertido para função; serão feitos vários ajustes nas chamadas das
+bibliotecas <code>urllib</code> e <code>urlparse</code> (estas duas foram agrupadas no Python 3
+e a primeira teve várias reorganizações internas); <code>xrange</code> passa a ser
+<code>range</code>; <code>raw_input</code> agora se chama <code>input</code> e tem um novo tratamento de
+saída, entre outros.</p>
+<p>Existe apenas um pequeno problema nessa conversão de Python 2 para Python 3:
+Como pode ser visto na lista acima, alguns comandos existem nas duas versões,
+mas com funcionalidades diferentes; por exemplo, <code>iteritems()</code> é convertido
+para simplesmente <code>items()</code>, mas os dois métodos existem em Python 2: o
+primeiro retorna um iterador e o segundo retorna uma nova lista com as tuplas
+de todos os elementos do dicionário (no caso do Python 3, é retornado um
+iterador). Assim, apesar do código ser gramaticalmente igual tanto em Python 2
+quanto Python 3, semanticamente os dois são diferentes.</p>
+<p>Esse problema de &quot;comandos iguais com resultados diferentes&quot; pode ser um
+grande problema se o sistema está sendo executado em ambientes que não
+permitem modificação fácil -- por exemplo, o mesmo é executando num Centos 4
+ou ainda necessita compabilidade com Python 2.6, ambos &quot;problemas&quot; sendo, na
+verdade, requisitos do grupo de infraestrutura.</p>
+<h2 id="six-e-future-ao-resgate">Six (e <code>__future__</code>) ao Resgate</h2>
+<p>Para resolver o problema de termos código que precisa executar nas duas
+versões, existe a biblioteca <a href="https://pythonhosted.org/six/">Six</a>; ela faz o
+&quot;meio de campo&quot; entre Python 2 e Python 3 e fornece uma interface para que
+código Python 2 seja portado para Python 3 mantendo a compatibilidade.</p>
+<p>Num exemplo (relativamente idiota):</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>collections
+</span><span>
+</span><span style="color:#b48ead;">class </span><span style="color:#ebcb8b;">Model</span><span style="color:#eff1f5;">(</span><span style="color:#a3be8c;">object</span><span style="color:#eff1f5;">):
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__init__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">word</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>._count = </span><span style="color:#d08770;">None
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.word = word
+</span><span>        </span><span style="color:#b48ead;">return
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">property
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">word</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self</span><span>._word
+</span><span>
+</span><span>    @word.</span><span style="color:#bf616a;">setter
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">word</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">word</span><span>):
+</span><span>        </span><span style="color:#bf616a;">self</span><span>._word = word
+</span><span>        </span><span style="color:#bf616a;">self</span><span>._count = collections.</span><span style="color:#bf616a;">Counter</span><span>(word)
+</span><span>
+</span><span>    @</span><span style="color:#96b5b4;">property
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">letters</span><span>(</span><span style="color:#bf616a;">self</span><span>):
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self</span><span>._count
+</span><span>
+</span><span>    </span><span style="color:#b48ead;">def </span><span style="color:#96b5b4;">__getitem__</span><span>(</span><span style="color:#bf616a;">self</span><span>, </span><span style="color:#bf616a;">pos</span><span>):
+</span><span>        </span><span style="color:#b48ead;">return </span><span style="color:#bf616a;">self</span><span>._count[pos]
+</span><span>
+</span><span style="color:#b48ead;">if </span><span>__name__ == &quot;</span><span style="color:#a3be8c;">__main__</span><span>&quot;:
+</span><span>    word = </span><span style="color:#bf616a;">Model</span><span>(&#39;</span><span style="color:#a3be8c;">This is an ex-parrot</span><span>&#39;)
+</span><span>    </span><span style="color:#b48ead;">for </span><span>letter, count </span><span style="color:#b48ead;">in </span><span>word.letters.</span><span style="color:#bf616a;">iteritems</span><span>():
+</span><span>        </span><span style="color:#b48ead;">print </span><span>letter, count
+</span></code></pre>
+<p>Nesse exemplo, temos uma classe que guarda uma frase e a quantidade de vezes
+que cada letra aparece, utilizando <code>Counter</code> para fazer isso (já que <code>Counter</code>
+conta a quantidade de vezes que um elemento aparece em um iterável e strings
+<em>são</em> iteráveis).</p>
+<p>Nesse exemplo, temos os seguintes problemas:</p>
+<ol>
+<li>
+<p><code>class Model(object)</code>: em Python 3, todas as classes são &quot;new class&quot; e o
+uso do <code>object</code> não é mais necessário (mas não afeta o funcionamento da
+classe);</p>
+</li>
+<li>
+<p><code>for letter, count in word.letter.iteritems()</code> Conforme discutido
+anteriormente, <code>iteritems()</code> deixou de existir e passou a ser <code>items()</code>;
+<code>items()</code> existe no Python 2, mas a funcionalidade é diferente. No nosso
+caso aqui, o resultado da operação continua sendo o mesmo, mas o consumo de
+memória irá subir cada vez que a chamada for feita.</p>
+</li>
+<li>
+<p><code>print leter, count</code>: <code>print</code> agora é uma função e funciona levemente
+diferente da versão com Python 2.</p>
+</li>
+</ol>
+<p>Então, para deixar esse código compatível com Python 2 e Python 3 ao mesmo
+tempo, temos que fazer o seguinte:</p>
+<blockquote>
+<p><code>class Model(object)</code></p>
+</blockquote>
+<p>Não é preciso fazer nada.</p>
+<blockquote>
+<p><code>print letter, count</code></p>
+</blockquote>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>__future__ </span><span style="color:#b48ead;">import </span><span>print_function
+</span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#d08770;">{} {}</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(letter, count))
+</span></code></pre>
+<p><code>print</code> como função pode ser &quot;trazido do futuro&quot; usando o módulo
+<code>__future__</code> (apenas disponível para Python 2.7); como a apresentação de
+várias variáveis não é recomenando usando-se vírgulas, usar o
+<code>str.format</code> é a forma recomendada.</p>
+<p>Uma opção melhor (na minha opinião) é:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">from </span><span>__future__ </span><span style="color:#b48ead;">import </span><span>print_function
+</span><span style="color:#96b5b4;">print</span><span>(&#39;</span><span style="color:#d08770;">{letter} {count}</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(</span><span style="color:#bf616a;">letter</span><span>=letter
+</span><span>                                count=count))
+</span></code></pre>
+<p>Assim, os parâmetros usados na saída são nomeados e podem ser alterados.
+Isto gera um erro estranho quando um nome usado na string de formato não
+for passada na lista de parâmetros do format, mas em strings mais
+complexas, o resultado é mais fácil de ser entendido (por exemplo, eu acho
+mais fácil entender <code>{letters} aparece {count} vezes</code> do que <code>{} aparece {} vezes</code>; ainda, é possível mudar a ordem das variáveis na string de formato
+sem precisar alterar a ordem na lista de parâmetros).</p>
+<p>Uma opção melhor ainda é:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>six
+</span><span>six.</span><span style="color:#bf616a;">print_</span><span>(&#39;</span><span style="color:#d08770;">{letter} {count}</span><span>&#39;.</span><span style="color:#bf616a;">format</span><span>(</span><span style="color:#bf616a;">letter</span><span>=letter,
+</span><span>                                     </span><span style="color:#bf616a;">count</span><span>=count))
+</span></code></pre>
+<p>Com Six, remove-se a dependência com <code>__future__</code> e assim pode-se usar o
+mesmo código em Python 2.6.</p>
+<blockquote>
+<p><code>for letter, count in word.letters.iteritems():</code></p>
+</blockquote>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>six
+</span><span style="color:#b48ead;">for </span><span>letter, count </span><span style="color:#b48ead;">in </span><span>six.</span><span style="color:#bf616a;">iteritems</span><span>(word.letters):
+</span></code></pre>
+<p>Six provê uma interface unificada para iterador de itens tanto em Python 2
+quanto Python 3: <code>six.iteritems()</code> irá chamada <code>iteritems()</code> se estiver
+rodando em Python e <code>items()</code> se estiver rodando com Python 3.</p>
+<p>E, assim, nosso código relativamente idiota agora é compatível com Python 2 e
+Python 3 roda de forma idêntica nos dois.</p>
+<p>Mas vamos para um exemplo real:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>urllib
+</span><span style="color:#b48ead;">import </span><span>urlparse
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add_querystring</span><span>(</span><span style="color:#bf616a;">url</span><span>, </span><span style="color:#bf616a;">querystring</span><span>, </span><span style="color:#bf616a;">value</span><span>):
+</span><span>	 frags = </span><span style="color:#bf616a;">list</span><span>(urlparse.</span><span style="color:#bf616a;">urlsplit</span><span>(url))
+</span><span>	 query = frags[</span><span style="color:#d08770;">3</span><span>]
+</span><span>	 query_frags = urlparse.</span><span style="color:#bf616a;">parse_qsl</span><span>(query)
+</span><span>	 query_frags.</span><span style="color:#bf616a;">append</span><span>((querystring, value))
+</span><span>	 frags[</span><span style="color:#d08770;">3</span><span>] = urllib.</span><span style="color:#bf616a;">urlencode</span><span>(query_frags)
+</span><span>	 </span><span style="color:#b48ead;">return </span><span>urlparse.</span><span style="color:#bf616a;">urlunsplit</span><span>(frags)
+</span><span>
+</span><span style="color:#b48ead;">if </span><span>__name__ == &quot;</span><span style="color:#a3be8c;">__main__</span><span>&quot;:
+</span><span>	 </span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">add_querystring</span><span>(&#39;</span><span style="color:#a3be8c;">http://python.org</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">doc</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">urllib</span><span>&#39;)
+</span><span>	 </span><span style="color:#b48ead;">print </span><span style="color:#bf616a;">add_querystring</span><span>(&#39;</span><span style="color:#a3be8c;">http://python.org?doc=urllib</span><span>&#39;, 
+</span><span>								  &#39;</span><span style="color:#a3be8c;">page</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">2</span><span>&#39;)
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Sim, sim, o código poderia ser um simples &quot;verificar se tem uma interrogação na
+URL; se tiver, adicionar <code>&amp;</code> e a query string; se não tiver, adicionar <code>?</code> e a
+query string&quot;. A questão é: dessa forma, eu consigo fazer uma solução que vai
+aceitar qualquer URL, em qualquer formato, com qualquer coisa no meio porque as
+bibliotecas do STL do Python vão me garantir que a mesma vai ser parseada
+corretamente.</p>
+
+</div>
+<p>Esse é um código de uma função utilizada para adicionar uma query string em
+uma URL. O problema com essa função é que tanto <code>urlib</code>
+quanto <code>urlparse</code> sofreram grandes modificações, ficando, inclusive, sob o
+mesmo módulo (agora é tudo <code>urllib.parse</code>).</p>
+<p>Para fazer esse código ficar compatível com Python 2 e 3 ao mesmo tempo, é
+preciso usar o módulo <code>six.moves</code>, que contém todas essas mudanças de escopo
+das bibliotecas da STL (incluindo, nesse caso, a <code>urllib</code> e <code>urlparse</code>).</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>six
+</span><span>
+</span><span style="color:#b48ead;">def </span><span style="color:#8fa1b3;">add_querystring</span><span>(</span><span style="color:#bf616a;">url</span><span>, </span><span style="color:#bf616a;">querystring</span><span>, </span><span style="color:#bf616a;">value</span><span>):
+</span><span>	 frags = </span><span style="color:#bf616a;">list</span><span>(six.moves.urllib.parse.</span><span style="color:#bf616a;">urlsplit</span><span>(url))
+</span><span>	 query = frags[</span><span style="color:#d08770;">3</span><span>]
+</span><span>	 query_frags = six.moves.urllib.parse.</span><span style="color:#bf616a;">parse_qsl</span><span>(query)
+</span><span>	 query_frags.</span><span style="color:#bf616a;">append</span><span>((querystring, value))
+</span><span>	 frags[</span><span style="color:#d08770;">3</span><span>] = six.moves.urllib.parse.</span><span style="color:#bf616a;">urlencode</span><span>(query_frags)
+</span><span>	 </span><span style="color:#b48ead;">return </span><span>six.moves.urllib.parse.</span><span style="color:#bf616a;">urlunsplit</span><span>(frags)
+</span><span>
+</span><span style="color:#b48ead;">if </span><span>__name__ == &quot;</span><span style="color:#a3be8c;">__main__</span><span>&quot;:
+</span><span>	 six.</span><span style="color:#bf616a;">print_</span><span>(</span><span style="color:#bf616a;">add_querystring</span><span>(&#39;</span><span style="color:#a3be8c;">http://python.org</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">doc</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">urllib</span><span>&#39;))
+</span><span>	 six.</span><span style="color:#bf616a;">print_</span><span>(</span><span style="color:#bf616a;">add_querystring</span><span>(&#39;</span><span style="color:#a3be8c;">http://python.org?doc=urllib</span><span>&#39;, 
+</span><span>										 &#39;</span><span style="color:#a3be8c;">page</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">2</span><span>&#39;))
+</span></code></pre>
+<p>O que foi feito, aqui, foi usar <code>six.moves.urllib.parse</code>. Essa estrutura não
+vêm por acaso: no Python 3, as funções de <code>urlparse</code> agora se encontram em
+<code>urllib.parse</code>; Six assumiu que a localização correta para as funções dentro
+&quot;de si mesma&quot; seriam os pacotes utilizados no Python 3. </p>
+<p>E, assim, temos dois exemplos de programas que conseguem rodar de forma igual
+tanto em Python 3 quanto Python 2.</p>
+<p>Ainda, fica a dica: Se houver algum software que você utiliza que não roda
+corretamente com Python 3, utilizar o Six pode ajudar a manter o código atual
+até que uma escrita resolva o problema.</p>
+<h2 id="outras-perguntas">Outras Perguntas</h2>
+<h3 id="como-fica-a-questao-de-ficar-sempre-com-o-six">Como fica a questão de ficar sempre com o Six?</h3>
+<p>Boa parte das aplicações hoje botaram uma &quot;quebra&quot; do suporte às suas versões
+que rodam em Python 2. Por exemplo, Django anunciou que em 2020 vai sair a
+versão 2.0 do framework e essa versão vai suportar Python 3 apenas.</p>
+<h2 id="quao-dificil-e-portar-para-python-3">Quão difícil é portar para Python 3?</h2>
+<p>Não muito difícil -- agora. Muitas das coisas que foram removidas que davam dor
+de cabeça na conversão retornaram; o caso mais clássico é o que operador de
+interpolação de strings <code>%</code>, que foi removido e teria que ser substituído por
+<code>str.format</code>, mas acabou retornando. Outro motivo é que os scripts são mais
+&quot;pythônicos&quot; atualmente, muito por causa de gente como <a href="https://rhettinger.wordpress.com/">Raymond
+Hettinger</a>, que tem feito vídeos excelentes
+de como escrever código em Python com Python (ou seja, código &quot;pythônico&quot;). E,
+como anedota pessoal, eu posso comentar que meu código de 2003 rodou com
+<code>python -3</code> sem levantar nenhum warning.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

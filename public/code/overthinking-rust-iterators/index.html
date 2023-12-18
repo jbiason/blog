@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Overthinking Rust Iterators</h1>
+  <span class="post-date">
+	2023-07-06
+	
+            <a href="https://blog.juliobiason.me/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/tags/iterators/">#iterators</a>
+        
+            <a href="https://blog.juliobiason.me/tags/request/">#request</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stream/">#stream</a>
+        
+  </span>
+  <p>I had some issue recently with Rust iterators, and that led me to think <em>a lot</em>
+about iterators in Rust.</p>
+<span id="continue-reading"></span>
+<p>What I wanted to do was something not exactly direct in Rust:</p>
+<ul>
+<li>The issue was an external REST API;</li>
+<li>The API returns the data in chunks, providing a paging mechanism;</li>
+<li>The API indicates that there are more data with a <code>next</code> field, which either
+has the URL for the next page or an empty string if you're in the last page
+and there is no more data;</li>
+<li>On my side, I wanted something akin to (which is basically an iterator,
+anyway)</li>
+</ul>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> service = Service(connection_information);
+</span><span style="color:#b48ead;">let</span><span> data = service.</span><span style="color:#96b5b4;">data</span><span>();  </span><span style="color:#65737e;">// This provides the iterator
+</span><span style="color:#b48ead;">while let </span><span>Some(record) = data.</span><span style="color:#96b5b4;">next</span><span>() {
+</span><span>    </span><span style="color:#96b5b4;">do_something</span><span>(&amp;record);
+</span><span>}
+</span></code></pre>
+<ul>
+<li>The <code>.data()</code> iterator would get the first page and start iterating over
+those results;</li>
+<li>Once the results were all consumed, if the API informed that there is more
+data, the iterator (or <em>something</em>) would request more information, adjust
+itself for the new data and just keep chugging till all the data was
+produced.</li>
+</ul>
+<p>Notice that the iterator I want have two sides: One is to spew information from
+previous request from memory/cache; the second is requesting (or triggering the
+request somewhere) for more data.</p>
+<h1 id="back-to-iterators">Back to Iterators</h1>
+<p>Basic iterators work like this:</p>
+<p><img src="https://blog.juliobiason.me/code/overthinking-rust-iterators/normal-iterator.png" alt="" title="A basic view of an iterator" /></p>
+<p>... which you have a dataset, create an iterator over them and each call of
+<code>.next()</code> on it will advance the iterator over the next element of the data and
+return a reference to that data; once it reaches the end of data, it returns a
+<code>None</code>, indicating that there are no more data.</p>
+<p>The fun thing about iterators is that they need to hold their own state: Which
+is the current element that I'm pointing to? The <code>.next()</code> receives a mutable
+reference of self exactly due this: It changes its state on each call of
+<code>.next()</code>.</p>
+<p>What I need is, basically, an iterator that does that <strong>and</strong>, once it sees
+<code>None</code>, retrieves more data and starts over. This raises the question: How does
+the iterator gets more data?</p>
+<h1 id="the-fat-iterator-approach">The Fat Iterator Approach</h1>
+<p>The idea I had was to create a fat iterator that would &quot;hold&quot; its own data and
+iterate over it.</p>
+<p><img src="https://blog.juliobiason.me/code/overthinking-rust-iterators/fat-iterator.png" alt="" title="A fat iterator which has its own data" /></p>
+<p>Because the data is simply a <code>Vec&lt;&gt;</code>, I could do something like:</p>
+<ol>
+<li>Pull data from service;</li>
+<li>Update the <code>data</code> inside the iterator;</li>
+<li>Create a new iterator over said <code>data</code>;</li>
+<li>Call <code>.next()</code> on the iterator till it turns into <code>None</code>;</li>
+<li>If there is more data, do the request and jump to 2.</li>
+</ol>
+<p>If we jump back to the fact that <code>.next()</code> updates the iterator internal state,
+this means that I'd need to keep the data <strong>and</strong> its iterator in the same
+structure. And that causes issues with the borrow checker, 'cause I can't own
+part of the data when I own the whole data (yes, it feels like a problem with
+the borrow check, but still).</p>
+<p>The idea seems solid, except I'd be fighting the borrow checker to a point I'm
+not capable yet.</p>
+<h1 id="the-request-someone-else-iterator">The &quot;Request Someone Else&quot; Iterator</h1>
+<p>The other idea I had (but couldn't figure out how it would work) was to,
+instead of <code>service.data()</code> return an iterator, it would return the data holder
+and <em>that</em> could create an iterator over itself. The weird thing about this is
+that the iterator would have to have a mutable reference to the source data, so
+it could call the parent when it reached the end of the data, and the parent
+would get a new data source and the iterator would &quot;reset itself&quot; after calling
+it -- which sounds more complex than it should.</p>
+<p>(I could also make the parent holder have a <code>Cell&lt;&gt;</code> over data to have just
+internal mutability over it, but again, sounds more complex than it should).</p>
+<h1 id="the-solution">The Solution</h1>
+<p>Sorry, no solution (yet). I'm still tinkering with it and I'll update this
+once I find something that works and it doesn't require two (or more) things
+(mutably) interacting between themselves.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

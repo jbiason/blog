@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Introducing Erlang: Getting Started in Functional Programming - Simon St. Laurent</h1>
+  <span class="post-date">
+	2020-08-05
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reviews/">#reviews</a>
+        
+            <a href="https://blog.juliobiason.me/tags/simon-st-laurent/">#simon st laurent</a>
+        
+            <a href="https://blog.juliobiason.me/tags/erlang/">#erlang</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/books-2020/">#books:2020</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-2/">#stars:2</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2012/">#published:2012</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/15811999-introducing-erlang">GoodReads Summary</a>:
+If you’re new to Erlang, its functional style can seem difficult, but with
+help from this hands-on introduction, you’ll scale the learning curve and
+discover how enjoyable, powerful, and fun this language can be.</p>
+<span id="continue-reading"></span><div>
+	★★☆☆☆
+</div>
+<p>Again, an &quot;Introducing&quot; book that one shouldn't expect some deep explanations,
+but heck, this felt shallower than <a href="https://blog.juliobiason.me/reviews/books/introducing-elixir/">Introducing
+Elixir</a>.</p>
+<p>It follows the same path of the &quot;Introducing Elixir&quot; (or maybe it is the other
+way around, but hey, that's the order I read both), by creating a &quot;what speed
+will something crash if dropped in different planets&quot; library and exploring
+changes.</p>
+<p>But the biggest drawback is that the book sticks too much into the Erlang
+Shell and absolutely nothing (besides &quot;here is one thing you can search for&quot;)
+outside it. I mean, sure, the language may be nice and fun and all that, but
+what's the point if the build tool is a pain and dependency resolution is
+inexistent -- and I'm not saying Erlang suffers from that, 'cause as a
+learning path, the book says <em>nothing</em> about those things.</p>
+<p>For seeing how the language looks like, it's a good book. For something more
+<em>real</em>... far away from it.</p>
+<h2 id="highlights">Highlights</h2>
+<blockquote>
+<p>go to the command line and type erl </p>
+</blockquote>
+<p><em>Note</em>: <code>erl</code> is the Erlang Shell.</p>
+<blockquote>
+<p>3&gt; 2#1010111. </p>
+</blockquote>
+<p><em>Note</em>: Binary notation.</p>
+<blockquote>
+<p>4&gt; 16#cafe </p>
+</blockquote>
+<p><em>Note</em>: Hex notation.</p>
+<blockquote>
+<p>FallVelocity = fun(Distance) -&gt; math:sqrt(2 * 9.8 * Distance) end.</p>
+</blockquote>
+<p><em>Note</em>: <code>fun</code> creates an anonymous function; it is then associated with the
+name <code>FallVelocity</code> (all variables need to start with an upcase letter).</p>
+<blockquote>
+<p>-module(drop).<br>
+-export([fall_velocity/1, mps_to_mph/1, mps_to_kph/1]).<br><br>
+fall_velocity(Distance) -&gt; math:sqrt(2 * 9.8 * Distance). <br>
+mps_to_mph(Mps) -&gt; 2.23693629 * Mps.<br>
+mps_to_kph(Mps) -&gt; 3.6 * Mps.</p>
+</blockquote>
+<blockquote>
+<p>-module(combined).<br>
+-export([height_to_mph/1]).<br>
+-import(drop, [fall_velocity/1]).<br>
+-import(convert, [mps_to_mph/1]).<br>
+height_to_mph(Meters) -&gt; mps_to_mph(fall_velocity(Meters)). </p>
+</blockquote>
+<blockquote>
+<p>In Erlang, greater-than-or-equal-to is written as &gt;=, and
+less-than-or-equal-to as =&lt;. Don’t make them look like arrows. </p>
+</blockquote>
+<blockquote>
+<p>try <br>
+math:sqrt(2 * Gravity * Distance) <br>
+catch <br>
+error:Error -&gt; {error, Error} end.</p>
+</blockquote>
+<blockquote>
+<p>Creating a map requires a different syntax presenting keys and values:<br>
+1&gt; Planemos = #{ earth =&gt; 9.8, moon =&gt; 1.6, mars =&gt; 3.71 }.<br>
+#{earth =&gt; 9.8,mars =&gt; 3.71,moon =&gt; 1.6} </p>
+</blockquote>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

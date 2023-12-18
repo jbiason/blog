@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Functional Python Programming - Create Succinct and Expressive Implementations with Python - Steven F. Lott</h1>
+  <span class="post-date">
+	2020-08-27
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/review/">#review</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/steven-f-lott/">#steven f lott</a>
+        
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/functional/">#functional</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-1/">#stars:1</a>
+        
+            <a href="https://blog.juliobiason.me/tags/books-2020/">#books:2020</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2015/">#published:2015</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/24925633-functional-python-programming---create-succinct-and-expressive-implement">GoodReads Summary</a>:
+With Functional Python Programming by your side you’ll understand the core
+concepts of function Python, its impact on the programming workflow, and how
+to implement it in Python, giving you the ability to take your applications to
+an even higher level.</p>
+<span id="continue-reading"></span><div>
+	★☆☆☆☆
+</div>
+<p>Another book the proves my theory that the quality of a book is inversely
+proportional to the amount of &quot;as follows&quot;.</p>
+<p>But functional programming in Python is generators. </p>
+<p>That's it: Generators. Oh, generators and tuples.</p>
+<p>There is a lot in this book, but mostly seems... wrong. For example, talking
+about &quot;tail call optimization&quot;, when Python does not have them. And then
+talking how to optimize those -- which, again, it is plain &quot;replace with a
+generator&quot;.</p>
+<p>Also, the case for tuples is that namedtuples is mentioned, but rarely used.
+This makes code hard to read, except the author decided to create lambdas to
+extract them, so you end up with a bunch of <code>xy_g = lambda p: p[0][1][0]</code>.
+What the fuck is <code>0</code>, <code>1</code> and <code>0</code> again in this? Why not use name tuples and,
+instead of this atrocity, go with <code>p.position.x</code>?</p>
+<p>Other examples of wrong things:</p>
+<ul>
+<li>&quot;extract the docstring function&quot;: Doctstrings are strings, not functions.</li>
+<li>&quot;GNU Image Manipulation Program (GIMP) GNU General Public License (GPL) file
+format&quot;: Neither GIMP not GPL is a file format; one is a photo editor and
+the other is a license.</li>
+<li>&quot;This is relatively simple implementation copied from the World Wide Web&quot;:
+And we all know how things on the web are reliant.</li>
+<li>&quot;We can use <code>((line.split() for line in file)</code> to create a sequence of ten
+tuples&quot;: First of all, yes, the there is some unbalanced parenthesis
+there; second, that thing won't generate ten tuples, it will generate as
+many as the lines in the file -- which is never shown, by the way.</li>
+<li>Calling functions that return generators &quot;higher-order functions&quot;. And no,
+the function does not receive a function, it simply returns a generator.</li>
+<li>&quot;perms = permutations(range(6)))))&quot;. Yup, there are 4 extra closing
+parenthesis.</li>
+<li>Splitting a string with a path in it by <code>/</code>, then checking the first value
+instead of, say, <code>path.startswith('expected_value')</code>.</li>
+<li>&quot;We've created a Counter() function&quot;: Counter is a class, not a function.</li>
+<li>Lots of &quot;not clear if this is helpful&quot;. Ok, showing some sort of code is ok,
+but not explaining where if it is useful -- or if it is useful at all --
+is plain... lazy.</li>
+<li>&quot;We've shown the loop here to clarify that the server must, generally, be
+crashed&quot;: It's the first time that I see that we expect a server to be
+crashed.</li>
+<li>There is a convoluted aggregation grouping things in a dictionary with a key
+and a count, and then using <code>Counter()</code> to check the number of times
+something appear. Problem is, when <code>Counter()</code> process the dict, it will
+get only the keys, so the whole process of generating the dictionary is
+completely useless.</li>
+<li>By the end of the book, I'm not sure if things are being double
+double-quoted (as in &quot;&quot;this is string&quot;&quot;) or quadruple single-quote
+(''''this is string'''') -- but neither format is valid Python.</li>
+</ul>
+<p>Besides all that, there is a bunch of explanations that are very much akin to</p>
+<blockquote>
+<p><code>a = a + 1</code></p>
+<p>Adds 1 to <code>a</code></p>
+</blockquote>
+<p>Also, there are chapters for multiprocessing, which has absolutely nothing
+functional about it and WSGI, which, again, has nothing functional about it.</p>
+<p>The whole book feels rushed and badly reviewed -- if reviewed before
+publishing at all.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

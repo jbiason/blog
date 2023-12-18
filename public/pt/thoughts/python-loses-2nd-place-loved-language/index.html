@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Python Perde a Segunda Posição Nas Linguagens Mais Amadas: Uma Reflexão</h1>
+  <span class="post-date">
+	2020-06-09
+	
+            <a href="https://blog.juliobiason.me/pt/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/typescript/">#typescript</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/tipos/">#tipos</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/stackoverflow/">#stackoverflow</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/pesquisa/">#pesquisa</a>
+        
+  </span>
+  <p>Na pesquisa desse ano do StackOverflow, Python perdeu a segunda posição no
+ranking de &quot;Linguagens Mais Amadas&quot; para TypeScript. No nosso grupo de Python,
+as pessoas começaram a se perguntar o porque. E eu achei que seria
+interessante postar minhas reflexões sobre a situação.</p>
+<span id="continue-reading"></span>
+<p>Antes de mais nada, eu preciso fazer um aviso de que eu adoro Python, e eu
+acredito que é uma grande linguagem por ser concisa mais ainda assim bem
+expressiva. Eu não acredito que tenha algum outra linguagem que chegue perto
+de Python nesses quesitos.</p>
+<p>Aviso dado, me deixem explicar porque eu acho que Python perdeu o segundo
+lugar no coração dos desenvolvedores.</p>
+<h2 id="tipos">Tipos</h2>
+<p>Um dos primeiros pontos que as pessoas pensam quando falamos de &quot;perdeu uma
+posição&quot; em qualquer ranking é porque &quot;ficou pior&quot;. Mas eu não acho que seja o
+que aconteceu aqui, e o que realmente aconteceu é que TypeScript mostrou algo
+melhor para desenvolvedores.</p>
+<p>TypeScript foi projetada para desenvolvimento JavaScript, uma zona onde
+qualquer coisa vale, tipos são bem flexíveis e mágicos -- ao ponto de que a
+maior parte das coisas produz um
+<a href="https://www.destroyallsoftware.com/talks/wat">Wat</a>. Usando tipos,
+certificando que você não está adicionando uma string a um array, um monte de
+problemas desaparecem. Não que seja uma bala de prata, mas previne uma classe
+inteira de problemas que iriam aparecer em produção.</p>
+<p>Assim, em um ambiente onde coisas caóticas acontecem, de repente você tem algo
+que coloca ordem de volta e você vai adorá-lo por isso. Não que os tipos sejam
+a única coisa que faz com que TypeScript seja mais amado que JavaScript, mas
+pode explicar parcialmente o porque.</p>
+<p>(Apenas para adicionar nesse ponto: Rust ainda é a linguagem mais amada, agora
+por 5 anos consecutivos, e tem uma tipagem bem forte, semelhante a Haskell,
+com uma sintaxe mais próxima das linguagens mais usadas.)</p>
+<p>Eu ainda acredito que, a longo prazo, type hinting pode preencher essa falha
+do Python para voltar a sua posição original. Eu gostaria que se eu
+adicionasse hints em todas as funções e ter algo que permitisse definir o
+nível de validação em ambientes distintos: Fazer a aplicação gerar um erro se
+a função fosse chamada com os tipos incorretos em desenvolvimento; gerar um
+warning (no logging ou no stderr) em staging; e fazer absolutamente nada em
+produção. Isso permitiria que eu tivesse o melhor de dois mundos: Dinâmico
+quando desenvolvendo mas estático em testes.</p>
+<h2 id="python-2-morreu">Python 2 Morreu</h2>
+<p>Uma das coisas que aconteceu com o Python no começo desse ano, quando a
+pesquisa foi feita, foi que Python 2 ficou sem suporte oficial. Obviamente
+isso não significa que as instalações de Python 2 simplesmente pararam de
+funcionar, mas deu um empurrão a mais para portar código para Python 3.</p>
+<p>E, mesmo com todas as melhorias no Python 3 para ajudar a portar aplicações,
+ainda assim não foi algo completamente suave. Essa mudança, essa mudança
+forçada, pode ter deixado alguns desenvolvedores Python com um gosto ruim. E
+ninguém quer simplesmente corrigir problemas com a linguagem, deixando as
+coisas funcionarem do jeito que estavam antes, coisas estranhas e tudo mais.</p>
+<h2 id="hype">Hype</h2>
+<p>Python não é mais uma linguagem &quot;hypada&quot;.</p>
+<p>Ainda é a referência para machine learnign e campos relacionados, mas o antigo
+ambiente de desenvolvimento web foi capturado pelo hype de outras linguagens.</p>
+<p>Python não é mais a &quot;legalzisse&quot; de desenvolvimento web. E porque não é mais a
+legalzisse, pessoas não <em>querem</em> a coisa antiga; a coisa antiga não é mais
+legal, então o pessoal não gosta mais dela.</p>
+<p>Relacionado: Só porque alguma coisa tem hype, não quer dizer que seja
+<em>melhor</em>; apenas faz com que as coisas sem hype se tornem &quot;não melhores&quot;,
+mesmo que não tenha havido qualquer alteração nesses últimos.</p>
+<h2 id="relacionado">Relacionado</h2>
+<p>Um ponto que não foi levantado no grupo: Mesmo que Python tenha perdido o
+segundo lugar no ranking de &quot;Mais Amadas&quot;, Python ainda é a linguagem mais
+procurada -- o que significa que ainda é a linguagem que os desenvolvedores
+mais querem <em>aprender</em>. Se o sentimento geral fosse de &quot;Python é ruim!&quot;, eu
+duvido que a procuram ainda seria representativa -- e Python ainda tem uma
+liderança considerável com relação a JavaScript.</p>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

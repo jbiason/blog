@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Commented Links for 2020-07-06</h1>
+  <span class="post-date">
+	2020-07-06
+	
+            <a href="https://blog.juliobiason.me/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/tags/clipboard/">#clipboard</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ios/">#ios</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reddit/">#reddit</a>
+        
+            <a href="https://blog.juliobiason.me/tags/linkedin/">#linkedin</a>
+        
+            <a href="https://blog.juliobiason.me/tags/cli/">#cli</a>
+        
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/library/">#library</a>
+        
+            <a href="https://blog.juliobiason.me/tags/zola/">#zola</a>
+        
+            <a href="https://blog.juliobiason.me/tags/pascal/">#pascal</a>
+        
+            <a href="https://blog.juliobiason.me/tags/bash/">#bash</a>
+        
+            <a href="https://blog.juliobiason.me/tags/tests/">#tests</a>
+        
+            <a href="https://blog.juliobiason.me/tags/c/">#c</a>
+        
+            <a href="https://blog.juliobiason.me/tags/quirks/">#quirks</a>
+        
+  </span>
+  <p>Reddit and LinkedIn Apps Capturing iOS Clipboard, Python Library for Pretty
+Terminal Apps, Zola Workflow, Modern Pascal, Bash Test Framework, Dependency
+Manager for Python, C Quirks.</p>
+<span id="continue-reading"></span><h2 id="reddit-and-linkedin-apps-also-caught-copying-and-pasting-clipboard-contents"><a href="https://www.privateinternetaccess.com/blog/reddit-and-linkedin-apps-also-caught-copying-and-pasting-clipboard-contents/">Reddit and Linkedin apps also caught copying and pasting clipboard contents</a></h2>
+<p>Recently, there was some news about <a href="https://twitter.com/jeremyburge/status/1275896482433040386">TikTok capturing clipboard
+content</a> in a
+recent iOS update, which notifies the user on the desktop when something is
+copied on the device or vice-versa -- the gist of it is that in the next iOS
+version, when you do a copy in one device, it will notify you that something
+was added to the clipboard, so you can paste the content in any other Apple
+device.</p>
+<p>And now the Reddit and LinkedIn apps running on the new iOS also seem to push
+the notification.</p>
+<p>Since it is the first version of iOS 14, it could be that something is wrong
+with the API and it is notifying something that is actually normal, and it
+wouldn't be the first time Apple broke something like this in new OS versions.
+But, at the same time, we live in an era where every freaking app wants to
+capture as much data as it can from the user and you can't deny that it
+wouldn't be weird if Reddit (which is aggressively pushing towards using their
+app in the mobile website) and LinkedIn wouldn't do something like this.</p>
+<p>Honestly, I think the API isn't broken. Apple did that on purpose, to show bad
+actors without claiming they are bad actors.</p>
+<h2 id="rich-is-a-python-library-for-rich-text-and-beautiful-formatting-in-the-terminal"><a href="https://github.com/willmcgugan/rich">Rich is a Python library for rich text and beautiful formatting in the terminal.</a></h2>
+<p>I'm finding curious how it seems there is a &quot;renaissance&quot; of terminal apps
+these days; and, tied with that, the amount of libraries that help developers
+build pretty terminal applications.</p>
+<p>And here is another one, this time in Python.</p>
+<h2 id="my-zola-workflow"><a href="https://0xc45.com/blog/my-zola-workflow/">My Zola Workflow</a></h2>
+<p>I do use Zola on this blog too (and I'm currently abusing the tagging feature,
+but that's a discussion for another time) and here is Jason set up to generate
+the pages when pushing content to his github.</p>
+<p>There is only one issue I have is that he's using Docker to keep Zola. But
+Zola is a Rust application and will produce a single binary and I don't see
+why Docker is necessary here (not counting access to Glib, that is). One could
+just add the Zola binary to their source content and be happy with it -- I'm
+inclined to go with this route, once I stop procrastinating and make an
+automated deployment of this blog, which currently is a single shell script.</p>
+<h2 id="modern-object-pascal-introduction-for-programmers"><a href="http://newpascal.org/assets/modern_pascal_introduction.html">Modern Object Pascal Introduction for Programmers</a></h2>
+<p>Ah, Pascal. The language must of us, old farts, learnt in the UNI.</p>
+<p>I have to admit that I forgot most of the stuff I used (due the lack of use)
+and I'm always happy to find these gems talking about some of the languages I
+lost contact over the years -- not to mention that I have this idea of writing
+an application in Pascal, just for the giggles.</p>
+<h2 id="bach-testing-framework"><a href="https://bach.sh/">Bach Testing Framework</a></h2>
+<p>Bach is a testing framework for Bash scripts.</p>
+<h2 id="dephell"><a href="https://dephell.readthedocs.io/">DepHell</a></h2>
+<p>A tool for managing dependencies with Python. Converts from one format to
+another and even allow creating a dockerfile for strong isolation.</p>
+<h2 id="c-what-the-fuck"><a href="https://bowero.nl/blog/2019/12/15/c-what-the-fuck/">C, what the fuck??!</a></h2>
+<p>I like C and I won't lie. Even with its quirks, it is a fun little language.</p>
+<p>But the amount of quirks -- some quite obscure, as shown here -- is really a
+pain.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

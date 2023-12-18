@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - If Your Data Has a Schema, Use a Structure</h1>
+  <span class="post-date">
+	2019-06-25
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/data-classes/">#data classes</a>
+        
+            <a href="https://blog.juliobiason.me/tags/structs/">#structs</a>
+        
+  </span>
+  <p>You may be tempted to use a list (or tuple, if your language allows) to keep
+your data if it has, say, only 2 fields. Don't.</p>
+<span id="continue-reading"></span>
+<p>Some languages allow unstructured data to be kept in the format of tuples:
+They act like lists, but you can use to store heterogeneous data (which is a
+cute way of &quot;it stores fields of different types&quot;).</p>
+<p>This languages also allow you to &quot;destructurize&quot; them, so you can extract
+elements from them without directly accessing them by index.</p>
+<p>For example, in Python, you can have a tuple with:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_tuple = (&#39;</span><span style="color:#a3be8c;">A String</span><span>&#39;, </span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">7.5</span><span>)
+</span></code></pre>
+<p>And you can destructure it with</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>some_string, an_integer, a_float = a_tuple
+</span></code></pre>
+<p>See? It's simple! You don't need to create a whole structure if you're just
+passing a string, an integer and a float around.</p>
+<p>Except, you do need a structure 'cause your data has a <em>schema</em>.</p>
+<p>Tuples and destructuring should be used only when you need to pass data from
+one function to another -- and barely that. When you have this tuple being
+passed around, being destructured and created again -- say, you are adding one
+value of the tuple to another value and producing a new tuple in the same
+format -- then you have a structured -- and <em>schemaed</em> data.</p>
+<p>And when you have a structured data, you must use a data class or a struct (or
+even
+<a href="https://docs.python.org/3/library/collections.html?highlight=namedtuple#collections.namedtuple">NamedTuples</a>,
+if you're using Python).</p>
+<p>Although it may look way more simpler to keep destructuring and building the
+tuple over and over, in the long run you'll end up with a mess: a simple
+change -- like adding a new field -- will require checking every destructuring
+and every creation of the tuple to make sure if will stay in the same shape
+every time.</p>
+<p>So: You data has a schema? Use a Data Class or Class or Struct. Only if it is
+schemaless, then you can use a tuple.</p>
+<p>I've seen this used at least once. At the very start of the project, it
+may seem easier to just store the data as a tuple and destructure it and build
+it again when needed. There was even a whole module designed to receiving
+tuples, destructure them and rebuild new ones (for example, a function that
+would receive two tuples and compute the sum of the &quot;value&quot; field of each,
+building a new tuple as a result). But because of this design, to add just a
+new field, I had to change 14 files and do 168 changes around -- 'cause there
+was a function to add two tuples, but there were points where you need just
+one field, and there wasn't a function for it.</p>
+<p>It would be easier to use if there were functions to extract each field, and
+add two tuples, and what else was needed for managing the tuples, but then you
+have to ask yourself: Why not use a class for that?</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;data-types">Types Say What Your Data Is</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;outside-project">Don&#x27;t Mess With Things Outside Your Project</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

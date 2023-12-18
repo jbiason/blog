@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">I Redid My NeoVim Configuration</h1>
+  <span class="post-date">
+	2022-01-19
+	
+            <a href="https://blog.juliobiason.me/tags/vim/">#vim</a>
+        
+            <a href="https://blog.juliobiason.me/tags/neovim/">#neovim</a>
+        
+            <a href="https://blog.juliobiason.me/tags/nvim/">#nvim</a>
+        
+            <a href="https://blog.juliobiason.me/tags/config/">#config</a>
+        
+            <a href="https://blog.juliobiason.me/tags/lsp/">#lsp</a>
+        
+            <a href="https://blog.juliobiason.me/tags/treesitter/">#treesitter</a>
+        
+  </span>
+  <p>For some obscure reason, my NeoVim install decided it didn't want to
+display LSP warnings anymore. So I redid the whole configuration.</p>
+<span id="continue-reading"></span>
+<p>Believe me, I didn't do 'cause &quot;OMG, so broken&quot;. I guess I could have tracked
+the problem to the way
+<a href="https://github.com/autozimu/LanguageClient-neovim">LanguageClient</a> was
+installed -- it could be even out-of-date, 'cause I updated to NeoVim 0.6
+recently -- but I also wanted to install the TreeSitter support, for better
+highlight. Those two factors were enough to me to try a different
+configuration, so I decided to do the full thing and rewrite the whole
+configuration file, using the Lua format.</p>
+<p>I started with the <a href="https://blog.inkdrop.app/how-to-set-up-neovim-0-5-modern-plugins-lsp-treesitter-etc-542c3d9c9887">post of Takuya
+Matsuyama</a>,
+just as reference -- I'm not a user of a package manager (and
+there may lie the problem with some outdated plugin) and I really prefer to
+work with submodules and whatnot -- a way that is pretty close to what
+<a href="https://github.com/tpope/vim-pathogen">Pathogen</a> does.</p>
+<p>As I wanted to move some things from my old configuration to the new, I had to
+search on how to &quot;translate&quot; those. That's where I found <a href="https://vonheikemen.github.io/devlog/tools/configuring-neovim-using-lua/">a post by Heiker
+Curiel</a>,
+which lists old configuration options and how they appear in the Lua config.</p>
+<p>The result is that I have a brand sparkling NeoVim install, with all the bells
+and wristles:</p>
+<p><img src="https://blog.juliobiason.me/code/redid-my-nvim-config/vim6.png" alt="" title="Yes, I do like to write long documentation strings" /></p>
+<p>The whole configuration file is <a href="https://git.juliobiason.me/dotfiles.git/tree/nvim">in my personal Git
+repo</a>.</p>
+<h3 id="what-was-left-out">What was left out?</h3>
+<p>When migrating, I few things I did not add in this new configuration:</p>
+<ul>
+<li>Fuzzy find: Previously I was using <a href="https://github.com/lotabout/skim">Skim</a>
+for opening files with fuzzy find (e.g., type a few letters, see a list of
+the files with those letters). The Vim plugin for it was a bit flaky
+(sometimes it would completely ignore the typed input, which I think it meant
+it crashed somehow). But, 'cause I used only when bored, I decided that I
+won't use a fuzzy find; my favourite way of finding files is using the <code>-</code>
+shortcut, which I set to open <code>:Ex</code>.</li>
+<li>Snippets: <a href="https://github.com/sirver/UltiSnips">UltiSnips</a> was not working
+before, so I decided not to try it again. I'll probably look at some other
+option in the future.</li>
+<li>Per FileType configuration: Previously I had a bunch of autocommands to set
+specific configuration for each file type (e.g., Python files should always
+use spaces instead of tabs, but HTML should use tabs instead of spaces). I
+left it out mostly 'cause there is no Lua support for such commands yet, as
+far as I know (you can run VimScript commands still, but I'm being a bit
+retentive about mixing those).</li>
+<li>Auto-trim lines: My previous configuration used an autocommand for running a
+regular expression that would remove all tailing spaces in the lines. Because
+I use Rust mostly these days and the LSP configuration can run the
+autoformatter (<code>rustfmt</code>, in this case) and this already remove tailing
+spaces, I decided to leave this option out for now.</li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

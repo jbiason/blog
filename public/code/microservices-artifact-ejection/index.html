@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microservices: Artifact Ejection</h1>
+  <span class="post-date">
+	2019-12-30
+	
+            <a href="https://blog.juliobiason.me/tags/microservices/">#microservices</a>
+        
+            <a href="https://blog.juliobiason.me/tags/artifacts/">#artifacts</a>
+        
+            <a href="https://blog.juliobiason.me/tags/connection/">#connection</a>
+        
+            <a href="https://blog.juliobiason.me/tags/ejection/">#ejection</a>
+        
+  </span>
+  <p>As I was discussing about <a href="https://blog.juliobiason.me/code/microservices-artifact-input-state/">artifacts in
+microservices</a>, I guess I forgot to
+discuss some important point: How those artifacts are &quot;ejected&quot; from the
+microservice?</p>
+<span id="continue-reading"></span>
+<p>&quot;Ejected&quot;, in this case, means &quot;pass it to the next necessary stage&quot;, which
+can mean a lot of stuff (sometimes, more than one). Also, I needed some catchy
+word for it 'cause simply &quot;produces&quot; isn't that fashionable.</p>
+<p>For example, if your microservice is producing intermediate data -- say, it
+connects to an external service and retrieves information, which is then
+processed by different microservices -- then you probably want to use a
+message broker as the ejection route for the artifact. Using a message broker
+will allow another services to keep listening to the creation of those
+artifacts and do their thing -- producing new artifacts.</p>
+<p>Another possibility is that this microservice is the end of the production
+line and, thus, it just keeps the artifact in order to by consumed in a
+non-asynchronous way. For example, the microservice may produce elements that
+are later requested by a web request, so what its needs is to produce said
+artifact and keep it around, responding requests later.</p>
+<p>This, again, is akin to the way CQRS (command-query response segregation)
+works: You have one side of your microservice receiving data and processing
+its artifact, and another that allows querying the artifacts.</p>
+<p>You can even do both: When the artifact is produced, the microservice ejects
+it through a message broker to be processed by other microservices and still
+stores it internally to be queried. </p>
+<p>There is even the possibility of the query part be just another microservice:
+It gets the artifact from another microservice and stores it, with no
+processing (if you don't count as &quot;saves in a permanent storage&quot; a
+processing). This is interesting 'cause the &quot;query&quot; part of the microservice
+is just another microservice, instead of being some sort of specialized
+microservice that produces, ejects and stores artifacts.</p>
+<p>When I mentioned we saved our artifacts in Firebase, we are basically building
+this split microservice: While we have microservices that produce the
+artifacts, the &quot;storage and query&quot; part is giving to Firebase -- but you can
+consider this as any other service.</p>
+<p>(This whole post is just to give some pointers on what I want to discuss next,
+which are some thoughts about self-healing microservices -- and what I meant
+by that.)</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

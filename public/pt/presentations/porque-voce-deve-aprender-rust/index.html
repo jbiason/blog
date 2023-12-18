@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Porque Você Deve Aprender Rust</h1>
+  <span class="post-date">
+	2019-09-25
+	
+            <a href="https://blog.juliobiason.me/pt/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/companion-post/">#companion post</a>
+        
+  </span>
+  <p>Rust é uma nova linguagem de programação que eu acredito que deveria ser vista
+por desenvolvedores, mesmo que eles não venham programar em Rust.</p>
+<span id="continue-reading"></span><div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Esse post acompanha a minha apresentação <a href="https://presentations.juliobiason.net/porque-rust.html#/">Porque Você Deve Aprender
+Rust</a>.</p>
+
+</div>
+<p>Quando eu comecei a apresentação, eu pensei em chamar a mesma de &quot;Porque Você
+Deveria Aprender Rust&quot;; mas eu pensei bem sobre isso e como a linguagem tem
+vários conceitos interessantes, eu acho que o título correto deve ser &quot;Porque
+Você DEVE Aprender Rust&quot;.</p>
+<p>Mas antes de começar a falar sobre Rust, é interessante que vocês conheçam
+quem está dizendo que vocês &quot;devem aprender Rust&quot;:</p>
+<p>Eu comecei a programar a mais de 30 anos. Em todos esses anos, eu já programei
+em Basic (usando número de linhas e Basic estruturado, também conhecido como
+QBasic), dBase III Plus, Clipper (que foi a primeira linguagem que eu usei
+profissionalmente), Pascal, Cobol (sim, Cobol, façam suas brincadeiras agora),
+Delphi (cujo nome científico é &quot;ObjectPascal&quot; e possui algumas diferenças para
+o Pascal original), C, C++, ActionScript (que é a linguagem para geração de
+applets Flash sem usar o editor da Adobe), PHP (quem nunca?), JavaScript (quem
+nunca?), Python, Objective-C, Clojure, Java, Scala (que eu não desejo que nem
+meu pior inimigo tenha que programar nela) e Rust. E essas são as linguagens
+que eu já escrevi código e que rodou. Fora essas, eu ainda conheço Haskell,
+Perl, um pouco de Ruby e Swift, mas nessas eu não programei nada ainda.</p>
+<p>Mas por que eu comentei sobre isso? Porque o que eu vou comentar aqui é,
+basicamente, <em>minha opinião</em>, depois de conhecer essas linguagens todas.
+Então, obviamente, existe um <em>viés</em> para os motivos que eu vou citar daqui pra
+frente.</p>
+<p>Mas existe uma frase do Alan Perlis, criador do ALGOL, que diz &quot;A language
+that doesn't affect the way you think about programming, is not worth knowing&quot;
+(uma linguagem que não afeta o modo que você pensa sobre programação, não vale
+a pena ser aprendida). E mesmo depois de todas essas linguagens citadas acima,
+Rust ainda me fez repensar coisas que eu sempre pensei quando estava
+programando.</p>
+<h2 id="a-parte-burocratica">A Parte Burocrática</h2>
+<p>Antes de sair falando da linguagem, eu tenho que falar sobre a parte
+burocrática da linguagem. Coisas como, por exemplo:</p>
+<ul>
+<li>Rust foi criada em 2006 por Graydon Hoare.</li>
+<li>Rust começou a ser patrocinada em 2009 pela Mozilla Foundation.</li>
+<li>A versão 1.0 saiu em 2015.</li>
+<li>A versão atual é a 1.37.</li>
+</ul>
+<p>Rust tem uma história engraçada: Hoare começou a desenvolver a linguagem de
+forma independente, em seu tempo livre. Quando ele começou a pegar gosto pela
+coisa, ele veio falar com seu gerente dizendo que iria deixar a Mozilla
+Foundation para poder trabalhar na sua linguagem de programação. &quot;Que
+linguagem é essa?&quot;, perguntou o gerente; Hoare afirmou que era uma linguagem
+com foco em proteção de memória mas que ainda fosse uma linguagem rápida. Ao
+ouvir isso, o gerente pediu para Hoare segurar o pedido de demissão e
+conversou com seus superiores. E, por ter vários problemas com a estrutura em
+C++ do Firefox, a Mozilla resolveu patrocinar Hoare para que ele pudesse
+trabalhar na linguagem.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Eu gosto de brincar, dizendo que o Hoare chegou pro gerente dele dizendo que
+iria deixar a Mozilla pra trabalhar na sua linguagem e o gerente, depois de
+pedir pra ele esperar um pouco, chegou dizendo que só conseguiu 2 estagiários.</p>
+<p>A verdade é que Hoare realmente quis deixar a Mozilla Foundation, mas ao
+explicar os motivos -- trabalhar na sua própria linguagem, cuja principal
+diferença seria a proteção de memória e velocidade -- a Mozilla se interessou
+pela mesma, por causa dos problemas que eles estavam encontrando ao trabalhar
+com C++. Por isso a Mozilla continuou pagando Hoare para que ele trabalhasse
+na sua linguagem.</p>
+
+</div>
+<p>Uma coisa a cuidar: Aqui eu comento que a versão atual é a 1.37. Isso pode não
+ser verdade no momento que você lê esse post (ou viu a apresentação) porque a
+cada 6 semanas uma nova versão do Rust é liberada. Essas versões trazem
+correções de bugs e novas features.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Uma outra anedota é que o primeiro projeto em Rust foi um browser --
+normalmente a gente pensa que para primeiro projeto, as linguagens querem algo
+mais simples, como um microserviço ou algo parecido, mas a equipe do Rust
+partiu direto para um browser.</p>
+<p>O resultado, chamado <a href="https://servo.org/">Servo</a>, hoje faz parte do <a href="https://www.mozilla.org/en-US/firefox/?gclsrc=aw.ds">Firefox
+Quantum</a>, o que diminui o
+uso de memória e diminuiu o número de &quot;crashes&quot; da aplicação.</p>
+<p>Ainda, num certo ponto, um desenvolvedor do Chrome resolveu fazer alguns
+testes, utilizando SVG animados, colocando 1 elemento animado 300 vezes numa
+página. Para animar todos os elementos, o Chrome conseguia manter 30 FPS;
+Firefox, 20; Servo, 300 (sim, 10 vezes mais que o Chrome!).</p>
+<p>Outro exemplo de Rust no Firefox é um bug que estava em aberto por 8 anos. O
+bug em questão, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=631527">631527</a>
+-- que, na verdade, é uma feature -- seria permitir que dois elementos possam
+ter os estilos definidos no CSS aplicados em mais de um elemento ao mesmo
+tempo; o browser lê primeiro o HTML, constrói o DOM e depois sai aplicando o
+estilo em cada um dos elementos; com dois elementos um depois do outro, seria,
+teoricamente, possível aplicar o estilo no primeiro ao mesmo tempo em que
+aplica no segundo. O bug ficou aberto por 8 anos e duas re-escritas foram
+feitas pra tentar resolver o problema. Nenhuma conseguiu prover um resultado
+funcional, por vários motivos, mas principalmente por causa da forma com a
+memória era compartilhada nas threads em C++. Quando o Firefox mudou para o
+Quantum (de novo, em Rust, usando a base do Servo), a correção foi (conforme
+descrito por Niko Matsakis na abertura do Rust Latam 2019) &quot;trivial&quot;.</p>
+
+</div>
+<h2 id="motivo-1-quem-usa-gosta">Motivo 1: Quem Usa, Gosta</h2>
+<p>Em 2019, O <a href="https://stackoverflow.com/">StackOverflow</a> fez uma enquete com os
+visitantes, perguntando, entre várias outras perguntas, qual linguagem eles
+usavam e se eles gostavam de programar nessa linguagem. No resultado dessa
+enquente, <a href="https://insights.stackoverflow.com/survey/2019#technology-_-most-loved-dreaded-and-wanted-languages">Rust aparece como a linguagem mais
+amada</a>...
+pelo 4o ano seguido.</p>
+<p>&quot;Ah, mais isso é fácil! Os quatro caras que programam em Rust dizem que gostam
+dela todo ano!&quot;, você deve estar dizendo. Na verdade, o percentual tem subido
+desde a primeira vez, saindo de 76% em 2016 e indo a 83% em 2019.</p>
+<h2 id="motivo-2-uma-linguagem-de-baixo-nivel-com-abstracoes-de-alto-nivel">Motivo 2: &quot;Uma Linguagem de Baixo Nível Com Abstrações de Alto Nível&quot;</h2>
+<p>Quando comparado com C, Rust tem uma performance bem semelhante:</p>
+<p><img src="https://blog.juliobiason.me/pt/presentations/porque-voce-deve-aprender-rust/rust-energy.png" alt="Comparativo de algumas linguagens com relação à utilização de CPU, Energia e Memória" /></p>
+<p>O gráfico acima foi tirado de uma pesquisa que foi feita para verificar <a href="https://jaxenter.com/energy-efficient-programming-languages-137264.html">qual
+linguagem gasta mais
+energia</a>. </p>
+<p>Na implementação utilizada, C foi a linguagem cujo código gerado usou menos
+energia; em segundo, com uma utilização apenas 3% maior, Rust.</p>
+<p>Ainda, em tempo de execução, a aplicação gerada em C também é a mais rápida e
+Rust fica em segundo com um tempo de execução apenas 4% maior.</p>
+<p>No quesito utilização de memória é que vemos algo engraçado: A linguagem que
+melhor utiliza memória é Pascal, C utiliza 17% mais memória e Rust 54% a mais.
+A explicação para isso pode ser pela forma como Rust trata memória,
+principalmente de código, mas eu vou explicar isso melhor mais pra frente.</p>
+<p>E, apesar disso tudo, Rust tem implementações de:</p>
+<ul>
+<li>Strings com tamanho crescente;</li>
+<li>Listas dinâmicas;</li>
+<li>Mapas.</li>
+</ul>
+<p>E considerando todo o tempo que eu passei programando em várias linguagens, se
+amanhã surgisse uma linguagem que conseguisse ter uma performance melhor que
+C, mas que eu tivesse que implementar minha própria lista encadeada, eu
+acredito que botaria fogo em tudo e iria plantar batatas, porque,
+honestamente, significa que nós não aprendemos nada sobre linguagens de
+programação.</p>
+<h2 id="motivo-3-compilador-e-chato-mas-amigavel">Motivo 3: Compilador É Chato, Mas Amigável</h2>
+<p>Deixem-me mostrar um código Rust:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> a = </span><span style="color:#d08770;">2</span><span>;
+</span><span>    a = </span><span style="color:#d08770;">3</span><span>;
+</span><span>    println!(&quot;</span><span style="color:#d08770;">{}</span><span>&quot;, a);
+</span><span>}
+</span></code></pre>
+<p>Aqui temos nosso primeiro contato com a sintaxe de Rust: <code>fn</code> define funções;
+assim como C, <code>main</code> é a função que indica onde a execução começa; <code>let</code> deixa
+definir variáveis e, apesar de não mostrar nesse trecho, as variáveis são
+fortemente tipadas, mas eu não precisei colocar o tipo porque o compilador
+consegue inferir o tipo sozinho (com algumas raras exceções); linhas terminam
+com <code>;</code>; <code>println!</code> tem uma exclamação porque essa função é uma macro e a
+exclamação é colocada para diferenciar de funções normais (no caso, o
+<code>println!</code> vai ser expandido pelo compilador por um conjunto maior de
+comandos).</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Quem já brincou com <code>#define</code>s em C deve saber que não existe nada que indique
+o que foi digitado é uma função mesmo ou um <code>#define</code> que vai ser expandido em
+várias outras funções; Rust não deixa isso acontecer.</p>
+
+</div>
+<p>Outra coisa a notar é que não estamos definindo o tipo de variável que <code>a</code> é.
+Rust é uma linguagem fortemente e estaticamente tipada. O que está acontecendo
+é que estamos deixando o compilador inferir qual o tipo que <code>a</code> deve ter -- e
+por ser um inteiro, provavelmente vai ser um u32 ou u64, dependendo da
+arquitetura, pois para desambiguação, Rust usa o tipo que gere um código mais
+rápido, mesmo que ocupe mais memória.</p>
+<p>E esse código Rust não compila.</p>
+<p>Se vocês tentarem compilar esse código, vocês verão a seguinte mensagem de
+erro:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>3 |     let a = 2;
+</span><span>  |         -
+</span><span>  |         |
+</span><span>  |         first assignment to `a`
+</span><span>  |         help: make this binding mutable: `mut a`
+</span><span>4 |     a = 3;
+</span><span>  |     ^^^^^ cannot assign twice to immutable variable
+</span></code></pre>
+<p>O que acontece é que, em Rust, alem das variáveis serem fortemente tipadas,
+elas também são, por padrão, imutáveis. Ou seja, não é possível, por padrão,
+alterar o valor de uma variável.</p>
+<p>Mas prestem atenção na mensagem de erro:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>4 |     a = 3;
+</span><span>  |     ^^^^^ cannot assign twice to immutable variable
+</span></code></pre>
+<p>O compilador não apenas disse qual era o erro -- &quot;não é possível atribuir um
+valor duas vezes para uma variável imutável&quot; (indicando, ainda qual a linha)
+como também passou uma dica de como corrigir esse problema:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>  |         help: make this binding mutable: `mut a`
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Essa parte da mensagem de erro é importante para o time de desenvolvimento do
+Rust.</p>
+<p>Na Rust Latam, Esteban Kuber fez uma apresentação chamada &quot;Friendly Ferris:
+Developing Kind Compiler Errors&quot; (&quot;Ferris Amigável: Desenvolvendo Erros
+Amigáveis do Compilador&quot;, onde &quot;Ferris&quot; é o nome do mascote da linguagem),
+onde ele conta que foi brincar com Rust pela primeira vez e recebeu um erro do
+compilador sobre o código que ele tinha escrito, mas não conseguiu entender
+exatamente qual era o problema.</p>
+<p>Aqui fica a pergunta pra vocês: Se vocês encontrassem um erro que não
+entendessem o que vocês fariam? Boa parte provavelmente diria que iria
+perguntar ao Google.</p>
+<p>Esteban, no entanto, resolveu abrir um issue no Github da linguagem, para ver
+o que iria acontecer. A resposta? &quot;Você tem razão, a mensagem do erro é
+difícil de entender, e isso é um bug do compilador. Nós vamos arrumar.&quot;
+Esteban se ofereceu pra tentar encontrar o problema, recebeu uma tutoria de
+como compiladores funcionam e hoje é um dos expoentes nas questões de
+mensagens de erro do compilador.</p>
+
+</div>
+<h2 id="motivo-4-o-borrow-checker">Motivo 4: O Borrow Checker</h2>
+<p>O Borrow Checker é a funcionalidade que faz o Rust ser diferente de outras
+linguagens. E que também mudou como eu pensava sobre programação, apesar de
+todas as linguagens listadas no começo desse post.</p>
+<p>Por exemplo, no seguinte código:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> a = String::from(&quot;</span><span style="color:#a3be8c;">hello</span><span>&quot;);
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>O que está sendo feito aqui é que está sendo criada uma string -- uma lista de
+caracteres que pode ser expandida, se necessário -- utilizando uma constante
+que é fixa (por ficar em uma página de código em memória) como valor inicial.</p>
+<p>Quem já mexeu com C: Isso é o mesmo que alocar uma região de memória e copiar
+o conteúdo de uma variável estática para a nova região alocada.</p>
+
+</div>
+<p>Quando vocês olham esse código, o que vocês pensam?</p>
+<p>Eu sempre li como &quot;A variável <code>a</code> recebe o valor <code>hello</code>&quot;.</p>
+<p>Eu nunca pensei nisso como &quot;A posição de memória apontada por <code>a</code> tem o valor
+<code>hello</code>&quot;; ou algo como <code>let 0x3f5cbf89 = &quot;hello&quot;</code>.</p>
+<p>Entretanto, é isso que o compilador do Rust faz: cada atribuição de variável é
+considerada como um indicador de uma posição de memória, algo do tipo</p>
+<p><img src="https://blog.juliobiason.me/pt/presentations/porque-voce-deve-aprender-rust/rust-memory.png" alt="Visão de memória pelo compilador do Rust" /></p>
+<p>No caso, <code>a</code> (a nossa variável) é &quot;dona&quot; de uma região de memória, a
+0x3f5cbf89, que tem o tamanho de 5 bytes, do tipo String.</p>
+<p>E aí você faz uma atribuição de variáveis como, por exemplo:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> a = String::from(&quot;</span><span style="color:#a3be8c;">hello</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> _b = a;
+</span><span>    println!(&quot;</span><span style="color:#d08770;">{}</span><span>&quot;, a)
+</span><span>}
+</span></code></pre>
+<p>... tudo parece normal.</p>
+<p>Exceto que esse código não compila.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>error[E0382]: borrow of moved value: `a`
+</span><span> --&gt; src/main.rs:5:20
+</span><span>  |
+</span><span>4 |     let _b = a;
+</span><span>  |              - value moved here
+</span><span>5 |     println!(&quot;{}&quot;, a)
+</span><span>  |                    ^ value borrowed here after move
+</span><span>  |
+</span><span>  = note: move occurs because `a` has type
+</span><span>    `std::string::String`, which does not
+</span><span>    implement the `Copy` trait
+</span></code></pre>
+<p>Por que? Porque a região de memória que <code>a</code> apontava (aquela que fica em
+0x3f5cbf89, que tem 5 bytes e é do tipo String) agora pertence a <code>b</code>; <code>a</code> fica
+apontando para... nada. E &quot;nada&quot;, não é <code>null</code>: como todas as variáveis tem
+que apontar para uma posição de memória, <code>a</code> se torna inválido e não pode mais
+ser utilizado.</p>
+<p>&quot;Mas e se eu precisar acessar uma posição de memória/valor em mais de um
+lugar?&quot; Bom, aí você pode usar referências, usando <code>&amp;</code>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">main</span><span>() {
+</span><span>    </span><span style="color:#b48ead;">let</span><span> a = String::from(&quot;</span><span style="color:#a3be8c;">hello</span><span>&quot;);
+</span><span>    </span><span style="color:#b48ead;">let</span><span> _b = &amp;a;
+</span><span>    println!(&quot;</span><span style="color:#d08770;">{}</span><span>&quot;, a)
+</span><span>}
+</span></code></pre>
+<p>Utilizar referências faz, basicamente, isso:</p>
+<p><img src="https://blog.juliobiason.me/pt/presentations/porque-voce-deve-aprender-rust/rust-reference.png" alt="Visão de memória pelo compilador do Rust quando você usa referências" /></p>
+<p>Existem várias regras que o Borrow Checker executa:</p>
+<ul>
+<li>Uma região de memória tem apenas um dono;</li>
+<li>Passar um valor (região de memoria) de uma variável para outra troca o dono;</li>
+<li>A região é desalocada quando o dono sair de escopo;</li>
+</ul>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Estas três regras estão interligadas: com a memória sendo desalocada quando a
+variável sai de escopo, não precisamos mais nos preocupar em fazer <code>free()</code>
+(apesar de que, agora, precisamos nos preocupar quanto tempo queremos que a
+variável/região de memória permaneça alocada através dos nossos blocos de
+código); tendo apenas um dono (e esse dono muda em caso de atribuição),
+evita-se o problema de um &quot;double <code>free()</code>&quot;.</p>
+
+</div>
+<ul>
+<li>Uma região de memória pode ter infinitas referências;</li>
+<li>... desde que elas não durem mais que o dono da região original;</li>
+</ul>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>As referências não devem durar mais que a variável original para evitar que
+elas continuem sendo utilizadas depois que o valor original foi feito
+<code>free()</code>.</p>
+
+</div>
+<ul>
+<li>Assim como temos variáveis definidas como mutáveis, referências também podem
+ser criadas como mutáveis;</li>
+<li>Não é possível criar referências mutáveis de variáveis imutáveis;</li>
+<li>Para haver uma referência mutável, é preciso que ela seja a <em>única</em>
+referência (mutável ou não).</li>
+</ul>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Isso garante que não existam duas threads tentando escrever na mesma posição
+de memória ao mesmo tempo.</p>
+
+</div>
+<p>Ok, com todas essas regras, você deve estar se perguntando: E pra que serve
+tudo isso?</p>
+<p>Duas respostas para essa pergunta:</p>
+<p>A primeira é o seguinte código (em Go, porque é mais fácil de explicar):</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#bf616a;">presente </span><span>:= </span><span style="color:#bf616a;">Presente </span><span>{ ... }
+</span><span style="color:#bf616a;">canal </span><span>&lt;- </span><span style="color:#bf616a;">presente
+</span></code></pre>
+<p><code>presente</code> é uma estrutura qualquer que eu criei; <code>canal</code> é o canal de
+comunicação entre duas threads; o que está sendo feito aqui é que uma thread
+está criando uma estrutura e enviado para o outra thread.</p>
+<p>Nada demais; o problema está em fazer algo do tipo:</p>
+<pre data-lang="go" style="background-color:#2b303b;color:#c0c5ce;" class="language-go "><code class="language-go" data-lang="go"><span style="color:#bf616a;">presente </span><span>:= </span><span style="color:#bf616a;">Presente </span><span>{ ... }
+</span><span style="color:#bf616a;">canal </span><span>&lt;- </span><span style="color:#bf616a;">presente
+</span><span style="color:#bf616a;">presente</span><span>.</span><span style="color:#bf616a;">abrir</span><span>()
+</span></code></pre>
+<p>Se eu enviei o presente para outra pessoa, como foi que eu abri? Se eu mandei
+uma estrutura para outra thread, como foi que o compilador deixou eu fazer uma
+alteração nessa estrutura, se agora ela é da outra thread?</p>
+<p>A outra resposta é que chegamos ao limite do silício. Alguns podem não saber
+disso, mas a pouco tempo havia uma ser &quot;briga&quot; entre donos de computadores pra
+ver qual tinha o mais potente, e nós fazíamos isso contando vantagem com o
+clock do processador: &quot;O meu tem 3Ghz&quot;, &quot;Ah, mas o meu tem 3Ghz <em>e meio</em>!&quot;
+Esse tipo de discussão sumiu, por um único motivo: não temos mais como fazer o
+silício vibrar mais. A coisa ficou tão complexa que o que é feito agora é
+colocar mais CPUs <em>dentro</em> da CPU.</p>
+<p>Para tirar proveito da &quot;CPUs dentro da CPU&quot;, precisamos de threads, e se o
+compilador não proteger contra o uso inválido de memória entre as threads, nós
+ainda vamos ter aqueles alertas de que a aplicação parou de funcionar as 4 da
+manhã, e você vai tentar descobrir o que aconteceu e nada faz sentido.</p>
+<p>A ideia do Borrow Checker é tão boa que mais linguagens estão utilizando:
+Swift 5 tem um controle chamado &quot;Exclusitivy Enforcement&quot; que é, basicamente,
+um borrow checker mais light; Ada, uma das três linguagens aceitas pela MISRA
+para software em que vidas humanas estão em jogo (controle de aviões, carros e
+equipamentos médicos, por exemplo), ganhou um borrow checker na última versão
+(pelo menos, &quot;última&quot; no momento em que esse post estava sendo escrito).</p>
+<h2 id="intervalo-anedotas">Intervalo: Anedotas</h2>
+<p>Duas anedotas sobre a minha vida de programador:</p>
+<p>Numa época em que eu trabalhava num projeto gigantesco em C, eu estava
+esperando minha carona para voltar pra casa enquanto uma das desenvolvedoras
+estava brigando com o código. &quot;Eu não consigo entender, &quot; -- disse ela -- &quot;eu
+estou tentando ver o tempo que uma regra de negócio leva pra executar, mas
+está dando que tá levando menos de 1 segundo, quando eu <em>sei</em> que tem uma
+pesquisa no banco que é demorada!&quot;</p>
+<p>&quot;Como é que tu tá pegando esse tempo de execução?&quot; -- perguntei.</p>
+<p>&quot;Eu faço um <code>localtime</code> no começo da execução e um <code>localtime</code> no final e vejo
+a diferença.&quot;</p>
+<p>Nesse momento, me lembrei que <code>localtime</code> não é thread-safe: Quando o valor é
+capturado, é passada uma região de memória a ser preenchida, mas cada vez que
+o <code>localtime</code> é chamada, a mesma região é atualizada; o que estava acontecendo
+é que as outras threads, que também estavam fazendo a chamada para <code>localtime</code>
+estavam todas apontando para a mesma região de memória e todas elas estavam
+mudando na mudança de valor.</p>
+<p>Em tempos mais recentes, estávamos trabalhando em Java e usando
+<code>SimpleDateFormatter</code>. Em certos casos, começamos a receber alertas do tipo
+&quot;Data inválida: ''&quot; ou &quot;Data inválida: &quot;R&quot;&quot;. &quot;Mas como? Tá aqui o JSON de
+entrada e lá <em>tem</em> valor!&quot;</p>
+<p>Mais uma vez, acendeu a luzinha na minha cabeça e a primeira coisa que eu fiz
+foi pesquisar &quot;SimpleDateFormatter é thread-safe?&quot; O primeiro resultado foi
+um &quot;Por que SimpleDateFormat não é thread-safe?&quot; Trocamos pela versão mais
+nova (outra classe) e tudo passou a funcionar normalmente.</p>
+<p>Aí vem a pergunta: Se usássemos Rust ao invés de C ou Java, isso resolveria
+nossos problemas?&quot;</p>
+<p>A resposta é &quot;Sim!&quot;, porque o Rust sequer ia deixar o código compilar --
+porque, em ambos os casos, temos threads compartilhando memória mutável, que,
+como vimos pelas regras do Borrow Checker, não é possível fazer em Rust.</p>
+<h2 id="motivo-5-tipos-algebricos">Motivo 5: Tipos Algébricos</h2>
+<p>(&quot;Tipos Algébricos&quot;, no nosso caso, é só um nome bonito para parecer
+inteligente ao invés de dizer &quot;Enums&quot;.)</p>
+<p>Rust, assim como várias outras linguagens, tem enums:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>IpAddr {
+</span><span>   </span><span style="color:#d08770;">V4</span><span>,
+</span><span>   </span><span style="color:#d08770;">V6
+</span><span>}
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Quando eu estava estuando sobre isso, eu descobri que as opções de um enum são
+chamadas &quot;variantes&quot;.</p>
+
+</div>
+<p>Mas além de ter enum, uma das coisas que Rust permite é que as opções do enum
+carreguem um valor com elas.</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>IpAddr {
+</span><span>    </span><span style="color:#d08770;">V4</span><span>(String),
+</span><span>    </span><span style="color:#d08770;">V6</span><span>(String),
+</span><span>}
+</span></code></pre>
+<p>Aqui temos um enum com duas opções, <code>V4</code> e <code>V6</code>; cada um dessas opções carrega
+uma string junto.</p>
+<p>Mas como se usa isso?</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> home = IpAddr::</span><span style="color:#d08770;">V4</span><span>(String::from(&quot;</span><span style="color:#a3be8c;">127.0.0.1</span><span>&quot;));
+</span></code></pre>
+<p>É bem parecido com a forma em que definimos os valores de enumerações em
+outras linguagens, com a String como parâmetro.</p>
+<p>É importante notar que não é preciso que todas as opções tenham os mesmos
+parâmetros, e é possível ter opções sem nenhum parâmetro ou mesmo mais de um.</p>
+<p>E, para acessar os elementos, usamos <code>match</code>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">match</span><span> home {
+</span><span>    </span><span style="color:#d08770;">V4</span><span>(address) =&amp;gt; println!(&quot;</span><span style="color:#a3be8c;">IPv4 addr: </span><span style="color:#d08770;">{}</span><span>&quot;, address),
+</span><span>    </span><span style="color:#d08770;">V6</span><span>(address) =&amp;gt; println!(&quot;</span><span style="color:#a3be8c;">Ipv6 addr: </span><span style="color:#d08770;">{}</span><span>&quot;, address),
+</span><span>}
+</span></code></pre>
+<p><code>match</code> usa pattern matching para validar as opções. No caso, se <code>home</code> for
+<code>V4</code> com um valor dentro, o valor é extraído e o <code>println!</code> com a string
+<code>IPv4</code> é usada; se for <code>V6</code>, o outro <code>println!</code> é usado.</p>
+<p>A parte interessante é que se amanhã surgir o IPv8, e eu adicionar <code>V8</code> no meu
+enum, o código vai parar de compilar. Por que? Porque o pattern matching tem
+que ser exaustivo -- ou seja, tem que capturar todas as opções possíveis. Isso
+é importante para coisas como, por exemplo:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>Option&lt;T&gt; {
+</span><span>    Some(T),
+</span><span>    None
+</span><span>}
+</span></code></pre>
+<p>Esse enum é o substituto para coisas com <code>null</code>; lembre-se que, em Rust, todas
+as variáveis devem apontar para uma região de memória e <code>null</code> não é um
+posição de memória e, por isso, Rust não tem <code>null</code>s. Assim, uma função que
+poderia retornar <code>null</code> tem que retornar um <code>Option</code> e, quando é tratado o
+retorno da função, é preciso tratar o valor do retorno de sucesso (<code>Some</code>) <em>e</em>
+o valor com <code>null</code> (<code>None</code>); não é possível acessar o valor com o valor de
+sucesso sem tetar o que acontece se não vier valor.</p>
+<p>E isso nos leva ao próximo motivo que é...</p>
+<h2 id="motivo-6-error-control">Motivo 6: Error Control</h2>
+<p>Antes de entrar na questão de como Rust faz o tratamento de erros, deixem me
+mostrar alguns exemplos de tratamentos em outras linguagens:</p>
+<p>Em Python:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">try</span><span>:
+</span><span>    </span><span style="color:#bf616a;">something</span><span>()
+</span><span style="color:#b48ead;">except </span><span>Exception:
+</span><span>    </span><span style="color:#b48ead;">pass
+</span></code></pre>
+<p>Em Java:</p>
+<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#b48ead;">try </span><span>{
+</span><span>   </span><span style="color:#bf616a;">something</span><span>();
+</span><span>} </span><span style="color:#b48ead;">catch </span><span>(</span><span style="color:#ebcb8b;">Exception </span><span style="color:#bf616a;">ex</span><span>) {
+</span><span>   </span><span style="color:#ebcb8b;">System</span><span>.out.</span><span style="color:#bf616a;">println</span><span>(ex);
+</span><span>}
+</span></code></pre>
+<p>Ou em C:</p>
+<pre data-lang="c" style="background-color:#2b303b;color:#c0c5ce;" class="language-c "><code class="language-c" data-lang="c"><span>FILE* f = </span><span style="color:#96b5b4;">fopen</span><span>(&quot;</span><span style="color:#a3be8c;">someting.txt</span><span>&quot;, &quot;</span><span style="color:#a3be8c;">wb</span><span>&quot;);
+</span><span style="color:#bf616a;">fprintf</span><span>(f, &quot;</span><span style="color:#a3be8c;">Done!</span><span>&quot;);
+</span><span style="color:#bf616a;">fclose</span><span>(f);
+</span></code></pre>
+<p>Qual o problema com esses três exemplos?</p>
+<p>O problema é que em nenhum deles a situação do erro foi realmente tratada -- a
+versão em C é a pior delas, pois se o <code>fopen</code> falhar por algum motivo, ele
+retorna um <code>null</code> e tentar fazer um <code>fprintf</code> em um <code>null</code> gera um
+Segmentation Fault.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Eu já fiz todos esses, na minha vida.</p>
+
+</div>
+<p>Desde a base das bibliotecas do Rust, as funções retornam esse enum:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>Result&lt;T, E&gt; {
+</span><span>    Ok(T),
+</span><span>    Err(E),
+</span><span>}
+</span></code></pre>
+<p>Como isso ajuda em alguma coisa? Bom, se tudo retorna <code>Result</code>, isso significa
+que a única forma que eu tenho para pegar o resultado do sucesso é lidar com o
+caso do erro, porque o <code>match</code> não vai deixar que eu simplesmente ignore isso.</p>
+<p>No nosso caso do C, o correspondente seria:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">match </span><span>File::create(&quot;</span><span style="color:#a3be8c;">something.txt</span><span>&quot;) {
+</span><span>    Ok(fp) =&gt; fp.</span><span style="color:#96b5b4;">write_all</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">Hello world</span><span>&quot;),
+</span><span>    Err(err) =&gt; println!(&quot;</span><span style="color:#a3be8c;">Failure! </span><span style="color:#d08770;">{}</span><span>&quot;, err),
+</span><span>}
+</span></code></pre>
+<p>Ou seja, a única forma que eu tenho de pegar o <code>fp</code> (file pointer) pra poder
+escrever no arquivo é usando um match tratando o <code>Ok</code> (sucesso) e <code>Err</code>
+(erro), e eu não tenho como pegar o <code>fp</code> sem fazer esse tratamento todo.</p>
+<p>A única coisa que faltou é que o write também pode falhar; então teríamos</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">match </span><span>File::create(&quot;</span><span style="color:#a3be8c;">something.txt</span><span>&quot;) {
+</span><span>    Ok(fp) =&gt; </span><span style="color:#b48ead;">match</span><span> fp.</span><span style="color:#96b5b4;">write_all</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">Hello world</span><span>&quot;) {
+</span><span>        Ok(_) =&gt; (),
+</span><span>        Err(err) =&gt; println!(&quot;</span><span style="color:#a3be8c;">Can&#39;t write! </span><span style="color:#d08770;">{}</span><span>&quot;, err),
+</span><span>    }
+</span><span>    Err(err) =&gt; println!(&quot;</span><span style="color:#a3be8c;">Failure! </span><span style="color:#d08770;">{}</span><span>&quot;, err),
+</span><span>}
+</span></code></pre>
+<p>... e aqui já estamos ficando verbosos demais. Para facilitar um pouco a vida,
+o enum <code>Result</code> do Rust tem uma função chamada <code>.unwrap()</code>, que faz o
+seguinte: se o resultado do <code>Result</code> for <code>Ok</code>, já extrai o valor e retorna o
+valor em si; se o resultado for <code>Err</code>, chama um <code>panic!</code>, que faz a aplicação
+&quot;capotar&quot;:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let mut</span><span> file = File::create(&quot;</span><span style="color:#a3be8c;">something.txt</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span><span>file.</span><span style="color:#96b5b4;">write</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">Hello world</span><span>&quot;).</span><span style="color:#96b5b4;">unwrap</span><span>();
+</span></code></pre>
+<p>&quot;Mas Júlio&quot;, você deve estar pensando, &quot;isso não é diferente do segmentation
+fault&quot;. Em matéria de resultado final, não; mas se vocês pensarem bem, o que
+está sendo feito é que explicitamente eu estou colocando um &quot;aqui a aplicação
+pode explodir&quot;, e não que alguma coisa em tempo de execução vai derrubar a
+aplicação. E a palavra chave aqui é &quot;explicitamente&quot;; alguém pode considerar
+que não tratar o <code>null</code> do <code>fopen</code> também é uma forma de deixar um &quot;aqui a
+aplicação pode explodir&quot;, mas não foi o compilador que deixou isso acontecer;
+sempre que pode, o compilador do Rust tentou me impedir de fazer burrada.</p>
+<p>Outra forma de lidar com <code>Result</code> é o operador <code>?</code>:  o que ela faz é que
+caso a chamada de função retorne um <code>Err</code>, esse <code>Err</code> é passado como retorno
+da função com o operador; se a função retornar um <code>Ok</code>, então o valor
+encapsulado é retornado diretamente. Mais uma vez no nosso exemplo da escrita
+em arquivo:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let mut</span><span> file = File::create(&quot;</span><span style="color:#a3be8c;">something.txt</span><span>&quot;)?;
+</span><span>file.</span><span style="color:#96b5b4;">write</span><span>(</span><span style="color:#b48ead;">b</span><span>&quot;</span><span style="color:#a3be8c;">Hello world</span><span>&quot;)?;
+</span><span style="color:#d08770;">OK</span><span>(())
+</span></code></pre>
+<p>Como o operador vai fazer com que a função em que essas linhas estão retornem
+o <code>Err</code> se a chamada falhar, essas três linhas <em>tem</em> que estar dentro uma
+função que retorne um <code>Result</code>.</p>
+<p>&quot;Ah, barbada&quot;, você pensa, &quot;vou botar <code>?</code> em tudo e nunca lidar com o erro&quot;.
+Bom, sim, é uma opção, mas existe uma função que não se pode ter <code>Result</code>: a
+<code>main</code>. Assim, mais cedo ou mais tarde, o erro <em>vai</em> ter que ser lidado.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Existe uma forma de fazer o <code>main</code> retornar <code>Result</code>, mas ele basicamente
+serve para transformar o <code>Result</code> num código de erro -- ou 0 em sucesso.</p>
+
+</div>
+<h2 id="motivo-7-generics-traits">Motivo 7: Generics &amp; Traits</h2>
+<p>Antes de entrar direto sobre generics e traits, vamos falar sobre qual
+estrutura Rust usa para guardar os dados.</p>
+<p>Rust usa structs, como C, e não classes como C++ e mais uma gama de outras
+linguagens.</p>
+<p>Por exemplo:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">struct </span><span>Gift {
+</span><span>    </span><span style="color:#bf616a;">package_color</span><span>: String,
+</span><span>    </span><span style="color:#bf616a;">content</span><span>: String
+</span><span>}
+</span></code></pre>
+<p>Lembram que eu no começo comentei que Rust era fortemente e estaticamente
+tipada e que o compilador estava inferindo o tipo dos dados para nós? Bom,
+para estruturas isso não funciona, e por isso precisamos definir os tipos
+aqui.</p>
+<p>Para criar um elemento dessa estrutura, usamos</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> presente = Gift { package_color: &quot;</span><span style="color:#a3be8c;">red</span><span>&quot;, content: &quot;</span><span style="color:#a3be8c;">A GIFT!</span><span>&quot; };
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Eu normalmente não comento isso nas apresentações que eu faço, mas é possível
+criar uma estrutura do tipo</p>
+<p><code>struct Gift(String);</code></p>
+<p>Essa estrutura tem os campos com nomes anônimos e temos que acessar com <code>.0</code>
+ou <code>.1</code> (se tiver um segundo campo nessa estrutura) e assim por diante.</p>
+<p>Esse tipo de construção normalmente é usada para forçar novos tipos no
+sistema, já que se eu quisesse receber um tipo específico de String, eu
+usaria algo do tipo.</p>
+<p>Outro exemplo, que talvez fique mais claro:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>struct Celcius(f32);
+</span><span>struct Farenheit(f32);
+</span></code></pre>
+<p>Duas estruturas -- dois tipos -- que englobam floats, mas quando eu estiver
+lendo o código e ver uma função do tipo <code>convert(c: Celcius)</code>, eu sei
+exatamente qual a unidade de temperatura que eu preciso passar, deixando o
+código mais claro de ser lido.</p>
+
+</div>
+<p>Generics -- a possibilidade de não definir o tipo de um dado previamente é
+feito como em Java, onde os tipos genéricos são listados entre <code>&lt;&gt;</code>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">struct </span><span>Point&lt;T&gt; {
+</span><span>	</span><span style="color:#bf616a;">x</span><span>: T,
+</span><span>	</span><span style="color:#bf616a;">y</span><span>: T,
+</span><span>}
+</span></code></pre>
+<p>Se eu quiser criar um <code>Point</code> com floats de 32 bits:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> my_point = Point&lt;</span><span style="color:#b48ead;">f32</span><span>&gt;(x: </span><span style="color:#d08770;">1.0</span><span>, y: </span><span style="color:#d08770;">2.0</span><span>);
+</span></code></pre>
+<p>Além de aplicar Generics para estruturas, podemos aplicar o mesmo para enums
+-- e nós já vimos dois exemplos disso:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>Option&lt;T&gt; {
+</span><span>    Some(T),
+</span><span>    None
+</span><span>}
+</span></code></pre>
+<p>Option, o substituto de coisas que podem ser null/não ter valor é uma
+enumeração com <code>Some</code> que carrega um tipo qualquer, definido quando se cria
+uma variável com essa variante -- e é possível deixar o compilador inferir
+qual o tipo, assim como fizemos com <code>a</code> nos primeiros exemplos:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">let</span><span> has_value = Some(</span><span style="color:#d08770;">2</span><span>);
+</span></code></pre>
+<p>Outro exemplo básico de enum genérico:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>Result&lt;T, E&gt; {
+</span><span>    Ok(T),
+</span><span>    Err(E),
+</span><span>}
+</span></code></pre>
+<p><code>Result</code> também permite que sejam carregados valores com as variantes; no
+caso, tanto o tipo do <code>Ok</code> quanto <code>Err</code> são genéricos e possivelmente
+diferentes -- <code>Ok</code> pode ter um tipo <code>T</code>, enquanto <code>Err</code> tem um tipo qualquer
+<code>E</code>, e não há nada obrigando os dois a terem o mesmo tipo, como seria se
+tivéssemos:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">enum </span><span>Result&lt;T&gt; {
+</span><span>	Ok(T),
+</span><span>	Err(T)
+</span><span>}
+</span></code></pre>
+<p>... onde tanto o tipo do sucesso quanto de erro devem ser do mesmo tipo.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Em tempo de compilação, Rust vai resolver todos os tipos que as
+estruturas, enums e funções genéricas usam e vai gerar o código para esses
+tipos -- ou seja, se eu tivesse duas funções que retornam <code>Result</code>, uma com
+<code>Result&lt;u32, String&gt;</code> e <code>Result&lt;f32, String&gt;</code>, em tempo de compilação seriam
+geradas duas versões diferentes de <code>Result</code>, com os tipos já definidos.</p>
+<p>A vantagem disso é que, em tempo de execução, não é preciso tentar detectar o
+tipo que está sendo passado, já que ele já foi definido muito antes. O
+problema é que o código pode ficar maior -- e isso deve explicar o tamanho dos
+executáveis como foi mostrado lá no começo do post.</p>
+
+</div>
+<p>Além de estruturas de dados, é possível adicionar funções atreladas à essas
+estruturas:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">impl </span><span>Gift {
+</span><span>	</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">yell_content</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) {
+</span><span>		println!(&quot;</span><span style="color:#d08770;">{}</span><span>&quot;, </span><span style="color:#bf616a;">self</span><span>.content);
+</span><span>	}
+</span><span>}
+</span></code></pre>
+<p>(Com exceção de hierarquias, o resultado é bem semelhante à programação
+orientada e objetos.)</p>
+<p>Ainda é possível definir interfaces que várias estruturas devem implementar,
+utilizando-se traits:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">trait </span><span>Summary {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">summarize</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; String;
+</span><span>}
+</span></code></pre>
+<p>Essa trait indica que, qualquer estrutura que queira ser compatível com ela,
+tem que implementar uma função <code>summarize</code> que retorna uma <code>String</code>.</p>
+<p>Para definir que uma estrutura segue a trait, utiliza-se <code>impl/for</code>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">struct </span><span>Phrase {
+</span><span>    </span><span style="color:#bf616a;">phrase</span><span>: String
+</span><span>}
+</span><span>
+</span><span style="color:#b48ead;">impl </span><span>Summary </span><span style="color:#b48ead;">for </span><span>Phrase {
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">summarize</span><span>(&amp;</span><span style="color:#bf616a;">self</span><span>) -&gt; String {
+</span><span>        </span><span style="color:#bf616a;">self</span><span>.phrase
+</span><span>            .</span><span style="color:#96b5b4;">split_whitespace</span><span>()
+</span><span>            .</span><span style="color:#96b5b4;">map</span><span>(|</span><span style="color:#bf616a;">word</span><span>| word.</span><span style="color:#96b5b4;">chars</span><span>().</span><span style="color:#96b5b4;">nth</span><span>(</span><span style="color:#d08770;">0</span><span>).</span><span style="color:#96b5b4;">unwrap</span><span>())
+</span><span>            .</span><span style="color:#96b5b4;">collect</span><span>()
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Se você está com curiosidade com relação ao código acima:</p>
+<ol>
+<li>Pega o <code>phrase</code>, que foi definido na estrutura como <code>String</code>;</li>
+<li>Quebra essa string pelos espaços em branco (<code>split_whitespace</code>), gerando
+uma lista;</li>
+<li>Transforma (<code>map</code>) cada elemento da lista (que chamamos de <code>word</code> nesse
+caso) para pegar o primeiro elemento da lista de caracteres que forma a
+string (<code>chars().nth(0).unwrap()</code>). O <code>unwrap</code> está aqui porque <code>nth</code>
+retorna um <code>Option</code>, já que pode ser chamado com um número maior que
+caracteres na String, retornando <code>None</code> nesse caso; o <code>unwrap</code> serve para
+pegarmos diretamente o valor do <code>Some</code> e, por sorte, não vai haver nenhum
+pedaço da string quebrada com <code>split_whitespace</code> que não tenha nenhum
+caractere;</li>
+<li>Junta (<code>collect</code>) todos os elementos. Como Strings são arrays/listas de
+caracteres, há uma conversão direta para String.</li>
+</ol>
+<p>Ou seja, a função pega uma string como &quot;Porque Você Deve Aprender Rust&quot; e
+retorna &quot;PVDAR&quot;.</p>
+
+</div>
+<p>Traits funcionam com Generics, e assim podemos forçar a receber
+estruturas/enums que tenham certas características, como em:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">get_summary</span><span>&lt;T&gt;(</span><span style="color:#bf616a;">summarizable</span><span>: T) -&gt; String
+</span><span>    </span><span style="color:#b48ead;">where</span><span> T: Summary
+</span><span>{
+</span><span>    ...
+</span><span>}
+</span></code></pre>
+<p>Aqui temos uma função genérica que recebe um tipo qualquer <code>T</code>, mas obrigamos,
+através do <code>where</code> que esse tipo implemente a trait <code>Summary</code> -- e assim
+podemos chamar <code>summarizable.summarize()</code> sem problemas, porque a trait obriga
+o tipo a ter essa função implementada.</p>
+<p>Outra vantagem desse formato é que podemos ter traits próprias do nosso
+sistema, mas implementar a trait para tipos já definidos na linguagem:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span style="color:#b48ead;">impl </span><span>Summary </span><span style="color:#b48ead;">for </span><span>String { ... }
+</span></code></pre>
+<h2 id="motivo-8-cargo">Motivo 8: Cargo</h2>
+<p><a href="https://doc.rust-lang.org/cargo/">Cargo</a> é o gerenciador de pacotes e
+dependências do Rust. Ele também serve como gerenciador de projetos e
+frontend para outras funcionalidades, como executar testes.</p>
+<p>Cargo é interessante porque faz parte do pacote principal do Rust -- em outras
+palavras, a linguagem já vem com um eco-sistema completo.</p>
+<h2 id="motivo-9-testes">Motivo 9: Testes</h2>
+<p>Rust já vem com testes integrados -- e, como comentado no motivo anterior,
+Cargo serve como facilitador para a execução dos testes.</p>
+<p>Por exemplo, o seguinte código mostra um teste em Rust:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">cfg</span><span>(test)]
+</span><span style="color:#b48ead;">mod </span><span>tests {
+</span><span>    #[</span><span style="color:#bf616a;">test</span><span>]
+</span><span>    </span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">testing</span><span>() {
+</span><span>		assert!(</span><span style="color:#d08770;">1 </span><span>== </span><span style="color:#d08770;">1</span><span>);
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>Esse teste não precisa estar num arquivo específico (mas ajuda se você coloca
+num arquivo específico); ele não precisa estar em um módulo específico (ou
+seja, aquele <code>mod tests</code> não necessariamente precisa existir ou mesmo se
+chamar <code>tests</code>); e as funções não precisam começar com um nome específico.
+Tudo que você precisa é definir que o código somente vai existir na
+configuração de testes (<code>#[cfg(test)]</code>) e marcar cada função que deve ser
+chamada durante os testes (<code>#[test]</code>).</p>
+<p>Para ver os resultados do teste:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>$ cargo test
+</span><span>   Compiling adder v0.1.0 (file:///projects/adder)
+</span><span>    Finished dev [unoptimized + debuginfo] target(s) in 0.22 secs
+</span><span>     Running target/debug/deps/adder-ce99bcc2479f4607
+</span><span>
+</span><span>running 1 test
+</span><span>test tests::testing ... ok
+</span></code></pre>
+<p>Ao executar <code>cargo test</code>, todos os arquivos marcados com testes são compilados
+(porque o cargo já ativou a configuração de testes e os blocos marcados são
+finalmente adicionados) e executa os testes, mostrando o resultado de cada um.
+Não é preciso uma biblioteca externa ou comandos a mais para escrever um
+teste.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Uma coisa curiosa sobre o <code>cargo test</code> é que ele também sai executando tudo
+que estiver no diretório <code>examples</code>, que normalmente contém exemplos de como
+uma biblioteca funciona.</p>
+<p>A parte interessante sobre isso é que durante a execução de testes de várias
+bibliotecas, também é validado se os exemplos estão corretos.</p>
+
+</div>
+<h2 id="motivo-10-macros">Motivo 10: Macros</h2>
+<p>Macros são uma ferramenta poderosa mas realmente complexa do Rust. Tão
+complexa que eu não cheguei a me aprofundar muito, mas como exemplo, deixem-me
+mostrar uma biblioteca do Rust, chamada
+<a href="https://docs.rs/log-derive/">Log-Derive</a>:</p>
+<pre data-lang="rust" style="background-color:#2b303b;color:#c0c5ce;" class="language-rust "><code class="language-rust" data-lang="rust"><span>#[</span><span style="color:#bf616a;">logfn</span><span>(ok = &quot;</span><span style="color:#a3be8c;">TRACE</span><span>&quot;, err = &quot;</span><span style="color:#a3be8c;">ERROR</span><span>&quot;)]
+</span><span style="color:#b48ead;">fn </span><span style="color:#8fa1b3;">call_isan</span><span>(</span><span style="color:#bf616a;">num</span><span>: &amp;</span><span style="color:#b48ead;">str</span><span>) -&gt; Result&lt;Success, Error&gt; {
+</span><span>    </span><span style="color:#b48ead;">if</span><span> num.</span><span style="color:#96b5b4;">len</span><span>() &gt;= </span><span style="color:#d08770;">10 </span><span>&amp;&amp; num.</span><span style="color:#96b5b4;">len</span><span>() &lt;= </span><span style="color:#d08770;">15 </span><span>{
+</span><span>        Ok(Success)
+</span><span>    } </span><span style="color:#b48ead;">else </span><span>{
+</span><span>        Err(Error)
+</span><span>    }
+</span><span>}
+</span></code></pre>
+<p>A parte da macro está no começo da função, no <code>#[logfn(ok = &quot;TRACE&quot;, err = &quot;ERROR&quot;)]</code>; o que ela indica é que se a função terminar com o status de <code>Ok</code>,
+deve ser gerado um log no nível &quot;TRACE&quot; (abaixo de &quot;DEBUG&quot;) e se a função sair
+com status de <code>Err</code>, deve ser gerado um log no nível de &quot;ERROR&quot;.</p>
+<p>E aí eu pergunto: Você consegue ver alguma linha de log no código da função?
+Isso é porque a macro do Log-Derive consegue acessar o código em tempo de
+compilação e adicionar/alterar certas construções.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Na verdade, eu sei que existem três tipos diferentes de macros em Rust:</p>
+<ol>
+<li>Macros mais simples, como a <code>println!</code>, que se expandem para uma combinação
+maior de comandos (<code>println!</code> expande para a aquisição do lock da escrita
+padrão -- stdout -- envio dos dados para a saída e liberação do lock, mas
+você nunca teve que escrever tudo isso por conta);</li>
+<li>Macros de implementação de funções em estruturas, que basicamente fazem a
+geração de funções como vimos com <code>impl</code>;</li>
+<li>E macros como a Log-Derive, que tem acesso aos tokens que formam o código
+fonte e geram uma saída de tokens novamente -- e aí podem adicionar,
+remover ou alterar tokens do jeito que quiserem.</li>
+</ol>
+
+</div>
+<h2 id="motivo-11-motivos-malucos">Motivo 11: Motivos Malucos</h2>
+<p><a href="https://medium.com/@shnatsel/how-rusts-standard-library-was-vulnerable-for-years-and-nobody-noticed-aebf0503c3d6">How Rust’s standard library was vulnerable for years and nobody
+noticed</a>:
+Nesse artigo de 2018, Sergey Davidoff conta que achou uma falha de segurança
+em uma das funções do Rust, mas devido a forma como a mesma deveria ser
+chamada, era basicamente impossível de exploitar a mesma.</p>
+<p><a href="https://medium.com/@sgrif/no-the-problem-isnt-bad-coders-ed4347810270">No, the problem isn’t “bad
+coders”</a>:
+Esse artigo é uma resposta para as respostas de um artigo da Microsoft, em que
+eles reportam que 70% de todos os crashes das aplicações no Windows se devem
+ao acesso inválido de memória. Sean Griffin, criador da biblioteca
+<a href="https://diesel.rs/">Diesel</a>, que serve para escrever ORMs em Rust, conta que
+estava trabalhando em compartilhar uma conexão do PostgreSQL entre várias
+threads, e o compilador não deixou. Quando foi examinar exatamente o porque,
+percebeu que realmente o que ele queria fazer poderia levar a um acesso
+inválido. E Griffin tem experiência de sobra nesse campo, já que também é o
+criador do Active Record do Rails.</p>
+<p>Outra coisa maluca:</p>
+<p><img src="https://blog.juliobiason.me/pt/presentations/porque-voce-deve-aprender-rust/rust-issues.png" alt="Screenshot do Github do Rust" /></p>
+<p>A parte que vocês devem estar estranhando é a quantidade de issues que a
+linguagem tem (algumas vezes o Github chega simplesmente a mostrar &quot;5000+&quot;,
+indicado que existem mais de 5000 issues abertas).</p>
+<p>Como pode uma linguagem com apenas 4 anos de existência pública ter mais de
+5000 issues abertas? O que acontece é que todo o processo de decisão da
+linguagem passa pelo Github: Quando os desenvolvedores do core da linguagem
+acreditam que uma funcionalidade deva ser adicionada (ou removida), o que eles
+fazem é abrir uma issue no Github para discutir com a comunidade o que e como
+isso deve ser feito.</p>
+<p>Lembram que eu comentei que as questões de mensagens de erro não claras podem
+(e devem) ser comunicadas para os desenvolvedores? Isso é feito pelo Github.</p>
+<p>Ainda, existem &quot;Working Groups&quot;, grupos especializados sobre discussões em
+alguns tópicos. Por exemplo, existe um working group para Bancos de Dados,
+discutindo como a linguagem pode facilitar a criação de conexões com vários
+bancos, interfaces padrões para essas conexões e assim por diante; existe um
+working group para jogos, para discutir as coisas que tornam a vida de
+desenvolvedores de jogos mais fácil.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Existia um working group para CLI (command line interface, ou interface de
+linha de comando) para discutir como facilitar a vida de desenvolvedores que
+querem construir ferramentas de linhas de comando. Uma vez que o grupo
+acreditou ter achado a melhor forma, eles publicaram um livro sobre os
+achados, decisões e implementações.</p>
+<p>E isso acontece com todos os working groups -- então pode esperar que, se eles
+não fizeram ainda, vai sair um livro de como utilizar bancos de dados com Rust
+do Database Working Group e um livro de como escrever jogos em Rust pelo Games
+Working Group.</p>
+
+</div>
+<p>Por último, existe o script <a href="https://rustup.rs/">rustup</a>. Lembram que eu falei
+que Rust tem uma cadência de releases de seis em seis semanas? RustUp ajuda a
+manter a sua instalação do Rust -- e componentes associados -- em dia. Não só
+isso, mas ele permite a instalação de &quot;toolchains&quot; diferentes: Você pode, por
+exemplo, instalar o toolchain para a arquitetura
+<code>armv7-unknown-linux-gnueabihf</code> e, a partir da sua máquina Linux rodando Intel
+gerar um executável para arquitetura ARM; ou, ainda, você pode instalar o
+toolchain para a arquitetura <code>wasm32-unknown-unknown</code> que, na verdade, não é
+uma arquitetura, é o gerador para WebAssembly, o que permite que você converta
+seu código Rust para WebAssembly (com algumas restrições) -- e, embora seja
+possível gerar WebAssembly em outras linguagens como C++ e C#, se você
+utilizar Rust, todas as validações de acesso de memória continuam valendo.</p>
+<h2 id="e-agora">E agora?</h2>
+<p>Bom, se depois de tudo isso você decidir que quer aprender mais sobre Rust, o
+que eu posso sugerir é:</p>
+<ol>
+<li>Instale o Rust usando o <a href="https://rustup.rs">RustUp</a>.</li>
+<li>Leia o <a href="https://doc.rust-lang.org/book/">Livro do Rust</a>; o livro que
+explica todas as funcionalidades da linguagem está disponível online e é
+possível comprar a versão em ePub da No Starch Press (mas não há diferença
+entre a versão online e a impressa/ePub).</li>
+<li>Confira como Rust funciona lendo o <a href="https://doc.rust-lang.org/stable/rust-by-example/">Rust By
+Example</a>. Basicamente
+tudo que o Livro cobre também está aqui, mas Rust By Example usa uma forma
+diferente de explicação, partindo a partir de exemplos para cada ponto.</li>
+<li>Você pode brincar com Rust no <a href="https://play.rust-lang.org/?version=stable">Rust
+Playground</a>, onde é possível
+editar, compilar e executar código Rust de dentro do browser. Somente um
+número pequeno de bibliotecas está disponível, mas para brincar com Rust
+básico é possível usar isso ao invés de instalar a linguagem inteira.</li>
+<li>Existe um grupo de usuários de Rust no Telegram, o <a href="https://t.me/rustlangbr">Rust
+Brasil</a>. Se tiver alguma dúvida, é só ir lá e
+perguntar.</li>
+</ol>
+<p>E era isso!</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

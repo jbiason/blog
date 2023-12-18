@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Create Libraries</h1>
+  <span class="post-date">
+	2019-07-15
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/libraries/">#libraries</a>
+        
+            <a href="https://blog.juliobiason.me/tags/project-organization/">#project organization</a>
+        
+  </span>
+  <p>One thing you must learn is how to break your project into smaller libraries,
+to avoid doing rounds to deal with &quot;the same, but a bit different&quot;.</p>
+<span id="continue-reading"></span>
+<p>I've seen a lot of projects that use things like branches for different
+things. Say, you have an e-commerce page. But you also have different clients,
+and they all have different colours and logo. Some people would take this
+scenario and, using the VCS properties, use the main branch for the main code
+and a branch for each client, merge from main branch from time to time -- and,
+thus, the branches are never merged back.</p>
+<p>This is suboptimal, 'cause that's not how VCS are supposed to be used.</p>
+<p>But you can, for example, break the main code into a library/framework and
+have one project for each client, with their assets and you just reference the
+library/framework in each.</p>
+<p>Simple and clean.</p>
+<p>But stop there for a second. Although this makes the code cleaner, avoids
+duplication and uses a VCS in the way it was supposed to be used, you can't
+start this way.</p>
+<p>Remember that <a href="/books/things-i-learnt/future-trashing">future thinking is future
+trashing</a>. What you can do is actually
+break your project by functionality, <a href="/books/things-i-learnt/project-organization">making modules related to their
+data</a> and then, when you get a
+reasonable number of clients, you'll notice what can be reused in each, what
+modules make sense for one client and not for another. And then you'll have a
+good way to deal with those.</p>
+<p>One project that may appear when creating libraries is &quot;How do I create my own
+library repository?&quot; 'Cause all modern languages today have support for
+importing external libraries and, even if your libraries will never be out of
+your control, they are external to the project. So you may need to learn how
+to deal with this before creating the libraries. And, unfortunately, each
+language and build tool has its own way to manage this.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;project-organization">Organize Your Code by Data&#x2F;Type, Not Functionality</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;paper-notes">Paper Notes Are Actually Helpful</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

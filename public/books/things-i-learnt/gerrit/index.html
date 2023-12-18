@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Gerrit Is A Mistake</h1>
+  <span class="post-date">
+	2019-07-29
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/git/">#git</a>
+        
+            <a href="https://blog.juliobiason.me/tags/gerrit/">#gerrit</a>
+        
+            <a href="https://blog.juliobiason.me/tags/source-control/">#source control</a>
+        
+  </span>
+  <p>I hate calling software &quot;a mistake&quot;, but I can't find any other way to
+describe Gerrit. You may see people using Gerrit 'cause Google uses it. The
+thing is: Google misunderstood what Git actually is.</p>
+<span id="continue-reading"></span>
+<p>When Linus Torvalds came with Git, he was trying to mimic another system,
+BitKeeper. Along with some improvements over CVS and SubVersion, Git made
+really easy to create and merge branches, something that was either
+almost-not-supported or slow-as-heck, depending on which tool you look at.</p>
+<p>You need to take this into consideration: Git made branches easy.</p>
+<p>Then someone came with the idea of Gerrit: Instead of managing branches, it
+actually manages <em>commits</em>. Instead of having a branch for each feature, you
+should have <em>one single commit</em> as feature. You can have branches on your
+machine, but the server only deal with commits.</p>
+<p>So Gerrit took Git, a tool that improved the way we deal with branches, and
+removed branches. This is akin to taking a text editor and taking away the
+ability to <em>edit text</em>. Does that sound right to you?</p>
+<p>In my personal opinion, what they did was to take git apart and put an err in
+the middle: gERRit.</p>
+<p>When I see someone using Gerrit, I know something is wrong there.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;one-change-commit">One Commit Per Change</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;git-flow">Git-Flow Is The Way To Go</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

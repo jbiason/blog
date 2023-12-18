@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Microserviços com &#x27;Auto Cura&#x27;</h1>
+  <span class="post-date">
+	2020-01-03
+	
+            <a href="https://blog.juliobiason.me/pt/tags/microservicos/">#microserviços</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/auto-cura/">#auto cura</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/artefatos/">#artefatos</a>
+        
+  </span>
+  <p>As <a href="https://blog.juliobiason.me/pt/code/microservices-artifact-input-state/">discussões</a>
+<a href="https://blog.juliobiason.me/pt/code/microservices-artifact-ejection/">anteriores</a> que eu levantei
+sobre microserviços foram um prelúdio para uma coisa que eu não consegui uma
+solução perfeita: como é que microserviços se &quot;curam&quot; quando faltam dados?</p>
+<span id="continue-reading"></span>
+<p>Pequena recapitulação antes de falar sobre o problema: Microserviços produzem
+artefatos; artefatos ou são enviados para frente por um message broker para
+outros serviços ou mantidos no mesmo microserviço para requisições futuras;
+microserviços podem escutar mais de uma fonte de dados para construir seus
+artefatos.</p>
+<p>Anteriormente eu mencionei um exemplo de um microserviço de placares que
+produz um artefato com o placar de cada time e o nome dos jogadores que
+fizeram os gols. Esse microserviço poderia ouvir:</p>
+<ol>
+<li>A fila de times: pode ser necessária para que possamos mostrar o nome ou
+sigla do time na requisição de placar; uma vez que um time aparece num
+campeonato, o microserviço adiciona o mesmo no seu estado para referência
+futura<sup class="footnote-reference"><a href="#1">1</a></sup>.</li>
+<li>A file da jogadores: o mesmo que acima, para que o microserviço possa
+retornar o nome, apelido, número da camisa ou alguma coisa relacionada com
+o jogador; de novo, o serviço fica escutando a fila de jogadores e os
+guarda em seu estado.</li>
+<li>A fila de partidas: se uma partida for acontecer, ela tem que ter um
+placar, provavelmente começando com 0 sem nenhum jogador na lista de gols;
+isso é feito apenas para evitar problemas com serviços pedindo placares de
+partidas que ainda não começaram ou que não tiveram gols ainda; de qualquer
+forma, o artefato necessário já vai estar pronto para ser entregue.</li>
+<li>A fila de narrações: escutando a fila de narrações, o microserviço de
+placar irá detectar gols, atualizar seu estado e produzir o artefato
+atualizado.</li>
+</ol>
+<p>A palavra chave da lista acima é &quot;poderia&quot;: dependendo da forma como os
+microserviços <em>e</em> as mensagens são construídas, pode não ser necessário ter
+acesso a tudo isso.</p>
+<h2 id="usando-mensagens-completas">Usando mensagens completas</h2>
+<p>Vamos começar com a forma mais simples de evitar escutar todas essas filas:
+utilizando mensagens completas.</p>
+<p>Numa mensagem completa, todos os campos relacionados são enviados junto com a
+informação principal. Usando o exemplo acima, o serviço poderia ouvir apenas
+as filas de partidas e narração, mas esperar que a mensagem de &quot;NovaPartida&quot;
+teria os nomes dos tipos, suas siglas, escudos, provavelmente o ID e assim
+pode diante; da mesma forma para a mensagem de &quot;NovaNarração&quot;: ela contém o
+nome do jogador, o apelido, número da camisa, ID e assim pode diante.</p>
+<p>O problema com mensagens completas é que elas tentem a ficarem maiores com o
+tempo: Com mais microserviços sendo adicionados ao sistema, mais campos vai
+sendo necessários -- e ignorados por serviços que não os precisam.</p>
+<p>O lado positivo de mensagens completas é que um microserviço sempre terá toda
+a informação necessária, mantendo o número de filas a serem escutadas baixo.
+Esse formato também facilita a adição de outros serviços no sistema: se o
+mesmo começar com um estado em branco, ele poderá construir o mesmo a partir
+do zero, porque toda a informação <em>já está lá</em>.</p>
+<h2 id="escutar-as-filas-basicas-pedir-o-resto">Escutar as filas básicas, pedir o resto</h2>
+<p>Quase como a solução acima, o serviço escuta apenas as filas de narrações e
+partidas, mas uma vez que detecta alguma informação faltante (por exemplo, o
+evento de narração cita um jogador, mas esse jogador não existe no estado), o
+serviço faria uma requisição por essa informação mais &quot;fria&quot; (jogadores, times
+e produtos não são atualizados com muita frequência, por exemplo) para outro
+serviço e preencheria essa informação no seu estado.</p>
+<p>Isso significa que esse microserviço agora, ao invés de saber apenas como
+escutar filas, também precisa ter informações de outros serviços (aqueles que
+processam e armazenam os dados frios) e suas interfaces -- e, de forma geral,
+também requisitaria um serviço de descoberta presente no sistema. Esses
+microserviços seriam aqueles de &quot;duas caras&quot;, que recebem informações,
+armazenam o estado, produzem o artefato mas tem uma interface de requisições
+ao invés de simplesmente receber, processar e passar pra frente. Fazer cache
+aqui também seria recomendado, para que um serviço não faça um &quot;flood&quot; de
+requisições da mesma informação -- e atualizações de tempo em tempo podem
+fazer sentido em algumas situações.</p>
+<p>As mensagens seria menores (porque é enviado apenas o ID do time/jogador) e a
+recuperação de informações acontece apenas quando necessária, mas onde é
+reduzido o número de escutas nas filas, é aumentado o número de requisições.
+Assim como na utilização de mensagens completas, um novo serviço poderia
+facilmente construir seu estado a partir do zero sem qualquer problema -- irá
+fazer um monte de requisições, mas terá, eventualmente, todas as informações
+necessárias.</p>
+<h2 id="escutas-todas">Escutas todas</h2>
+<p>Essa é exatamente a solução apresentada no exemplo acima: o microserviço fica
+escutando todas os eventos das filas com eventos relacionados e constrói o
+estado a partir deles.</p>
+<p>Um problema dessa solução: uma vez que as filas são assíncronas, pode
+acontecer um problema com a ordenação dos dados, com gols chegando antes dos
+jogadores (por vários motivos). Nesse caso... o que o serviço faz? Rejeita o
+gol na esperança que o jogador apareça, para evitar uma inconsistência dos
+dados, e o que o message broker coloque o evento novamente no fim da fila?</p>
+<p>Uma solução seriam serviços que, junto com este, escutem por um dado
+específico: o microserviço de placares escuta as quatro filas citadas, mas há
+um microserviço escutando apenas a fila de jogadores. Esse serviço iria
+processar os dados mais rapidamente que o placar, e serviria como &quot;fallback&quot;
+no caso de dados faltantes, como na solução acima. Isso reduziria o tráfego de
+rede, mas iria gerar dados duplicados em serviços diferentes -- embora esse
+último ponto não deveria ser um problema em primeiro lugar.</p>
+<p>Novos serviços iriam encontrar problemas, porque apesar de receberem
+novos dados, eles não estavam presentes quando os dados frios foram
+processados; eles vão precisar se comunicar com outros serviços para recuperar
+essa informação, ou alguém teria que manualmente copiar os dados.</p>
+<h2 id="fila-unica">Fila única</h2>
+<p>As soluções acima trabalham com cada dado em sua própria fila, mas e se
+pudéssemos colocar <em>todos</em> os eventos na mesma fila? Dessa forma, a ordenação
+é assegurada (jogadores são sempre enfileirados antes dos gols, e os serviços
+irão processar os jogadores antes de sequer verem que há um gol).</p>
+<p>Isso reduz o número de filas a serem ouvidas, mas requer um bom design de
+mensagens, especialmente se for utilizada alguma linguagem de tipagem
+estática, que normalmente requer uma estrutura bem definida para serialização
+e desserialização.</p>
+<p>Mas ao mesmo tempo, resolve praticamente todos os problems: não existe
+problema com a ordem de processamento, o número de filas a serem ouvidas é
+baixo e as mensagens pequenas. Mas também faz com que novos serviços sofram
+com a falta de dados frios, forçando-os a comunicar com outros serviços ou
+terem os dados copiados manualmente quando levantados.</p>
+<h1 id="e-qual-o-melhor">E qual o melhor?</h1>
+<p>Honestamente, não faço ideia. Eu tenho uma certa preferência pelas mensagens
+completas simplesmente porque simplifica a estrutura dos serviços, mesmo
+sabendo que rede não é de graça; se eu usasse uma linguagem dinâmica, eu
+provavelmente utilizaria a fila única. Mas, de novo, não acho que haja um
+&quot;tamanho único para todos&quot;.</p>
+<p>Provavelmente existem outras opções arquiteturais para resolver esses
+problemas, mas essas são as que eu consigo lembrar das conversas que tivemos
+no trabalho.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Vale notar que o microserviço pode simplesmente ignorar parte da
+informação. Por exemplo, se o artefato produzido tem apenas a sigla do time,
+o serviço pode remover o nome completamente de seu estado.</p>
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

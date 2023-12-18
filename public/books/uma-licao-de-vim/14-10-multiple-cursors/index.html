@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">14.10. Plugins - Vim-Multiple-Cursors</h1>
+  <span class="post-date">
+	2015-12-22
+	
+  </span>
+  <p>Essa é a parte em que você pode repetir várias coisas, visualmente.</p>
+<span id="continue-reading"></span>
+<p>O último plugin da lista de plugins é o <a href="https://github.com/terryma/vim-multiple-cursors">Vim-Multiple-Cursors</a>.</p>
+<p>Já que sempre falamos em usar Vundle...</p>
+<pre data-lang="viml" style="background-color:#2b303b;color:#c0c5ce;" class="language-viml "><code class="language-viml" data-lang="viml"><span>Plugin </span><span style="color:#a3be8c;">&quot;terryma/vim-multiple-cursors&quot;
+</span></code></pre>
+<p>Assim como outros plugins já comentados, Vim-Multiple-Cursors não tem nenhuma
+apresentação inicial. O que este plugin faz é permitir que você tenha várias
+cursores no texto ao mesmo tempo, aplicando a mesma transformação em todos os
+lugares.</p>
+<p>A forma mais simples de usar Vim-Multiple-Cursors é ir até a palavra que você
+quer alterar e pressionar <code>[Ctrl]n</code>. Você vai notar que o VIM irá mostrar como se
+você tivesse entrado em modo visual e selecionado apenas aquela palavra, o que
+não é nada impressionante. No entanto, se você pressionar <code>[Ctrl]n</code> de novo, você
+verá que o cursor irá para a próxima ocorrência da palavra. Na verdade, o que
+você tem agora são dois cursores e tudo que você fizer em um será repetido no
+outro. Por exemplo, se você fizer ce sobre a palavra, você verá as duas
+palavras mudando ao mesmo tempo.</p>
+<p>De certa forma, o que você está fazendo é um &quot;search and replace&quot; só que está
+vendo exatamente o que vai ser alterado.</p>
+<p>Teoricamente, você poderia fazer <code>I&quot;[Esc]ea&quot;</code> para adicionar aspas ao redor da
+palavra, mas há um pequeno inconveniente: <code>[Esc]</code>, que você precisa usar para
+retornar para o modo normal depois de entrar em modo de inserção com <code>I</code> irá
+também terminar o modo de múltiplos cursores.</p>
+<p>A segunda forma de usar Vim-Multiple-Cursors é fazer uma seleção visual e usar
+<code>[Ctrl]n</code>. Para cada linha da seleção, será adicionado um novo cursor. E,
+novamente, o que você fizer em um deles será repetido em todos.</p>
+<p>Simples assim.</p>
+<p>A única coisa que eu posso deixar de aviso é que, por algum motivo, utilizando
+uma seleção visual de várias linhas (<code>[Shift]v</code>), entrando em modo de múltiplos
+cursores (<code>[Ctrl]n</code>) e usando aspas (com o Auto-Pairs), meu undo acabou sendo
+perdido (<code>u</code> removia o texto inteiro, não a alteração feita com
+Vim-Multiple-Cursors).</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href=".&#x2F;14-09-ctrlp">Plugins - CtrlP e CtrlPFunky</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href=".&#x2F;15-conclusao">Conclusão</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

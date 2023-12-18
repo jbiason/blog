@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Code Formatting Tools Are Ok, But No Silver Bullet</h1>
+  <span class="post-date">
+	2019-07-16
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/code-formatting/">#code formatting</a>
+        
+            <a href="https://blog.juliobiason.me/tags/code-style/">#code style</a>
+        
+  </span>
+  <p>One thing a team may decide to fix the continuous flux of code style comments
+in a code review is to use a code formatting tool to auto-format the code.
+That's ok, but they should never rely on it.</p>
+<span id="continue-reading"></span>
+<p>Now yeah, that kinda solves the problem, but there is one small problem:
+we, humans, are not as flexible to read code as computers are; what is
+readable by a computer may not be readable by a human. Surely they try to
+create some heuristics on what is good for human reading, but that doesn't mean
+it gets right.</p>
+<p>Also, unless you start from scratch to use the auto-formatting tool or do a
+change in all files in one single go, you should never assume it will do a
+good job.</p>
+<p>I've seen tools like this implemented in a commit hook, in a way that the tool
+would reformat the code just before adding it to the repository. The biggest
+problem is that, in that team, we didn't run the auto-formatting tool in the
+whole project before hand, and we also added a coverage tool (that checked the
+coverage on the changed parts of the file) without every running the coverage
+tool on everything. The result is that, suddenly, a lot of commits got refused
+because the auto-formatting tool was changing lines that the developer didn't
+change (it changed old code) and suddenly the coverage tool noted the missed
+tests and decided it was no good.</p>
+<p>So good, punctual changes were suddenly being blocked 'cause instead of doing
+the whole thing in a single shot, people decided it was a good idea to let the
+code evolve till everything fixed itself.</p>
+<p>On top of that, some people who were neither in the mood to actually add the
+tests or worried about style found a way to do the commits <em>without running
+the hook</em>, so they basically skipped the whole &quot;let's improve our code&quot; and
+let fuck all.</p>
+<p>So, it's ok if you run the auto-formatting tool for yourself, but you need to
+have the maturity and responsibility to watch yourself and be willing to fix
+and take responsibility for other people's code when the formatter changes
+their code.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;code-review-styles">Code Reviews Are Not For Style</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;code-style">Code Style: Follow It</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Web Development with Django Cookbook - Aidas Bendoraitis</h1>
+  <span class="post-date">
+	2016-07-10
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/aidas-bendoraitis/">#aidas bendoraitis</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reviews/">#reviews</a>
+        
+            <a href="https://blog.juliobiason.me/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/tags/django/">#django</a>
+        
+            <a href="https://blog.juliobiason.me/tags/web-development/">#web development</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-1/">#stars:1</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2014/">#published:2014</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/23477190-web-development-with-django-cookbook">GoodReads Summary</a>:
+Over 70 practical recipes to create multilingual, responsive, and scalable
+websites with Django About This Book Improve your skills by developing models,
+forms, views, and templates Create a rich user experience using Ajax and other
+JavaScript techniques A practical guide to writing and using APIs to import or
+export data Who This Book Is For.</p>
+<span id="continue-reading"></span><div>
+	★☆☆☆☆
+</div>
+<p>First point: This book is terribly outdated. It focus on Django 1.6, which is
+at least 3 versions behind the current one (at the time of this review). 1.6
+is so old that you can't find its documentation on the Django Project page
+anymore.</p>
+<p>Second point: This book is terrible. I mean, one of the very first examples it
+talks about a mixin with creation date and modified date, which is pretty damn
+easy with Django, but instead of using &quot;auto_now=True&quot; and/or
+&quot;auto_now_add=True&quot;, it overrides save() on the model. Now terrible enough?
+Later in the book, it creates a templatetag to access model directly, which
+completely obliterates the MVT (model-view-template) model of Django. Still
+not terrible enough? Again in the very first part of the book, to prevent
+browser caching issues, it gives a recipe for using the SVN revision in the
+static path; the wrong part of it is: a) it means you'll have to have SVN in
+your server instead of using proper setup.py to deliver your apps, b) it does
+a system() call, which is slow, c) there is a prop in SVN which allows you to
+use &quot;$Id$&quot; to automatically save the revision on commit (pretty much like CSV)
+and d) If you're having caching issues, that's a problem with your webserver,
+not Django.</p>
+<p>(I won't even talk about long chapters talking about MPTT with examples either
+don't show the tool properly or MPTT is so useless one could replace it with a
+single ForeignKey.)</p>
+<p>The whole book feels like someone searched for &quot;django&quot; on StackOverflow and
+dropped the first answers.</p>
+<p>In the end, the book is only good for giving you some ideas of what is
+available with Django, not how to properly develop a Django app.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

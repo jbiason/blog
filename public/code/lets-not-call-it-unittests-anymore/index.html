@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Let&#x27;s Not Call It &quot;Unit Tests&quot; Anymore</h1>
+  <span class="post-date">
+	2018-05-09
+	
+            <a href="https://blog.juliobiason.me/tags/unit-tests/">#unit tests</a>
+        
+  </span>
+  <p>I keep seeing people call tests &quot;integration tests&quot;, while they are perfect
+unit tests. So maybe what we call &quot;unit tests&quot; shouldn't be called unit
+tests.</p>
+<span id="continue-reading"></span>
+<p>For example, one thing I always mention is that your tests should reflect your
+requirements for the product and nothing more. And a lot of people think this
+is counter productive.</p>
+<p>Another thing is that I keep pointing over and over again that the definition
+of &quot;unit test&quot; is a test that doesn't depend on anything else (like any other
+test); if it starts from an empty plate, creates the whole environment
+required for the functionality to be tested, runs something and checks the
+result, it <em>is</em> a unit test.</p>
+<p>But here is the kicker: A lot of people will say that if you test your class
+or function, then it is a unit test; if you test the whole thing, like a black
+box, it's an integration test.</p>
+<p>Hold on a sec. If I'm testing the whole pipeline of functions and classes,
+believing they build a black box of sorts -- something I have no idea how it's
+built inside or how many functions are called or <em>how</em> those functions are
+called and <em>designed</em> -- so it is an integration test; but if the test also
+builds the whole environment and doesn't require anything else to check its
+results, it is <strong>also</strong> a unit test.</p>
+<p>So far, I hope you're following where I'm going. 'Cause I'm going to take
+another detour -- it's quick, I promise.</p>
+<p>Remember the first that I mentioned that I believe that tests should reflect
+the requirements of the product? That's basically &quot;When the user types its
+birth day, we should display their age&quot; and &quot;If the user does not have the
+required license for a product in their account, the action should not be
+displayed&quot;. This is usually where people fall back to BDD and write tests in
+Gherkin and such.</p>
+<p>And that's the first thing people will complain: If the code is a mess and
+completely messes with all the layers and it's not extensible and such problem
+and such problem <em>but it follows the requirements</em>, then it's ok?</p>
+<p>And the answer is &quot;yes&quot; -- or, at least, I truly believe it is &quot;yes&quot;.</p>
+<p>Heck, you're giving value to your users, why isn't that valid?</p>
+<p>&quot;It <em>is</em> valid, but it shouldn't be just that.&quot;</p>
+<p>Ok, here is where the two roads join:</p>
+<p>If you write a test that checks the product requirement, it doesn't depend on
+anything else and proves that your changes add value to the product... then
+why write tests for the classes and functions and everything else?</p>
+<p>No, seriously. There <em>is</em> an answer, but you'll let you think a bit about
+this.</p>
+<p>Seriously, <em>why</em> you're checking a single class when it, alone, provides no
+final value to the product, as it requires coordinated work with other classes
+and functions to actually provide something useful?</p>
+<p>The answer for this is kinda hidden in a problem I pointed before: &quot;the code
+is a mess and completely messes with all the layers and it's not extensible and
+such problem and such problem&quot;. How do you prevent your code to become a mess,
+to make it still be extensible and not throwing things in the wrong place?</p>
+<p>You write <em>well defined layers</em> and make sure those boundaries are respected.
+You break things apart to make sure expected <em>internal behaviors</em> are
+followed.</p>
+<p>You're still not providing product value, but you're checking if your
+perceptions of a good design are being followed. This is why
+you don't test every single function and class, unless every single function
+and class follows your design; you usually don't need to test your <code>util</code>
+class/module because it's just something you do to be DRY and that's
+not part of your design.</p>
+<p>You may write tests to check if your model/repository layer is doing it's work
+of hiding the implementation of the storage; you may write tests to your
+controller classes/functions to make sure you're trying to add display filters
+on it because that's the view job and you're not trying to go directly into
+the file system to retrieve data because that's the model layer job; and so
+on.</p>
+<p>So... It's more like a <em>developer tests</em>, isn't it?</p>
+<p>I mean, it's not related (at least, not directly related) to the product
+value; it's directly related to the <em>code</em> value <em>developers</em> perceive in
+their design.</p>
+<p>And heck, it should be as much as a unit test like the integration tests are.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

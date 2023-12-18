@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Links Comentados de 2020-06-03</h1>
+  <span class="post-date">
+	2020-06-03
+	
+            <a href="https://blog.juliobiason.me/pt/tags/links/">#links</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/rust/">#rust</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/scotty/">#scotty</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/pyramid/">#pyramid</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/cornice/">#cornice</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/datetime/">#datetime</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/python-3/">#python 3</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/mercurial/">#mercurial</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/requisicoes-async/">#requisições async</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/propaganda/">#propaganda</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/google/">#google</a>
+        
+  </span>
+  <p>Scotty, Pyramid e Cornice, Os Problemas Com <code>datetime.now()</code>, Mercurial e
+Python 3, Acelerando o Python, Biblioteca Async para Requisições HTTP,
+Propagandas Digitais, Google e a Web.</p>
+<span id="continue-reading"></span><h2 id="scotty-transports-you-to-any-directory-you-have-visited-before"><a href="https://github.com/wdullaer/scotty">scotty: Transports you to any directory you have visited before</a></h2>
+<p>Eu tenho usado Scotty por algum tempo já e realmente tem me agradado.</p>
+<p>O que Scotty faz é guardar uma lista dos diretórios pelos quais você já passou
+e, depois de um tempo, você pode simplesmente fazer <code>s &lt;diretório&gt;</code> e cair
+diretamente no diretório específico. Não apenas isso, mas <code>&lt;diretório&gt;</code> nem
+precisa ser o nome correto do diretório; Scotty usa &quot;fuzzy search&quot; para
+encontrar o diretório com o nome mais parecido com o que você digitou.</p>
+<h2 id="how-to-write-a-python-web-api-with-pyramid-and-cornice"><a href="https://opensource.com/article/20/1/python-web-api-pyramid-cornice">How to write a Python web API with Pyramid and Cornice</a></h2>
+<p>Pyramid is o framework web para Python menos conhecido por aí. Mas esse post
+mostra como é simples fazer uma (simples) API com ele.</p>
+<h2 id="stop-using-datetime-now"><a href="https://hakibenita.com/python-dependency-injection">Stop Using datetime.now!</a></h2>
+<p>Embora o título seja um pouco &quot;clickbait&quot;, o conteúdo é bem interessante. Não
+apenas apontando os problemas de se usar <code>datetime.now()</code> (não, não é a função
+em si que tem um problema, é a forma como usamos o resultado que pode gerar
+problemas), mas explicando minuciosamente injeção de dependências em Python.</p>
+<h2 id="mercurial-s-journey-to-and-reflections-on-python-3"><a href="https://gregoryszorc.com/blog/2020/01/13/mercurial%27s-journey-to-and-reflections-on-python-3/">Mercurial's Journey to and Reflections on Python 3</a></h2>
+<p>Ding dong, a bruxa morreu, e o Python 2 também.</p>
+<p>Mas ainda existe uma grande base de projetos em Python 2 que precisam ser
+convertidos para Python 3, e o Mercurial fez isso, e aqui tem a experiencia do
+mantenedor em fazer essa conversão.</p>
+<p>Eu entendo que converter um projeto de Python 2 para 3 não é uma tarefa fácil,
+mas tem algumas coisas erradas no post. Por exemplo, &quot;the approach of assuming
+the world is Unicode is flat out wrong and has significant implications for
+systems level applications&quot; (a ideia de assumir que o mundo é unicode é
+completamente errada e tem sérias implicações para aplicações que nível de
+sistema). O mundo <em>é</em> unicode. É só ler a parte em português desse site. É só
+ler um blog em chinês ou japonês para ver como ele é. Você realmente acredita
+que essas pessoas não usam aplicações de sistema em lugar algum? Ainda, o que
+você acham que são mais usadas: Aplicações de nível de sistema ou nível de
+usuário?</p>
+<p>Não estou dizendo que a conversão é perfeita -- de certa forma, unicode
+simplesmente é uma forma de tratar os bytes que estão por baixo -- mas
+reclamar que a mudança fez a <em>sua</em> forma de pensar mais difícil não é desculpa
+para não entender para onde o eco sistema está indo -- e também não quer dizer
+que o seu projeto específico não é bem-vindo, mas você tem que entender que
+está no caso minoritário aqui.</p>
+<p>(E também não me surpreende que alguém dizendo que &quot;mundo em unicode está
+errado&quot; vem de alguém que vive num país ASCII.)</p>
+<h2 id="making-python-programs-blazingly-fast"><a href="https://martinheinz.dev/blog/13">Making Python Programs Blazingly Fast</a></h2>
+<p>Um conjunto de dicas de como fazer aplicações Python funcionarem mais rápido.
+Algumas coisas podem não parecer fazer muito sentido (colocar uma variável
+apontando pra outra dentro da mesma classe?), mas o post pelo menos explica
+<em>por que</em> isso ajuda na performance.</p>
+<h2 id="httpx-a-next-generation-http-client-for-python"><a href="https://www.python-httpx.org/">Httpx: A next-generation HTTP client for Python</a></h2>
+<p><a href="https://2.python-requests.org/en/master/">Requests</a> mostrou pra todo mundo
+como APIs devem funcionar, mas o projeto meio que ficou parado no tempo, sem
+suporte a chamadas async (e alguns outros probleminhas na gerencia do
+projeto). Agora existe Httpx, que é outra biblioteca para fazer requisições
+HTTP, mas dessa vez com suporte a async e basicamente a mesma interface.</p>
+<h2 id="no-judgment-digital-definitions-online-advertising-strategies"><a href="https://blog.mozilla.org/firefox/online-advertising-strategies/">No-judgment digital definitions: Online advertising strategies</a></h2>
+<p>Já se perguntou como é que depois de pesquisar alguma coisa -- por exemplo,
+&quot;cadeiras gamer&quot; -- de repente começam a surgir promoções e propagandas de
+cadeiras na sua rede social?</p>
+<p>Nada acontece por acaso, e isso é um efeito de todos os trackers que são
+colocados numa página. Mas como é que eles identificam quem é quem é que é a
+questão.</p>
+<p>Esse artigo da Mozilla, embora pareça meio básico para quem acompanha, mostra
+bem como essas coisas funcionam.</p>
+<h2 id="google-is-not-god-of-the-web"><a href="https://bilge.world/google-page-experience">Google Is Not God of The Web</a></h2>
+<p>Outro título um pouco &quot;clickbait&quot; mas, de novo, conteúdo interessante.</p>
+<p>Um ponto que me chamou a atenção foi &quot;Google has the right to dictate 'Best
+Practices.'&quot; (Google tem o direito de ditar o que são as &quot;boas práticas&quot;) que
+apesar do título diz exatamente o contrário.</p>
+<p>Imaginem vocês que o Google comece a dar notas de &quot;experiência de uso&quot; para
+páginas que adotem o visual do Material. Páginas e páginas que parecem com
+aplicativos Android. Mas se você utilizar o seu próprio layout, seu próprio
+conjunto de cores, você vai perder pontos. E agora?</p>
+<p>Esse é o grande problema da dependência que as pessoas tem com o Google, e
+toda a simbiose que o mesmo tem tendo um grupo trabalhando para padrões da
+web, um grupo trabalhando para fazer um browser e um grupo pra tirar proveito
+do trabalho dos dois anteriores. Quando menos você usar o Google, quanto mais
+você usar ferramentas de pesquisa alterativos (DuckDuckGo, Searx, e até mesmo
+o Bing), quanto mais você usar outros provedores de email (ProtonMail), quanto
+mais vocês usarem browsers que não sejam Chrome (Firefox, Safari, ou algum
+outro baseado em WebKit), menor vai ser a probabilidade de que a internet se
+torne um ambiente de uma empresa só.</p>
+<hr />
+<p>Esse post foi feito com a ajuda de</p>
+<ul>
+<li><a href="https://mastodon.social/@hntooter">HN Tooter</a></li>
+</ul>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

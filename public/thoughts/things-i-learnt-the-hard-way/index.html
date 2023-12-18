@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way (in 30 Years of Software Development)</h1>
+  <span class="post-date">
+	2019-06-10
+	
+            <a href="https://blog.juliobiason.me/tags/programming/">#programming</a>
+        
+            <a href="https://blog.juliobiason.me/tags/work/">#work</a>
+        
+  </span>
+  <p>This is a cynical, clinical collection of things I learnt in 30 years working
+with software development.</p>
+<p>Again, some things are really cynical, others are long observations on
+different jobs.</p>
+<span id="continue-reading"></span><h2 id="software-development">Software Development</h2>
+<h3 id="spec-first-then-code">Spec first, then code</h3>
+<p>If you don't know what you're trying to solve, you don't know what to code.</p>
+<p>Write something specifying how the application works before writing any code.</p>
+<p>&quot;Without requirements or design, programming is the art of adding bugs to an
+empty text file.&quot; -- Louis Srygley</p>
+<p>Sometimes, even an &quot;elevator pitch&quot; -- up to two paragraphs that describe what
+the application does -- is enough.</p>
+<p>The times I stood longer looking at my own code wondering what to do next were
+when we didn't have the next step defined. It is a good sign that it's time to
+stop and discuss it with your coworkers -- or maybe rethink the solution.</p>
+<h3 id="write-steps-as-comments">Write steps as comments</h3>
+<p>If you have no idea how to start, describe the flow of the application in high
+level, pure English/your language first. Then fill the spaces between comments
+with the code.</p>
+<p>Better yet: think of every comment as a function, then write the function that
+does exactly that.</p>
+<h3 id="gherkin-is-your-friend-to-understand-expectations">Gherkin is your friend to understand expectations</h3>
+<p>Gherkin is a test description format which points &quot;Given that the system is in
+a certain state, When something happens, then this is expected&quot;. Even if
+you don't use any testing tool that reads Gherkin, it will give you a good
+understanding of what it is expected from the app.</p>
+<h3 id="unit-tests-are-good-integration-tests-are-gooder">Unit tests are good, integration tests are gooder</h3>
+<p>On my current job, we do test modules and classes only (for example, we write
+tests for the view layer only, then tests for the controller layer only, and so
+on). It gives us some idea if things are going right or not, but they lack a
+view of how the whole is going on -- a thing integration tests, which tests how
+the system as a whole behaves -- do better.</p>
+<h3 id="tests-make-better-apis">Tests make better APIs</h3>
+<p>We code in layers: There is the storage layer, which should make our data
+permanent; there is a processing layer, which should do some transformation on
+the data stored; there is a view layer, which has information on how the data
+must be present; and so on.</p>
+<p>As I mentioned, integration tests feel better, but testing layers by themselves
+can give you a better view on how their API looks like. Then you can have a
+better look on how to call things: Is the API too complex? Do you have to keep
+to much data around to be able to make a single call?</p>
+<h3 id="make-tests-that-you-know-how-to-run-on-the-command-line">Make tests that you know how to run on the command line</h3>
+<p>Not that command lines are important for any projects, but when you know the
+command to run the tests, you know how to automate the execution of the tests,
+which you then can use in a continuous integration tool.</p>
+<h3 id="be-ready-to-throw-your-code-away">Be ready to throw your code away</h3>
+<p>A lot of people, when they start with TDD, get annoyed when you say that you
+may have to rewrite a lot of stuff, including whatever your already wrote.</p>
+<p>TDD was <em>designed</em> to throw code away: The more you learn about your problem,
+the more you understand that, whatever you wrote, won't solve the problem in
+the long run.</p>
+<p>You shouldn't worry about this. Your code is not a wall: if you have to throw
+it always, it is not wasted material. Surely it means your time writing code
+was lost, but you got a better understanding about the problem now.</p>
+<h3 id="good-languages-come-with-integrated-tests">Good languages come with integrated tests</h3>
+<p>You can be sure that if a language brings a testing framework -- even minimal
+-- in its standard library, the ecosystem around it will have better tests
+than a language that doesn't carry a testing framework, no matter how good the
+external testing frameworks for the language are.</p>
+<h3 id="future-thinking-is-future-trashing">Future thinking is future trashing</h3>
+<p>When developers try to solve a problem, they sometimes try to find a way that
+will solve all the problems, including the ones that may appear in the future.</p>
+<p>But here is the thing: The problems from the future will never come and you'll
+end up either having to maintain a huge behemoth of code that will never be
+fully used or you'll end up rewriting the whole thing 'cause there is a shitton
+of unused stuff.</p>
+<p>Solve the problem you have right now. Then solve the next one. And the next
+one. At one point, you'll realize there is a pattern emerging from those
+solutions and <em>then</em> you'll find your &quot;solve everything&quot;.</p>
+<h3 id="documentation-is-a-love-letter-to-your-future-self">Documentation is a love letter to your future self</h3>
+<p>We all know writing the damn docs for functions and classes and modules is a
+pain in the backside. But realizing what you were thinking when you wrote the
+function will save your butt in the future.</p>
+<h3 id="the-function-documentation-is-its-contract">The function documentation is its contract</h3>
+<p>When you start the code by writing the documentation, you're actually making a
+contract (probably with your future self): I'm saying this function does <em>this</em>
+and <em>this</em> is what it does.</p>
+<p>If later you find out that the code doesn't match the documentation, you have a
+code problem, not a documentation problem.</p>
+<h3 id="if-a-function-description-includes-an-and-it-s-wrong">If a function description includes an &quot;and&quot;, it's wrong</h3>
+<p>Functions should do one thing and one thing only. When you're writing the
+function documentation and find that you added an &quot;and&quot;, it means the function
+is doing more than one thing. Break that function into two and remove the
+&quot;and&quot;.</p>
+<h3 id="don-t-use-booleans-as-parameters">Don't use Booleans as parameters</h3>
+<p>When you're designing a function, you may be tempted to add a flag. Don't do
+this.</p>
+<p>Here, let me show you an example: Suppose you have a messaging system and you
+have a function that returns all the messages to an user, called
+<code>getUserMessages</code>. But there is a case where you need to return a summary of
+each message (say, the first paragraph) or the full message. So you add a
+flag/Boolean parameter called <code>retrieveFullMessage</code>.</p>
+<p>Again, don't do that.</p>
+<p>'Cause anyone reading your code will see <code>getUserMessage(userId, true)</code> and
+wonder what the heck that <code>true</code> means.</p>
+<p>You can either rename the function to <code>getUserMessageSummaries</code> and have
+another <code>getUserMessagesFull</code> or something around those lines, but each
+function just call the original <code>getUserMessage</code> with true or false -- but the
+interface to the outside of your class/module will still be clear.</p>
+<p>But <em>don't</em> add flags/Boolean parameters to your functions.</p>
+<h3 id="beware-of-interface-changes">Beware of interface changes</h3>
+<p>In the point above, I mentioned about renaming the function. If you control
+the whole source where the function is used, that's not issue, it's just a
+matter of search and replace.</p>
+<p>But if that function is actually exposed by a library, you shouldn't change
+function names in a whim. That will break a lot of other applications beyond
+your control and make a lot of other people unhappy.</p>
+<p>You can create the new functions and mark the current one as deprecated,
+either by documentation or by some code feature. Then, after a few released,
+you can finally kill the original function.</p>
+<p>(A dickish move you can do is to create the new functions, mark the current
+function as deprecated and <em>add a sleep at the start of the function</em>, in a
+way that people using the old function are forced to update.)</p>
+<h3 id="good-languages-come-with-integrated-documentation">Good languages come with integrated documentation</h3>
+<p>If the language comes with its own way of documenting
+functions/classes/modules/whatever and it comes even with the simplest doc
+generator, you can be sure that all the language
+functions/classes/modules/libraries/frameworks will have a good documentation
+(not great, but at least good).</p>
+<p>Languages that do not have integrated documentation will, most of the time,
+have a bad documentation.</p>
+<h3 id="a-language-is-much-more-than-a-language">A language is much more than a language</h3>
+<p>A programming language is that thing that you write and make things &quot;go&quot;. But
+it has much more beyond special words: It has a build system, it has a
+dependency control system, it has a way of making tools/libraries/frameworks
+interact, it has a community, it has a way of dealing with people.</p>
+<p>Don't pick languages just 'cause they easier to use. Always remember that you
+may approve the syntax of a language for being that easy, but you're also
+enabling the way maintainers deal with the community by choosing that language.</p>
+<h3 id="sometimes-it-s-better-to-let-the-application-crash-than-do-nothing">Sometimes, it's better to let the application crash than do nothing</h3>
+<p>Although that sounds weird, it's better to not add any error handling than
+silently capturing errors and doing nothing.</p>
+<p>A sadly common pattern in Java is</p>
+<pre data-lang="java" style="background-color:#2b303b;color:#c0c5ce;" class="language-java "><code class="language-java" data-lang="java"><span style="color:#b48ead;">try </span><span>{
+</span><span>  </span><span style="color:#bf616a;">something_that_can_raise_exception</span><span>()
+</span><span>} </span><span style="color:#b48ead;">catch </span><span>(</span><span style="color:#ebcb8b;">Exception </span><span style="color:#bf616a;">ex</span><span>) {
+</span><span>  </span><span style="color:#ebcb8b;">System</span><span>.out.</span><span style="color:#bf616a;">println</span><span>(ex);
+</span><span>}
+</span></code></pre>
+<p>This does nothing to deal with the exception -- besides printing it, that is.</p>
+<p>If you don't know how to handle it, let it happen,so you can figure out <em>when</em>
+it will happen.</p>
+<h3 id="if-you-know-how-to-handle-the-issue-handle-it">If you know how to handle the issue, handle it</h3>
+<p>Counter-point to the previous point: If you know when something will raise an
+exception/error/result and you know how to handle it, handle it. Show an error
+message, try to save the data somewhere else, capture the user input in a log
+file to later processing, but <em>handle</em> it.</p>
+<h3 id="types-say-what-you-data-is">Types say what you data is</h3>
+<p>Memory is just a sequence of bytes; bytes are just numbers from 0 to 255; what
+those numbers mean is described on the language type system.</p>
+<p>For example, in C, a <code>char</code> type of value 65 is most probably the letter &quot;A&quot;,
+which an <code>int</code> of value is 65 is the number 65.</p>
+<p>Remember this when dealing with your data.</p>
+<p>This is what most people get wrong about adding booleans to check the number
+of True values. Here, let me show you an example of JavaScript that I saw
+recently:</p>
+<pre data-lang="javascript" style="background-color:#2b303b;color:#c0c5ce;" class="language-javascript "><code class="language-javascript" data-lang="javascript"><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#d08770;">true</span><span>+</span><span style="color:#d08770;">true </span><span>=== </span><span style="color:#d08770;">2</span><span>);
+</span><span>&gt; </span><span style="color:#d08770;">true
+</span><span style="color:#ebcb8b;">console</span><span>.</span><span style="color:#96b5b4;">log</span><span>(</span><span style="color:#d08770;">true </span><span>=== </span><span style="color:#d08770;">1</span><span>);
+</span><span>&gt; </span><span style="color:#d08770;">false
+</span></code></pre>
+<h3 id="if-your-data-has-a-schema-use-a-structure-to-keep-it">If your data has a schema, use a structure to keep it</h3>
+<p>You may be tempted to use a list (or tuple, if your language allows) to keep
+your data if it's simple -- like, say, only 2 fields.</p>
+<p>But if you data has a schema -- it has a fixed format -- you should <em>always</em>
+use some structure to keep it, but it a <code>struct</code> or a <code>class</code>.</p>
+<h3 id="understand-and-stay-way-of-cargo-cult">Understand and stay way of cargo cult</h3>
+<p>&quot;Cargo cult&quot; is the idea that, if someone else did, so can we. Most of the
+time, cargo cult is simply an &quot;easy way out&quot; of a problem: Why would we think
+about how to properly store our users if X did that?</p>
+<p>&quot;If BigCompany stores data like this, so can we&quot;.</p>
+<p>&quot;If BigCompany is behind this, this is good.&quot;</p>
+<h3 id="right-tool-for-the-job-is-just-to-push-an-agenda">&quot;Right tool for the job&quot; is just to push an agenda</h3>
+<p>&quot;Right tool for the job&quot; should be an expression that meant that there is a
+right and a wrong tool to do something -- e.g., using a certain
+language/framework instead of the current language/framework.</p>
+<p>But every time I heard someone mention it, they were trying to push their
+favourite language/framework instead of, say, the right language/framework.</p>
+<h3 id="the-right-tool-is-more-obvious-than-you-think">&quot;The right tool&quot; is more obvious than you think</h3>
+<p>Maybe you're in a project that needs to process some text. Maybe you're
+tempted to say &quot;Let's use Perl&quot; 'cause you know that Perl is very strong in
+processing text.</p>
+<p>What you're missing: You're working on a C shop. Everybody knows C, not Perl.</p>
+<p>Sure, if it is a small, &quot;on the corner&quot; kind of project, it's fine to be in
+Perl; if it is important for the company, it's better that if it is a C
+project.</p>
+<p>PS: Your hero project (more about it later in this doc) may fail due this.</p>
+<h3 id="don-t-mess-with-things-outside-your-project">Don't mess with things outside your project</h3>
+<p>Sometimes people are tempted to, instead of using the proper extension tools,
+change external libraries/frameworks -- for example, making changes directly
+into WordPress or Django.</p>
+<p>This is an easy way to make the project unmaintainable really really fast. As
+soon as a new version is released, you'll have to keep up your changes in sync
+with the main project and, pretty soon, you'll find that the changes don't
+apply anymore and you'll leave the external project in an old version, full of
+security bugs.</p>
+<h3 id="data-flows-beat-patterns">Data flows beat patterns</h3>
+<p>(This is personal opinion) When you understand how the data must flow in your
+code, you'll end up with better code than if you applied a bunch of design
+patterns.</p>
+<h3 id="design-patterns-are-used-to-describe-solutions-not-to-find-them">Design patterns are used to describe solutions, not to find them</h3>
+<p>(Again, personal opinion) Most of the time I saw design patterns being
+applied, they were applied as a way to find a solution, so you end up twisting
+a solution -- and, sometimes, the problem it self -- to fit the pattern.</p>
+<p>First, solve your problem; find a good solution; then you can check the
+patterns to know how you name that solution.</p>
+<p>I saw this happens <em>a lot</em>: We have this problem; a design pattern gets close
+to the proper solution; let's use the design pattern; now we need to add a lot
+of things around the proper solution to make it fit the pattern.</p>
+<h3 id="learn-the-basics-functional-programming">Learn the basics functional programming</h3>
+<p>You don't need to go deep into &quot;what is a monad&quot; and &quot;is this a functor&quot;. But
+remember to not keep changing your data all the time, create a new element
+with the new values (treat your data as immutable) and make functions/classes
+that don't keep some internal state (pure functions/classes) if possible.</p>
+<h3 id="cognitive-cost-is-the-readability-killer">Cognitive Cost is the readability killer</h3>
+<p>&quot;<a href="https://en.wikipedia.org/wiki/Cognitive_dissonance">Cognitive dissonance</a>&quot; 
+is a fancy way of saying &quot;I need to remember two (or more) different things at
+the same time to understand this.&quot; Keeping those different things in your head
+creates a cost and it keeps accumulating the more indirect the things are
+('cause you'll have to keep all those in your head).</p>
+<p>For example, adding booleans to count the number of True values is a mild
+cognitive dissonance; if you're reading a piece of code and see a <code>sum()</code>
+function, which you know makes the sum of all numbers in a list, you'd expect
+the list to be composed of numbers, but I've seen people using <code>sum()</code> to
+count number of True values in a list of booleans, which is confusing as heck.</p>
+<h3 id="the-magical-number-seven-plus-or-minus-two">The Magical Number Seven, Plus or Minus Two</h3>
+<p>&quot;<a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two">The magical number</a>&quot; 
+is a psychology article about the number of things one can keep in their mind
+at the same time.</p>
+<p>If you have a function, that calls a function, that calls a function, that
+calls a function, that calls a function, that calls function, you may be sure
+it will be a hell to read later.</p>
+<p>Think more about: I'll get the result of this function, then pass it to the
+second function, get its result, pass to the third an so on.</p>
+<p>But:</p>
+<ol>
+<li>Today, psychologists talk more about the magical number FOUR, not seven.</li>
+<li>Think function composition (as in &quot;I'll call that function, then that
+function, then that function...&quot;), not function calling (as in &quot;That
+function will call that function, that will call that function...&quot;).</li>
+</ol>
+<h3 id="shortcuts-are-nice-but-only-in-the-short-run">Shortcuts are nice, but only in the short run</h3>
+<p>A lot of languages/libraries/frameworks add a way to make things shorter,
+reducing the number of things you need to type.</p>
+<p>But, later, that will bite you and you'll have to remove the shortcut and do
+the long things.</p>
+<p>So learn what the shortcut does before using it.</p>
+<p>You don't need to write things the hard way first and then clean up using the
+shortcuts: All you need to do is what the shortcut does in the background, so
+you at least have knowledge of what can go wrong using it, or how to replace
+it with the non-shortcut version.</p>
+<h3 id="resist-the-temptation-of-easy">Resist the temptation of &quot;easy&quot;</h3>
+<p>Sure that IDE will help you with a ton of autocomplete stuff and let you
+easily build your project, but do you understand what's going on?</p>
+<p>Do you understand how your build system works? If you had to run it without
+the IDE, would you know how?</p>
+<p>Can you remember your function names without autocomplete? Isn't there a way
+to break/rename things to make them easier to understand?</p>
+<p>Be curious about what goes behind the curtains.</p>
+<h3 id="always-use-timezones-with-your-dates"><strong>ALWAYS</strong> use timezones with your dates</h3>
+<p>When dealing with dates, always <strong>always</strong> add the timezone with it. There
+will be <em>always</em> a problem with your computer timezone and the production
+server timezone (or one of the instances timezones) and you'll lose a lot of
+time trying to debug what the heck the interface is showing the wrong time.</p>
+<h3 id="always-use-utf-8"><strong>ALWAYS</strong> use UTF-8</h3>
+<p>The same problem you'll have with dates, you'll have with character encoding.
+So always convert your strings to UTF8; save them in the database as UTF8;
+return UTF8 on your APIs.</p>
+<p>(You may convert to any other encoding, but UTF8 won the encoding wars, so it
+is easier to keep it this way.)</p>
+<h3 id="start-stupid">Start stupid</h3>
+<p>One way to get away from the IDE is to &quot;start stupid&quot;: Just get the compiler
+and get an editor (ANY editor) with code highlight and do your thing: Code,
+build it, run it.</p>
+<p>No, it's not easy. But when you jump into some IDE, you'll think of buttons of
+simply &quot;Yeah, it runs that&quot; (which is exactly what IDEs do, by the way.)</p>
+<h3 id="logs-are-for-events-not-user-interface">Logs are for events, not user interface</h3>
+<p>For a long time, I used logs to show the user whatever was happening --
+'cause, you know, it's a lot easier to use a single thing instead of two.</p>
+<p>Use the standard output to inform the user of events, standard err to inform
+the user about errors but use logs to capture something that you can later
+process easily.</p>
+<p>Think about logs of something you'll have to parse to extract some information
+at that time, not user interface; it doesn't have to be human-readable.</p>
+<h3 id="debuggers-are-over-rated">Debuggers are over-rated</h3>
+<p>I heard a lot of people complaining that code editors that don't come with
+debugging are terrible, exactly because they don't come with debugging.</p>
+<p>But when your code is in production, you <em>can't</em> run your favorite debugger.
+Heck, you can't even run your favourite IDE. But logging... Logging runs
+everywhere. You may not have the information you want at the time of the crash
+(different logging levels, for example) but you <em>can</em> enable logging to figure
+out something later.</p>
+<p>(Not saying debuggers are bad, they just not as helpful as most people would
+think.)</p>
+<h3 id="always-use-a-version-control-system">Always use a Version Control System</h3>
+<p>&quot;This is my stupid application that I just want to learn something&quot; is not
+even a good excuse to not use a version control system.</p>
+<p>If you start using a VCS right from the start, it will be easier to roll back
+when you do something stupid.</p>
+<h3 id="one-commit-per-change">One commit per change</h3>
+<p>I've seen people writing commit messages like &quot;Fixes issues #1, #2 and #3&quot;.
+Unless all those issues are duplicates -- in which two of those should be
+already closed -- they should be 3 commits, not one.</p>
+<p>Try to keep a change in a single commit (and by change I don't mean &quot;one file
+change&quot;; if a change requires changes in three files, you should commit those
+three files together. Think &quot;if I revert this back, what must go away?&quot;)</p>
+<h3 id="git-add-p-is-your-friend-when-you-overchange">&quot;git add -p&quot; is your friend when you overchange</h3>
+<p>(Git topic only) Git allows merging a file partially with &quot;-p&quot;. This allows
+you to pick only the related changes and leave the other behind -- probably
+for a new commit.</p>
+<h3 id="organize-projects-by-data-type-not-functionality">Organize projects by data/type, not functionality</h3>
+<p>Most projects keep an organization like:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>.
+</span><span>+-- IncomingModels
+</span><span>|   +-- DataTypeInterface
+</span><span>|   +-- DataType1
+</span><span>|   +-- DataType2
+</span><span>|   +-- DataType3
+</span><span>+-- Filters
+</span><span>|   +-- FilterInterface
+</span><span>|   +-- FilterValidDataType2
+</span><span>+-- Processors
+</span><span>|   +-- ProcessorInterface
+</span><span>|   +-- ConvertDataType1ToDto1
+</span><span>|   +-- ConvertDataType2ToDto2
+</span><span>+-- OutgoingModels
+</span><span>    +-- DtoInterface
+</span><span>    +-- Dto1
+</span><span>	+-- Dto2
+</span></code></pre>
+<p>in other words, they keep data organized by functionality (all the incoming
+models are in the same directory/package, all the filters are in the same
+directory/package and so on).</p>
+<p>This is fine and works. But when you organize by data, it'll make a lot easier
+to split your project in smaller projects -- 'cause, at some point, you may
+want to do almost the same thing as you're doing right now, but with small
+differences.</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>.
+</span><span>+-- Base
+</span><span>|   +-- IncomingModels
+</span><span>|   |   +-- DataTypeInterface
+</span><span>|   +-- Filters
+</span><span>|   |   +-- FilterInterface
+</span><span>|   +-- Processors
+</span><span>|   |   +-- ProcessorInterface
+</span><span>|   +-- OutgoingModels
+</span><span>|       +-- DtoInterface
+</span><span>+-- Data1
+</span><span>|   +-- IncomingModels
+</span><span>|   |   +-- DataType1
+</span><span>|   +-- Processors
+</span><span>|   |   +-- ConvertDataType1ToDto1
+</span><span>|   +-- OutgoingModels
+</span><span>|       +-- Dto1
+</span><span>...
+</span></code></pre>
+<p>Now you can make a module that deals <em>only</em> with Data1, another that works
+only with Data2 and so on. And then you can break them into isolated modules.</p>
+<p>And then when you have another project that also have Data1 but also deals
+with Data3, you can reuse most of the stuff in the Data1 module.</p>
+<h3 id="create-libraries">Create libraries</h3>
+<p>I've seen a lot of projects that either make a mega repository with different
+projects or keep different branches that instead of just being a temporary
+environment for later joining the main development area, are just to keep that
+small, different thing going (picking the point above about modularization,
+imagine that instead of building a new project that reuse the Data1 type, I
+have a branch that has a completely different main function and the Data3
+type).</p>
+<p>Why not split the common parts into libraries and require it in different
+projects?</p>
+<p>The reason is, most of the time, 'cause people don't know how to either
+create libraries or they worry how they are goint to &quot;publish&quot; those libraries
+into the dependency sources without giving it around (so maybe it's a good
+idea to also understand how your project management tool retrieves
+dependencies, so you can create your own dependency repository).</p>
+<h3 id="learn-to-monitor">Learn to monitor</h3>
+<p>On a previous life, to understand how a system behaved, I added a ton of
+metrics: how fast things were going in, how fast things were going out, how
+many things were in the middle, how many the job processed...</p>
+<p>It gives a really good view of how a system is behaving. Is the speed going
+down? If it is, I can check what is going into the system to understand why. Is
+it normal going down at some point?</p>
+<p>Thing is, after this, it is really weird trying to figure out how &quot;healthy&quot; a
+system without any monitoring is after that. Checking a system health with just
+&quot;Is it answering requests&quot; doesn't fly anymore.</p>
+<p>Adding monitoring early will help you understand how your system behaves.</p>
+<h3 id="the-config-file-is-friend">The config file is friend</h3>
+<p>Imagine you wrote a function that you have to pass a value for it to start
+processing (say, a twitter user account id). But then you have to do that with
+two values and you just call the function again with the other value.</p>
+<p>It makes more sense to use a config file and just run the application twice
+with two different config files.</p>
+<h3 id="command-line-options-are-weird-but-helpful">Command line options are weird, but helpful</h3>
+<p>If you move things to config files, you could also help your users by adding
+an option to select the config file and expose it.</p>
+<p>There are libraries to handling command line options for every language today,
+which will help you into building a good command line and giving your users a
+standard interface for everything.</p>
+<h3 id="not-just-function-composition-but-application-composition">Not just function composition, but application composition</h3>
+<p>Unix came with the idea of &quot;applications that do one thing and do it well&quot;.</p>
+<p>Now, I said you could use one application with two config files, but what if
+you need the result of both applications?</p>
+<p>That's when you can write an application that reads the results of the first
+one with both config files) and turn into a single result.</p>
+<h3 id="even-for-app-composition-start-stupid">Even for app composition, start stupid</h3>
+<p>Application composition may lead to microservices -- which is good -- but
+microservices require some ideas about how applications &quot;talk&quot; between them
+over the wire (protocols and such).</p>
+<p>You don't need to start with that. Both applications can write and read from
+files, which is way easier.</p>
+<p>Worry about talking over the wire later, when you understand how networks
+work.</p>
+<h3 id="optimization-is-for-compilers">Optimization is for compilers</h3>
+<p>Let's say you need more performance. You may be tempted to look at your code
+and thing &quot;where I can squeeze a little bit more performance here&quot; or &quot;How can
+I remove a few cycles here to get more speed&quot;.</p>
+<p>Well, guess what? Compilers <em>know</em> how to do that. Smarted compilers can even
+delete your code 'cause it will always generate the same result.</p>
+<p>What you need to do is think a better <em>design</em> for your code, not how to
+improve the current code.</p>
+<p>Code is humans to read. <em>ALWAYS</em>. Optimization is what compilers do. So find a
+smarted way to explain what you're trying to do (in code) instead of using
+shorter words.</p>
+<h3 id="by-lazy-evaluated">By lazy (evaluated)</h3>
+<p>A long time ago, a small language made the rounds by not evaluating
+expressions when they appeared, but when they were needed.</p>
+<p>Lisp did this a long time ago, and now most languages are getting it too.</p>
+<p>For example, Python have the <code>yield</code> statement, which will stop the execution
+of the current function and return the value immediately, <code>yield</code>ing a new
+value only when the function is called again. If you chain functions that keep
+<code>yield</code>ing results, you won't need as much memory as functions that keep
+returning lists.</p>
+<h2 id="on-a-team-work">On a Team/Work</h2>
+<h3 id="code-reviews-are-not-for-style">Code reviews are not for style</h3>
+<p>Take your time on code reviews to point architectural or design problems, not
+code style problems. Nobody really likes the person whose code reviews are only
+&quot;you left blanks in this line&quot; or &quot;missing space before parenthesis&quot; and such.</p>
+<p>Now, if you <em>do</em> find architectural or design problems, <em>then</em> you can add your
+code style problems.</p>
+<h3 id="code-formatting-tools-are-ok-but-they-are-no-silver-bullet">Code formatting tools are ok, but they are no silver bullet</h3>
+<p>One thing a team may be tempted to do to avoid discussing style in code reviews
+is to use a code formatting tool to auto-format code before committing.</p>
+<p>Now yeah, that kinda solves the problem, but there is one small problem:
+we, humans, are not as flexible to read code as computers are; what is
+readable by a computer may not be readable by a human. Surely they try to
+create some heuristics on what is good for human reading, but that doesn't mean
+it gets right.</p>
+<p>If you <em>do</em> use a code formatting tool, use it to find out where it changes the
+code the most; you probably need to simplify that part of the code to avoid it
+messing so much.</p>
+<h3 id="code-style-follow-it">Code style: Follow it</h3>
+<p>If your project have a defined code style, you must follow it. Sometimes it
+may not be clear (&quot;this struct/class should be singular or plural&quot;?), but do
+your best to follow it.</p>
+<h3 id="unless-that-code-style-is-the-google-code-style">... unless that code style is the Google Code style</h3>
+<p>(Totally personal opinion, feel free to disagree) Every freaking time Google
+comes with their own coding style, it's a garbage fire. The community came
+with a better style way before and Google seem to come with a style with high
+contrasting parts just to call it theirs.</p>
+<h3 id="there-is-only-one-coding-style-for-c-c-k-r">There is only one coding style for C/C++: K&amp;R</h3>
+<p>(Totally personal opinion again) Every other coding style is <em>WRONG</em>. :)</p>
+<h3 id="there-is-only-one-coding-style-for-python-pep8">There is only one coding style for Python: PEP8</h3>
+<p>The community (most of it) writes code in PEP8. Follow it and your code
+smoothly integrate with the rest of the ecosystem.</p>
+<h3 id="explicit-is-better-than-implicit">Explicit is better than implicit</h3>
+<p>You know what's one of the worst function names ever? <code>sleep()</code>.</p>
+<p>Sleep for how long? It is seconds or milliseconds?</p>
+<p>Be explicit with what you use; <code>sleepForSecs</code> and <code>sleepForMs</code> are not
+perfect, but are better than <code>sleep</code>.</p>
+<p>(Think about this when you're writing your app command line interface or its
+config file.)</p>
+<p>(I could throw the whole &quot;Zen of Python&quot; here, but I'm trying to focus on
+personal, direct experience.)</p>
+<h3 id="companies-look-for-specialists-but-keep-generalists-longer">Companies look for specialists but keep generalists longer</h3>
+<p>If you know a lot about one single language, it may make it easier to get a
+job, but in the long run, language usage dies and you'll need to find
+something else. Knowing a bit about a lot of other languages helps in the long
+run, not to mention that may help you think of better solutions.</p>
+<p>&quot;A language that doesn't affect the way you think about programming, is not
+worth knowing.&quot; -- Alan Perlis</p>
+<p>For a long time, I kept a simple programming rule: The language I'm playing at
+home should not be the same language I'm using at work. This allowed me to
+learn new things that later I applied in the work codebase.</p>
+<p>I learnt how generics work in Java by writing Rust code; I understood how
+Spring does dependency injection by reading how to do it in C++.</p>
+<h3 id="think-of-the-users">Think of the users</h3>
+<p>Think how the data you're collecting from your users will be used -- this is
+more prevalent on these days, where &quot;privacy&quot; is a premium.</p>
+<p>If you capture any used data, remember to protect it against unauthorized use.</p>
+<h3 id="the-best-secure-way-to-deal-with-user-data-is-not-to-capture-it">The best secure way to deal with user data is not to capture it</h3>
+<p>You can be sure that, at some point, the data will leak, either by some
+security flaw or human interference.</p>
+<p>If you don't capture any user data -- or store it in anonymized way -- you
+won't have any problems.</p>
+<h3 id="keep-a-record-of-stupid-errors-that-took-me-more-than-1-hour-to-solve">Keep a record of &quot;stupid errors that took me more than 1 hour to solve&quot;</h3>
+<p>I tried but never managed to create a list of stupid errors I kept finding
+that took more than 1 hour to solve it, which were simply &quot;forgot to add
+dependency&quot; or &quot;add annotation&quot;, mostly because there was more than once that
+I kept fighting some stupid error for more than 1 hour.</p>
+<p>But you should try to keep a list of stupid errors that took you 1 hour to
+solve, 'cause later you can use it to not stay more than 1 hour to solve some
+stupid error.</p>
+<h3 id="if-it-doesn-t-run-on-your-computer-you-have-a-problem">If it doesn't run on your computer, you have a problem</h3>
+<p>I've seen a lot of systems that would never run on a isolated computer, like
+the developer tool, 'cause the system requires running on a specialized
+environment.</p>
+<p>This is something that really kills productivity.</p>
+<p>If your system will run on a specialized environment -- and I'm including &quot;the
+cloud&quot; here -- look for something that can abstract whatever you're using. For
+example, if you're using AWS SQS, which is a queue, look for a library that
+can abstract the way a queue works so you can also run with RabbitMQ, which
+can be easily run on your own computer.</p>
+<p>If you're using a very specialized thing, you may have to write the
+abstraction yourself, isolating it from the main system, so you can develop
+the main product in peace.</p>
+<h2 id="personal">Personal</h2>
+<h3 id="when-it-s-time-to-stop-it-s-time-to-stop">When it's time to stop, it's time to stop</h3>
+<p>Learn when you can't code anymore. Learn when you can't process things anymore.
+Don't push beyond that, it will just make things worse in the future.</p>
+<p>I tried to keep coding once when I had a migraine (not strong, but not mild).
+Next day, when I was better, I had to rewrite most of the stuff I did, 'cause
+it was all shit.</p>
+<h3 id="code-of-conduct-protect-you-not-them">Code of conduct protect <em>you</em>, not <em>them</em></h3>
+<p>When you're beginning with any language/library/framework, check their CoC;
+they will protect <em>you</em> from being harassed for not immediately getting what
+is going on instead of blocking you from telling them what you think.</p>
+<p>I'm mentioning this 'cause a lot of people complain about CoC, but they
+forget that they allow them to join in any project without being called
+&quot;freaking noob&quot; or &quot;just go read the docs before annoying us&quot;.</p>
+<p>Also, remember that most people that are against CoCs are the ones that want
+to be able to call names on everyone.</p>
+<h3 id="learn-to-say-no">Learn to say no</h3>
+<p>Sometimes, you'll have to say no: No, I can't do it; no, it can't be made in
+this time; no, I don't feel capable of doing this; no, I don't feel
+comfortable writing this.</p>
+<p>Once I had to say to our CTO: &quot;Ok, I'll do it, but I want to note that I don't
+agree with what we are doing.&quot; In the end, the app was barred exactly because
+the thing we were doing.</p>
+<h3 id="you-re-responsible-for-the-use-of-your-code">You're responsible for the use of your code</h3>
+<p>This is hard. Very very hard. It's the difference between &quot;freedom&quot; and
+&quot;responsibility&quot;.</p>
+<p>There is nothing wrong in writing, for example, a software to capture people's
+faces and detect their ethnicity, but you have to think about what that will
+be used on.</p>
+<h3 id="don-t-tell-it-s-done-when-it-s-not">Don't tell &quot;It's done&quot; when it's not</h3>
+<p>You are tired of running the same thing over and over again. You kinda
+remember that something weird may happen, but because you're tired, you tell
+everyone that &quot;It's finished&quot;.</p>
+<p>Don't do that.</p>
+<p>Someone will try that weird case on the first run and immediately tell you
+that it is <em>not</em> working.</p>
+<h3 id="you-ll-learn-about-yourself-the-hard-way">You'll learn about yourself the hard way</h3>
+<p>We get frustrated with code that doesn't compile. We get angry with customers
+asking things back and forth.</p>
+<p>And we lash out on other when that happens.</p>
+<p>And that will get you in trouble.</p>
+<p>It happens.</p>
+<h3 id="people-get-pissed-annoyed-about-code-architecture-because-they-care">People get pissed/annoyed about code/architecture because they care</h3>
+<p>You'll find yourself in the other side of the coin: You'll describe some
+solution and people will seem annoyed/pissed about some solution.</p>
+<p>When people care about a product/code, they do that.</p>
+<p>&quot;Yeah, you don't like that hushed solution 'cause you care&quot; was one of the
+nicest things someone told about myself.</p>
+<h3 id="learn-from-your-troubles">Learn from your troubles</h3>
+<p>You'll get annoyed, pissed, frustrated, and angry. You'll get you in trouble.
+You'll see people getting in trouble because of this kind of stuff.</p>
+<p>You must learn about it. Don't ignore it.</p>
+<p>One thing I learnt the hard way was that I get really aggressive when I'm
+frustrated. Now, when I notice I start to get frustrated, I ask help from
+someone else. It's really therapeutic to see that someone else also struggles
+with your problem, and that's not just you.</p>
+<h3 id="pay-attention-on-how-people-react-to-you">Pay attention on how people react to you</h3>
+<p>I have a &quot;angry man resting face&quot; kind of face.</p>
+<p>Sometimes I'll ask things and people will move a bit back -- like I'm telling
+them their solution is wrong.</p>
+<p>That's when I have to add &quot;I'm not saying it's wrong, I'm just confused&quot;.</p>
+<p>That <em>may</em> help you to not get in trouble.</p>
+<h3 id="learn-to-recognize-toxic-people-stay-away-from-them">Learn to recognize toxic people; stay away from them</h3>
+<p>You'll find people that, even if they don't small talk you, they will bad
+mouth everything else -- even some other people -- openly.</p>
+<p>Stay away from those people.</p>
+<p>You have no idea how that kind of attitude will drive you down.</p>
+<h3 id="beware-of-micro-aggressions">Beware of micro-aggressions</h3>
+<p>&quot;Micro-aggressions&quot; are aggressive comments in small doses. Like someone that
+keeps calling you &quot;<em>that</em> person&quot; or seemingly innocuous comments about your
+position in some policy.</p>
+<p>Those are hard to fight, 'cause PR won't listen to you saying that they are
+attacking you. Also, they are hard to detect, 'cause they seem small enough,
+but they do pile up and you'll blow your anger all at once.</p>
+<p>Better just stay away and avoid contact as possible.</p>
+<h3 id="no-i-don-t-think-they-are-fixable">No, I don't think they are &quot;fixable&quot;</h3>
+<p>(Personal opinion) Someone could say &quot;Hey, maybe if you spoke to that person,
+they would stop&quot;.</p>
+<p>Personally, I don't think they would. This kind of stuff is going for so long
+to them that it feels natural and, most of the time, you're the wrong one (for
+not seeing that they are joking, for example, in true &quot;Schrödinger's asshole&quot;
+style.)</p>
+<h3 id="toxic-micro-aggressors-are-only-fixable-if-they-are-you">Toxic/micro-aggressors are only fixable if they are <em>YOU</em></h3>
+<p>Unless it's you realizing you're acting like a toxic person or micro-attacking
+someone, and realize that you're actually doing more harm than good being that
+way, there is no way to fix those traits (again, personal opinion).</p>
+<p>...mostly 'cause hearing from someone else may feel &quot;<em>they</em> are the ones
+against me!&quot; to them.</p>
+<h3 id="hero-projects-you-ll-have-to-do-it-someday">Hero Projects: You'll have to do it someday</h3>
+<p>An &quot;hero project&quot; is a project/spec change/framework that you personally think
+will solve a group of problems in your project. It could be a different
+architecture, a new framework or even a new language.</p>
+<p>That means you'll spent your free time to write something that is already
+being worked/exists just to prove a point.</p>
+<p>Sometimes it proves you where wrong.</p>
+<p>(But you got something from it, nonetheless.)</p>
+<h3 id="don-t-confuse-hero-project-with-hero-syndrome">Don't confuse &quot;hero project&quot; with &quot;hero syndrome&quot;</h3>
+<p>I have seen this at least two times: Someone claims things don't work when
+they aren't around or that they don't need help.</p>
+<p>This is &quot;hero syndrome&quot;, the idea that that person is the only one capable of
+solving all the problems.</p>
+<p>Don't be that person.</p>
+<h3 id="learn-when-to-quit">Learn when to quit</h3>
+<p>You tell your boss that you didn't finish on time because something weird
+happened and he lashed out at you.</p>
+<p>One of your coworkers is constantly micro-attacking you.</p>
+<p>Another one is the guy that keeps doing stupid pranks, saying bullshit and
+small talking other groups all the time.</p>
+<p>A third is always complaining that when he's not around, things don't work.</p>
+<p>It's time to start sending your resume around, no matter how good the pay is
+or how awesome the project is.</p>
+<p>... unless you want to be a constantly pissed off, annoyed person when you're
+in the forties.</p>
+<h3 id="i-t-world-is-a-very-small-egg">I.T. world is a very small egg</h3>
+<p>We have a expression here: &quot;The world of <em>something</em> is a small egg&quot;, which
+means that you don't live in a large world; the world is small.</p>
+<p>I.T. world is really small.</p>
+<p>The person you work with today will find you again in 15 years after you both
+changed 3 or 4 jobs already.</p>
+<p>And you'll meet a lot of other I.T. people in the way.</p>
+<p>And they will talk about themselves.</p>
+<p>And whatever you say/do will be talked around, which one person will hear and
+pass along another company, which will pass along other people, which will
+pass the story along to another company and, suddenly, when you realized,
+nobody will hire you locally 'cause everybody knows that time when you fucked
+up a project or punched a colleague in the face.</p>
+<h3 id="paper-notes-are-actually-helpful">Paper notes are actually helpful</h3>
+<p>I tried to become &quot;paperless&quot; many times. At some point, I did keep the papers
+away, but in the very end, it really do help to have a small notebook and a
+pen right next to you write that damn URL you need to send the data.</p>
+<h3 id="trello-is-cool-and-all-but-post-its-are-nicer">Trello is cool and all, but Post-its are nicer</h3>
+<p>Nothing says &quot;I'm really busy, but organized&quot; like having a bunch of post-its
+on your desk.</p>
+<h3 id="blogging-about-your-stupid-solution-is-still-better-than-being-quiet">Blogging about your stupid solution is still better than being quiet</h3>
+<p>You may feel &quot;I'm not start enough to talk about this&quot; or &quot;This must be so
+stupid I shouldn't talk about it&quot;.</p>
+<p>Create a blog. Post about your stupid solutions. They are still smarter than
+someone else's solution.</p>
+<p>Also, come back later and fight your own solutions with better ones.</p>
+<p>Show your growth.</p>
+<p>On top of that, they help you keep small notes or things you need to do.</p>
+<h3 id="but-turn-off-the-comments">... but turn off the comments</h3>
+<p>One thing about posting your stupid solution is that it will attract people
+who just want to mess with you. &quot;This is stupid&quot;, for example. &quot;Your dumb&quot; may
+someone say, unaware of who's actually dumb.</p>
+<p>Turn it off. Don't let those people stop you.</p>
+<h3 id="post-your-stupid-solution-online">Post your stupid solution online</h3>
+<p>Don't keep a Github only for those &quot;cool, almost perfect&quot; projects. You're
+free to show that, at some point, you were a beginner.</p>
+<p>You can always come back and improve your code.</p>
+<p>(Or don't: I still have a public repo of my first Python project that looks
+like I just translated Java into Python, without the Pythonic part.)</p>
+<h3 id="keep-a-list-of-things-i-don-t-know">Keep a list of &quot;Things I Don't Know&quot;</h3>
+<p>Richard Feymann, famous physicist, kept a notebook with the title &quot;Things I
+Don't Know&quot;.</p>
+<p>When you find something that seems cool and you'd like to know more, create a
+file/note/whatever with it in the title. Then make notes about what you
+find/figure out.</p>
+<hr />
+<p><strong>Changelog</strong>:</p>
+<ul>
+<li>2019-06-12:
+<ul>
+<li>Renamed &quot;Cognitive Dissonance&quot; to &quot;Cognitive Cost&quot;, as pointed by 
+<a href="https://old.reddit.com/user/hellomudder">hellomudder</a>.</li>
+<li>As reminded by <a href="https://old.reddit.com/user/DevIceMan">DeviceMan</a>,
+I added the &quot;throw away your code&quot; point.</li>
+<li>Remember something about debuggers, which would make some people very
+very angry.</li>
+</ul>
+</li>
+<li>2019-06-13:
+<ul>
+<li>Clarified the point about choosing a language a bit more.</li>
+<li>Added a point to use functional programming.</li>
+<li>Added a point about use structures to well-defined data.</li>
+<li>Added a point about using abstractions to run the system on your
+computer.</li>
+<li>Added a point about quitting your job.</li>
+<li>Added a point about messing with external libraries.</li>
+<li>Added a point about work relationships.</li>
+<li>Added a point about tests and CI.</li>
+<li>Added a point about project organization.</li>
+<li>Added a point about modularization.</li>
+<li>Added a point about libraries.</li>
+<li>Clarified a bit about why generalists win in the end.</li>
+<li>Added a point about comments in blogs.</li>
+<li>Added a point about flags in functions.</li>
+<li>Added a point about API evolution.</li>
+<li>Added a point about dates.</li>
+</ul>
+</li>
+<li>2019-06-14:
+<ul>
+<li>Added a point about optimization.</li>
+<li>Added a point about lazy evaluation.</li>
+</ul>
+</li>
+</ul>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

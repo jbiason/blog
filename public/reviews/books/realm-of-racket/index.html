@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Realm of Racket: Lean to Program, One Game at a Time!</h1>
+  <span class="post-date">
+	2020-12-18
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/reviews/">#reviews</a>
+        
+            <a href="https://blog.juliobiason.me/tags/it/">#it</a>
+        
+            <a href="https://blog.juliobiason.me/tags/racket/">#racket</a>
+        
+            <a href="https://blog.juliobiason.me/tags/books-2020/">#books:2020</a>
+        
+            <a href="https://blog.juliobiason.me/tags/stars-2/">#stars:2</a>
+        
+            <a href="https://blog.juliobiason.me/tags/published-2013/">#published:2013</a>
+        
+  </span>
+  <p><a href="https://www.goodreads.com/book/show/17153511-realm-of-racket">GoodReads Summary</a>:
+Racket is a descendant of Lisp, a programming
+language renowned for its elegance, power, and challenging learning
+curve. But while Racket retains the functional goodness of Lisp, it
+was designed with beginning programmers in mind. Realm of Racket is
+your introduction to the Racket language.</p>
+<span id="continue-reading"></span><div>
+	★★☆☆☆
+</div>
+<p>This is a weird book. Not because its content, or the topic at hand,
+but the path chosen to explain things. For example, even after reading
+the whole book, I don't have any idea why I should pick Racket over
+any other Lisp variant.</p>
+<p>So, laundry list of things that put me off:</p>
+<ul>
+<li>
+<p>No real explanation on why I should pick Racket over any other Lisp
+(or any other language, for that matter); they don't say it's faster,
+or more accurate, or it's syntax makes you write less bugs or the
+compiler will prevent you from doing it so.</p>
+</li>
+<li>
+<p>There is a strong favouritism for Racket. It isn't that unexpected,
+but they authors start by bashing other languages, which gives a
+feeling that they just want to make their favourite language look
+better (this goes away only in the last chapter, when comparing Racket
+to Java).</p>
+</li>
+<li>
+<p>They use different words for common things. There isn't and IDE, it
+is a PDE, &quot;program development environment&quot;; the integrated
+development environment becomes &quot;interactive development
+environment&quot;; functions don't &quot;receive&quot; parameters, they &quot;consume&quot;
+the values, which make it sound more like a Rust thing, in which the
+function gets the ownership of the value and, on its end, the memory
+is freed, which doesn't happen in Racket.</p>
+</li>
+<li>
+<p>There is a bunch of &quot;trivial&quot;, &quot;simple&quot;, and such. This is bad,
+specially if you want newbies to read the book; if they don't grasp
+the concept, saying it is &quot;trivial&quot; will make them feel bad about
+themselves.</p>
+</li>
+<li>
+<p>A lot of explanations are basically &quot;(+ a 1)&quot; -&gt; &quot;adds 1 to
+a&quot;. Sure, one may not understand all the facets of the code, but
+when you explain &quot;why&quot; you wrote code that way instead of &quot;what&quot; the
+code is, it is a lot easier to understand.</p>
+</li>
+<li>
+<p>Because the book is too focused on explaining one single library,
+some things feel like &quot;if everything you have is a hammer&quot;. For
+example, there is one game of attacking monsters and which the
+authors put the target in the state, and it doesn't feel like this
+should be part of the state of the game. Sure, the selected target
+affects the state, but it is not part of the state, at least for me,
+and there isn't any good explanation on why it should be part of it.</p>
+</li>
+<li>
+<p>Another example uses a complex number to represent points in a 2D
+plane. Sure, 2D points and complex numbers are composed by two
+elements, but that doesn't mean that 2D points <strong>are</strong> complex
+numbers. Types matter, even in dynamic languages.</p>
+</li>
+</ul>
+<p>So... yeah, I think I learn a bit of Racket, but I still don't know
+why I should pick it over anything else. Is it just the game building
+library? Should one pick a language exclusively because of some built
+in library? Doesn't anything else affects this decision? (All
+questions are rhetorical, it is obvious that you shouldn't pick a
+language just because one library).</p>
+<hr />
+<p>Highlights:</p>
+<blockquote>
+<p><code>(foo)*g++.baz(!&amp;qux::zip-&gt;ding());</code></p>
+</blockquote>
+<p>&quot;Let me write a very contrived example, just to make my favourite
+language look better compared to this one.&quot;</p>
+<blockquote>
+<p><code>(sqrt (+ (sqr 3) (sqr 4)))</code></p>
+</blockquote>
+<p>This is nowhere <em>near</em> the example in C++. If you want to compare
+languages, at least write the same thing.</p>
+<blockquote>
+<p>If you’re on a *nix box, you are already a hero and don’t need instructions.</p>
+</blockquote>
+<p>What a load of bull. It sounds more like you don't have an idea on how
+to do it in Linux.</p>
+<blockquote>
+<p>(the compiler) DrRacket reads this expression, evaluates it,
+prints the result, and then displays its prompt again.</p>
+</blockquote>
+<p>You just described an interpreter, not a compiler. For all purposes
+and intents, sure, it compiles the code to make sure it is not
+invalid, but the concept of &quot;compiler&quot; is used mostly for things that
+take a source and produce a stand-alone executable. Otherwise, even
+Python have a compiler.</p>
+<blockquote>
+<p>the function uses a set! expression to change the value of a
+variable.</p>
+</blockquote>
+<p>Why <code>set!</code>? Why not just <code>set</code>? What the <code>!</code> means? Nothing? Is it
+just a convention?</p>
+<blockquote>
+<p>Racket has three kinds of comments </p>
+</blockquote>
+<p>And absolutely no example of those kinds.</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(/ 4 6)
+</span><span>2/3```
+</span></code></pre>
+</blockquote>
+<p>This is one cool thing: Racket keeps the values in their fractional
+format.</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(struct student (name id# dorm))
+</span><span>(student-name freshman1)
+</span><span>&#39;Joe
+</span><span>(student-id# freshman1)
+</span><span>1234
+</span></code></pre>
+</blockquote>
+<p>Creating structs and extracting values from them.</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(define x 7)
+</span><span>  (cond [(= x 7) 5]
+</span><span>        [(odd? x) &#39;odd-number]
+</span><span>        [else &#39;even-number])
+</span></code></pre>
+</blockquote>
+<p>Multiple tests. Also, there is this use of brackets (&quot;[&quot;) and
+parenthesis (&quot;(&quot;) which is never properly explained, though.</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(when (and file-modified (ask-user-about-saving)) (save-file))
+</span></code></pre>
+</blockquote>
+<p>Because <code>and</code> and <code>or</code> return the value if it's not the boolean false
+(<code>#f</code>), you can use tests to simplify the code.</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(define filename &quot;my-first-program.rkt&quot;)
+</span><span>(unless (ask-user-whether-to-keep-file filename) (delete-file filename))
+</span></code></pre>
+</blockquote>
+<p><code>unless</code> is a form of <code>if</code> that performs an action only if the value
+is <code>#f</code> (false).</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(struct orc monster (club))
+</span><span>(struct hydra monster ())
+</span><span>(struct slime monster (sliminess))
+</span><span>(struct brigand monster ())
+</span></code></pre>
+</blockquote>
+<p>Examples of deriving structs from other structs.</p>
+<blockquote>
+<p>In summary, mutators make programming complex </p>
+</blockquote>
+<p>Just a few paragraphs better, you used a mutator saying that this
+would make the code better.</p>
+<blockquote>
+<p><code>raco exe -l hello-world.rkt</code></p>
+</blockquote>
+<p>Generating a standalone executable from Racket source code.</p>
+<blockquote>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(define snake%
+</span><span>  (class object%
+</span><span>    (super-new)
+</span><span>    (init-field dir head tail)
+</span><span>    (define/public (slither)
+</span><span>      (set! tail (cons head (all-but-last tail)))
+</span><span>      (set! head (next-head)))
+</span></code></pre>
+</blockquote>
+<p>Classes in Racket.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Couchbase Example and REST</h1>
+  <span class="post-date">
+	2016-01-12
+	
+            <a href="https://blog.juliobiason.me/tags/rest/">#rest</a>
+        
+            <a href="https://blog.juliobiason.me/tags/couchbase/">#couchbase</a>
+        
+            <a href="https://blog.juliobiason.me/tags/example/">#example</a>
+        
+            <a href="https://blog.juliobiason.me/tags/restful/">#restful</a>
+        
+  </span>
+  <p>Using the example Couchbase to show how REST works.</p>
+<span id="continue-reading"></span>
+<p>Let me start this by pointing that I'm a RESTnazi: I'm the kind of guy that
+will get into a fight with anyone that says things like &quot;Ok, that's because
+this is just REST, not RESTful&quot; because... well, because, there is no
+diference between REST and RESTful.</p>
+<p>And today I found something weird while reading 
+<a href="http://developer.couchbase.com/documentation/server/4.1/travel-app/travel-app-walkthough.html">the Couchbase documentation</a>
+with them claiming that their example is REST while... well, it isn't.</p>
+<p>But hey, that's a good opportunity to explain a bit what is REST (and what is
+not).</p>
+<h2 id="what-is-rest">What is REST?</h2>
+<p>REST is an architecture/design pattern/pick your buzzword built on top of HTTP
+to provide information. It has two components:</p>
+<ul>
+<li>
+<p><strong>Resources</strong>: That's the elements in your system: Your users, your books,
+your airports, your flights and such.</p>
+</li>
+<li>
+<p><strong>Verbs</strong>: Those are the things you do with your resources: You GET them,
+you UPDATE them, and so on.</p>
+</li>
+</ul>
+<p>There is no true &quot;guideline&quot; on how to write resources. It's usually done with
+nouns in their plural form (or, at least, that's what <a href="http://apigee.com/about/">Apigee</a>
+concluded after checking a bunch of APIs around).  Those resources are mapped
+through URLs with some base.</p>
+<p>Let's pick the example from Couchbase: It's a travel app, with airports,
+flights and flight paths. We could use a base URI scheme of
+<code>/travel/api/v1.0/</code> because:</p>
+<ol>
+<li>
+<p>The travel app could also provide a user interface through <code>/travel/</code>, so
+we keep the API endpoint on <code>api</code> to not mix things.</p>
+</li>
+<li>
+<p>We are versioning the API (here, v1.0). This is a recommendation from
+Apigee and, again, not part of the architecture/design patter/buzzword.</p>
+</li>
+</ol>
+<p>On the top of this base URI, we'll build our resource URLs:</p>
+<ul>
+<li><code>/travel/api/v1.0/airports/</code> and</li>
+<li><code>/travel/api/v1.0/flights/</code></li>
+</ul>
+<p>&quot;Where is the flight path endpoint?&quot;, you must be asking? Well, I'll tell you
+later about it, hold on a second, but we'll use those two to explain the very
+basic of REST first, ok?</p>
+<p>Besides those two URIs, we need two more: One for each resource to access
+direct elements. So now we have:</p>
+<ul>
+<li><code>/travel/api/v1.0/airports/</code>;</li>
+<li><code>/travel/api/v1.0/airports/{airport_id}</code>;</li>
+<li><code>/travel/api/v1.0/flights/</code> and finally</li>
+<li><code>/travel/api/v1.0/flights/{flight_id}</code>.</li>
+</ul>
+<p>So, now that we have our resources, we need ways to manage their contents. For
+this, we use the &quot;verbs&quot; I mentioned before. The thing about rest is that
+those actions are directly tied to the HTTP verbs:</p>
+<ul>
+<li><strong>GET</strong> will retrieve elements in the resource;</li>
+<li><strong>POST</strong> will insert a new element in the resource;</li>
+<li><strong>PUT</strong> is used to update the information of an element [#put]_;</li>
+<li><strong>DELETE</strong> is used to remove an element from the resource [#delete]_.</li>
+</ul>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>If you want an easy mnemonic, &quot;PUT&quot; has and &quot;U&quot;, for &quot;update&quot;. Yes, it's silly,
+but it works (at least, for me). Also, a &quot;PUT&quot; directly on a resource means
+&quot;replace the whole database with this information&quot; and, thus, not not really
+widespread.</p>
+
+</div>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>You can add a DELETE for your whole resource, if you're crazy and bold enough.</p>
+
+</div>
+<p>And adding those two we have:</p>
+<ul>
+<li>Get a list of all airports: <code>GET /travel/api/v1.0/airports/</code></li>
+<li>Add a new airport: <code>POST /travel/api/v1.0/airports/</code></li>
+<li>Get information of a single airport: <code>GET /travel/api/v1.0/airport_3577</code></li>
+<li>Update the information of an airport: <code>PUT /travel/api/v1.0/airport_3577</code></li>
+</ul>
+<p>... and so on.</p>
+<p>Easy as pie, right?</p>
+<h2 id="the-flight-path-resource">The &quot;Flight Path&quot; resource</h2>
+<p>Now let's go back to the &quot;flight path&quot; resource, which I left behind. Thing
+is, a flight path does not exist on its own. If a flight doesn't exist, the
+flight path doesn't exist either, right? And if I flight exist, it should have
+a path, right?</p>
+<p>So a flight path is a resource linked directly to our resource of flights. For
+this, REST allows resource chaining by just adding another layer on top of
+existing URIs. As we pointed before, a flight path <strong>needs</strong> a flight (a
+flight <em>element</em>, just to make more clear where I'm going for with this), so
+we should build the resource on top of an element URI:</p>
+<ul>
+<li><code>/travel/api/v1.0/flights/airline_24/paths</code> and</li>
+<li><code>/travel/api/v1.0/flights/airline_24/paths/{path_id}</code></li>
+</ul>
+<p>... although the last one only makes sense if a flight could have two (or
+more) different paths, which would make sense if it goes one way in a path and
+goes back in a different path, which I do not know enough about flights to
+know if this is possible, but for the sake of explaining everything about
+REST, let's go with it, mkay?</p>
+<p>And now you may be wondering: Why not simply do
+<code>/travel/api/v1.0/flightpaths/{path_id}</code>? Again, because flight paths are tied
+to flights, this means the base resource for the flight won't even exist and,
+thus, it's sub-resources won't be available, which makes a lot of sense.</p>
+<h2 id="filtering-results">Filtering results</h2>
+<p>Ok, now we know how to retrieve all airports, which is nice, but we don't want
+them all: the user will type something and we'll show them only the airports
+that match their search. We could screw the user and send the whole list to
+them and let the application filter it locally, abusing the user bandwidth and
+CPU power -- which isn't nice, since we have a database on our side that can
+do this filtering faster.</p>
+<p>Because we can use URIs only to point to resources and resource elements, we
+need a different way of passing this to the server. And guess what? HTTP have
+the proper way to do this: querystrings and forms.</p>
+<p>Querystrings, for those unfamiliar with HTTP, are the things can come after
+the &quot;?&quot; in the URL. For example, in the URL:
+&quot;<code>http://example.com/sayname?name=julio</code>&quot;, &quot;<code>name=julio</code>&quot; is the querystring.
+It provides a key (&quot;name&quot;) and a value (&quot;julio&quot;). Forms are basically the
+same, but instead of being part of the URL, they are sent in the body of the
+HTTP request (and can be much, much larger than querystrings).</p>
+<p>There is one more thing about querystrings and forms: The only way to send
+information to the server in a <code>GET</code> request is through querystrings, since
+GETs do not have a body. DELETEs can have a body, but the RFC says it should
+be ignored. POST and PUT do have bodies and, thus, information about the
+element to be added/updated should come in there.</p>
+<p>So, for filtering, we could have a &quot;filter&quot; querystring to filter elements.
+Couchbase filters airports with a single querystring, so we could simply do</p>
+<p><code>GET /travel/api/v1.0/airports/?filter=&lt;user input&gt;</code></p>
+<p>So the user will see a bunch of airports with their input. And, since we have
+all the airport, we could also link the flights as a subresource of it, with:</p>
+<p><code>GET /travel/api/v1.0/airports/&lt;airport_id&gt;/flights/</code></p>
+<p>... which we didn't mention before, but it is now making sense, right?</p>
+<p>Couchbase example also allows showing which flights connect two airports and
+the REST way is, again, using querystrings:</p>
+<p><code>GET /travel/api/v1.0/airports/&lt;airport_id&gt;/flights/?connectedTo=&lt;airport_id&gt;</code></p>
+<p>And, if you want to be nice enough, you could even add a &quot;fields&quot; parameter,
+so your API consumers could filter out fields they don't want in the results,
+to reduce the bandwidth required. But it's all up to you.</p>
+<p>Weird how things make absolute sense here, and we never called the &quot;flights&quot;
+resource, right? That's one of the things about REST: you build resources in a
+way that make sense for the <strong>consumer</strong> of the API, not to reflect your
+database.</p>
+<h2 id="pagination">Pagination</h2>
+<p>Just for the sake of completeness, let's talk a bit about pagination.</p>
+<p>Pagination, in REST, works for getting all the elements in the resource, so
+it's used in the GET request for the resource. And, because it's part of the
+GET request, it should come in the querystring.</p>
+<p>There are a couple of ways of doing pagination, in this case:</p>
+<ul>
+<li>
+<p>Let the consumer specify page size and page count: In this case, you could
+have a query string like <code>count=15&amp;page=2</code> to retrieve the elements from the
+second page of 15 elements each. This is the most common way of doing
+pagination and Twitter is one good example of this.</p>
+</li>
+<li>
+<p>Have a hardcoded pagesize: Same as before, but the only option available is
+<code>page=2</code>.</p>
+</li>
+<li>
+<p>Have the consumer specify the last seen element and page size. So the first
+request would have something like <code>count=15</code> to retrieve the first 15
+elements, but the next request would have the last element in the list as a
+parameter, like <code>count=15&amp;lastSeen=16</code> and the server would return all
+elements that come after the element with id &quot;16&quot;. This prevents duplication
+in the results in case a new element is added. Reddit uses this in their
+API.</p>
+</li>
+</ul>
+<h2 id="the-type-of-response">The type of response</h2>
+<p>Again, for the sake of completeness, you may have noticed that not even once I
+mentioned the type of data to be returned in each step. That's because REST
+does not have a format: You could build a whole service that returns HTML
+pages in REST format, and that's ok; you could return JSON, which the
+Couchbase documentation points correctly that it is the most widely used
+format; you could return XML; if you're crazy enough and want to return in
+COBOL format, go for it!</p>
+<h2 id="so-where-the-example-fails-to-be-rest">So, where the example fails to be REST?</h2>
+<ol>
+<li>
+<p>All paths are marked with &quot;findAll&quot;. &quot;findAll&quot; is <strong>not</strong> a resource and,
+thus, shouldn't be in the URL.</p>
+</li>
+<li>
+<p>As I pointed, flight paths are actually a sub-resource of flights and
+should be linked. Flight paths should <strong>not</strong> exist if the flight doesn't
+exist.</p>
+</li>
+</ol>
+<p>The flight path query uses querystrings to retrieve the information for paths
+that go through two airports, which is the right way of doing, but again, it
+shouldn't be a resource on itself.</p>
+<h2 id="how-to-fix-the-documenation">How to fix the documenation</h2>
+<p>Easy way? Remove the &quot;REST&quot; mention in the pages. I <em>am</em> nitpicking the word
+&quot;REST&quot; there, I fully reckonize it, and I understand that for the sake of
+example it doesn't have to be REST, but it seems wrong to tell people
+something is REST when it isn't.</p>
+<p>If Oracle decided to say &quot;we added a field type that can store huge amounts
+of JSON data, and although you can't query its content, we can now say
+OracleDB is a NoSQL database&quot;, people would lose their minds. But that's kinda
+like I'm feeling about this whole thing.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

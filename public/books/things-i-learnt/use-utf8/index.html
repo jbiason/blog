@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Things I Learnt The Hard Way - Always Use UTF-8 For Your Strings</h1>
+  <span class="post-date">
+	2019-07-01
+	
+            <a href="https://blog.juliobiason.me/tags/books/">#books</a>
+        
+            <a href="https://blog.juliobiason.me/tags/things-i-learnt/">#things i learnt</a>
+        
+            <a href="https://blog.juliobiason.me/tags/utf-8/">#utf-8</a>
+        
+  </span>
+  <p>Long gone are the days where <a href="https://en.wikipedia.org/wiki/ASCII">ASCII</a> was
+enough for everyone. Long gone are the days where you can deal with strings
+with no &quot;weird&quot; or &quot;funny&quot; characters.</p>
+<span id="continue-reading"></span>
+<p>I became a developer in a time when the only encoding we had was ASCII. You
+could encode all strings in sequences of bytes, 'cause all characters you
+could use where encoded from 1 to 255 (well, from 32 [space] to 93 [close
+brackets] and you still have a few latin-accented characters in some higher
+positions, although not all accents where there).</p>
+<p>Today, accepting characters beyond that is not the exception, but the norm. To
+cope with all that, we have things like
+<a href="https://en.wikipedia.org/wiki/Unicode">Unicode</a> and
+<a href="https://en.wikipedia.org/wiki/UTF-8">uTF-8</a> for encoding that in reasonable
+memory space (UTF-16 is also a good option here, but that would depend on your
+language).</p>
+<p>So, as much as you to make your system simple, you will have to keep the
+internal representation of your strings in UTF-8/UTF-16. You may not receive
+the data as UTF-8/UTF-16, but you'll have to encode it and keep transmitting
+it around as UTF-8/UTF-16 till you have to display it, at which point you'll
+convert from UTF-8/UTF-16 to whatever your display supports (maybe it even
+supports displaying in UTF-8/UTF-16, so you're good already).</p>
+<p>Today, I believe most languages do support UTF-8, which is great. You
+may still have problems with inputs coming from other systems that are not
+UTF-8 (old Windows versions, for example), but that's fairly easy to convert
+-- the hard part is figuring out the input <em>encoding</em>, though. Also, most
+developers tend to ignore this and assume the input is in ASCII, or ignore the
+input encoding and get a bunch of weird characters on their printing,
+'cause they completely ignored the conversion on the output point. That's why
+I'm repeating the mantra of UTF-8: To remind you to always capture your input,
+encode it in UTF-8 and <em>then</em> convert in the output.</p>
+<p>One thing to keep in mind is that UTF-8 is not a &quot;cost free&quot; encoding as
+ASCII: While in ASCII to move to the 10th character, you'd just jump 10 bytes
+from the start of the string, with UTF-8 you can't, due some characters being
+encoded as two or more bytes (you should read the Wikipedia page; the encoding
+is pretty simple and makes a lot of sense) and, due this, you can't simply
+jump 10 characters 'cause you may end up in second byte that represents a
+single character. Walking through the whole string would require traversing
+the string character by character, instead of simply jumping straight to the
+proper position. But that's a price worth paying, in the long run.</p>
+<div>
+	
+		<div style="float:left">
+			&lt;&lt; <a href="&#x2F;books&#x2F;things-i-learnt&#x2F;use-timezones">Always Use Timezones With Your Dates</a>
+		</div>
+	
+
+	&nbsp;
+
+	
+		<div style="float:right">
+			<a href="&#x2F;books&#x2F;things-i-learnt&#x2F;optimization">Optimization Is For Compilers</a> &gt;&gt;
+		</div>
+	
+</div>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Você Não Precisa de range()</h1>
+  <span class="post-date">
+	2020-04-16
+	
+            <a href="https://blog.juliobiason.me/pt/tags/codigo/">#código</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/python/">#python</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/range/">#range</a>
+        
+  </span>
+  <p>Quem está começando com Python tende a usar <code>range()</code> quando precisa iterar
+sobre listas. Mas isso não é realmente necessário.</p>
+<span id="continue-reading"></span>
+<p>Quando as pessoas começam a programar em Python, elas tendem a usar
+construções vindas de outras linguagens, e por isso iteram sobre uma lista da
+seguinte forma:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_list = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span style="color:#b48ead;">for </span><span>i </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#96b5b4;">len</span><span>(a_list)):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(a_list[i])
+</span></code></pre>
+<p>Mas Python tem o conceito de &quot;iteráveis&quot;, o que quer dizer que algumas coisas
+podem ser iteradas diretamente, sem precisar acessar cada elemento
+individualmente. Por exemplo, nossa lista anterior poderia ser iterada com:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_list = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span style="color:#b48ead;">for </span><span>value </span><span style="color:#b48ead;">in </span><span>a_list:
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(value)
+</span></code></pre>
+<p>&quot;Para cada elemento em <code>a_list</code>, recupere-o e chame-o de <code>value</code>.&quot;</p>
+<p>Vários elementos são iteráveis: Strings são iteráveis, retornando cada
+caractere nelas; dicionários são iteráveis, retornado cada chave neles;
+conjuntos são iteráveis, retornado cada elemento neles; tuplas são iteráveis,
+retornando cada elemento nelas; generators são iteráveis, retornando o próximo
+valor que eles conseguem produzir.</p>
+<p>Mas e se precisássemos iterar sobre mais de um elemento ao mesmo tempo?</p>
+<h2 id="entra-o-zip">Entra o <code>zip()</code></h2>
+<p>É aí que o <code>zip()</code> entra. <code>zip()</code> permite que você junte dois iteráveis:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_list = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>a_tuple = (&#39;</span><span style="color:#a3be8c;">a</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;)
+</span><span style="color:#b48ead;">for </span><span>mixed_tuple </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span>(a_list, a_tuple):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(mixed_tuple)
+</span></code></pre>
+<p>Esse código imprime:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>(1, &#39;a&#39;)
+</span><span>(2, &#39;b&#39;)
+</span><span>(3, &#39;c&#39;)
+</span><span>(4, &#39;d&#39;)
+</span></code></pre>
+<p>O que o <code>zip()</code> faz é criar uma tupla com o primeiro elemento do primeiro
+iterável e o primeiro elemento do segundo iterável; depois com o segundo
+elemento do primeiro iterável e o segundo elemento do segundo iterável; e
+assim por diante. Você pode colocar quantos iteráveis você quiser no <code>zip()</code> e
+ele ira produzir tuplas maiores em cada iteração.</p>
+<h2 id="interludio-destruturacao">Interlúdio: Destruturação</h2>
+<p>Uma das coisas legais de Python é &quot;destruturação&quot;. Destruturação
+(de-estruturar ou mais como &quot;quebrar uma estrutura&quot;) permite que elementos de
+um iterável sejam extraídos diretamente.</p>
+<p>Por exemplo, se você tem uma tupla com dois elementos:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_tuple = (</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>)
+</span></code></pre>
+<p>... você provavelmente iria extrair cada um dos elementos com alguma coisa do
+tipo:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a = a_tuple[</span><span style="color:#d08770;">0</span><span>]
+</span><span>b = a_tuple[</span><span style="color:#d08770;">1</span><span>]
+</span></code></pre>
+<p>Mas com destruturação, você pode fazer isso numa única passada com:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>(a, b) = a_tuple
+</span></code></pre>
+<p>Este código e o acima dele fazem exatamente a mesma coisa.</p>
+<p>Mas porque destruturação é importante se estamos falando sobre iterar sobre
+elementos? Porque <code>for</code> também tem a capacidade de destruturar:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_list = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>, </span><span style="color:#d08770;">3</span><span>, </span><span style="color:#d08770;">4</span><span>]
+</span><span>a_tuple = (&#39;</span><span style="color:#a3be8c;">b</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">c</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">d</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">f</span><span>&#39;)
+</span><span>a_string = &#39;</span><span style="color:#a3be8c;">aeio</span><span>&#39;
+</span><span>
+</span><span style="color:#b48ead;">for </span><span>(a_number, lowercase_char, uppercase_char) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span>(a_list, a_tuple, a_string):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(a_number)
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(lowercase_char)
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(uppercase_char)
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>()
+</span></code></pre>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Lembra que eu falei que strings também eram iteráveis e cada iteração traz um
+caractere? É isso.</p>
+
+</div>
+<p>Mas o que acontece quando um dos iteráveis é menor que o outro?</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_short_list = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>]
+</span><span>a_long_list [</span><span style="color:#d08770;">10</span><span>, </span><span style="color:#d08770;">20</span><span>, </span><span style="color:#d08770;">30</span><span>, </span><span style="color:#d08770;">40</span><span>, </span><span style="color:#d08770;">50</span><span>, </span><span style="color:#d08770;">60</span><span>, </span><span style="color:#d08770;">70</span><span>, </span><span style="color:#d08770;">80</span><span>, </span><span style="color:#d08770;">90</span><span>]
+</span><span style="color:#b48ead;">for </span><span>(small, big) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span>(a_short_list, a_long_list):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(small, big)
+</span></code></pre>
+<p>Esse código imprime:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1 10
+</span><span>2 20
+</span></code></pre>
+<p><code>zip()</code> pára quando o menor iterável não tem mais elementos. Para consumir
+todos os elementos do iterável mais longo, você precisa de
+<code>itertools.zip_longest()</code>.</p>
+<h2 id="itertools-zip-longest"><code>itertools.zip_longest()</code></h2>
+<p><code>zip_longest()</code>, parte do módulo <code>itertools</code>, irá percorrer os iteráveis até
+que nenhum deles tenha mais elementos. O que acontece com o menor deles é que
+os seus valores são substituídos por <code>None</code>. Usando nosso exemplo anterior:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span style="color:#b48ead;">import </span><span>itertools
+</span><span>
+</span><span>a_short_list = [</span><span style="color:#d08770;">1</span><span>, </span><span style="color:#d08770;">2</span><span>]
+</span><span>a_long_list [</span><span style="color:#d08770;">10</span><span>, </span><span style="color:#d08770;">20</span><span>, </span><span style="color:#d08770;">30</span><span>, </span><span style="color:#d08770;">40</span><span>, </span><span style="color:#d08770;">50</span><span>, </span><span style="color:#d08770;">60</span><span>, </span><span style="color:#d08770;">70</span><span>, </span><span style="color:#d08770;">80</span><span>, </span><span style="color:#d08770;">90</span><span>]
+</span><span style="color:#b48ead;">for </span><span>(small, big) </span><span style="color:#b48ead;">in </span><span>itertools.</span><span style="color:#bf616a;">zip_longest</span><span>(a_short_list, a_long_list):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(small, big)
+</span></code></pre>
+<p>Isso irá imprimir:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1 10
+</span><span>2 20
+</span><span>None 30
+</span><span>None 40
+</span><span>None 50
+</span><span>None 60
+</span><span>None 70
+</span><span>None 80
+</span><span>None 90
+</span></code></pre>
+<h2 id="cuidado-com-generators">Cuidado com generators</h2>
+<p>Uma coisa que você precisa ter cuidado quando estiver usando <code>zip()</code> ou
+<code>zip_longest()</code> são generators. Por que? Porque alguns deles não tem fim.</p>
+<p>Vamos usar um exemplo: <code>cycle()</code>. <code>cycle()</code>, também parte do módulo itertools,
+é um generator que, quando for pedido um valor, retorna o próximo valor de um
+iterável mas, quando chegar ao fim deste, retorna pro começo. Por exemplo (e
+eu estou usando <code>zip()</code> apenas para nos mantermos no tópico, mas não é preciso
+usar <code>zip()</code> para usar <code>cycle()</code>):</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>a_list = [</span><span style="color:#d08770;">10</span><span>, </span><span style="color:#d08770;">20</span><span>, </span><span style="color:#d08770;">30</span><span>, </span><span style="color:#d08770;">40</span><span>, </span><span style="color:#d08770;">50</span><span>, </span><span style="color:#d08770;">60</span><span>, </span><span style="color:#d08770;">70</span><span>, </span><span style="color:#d08770;">80</span><span>, </span><span style="color:#d08770;">90</span><span>]
+</span><span style="color:#b48ead;">for </span><span>(bullet, value) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span>(</span><span style="color:#bf616a;">cycle</span><span>([&#39;</span><span style="color:#a3be8c;">-</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">*</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">.</span><span>&#39;]), a_list):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(bullet, value)
+</span></code></pre>
+<p>Este código produz:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>- 10
+</span><span>* 20
+</span><span>. 30
+</span><span>- 40
+</span><span>* 50
+</span><span>. 60
+</span><span>- 70
+</span><span>* 80
+</span><span>. 90
+</span></code></pre>
+<p>O que acontece é que <code>zip()</code> pegou o primeiro elemento do primeiro iterável,
+nosso <code>cycle(['-', '*', '.'])</code>, que tem como primeiro valor no seu iterável
+<code>'-'</code> e o segundo valor do segundo iterável, <code>10</code>; na próxima iteração, o
+segundo valor de <code>cycle()</code> foi <code>'*'</code> e o segundo valor de <code>a_list</code> foi <code>20</code>;
+na terceira iteração, <code>cycle()</code> retornou <code>'.'</code> e <code>a_list</code> <code>30</code>; agora, na
+quarta iteração, foi pedido um valor ao <code>cycle()</code> e, como o seu iterável
+terminou, ele retorno o primeiro valor, retornando <code>'-'</code> de novo.</p>
+<p>Certo?</p>
+<p>Então qual o problema com generators?</p>
+<p>Alguns generators -- como o <code>cycle()</code> acima -- não tem fim. Se você trocar
+<code>zip()</code> por <code>zip_longest()</code> no exemplo acima, você vai ver que o código não
+irá terminar. Não são todos os generators que produzem valores de forma
+infinita, e você pode usá-los sem problema.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Não é só <code>zip_longest()</code> que tem problemas. Você pode botar dois <code>cycle()</code>s
+num <code>zip()</code> e ele vai ficar gerando tuplas sem parar.</p>
+
+</div>
+<p>Certo, legal, mas e se eu precisar mostrar o índice também?</p>
+<h2 id="enumerate-ao-resgate"><code>enumerate()</code> ao resgate!</h2>
+<p>Então, nós falamos sobre usar dois iteráveis ao mesmo tempo, mas e se
+precisarmos da posição também? E se a nossa lista for uma lista de resultados
+ordenados e nós precisamos mostrar a posição em si?</p>
+<p>De novo, você pode ficar tentado a usar <code>range()</code>:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>winners = [&#39;</span><span style="color:#a3be8c;">first place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">second place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">third place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">fourth place</span><span>&#39;]
+</span><span style="color:#b48ead;">for </span><span>pos </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#96b5b4;">len</span><span>(winners)):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(pos + </span><span style="color:#d08770;">1</span><span>, winners[pos].</span><span style="color:#bf616a;">capitalize</span><span>())
+</span></code></pre>
+<p>Isso irá imprimir:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>1 First place
+</span><span>2 Second place
+</span><span>3 Third place
+</span><span>4 Fourth place
+</span></code></pre>
+<p>Uma das coisas que você pode tentar ser esperto é tentar misturar o seu novo
+conhecimento sobre <code>zip()</code> e fazer:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>winners = [&#39;</span><span style="color:#a3be8c;">first place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">second place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">third place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">fourth place</span><span>&#39;]
+</span><span style="color:#b48ead;">for </span><span>(pos, name) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">zip</span><span>(</span><span style="color:#96b5b4;">range</span><span>(</span><span style="color:#96b5b4;">len</span><span>(winners)), winners):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(pos + </span><span style="color:#d08770;">1</span><span>, name.</span><span style="color:#bf616a;">capitalize</span><span>())
+</span></code></pre>
+<p>... que, pessoalmente, parece mais complexo do que a primeira opção. Mas
+Python tem outro generator chamado <code>enumerate()</code> que recebe um único iterável,
+mas produz tuplas com o índice e seu valor:</p>
+<pre data-lang="python" style="background-color:#2b303b;color:#c0c5ce;" class="language-python "><code class="language-python" data-lang="python"><span>winners = [&#39;</span><span style="color:#a3be8c;">first place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">second place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">third place</span><span>&#39;, &#39;</span><span style="color:#a3be8c;">fourth place</span><span>&#39;]
+</span><span style="color:#b48ead;">for </span><span>(pos, name) </span><span style="color:#b48ead;">in </span><span style="color:#96b5b4;">enumerate</span><span>(winners):
+</span><span>    </span><span style="color:#96b5b4;">print</span><span>(pos + </span><span style="color:#d08770;">1</span><span>, name.</span><span style="color:#bf616a;">capitalize</span><span>())
+</span></code></pre>
+<p>Melhor ainda, <code>enumerate()</code> tem uma opção para definir o valor inicial do
+primeiro elemento, e ao invés de usar <code>pos + 1</code> no <code>print()</code>, nós podemos
+mudar o enumerate para <code>enumerate(winners, start=1)</code> e remover a adição no
+<code>print()</code>.</p>
+<h2 id="conclusao">Conclusão</h2>
+<p>Iteráveis são as grandes potências de Python, como você pode ter percebido com
+a lista de coisas que podem ser iteradas. Entendendo-os vai lhe ajudar a
+escrever código Python melhor e mais conciso, sem perda de significado.</p>
+<hr />
+<p>Esse conteúdo foi criado baseado nas discussões no <a href="https://t.me/pytche">Telegram do
+PyTche</a>. Se quiser, junte-se a nós para conversarmos
+sobre Python.</p>
+<!-- 
+vim:spelllang=pt:
+-->
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>

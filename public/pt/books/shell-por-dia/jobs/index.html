@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <!-- viewport-fit=cover is to support iPhone X rounded corners and notch in landscape-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover">
+
+      <title>Julio Biason .Me 4.3</title>
+
+      <!-- CSS -->
+      <link rel="stylesheet" href="https://blog.juliobiason.me/print.css" media="print">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/poole.css">
+      <link rel="stylesheet" href="https://blog.juliobiason.me/hyde.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+      
+
+      
+      
+    </head>
+
+    <body class=" ">
+        
+            <div class="sidebar">
+                <div class="container sidebar-sticky">
+                    <div class="sidebar-about">
+                        
+                            <a href="https:&#x2F;&#x2F;blog.juliobiason.me"><h1>Julio Biason .Me 4.3</h1></a>
+                            
+                            <p class="lead">Old school dev living in a 2.0 dev world</p>
+                            
+                        
+                    </div>
+
+                    <ul class="sidebar-nav">
+                        
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;">English</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt">Português</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;tags">Tags (EN)</a></li>
+                        
+                        <li class="sidebar-nav-item"><a href="&#x2F;pt&#x2F;tags">Tags (PT)</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        
+
+        <div class="content container">
+            
+<div class="post">
+  <h1 class="post-title">Um Shell por Dia: Jobs</h1>
+  <span class="post-date">
+	2021-10-04
+	
+            <a href="https://blog.juliobiason.me/pt/tags/book/">#book</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/por-dia/">#por dia</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/shell/">#shell</a>
+        
+            <a href="https://blog.juliobiason.me/pt/tags/jobs/">#jobs</a>
+        
+  </span>
+  <p>Algumas vezes estamos rodando um comando que é demorado, mas precisamos ter
+acesso novamente ao shell por algum motivo. Para isso, podemos suspender a
+execução do processo com as teclas <code>Ctrl</code>+<code>z</code>. Um processo suspendo não executa
+nada e não consome CPU, mas ainda está presente no sistema -- sendo chamado de
+&quot;job&quot; nesse ponto.</p>
+<p>Para ver a lista de jobs, basta chamar <code>jobs</code>. Note que o resultado desse
+comando é a lista do nome do processo com um identificador.</p>
+<p>Uma vez que eu tenha feito que precisava ser feito e quiser voltar para
+aplicação, usa-se o comando <code>fg</code> (de &quot;foreground&quot;). Entretanto, eu posso querer
+que a aplicação continue executando, mas não em primeiro plano; para isso,
+existe o comando <code>bg</code> (de &quot;background&quot;). Chamados diretamente, <code>fg</code> e <code>bg</code> irão
+trabalhar com o último comando executado mas é possível indicar um processo
+específico para estes, usando o identificador apresentado em <code>jobs</code>.</p>
+<div style="border:1px solid grey; margin:7px; padding: 7px">
+	<p>Uma forma de fazer uma aplicação iniciar diretamente em background é usar um <code>&amp;</code>
+no final da chamada; por exemplo <code>curl url &amp;</code> irá iniciar o <code>curl</code> mas deixar o
+terminal liberado, pois o comando estará rodando em background.</p>
+<p>Seria o mesmo que chamar <code>curl url</code>, usar <code>Ctrl</code>+<code>z</code> para suspender a execução e
+depois usar <code>bg</code> para fazer o processo rodar em background.</p>
+
+</div>
+<p>Quando um processo está em background, o terminal fica &quot;bloqueado&quot; para logouts
+-- pois, afinal de contas, o shell ainda é pai dos processos, mesmo que eles
+estejam em background. Para passar a guarda de um processo filho para o init --
+e, assim, poder ser encerrado sem problemas -- pode-se usar o comando
+<code>disown</code>. Assim, o processo em background ou suspendo passa a ser filho do init
+e o terminal pode ser encerrado sem que o processo anterior seja encerrado junto.</p>
+
+</div>
+
+
+
+
+        </div>
+
+    </body>
+
+</html>
